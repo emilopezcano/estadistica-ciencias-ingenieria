@@ -6,19 +6,23 @@ site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 url: https://emilopezcano.github.io/estadistica-ciencias-ingenieria/
-cover-image: images/cover.png
+cover-image: 'images/cover.png'
 description: |
   Libro para asignaturas de Estadística en grados de Ciencias e Ingeniería.
   Puede ser útil también para asignaturas de Estadística en otros grados como
   Economía o ADE. Contiene una visión muy particular del autor 
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
+# biblio-title: "Referencias"
+# toc-title: "kk"
 ---
 
 
 
-# Prefacio {-}
+# Bienvenida {-}
 
+
+<img src="images/cover.png" class="cover" width="250" height="328"/>
 Este libro incluye los contenidos habitualmente presentes en el currículo 
 de asignaturas de **Estadística** de los grados Ciencias e Ingenierías de universidades españolas. 
 Si bien existe abundante material bibliográfico
@@ -106,11 +110,17 @@ sessionInfo()
 #> [6] methods   base     
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] compiler_4.1.1  magrittr_2.0.1  fastmap_1.1.0  
-#>  [4] bookdown_0.23.4 htmltools_0.5.2 tools_4.1.1    
-#>  [7] yaml_2.2.1      stringi_1.7.4   rmarkdown_2.10 
-#> [10] knitr_1.33      stringr_1.4.0   digest_0.6.27  
-#> [13] xfun_0.25       rlang_0.4.11    evaluate_0.14
+#>  [1] knitr_1.33      xml2_1.3.2      magrittr_2.0.1 
+#>  [4] downlit_0.2.1   R6_2.5.1        rlang_0.4.11   
+#>  [7] fastmap_1.1.0   fansi_0.5.0     stringr_1.4.0  
+#> [10] tools_4.1.1     xfun_0.25       utf8_1.2.2     
+#> [13] jquerylib_0.1.4 htmltools_0.5.2 ellipsis_0.3.2 
+#> [16] yaml_2.2.1      digest_0.6.27   tibble_3.1.4   
+#> [19] lifecycle_1.0.0 crayon_1.4.1    bookdown_0.23.4
+#> [22] sass_0.4.0      vctrs_0.3.8     fs_1.5.0       
+#> [25] evaluate_0.14   rmarkdown_2.10  stringi_1.7.4  
+#> [28] compiler_4.1.1  bslib_0.2.5.1   pillar_1.6.2   
+#> [31] jsonlite_1.7.2  pkgconfig_2.0.3
 ```
 
 Normalmente, la descripción o enunciado de los ejemplos se incluyen en bloques 
@@ -138,7 +148,8 @@ $\boxed{\mathsf{120}}$
 
 También se incluirán con el formato anterior indicaciones para usar la calculadora 
 científica, cuando esto sea posible. 
-El texto incluye otros bloques con información de distinto tipo.
+
+El texto incluye otros bloques con información de distinto tipo, como los siguientes:
 
 ::: {.rmdpremium}
 Este contenido se considera avanzado. El lector principiante puede saltarse estos apartados
@@ -172,7 +183,6 @@ comerciales**.
 
 
 
-\includegraphics[width=1.22in]{images/by-nc-nd} 
 
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional</a>.
