@@ -5,4 +5,22 @@ before_chapter_script: _common.R
 delete_merged_file: true
 language:
   ui:
-    chapter_name: "Capitulo "
+    edit: "Editar"
+    chapter_name: "Capítulo "
+    part_name: "Parte "
+    figure_name: "Figura "
+    table_name: "Tabla "
+    appendix_name: "Apéndice "
+  label:
+    tab: "Tabla "
+    fig: "Figura "
+    eq: "Ecuación "
+
+rmd_files: 
+  [
+    "index.Rmd",
+    
+    "91-apendices.Rmd",
+    "99-references.Rmd"
+    
+  ]
