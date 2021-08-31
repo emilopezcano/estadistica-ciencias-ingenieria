@@ -1,0 +1,821 @@
+# (APPENDIX) Apéndices {-} 
+
+# Símbolos 
+
+## Letras griegas
+
+Letra    | Se lee
+-----    | -------------
+$\alpha$ | alfa
+$\lambda$| lambda
+$\eta$   | eta
+$\mu$    | mu
+$\omega$ | omega
+$\Omega$ | Omega$^*$
+$\sigma$ | sigma
+$\Sigma$ | Sigma$^*$
+$\rho$   | ro
+$\theta$ | teta
+$\xi$    | xi
+
+$^*$ Mayúsculas
+
+## Símbolos
+
+Símbolo                    | Se lee
+---------------------------| -------------------------------
+$\emptyset$                | Conjunto vacío o suceso imposible
+$\aleph$                   | Aleph
+$\wp$                      | Probabilidad (como función) 
+$:$                        | Tal que
+$P(\cdot)$                 | Probabilidad de · (sucesos)
+$P[\cdot]$                 | Probabilidad de · (variables aleatorias)
+$E[\cdot]$                 | Esperanza de ·
+$\cdot$                    | _lo que sea_ (representa cualquier objeto matemático)
+$|$                        | Condicionado a
+$\sum$                     | Sumatorio
+$\sum\limits_{i=1}^n$      | Sumatorio desde $i$ igual a uno hasta $n$
+$\prod$                    | Producto
+$\prod\limits_{i=1}^n$     | Producto desde $i$ igual a uno hasta $n$
+$\forall$                  | Para todo
+$\in$                      | Pertenece/perteneciente
+$\exists$                  | Existe
+$\implies$                 | Implica/entonces
+$\partial$                 | Derivada parcial
+$\simeq$                   | Aproximadamente igual^[En este libro se usa sobre todo para indicar que se ha redondeado un número decimal]
+$\approx$                  | Aproximadamente^[En este libro se puede utilizar para tomar el entero superior o inferior según el contexto]
+$\equiv$                   | Equivalente
+$\mathbb{R}$               | Conjunto de los números reales
+$\cup$                     | Unión
+$\cap$                     | Intersección
+$\subset$                  | Incluido
+$\subseteq$                | Incluido o igual
+
+
+# Tablas estadísticas {#ap:tablas}
+
+## Distribución normal
+
+```{r, echo=FALSE}
+# library(xtable)
+
+# newm <- xtable(m, digits = 4, align = "|c|cccccccccc|")
+```
+La siguiente tabla contiene la probabilidad de la cola superior de la distribución normal estándar $Z\sim N(0;1)$, 
+es decir $1-F(z)=P[Z>z].$. 
+
+```{r, echo=FALSE, out.width="70%"}
+curve(dnorm, -4, 4, axes = FALSE, ylab = "f(z)~N(0,1)", xlab = "z")
+axis(1, pos=0)
+cord.x <- seq(1.28, 4, by = 0.01)
+cord.y <- dnorm(cord.x)
+polygon(c(cord.x, 4, 1.28), c(cord.y, rep(0, 2)), col='skyblue')
+text(1.2, 0.015, expression(P(Z>z)), pos = 4, cex = 0.8)
+```
+
+```{r, echo=FALSE, results='asis'}
+options(digits = 4)
+u <- seq(0, 3.99, by = 0.01)
+p <- pnorm(u, lower.tail = FALSE)
+m <- matrix(p, ncol = 10, byrow = TRUE)
+dimnames(m) <- list(z = formatC(seq(0, 3.9, by = 0.1), digits = 1, format = "f"),
+                    zz =formatC(seq(0, 0.09, by = 0.01), digits = 2, format = "f"))
+# library(pander)
+# pandoc.table(m)
+
+tm <- cbind(as.numeric(rownames(m)), m)
+colnames(tm)[1] <- "z"
+knitr::kable(tm, row.names = FALSE)
+```
+
+## Resumen modelos de distribución de probabilidad
+
+```{r, echo=FALSE}
+distris <- data.frame(
+  Distribución = c("$\\text{Bernoulli}\\\\ \\mathit{Ber}(p)$"),
+  Probabilidad = c("$X = \\begin{cases} 1 & \\mbox{ con probabilidad } p \\\\ 0 & \\mbox{ con probabilidad } 1-p \\end{cases}$"),
+  Esperanza = c("$p$"),
+  Varianza = c("$p(1-p)$")
+  
+)
+knitr::kable(distris, escape = TRUE, 
+             col.names = c("Distribución",
+                           "Probabilidad/Densidad/Distribución",
+                           "Esperanza",
+                           "Varianza"))
+```
+
+
+
+# Repaso
+
+## Logaritmos y exponenciales
+
+## Combinatoria {#ap:combinatoria}
+
+
+Una de las definiciones de probabilidad implica **contar**
+el número de veces que puede ocurrir un suceso determinado. Por tanto,
+en muchas ocasiones el cálculo de probabilidades empieza contando las
+posibilidades de que ocurra un suceso. La Combinatoria es la parte de la
+Matemática discreta que nos ayuda en esta tarea. Incluimos un breve
+resumen con ejemplos de las fórmulas más habituales y su cálculo con R.
+
+```{block2, type='slide', echo=FALSE}
+# El arte de contar bien
+
+**Combinatoria**: El cálculo de probabilidades empieza muchas
+veces contando las posibilidades de que ocurra un suceso
+
+![image](img/contar2)
+
+**Enumeración**: En algunas ocasiones, además, es necesario
+*enumerar* todas las posibilidades. Gráficamente mediante diagramas de
+árbol, o mediante bucles en algoritmos
+```
+
+### Ejemplo ilustrativo
+
+Habitualmente se utilizan ejemplos de juegos de azar para introducir el
+cálculo de probabilidades, como lanzamiendo de monedas y dados, o
+combinaciones de cartas en barajas de naipes. Para darle un enfoque
+práctico, utilizaremos a lo largo del módulo un ejemplo ilustrativo que,
+aunque totalmente inventado, se puede encontrar el lector
+en el futuro con ligeras variaciones según su ámbito de actuación.
+Utilizaremos en lo posible las cifras usadas en los problemas de azar
+para ver la utilidad de aquéllos ejemplos en casos más prácticos.
+
+Datos básicos:
+
+-   52 posibles usuarios de un servicio
+
+-   La mitad son mujeres
+
+-   4 directivos, 12 mandos, resto operarios
+
+-   13 jóvenes, 26 adultos, 13 mayores (5, 18 y 3 mujeres en cada
+    grupo respectivamente)
+
+-   1 de cada seis hombres contratará el servicio (el doble si es mujer)
+
+```{block2, type='slide', echo=FALSE}
+---
+# Ejemplo ilustrativo
+
+
+-   52 posibles usuarios de un servicio
+
+-   La mitad son mujeres
+
+-   4 directivos, 12 mandos, resto operarios
+
+-   13 jóvenes, 26 adultos, 13 mayores (5, 18 y 3 mujeres en cada
+    grupo respectivamente)
+
+-   1 de cada seis hombres contratará el servicio (el doble si es mujer)
+
+![image](img/idea){width="5mm"}
+¿Con qué juegos de azar relacionas los datos?
+
+![image](img/dados){width="10mm"}
+![image](img/monedas){width="5mm"}
+![image](img/idea){width="5mm"}
+```
+
+
+Nótese cómo podemos *traducir* el concepto de
+servicio a cualquier ámbito: usuarios de salud o educación, enfermos de
+una determinada patología, equipos de una infraestructura, etc. Asimismo
+las categorías pueden ser cualesquiera aplicables a los elementos de los
+conjuntos. 
+
+### Principio básico de conteo
+
+**Definición**: Realizamos $k$ experimentos sucesivamente, cada
+uno de ellos con $n_i$ posibles resultados ($i=1, \ldots, k$). Entonces
+el número total de resultados posibles es:
+
+$$n_1\cdot n_2, \cdot \ldots \cdot n_k$$
+
+**Ejemplo**: Resultados posibles si tomamos al azar un individuo
+y observamos su grupo de edad y si contratará o no el servicio.
+
+**Código**
+
+```{r}
+3*2
+```
+
+### Permutaciones
+
+**Definición**: De cuántas formas posibles podemos ordenar un
+conjunto de $n$ elementos sin repetirlos.
+
+$$P_n = n! = n\cdot(n-1)\cdot(n-2)\cdot\ldots\cdot 2\cdot 1$$
+
+**Ejemplo**: De cuántas formas podemos ordenar un conjunto de
+tres individuos, uno de cada categoría laboral.
+
+**Código**
+
+```{r}
+factorial(3)
+```
+
+
+### Variaciones (muestreo sin reemplazamiento)
+
+**Definición**: De cuántas formas posibles podemos seleccionar
+una muestra de $n$ elementos de un conjunto total de $m$, sin que se
+repitan. Una ordenación distinta, es una posibilidad distinta.
+
+$$V_{m,n} = m\cdot(m-1)\cdot(m-2)\cdot\ldots\cdot (m-n+1) = \frac{m!}{(m-n)!}$$
+
+**Ejemplo**: De cuántas formas podemos seleccionar una muestra
+de 5 individuos en nuestro conjunto de 52 sin que se repitan (por
+ejemplo para asignar un ranking)
+
+**Código**
+
+```{r}
+factorial(52)/factorial(52-5)
+```
+
+### Variaciones con repetición (muestreo con reemplazamiento)
+
+**Definición**: De cuántas formas posibles podemos seleccionar
+una muestra de $n$ elementos de un conjunto total de $m$, pudiéndose
+repetir. Una ordenación distinta, es una posibilidad distinta.
+$$\mathit{VR}_{m,n} = m^n$$
+
+**Ejemplo**: De cuántas formas podemos seleccionar una muestra
+de 5 individuos en nuestro conjunto de 52 pudiéndose repetir (por
+ejemplo para asignar premios consecutivamente)
+
+**Código**
+
+```{r}
+52^5
+```
+
+### Combinaciones (muestras equivalentes)
+
+**Definición**: De cuántas formas posibles podemos seleccionar
+una muestra de $n$ elementos de un conjunto total de $m$, sin importar
+el orden. 
+
+$$\mathit{C}_{m,n} = \binom{m}{n} = \frac{m!}{n!(m-n)!}$$
+
+$\binom{m}{n}$ se lee _m sobre n_, y se le conoce como _número combinatorio_.
+Algunas propiedades importantes de los números combinatorios:
+
+$$\binom{m}{m} = \binom{m}{0} = 1.$$
+$$\binom{m}{1} = \binom{m}{m-1} = m.$$
+$$\binom{m}{n} + \binom{m}{n+1} = \binom{m+1}{n+1}$$ 
+Por otra parte, por convenio se tiene que:
+
+$$0!=1,$$
+
+$$\text{si } a <b \implies \binom{a}{b} = 0.$$
+
+
+**Ejemplo**: De cuántas formas podemos seleccionar una muestra
+de 5 individuos en nuestro conjunto de 52 sin importar el orden (por
+ejemplo para asignar premios de una sola vez)
+
+**Código**
+
+```{r}
+choose(52, 5)
+```
+
+### Combinaciones y permutaciones con repetición
+
+Las combinaciones y
+permutaciones también se pueden dar con repetición, siendo las fórmulas
+para calcularlas las siguientes: 
+
+$$\mathit{CR}_{m,n}= \mathit{C}_{m+n-1,n}= \frac{(m+n-1)!}{n!\cdot(m-1)!}$$
+$$\mathit{PR} = \frac{n!}{a!\cdot b!\cdot \ldots\cdot z!}$$
+
+La primera situación es aquella en la que los
+elementos se pueden repetir, pero no nos importa el orden en que lo
+hagan. La segunda aparece cuando el elemento A del conjunto total de
+elementos aparece $a$ veces, y así sucesivamente.
+
+# Ampliación
+
+En este apéndice se incluyen temas avanzados que pueden ser útiles al lector
+más allá de un curso básico de estadística económica y empresarial, y 
+que no se han incluido en el cuerpo de los capítulos para mantener el nivel 
+de un primer curso de grado.
+
+## Función característica
+
+## Cambio de variable
+
+## Variables aleatorias unidimensionales mixtas
+
+## Variables aleatorias bidimensionales mixtas
+
+## Algunos modelos de distribución continuos más
+
+```{block2, type="ninguno", echo=FALSE}
+
+- [fragile, allowframebreaks]{Distribución Beta}
+% \mode<presentation>{\vspace{-3mm}}
+{Definición}
+\mode<article>{
+La distribución Beta se utiliza en problemas de inferencia relativos a proporciones, especialmente en inferencia bayesiana.
+}
+
+$$X \sim \mathit{Be}(\alpha, \beta) $$
+
+{Función de densidad}
+
+$$f(x) = 
+\begin{cases}
+\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta -1} & \text{si } 0 < x < 1\\
+0 & \text{resto } 
+\end{cases}
+$$
+
+\vspace{-2mm}
+{Función Gamma}
+\mode<article>{En matemáticas, la función Gamma ($\Gamma$) es una integral indefinida que tiene entre otras las siguientes propiedades:}
+- 
+  - 
+$\Gamma(\alpha) = \int_0^\infty x^{\alpha -1} e^{-x} dx, \qquad \alpha > 0 $
+- $\Gamma(\alpha + 1) = \alpha \Gamma(\alpha)$
+- $n \in \mathbb{N}-\{0\} \implies \Gamma(n) = (n-1)!$
+- $\Gamma(\frac{1}{2}) = \sqrt{\pi}$
+- 
+
+\mode<presentation>{\newpage}
+{Características}
+- 
+- Esperanza: $E[X] = \frac{\alpha}{\alpha + \beta}$
+- Varianza: $\mathit{Var}[X] = \frac{\alpha\beta}{(\alpha + \beta)^2(\alpha + \beta+1)}$
+- Caso particular: $\mathit{Be}(1,1) = U(0,1)$.
+
+
+- 
+
+{Ejemplo}
+- 
+  - 
+$X$: Proporción de clientes que contratarán el servicio
+- $X\sim \mathit{Be}(1, 5)$
+- 
+
+
+\mode<presentation>{\newpage}
+\mode<presentation>{\vspace{-2mm}}
+{Código}
+\begin{center}
+\mode<presentation>{\vspace{-8mm}}
+<<out.width="0.45\\textwidth">>=
+mibeta <- function(x) dbeta(x, 1, 5)
+curve(mibeta, lwd = 2)
+@
+\end{center}
+
+- 
+
+{Distribución Gamma}
+{Definición}
+\mode<article>{
+La distribución Gamma se utiliza, entre otros, para modelizar tiempos de espera hasta que suceden $\alpha$ eventos en un proceso de Poisson. De hecho, en inferencia bayesiana gamma es la distribución a priori de la distribución de Poisson.
+}
+
+$$X \sim \mathit{Ga}(a, b) $$
+
+{Función de densidad}
+
+$$f(x) =
+\begin{cases}
+\frac{b^a}{\Gamma(a)}x^{a-1}{e}^{-bx} & \text{si } 0 < x < \infty\\
+0 & \text{resto }
+\end{cases}
+$$
+
+
+\mode<presentation>{\newpage}
+{Características}
+- 
+- Esperanza: $E[X] = \frac{a}{b}$
+- Varianza: $\mathit{Var}[X] = \frac{a}{b^2}$
+- $\Gamma(\alpha) = \int_0^\infty x^{\alpha -1} e^{-x} dx $
+- La exponencial es un caso particular
+
+
+- 
+
+\mode<presentation>{\vspace{-2mm}}
+{Código}
+
+\begin{center}
+\mode<presentation>{\vspace{-8mm}\scriptsize}
+<<out.width="0.60\\textwidth">>=
+migamma <- function(x, a) dgamma(x, a, 2)
+curve(migamma(x, 1), lwd = 2, xlim = c(0,10), 
+      main = "Distribución Gamma b = 2")
+curve(migamma(x, 2), lwd = 2, add = TRUE, lty = 2)
+curve(migamma(x, 4), lwd = 2, add = TRUE, lty = 3)
+legend(x = 6, y = 2, c("a = 1", "a = 2", "a = 4"), lty = 1:3)
+@
+\end{center}
+- 
+
+{Distribución de Weibull}
+{Definición}
+\mode<article>{
+La distribución Gamma presenta algunos inconventientes al modelizar tiempos de vida, y por eso algunas veces se prefiere la distribución de Weibull, que básicamente sirve para lo mismo. Véase \cite{ugarte2015} para los detalles.
+}
+$$X \sim \mathit{We}(a, b) $$
+
+{Función de densidad}
+$$f(x) =
+\begin{cases}
+\frac{a}{b}\left (\frac{x}{b} \right)^{a-1}e^{-(x/b)^a} & \text{si } x > 0\\
+0 & \text{resto }
+\end{cases}
+$$
+
+\mode<presentation>{\newpage}
+{Características}
+- 
+- Esperanza: $E[X] =b \Gamma\left (1 + \frac{1}{a} \right )$
+- Varianza:
+$\mathit{Var}[X] = b^2 \left ( \Gamma \left ( 
+                                      1 + \frac{2}{a} \right 
+                                      ) 
+                             - \left ( \Gamma \left (1 + \frac{2}{a} \right ) \right )^2 \right )$
+- 
+
+\mode<presentation>{\vspace{-2mm}}
+{Código}
+
+\begin{center}
+\mode<presentation>{\vspace{-8mm}\scriptsize}
+<<out.width="0.60\\textwidth">>=
+miweibull <- function(x, a) dweibull(x, a, 2)
+curve(miweibull(x, 1), lwd = 2, xlim = c(0,5), 
+      ylim = c(0, 1),
+      main = "Distribución Weibull b = 2")
+curve(miweibull(x, 2), lwd = 2, add = TRUE, lty = 2)
+curve(miweibull(x, 5), lwd = 2, add = TRUE, lty = 3)
+legend(x = 4, y = 1, c("a = 1", "a = 2", "a = 5"), lty = 1:3)
+@
+\end{center}
+- 
+
+- {Distribuciones en el muestreo}
+{Utilizadas en inferencia}
+\mode<article>{Estas distribuciones se estudiarán en detalle en el módulo de inferencia}
+- 
+  - $t$ de Student
+  - $\chi^2$
+  - $F$
+- 
+
+- 
+- [allowframebreaks,fragile]{Contrastes de normalidad}
+\mode<article>{Si la característica de la población que estamos estudiando sigue una distribución normal, o podemos aceptar que se ha obtenido aleatoriamente de una población normal, simplifica la vida del analista. Por tanto una de las primeras tareas del análisis exploratorio de datos es la verificación de la hipótesis de normalidad. Existen métodos gráficos y numéricos para realizar esta tarea}
+\mode<presentation>{\vspace{-5mm}}
+{Datos}
+
+\mode<presentation>{\vspace{-5mm}\scriptsize}
+<<>>=
+str(CO2)
+summary(CO2$uptake)
+@
+
+\mode<article>{Si los datos son normales, el histograma debería tener forma de campana de Gauss (aproximadamente)}
+\mode<presentation>{\normalsize}
+{Histograma}
+\mode<article>{Consulta ?plotmath para ver cómo anotar un gráfiico matemáticamente}
+
+\mode<presentation>{\scriptsize\vspace{-5mm}}
+\begin{center}
+<<fig.height=5, out.width="0.6\\textwidth">>=
+hist(CO2$uptake, main = expression("Histograma datos CO"[2]),
+     xlab = expression("Absorción CO"[2]*" ("*symbol("m")*mol/m^2*s*")"),
+     col = "steelblue", border = "white", bg = "white", freq = FALSE)
+curve(dnorm(x, mean(CO2$uptake), sd(CO2$uptake)), add = TRUE, lwd = 2, lty = 2)
+@
+\end{center}
+
+\mode<article>{Si los datos son normales, los puntos del gráfico cuantil-cuantil deberían caer sobre una línea recta (aproximadamente)}
+\mode<presentation>{\normalsize}
+{Gráfico cuantil-cuantil}
+
+\mode<presentation>{\scriptsize\vspace{-8mm}}
+\begin{center}
+<<out.width="0.45\\textwidth">>=
+library(scales)
+qqnorm(CO2$uptake, pch = 20, col = alpha("red4", 0.5),
+       las = 1)
+grid()
+qqline(CO2$uptake, lwd = 2)
+@
+\end{center}
+\mode<presentation>{\normalsize}
+{Contraste de hipótesis}
+\mode<article>{Los contrastes de hipótesis se verán en detalle en el módulo de inferencia, por lo que en estos ejemplos la explicación será sólamente sobre la interpretación del output.}
+- 
+  - Shapiro-Wilk
+  - Anderson-Darling
+  - Cramer-von Mises
+  - Lilliefors
+  - Pearson
+  - Shapiro-Francia
+- 
+\mode<article>{En estos contrates, la hipótesis nula es que los datos son normales. Por tanto, si el p-valor es pequeño, se rechaza que los datos sean normales. ¿Cómo de pequeño? Depende de la confianza que queramos tener, por ejemplo para una confianza del 95\%, el p-valor debe ser menor de 0.05.}
+
+\mode<presentation>{\scriptsize\vspace{-8mm}}
+\begin{center}
+<<>>=
+shapiro.test(CO2$uptake)
+library(nortest)
+ad.test(CO2$uptake)
+@
+\end{center}
+\includegraphics[width=5mm]{img/idea}\hspace{3mm}Para el resto de contrastes, consultar la ayuda del paquete nortest
+- 
+
+- [fragile, allowframebreaks]{Bondad de ajuste}
+{Contraste $\chi^2$}
+\mode<article>{
+Este contraste se puede utilizar para comparar las frecuencias observadas en una muestra con las teóricas (esperadas) según una determinada distribución de probabilidad. Veamos un ejemplo con nuestra distribución discreta.
+}
+\mode<presentation>{La base: comparar frecuencias observadas con frecuencias esperadas}
+
+
+{Ejemplo}
+- 
+  - Muestra de 1000 clientes
+  - ¿Siguen la misma distribución de edad que nuestra distribución teórica?
+- 
+
+
+\mode<presentation>{\scriptsize}
+<<echo=FALSE, results='asis'>>=
+set.seed(1)
+muestra <- sample(c("Joven", "Adulto", "Mayor"), 
+                  size = 1000, 
+                  replace = TRUE, 
+                  prob = c(13, 26, 13)/52)
+muestra <- factor(muestra, levels = c("Joven", "Adulto", "Mayor"))
+kable(t(as.matrix(table(muestra))), format = "latex")
+@
+<<>>=
+chisq.test(table(muestra), p = c(13, 26, 13)/52)
+@
+\mode<article>{No hay evidencia para decir lo contrario}
+
+{Prueba de Kolmogorov-Smirnoff}
+- 
+\mode<presentation>{\normalsize}
+  - Podemos pasarle una función de distribución de las soportadas por R
+  - Simulemos 50 valores de una distribución $X \sim \mathit{Exp}(2)$
+- 
+
+<<>>=
+set.seed(1)
+x <- rexp(50, 2)
+ks.test(x, y = "pnorm", mean = 0.5, sd = 0.5)
+@
+
+- 
+\mode<presentation>{\normalsize}
+  - En este caso sí hay evidencia de que $ X \nsim N(0.5;\; 0.5)  $
+- 
+
+- 
+
+- [fragile]{Ajuste de distribuciones}
+\mode<article>{
+Una vez tenemos una muestra de datos que queremos ajustar a una distribución de probabilidad, podemos encontrar una estimación de los parámetros de esta distribución. Por ejemplo si queremos ajustar una Weibull a los datos simulados anteriormente:
+}
+<<>>=
+library(MASS)
+fitdistr(x, "weibull")
+@
+- 
+
+
+
+{Transformaciones}
+\mode<article>{
+Se pueden realizar transformaciones a los datos para conseguir normalidad.
+}
+{Transformación de Box-Cox}
+$$Y=
+\begin{cases}
+X^\lambda & \text{ si } \lambda \neq 0\\
+\log(X) & \text{ si} \lambda = 0
+\end{cases}
+$$
+
+- 
+  - Podemos encontrar un valor de $\lambda$ que consiga la mejor transformación para conseguir una distribución aproximadamente normal
+- 
+
+\mode<presentation>{\newpage}
+{Datos originales}
+\begin{center}
+<<out.width="0.4\\maxwidth">>=
+hist(x)
+@
+\end{center}
+
+\mode<presentation>{\newpage}
+{Transformación}
+\vspace{-5mm}
+\begin{center}
+<<out.width="0.45\\maxwidth">>=
+library(MASS)
+mylambda <- boxcox(x ~ 1)
+@
+\end{center}
+
+\begin{center}
+<<out.width="0.45\\maxwidth", fig.height=6>>=
+optlambda <- mylambda$x[mylambda$y == max(mylambda$y)]
+optlambda
+hist(x^optlambda)
+@
+\end{center}
+
+- 
+
+\section[Definición]{Modelos de distribución de probabilidad multivariantes}
+\frame{\sectionpage}
+
+- [allowframebreaks, fragile]{Distribución multinomial}
+\mode<article>{
+Es una generalización de la variable binomial cuando en vez de dos resultados posibles existen $k$ resultados posibles con probabilidades $\pi_i$
+}
+
+{Definición}
+- 
+  - Generalización de la binomial, con $k$ resultados posibles en cada experimento de Bernoulli en vez de sólo dos, cada uno con probabilidad $\pi_i, i=1,\ldots, k, \sum\pi_i = 1$ 
+  - En $n$ experimentos, se pueden dar $k$ resultados posibles $A_i, i\in \{1, \ldots, k\}$. El número de veces que sucede cada resultado $A_i$ es $n_i$, Si definimos ese número como una variable aleatoria $X_i$, entonces: 
+$$\boldsymbol{X} = \{X_1, \ldots, X_k\}, \qquad X_i \sim \mathit{Bin}(n;\; \pi_i)\quad \forall i \in \{1, \ldots, k\}$$
+$$\implies \boldsymbol{X} \sim \mathit{MN}(n, \pi_1, \ldots, \pi_k)$$
+- 
+  
+$$
+P(x_1, x_2, \ldots, x_k) = \frac{n!}{x_1!x_2!\cdots x_k!}\pi_1^{x_1}\pi_2^{x_2}\cdots \pi_k^{x_k}
+$$
+
+
+{Ejemplo}
+Probabilidad de que en una muestra de 30 potenciales usuarios, haya 10 de cada grupo de edad
+
+{Código}
+<<>>=
+dmultinom(x = c(10, 10, 10), 
+          size = 30, 
+          prob = c(13, 26, 13)/52)
+@
+
+
+- 
+
+{Distribución normal multivariante}
+{Definición}
+\mode<article>{El vector aleatorio se compone de $n$ variables aleatorias cuya distribución de probabilidad sigue una normal.}
+$$\boldsymbol{X} = (X_1, X_2, \ldots X_n), \quad X_i \sim N(\mu_i, \sigma_i),\quad i \in \{1, \ldots, n\}$$
+
+$$\implies \boldsymbol{X} \sim \mathit{MVN}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$$
+
+{Casos especiales}
+- 
+  - Normal bivariante
+  - Normales estándar
+  - Igualdad de varianzas
+  - Variables aleatorias independientes
+- 
+
+\mode<presentation>{\newpage}
+{Código}
+\mode<presentation>{\scriptsize\vspace{-5mm}}
+\begin{center}
+<<out.width="0.4\\maxwidth">>=
+par(mar = c(.1,.1,.1,.1)) # 5.1 4.1 4.1 2.1
+library(MASS)
+bivn <- mvrnorm(1000, mu = c(1.5, 0.9), Sigma = matrix(c(0.5, .25, .25, 0.5), 2))
+bivn.kde <- kde2d(bivn[,1], bivn[,2], n = 50)
+persp(bivn.kde, phi = 30, theta = 30, shade = .1, border = NA)
+@
+\end{center}
+
+- 
+
+\section[Definición]{Cálculo de probabilidades y simulación de variables aleatorias con R}
+\frame{\sectionpage}
+
+- [fragile]{Distribuciones en R}
+- 
+  - Para ver las distribuciones soportadas en la instalación base de R:
+
+<<eval=FALSE>>=
+?Distributions
+@
+- Revisa las cuatro funciones disponibles para cada distribución en la diapositiva \ref{frame:distrifun}
+- Existen paquetes que tratan otras distribuciones. Visita la \emph{Task View} dedicada a distribuciones de probabilidad: 
+
+\url{http://cran.r-project.org/web/views/Distributions.html}
+- 
+
+- 
+
+{Simulación de variables aleatorias}
+\mode<article>{En alguna diapositiva anterior hemos simulado valores de una variable aleatoria de las soportadas en R. Como también se vio, a través de la distribución uniforme podemos simular cualquier variable aleatoria, conocida la inversa de la función de distribución $F$.}
+- 
+  - Modelos de distribución: funciones r*. Por ejemplo, podemos simular los pesos de los próximos 20 envíos a clientes:
+<<R.options=list(width=50)>>=
+set.seed(1)
+round(rnorm(20, 1.8, 0.5), 3)
+@
+
+- Cualquier función de densidad
+
+$$F^{-1}(U),\quad U\sim N(0,1)$$
+- 
+
+- 
+
+- [fragile, allowframebreaks]{Ejemplo}
+- 
+  - 
+Recordemos la variable aleatoria que describía la proporción de video visualizado en el tema anterior:
+$$f(x) =
+\begin{cases}
+2x & \text{si } 0 \leq x \leq 1 \\
+0 & \text{resto }
+\end{cases}
+$$
+- Su función de distribución es:
+$$F(x) = 
+\begin{cases}
+0 & x < 0\\
+\int_0^x 2t dt = x^2 &  0 \leq x \leq 1 \\
+1 & x > 1 
+\end{cases}
+$$
+- Y la función inversa de $F$ es:
+
+$$
+F^{-1}(p) = +\sqrt{x}, \quad 0 \leq p \leq 1
+$$
+- 
+{Código}
+<<R.options=list(width=55)>>=
+set.seed(1)
+simula_pvideo <- function(n) sqrt(runif(1:n))
+simulacion <- round(simula_pvideo(20), 2)
+simulacion
+@
+
+
+```
+
+## Modelos de distribución de probabilidad multivariantes
+
+## Modelos de distribución de probabilidad relacionadas con la normal
+
+## Simulación de variables aleatorias
+
+$U(0;\; 1)$: Generador de probabilidades aleatorias. Dada cualquier función de distribución $F$, se pueden generar valores de esa VA obteniendo $F^{-1}(U(0;\; 1))$
+
+
+# Demostraciones 
+
+Em este apéndice se incluyen aquellas demostraciones de teoremas y propiedades
+no incluidas en los capítulos para mantener el carácter práctico del mismo.
+
+## Variable aleatoria discreta
+
+### Función de probabilidad
+
+### Esperanza
+
+### Varianza
+
+
+
+# Créditos {#creditos}
+
+Los gráficos y diagramas generados son creación y propiedad del autor, salvo que se
+indique lo contrario. Su licencia de uso es la misma que la del resto de la
+obra, véase el Prefacio.
+
+- Las imágenes de tipo _clipart_ usadas en esta obra y las fotografías no atribuidas
+pertenecen al dominio público gracias a [openclipart.org](http://www.openclipart.org), [unplash.com](https://unsplash.com) o [pixabay.com](https://pixabay.com/es/).
+
+
+
+- The [R logo](https://www.r-project.org/logo/) is (c) 2016 The R Foundation.
