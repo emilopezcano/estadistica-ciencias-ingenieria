@@ -2,3 +2,5 @@
 
 Este es el repositorio de mi nuevo (lo empiezo 2021-09) libro de apuntes
 para utilizar en mis clases.
+
+Link al libro: https://emilopezcano.github.io/estadistica-ciencias-ingenieria/
