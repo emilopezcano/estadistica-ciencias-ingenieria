@@ -7,7 +7,7 @@ bookdown::bs4_book:
     success: "#198754"   # default .rmdimportant = green
     info:    "#0dcaf0"   # default .rmdtip = cyan
     warning: "#ffc107"   # default .rmdwarning = yellow
-  repo: https://github.com/rstudio/bookdown-demo
+  repo: https://github.com/emilopezcano/estadistica-ciencias-ingenieria
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
