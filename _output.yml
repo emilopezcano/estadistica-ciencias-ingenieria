@@ -1,5 +1,5 @@
 bookdown::bs4_book:
-  css: [bs4_style.css, style.css]
+  css: [bs4_style.css, bs4_book.css, style.css]
   theme:
     primary: "#096B72"
     # primary: "#0d6efd"   # default .rmdnote = blue
@@ -13,5 +13,6 @@ bookdown::pdf_book:
     in_header: preamble.tex
   latex_engine: xelatex
   citation_package: natbib
-  keep_tex: yes
+  keep_tex: no
 bookdown::epub_book: default
+
