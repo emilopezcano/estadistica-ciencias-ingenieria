@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Apéndice C Repaso | Estadística Aplicada a las Ciencias y la Ingeniería</title>
+<meta name="author" content="Emilio L. Cano">
+<meta name="description" content="C.1 Logaritmos y exponenciales   C.2 Combinatoria Una de las definiciones de probabilidad implica contar el número de veces que puede ocurrir un suceso determinado. Por tanto, en muchas ocasiones...">
+<meta name="generator" content="bookdown 0.23.4 with bs4_book()">
+<meta property="og:title" content="Apéndice C Repaso | Estadística Aplicada a las Ciencias y la Ingeniería">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/repaso.html">
+<meta property="og:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
+<meta property="og:description" content="C.1 Logaritmos y exponenciales   C.2 Combinatoria Una de las definiciones de probabilidad implica contar el número de veces que puede ocurrir un suceso determinado. Por tanto, en muchas ocasiones...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Apéndice C Repaso | Estadística Aplicada a las Ciencias y la Ingeniería">
+<meta name="twitter:description" content="C.1 Logaritmos y exponenciales   C.2 Combinatoria Una de las definiciones de probabilidad implica contar el número de veces que puede ocurrir un suceso determinado. Por tanto, en muchas ocasiones...">
+<meta name="twitter:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Estadística Aplicada a las Ciencias y la Ingeniería</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Prefacio</a></li>
+<li class="book-part">Apéndices</li>
+<li><a class="" href="s%C3%ADmbolos.html"><span class="header-section-number">A</span> Símbolos</a></li>
+<li><a class="" href="ap:tablas.html"><span class="header-section-number">B</span> Tablas estadísticas</a></li>
+<li><a class="active" href="repaso.html"><span class="header-section-number">C</span> Repaso</a></li>
+<li><a class="" href="ampliaci%C3%B3n.html"><span class="header-section-number">D</span> Ampliación</a></li>
+<li><a class="" href="demostraciones.html"><span class="header-section-number">E</span> Demostraciones</a></li>
+<li><a class="" href="creditos.html"><span class="header-section-number">F</span> Créditos</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="repaso" class="section level1" number="3">
+<h1>
+<span class="header-section-number">Apéndice C</span> Repaso<a class="anchor" aria-label="anchor" href="#repaso"><i class="fas fa-link"></i></a>
+</h1>
+<div id="logaritmos-y-exponenciales" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">C.1</span> Logaritmos y exponenciales<a class="anchor" aria-label="anchor" href="#logaritmos-y-exponenciales"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="ap:combinatoria" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">C.2</span> Combinatoria<a class="anchor" aria-label="anchor" href="#ap:combinatoria"><i class="fas fa-link"></i></a>
+</h2>
+<p>Una de las definiciones de probabilidad implica <strong>contar</strong>
+el número de veces que puede ocurrir un suceso determinado. Por tanto,
+en muchas ocasiones el cálculo de probabilidades empieza contando las
+posibilidades de que ocurra un suceso. La Combinatoria es la parte de la
+Matemática discreta que nos ayuda en esta tarea. Incluimos un breve
+resumen con ejemplos de las fórmulas más habituales y su cálculo con R.</p>
+<div id="ejemplo-ilustrativo" class="section level3" number="3.2.1">
+<h3>
+<span class="header-section-number">C.2.1</span> Ejemplo ilustrativo<a class="anchor" aria-label="anchor" href="#ejemplo-ilustrativo"><i class="fas fa-link"></i></a>
+</h3>
+<p>Habitualmente se utilizan ejemplos de juegos de azar para introducir el
+cálculo de probabilidades, como lanzamiendo de monedas y dados, o
+combinaciones de cartas en barajas de naipes. Para darle un enfoque
+práctico, utilizaremos a lo largo del módulo un ejemplo ilustrativo que,
+aunque totalmente inventado, se puede encontrar el lector
+en el futuro con ligeras variaciones según su ámbito de actuación.
+Utilizaremos en lo posible las cifras usadas en los problemas de azar
+para ver la utilidad de aquéllos ejemplos en casos más prácticos.</p>
+<p>Datos básicos:</p>
+<ul>
+<li><p>52 posibles usuarios de un servicio</p></li>
+<li><p>La mitad son mujeres</p></li>
+<li><p>4 directivos, 12 mandos, resto operarios</p></li>
+<li><p>13 jóvenes, 26 adultos, 13 mayores (5, 18 y 3 mujeres en cada
+grupo respectivamente)</p></li>
+<li><p>1 de cada seis hombres contratará el servicio (el doble si es mujer)</p></li>
+</ul>
+<p>Nótese cómo podemos <em>traducir</em> el concepto de
+servicio a cualquier ámbito: usuarios de salud o educación, enfermos de
+una determinada patología, equipos de una infraestructura, etc. Asimismo
+las categorías pueden ser cualesquiera aplicables a los elementos de los
+conjuntos.</p>
+</div>
+<div id="principio-básico-de-conteo" class="section level3" number="3.2.2">
+<h3>
+<span class="header-section-number">C.2.2</span> Principio básico de conteo<a class="anchor" aria-label="anchor" href="#principio-b%C3%A1sico-de-conteo"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Definición</strong>: Realizamos <span class="math inline">\(k\)</span> experimentos sucesivamente, cada
+uno de ellos con <span class="math inline">\(n_i\)</span> posibles resultados (<span class="math inline">\(i=1, \ldots, k\)</span>). Entonces
+el número total de resultados posibles es:</p>
+<p><span class="math display">\[n_1\cdot n_2, \cdot \ldots \cdot n_k\]</span></p>
+<p><strong>Ejemplo</strong>: Resultados posibles si tomamos al azar un individuo
+y observamos su grupo de edad y si contratará o no el servicio.</p>
+<p><strong>Código</strong></p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fl">3</span><span class="op">*</span><span class="fl">2</span>
+<span class="co">#&gt; [1] 6</span></code></pre></div>
+</div>
+<div id="permutaciones" class="section level3" number="3.2.3">
+<h3>
+<span class="header-section-number">C.2.3</span> Permutaciones<a class="anchor" aria-label="anchor" href="#permutaciones"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Definición</strong>: De cuántas formas posibles podemos ordenar un
+conjunto de <span class="math inline">\(n\)</span> elementos sin repetirlos.</p>
+<p><span class="math display">\[P_n = n! = n\cdot(n-1)\cdot(n-2)\cdot\ldots\cdot 2\cdot 1\]</span></p>
+<p><strong>Ejemplo</strong>: De cuántas formas podemos ordenar un conjunto de
+tres individuos, uno de cada categoría laboral.</p>
+<p><strong>Código</strong></p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
+<span class="co">#&gt; [1] 6</span></code></pre></div>
+</div>
+<div id="variaciones-muestreo-sin-reemplazamiento" class="section level3" number="3.2.4">
+<h3>
+<span class="header-section-number">C.2.4</span> Variaciones (muestreo sin reemplazamiento)<a class="anchor" aria-label="anchor" href="#variaciones-muestreo-sin-reemplazamiento"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Definición</strong>: De cuántas formas posibles podemos seleccionar
+una muestra de <span class="math inline">\(n\)</span> elementos de un conjunto total de <span class="math inline">\(m\)</span>, sin que se
+repitan. Una ordenación distinta, es una posibilidad distinta.</p>
+<p><span class="math display">\[V_{m,n} = m\cdot(m-1)\cdot(m-2)\cdot\ldots\cdot (m-n+1) = \frac{m!}{(m-n)!}\]</span></p>
+<p><strong>Ejemplo</strong>: De cuántas formas podemos seleccionar una muestra
+de 5 individuos en nuestro conjunto de 52 sin que se repitan (por
+ejemplo para asignar un ranking)</p>
+<p><strong>Código</strong></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">52</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">52</span><span class="op">-</span><span class="fl">5</span><span class="op">)</span>
+<span class="co">#&gt; [1] 311875200</span></code></pre></div>
+</div>
+<div id="variaciones-con-repetición-muestreo-con-reemplazamiento" class="section level3" number="3.2.5">
+<h3>
+<span class="header-section-number">C.2.5</span> Variaciones con repetición (muestreo con reemplazamiento)<a class="anchor" aria-label="anchor" href="#variaciones-con-repetici%C3%B3n-muestreo-con-reemplazamiento"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Definición</strong>: De cuántas formas posibles podemos seleccionar
+una muestra de <span class="math inline">\(n\)</span> elementos de un conjunto total de <span class="math inline">\(m\)</span>, pudiéndose
+repetir. Una ordenación distinta, es una posibilidad distinta.
+<span class="math display">\[\mathit{VR}_{m,n} = m^n\]</span></p>
+<p><strong>Ejemplo</strong>: De cuántas formas podemos seleccionar una muestra
+de 5 individuos en nuestro conjunto de 52 pudiéndose repetir (por
+ejemplo para asignar premios consecutivamente)</p>
+<p><strong>Código</strong></p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fl">52</span><span class="op">^</span><span class="fl">5</span>
+<span class="co">#&gt; [1] 380204032</span></code></pre></div>
+</div>
+<div id="combinaciones-muestras-equivalentes" class="section level3" number="3.2.6">
+<h3>
+<span class="header-section-number">C.2.6</span> Combinaciones (muestras equivalentes)<a class="anchor" aria-label="anchor" href="#combinaciones-muestras-equivalentes"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Definición</strong>: De cuántas formas posibles podemos seleccionar
+una muestra de <span class="math inline">\(n\)</span> elementos de un conjunto total de <span class="math inline">\(m\)</span>, sin importar
+el orden.</p>
+<p><span class="math display">\[\mathit{C}_{m,n} = \binom{m}{n} = \frac{m!}{n!(m-n)!}\]</span></p>
+<p><span class="math inline">\(\binom{m}{n}\)</span> se lee <em>m sobre n</em>, y se le conoce como <em>número combinatorio</em>.
+Algunas propiedades importantes de los números combinatorios:</p>
+<p><span class="math display">\[\binom{m}{m} = \binom{m}{0} = 1.\]</span>
+<span class="math display">\[\binom{m}{1} = \binom{m}{m-1} = m.\]</span>
+<span class="math display">\[\binom{m}{n} + \binom{m}{n+1} = \binom{m+1}{n+1}\]</span>
+Por otra parte, por convenio se tiene que:</p>
+<p><span class="math display">\[0!=1,\]</span></p>
+<p><span class="math display">\[\text{si } a &lt;b \implies \binom{a}{b} = 0.\]</span></p>
+<p><strong>Ejemplo</strong>: De cuántas formas podemos seleccionar una muestra
+de 5 individuos en nuestro conjunto de 52 sin importar el orden (por
+ejemplo para asignar premios de una sola vez)</p>
+<p><strong>Código</strong></p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="fl">52</span>, <span class="fl">5</span><span class="op">)</span>
+<span class="co">#&gt; [1] 2598960</span></code></pre></div>
+</div>
+<div id="combinaciones-y-permutaciones-con-repetición" class="section level3" number="3.2.7">
+<h3>
+<span class="header-section-number">C.2.7</span> Combinaciones y permutaciones con repetición<a class="anchor" aria-label="anchor" href="#combinaciones-y-permutaciones-con-repetici%C3%B3n"><i class="fas fa-link"></i></a>
+</h3>
+<p>Las combinaciones y
+permutaciones también se pueden dar con repetición, siendo las fórmulas
+para calcularlas las siguientes:</p>
+<p><span class="math display">\[\mathit{CR}_{m,n}= \mathit{C}_{m+n-1,n}= \frac{(m+n-1)!}{n!\cdot(m-1)!}\]</span>
+<span class="math display">\[\mathit{PR} = \frac{n!}{a!\cdot b!\cdot \ldots\cdot z!}\]</span></p>
+<p>La primera situación es aquella en la que los
+elementos se pueden repetir, pero no nos importa el orden en que lo
+hagan. La segunda aparece cuando el elemento A del conjunto total de
+elementos aparece <span class="math inline">\(a\)</span> veces, y así sucesivamente.</p>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="ap:tablas.html"><span class="header-section-number">B</span> Tablas estadísticas</a></div>
+<div class="next"><a href="ampliaci%C3%B3n.html"><span class="header-section-number">D</span> Ampliación</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#repaso"><span class="header-section-number">C</span> Repaso</a></li>
+<li><a class="nav-link" href="#logaritmos-y-exponenciales"><span class="header-section-number">C.1</span> Logaritmos y exponenciales</a></li>
+<li>
+<a class="nav-link" href="#ap:combinatoria"><span class="header-section-number">C.2</span> Combinatoria</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ejemplo-ilustrativo"><span class="header-section-number">C.2.1</span> Ejemplo ilustrativo</a></li>
+<li><a class="nav-link" href="#principio-b%C3%A1sico-de-conteo"><span class="header-section-number">C.2.2</span> Principio básico de conteo</a></li>
+<li><a class="nav-link" href="#permutaciones"><span class="header-section-number">C.2.3</span> Permutaciones</a></li>
+<li><a class="nav-link" href="#variaciones-muestreo-sin-reemplazamiento"><span class="header-section-number">C.2.4</span> Variaciones (muestreo sin reemplazamiento)</a></li>
+<li><a class="nav-link" href="#variaciones-con-repetici%C3%B3n-muestreo-con-reemplazamiento"><span class="header-section-number">C.2.5</span> Variaciones con repetición (muestreo con reemplazamiento)</a></li>
+<li><a class="nav-link" href="#combinaciones-muestras-equivalentes"><span class="header-section-number">C.2.6</span> Combinaciones (muestras equivalentes)</a></li>
+<li><a class="nav-link" href="#combinaciones-y-permutaciones-con-repetici%C3%B3n"><span class="header-section-number">C.2.7</span> Combinaciones y permutaciones con repetición</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/blob/master/91-apendices.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/edit/master/91-apendices.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" was written by Emilio L. Cano. It was last built on 2021-08-31.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

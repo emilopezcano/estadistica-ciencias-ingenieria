@@ -5,7 +5,7 @@ date: "2021-08-31"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
-# url: your book url like https://bookdown.org/yihui/bookdown
+url: https://emilopezcano.github.io/estadistica-ciencias-ingenieria/
 cover-image: images/cover.png
 description: |
   Libro para asignaturas de Estadística en grados de Ciencias e Ingeniería.

@@ -4,18 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Capitulo 1 Hello bookdown | Estadística Aplicada a las Ciencias y la Ingeniería</title>
+<title>Apéndice E Demostraciones | Estadística Aplicada a las Ciencias y la Ingeniería</title>
 <meta name="author" content="Emilio L. Cano">
-<meta name="description" content="All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (#) per .Rmd file.  1.1 A section All chapter...">
+<meta name="description" content="Em este apéndice se incluyen aquellas demostraciones de teoremas y propiedades no incluidas en los capítulos para mantener el carácter práctico del mismo.  E.1 Variable aleatoria discreta  E.1.1...">
 <meta name="generator" content="bookdown 0.23.4 with bs4_book()">
-<meta property="og:title" content="Capitulo 1 Hello bookdown | Estadística Aplicada a las Ciencias y la Ingeniería">
+<meta property="og:title" content="Apéndice E Demostraciones | Estadística Aplicada a las Ciencias y la Ingeniería">
 <meta property="og:type" content="book">
-<meta property="og:image" content="/images/cover.png">
-<meta property="og:description" content="All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (#) per .Rmd file.  1.1 A section All chapter...">
+<meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/demostraciones.html">
+<meta property="og:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
+<meta property="og:description" content="Em este apéndice se incluyen aquellas demostraciones de teoremas y propiedades no incluidas en los capítulos para mantener el carácter práctico del mismo.  E.1 Variable aleatoria discreta  E.1.1...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Capitulo 1 Hello bookdown | Estadística Aplicada a las Ciencias y la Ingeniería">
-<meta name="twitter:description" content="All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (#) per .Rmd file.  1.1 A section All chapter...">
-<meta name="twitter:image" content="/images/cover.png">
+<meta name="twitter:title" content="Apéndice E Demostraciones | Estadística Aplicada a las Ciencias y la Ingeniería">
+<meta name="twitter:description" content="Em este apéndice se incluyen aquellas demostraciones de teoremas y propiedades no incluidas en los capítulos para mantener el carácter práctico del mismo.  E.1 Variable aleatoria discreta  E.1.1...">
+<meta name="twitter:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -43,54 +44,68 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Prefacio</a></li>
-<li><a class="active" href="hello-bookdown.html"><span class="header-section-number">1</span> Hello bookdown</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">2</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">3</span> Parts</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">4</span> Footnotes and citations</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">5</span> Blocks</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">6</span> Sharing your book</a></li>
+<li class="book-part">Apéndices</li>
+<li><a class="" href="s%C3%ADmbolos.html"><span class="header-section-number">A</span> Símbolos</a></li>
+<li><a class="" href="ap:tablas.html"><span class="header-section-number">B</span> Tablas estadísticas</a></li>
+<li><a class="" href="repaso.html"><span class="header-section-number">C</span> Repaso</a></li>
+<li><a class="" href="ampliaci%C3%B3n.html"><span class="header-section-number">D</span> Ampliación</a></li>
+<li><a class="active" href="demostraciones.html"><span class="header-section-number">E</span> Demostraciones</a></li>
+<li><a class="" href="creditos.html"><span class="header-section-number">F</span> Créditos</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="hello-bookdown" class="section level1" number="1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="demostraciones" class="section level1" number="5">
 <h1>
-<span class="header-section-number">Capitulo 1</span> Hello bookdown<a class="anchor" aria-label="anchor" href="#hello-bookdown"><i class="fas fa-link"></i></a>
+<span class="header-section-number">Apéndice E</span> Demostraciones<a class="anchor" aria-label="anchor" href="#demostraciones"><i class="fas fa-link"></i></a>
 </h1>
-<p>All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (<code>#</code>) per .Rmd file.</p>
-<div id="a-section" class="section level2" number="1.1">
+<p>Em este apéndice se incluyen aquellas demostraciones de teoremas y propiedades
+no incluidas en los capítulos para mantener el carácter práctico del mismo.</p>
+<div id="variable-aleatoria-discreta" class="section level2" number="5.1">
 <h2>
-<span class="header-section-number">1.1</span> A section<a class="anchor" aria-label="anchor" href="#a-section"><i class="fas fa-link"></i></a>
+<span class="header-section-number">E.1</span> Variable aleatoria discreta<a class="anchor" aria-label="anchor" href="#variable-aleatoria-discreta"><i class="fas fa-link"></i></a>
 </h2>
-<p>All chapter sections start with a second-level (<code>##</code>) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.</p>
-<div id="an-unnumbered-section" class="section level3 unnumbered">
-<h3>An unnumbered section<a class="anchor" aria-label="anchor" href="#an-unnumbered-section"><i class="fas fa-link"></i></a>
+<div id="función-de-probabilidad" class="section level3" number="5.1.1">
+<h3>
+<span class="header-section-number">E.1.1</span> Función de probabilidad<a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-probabilidad"><i class="fas fa-link"></i></a>
 </h3>
-<p>Chapters and sections are numbered by default. To un-number a heading, add a <code>{.unnumbered}</code> or the shorter <code>{-}</code> at the end of the heading, like in this section.</p>
-
+</div>
+<div id="esperanza" class="section level3" number="5.1.2">
+<h3>
+<span class="header-section-number">E.1.2</span> Esperanza<a class="anchor" aria-label="anchor" href="#esperanza"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="varianza" class="section level3" number="5.1.3">
+<h3>
+<span class="header-section-number">E.1.3</span> Varianza<a class="anchor" aria-label="anchor" href="#varianza"><i class="fas fa-link"></i></a>
+</h3>
 </div>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="index.html">Prefacio</a></div>
-<div class="next"><a href="cross.html"><span class="header-section-number">2</span> Cross-references</a></div>
+<div class="prev"><a href="ampliaci%C3%B3n.html"><span class="header-section-number">D</span> Ampliación</a></div>
+<div class="next"><a href="creditos.html"><span class="header-section-number">F</span> Créditos</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#hello-bookdown"><span class="header-section-number">1</span> Hello bookdown</a></li>
+<li><a class="nav-link" href="#demostraciones"><span class="header-section-number">E</span> Demostraciones</a></li>
 <li>
-<a class="nav-link" href="#a-section"><span class="header-section-number">1.1</span> A section</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#an-unnumbered-section">An unnumbered section</a></li></ul>
+<a class="nav-link" href="#variable-aleatoria-discreta"><span class="header-section-number">E.1</span> Variable aleatoria discreta</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#funci%C3%B3n-de-probabilidad"><span class="header-section-number">E.1.1</span> Función de probabilidad</a></li>
+<li><a class="nav-link" href="#esperanza"><span class="header-section-number">E.1.2</span> Esperanza</a></li>
+<li><a class="nav-link" href="#varianza"><span class="header-section-number">E.1.3</span> Varianza</a></li>
+</ul>
 </li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/01-intro.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/blob/master/91-apendices.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/edit/master/91-apendices.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
