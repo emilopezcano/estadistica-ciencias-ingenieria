@@ -1,5 +1,5 @@
 book_filename: "estadistica-ciencias-ingenieria"
-output_dir: "docs"
+output_dir: "docs/"
 new_session: true
 before_chapter_script: _common.R
 delete_merged_file: true
@@ -24,3 +24,4 @@ rmd_files:
     "99-references.Rmd"
     
   ]
+  
