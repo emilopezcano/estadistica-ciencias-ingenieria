@@ -1,7 +1,7 @@
 --- 
 title: "Estadística Aplicada a las Ciencias y la Ingeniería"
 author: "Emilio L. Cano"
-date: "2021-08-31"
+date: "2021-09-01"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -24,11 +24,11 @@ csl: chicago-fullnote-bibliography.csl
 
 <img src="images/cover.png" class="cover" width="250" height="328"/>
 Este libro incluye los contenidos habitualmente presentes en el currículo 
-de asignaturas de **Estadística** de los grados Ciencias e Ingenierías de universidades españolas. 
+de asignaturas de **Estadística** de los grados Ciencias e Ingenierías de universidades españolas. Aunque no aparezca en el título, el manual incluye también los contenidos de **Probabilidad** necesarios.
 Si bien existe abundante material bibliográfico
 que cubre los contenidos de estas asignaturas, quería elaborar un material
 propio que no fuera solamente para mis clases sino algo más
-_global_. Por otra parte, me motiva cubrir el hueco de los materiales
+_global_. En los últimos años ya lo hice para asignaturas de grado y Máster en ADE [@libroeee, @libroadr]. Por otra parte, me motiva cubrir el hueco de los materiales
 de acceso gratuito con la opción de comprar una edición 
 impresa^[A la espera de encontrar editorial.] y con el enfoque
 que se menciona en el siguiente apartado. Por otra parte, los libros publicados
@@ -78,6 +78,7 @@ Las normas que son de interés en España, se ratifican en inglés o se traducen
 al español como normas UNE. Para una descripción más completa de la elaboración
 de normas, véase @cano2015qcr.
 
+## Estructura del libro {-}
 
 Este libro se ha elaborado utilizando el lenguaje _Markdown_ con el propio 
 software **R** y el paquete **bookdown** [@R-bookdown]. 
@@ -161,9 +162,22 @@ Estos bloques están pensados para incluir información curiosa o complementaria
 para poner en contexto las explicaciones.
 :::
 
+Este volumen cubre los contenidos de asignaturas básicas de Estadística en un 
+amplio rango de grados. Puede servir también como repaso
+para alumnos de posgrado o incluso egresados que necesiten refrescar
+conocimientos o aprender a aplicarlos con software moderno. Un segundo volumen cubrirá en el futuro métodos y modelos avanzados para 
+entornos más exigentes.
+
+El libro está dividido en X partes ...
+
+En los capítulos ...
+
+
+
+
 ## Sobre el autor {-}
 
-Actualmente soy Profesor Ayudante Doctor en la Escuela Técnica Superior de Ingeniería Informática e investigador en el Data Science Laboratory de la Universidad Rey Juan Carlos. Sus intereses de investigación incluyen Estadística Aplicada, Aprendizaje Estadístico y Metodologías pra la Calidad. afiliaciones. Previamente ha sido profesor en la Universidad de Castilla-La Mancha, donde sigue colaborando en docencia e investigación, y Estadístico en empresas del sector privado de diversos sectores.
+Actualmente soy Profesor Ayudante Doctor en la Escuela Técnica Superior de Ingeniería Informática e investigador en el Data Science Laboratory de la Universidad Rey Juan Carlos. Mis intereses de investigación incluyen Estadística Aplicada, Aprendizaje Estadístico y Metodologías para la Calidad. Previamente he sido profesor en la Universidad de Castilla-La Mancha, donde sigo colaborando en docencia e investigación, y Estadístico en empresas del sector privado de diversos sectores.
 
 Presidente del subcomité técnico de normalización UNE (miembro de ISO) CTN 66/SC 3 (Métodos Estadísticos). Profesor en la Asociación Española para la Calidad (AEC). Presidente de la asociación “Comunidad R Hispano”.
 
@@ -193,11 +207,11 @@ Este libro es el resultado de años de trabajo en la docencia, investigación
 y transferencia de conocimiento en el campo de la Estadística. Está construido
 a partir de las contribuciones a lo largo de los años de compañeros y amigos
 como Javier M. Moguerza, Andrés Redchuk, Felipe Ortega, Mariano Prieto, 
-Miguel Ángel Tarancón, Víctor M. Casero, Matías Gámez, y muchos otros (perdón
+Miguel Ángel Tarancón, Víctor M. Casero, Virgilio Gómez-Rubio, Matías Gámez, y muchos otros (perdón
 a l@s omitid@s por no ser más exhaustivo).
 
 Especial agradecimiento a toda la comunidad del software libre y 
-lenguaje de programación R, y en especial al R Core Team y al equipo
+lenguaje de programación R, y en particular al _R Core Team_ y al equipo
 de RStudio.
 
 

@@ -13,30 +13,47 @@ pre code {
   white-space: inherit;
 }
 
-.rmdcafe, .rmdejemplo, .rmdpremium {
+.rmdcafe, .rmdejemplo, .rmdpremium, .rmdpractica, .rmdobjetivos, .rmdresumen {
   padding: 1em 1em 1em 4em;
   margin-bottom: 10px;
-  background: #f5f5f5 5px center/3em no-repeat;
+  background: 5px center/3em no-repeat;
+}
+
+.rmdobjetivos, .rmdresumen {
+  border-radius: 25px;
+}
+
+.rmdcafe, .rmdejemplo, .rmdpremium, .rmdpractica{
+  border-radius: 10px;
 }
 .rmdcafe {
+  background-color:  #eeeeee;
   background-image: url("./images/cafe.png");
-  background-position: 5px 15px;
+  border: 2px solid #cccccc;
 }
 .rmdejemplo {
+  background-color:  #eeeeee;
   background-image: url("./images/ejemplo.png");
-  background-position: 5px 15px;
+  border: 2px solid #cccccc;
 }
-.exercise{
-  display:none;
-}
+
 .rmdpractica {
-  background: #fffee4 5px center/3em no-repeat;
-  background-position: 5px 15px;
+  background-color:  #fff3cd;
   background-image: url("./images/practice.png");
-  padding: 1em 1em 1em 4em;
-  margin-bottom: 10px;
+  border: 2px solid #ffeeba;
+}
+.rmdobjetivos {
+  background-color:  #d4edda;
+  background-image: url("./images/target.png");
+  border: 2px solid #c3e6cb;
+}
+.rmdresumen {
+  background-color:  #d1ecf1;
+  background-image: url("./images/resumen.png");
+  border: 2px solid #bee5eb;
 }
 .rmdpremium {
+  background-color:  #f8d7da;
   background-image: url("./images/premium.png");
-  background-position: 5px 15px;
+  border: 2px solid #f5c6cb;
 }
