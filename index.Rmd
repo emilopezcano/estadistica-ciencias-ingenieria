@@ -12,10 +12,7 @@ description: |
   Puede ser útil también para asignaturas de Estadística en otros grados como
   Economía o ADE. Contiene una visión muy particular del autor 
 biblio-style: apalike
-# link-citations: true
 csl: chicago-fullnote-bibliography.csl
-# biblio-title: "Referencias"
-# toc-title: "kk"
 ---
 
 
