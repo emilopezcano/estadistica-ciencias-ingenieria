@@ -140,18 +140,31 @@ para alumnos de posgrado o incluso egresados que necesiten refrescar
 conocimientos o aprender a aplicarlos con software moderno. Un segundo volumen cubrirá en el futuro métodos y modelos avanzados para 
 entornos más exigentes.
 
-El libro está dividido en X partes ...
-
-En los capítulos ...
+El libro está dividido en 4 partes. La primera parte está dedicada a la Estadística
+Descriptiva, y consta de un [capítulo introductorio](#intro) seguido de sendos capítulos
+para el análisis exploratorio univariante y bivariante. La segunda parte 
+trata la Probabilidad en 4 capítulos, uno introductorio, dos dedicados a las 
+variables
+aleatorias univariantes y bivariantes respectivamente, y finalmente un capítulo
+que trata los modelos de distribución de probabilidad. En la tercera parte se
+aborda la inferencia estadística, con una introducción al muestreo y la 
+estimación puntual, seguida de capítulos dedicados a los contrastes de 
+comparación de grupos, análisis de regresión y diseño de experimentos. La última
+parte está dedicada al control estadístico de la calidad, en la que,
+tras un capítulo introductorio, se tratan las dos herramientas más importantes
+en este campo: el control estadístico de procesos (SPC, _Statistical Process 
+Control_, por sus siglas en inglés) y los muestreos de aceptación o, dicho de
+otra forma, la inspección por muestreo. Finalmente, una serie de apéndices
+con diverso material complementan el libro en su conjunto.
 
 
 
 
 ## Sobre el autor {-}
 
-Actualmente soy Profesor Ayudante Doctor en la Escuela Técnica Superior de Ingeniería Informática e investigador en el Data Science Laboratory de la Universidad Rey Juan Carlos. Mis intereses de investigación incluyen Estadística Aplicada, Aprendizaje Estadístico y Metodologías para la Calidad. Previamente he sido profesor en la Universidad de Castilla-La Mancha, donde sigo colaborando en docencia e investigación, y Estadístico en empresas del sector privado de diversos sectores.
+Actualmente soy Profesor Ayudante Doctor en la Escuela [Técnica Superior de Ingeniería Informática](https://www.urjc.es/etsii) e investigador en el [Data Science Laboratory](http://www.datasciencelab.es) de la [Universidad Rey Juan Carlos](https://www.urjc.es). Mis intereses de investigación incluyen Estadística Aplicada, Aprendizaje Estadístico y Metodologías para la Calidad. Previamente he sido profesor e investigador en la [Universidad de Castilla-La Mancha](https://www.uclm.es), donde sigo colaborando en docencia e investigación, y Estadístico en empresas del sector privado de diversos sectores.
 
-Presidente del subcomité técnico de normalización UNE (miembro de ISO) CTN 66/SC 3 (Métodos Estadísticos). Profesor en la Asociación Española para la Calidad (AEC). Presidente de la asociación “Comunidad R Hispano”.
+Presidente del subcomité técnico de normalización UNE ([miembro de ISO](https://www.iso.org/committee/49742/x/catalogue/)) [CTN 66/SC 3 (Métodos Estadísticos)](https://www.une.org/encuentra-tu-norma/comites-tecnicos-de-normalizacion/comite/?c=CTN%2066/SC%203). Profesor en la Asociación Española para la Calidad ([AEC](https://www.aec.es)). Presidente de la asociación [Comunidad R Hispano](http://r-es.org).
 
 Más sobre mí, información actualizada y publicaciones: https://emilio.lcano.com.  
 Contacto: emilio@lcano.com
@@ -182,8 +195,9 @@ knitr::include_graphics("images/by-nc-nd.png")
 Este libro es el resultado de años de trabajo en la docencia, investigación
 y transferencia de conocimiento en el campo de la Estadística. Está construido
 a partir de las contribuciones a lo largo de los años de compañeros y amigos
-como Javier M. Moguerza, Andrés Redchuk, Felipe Ortega, Mariano Prieto, 
-Miguel Ángel Tarancón, Víctor M. Casero, Virgilio Gómez-Rubio, Matías Gámez, y muchos otros (perdón
+como Javier M. Moguerza, Andrés Redchuk, David Ríos, Felipe Ortega, Mariano Prieto, 
+Miguel Ángel Tarancón, Víctor M. Casero, Virgilio Gómez-Rubio, Matías Gámez, y 
+muchos otros (perdón
 a l@s omitid@s por no ser más exhaustivo).
 
 Especial agradecimiento a toda la comunidad del software libre y 
