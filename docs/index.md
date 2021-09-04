@@ -12,6 +12,7 @@ description: |
   Puede ser útil también para asignaturas de Estadística en otros grados como
   Economía o ADE. Contiene una visión muy particular del autor 
 biblio-style: apalike
+# link-citations: true
 csl: chicago-fullnote-bibliography.csl
 # biblio-title: "Referencias"
 # toc-title: "kk"
@@ -28,7 +29,7 @@ de asignaturas de **Estadística** de los grados Ciencias e Ingenierías de univ
 Si bien existe abundante material bibliográfico
 que cubre los contenidos de estas asignaturas, quería elaborar un material
 propio que no fuera solamente para mis clases sino algo más
-_global_. En los últimos años ya lo hice para asignaturas de grado y Máster en ADE [@libroeee, @libroadr]. Por otra parte, me motiva cubrir el hueco de los materiales
+_global_. En los últimos años ya lo hice para asignaturas de grado y Máster en ADE [@libroeee;@libroadr]. Por otra parte, me motiva cubrir el hueco de los materiales
 de acceso gratuito con la opción de comprar una edición 
 impresa^[A la espera de encontrar editorial.] y con el enfoque
 que se menciona en el siguiente apartado. Por otra parte, los libros publicados
@@ -190,11 +191,11 @@ con diverso material complementan el libro en su conjunto.
 
 ## Sobre el autor {-}
 
-Actualmente soy Profesor Ayudante Doctor en la Escuela Técnica Superior de Ingeniería Informática e investigador en el Data Science Laboratory de la Universidad Rey Juan Carlos. Mis intereses de investigación incluyen Estadística Aplicada, Aprendizaje Estadístico y Metodologías para la Calidad. Previamente he sido profesor en la Universidad de Castilla-La Mancha, donde sigo colaborando en docencia e investigación, y Estadístico en empresas del sector privado de diversos sectores.
+Actualmente soy Profesor Ayudante Doctor en la Escuela [Técnica Superior de Ingeniería Informática](https://www.urjc.es/etsii) e investigador en el [Data Science Laboratory](http://www.datasciencelab.es) de la [Universidad Rey Juan Carlos](https://www.urjc.es). Mis intereses de investigación incluyen Estadística Aplicada, Aprendizaje Estadístico y Metodologías para la Calidad. Previamente he sido profesor e investigador en la [Universidad de Castilla-La Mancha](https://www.uclm.es), donde sigo colaborando en docencia e investigación, y Estadístico en empresas del sector privado de diversos sectores.
 
-Presidente del subcomité técnico de normalización UNE (miembro de ISO) CTN 66/SC 3 (Métodos Estadísticos). Profesor en la Asociación Española para la Calidad (AEC). Presidente de la asociación “Comunidad R Hispano”.
+Presidente del subcomité técnico de normalización UNE ([miembro de ISO](https://www.iso.org/committee/49742/x/catalogue/)) [CTN 66/SC 3 (Métodos Estadísticos)](https://www.une.org/encuentra-tu-norma/comites-tecnicos-de-normalizacion/comite/?c=CTN%2066/SC%203). Profesor en la Asociación Española para la Calidad ([AEC](https://www.aec.es)). Presidente de la asociación [Comunidad R Hispano](http://r-es.org).
 
-Más sobre mí, información actualizada y publicaciones: https://emilio.lcano.com.  
+Más sobre mí, información actualizada y publicaciones: http://emilio.lcano.com.  
 Contacto: emilio@lcano.com
 
 El material se proporciona bajo licencia CC-BY-NC-ND.
@@ -224,9 +225,9 @@ Miguel Ángel Tarancón, Víctor M. Casero, Virgilio Gómez-Rubio, Matías Gáme
 muchos otros (perdón
 a l@s omitid@s por no ser más exhaustivo).
 
-Especial agradecimiento a toda la comunidad del software libre y 
-lenguaje de programación R, y en particular al _R Core Team_ y al equipo
-de RStudio.
+Especial agradecimiento a toda la comunidad del [software libre y 
+lenguaje de programación R](https://www.r-project.org), y en particular al _R Core Team_ y al equipo
+de [RStudio](https://www.rstudio.com).
 
 
 
