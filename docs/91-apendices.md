@@ -4,19 +4,25 @@
 
 ## Letras griegas
 
-Letra    | Se lee
------    | -------------
-$\alpha$ | alfa
-$\lambda$| lambda
-$\eta$   | eta
-$\mu$    | mu
-$\omega$ | omega
-$\Omega$ | Omega$^*$
-$\sigma$ | sigma
-$\Sigma$ | Sigma$^*$
-$\rho$   | ro
-$\theta$ | teta
-$\xi$    | xi
+Letra         | Se lee
+------------- | -------------
+$\alpha$      | alfa
+$\beta$       | beta
+$\gamma$      | gamma
+$\Gamma$      | Gamma$^*$
+$\lambda$     | lambda
+$\eta$        | eta
+$\mu$         | mu
+$\omega$      | omega
+$\Omega$      | Omega$^*$
+$\sigma$      | sigma
+$\Sigma$      | Sigma$^*$
+$\rho$        | ro
+$\theta$      | zeta (_theta_, teta)
+$\xi$         | xi
+$\chi$        | chi (o _ji_)
+$\pi$         | pi
+$\varepsilon$ | épsilon
 
 $^*$ Mayúsculas
 
@@ -52,7 +58,7 @@ $\subset$                  | Incluido
 $\subseteq$                | Incluido o igual
 
 
-# Tablas estadísticas {#ap:tablas}
+# Tablas estadísticas {#tablas}
 
 ## Distribución normal
 
@@ -117,9 +123,13 @@ es decir $1-F(z)=P[Z>z].$.
 
 # Repaso
 
+Este apéndice cubre algunas cuestiones matemáticas básicas que el lector
+de este libro con seguridad habrá aprendido con anterioridad. Se incluyen
+como referencia para facilitar el repaso a aquellos que lo necesiten.
+
 ## Logaritmos y exponenciales
 
-## Combinatoria {#ap:combinatoria}
+## Combinatoria {#combinatoria}
 
 
 Una de las definiciones de probabilidad implica **contar**
@@ -128,8 +138,6 @@ en muchas ocasiones el cálculo de probabilidades empieza contando las
 posibilidades de que ocurra un suceso. La Combinatoria es la parte de la
 Matemática discreta que nos ayuda en esta tarea. Incluimos un breve
 resumen con ejemplos de las fórmulas más habituales y su cálculo con R.
-
-
 
 ### Ejemplo ilustrativo
 
@@ -154,7 +162,6 @@ Datos básicos:
     grupo respectivamente)
 
 -   1 de cada seis hombres contratará el servicio (el doble si es mujer)
-
 
 
 
@@ -291,9 +298,9 @@ elementos aparece $a$ veces, y así sucesivamente.
 # Ampliación
 
 En este apéndice se incluyen temas avanzados que pueden ser útiles al lector
-más allá de un curso básico de estadística económica y empresarial, y 
+más allá de un curso básico de estadística para ciencias o ingeniería, y 
 que no se han incluido en el cuerpo de los capítulos para mantener el nivel 
-de un primer curso de grado.
+de una asignatura de grado.
 
 ## Función característica
 
@@ -305,6 +312,128 @@ de un primer curso de grado.
 
 ## Algunos modelos de distribución continuos más
 
+
+### Distribución Beta
+
+La distribución Beta se utiliza en problemas de inferencia relativos a proporciones, especialmente en inferencia bayesiana.
+
+$$X \sim \mathit{Be}(\alpha, \beta)$$
+
+**Función de densidad**
+
+$$f(x) = 
+\begin{cases}
+\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta -1} & \text{si } 0 < x < 1\\
+0 & \text{resto } 
+\end{cases}$$
+
+En matemáticas, la función Gamma ($\Gamma$) es una integral indefinida que tiene entre otras las siguientes propiedades:
+
+* $\Gamma(\alpha) = \int_0^\infty x^{\alpha -1} e^{-x} dx, \qquad \alpha > 0 $
+* $\Gamma(\alpha + 1) = \alpha \Gamma(\alpha)$
+* $n \in \mathbb{N}-\{0\} \implies \Gamma(n) = (n-1)!$
+* $\Gamma(\frac{1}{2}) = \sqrt{\pi}$
+ 
+
+** Características**
+
+* Esperanza: $E[X] = \frac{\alpha}{\alpha + \beta}$
+* Varianza: $\mathit{Var}[X] = \frac{\alpha\beta}{(\alpha + \beta)^2(\alpha + \beta+1)}$
+* Caso particular: $\mathit{Be}(1,1) = U(0,1)$.
+
+**Ejemplo**
+
+$X$: Proporción de clientes que contratarán el servicio
+
+$X\sim \mathit{Be}(1, 5)$
+
+
+**Código**
+
+
+```r
+mibeta <- function(x) dbeta(x, 1, 5)
+curve(mibeta, lwd = 2)
+```
+
+<img src="91-apendices_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+
+
+
+### Distribución Gamma
+
+La distribución Gamma se utiliza, entre otros, para modelizar tiempos de espera hasta que suceden $\alpha$ eventos en un proceso de Poisson. De hecho, en inferencia bayesiana gamma es la distribución a priori de la distribución de Poisson.
+
+$$X \sim \mathit{Ga}(a, b)$$
+
+**Función de densidad**
+
+$$f(x) =
+\begin{cases}
+\frac{b^a}{\Gamma(a)}x^{a-1}{e}^{-bx} & \text{si } 0 < x < \infty\\
+0 & \text{resto }
+\end{cases}$$
+
+
+**Características**
+
+* Esperanza: $E[X] = \frac{a}{b}$
+* Varianza: $\mathit{Var}[X] = \frac{a}{b^2}$
+* $\Gamma(\alpha) = \int_0^\infty x^{\alpha -1} e^{-x} dx $
+* La exponencial es un caso particular
+
+**Código**
+
+
+```r
+
+
+migamma <- function(x, a) dgamma(x, a, 2)
+curve(migamma(x, 1), lwd = 2, xlim = c(0,10), 
+      main = "Distribución Gamma b = 2")
+curve(migamma(x, 2), lwd = 2, add = TRUE, lty = 2)
+curve(migamma(x, 4), lwd = 2, add = TRUE, lty = 3)
+legend(x = 6, y = 2, c("a = 1", "a = 2", "a = 4"), lty = 1:3)
+```
+
+<img src="91-apendices_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+
+### Distribución de Weibull
+
+La distribución Gamma presenta algunos inconventientes al modelizar tiempos de vida, y por eso algunas veces se prefiere la distribución de Weibull, que básicamente sirve para lo mismo. Véase \cite{ugarte2015} para los detalles.
+
+$$X \sim \mathit{We}(a, b) $$
+
+**Función de densidad**
+$$f(x) =
+\begin{cases}
+\frac{a}{b}\left (\frac{x}{b} \right)^{a-1}e^{-(x/b)^a} & \text{si } x > 0\\
+0 & \text{resto }
+\end{cases}$$
+
+**Características**
+
+* Esperanza: $E[X] =b \Gamma\left (1 + \frac{1}{a} \right )$
+* Varianza: $\mathit{Var}[X] = b^2 \left ( \Gamma \left ( 
+                                      1 + \frac{2}{a} \right 
+                                      ) 
+                             - \left ( \Gamma \left (1 + \frac{2}{a} \right ) \right )^2 \right )$
+ 
+
+**Código**
+
+
+```r
+miweibull <- function(x, a) dweibull(x, a, 2)
+curve(miweibull(x, 1), lwd = 2, xlim = c(0,5), 
+      ylim = c(0, 1),
+      main = "Distribución Weibull b = 2")
+curve(miweibull(x, 2), lwd = 2, add = TRUE, lty = 2)
+curve(miweibull(x, 5), lwd = 2, add = TRUE, lty = 3)
+legend(x = 4, y = 1, c("a = 1", "a = 2", "a = 5"), lty = 1:3)
+```
+
+<img src="91-apendices_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 
 
 ## Modelos de distribución de probabilidad multivariantes
@@ -337,9 +466,11 @@ Los gráficos y diagramas generados son creación y propiedad del autor, salvo q
 indique lo contrario. Su licencia de uso es la misma que la del resto de la
 obra, véase el Prefacio.
 
-- Las imágenes de tipo _clipart_ usadas en esta obra y las fotografías no atribuidas
+La [imagen de la portada](https://pixabay.com/es/illustrations/fondo-abstracto-l%C3%ADnea-ilustración-2462436/) es de dominio público, obtenida en [pixabay.com](https://pixabay.com/es/), gracias al
+usuario [Manuchi](https://pixabay.com/es/users/manuchi-1728328/).
+
+
+Las imágenes de tipo _clipart_ usadas en esta obra y las fotografías no atribuidas
 pertenecen al dominio público gracias a [openclipart.org](http://www.openclipart.org), [unplash.com](https://unsplash.com) o [pixabay.com](https://pixabay.com/es/).
 
-
-
-- The [R logo](https://www.r-project.org/logo/) is (c) 2016 The R Foundation.
+The [R logo](https://www.r-project.org/logo/) is (c) 2016 The R Foundation.

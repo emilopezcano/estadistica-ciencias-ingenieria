@@ -1,7 +1,7 @@
 --- 
 title: "Estadística Aplicada a las Ciencias y la Ingeniería"
 author: "Emilio L. Cano"
-date: "2021-09-01"
+date: "2021-09-04"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -117,10 +117,10 @@ sessionInfo()
 #> [10] tools_4.1.1     xfun_0.25       utf8_1.2.2     
 #> [13] jquerylib_0.1.4 htmltools_0.5.2 ellipsis_0.3.2 
 #> [16] yaml_2.2.1      digest_0.6.27   tibble_3.1.4   
-#> [19] lifecycle_1.0.0 crayon_1.4.1    bookdown_0.23.4
+#> [19] lifecycle_1.0.0 crayon_1.4.1    bookdown_0.24  
 #> [22] sass_0.4.0      vctrs_0.3.8     fs_1.5.0       
 #> [25] evaluate_0.14   rmarkdown_2.10  stringi_1.7.4  
-#> [28] compiler_4.1.1  bslib_0.2.5.1   pillar_1.6.2   
+#> [28] compiler_4.1.1  bslib_0.3.0     pillar_1.6.2   
 #> [31] jsonlite_1.7.2  pkgconfig_2.0.3
 ```
 
@@ -168,9 +168,22 @@ para alumnos de posgrado o incluso egresados que necesiten refrescar
 conocimientos o aprender a aplicarlos con software moderno. Un segundo volumen cubrirá en el futuro métodos y modelos avanzados para 
 entornos más exigentes.
 
-El libro está dividido en X partes ...
-
-En los capítulos ...
+El libro está dividido en 4 partes. La primera parte está dedicada a la Estadística
+Descriptiva, y consta de un [capítulo introductorio](#intro) seguido de sendos capítulos
+para el análisis exploratorio univariante y bivariante. La segunda parte 
+trata la Probabilidad en 4 capítulos, uno introductorio, dos dedicados a las 
+variables
+aleatorias univariantes y bivariantes respectivamente, y finalmente un capítulo
+que trata los modelos de distribución de probabilidad. En la tercera parte se
+aborda la inferencia estadística, con una introducción al muestreo y la 
+estimación puntual, seguida de capítulos dedicados a los contrastes de 
+comparación de grupos, análisis de regresión y diseño de experimentos. La última
+parte está dedicada al control estadístico de la calidad, en la que,
+tras un capítulo introductorio, se tratan las dos herramientas más importantes
+en este campo: el control estadístico de procesos (SPC, _Statistical Process 
+Control_, por sus siglas en inglés) y los muestreos de aceptación o, dicho de
+otra forma, la inspección por muestreo. Finalmente, una serie de apéndices
+con diverso material complementan el libro en su conjunto.
 
 
 
@@ -206,8 +219,9 @@ comerciales**.
 Este libro es el resultado de años de trabajo en la docencia, investigación
 y transferencia de conocimiento en el campo de la Estadística. Está construido
 a partir de las contribuciones a lo largo de los años de compañeros y amigos
-como Javier M. Moguerza, Andrés Redchuk, Felipe Ortega, Mariano Prieto, 
-Miguel Ángel Tarancón, Víctor M. Casero, Virgilio Gómez-Rubio, Matías Gámez, y muchos otros (perdón
+como Javier M. Moguerza, Andrés Redchuk, David Ríos, Felipe Ortega, Mariano Prieto, 
+Miguel Ángel Tarancón, Víctor M. Casero, Virgilio Gómez-Rubio, Matías Gámez, y 
+muchos otros (perdón
 a l@s omitid@s por no ser más exhaustivo).
 
 Especial agradecimiento a toda la comunidad del software libre y 
