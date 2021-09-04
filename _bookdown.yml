@@ -1,5 +1,5 @@
 book_filename: "estadistica-ciencias-ingenieria"
-output_dir: "docs/"
+output_dir: "docs"
 new_session: true
 before_chapter_script: _common.R
 delete_merged_file: true
@@ -19,9 +19,21 @@ language:
 rmd_files: 
   [
     "index.Rmd",
-    
+    "01-intro.Rmd",
+    "02-aed-uni.Rmd",
+    "03-aed-bi.Rmd",
+    "04-introp.Rmd",
+    "05-vauni.Rmd",
+    "06-vabi.Rmd",
+    "07-modelos.Rmd",
+    "08-muestreo.Rmd",
+    "09-comparacion.Rmd",
+    "10-regresion.Rmd",
+    "11-doe.Rmd",
+    "12-introc.Rmd",
+    "13-spc.Rmd",
+    "14-aceptacion.Rmd",
     "91-apendices.Rmd",
     "99-references.Rmd"
-    
   ]
   
