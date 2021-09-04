@@ -8,6 +8,7 @@ bookdown::bs4_book:
     info:    "#0dcaf0"   # default .rmdtip = cyan
     warning: "#ffc107"   # default .rmdwarning = yellow
   repo: https://github.com/emilopezcano/estadistica-ciencias-ingenieria
+  template: "templates/bs4_book_es.html"
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
