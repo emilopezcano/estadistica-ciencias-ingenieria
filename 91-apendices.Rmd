@@ -4,19 +4,25 @@
 
 ## Letras griegas
 
-Letra    | Se lee
------    | -------------
-$\alpha$ | alfa
-$\lambda$| lambda
-$\eta$   | eta
-$\mu$    | mu
-$\omega$ | omega
-$\Omega$ | Omega$^*$
-$\sigma$ | sigma
-$\Sigma$ | Sigma$^*$
-$\rho$   | ro
-$\theta$ | teta
-$\xi$    | xi
+Letra         | Se lee
+------------- | -------------
+$\alpha$      | alfa
+$\beta$       | beta
+$\gamma$      | gamma
+$\Gamma$      | Gamma$^*$
+$\lambda$     | lambda
+$\eta$        | eta
+$\mu$         | mu
+$\omega$      | omega
+$\Omega$      | Omega$^*$
+$\sigma$      | sigma
+$\Sigma$      | Sigma$^*$
+$\rho$        | ro
+$\theta$      | zeta (_theta_, teta)
+$\xi$         | xi
+$\chi$        | chi (o _ji_)
+$\pi$         | pi
+$\varepsilon$ | épsilon
 
 $^*$ Mayúsculas
 
@@ -52,7 +58,7 @@ $\subset$                  | Incluido
 $\subseteq$                | Incluido o igual
 
 
-# Tablas estadísticas {#ap:tablas}
+# Tablas estadísticas {#tablas}
 
 ## Distribución normal
 
@@ -109,9 +115,13 @@ knitr::kable(distris, escape = TRUE,
 
 # Repaso
 
+Este apéndice cubre algunas cuestiones matemáticas básicas que el lector
+de este libro con seguridad habrá aprendido con anterioridad. Se incluyen
+como referencia para facilitar el repaso a aquellos que lo necesiten.
+
 ## Logaritmos y exponenciales
 
-## Combinatoria {#ap:combinatoria}
+## Combinatoria {#combinatoria}
 
 
 Una de las definiciones de probabilidad implica **contar**
@@ -120,19 +130,6 @@ en muchas ocasiones el cálculo de probabilidades empieza contando las
 posibilidades de que ocurra un suceso. La Combinatoria es la parte de la
 Matemática discreta que nos ayuda en esta tarea. Incluimos un breve
 resumen con ejemplos de las fórmulas más habituales y su cálculo con R.
-
-```{block2, type='slide', echo=FALSE}
-# El arte de contar bien
-
-**Combinatoria**: El cálculo de probabilidades empieza muchas
-veces contando las posibilidades de que ocurra un suceso
-
-![image](img/contar2)
-
-**Enumeración**: En algunas ocasiones, además, es necesario
-*enumerar* todas las posibilidades. Gráficamente mediante diagramas de
-árbol, o mediante bucles en algoritmos
-```
 
 ### Ejemplo ilustrativo
 
@@ -158,29 +155,6 @@ Datos básicos:
 
 -   1 de cada seis hombres contratará el servicio (el doble si es mujer)
 
-```{block2, type='slide', echo=FALSE}
----
-# Ejemplo ilustrativo
-
-
--   52 posibles usuarios de un servicio
-
--   La mitad son mujeres
-
--   4 directivos, 12 mandos, resto operarios
-
--   13 jóvenes, 26 adultos, 13 mayores (5, 18 y 3 mujeres en cada
-    grupo respectivamente)
-
--   1 de cada seis hombres contratará el servicio (el doble si es mujer)
-
-![image](img/idea){width="5mm"}
-¿Con qué juegos de azar relacionas los datos?
-
-![image](img/dados){width="10mm"}
-![image](img/monedas){width="5mm"}
-![image](img/idea){width="5mm"}
-```
 
 
 Nótese cómo podemos *traducir* el concepto de
@@ -306,9 +280,9 @@ elementos aparece $a$ veces, y así sucesivamente.
 # Ampliación
 
 En este apéndice se incluyen temas avanzados que pueden ser útiles al lector
-más allá de un curso básico de estadística económica y empresarial, y 
+más allá de un curso básico de estadística para ciencias o ingeniería, y 
 que no se han incluido en el cuerpo de los capítulos para mantener el nivel 
-de un primer curso de grado.
+de una asignatura de grado.
 
 ## Función característica
 
@@ -320,145 +294,111 @@ de un primer curso de grado.
 
 ## Algunos modelos de distribución continuos más
 
-```{block2, type="ninguno", echo=FALSE}
 
-- [fragile, allowframebreaks]{Distribución Beta}
-% \mode<presentation>{\vspace{-3mm}}
-{Definición}
-\mode<article>{
+### Distribución Beta
+
 La distribución Beta se utiliza en problemas de inferencia relativos a proporciones, especialmente en inferencia bayesiana.
-}
 
-$$X \sim \mathit{Be}(\alpha, \beta) $$
+$$X \sim \mathit{Be}(\alpha, \beta)$$
 
-{Función de densidad}
+**Función de densidad**
 
 $$f(x) = 
 \begin{cases}
 \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta -1} & \text{si } 0 < x < 1\\
 0 & \text{resto } 
-\end{cases}
-$$
+\end{cases}$$
 
-\vspace{-2mm}
-{Función Gamma}
-\mode<article>{En matemáticas, la función Gamma ($\Gamma$) es una integral indefinida que tiene entre otras las siguientes propiedades:}
-- 
-  - 
-$\Gamma(\alpha) = \int_0^\infty x^{\alpha -1} e^{-x} dx, \qquad \alpha > 0 $
-- $\Gamma(\alpha + 1) = \alpha \Gamma(\alpha)$
-- $n \in \mathbb{N}-\{0\} \implies \Gamma(n) = (n-1)!$
-- $\Gamma(\frac{1}{2}) = \sqrt{\pi}$
-- 
+En matemáticas, la función Gamma ($\Gamma$) es una integral indefinida que tiene entre otras las siguientes propiedades:
 
-\mode<presentation>{\newpage}
-{Características}
-- 
-- Esperanza: $E[X] = \frac{\alpha}{\alpha + \beta}$
-- Varianza: $\mathit{Var}[X] = \frac{\alpha\beta}{(\alpha + \beta)^2(\alpha + \beta+1)}$
-- Caso particular: $\mathit{Be}(1,1) = U(0,1)$.
+* $\Gamma(\alpha) = \int_0^\infty x^{\alpha -1} e^{-x} dx, \qquad \alpha > 0 $
+* $\Gamma(\alpha + 1) = \alpha \Gamma(\alpha)$
+* $n \in \mathbb{N}-\{0\} \implies \Gamma(n) = (n-1)!$
+* $\Gamma(\frac{1}{2}) = \sqrt{\pi}$
+ 
 
+** Características**
 
-- 
+* Esperanza: $E[X] = \frac{\alpha}{\alpha + \beta}$
+* Varianza: $\mathit{Var}[X] = \frac{\alpha\beta}{(\alpha + \beta)^2(\alpha + \beta+1)}$
+* Caso particular: $\mathit{Be}(1,1) = U(0,1)$.
 
-{Ejemplo}
-- 
-  - 
+**Ejemplo**
+
 $X$: Proporción de clientes que contratarán el servicio
-- $X\sim \mathit{Be}(1, 5)$
-- 
+
+$X\sim \mathit{Be}(1, 5)$
 
 
-\mode<presentation>{\newpage}
-\mode<presentation>{\vspace{-2mm}}
-{Código}
-\begin{center}
-\mode<presentation>{\vspace{-8mm}}
-<<out.width="0.45\\textwidth">>=
+**Código**
+
+```{r}
 mibeta <- function(x) dbeta(x, 1, 5)
 curve(mibeta, lwd = 2)
-@
-\end{center}
+```
 
-- 
 
-{Distribución Gamma}
-{Definición}
-\mode<article>{
+
+### Distribución Gamma
+
 La distribución Gamma se utiliza, entre otros, para modelizar tiempos de espera hasta que suceden $\alpha$ eventos en un proceso de Poisson. De hecho, en inferencia bayesiana gamma es la distribución a priori de la distribución de Poisson.
-}
 
-$$X \sim \mathit{Ga}(a, b) $$
+$$X \sim \mathit{Ga}(a, b)$$
 
-{Función de densidad}
+**Función de densidad**
 
 $$f(x) =
 \begin{cases}
 \frac{b^a}{\Gamma(a)}x^{a-1}{e}^{-bx} & \text{si } 0 < x < \infty\\
 0 & \text{resto }
-\end{cases}
-$$
+\end{cases}$$
 
 
-\mode<presentation>{\newpage}
-{Características}
-- 
-- Esperanza: $E[X] = \frac{a}{b}$
-- Varianza: $\mathit{Var}[X] = \frac{a}{b^2}$
-- $\Gamma(\alpha) = \int_0^\infty x^{\alpha -1} e^{-x} dx $
-- La exponencial es un caso particular
+**Características**
+
+* Esperanza: $E[X] = \frac{a}{b}$
+* Varianza: $\mathit{Var}[X] = \frac{a}{b^2}$
+* $\Gamma(\alpha) = \int_0^\infty x^{\alpha -1} e^{-x} dx $
+* La exponencial es un caso particular
+
+**Código**
+
+```{r}
 
 
-- 
-
-\mode<presentation>{\vspace{-2mm}}
-{Código}
-
-\begin{center}
-\mode<presentation>{\vspace{-8mm}\scriptsize}
-<<out.width="0.60\\textwidth">>=
 migamma <- function(x, a) dgamma(x, a, 2)
 curve(migamma(x, 1), lwd = 2, xlim = c(0,10), 
       main = "Distribución Gamma b = 2")
 curve(migamma(x, 2), lwd = 2, add = TRUE, lty = 2)
 curve(migamma(x, 4), lwd = 2, add = TRUE, lty = 3)
 legend(x = 6, y = 2, c("a = 1", "a = 2", "a = 4"), lty = 1:3)
-@
-\end{center}
-- 
+```
 
-{Distribución de Weibull}
-{Definición}
-\mode<article>{
+### Distribución de Weibull
+
 La distribución Gamma presenta algunos inconventientes al modelizar tiempos de vida, y por eso algunas veces se prefiere la distribución de Weibull, que básicamente sirve para lo mismo. Véase \cite{ugarte2015} para los detalles.
-}
+
 $$X \sim \mathit{We}(a, b) $$
 
-{Función de densidad}
+**Función de densidad**
 $$f(x) =
 \begin{cases}
 \frac{a}{b}\left (\frac{x}{b} \right)^{a-1}e^{-(x/b)^a} & \text{si } x > 0\\
 0 & \text{resto }
-\end{cases}
-$$
+\end{cases}$$
 
-\mode<presentation>{\newpage}
-{Características}
-- 
-- Esperanza: $E[X] =b \Gamma\left (1 + \frac{1}{a} \right )$
-- Varianza:
-$\mathit{Var}[X] = b^2 \left ( \Gamma \left ( 
+**Características**
+
+* Esperanza: $E[X] =b \Gamma\left (1 + \frac{1}{a} \right )$
+* Varianza: $\mathit{Var}[X] = b^2 \left ( \Gamma \left ( 
                                       1 + \frac{2}{a} \right 
                                       ) 
                              - \left ( \Gamma \left (1 + \frac{2}{a} \right ) \right )^2 \right )$
-- 
+ 
 
-\mode<presentation>{\vspace{-2mm}}
-{Código}
+**Código**
 
-\begin{center}
-\mode<presentation>{\vspace{-8mm}\scriptsize}
-<<out.width="0.60\\textwidth">>=
+```{r}
 miweibull <- function(x, a) dweibull(x, a, 2)
 curve(miweibull(x, 1), lwd = 2, xlim = c(0,5), 
       ylim = c(0, 1),
@@ -466,322 +406,8 @@ curve(miweibull(x, 1), lwd = 2, xlim = c(0,5),
 curve(miweibull(x, 2), lwd = 2, add = TRUE, lty = 2)
 curve(miweibull(x, 5), lwd = 2, add = TRUE, lty = 3)
 legend(x = 4, y = 1, c("a = 1", "a = 2", "a = 5"), lty = 1:3)
-@
-\end{center}
-- 
-
-- {Distribuciones en el muestreo}
-{Utilizadas en inferencia}
-\mode<article>{Estas distribuciones se estudiarán en detalle en el módulo de inferencia}
-- 
-  - $t$ de Student
-  - $\chi^2$
-  - $F$
-- 
-
-- 
-- [allowframebreaks,fragile]{Contrastes de normalidad}
-\mode<article>{Si la característica de la población que estamos estudiando sigue una distribución normal, o podemos aceptar que se ha obtenido aleatoriamente de una población normal, simplifica la vida del analista. Por tanto una de las primeras tareas del análisis exploratorio de datos es la verificación de la hipótesis de normalidad. Existen métodos gráficos y numéricos para realizar esta tarea}
-\mode<presentation>{\vspace{-5mm}}
-{Datos}
-
-\mode<presentation>{\vspace{-5mm}\scriptsize}
-<<>>=
-str(CO2)
-summary(CO2$uptake)
-@
-
-\mode<article>{Si los datos son normales, el histograma debería tener forma de campana de Gauss (aproximadamente)}
-\mode<presentation>{\normalsize}
-{Histograma}
-\mode<article>{Consulta ?plotmath para ver cómo anotar un gráfiico matemáticamente}
-
-\mode<presentation>{\scriptsize\vspace{-5mm}}
-\begin{center}
-<<fig.height=5, out.width="0.6\\textwidth">>=
-hist(CO2$uptake, main = expression("Histograma datos CO"[2]),
-     xlab = expression("Absorción CO"[2]*" ("*symbol("m")*mol/m^2*s*")"),
-     col = "steelblue", border = "white", bg = "white", freq = FALSE)
-curve(dnorm(x, mean(CO2$uptake), sd(CO2$uptake)), add = TRUE, lwd = 2, lty = 2)
-@
-\end{center}
-
-\mode<article>{Si los datos son normales, los puntos del gráfico cuantil-cuantil deberían caer sobre una línea recta (aproximadamente)}
-\mode<presentation>{\normalsize}
-{Gráfico cuantil-cuantil}
-
-\mode<presentation>{\scriptsize\vspace{-8mm}}
-\begin{center}
-<<out.width="0.45\\textwidth">>=
-library(scales)
-qqnorm(CO2$uptake, pch = 20, col = alpha("red4", 0.5),
-       las = 1)
-grid()
-qqline(CO2$uptake, lwd = 2)
-@
-\end{center}
-\mode<presentation>{\normalsize}
-{Contraste de hipótesis}
-\mode<article>{Los contrastes de hipótesis se verán en detalle en el módulo de inferencia, por lo que en estos ejemplos la explicación será sólamente sobre la interpretación del output.}
-- 
-  - Shapiro-Wilk
-  - Anderson-Darling
-  - Cramer-von Mises
-  - Lilliefors
-  - Pearson
-  - Shapiro-Francia
-- 
-\mode<article>{En estos contrates, la hipótesis nula es que los datos son normales. Por tanto, si el p-valor es pequeño, se rechaza que los datos sean normales. ¿Cómo de pequeño? Depende de la confianza que queramos tener, por ejemplo para una confianza del 95\%, el p-valor debe ser menor de 0.05.}
-
-\mode<presentation>{\scriptsize\vspace{-8mm}}
-\begin{center}
-<<>>=
-shapiro.test(CO2$uptake)
-library(nortest)
-ad.test(CO2$uptake)
-@
-\end{center}
-\includegraphics[width=5mm]{img/idea}\hspace{3mm}Para el resto de contrastes, consultar la ayuda del paquete nortest
-- 
-
-- [fragile, allowframebreaks]{Bondad de ajuste}
-{Contraste $\chi^2$}
-\mode<article>{
-Este contraste se puede utilizar para comparar las frecuencias observadas en una muestra con las teóricas (esperadas) según una determinada distribución de probabilidad. Veamos un ejemplo con nuestra distribución discreta.
-}
-\mode<presentation>{La base: comparar frecuencias observadas con frecuencias esperadas}
-
-
-{Ejemplo}
-- 
-  - Muestra de 1000 clientes
-  - ¿Siguen la misma distribución de edad que nuestra distribución teórica?
-- 
-
-
-\mode<presentation>{\scriptsize}
-<<echo=FALSE, results='asis'>>=
-set.seed(1)
-muestra <- sample(c("Joven", "Adulto", "Mayor"), 
-                  size = 1000, 
-                  replace = TRUE, 
-                  prob = c(13, 26, 13)/52)
-muestra <- factor(muestra, levels = c("Joven", "Adulto", "Mayor"))
-kable(t(as.matrix(table(muestra))), format = "latex")
-@
-<<>>=
-chisq.test(table(muestra), p = c(13, 26, 13)/52)
-@
-\mode<article>{No hay evidencia para decir lo contrario}
-
-{Prueba de Kolmogorov-Smirnoff}
-- 
-\mode<presentation>{\normalsize}
-  - Podemos pasarle una función de distribución de las soportadas por R
-  - Simulemos 50 valores de una distribución $X \sim \mathit{Exp}(2)$
-- 
-
-<<>>=
-set.seed(1)
-x <- rexp(50, 2)
-ks.test(x, y = "pnorm", mean = 0.5, sd = 0.5)
-@
-
-- 
-\mode<presentation>{\normalsize}
-  - En este caso sí hay evidencia de que $ X \nsim N(0.5;\; 0.5)  $
-- 
-
-- 
-
-- [fragile]{Ajuste de distribuciones}
-\mode<article>{
-Una vez tenemos una muestra de datos que queremos ajustar a una distribución de probabilidad, podemos encontrar una estimación de los parámetros de esta distribución. Por ejemplo si queremos ajustar una Weibull a los datos simulados anteriormente:
-}
-<<>>=
-library(MASS)
-fitdistr(x, "weibull")
-@
-- 
-
-
-
-{Transformaciones}
-\mode<article>{
-Se pueden realizar transformaciones a los datos para conseguir normalidad.
-}
-{Transformación de Box-Cox}
-$$Y=
-\begin{cases}
-X^\lambda & \text{ si } \lambda \neq 0\\
-\log(X) & \text{ si} \lambda = 0
-\end{cases}
-$$
-
-- 
-  - Podemos encontrar un valor de $\lambda$ que consiga la mejor transformación para conseguir una distribución aproximadamente normal
-- 
-
-\mode<presentation>{\newpage}
-{Datos originales}
-\begin{center}
-<<out.width="0.4\\maxwidth">>=
-hist(x)
-@
-\end{center}
-
-\mode<presentation>{\newpage}
-{Transformación}
-\vspace{-5mm}
-\begin{center}
-<<out.width="0.45\\maxwidth">>=
-library(MASS)
-mylambda <- boxcox(x ~ 1)
-@
-\end{center}
-
-\begin{center}
-<<out.width="0.45\\maxwidth", fig.height=6>>=
-optlambda <- mylambda$x[mylambda$y == max(mylambda$y)]
-optlambda
-hist(x^optlambda)
-@
-\end{center}
-
-- 
-
-\section[Definición]{Modelos de distribución de probabilidad multivariantes}
-\frame{\sectionpage}
-
-- [allowframebreaks, fragile]{Distribución multinomial}
-\mode<article>{
-Es una generalización de la variable binomial cuando en vez de dos resultados posibles existen $k$ resultados posibles con probabilidades $\pi_i$
-}
-
-{Definición}
-- 
-  - Generalización de la binomial, con $k$ resultados posibles en cada experimento de Bernoulli en vez de sólo dos, cada uno con probabilidad $\pi_i, i=1,\ldots, k, \sum\pi_i = 1$ 
-  - En $n$ experimentos, se pueden dar $k$ resultados posibles $A_i, i\in \{1, \ldots, k\}$. El número de veces que sucede cada resultado $A_i$ es $n_i$, Si definimos ese número como una variable aleatoria $X_i$, entonces: 
-$$\boldsymbol{X} = \{X_1, \ldots, X_k\}, \qquad X_i \sim \mathit{Bin}(n;\; \pi_i)\quad \forall i \in \{1, \ldots, k\}$$
-$$\implies \boldsymbol{X} \sim \mathit{MN}(n, \pi_1, \ldots, \pi_k)$$
-- 
-  
-$$
-P(x_1, x_2, \ldots, x_k) = \frac{n!}{x_1!x_2!\cdots x_k!}\pi_1^{x_1}\pi_2^{x_2}\cdots \pi_k^{x_k}
-$$
-
-
-{Ejemplo}
-Probabilidad de que en una muestra de 30 potenciales usuarios, haya 10 de cada grupo de edad
-
-{Código}
-<<>>=
-dmultinom(x = c(10, 10, 10), 
-          size = 30, 
-          prob = c(13, 26, 13)/52)
-@
-
-
-- 
-
-{Distribución normal multivariante}
-{Definición}
-\mode<article>{El vector aleatorio se compone de $n$ variables aleatorias cuya distribución de probabilidad sigue una normal.}
-$$\boldsymbol{X} = (X_1, X_2, \ldots X_n), \quad X_i \sim N(\mu_i, \sigma_i),\quad i \in \{1, \ldots, n\}$$
-
-$$\implies \boldsymbol{X} \sim \mathit{MVN}(\boldsymbol{\mu}, \boldsymbol{\Sigma})$$
-
-{Casos especiales}
-- 
-  - Normal bivariante
-  - Normales estándar
-  - Igualdad de varianzas
-  - Variables aleatorias independientes
-- 
-
-\mode<presentation>{\newpage}
-{Código}
-\mode<presentation>{\scriptsize\vspace{-5mm}}
-\begin{center}
-<<out.width="0.4\\maxwidth">>=
-par(mar = c(.1,.1,.1,.1)) # 5.1 4.1 4.1 2.1
-library(MASS)
-bivn <- mvrnorm(1000, mu = c(1.5, 0.9), Sigma = matrix(c(0.5, .25, .25, 0.5), 2))
-bivn.kde <- kde2d(bivn[,1], bivn[,2], n = 50)
-persp(bivn.kde, phi = 30, theta = 30, shade = .1, border = NA)
-@
-\end{center}
-
-- 
-
-\section[Definición]{Cálculo de probabilidades y simulación de variables aleatorias con R}
-\frame{\sectionpage}
-
-- [fragile]{Distribuciones en R}
-- 
-  - Para ver las distribuciones soportadas en la instalación base de R:
-
-<<eval=FALSE>>=
-?Distributions
-@
-- Revisa las cuatro funciones disponibles para cada distribución en la diapositiva \ref{frame:distrifun}
-- Existen paquetes que tratan otras distribuciones. Visita la \emph{Task View} dedicada a distribuciones de probabilidad: 
-
-\url{http://cran.r-project.org/web/views/Distributions.html}
-- 
-
-- 
-
-{Simulación de variables aleatorias}
-\mode<article>{En alguna diapositiva anterior hemos simulado valores de una variable aleatoria de las soportadas en R. Como también se vio, a través de la distribución uniforme podemos simular cualquier variable aleatoria, conocida la inversa de la función de distribución $F$.}
-- 
-  - Modelos de distribución: funciones r*. Por ejemplo, podemos simular los pesos de los próximos 20 envíos a clientes:
-<<R.options=list(width=50)>>=
-set.seed(1)
-round(rnorm(20, 1.8, 0.5), 3)
-@
-
-- Cualquier función de densidad
-
-$$F^{-1}(U),\quad U\sim N(0,1)$$
-- 
-
-- 
-
-- [fragile, allowframebreaks]{Ejemplo}
-- 
-  - 
-Recordemos la variable aleatoria que describía la proporción de video visualizado en el tema anterior:
-$$f(x) =
-\begin{cases}
-2x & \text{si } 0 \leq x \leq 1 \\
-0 & \text{resto }
-\end{cases}
-$$
-- Su función de distribución es:
-$$F(x) = 
-\begin{cases}
-0 & x < 0\\
-\int_0^x 2t dt = x^2 &  0 \leq x \leq 1 \\
-1 & x > 1 
-\end{cases}
-$$
-- Y la función inversa de $F$ es:
-
-$$
-F^{-1}(p) = +\sqrt{x}, \quad 0 \leq p \leq 1
-$$
-- 
-{Código}
-<<R.options=list(width=55)>>=
-set.seed(1)
-simula_pvideo <- function(n) sqrt(runif(1:n))
-simulacion <- round(simula_pvideo(20), 2)
-simulacion
-@
-
-
 ```
+
 
 ## Modelos de distribución de probabilidad multivariantes
 
@@ -813,9 +439,11 @@ Los gráficos y diagramas generados son creación y propiedad del autor, salvo q
 indique lo contrario. Su licencia de uso es la misma que la del resto de la
 obra, véase el Prefacio.
 
-- Las imágenes de tipo _clipart_ usadas en esta obra y las fotografías no atribuidas
+La [imagen de la portada](https://pixabay.com/es/illustrations/fondo-abstracto-l%C3%ADnea-ilustración-2462436/) es de dominio público, obtenida en [pixabay.com](https://pixabay.com/es/), gracias al
+usuario [Manuchi](https://pixabay.com/es/users/manuchi-1728328/).
+
+
+Las imágenes de tipo _clipart_ usadas en esta obra y las fotografías no atribuidas
 pertenecen al dominio público gracias a [openclipart.org](http://www.openclipart.org), [unplash.com](https://unsplash.com) o [pixabay.com](https://pixabay.com/es/).
 
-
-
-- The [R logo](https://www.r-project.org/logo/) is (c) 2016 The R Foundation.
+The [R logo](https://www.r-project.org/logo/) is (c) 2016 The R Foundation.
