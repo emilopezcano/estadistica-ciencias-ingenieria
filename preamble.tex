@@ -1,19 +1,58 @@
 \usepackage{booktabs}
 \usepackage[spanish, es-tabla]{babel}
 
-\usepackage{framed,color}
-\definecolor{shadecolor}{RGB}{248,248,248}
+\usepackage{tcolorbox}
 
-\newenvironment{rmdejemplo}
-  {\begin{rmdblock}{ejemplo}}
-  {\end{rmdblock}}
-\newenvironment{rmdcafe}
-  {\begin{rmdblock}{cafe}}
-  {\end{rmdblock}}
-\newenvironment{rmdpractica}
-  {\begin{rmdblock}{practice}}
-  {\end{rmdblock}}
-\newenvironment{rmdpremium}
-  {\begin{rmdblock}{premium}}
-  {\end{rmdblock}}
-  
+\usepackage{tikz}
+\definecolor{ejemplob}{RGB}{238,238,238}
+\definecolor{ejemplof}{RGB}{204,204,204}
+\definecolor{practicab}{RGB}{255,243,205}
+\definecolor{practicaf}{RGB}{255,238,186}
+\definecolor{premiumb}{RGB}{248,215,218}
+\definecolor{premiumf}{RGB}{245,198,203}
+
+\newtcolorbox{rmdejemplo}{
+  colback=ejemplob,
+  colframe=ejemplof,
+  coltext=black,
+  boxsep=5pt,
+  left = 25pt,
+  arc=4pt,
+  % overlay={\node[inner sep=0pt, xshift=.85cm, anchor=center] 
+  %   at ($ (frame.north west)!.5!(frame.south west) $) {\includegraphics[width=6mm]{images/ejemplo}}; }}
+  overlay={{\includegraphics[width=8mm]{images/ejemplo}}; }}
+
+\newtcolorbox{rmdcafe}{
+  colback=ejemplob,
+  colframe=ejemplof,
+  coltext=black,
+  boxsep=5pt,
+  left = 25pt,
+  arc=4pt,
+  % overlay={\node[inner sep=0pt, xshift=.85cm, anchor=center] 
+  %   at ($ (frame.north west)!.5!(frame.south west) $) {\includegraphics[width=6mm]{images/ejemplo}}; }}
+  overlay={{\includegraphics[width=8mm]{images/cafe}}; }}
+
+\newtcolorbox{rmdpractica}{
+  colback=practicab,
+  colframe=practicaf,
+  coltext=black,
+  boxsep=5pt,
+  left = 25pt,
+  arc=4pt,
+  % overlay={\node[inner sep=0pt, xshift=.85cm, anchor=center] 
+  %   at ($ (frame.north west)!.5!(frame.south west) $) {\includegraphics[width=6mm]{images/ejemplo}}; }}
+  overlay={{\includegraphics[width=8mm]{images/practice}}; }}
+
+\newtcolorbox{rmdpremium}{
+  colback=ejemplob,
+  colframe=ejemplof,
+  coltext=black,
+  boxsep=5pt,
+  left = 25pt,
+  arc=4pt,
+  % overlay={\node[inner sep=0pt, xshift=.85cm, anchor=center] 
+  %   at ($ (frame.north west)!.5!(frame.south west) $) {\includegraphics[width=6mm]{images/ejemplo}}; }}
+  overlay={{\includegraphics[width=8mm]{images/premium}}; }}
+
+

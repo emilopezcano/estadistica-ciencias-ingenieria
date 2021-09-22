@@ -15,9 +15,12 @@ biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
 
-
+```{r, include = FALSE}
+library(fontawesome)
+```
 
 # Bienvenida {-}
+
 
 
 <img src="images/cover.png" class="cover" width="250" height="328"/>
@@ -87,26 +90,25 @@ En otros, código de R, que aparecen en el texto
 sombreados y con la sintaxis coloreada, como el fragmento a continuación
 donde se puede comprobar la sesión de R en la que ha sido generado este material.
 Obsérvese que los resultados se muestran precedidos de los símbolos
-`#>`.
-
-
-```{r}
+`#>`.```{r}
 sessionInfo()
 ```
 
 Normalmente, la descripción o enunciado de los ejemplos se incluyen en bloques 
 con el siguiente aspecto:
 
-::: {.rmdejemplo}
+::: {.rmdejemplo data-latex=""}
 
-Esto es un ejemplo. A continuación puede mostrarse código o no.
+Esto es un ejemplo. A continuación puede mostrarse código o no. Los ejemplos
+pueden ir precedidos por un icono para identificar su campo de aplicación, por 
+ejemplo `r fa("bacterium", fill = "purple")` Biología, `r fa("cheese", fill = "gold")` Ciencia y tecnología de Alimentos, o `r fa("tree", fill = "green")` Ciencia e Ingeniería Ambiental.  
 
 :::
 
 Cuando el ejemplo incluya explicaciones sobre cómo resolverlo con software, 
 estas explicaciones aparecerán en bloques con el siguiente aspecto:
 
-::: {.rmdpractica}
+::: {.rmdpractica data-latex=""}
 
 **HOJA DE CÁLCULO**
 
@@ -122,12 +124,12 @@ científica, cuando esto sea posible.
 
 El texto incluye otros bloques con información de distinto tipo, como los siguientes:
 
-::: {.rmdpremium}
+::: {.rmdpremium data-latex=""}
 Este contenido se considera avanzado. El lector principiante puede saltarse estos apartados
 y volver sobre ellos en una segunda lectura.
 :::
 
-::: {.rmdcafe}
+::: {.rmdcafe data-latex=""}
 Estos bloques están pensados para incluir información curiosa o complementaria
 para poner en contexto las explicaciones.
 :::
