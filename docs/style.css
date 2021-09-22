@@ -1,3 +1,16 @@
+blockquote > p:last-child {
+  text-align: right;
+  font-style: italic;
+   padding-left: 200px
+}
+blockquote > p {
+   padding-left: 50px
+}
+blockquote > p:first-child {
+  text-align: inherit;
+   padding-left: 50px
+}
+
 p.caption {
   color: #777;
   margin-top: 10px;

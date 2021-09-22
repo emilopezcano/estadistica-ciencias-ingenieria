@@ -1,6 +1,13 @@
 # (APPENDIX) Apéndices {-} 
 
-# Símbolos 
+# Símbolos, abreviaturas y acrónimos
+
+## Acrónimos
+
+Acrónimo      | Descripción
+------------- | -------------
+SPC           | Statistical Process Control
+
 
 ## Letras griegas
 
@@ -386,8 +393,6 @@ $$f(x) =
 
 
 ```r
-
-
 migamma <- function(x, a) dgamma(x, a, 2)
 curve(migamma(x, 1), lwd = 2, xlim = c(0,10), 
       main = "Distribución Gamma b = 2")

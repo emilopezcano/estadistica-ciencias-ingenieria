@@ -17,7 +17,7 @@
 <meta name="twitter:title" content="Apéndice D Ampliación | Estadística Aplicada a las Ciencias y la Ingeniería">
 <meta name="twitter:description" content="En este apéndice se incluyen temas avanzados que pueden ser útiles al lector más allá de un curso básico de estadística para ciencias o ingeniería, y que no se han incluido en el cuerpo de los...">
 <meta name="twitter:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
@@ -57,14 +57,14 @@
 <li class="book-part">Inferencia estadística</li>
 <li><a class="" href="muestreo.html"><span class="header-section-number">8</span> Muestreo y estimación</a></li>
 <li><a class="" href="comparacion.html"><span class="header-section-number">9</span> Comparación de grupos</a></li>
-<li><a class="" href="regresion.html"><span class="header-section-number">10</span> Regresión</a></li>
+<li><a class="" href="regresion.html"><span class="header-section-number">10</span> Modelos de regresión</a></li>
 <li><a class="" href="doe.html"><span class="header-section-number">11</span> Diseño de experimentos</a></li>
 <li class="book-part">Control estadístico de la calidad</li>
 <li><a class="" href="introc.html"><span class="header-section-number">12</span> Introducción</a></li>
 <li><a class="" href="spc.html"><span class="header-section-number">13</span> Control Estadístico de Procesos</a></li>
 <li><a class="" href="aceptacion.html"><span class="header-section-number">14</span> Inspección por muestreo</a></li>
 <li class="book-part">Apéndices</li>
-<li><a class="" href="s%C3%ADmbolos.html"><span class="header-section-number">A</span> Símbolos</a></li>
+<li><a class="" href="s%C3%ADmbolos-abreviaturas-y-acr%C3%B3nimos.html"><span class="header-section-number">A</span> Símbolos, abreviaturas y acrónimos</a></li>
 <li><a class="" href="tablas.html"><span class="header-section-number">B</span> Tablas estadísticas</a></li>
 <li><a class="" href="repaso.html"><span class="header-section-number">C</span> Repaso</a></li>
 <li><a class="active" href="ampliaci%C3%B3n.html"><span class="header-section-number">D</span> Ampliación</a></li>
@@ -141,7 +141,7 @@ de una asignatura de grado.</p>
 <p><span class="math inline">\(X\)</span>: Proporción de clientes que contratarán el servicio</p>
 <p><span class="math inline">\(X\sim \mathit{Be}(1, 5)\)</span></p>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mibeta</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="va">mibeta</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="91-apendices_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
@@ -168,10 +168,8 @@ de una asignatura de grado.</p>
 <li>La exponencial es un caso particular</li>
 </ul>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-
-<span class="va">migamma</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">dgamma</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span>, <span class="fl">2</span><span class="op">)</span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">migamma</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">dgamma</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span>, <span class="fl">2</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu">migamma</span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">2</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">10</span><span class="op">)</span>, 
       main <span class="op">=</span> <span class="st">"Distribución Gamma b = 2"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu">migamma</span><span class="op">(</span><span class="va">x</span>, <span class="fl">2</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">2</span>, add <span class="op">=</span> <span class="cn">TRUE</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
@@ -199,7 +197,7 @@ de una asignatura de grado.</p>
 </li>
 </ul>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">miweibull</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/Weibull.html">dweibull</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span>, <span class="fl">2</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu">miweibull</span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">2</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">5</span><span class="op">)</span>, 
       ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,
@@ -265,7 +263,7 @@ de una asignatura de grado.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2021-09-04.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2021-09-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

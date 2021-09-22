@@ -1,5 +1,5 @@
 
-# Regresión {#regresion}
+# Modelos de regresión {#regresion}
 
 En preparación.
 
