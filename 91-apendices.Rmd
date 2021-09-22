@@ -1,6 +1,13 @@
 # (APPENDIX) Apéndices {-} 
 
-# Símbolos 
+# Símbolos, abreviaturas y acrónimos
+
+## Acrónimos
+
+Acrónimo      | Descripción
+------------- | -------------
+SPC           | Statistical Process Control
+
 
 ## Letras griegas
 
