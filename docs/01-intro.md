@@ -9,6 +9,8 @@
 
 ## Estadística y análisis de datos
 
+### ¿Qué es la Estadística?
+
 Antes de introducirnos en el estudio de la Estadística y sus métodos, vamos a
 intentar tener una visión de todo lo que abarca. Así pues, ¿qué es la Estadística?
 La primera fuente que podemos consultar es la definición de la Real Academia Española,
@@ -66,7 +68,7 @@ tanto de datos como de tecnología para tratarlos, hace imprescindible
 un dominio de las técnicas estadísticas y su aplicación en el dominio
 específico.
 
-## Los dos grandes bloques de la Estadística
+### Los dos grandes bloques de la Estadística
 
 La Estadística se divide en dos grandes bloques de estudio, que son 
 la **Estadística Descriptiva** y la **Inferencia Estadística**. A la
@@ -88,7 +90,7 @@ En definitiva, tomar decisiones por medio de modelos estadísticos y basadas en
 los datos.
 
 
-## La esencia de la Estadística
+### La esencia de la Estadística
 
 La figura \@ref(fig:dogma1) representa
 la esencia de la Estadística y sus métodos. Estudiamos alguna **característica** 
@@ -143,8 +145,13 @@ Es fundamental interiorizar este concepto para después aplicar el método adecu
 ya que según sean la/s $Y$, la/s $X$ y el objetivo de nuestro estudio, los caminos
 pueden ser muy diferentes. 
 
+El origen del término _Data Science_ se suele atribuir a Bill Cleveland tras la publicación de su artículo "Data Science: An Action Plan for Expanding the Technical Areas of the Field of Statistics" en 2001 [@Cleveland2001]^[En el seno de los laboratorios Bell, como muchos otros avances de la Ciencia Estadística (por ejemplo SPC, _Statistical Process Control_, o S, el precursor del software estadístico y lenguaje de programación R.)], aunque lo anticipó Tukey 40 años antes en "The Future of Data Analysis" [@Tukey1962] . No obstante, es a partir del año 2010, con la irrupción del _Big Data_ y la necesidad de analizar grandes cantidades de datos, cuando se empieza a popularizar el término intentando dar una definición gráfica de la profesión (_Data Scientist_). Así, es muy común presentar la ciencia de datos como la intersección de los conocimientos informáticos, los conocimientos estadístico-matemáticos, y el conocimiento de la materia en estudio (negocio, campo científico, etc.). Así, la persona de ciencias o ingeniería, con evidentes conocimientos en su campo, que adquiera conocimientos de Estadística y sea capaz de utilizar software avanzado como R, es uno de los perfiles más demandados.
 
-## Tipos de datos
+Paralelamente a la Ciencia de Datos, aparecen términos más recientes como _Big Data_, _Internet of Things_ o Industria 4.0. Detrás de todos ellos, está el análisis estadístico. Y la mayoría de las veces es suficiente aplicar los métodos más básicos para solucionar los problemas o demostrar las hipótesis.
+
+## Los datos y su organización
+
+### Características y variables
 
 Las **características** que observamos en los **elementos** de la muestra
 (o que estudiamos en una población) pueden ser distintos tipos. Nos referiremos
@@ -157,7 +164,7 @@ Denotaremos las variables con letras mayúsculas del alfabeto latino ($X$, $Y$, 
 Cuando observamos la característica, la variable toma un **valor**. Estos valores
 pueden ser agrupados en **clases**, de forma que cada posible valor
 pertenezca a una y solo una clase. En ocasiones los datos con los que trabajamos
-están ya clasificados en clases. 
+están ya clasificados en clases. Las variables pueden tomar cualquier valor en su **dominio**, es decir, el conjunto de **posibles** valores que puede tomar la variable. Veremos más adelante cómo cuantificar esas posibilidades a través de la Probabilidad.
 
 ::: {.rmdejemplo data-latex=""}
 
@@ -165,135 +172,91 @@ Cuando se recogen datos utilizando cuestionarios, a menudo en las preguntas
 para recoger características cuantitativas se ofrece elegir un intervalo en vez
 de peguntar el **valor** exacto. Por ejemplo, al preguntar la edad de una
 persona, se pueden dar las opciones: 1) menos de 20 años; 2) entre 20 y 40 años;
-3) entre 40 y 60 años; 4)Más de 60 años. Así, si una persona tiene 30 años, el **valor**
+3) entre 40 y 60 años; 4) Más de 60 años. Así, si una persona tiene 30 años, el **valor**
 de la variable es 30 (en el caso de la encuesta no lo conoceremos exactamente)
 que pertenece a la **clase** "entre 20 y 40 años".
 
 :::
 
-Datos univariantes, bivariantes, multivariantes
+### Parámetros y estadísticos 
 
-La importancia de la variabilidad
-
-Calidad y Estadística
-
-Inferencia Estadística y sus técnicas
-
-Ciencia de Datos, Big Data y otras chuches
-
-ODS: algo
+Distinguiremos la caracterización de las variables que estudiamos en la población de las observadas en la muestra denotándolas por **parámetros** y **estadísticos** respectivamente. Los parámetros son valores teóricos, casi siempre desconocidos, sobre los que haremos inferencia. Los denotaremos por letras griegas minúsculas, como por ejemplo $\mu$ para la media poblacional.
+Un estadístico es una función definida sobre los datos de una **muestra**. Pueden ser valores de más de una variable, y los resumiremos en un único valor, resultado de aplicar esa función. Los estadísticos tomarán valores distintos dependiendo de la muestra concreta. Esto hace que sean a su vez variables, y
+que tengan una distribución en el muestreo que nos permitirá hacer inferencia sobre la población. Los denotaremos con letras latinas, como por ejemplo $\bar x$ para la media muestra.
 
 
-* Pueden tomar cualquier valor en su **dominio** (conjunto de .red[**posibles**] valores que puede tomar la variable)
+La figura \@ref(fig:dogma2) representa la esencia de la estadística relacionando parámetros y estadísticos. Además de la equivalencia entre parámetros y estadísticos, la distribución de frecuencias de los datos de la muestra representada en el histograma se corresponde con la distribución de probabilidad teórica de la población.
+
+<div class="figure" style="text-align: center">
+<img src="images/dogma2.png" alt="La esencia de los métodos estadísticos" width="100%" />
+<p class="caption">(\#fig:dogma2)La esencia de los métodos estadísticos</p>
+</div>
+
+### La inferencia y sus métodos
+
+Existen dos grandes grupos de métodos para hacer la inferencia sobre la población. La **estadística paramétrica** asume que la característica sigue una
+determinada distribución de probabilidad. Esta distribución de probabilidad depende de unos **parámetros** (por ejemplo, la media
+y la desviación típica). La inferencia se hace en base a esos parámetros, y se asumen ciertas hipótesis de partida que se deben comprobar.
+La **estadística no paramétrica** no asume ninguna distribución de probabilidad para la 
+característica. Los métodos se basan en estadísticos de orden (cuantiles) y no hace falta cumplir ninguna hipótesis.
+
+Por otra parte, se pueden seguir dos enfoques bien diferenciados a la hora de hacer inferencia. Por una parte, el **enfoque frecuentista** asume que los parámetros son valores fijos desconocidos, de los que estimamos
+su valor. Esta estimación está ligada a una incertidumbre (error) derivada
+del muestreo. Por otra parte, en el **enfoque bayesiano** los parámetros no son valores fijos desconocidos, sino variables aleatorias de las que se estima su distribución de probabilidad. Y a partir de esa distribución de probabilidad, se hace la inferencia. En este libro no se tratarán los métodos bayesianos.
+
+### Organización de los datos
+
+Hemos hablado de características de forma aislada. Pero normalmente no estudiamos una sola característica de la población, sino que observamos varias características, teniendo así en la muestra
+un **conjunto de variables** relativas a una serie de elementos. Cuando analizamos una única variable, aislada del resto, estaremos 
+haciendo análisis **univariante**. Cuando analizamos más de una variable, estaremos haciendo **análisis multivariante**. Casi siempre un estudio estadístico incluye análisis univariante y
+multivariante.
+
+Para poder analizar los datos de forma eficiente, debemos organizarlos siguiendo los principios _Tidy data_. Así, dispondremos los datos en forma de tablas (datos rectangualares), donde tengamos una columna para cada variable (mismo tipo de datos) y una fila para cada observación (elemento, individuo).
+El analista y software deben entender lo mismo, lo que podríamos decir que es preparar los datos para las máquinas y no para los humanos. Esta sería la "capa de datos", después puede haber una "capa de presentación", independiente de la anterior. Aquí puede jugar un papel importante los metadatos: diccionarios de datos para consultar sobre las variables (unidades, descripciones, etc.)
+
+::: {.rmdejemplo data-latex=""}
+La tabla \@ref(tab:rectangular) muestra las primeras filas de una tabla de datos bien organizada. Cada fila representa un solo elemento, cada columna una sola variable, sin mezclar datos. Los nombres de las variables son cortos pero informativos.
+:::
 
 
-.media.centrado[Siguen una distribución de **probabilidad**]
+Table: (\#tab:rectangular)Tabla rectangular bien organizada
 
+|maquina  | merma1| merma2| manchas|defecto | defecto2| temp|
+|:--------|------:|------:|-------:|:-------|--------:|----:|
+|maquina1 |  5.377|  4.007|      11|No      |        0| 15.7|
+|maquina1 |  6.007|  4.598|       7|Sí      |        1| 18.8|
+|maquina1 |  4.822|  5.742|       9|No      |        0| 13.9|
+|maquina1 |  6.014|  3.960|       6|Sí      |        1| 18.5|
+|maquina1 |  3.892|  5.268|       6|No      |        0| 12.0|
+|maquina1 |  5.379|  5.913|       9|No      |        0| 17.3|
 
-## Parámetros y Estadísticos
+### Tipos de datos y escalas
 
+Las características que observamos pueden ser de distintos tipos. La correcta identificación del tipo de variable es crucial para hacer un correcto análisis, ya que los métodos pueden ser muy distintos. 
 
-## Parámetros
+La primera diferenciación que haremos será entre variables **cuantitativas** y cualitativas. Las variables cuantitativas o numéricas se pueden expresar con un número que además tiene una escala métrica (se pueden medir diferencias entre individuos). A su vez, pueden ser **continuas** o **discretas**. Las variables continuas pueden tomar cualquier valor en un intervalo (teóricamente infinitos valores). Las variables discretas pueden tomar un número de valores finito o infinito numerable, pero no toma valores entre un valor y otro.
 
-* Se definen sobre la **población**
+Las variables **cualitativas** o categóricas son etiquetas sin sentido numérico en las que podemos clasificar a los elementos. Si el número de posibles etiquetas son dos, estaremos ante variables dicotómicas, que en algunos casos podremos codificar como ceros y unos si presenta o no presenta la característica principal. Las variables multinivel presentan más de dos posibles etiquetas. En ambos casos se trata de una escala nominal. Las variables ordinales son aquellas en las que las etiquetas se pueden ordenar, de forma que tenemos una escala ordinal.
 
-* [Casi] siempre desconocidos
+Además de las variables propiamente dichas, nuestro conjunto de datos puede tener otras características como marcas de tiempo e identificadores, que serán útiles para aplicar los métodos, pero no serán objeto de análisis.
 
-* Valores teóricos
+En ocasiones es útil transformar las variables de un tipo a otro. Por ejemplo:
 
-* Sobre los que haremos inferencia
-
-* Letras griegas
-
-
-## Estadísticos
-
-* Función definida sobre los datos de una **muestra** (valores de una o más variables)
-
-* En cada muestra serán distintos (variabilidad)
-
-* Siguen una **distribución** en el muestreo
-
-* Letras latinas
-
-background-image: url(./images/dogma2.png)
-
-## La esencia de la Estadística
-
-background-image: url(images/tidy_data.png)
-
-## Organización de los datos - _Tidy data_
-
-- Datos rectangulares
-
-- Una columna para cada variable (mismo tipo de datos)
-
-- Una fila para cada observación (elemento, individuo)
-
-
-.idea[![](./images/idea.png)] Analista y software deben entender lo mismo
-
-background-image: url(images/rectangular.png)
-
-## Ejemplo: datos bien organizados
-
-- Separar la capa de datos de las capas de presentación y lógica
-- Datos para humanos vs datos para máquinas
-- El análisis posterior se simplifica si se preparan los datos para la máquina
-- Importancia de los .red[metadatos] (diccionarios de datos)
-
-
-## Tipos de variables 
-
-*  Cuantitativas o Numéricas
-  + Continuas
-  + Discretas
-  
-* Cualitativas o Categóricas
-  + Multinivel
-  + Dicotómicas
-  + Ordinales
-
-* Marcas de tiempo e identificadores
-
-
-## Escalas
-
-* Nominal: atributos, factores, etiquetas
-  
-* Ordinal: atributos con un orden lógico
-
-* Métrica: Permiten medir diferencias entre individuos
-
-
-## Conversión
-
-* Fechas a categóricas (por ejemplo, mes, día de la semana, ...)
-* Cualitativas a discretas (clases)
-* Ordinales como numérica: cuidado, sobre todo si hay pocos datos (<100). Mejor
-combinar en índices
+* Fechas a categóricas (etiqueta de mes, día de la semana, ...)
+* Cuantitativas a cualitativas (clases, intervalos)
+* Ordinales como numéricas: con precaución, sobre todo si hay pocos datos (<100). Se pueden combinar en índices.
 * Variables calculadas con otras (por ejemplo, IMC)
 
+En los siguientes capítulos abordaremos el análisis de todos estos datos.
 
 
-## 2. La Estadística y el método científico
+## La Estadística y el método científico
 
+La estadística es un pilar fundamental del método científico. El método científico se aplica también en el desarrollo tecnológico. Por tanto, la correcta aplicación de los métodos estadísticos es imprescindible para el avance de la ciencia y la técnica. 
 
-## Bioestadística
+### El método científico
 
-## La Estadística aplicada a la Biología
-
-* Cualquier análisis de datos, como cualquier disciplina.
-
-* Énfasis en:
-
-  + Diseños experimentales
-  + Ensayos clínicos
-  + Análisis genómico (vínculo con Bioinformática)
-
-background-image: url(images/mc.jpg)
-
-## El método científico
+El método científico se puede resumir en los siguientes pasos:
 
 1. Hacerse una pregunta
 
@@ -307,187 +270,158 @@ background-image: url(images/mc.jpg)
 
 6. Comunicar resultados
 
-.footnote2[Fuente: [Wikimedia commons](https://commons.wikimedia.org/wiki/File:Método_cient%C3%ADfico_2021.jpg)]
+La pregunta que nos hacemos (1) depende del campo de aplicación, y aquí todavía no aparece la Estadística (a menos que sea una investigación sobre los propios métodos estadísticos). Durante la investigación de base (2), realizamos **análisis exploratorio de datos** e identificamos **relaciones**. Posiblemente, esta primera investigación nos hace cambiar la pregunta del primer paso. Plantear una hipótesis (3) significa formalizarla en términos de Hipóteis nula, $H_0$, e hipótesis alternativa, $H_1$, que se comprobarán con los **datos** empíricamente. El planteamiento de la hipótesis determina
+el **método estadístico** a utilizar, y el diseño
+del experimento (en sentido amplio). Para comprobar la hipótesis con experimentos (4) es fundamental un diseño adecuado para que los
+resultados sean válidos, así como la 
+correcta **organización de los datos** recogidos según los
+protocolos establecidos. Estos protocolos incluyen conceptos estadísticos como **aleatorización** y bloqueo, entre otros. Analizar resultados (5a) no se puede hacer sino con técnicas estadísticas, y estos resultados deben contarle al experto la historia con suficiente evidencia para extraer conclusiones (5b). Intervienen aquí el análisis exploratorio, los contrastes de hipótesis y la validación de los modelos. Por último, podemos aprovechar las herramientas estadísticas modernas para comunicar resultados (6), por ejemplo mediante **Informes reproducibles** RMarkdown, Gráficos efectivos y resultados clave. Los resultados negativos (cuando no conseguimos demostrar lo que buscábamos en la hipótesis) es un aspecto a considerar también, para utilizar como lecciones aprendidas y conocimiento general.
+
+### Investigación reproducible
+
+Los informes reproducibles mencionados en el párrafo anterior hacen referencia al enfoque de **Investigación reproducible** en el cual se puedan reproducir los resultados, bien los mismos investigadores en otro momento, o terceras partes interesadas para verificar la validez de los resultados. Para esto es necesario utilizar software estadístico basado en _scripts_ en los que se pueda consultar toda la lógica del análisis (frente a software de "ventanas" donde se pierde la trazabilidad). Este código se puede mezclar con la propia narrativa del informe (antecedentes, interpretación, conclusiones, etc.) de forma que, dados los mismos datos, se obtenga el mismo informe. Incluso, dados otros datos, se podría replicar el estudio de forma instantánea. El enfoque "copy-paste" alternativo, en el que vamos añadiendo a un informe los resultados en un momento dado, son fuente de inconsistencias, errores, desactualización y falta de reproducibilidad, y en los que cualquier cambio requiere mucho esfuerzo.
+
+## Estadística, Calidad y Sostenibilidad
+
+La es una herramienta fundamental en muchos procedimientos
+relacionados con la Calidad, y es por eso que se habla de 
+Control Estadístico de la Calidad.
 
 
-## 2. Investigación de base
+### Calidad y variabilidad
 
-* Análisis exploratorio de datos
-
-* Identificar relaciones
-
-* Posiblemente, cambiar la pregunta del primer paso
-
-
-## 3. Plantear una hipótesis
-
-* Formalizarla en términos de Hipóteis nula, $H_0$, e hipótesis alternativa, $H_1$
-
-* El planteamiento de la hipótesis determina
-el método estadístico a utilizar, y el diseño
-del experimento (en sentido amplio)
-
-
-## 4. Comprobar la hipótesis con experimentos
-
-* El diseño adecuado es fundamental para que los
-resultados sean válidos
-
-* Correcta organización de datos recogidos,
-protocolos establecidos
-
-* Aleatorización, bloqueo, etc.
-
-
-## 5. Analizar resultados y extraer conclusiones
-
-* Análisis exploratorio
-
-* Contrastes de hipótesis
-
-* Validación de los modelos
-
-
-## 6. Comunicar resultados
-
-* Informes reproducibles (RMarkdown)
-
-* Gráficos efectivos
-
-* Resultados clave
-
-* Resultados negativos
-
-
-## 3. Estadística, Calidad y Sostenibilidad
-
-## Control Estadístico de la Calidad
-
-.center.huge[La .red[Estadística] es una herramienta fundamental en muchos procedimientos
-relacionados con la Calidad.
-]
-
-
-## Calidad y variabilidad
+Todos tenemos nuestra percepción de la calidad. Pero veamos primero la definición estandarizad de calidad que tenemos en la norma ISO 9001.
 
 > **Calidad:** Grado en el que un conjunto de .red[características] inherentes de un objeto
 > cumple con los .red[requisitos]
 >
 > ISO 9001:2015 3.6.2
 
-Los requisitos son .red[**especificaciones**] de la característica, que pueden ser bilaterales o unilaterales.
+Los requisitos son **especificaciones** de la característica, que pueden ser bilaterales o unilaterales.
 
+En la figura \@ref(fig:histos) vemos dos distribuciones de datos del tipo que vamos a
+ver en el libro^[Los gráficos son **histogramas**, que también describiremos después.]. Los dos conjuntos de datos correspondientes a la medición
+de la variable peso tienen **la misma media**: 10 g.
+Sin embargo, la de la izquierda tiene una **desviación típica** (medida de la variabilidad) igual a
+0.6 g, menor que la de la derecha que es 1 g. Si las líneas rojas son nuestros
+**límites de especificación**, podemos ver cómo en el proceso de la derecha algunos de los
+elementos de nuestro proceso no satisfacen los requisitos. En este ejemplo se ve
+claramente cómo reducir la variabilidad mejora la calidad ¡sin hacer nada
+más! (ni nada menos). 
 
-background-image: url(images/histos-1.png)
+<div class="figure">
+<img src="images/histos-1.png" alt="Procesos con la misma media y distinta variabilidad" width="672" />
+<p class="caption">(\#fig:histos)Procesos con la misma media y distinta variabilidad</p>
+</div>
 
-## La media y la variabilidad
-
---
-
-Misma media, distinta capacidad de proceso
-
-???
-
-
-background-image: url(images/taguchi-1.png)
-
-## Función de pérdida de Taguchi
-
---
+En general,
+las CTQs (_Critical to Quality_ características críticas para la calidad) tendrán un valor objetivo (_target_, $T$), o valor nominal, que es el ideal.
+Ante la imposibilidad de tener procesos exactos, se fijan unos límites de especificación
+o límites de tolerancia dentro de los cuales el producto o servicio es conforme,
+mientras que es no conforme cuando el valor de la CTQ está fuera de dichos límites.
+Se utilizan los símbolos $L$ y $U$ para designar los límites de control
+inferior y superior respectivamente.
 
 > La Calidad se mide como la pérdida total que un producto causa a la sociedad
 >
 > Genichi Taguchi
 
+Debemos considerar que la falta de calidad no
+produce pérdidas sólo cuando el producto no cumple con las especificaciones, sino que,
+a medida que nos alejamos del valor objetivo, esa pérdida aumenta, y además no lo
+hace de manera lineal, es decir, proporcional, sino que es mayor cuanto más nos
+alejamos del objetivo. Es lo que se conoce como la **función de pérdida de Taguchi**
+(_Taguchi's Loss Function_).
+Taguchi consideraba la calidad como la consecución de un objetivo de
+calidad, no como una tolerancia, y la falta de calidad como una pérdida
+para la sociedad. El producto _perfecto_ no produce pérdidas (_loss_), mientras que
+cualquier desviación del objetivo produce una pérdida para la sociedad, que aumenta
+a medida que esa desviación es mayor [@taguchi2007]. La figura \@ref(fig:taguchi)
+representa este coste para la sociedad (línea azul discontinua), que se produce
+siempre que no se consigue el objetivo, frente al coste _contable_ (línea punteada gris),
+que solo se produce con las no conformidades. El análisis de la función de 
+pérdida es una herramienta muy útil en proyectos de mejora, véase @cano2012sixsigma. 
 
- 
-
-background-image: url(images/spc.png)
-
-## SPC: _Statistical Process Control_
-
-.pull-left[
-* Gráficos decontrol
-
-* Análisis de la capacidad del proceso
-
-* Combinados con otras técnicas estadísticas
-]
+<div class="figure" style="text-align: center">
+<img src="01-intro_files/figure-html/taguchi-1.png" alt="Función de pérdida de Taguchi" width="70%" />
+<p class="caption">(\#fig:taguchi)Función de pérdida de Taguchi</p>
+</div>
 
 
-background-image: url(images/qcpass.png)
+### Métodos estadísticos para la calidad
 
-## Inspección por muestreo
+Existen métodos estadísticos específicos para el control y 
+mejora de la calidad. Las dos principales herramientas del 
+Control Estadístico de Procesos (SPC, _Statistical Process Control_)
+son los **gráficos de control** y el **análisis de la capacidad del proceso**.
+La figura \@ref(fig:spc) muestra un ejemplo de ambas. El gráfico de control de la parte superior sirve para monitorizar las muestras (subgrupos de los que se calcula un estadístico) con el objetivo de detectar el cambio con respecto a su situación de control estadístico. Así, los límites son "la voz del proceso". La parte inferior representa "la voz de cliente", comparando las especificaciones con la variabilidad del proceso, y calculando los índices de capacidad que son la medida real de calidad a largo plazo (frente a la mera contabilización de las unidades defectuosas y su cuantificación monetaria). Estas técnicas se combinan con otras tanto exploratorias como de inferencia para controlar y mejorar la calidad.
 
-* AKA Muestreos de aceptación
+Otra técnica de calidad en la que la Estadística juega un papel fundamental es la **inspección por muestreo**, también conocida como muestreos de aceptación. La aceptación de unidades o lotes de producto, se puede hacer con inspección completa, comprobando si los productos están dentro de los límites de especificación. Esto a veces es muy caro o directamente imposible, por lo que se recurre al muestreo. El análisis se puede hacer por atributos (variables cualitativas y por variables (variables cuantitativas). La base de esto métodos reside en la probabilidad de aceptar/rechazar un lote defectuoso/correcto, desde el punto de vista del consumidor/productor. Existen una gran variedad de planes de muestreo específicos, como planes simples, planes dobles y múltiples o planes secuenciales. Muchos están descritos en las normas clásicas MIL-STD, que evolucionaron a las series de normas ISO 2859 e ISO 3951.
 
-* Aceptación: dentro de los límites de especificación
-* Por atributos y por variables
-* La base: probabilidad de aceptar/rechazar un lote defectuoso/correcto
+En los llamados ensayos inter-laboratorios también se aplican técnicas estadísticas como el análisis del sistema de medición (MSA, _Measurement Systems Analysis_), estudios de precisión y exactitud, estudios R&R (_Reproducibility & Repeatibility_), o validación de laboratorios. En la mayoría de los casos lo que se utiliza es Diseño y Análisis de Experimentos.
 
-* Muestreos por lotes
-* Planes simples
-* Planes dobles y múltiples
-* Planes secuenciales
-* MIL-STD -> ISO 2859
 
-background-image: url(images/micro.jpg)
-## Ensayos inter-laboratorios
+### Metodologías y estándares
 
-* Análisis del sistema de medición (MSA, _Measurement Systems Analysis_)
+Las normas sobre métodos estadísticos que elabora ISO emanan del comité ISO TC69, del que hay un subcomité "espejo" en UNE (entidad acreditada de normalización en España), el subcomité UNE CT66/SC3. La propia ISO 9000 
+hace mención a los métodos estadísticos, y existe un informe técnico, UNE-ISO TR 1017 sobre "Orientación sobre las técnicas estadísticas para la Norma ISO 9001:2020". Algunas universidades disponen del catálogo de normas UNE en sus bases de datos para el acceso de docentes y estudiantes.
 
-* Estudios de precisión y exactitud
-
-* Estudios R&R (_Reproducibility & Repeatibility_)
-
-* Validación de laboratorios
-
-* Se utiliza Diseño y Análisis de Experimentos
-
-.footnote2[Imagen de [Konstantin Kolosov](https://pixabay.com/es/users/kkolosov-2105326/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2030265) en Pixabay]
-
-class: large
-
-## Metodologías y estándares
-
-* ISO TC69 + UNE CT66/SC3
-
-* Metodología Seis Sigma y el ciclo DMAIC
-
-* Lean Six Sigma
-
-* ISO 9000 + UNE-ISO TR 1017 (Orientación sobre las técnicas estadísticas para la Norma ISO 9001:2020)
-
-.idea[![](images/idea.png) En la biblioteca de la URJC tenéis disponible la coleccción de normas UNE]
+La metodología Seis Sigma y el ciclo DMAIC aplican el método científico a la mejora de la calidad, utilizando el lenguaje de las empresas. Lean Six Sigma es una evolución en la que se añade a Seis Sigma los principios de _Lean Manufacturing_.
 
 ## Objetivos de Desarrollo Sostenible (ODS)
-
-* Iniciativa de la ONU: _Sustainable Development Goals_ (SDG)
-* 17 objetivos
-* 169 metas
 
 > El 25 de septiembre de 2015, los líderes mundiales adoptaron un conjunto de .red[**objetivos globales**] para erradicar la pobreza, proteger el planeta y asegurar la prosperidad para todos como parte de una nueva agenda de desarrollo sostenible. Cada objetivo tiene .red[**metas específicas**] que deben alcanzarse en los próximos 15 años.
 >
 > [Naciones Unidas](https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/)
 
-background-image: url(./images/ods.jpg)
+### Los 17 ODS
 
-## ODS
+Esta iniciativa de la ONU (_Sustainable Development Goals_, SDG) plantea 17 objetivos generales, que se detallan en 169 metas concretas. Estos objetivos van más allá del medio ambiente, que probablemente es lo primero que nos viene a la cabeza^[(https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/]. Los 17 objetivos son los siguientes, y se esquematizan en la figura \@ref(fig:ods). 
 
-.footnote2[Fuente: un.org]
+1. **Fin de la pobreza** - Poner fin a la pobreza en todas sus formas en todo el mundo
+2. **Hambre cero**- Poner fin al hambre, lograr la seguridad alimentaria y la mejora de la nutrición y promover la agricultura sostenible
+3. **Salud y bienestar**- Garantizar una vida sana y promover el bienestar para todos en todas las edades
+4. **Educación de calidad**- Garantizar una educación inclusiva, equitativa y de calidad y promover oportunidades de aprendizaje durante toda la vida para todos
+5. **Igualdad de género**- Lograr la igualdad entre los géneros y empoderar a todas las mujeres y las niñas
+6. *Agua limpia y saneamiento**- Garantizar la disponibilidad de agua y su gestión sostenible y el saneamiento para todos
+7. **Energía asequible y no contaminante**- Garantizar el acceso a una energía asequible, segura, sostenible y moderna para todos
+8. **Trabajo decente y crecimiento económico**- Promover el crecimiento económico sostenido, inclusivo y sostenible, el empleo pleno y productivo y el trabajo decente para todos
+9. **Industria, innovación e infraestructura**- Construir infraestructuras resilientes, promover la industrialización inclusiva y sostenible y fomentar la innovación
+10. **Reducción de las desigualdades**- Reducir la desigualdad en y entre los países
+11. **Ciudades y comunidades sostenibles**- Lograr que las ciudades y los asentamientos humanos sean inclusivos, seguros, resilientes y sostenibles
+12. **Producción y consumo responsables**- Garantizar modalidades de consumo y producción sostenibles
+13. **Acción por el clima**- Adoptar medidas urgentes para combatir el cambio climático y sus efectos
+14. **Vida submarina**- Conservar y utilizar en forma sostenible los océanos, los mares y los recursos marinos para el desarrollo sostenible
+15. **Vida de ecosistemas terrestres**- Proteger, restablecer y promover el uso sostenible de los ecosistemas terrestres, gestionar sosteniblemente los bosques, luchar contra la desertificación, detener e invertir la degradación de las tierras y detener la pérdida de biodiversidad
+16. **Paz, justicia e instituciones sólidas**- Promover sociedades, justas, pacíficas e inclusivas para el desarrollo sostenible, proporcionar a todas las personas acceso a la justicia y desarrollar instituciones eficaces, responsables e inclusivas en todos los niveles
+17. **Alianzas para lograr objetivos**- Fortalecer los medios de ejecución y revitalizar la Alianza Mundial para el Desarrollo Sostenible
+
+<div class="figure">
+<img src="images/ods.jpg" alt="Objetivos de Desarrollo Sostenible. Fuente: un.org" width="100%" />
+<p class="caption">(\#fig:ods)Objetivos de Desarrollo Sostenible. Fuente: un.org</p>
+</div>
 
 
-## Bioestadística y sostenibilidad
+### Estadística y sostenibilidad
 
-* Analizar datos relacionados con los ODS (Investigar)
+La Estadística, y su aplicación en la Ciencia y la Ingeniería, puede hacerse presente en los ODS. Algunos ejemplos serían los siguientes:
 
-* Ser sostenible en los análisis
+* Al realizar investigación sobre algún aspecto de los ODS, irremediablemente utilizaremos la Estadística. Nos podemos proponer nuestras propias líneas de investigación y desarrollo tecnológico desde el punto de vista de uno o varios ODS
+
+* Tener presentes los ODS para ser sostenible en los propios análisis. Por ejemplo reduciendo el uso de papel o energía, pero también utilizando lenguaje inclusivo o teniendo en cuenta a minorías.
 
 * Relacionar con ODS e intentar contribuir sea cual sea el objetivo de la 
 investigación
 
-* ¿Cómo puede contribuir este trabajo/estudio/investigación/...  
+* Siempre podemos hacernos la pregunta: ¿Cómo puede contribuir este trabajo/estudio/investigación/...  
 a conseguir los Objetivos de Desarrollo Sostenible?
+
+
+
+
+
+
+
 
 
 
