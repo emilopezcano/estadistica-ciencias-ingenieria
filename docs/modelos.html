@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Capítulo 7 Modelos de distribución de probabilidad | Estadística Aplicada a las Ciencias y la Ingeniería</title>
 <meta name="author" content="Emilio L. Cano">
-<meta name="description" content="En preparación. Introducción Modelos discretos Modelos continuos Modelos multivariantes*">
+<meta name="description" content="7.1 Introducción En el capítulo 5 vimos que una variable aleatoria unidimensional se puede modelizar por cualquier función de distribución de probabilidad que cumpla los requisitos básicos de la...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Capítulo 7 Modelos de distribución de probabilidad | Estadística Aplicada a las Ciencias y la Ingeniería">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/modelos.html">
 <meta property="og:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
-<meta property="og:description" content="En preparación. Introducción Modelos discretos Modelos continuos Modelos multivariantes*">
+<meta property="og:description" content="7.1 Introducción En el capítulo 5 vimos que una variable aleatoria unidimensional se puede modelizar por cualquier función de distribución de probabilidad que cumpla los requisitos básicos de la...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Capítulo 7 Modelos de distribución de probabilidad | Estadística Aplicada a las Ciencias y la Ingeniería">
-<meta name="twitter:description" content="En preparación. Introducción Modelos discretos Modelos continuos Modelos multivariantes*">
+<meta name="twitter:description" content="7.1 Introducción En el capítulo 5 vimos que una variable aleatoria unidimensional se puede modelizar por cualquier función de distribución de probabilidad que cumpla los requisitos básicos de la...">
 <meta name="twitter:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -82,13 +82,1215 @@
 <h1>
 <span class="header-section-number">Capítulo 7</span> Modelos de distribución de probabilidad<a class="anchor" aria-label="anchor" href="#modelos"><i class="fas fa-link"></i></a>
 </h1>
-<p>En preparación.</p>
-<p>Introducción</p>
-<p>Modelos discretos</p>
-<p>Modelos continuos</p>
-<p>Modelos multivariantes*</p>
+<div id="introducción" class="section level2" number="7.1">
+<h2>
+<span class="header-section-number">7.1</span> Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n"><i class="fas fa-link"></i></a>
+</h2>
+<p>En el capítulo <a href="vauni.html#vauni">5</a> vimos que una variable aleatoria unidimensional se puede modelizar por cualquier función de distribución de probabilidad que cumpla los requisitos básicos de la probabilidad así, tenemos infinitas funciones de probabilidad para variables aleatorias discretas, o de densidad para variables aleatorias continuas. Sin embargo, la mayoría de los fenómenos de interés estudiados mediante la probabilidad se ajustan a un reducido conjunto de modelos de distribución de probabilidad o familias de distribuciones para los que se han determinado sus características principales, facilitando así el trabajo con variables aleatorias. En este capítulo revisaremos los más importantes para variables aleatorias discretas.</p>
+<p>El primer paso para identificar el modelo de distribución de probabilidad más adecuado, es describir claramente la variable aleatoria <span class="math inline">\(X\)</span>, y de ahí deducir cuál es el modelo adecuado. Para cada modelo, se conoce su función de probabilidad o de densidad que contiene un número muy reducido de <strong>parámetros</strong>. A partir de esta función de probabilidad o de densidad, se deducen sus características, por ejemplo la media y la varianza, que quedan expresadas en función de dichos parámetros. Una vez
+identificado el modelo de distribución de probabilidad, hay que establecer los parámetros concretos que
+caracterizan la variable aleatoria concreta de interés. En este libro se asumen como
+conocidos (o deducibles fácilmente de la descripción del problema), aunque
+en aplicaciones reales se deberán estimar a partir de muestras representativas de
+la población con técnicas de inferencia estadística, que no se tratan en este texto. Una vez
+determinados los parámetros, podemos calcular fácilmente las características de la variable
+aleatoria con las fórmulas dadas, así como realizar cálculo de probabilidades utilizando
+todo lo aprendido hasta ahora.</p>
+<p>Para indicar que una variable aleatoria <span class="math inline">\(X\)</span> sigue una determinada distribución de probabilidad, utilizamos
+la siguiente notación:</p>
+<p><span class="math display">\[X \sim \mathcal{D}\mathit{istr}(\boldsymbol{\theta}),\]</span></p>
+<p>donde <span class="math inline">\(\mathcal{D}\mathit{istr}\)</span> identifica el modelo de distribución de probabilidad, y <span class="math inline">\(\boldsymbol{\theta}\)</span> es el vector
+de parámetros con los que queda totalmente definida la distribución de probabilidad de la variable
+aleatoria <span class="math inline">\(X\)</span> según ese modelo de distribución. Tanto para los modelos de distribución de probababilidad discretos
+de este capítulo, como en los continuos del siguiente, se proporciona
+la función de probabilidad o de densidad de los mismos, así como la esperanza y la varianza que se
+deduce de las mismas (aunque no se incluye dicha deducción). El resto
+de características de cada modelo se puede obtener igualmente a partir de su distribución de probabilidad.
+Tampoco se incluyen las demostraciones de que, obviamente, las funciones de densidad y de probabilidad
+de cada distribución cumplen las propiedades para ser una Ley de probabilidad.</p>
+</div>
+<div id="modelosdisc" class="section level2" number="7.2">
+<h2>
+<span class="header-section-number">7.2</span> Modelos de distribución de probabilidad discretos<a class="anchor" aria-label="anchor" href="#modelosdisc"><i class="fas fa-link"></i></a>
+</h2>
+<div id="distribución-de-bernoulli" class="section level3" number="7.2.1">
+<h3>
+<span class="header-section-number">7.2.1</span> Distribución de Bernoulli<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-de-bernoulli"><i class="fas fa-link"></i></a>
+</h3>
+<p>Las distribuciones de probabilidad discretas se basan de una forma u otra en procesos de Bernoulli.
+Un proceso de Bernoulli consiste en realizar un experimento que tiene dos resultados posibles.
+A uno le llamamos éxito y al otro le llamamos fracaso, y conocemos la probabilidad
+del suceso <em>éxito</em>, a la que llamamos <span class="math inline">\(p\)</span>.</p>
+<p>Dado un proceso de Bernoulli aislado, podemos definir la variable
+aleatoria <span class="math inline">\(X\)</span> que toma el valor 1 si el experimento es un éxito, y
+0 si el experimento es un fracaso.</p>
+<p><span class="math display">\[X=
+\begin{cases}
+1 &amp; \text{ si éxito con probabilidad } p\\
+0 &amp; \text{ si fracaso}
+\end{cases}\]</span>
+Entonces las probabilidades para los dos posibles valores de la variable serán:</p>
+<p><span class="math display">\[P[X=1]=p;\quad P[X=0]=1-p,\]</span></p>
+<p>y diremos que <span class="math inline">\(X\)</span> sigue una distribución de Bernoulli de parámetro <span class="math inline">\(p\)</span>:</p>
+<p><span class="math display">\[X \sim \mathit{Ber}(p);\; 0&lt;p&lt;1.\]</span></p>
+<p>Algunas veces se utiliza la notación <span class="math inline">\(q=1-p\)</span>. Una expresión general para la <strong>función de probabilidad</strong> es la siguiente:</p>
+<p><span class="math display">\[P[X = x] = p^x (1-p)^{(1-x)};\; x =0, 1.\]</span></p>
+<p>Las características de posición y dispersión de esta variable aleatoria se deducen fácilmente:</p>
+<ul>
+<li><p>Media: <span class="math inline">\(\mu=E[X] = p\)</span>.</p></li>
+<li><p>Varianza: <span class="math inline">\(\sigma^2=\mathit{V}[X] = p \cdot (1-p)\)</span>.</p></li>
+</ul>
+<p>La distribución de Bernoulli aparece en los procesos de clasificación de
+observaciones (individuos, empresas, etc.) en una de dos categorías.</p>
+
+<div class="rmdejemplo">
+<p>En el ejemplo de los potenciales usuarios de nuestro servicio,
+dedujimos en el capítulo <a href="introp.html#introp">4</a> que la probabilidad
+de que un cliente tomado al azar contrate el servicio era <span class="math inline">\(0.25\)</span>.
+Entonces la variable aleatoria:</p>
+<p><span class="math display">\[X: \begin{cases}0\quad \text{ el cliente no contrata}\\1\quad \text{ el cliente contrata}\end{cases}\]</span></p>
+<p>sigue una distribución de probabilidad de Bernoulli de parámetro <span class="math inline">\(p=0.25\)</span>,
+su media es <span class="math inline">\(\mu=0.25\)</span>, su varianza <span class="math inline">\(\sigma^2=0.1875\)</span> y su función de
+probabilidad:</p>
+<p><span class="math display">\[P[X=x]=0.25^x\times 0.75^{1-x}\]</span></p>
+</div>
+<p>El interés de la distribución de Bernoulli también está en las distribuciones
+de probabilidad derivadas de ella cuando repetimos el proceso bajo
+distintas condiciones. En los siguientes apartados veremos algunas
+de estas distribuciones que se extienden a partir de la de Bernoulli.</p>
+</div>
+<div id="distribución-binomial" class="section level3" number="7.2.2">
+<h3>
+<span class="header-section-number">7.2.2</span> Distribución binomial<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-binomial"><i class="fas fa-link"></i></a>
+</h3>
+<p>Partiendo de un proceso de Bernoulli, consideremos la repetición del experimento
+<span class="math inline">\(n\)</span> veces, y que el resultado de cada experimento es <strong>independiente</strong> de los
+demás. Entonces, la variable aleatoria <span class="math inline">\(X\)</span>: <em>Número de éxitos en <span class="math inline">\(n\)</span> pruebas <strong>independientes</strong> de Bernoulli con probabilidad de éxito <span class="math inline">\(p\)</span> cada una de ellas</em> sigue una distribución de probabilidad binomial de parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span>:</p>
+<p><span class="math display">\[X \sim \mathit{Bin}(n;\;p);\; n&gt; 0,\;0&lt;p&lt;1. \]</span></p>
+<p>Nótese que la distribución de Bernoulli es un caso particular de la binomial cuando <span class="math inline">\(n=1\)</span>.</p>
+<p><span class="math display">\[\mathit{Ber}(p) = \mathit{Bin}(1;\;p).\]</span></p>
+<p>A su vez, la
+distribución binomial es la suma de <span class="math inline">\(n\)</span> variables aleatorias independientes de
+Bernoulli:</p>
+<p><span class="math display">\[ \implies \mathit{Bin}(n;\;p) = \sum\limits_{i=1}^n X_i :\; X_i \sim \mathit{Ber}(p)\; \forall\, i,\]</span></p>
+<p>de donde llegamos a la siguiente expresión de la función de probabilidad:</p>
+<p><span class="math display">\[\boxed{P[X = x] = \binom{n}{x}\cdot p^x \cdot (1-p)^{(n-x)};\; x = 0, 1, \ldots, n},\]</span></p>
+<p>donde:</p>
+<p><span class="math display">\[\binom{n}{x}=\frac{n!}{x!(n-x)!},\]</span></p>
+<p>conocido como número combinatorio o coeficiente binomial. En el apéndice
+<a href="repaso.html#combinatoria">C.2</a> se encuentran algunas propiedades de este coeficiente, que
+se puede calcular fácilmente en las calculadoras científicas con la tecla <code>nCr</code>.</p>
+<p>Nótese que en la fórmula de la función de probabilidad de la distribución binomial aparecen
+muchos conceptos de probabilidad aprendidos hasta ahora. Como son sucesos independientes,
+<span class="math inline">\(p^x\)</span> es la probabilidad de la intersección de <span class="math inline">\(x\)</span> éxitos, y <span class="math inline">\((1-p)^{n-x}\)</span>, la
+probabilidad de la intersección de <span class="math inline">\({n-x}\)</span> fracasos. Entonces <span class="math inline">\(p^x \cdot (1-p)^{(n-x)}\)</span>
+es la probabilidad de una de las ordenaciones posibles. Como el orden de éxitos y fracasos
+nos da igual, la probabilidad que nos interesa es la probabilidad de la unión de todas
+las ordenaciones posibles que, como son sucesos disjuntos, se corresponde con la
+suma de probabilidades. Estas probabilidades son todas iguales, y el número de
+ordenaciones posibles es <span class="math inline">\(\binom{n}{x}\)</span>, por eso multiplicamos.</p>
+<p>La figura <a href="modelos.html#fig:plotbinom">7.1</a> muestra gráficamente la distribución
+de probabilidad para varios valores de <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span>.</p>
+<pre><code>#&gt; 
+#&gt; Attaching package: 'dplyr'
+#&gt; The following objects are masked from 'package:stats':
+#&gt; 
+#&gt;     filter, lag
+#&gt; The following objects are masked from 'package:base':
+#&gt; 
+#&gt;     intersect, setdiff, setequal, union</code></pre>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:plotbinom"></span>
+<img src="07-modelos_files/figure-html/plotbinom-1.png" alt="Representación de la función de probabilidad del modelo binomial" width="70%"><p class="caption">
+Figura 7.1: Representación de la función de probabilidad del modelo binomial
+</p>
+</div>
+<p>Las caracterísiticas principales de la distribución binomial se deducen fácilmente
+aplicando las fórmulas de la esperanza matemática vistas en el
+capítulo <a href="vauni.html#vauni">5</a>, y son:</p>
+<ul>
+<li><p>Media: <span class="math inline">\(\mu=E[X] = n\cdot p.\)</span></p></li>
+<li><p>Varianza: <span class="math inline">\(\sigma^2=\mathit{V}[X] = n\cdot p\cdot (1-p).\)</span></p></li>
+</ul>
+<p>La distribución binomial, además, cumple la propiedad aditiva, es decir,
+la suma de <span class="math inline">\(m\)</span> variables aleatorias binomiales con idéntico parámetro <span class="math inline">\(p\)</span> y, posiblemente,
+distintos parámetros <span class="math inline">\(n_j, \, j=1, \ldots, m\)</span>, es una distribución binomial de
+modo que:</p>
+<p><span class="math display">\[Y=\sum\limits_{j=1}^m {X_j},\, X_j \sim \mathit{Bin}(n_j;\;p) \implies Y \sim \mathit{Bin}\left ( \sum\limits_{j=1}^m n_j;\; p \right ).\]</span>
+Esta propiedad, que iremos viendo en casi todos los modelos, es muy importante
+porque nos permite resolver problemas de probabilidad en los que que se repiten
+las realizaciones de las variables aleatorias, lo que
+nos interesa es el total. No hay que confundir la <strong>suma</strong> de variables
+aleatorias con la <strong>mezcla</strong> de poblaciones en los que hay que
+aplicar los teoremas de la probabilidad total y de Bayes.</p>
+
+<div class="rmdejemplo">
+<p>Supongamos que la probabilidad de que un estudiante acabe un grado en Ciencias
+es de <span class="math inline">\(0.4\)</span>. Tomamos al azar un grupo de 5 estudiantes. ¿Cuál es la probabilidad
+de que ninguno obtenga el grado? ¿Y la probabilidad de que al menos dos lo
+obtengan?</p>
+<p>Si definimos la variable aleatoria <span class="math inline">\(X:\)</span> <em>Número de estudiantes que obtienen el grado de un grupo de 5</em>,
+entonces <span class="math inline">\(X\)</span> sigue la distribución:</p>
+<p><span class="math display">\[X\sim \mathit{Bin}(5;\; 0.4);\; x = 0, 1, 2, 3, 4, 5\]</span></p>
+<p>y por tanto las probabilidades pedidas son, respectivamente:</p>
+<p><span class="math display">\[P[X=0]=\binom{n}{x}\cdot p^x \cdot (1-p)^{(n-x)}=\binom{5}{0}\cdot 0.4^0 \cdot (0.6)^5\simeq0.0776.\]</span></p>
+<span class="math display">\[P[X\geq 2]=1-P[X &lt; 2] = 1-\left [ P[X=0] + P[X=1]\right]=\]</span>
+<span class="math display">\[=1-\left[ 0.0778 + \binom{5}{1}\cdot 0.4^1 \cdot 0.6^4\right] \simeq 0.6630.\]</span>
+</div>
+
+<div class="rmdpractica">
+<p><strong>HOJA DE CÁLCULO</strong></p>
+<p>En las aplicaciones de hoja de cálculo, tenemos funciones que devuelven
+la densidad (probabilidad en modelos discretos) y la probabilidad acumulada
+(función de distribución) de los modelos de distribución de probabilidad más
+utilizados. Puede diferir el nombre de la función entre diferentes programas.
+En Hojas de Cálculo de Google y LibreOffice se obtendrían las probabilidades
+del ejemplo así:</p>
+<p><code>=BINOM.DIST(0;5;0,4;0)</code></p>
+<p><code>=1-BINOM.DIST(1;5;0,4;1)</code></p>
+<p>Mientras que en EXCEL la función se llama <code>DISTR.BINOM.N</code>:</p>
+<p><code>=DISTR.BINOM.N(0;5;0,4;)</code></p>
+<p><code>=1-DISTR.BINOM.N(1;5;0,4;VERDADERO)</code></p>
+<p><strong>R</strong></p>
+En R, para cada modelo de distribución de probabilidad tenemos una función que
+empieza por <code>d</code> y devuelve la “densidad” (probabilidad en el caso de discretas)
+y otra que empieza por <code>p</code> y devuelve la “probabilidad (acumulada),” es decir,
+la función de distribución (o su complementario). Después de la <code>d</code> o la <code>p</code>
+vendrá el nombre (o abreviatura) del modelo de probabilidad, por ejemplo para
+la binomial <code>binom</code>. Entonces la función <code>dbinom</code> devuelve la probabilidad
+para un valor de la variable aleatoria. A las funciones hay que pasarle
+también los parámetros del modelo de distribución. En el caso de la binomial,
+el parámetro <code>p</code> y el parámetro <code>n</code>. A continución se muestran las expresiones
+que calculan las probabiidades del ejemplo. Véase cómo la segunda probabilidad
+se puede calcular de varias formas, utilizando el complementario como en la hoja
+de cálculo, el argumento <code>lower.tail</code> de la función <code>dbinom</code>, o sumando las
+probabilidades para los valores que cumplen la condición.
+</div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">5</span>, prob <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.07776</span>
+<span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">5</span>, prob <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.66304</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">5</span>, prob <span class="op">=</span> <span class="fl">0.4</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.66304</span>
+<span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">5</span>, size <span class="op">=</span> <span class="fl">5</span>, prob <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.66304</span></code></pre></div>
+
+<div class="rmdejemplo">
+<p>Selecciono 10 potenciales sujetos del estudio al azar. ¿Cuál es la probabilidad de que al menos uno responda al tratamiento?</p>
+<p>En términos de variable aleatoria:</p>
+<ul>
+<li>
+<span class="math inline">\(X\)</span>: Número de éxitos en 10 experimentos independientes de Bernoulli con probabilidad de éxito 0.25</li>
+<li><span class="math inline">\(X \sim \mathit{Bin(10;\; 0.25)}\)</span></li>
+<li><span class="math inline">\(P[X \geq 1] = 1- P[X &lt; 1] = 1-P[X=0] \simeq 1- 0.0563 \simeq 0.9437\)</span></li>
+</ul>
+</div>
+
+<div class="rmdpractica">
+<p><strong>HOJA DE CÁLCULO</strong></p>
+<p>[LibreOffice] <code>=1-BINOM.DIST(0;10;0,25;1)</code></p>
+<p>[EXCEL] <code>=1-DISTR.BINOM.N(0;10;0,25;VERDADERO)</code></p>
+<p><strong>R</strong></p>
+La siguiente expresión calcula la probabilidad buscada. El lector puede probar otros caminos
+para llegar a la misma probabilidad, como en el ejemplo anterior.
+</div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.25</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.9436865</span></code></pre></div>
+<p>Hay tres consideraciones muy importantes a la hora de resolver ejercicios en variables
+discretas:</p>
+<ol style="list-style-type: decimal">
+<li><p>Es muy importante tener claro cuáles son los posibles valores de la variable aleatoria,
+y así saber qué probabilidades hay que calcular.</p></li>
+<li><p>Es posible llegar al resultado de varias formas posibles, y hay que pararse a pensar
+cuál será la más rápida, usando las propiedades de la probabilidad (principalmente: probabilidad
+del suceso complementario y probabilidad de la unión de sucesos disjuntos).</p></li>
+<li><p>Al cambiar de una probabilidad a la del suceso contrario, es muy importante tener en
+cuenta si las desigualdades incluyen el símbolo igual.</p></li>
+</ol>
+</div>
+<div id="distribución-de-poisson" class="section level3" number="7.2.3">
+<h3>
+<span class="header-section-number">7.2.3</span> Distribución de Poisson<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-de-poisson"><i class="fas fa-link"></i></a>
+</h3>
+<p>La distribución de Poisson surge inicialmente como distribución límite de la binomial cuando <span class="math inline">\(n\)</span> tiende a infinito y <span class="math inline">\(p\)</span> se mantiene estable. Posteriormente se vio que describe muy bien los procesos donde se cuentan el número de ocurrencias de un evento por unidad (de tiempo, espacio, …). La probabilidad de ocurrencia en un instante concreto es muy baja, pero en un intervalo determinado es muy probable que suceda varias veces. Bajo estas circunstancias, la variable aleatoria:</p>
+<p><span class="math display">\[X: \text{ Número de eventos por unidad}\]</span>
+sigue una distribución de Poisson:</p>
+<p><span class="math display">\[X \sim \mathit{Poiss}(\lambda);\; \lambda &gt;0, \]</span></p>
+<p>donde el único parámetros <span class="math inline">\(\lambda\)</span> es la media y la varianza de la variable aleatoria. Es decir, se producen,
+de media, <span class="math inline">\(\lambda\)</span> eventos por unidad de tiempo, superficie, etc. La
+distribución de Poisson tiene la siguiente función de probabilidad:</p>
+<p><span class="math display">\[\boxed{P[X = x] = \frac{e^{-\lambda}\lambda^x}{x!};\; x = 0, 1, \ldots\ \infty}.\]</span></p>
+
+<div class="rmdcafe">
+El estadístico ruso L. Bortkewicz explicó en 1898 que la distribución de Poisson
+describía muy bien el número de muertes producidas por coces de caballo en las
+guerras prusianas.
+</div>
+<p>La figura <a href="modelos.html#fig:plotbinom">7.1</a> muestra gráficamente la distribución
+de probabilidad para varios valores de <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span>. Se representan valores
+desde <span class="math inline">\(x=0\)</span> hasta <span class="math inline">\(x= \mu + 4\sigma\)</span>. Aunque teóricamente los
+posibles valores son hasta infinito, a partir de ese valor
+la probabilidad es prácticamente cero. Para valores de <span class="math inline">\(\lambda\)</span> grandes,
+esto también sucede en los valores de <span class="math inline">\(x\)</span> bajos.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:plotpois"></span>
+<img src="07-modelos_files/figure-html/plotpois-1.png" alt="Representación de la función de probabilidad del modelo de Poisson" width="70%"><p class="caption">
+Figura 7.2: Representación de la función de probabilidad del modelo de Poisson
+</p>
+</div>
+<p>Las características principales de la distribución de Poisson son las siguientes:</p>
+<ul>
+<li>Media: <span class="math inline">\(\mu=E[X] = \lambda\)</span>.</li>
+<li>Varianza: <span class="math inline">\(\sigma^2=\mathit{V}[X] = \lambda\)</span>.</li>
+</ul>
+<p>Como la binomial, también cumple la propiedad aditiva de modo que, para <span class="math inline">\(m\)</span>
+variables aleatorias independientes de Poisson:</p>
+<p><span class="math display">\[Y=\sum\limits_{j=1}^m {X_j},\; X_j \sim \mathit{Poiss}(\lambda_j) \implies Y \sim \mathit{Poiss}\left ( \sum\limits_{j=1}^m \lambda_j \right ).\]</span></p>
+
+<div class="rmdejemplo">
+<p>En una parada de autobús llegan de media cuatro autobuses cada hora. Cuál es la
+probabilidad de llevar una hora y que no haya pasado ninguno todavía?</p>
+<p>Si <span class="math inline">\(X:\)</span> <em>número de autobuses que pasan en una hora</em>, entonces:</p>
+<p><span class="math display">\[X \sim \mathit{Poiss}(4),\]</span>
+y entonces lo que queremos saber es:</p>
+<span class="math display">\[P[X=0]= \frac{e^{-\lambda}\lambda^x}{x!}=\frac{e^{-4}\cdot 4^0}{0!}\simeq 0.0183.\]</span>
+</div>
+
+<div class="rmdpractica">
+<p><strong>HOJA DE CÁLCULO</strong></p>
+<p>En este caso la función si es la misma en Excel y en las hojas de cálculo libres.</p>
+<p><code>=POISSON.DIST(0;4;0)</code></p>
+<p><strong>R</strong></p>
+La siguiente expresión calcula la probabilidad pedida. Nótese que ahora se
+utiliza <code>pois</code> en el nombre de la función.
+</div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">dpois</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, lambda <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.01831564</span></code></pre></div>
+
+<div class="rmdejemplo">
+<p>La tasa media semanal de visitas de un cliente a la página web de ofertas es igual a 8. Calcular la probabilidad de que un posible cliente acceda menos de 3 veces en una semana. En términos de variable aleatoria, tenemos que:</p>
+<ul>
+<li><p><span class="math inline">\(X\)</span>: Número de visitas por semana a la web de oferta</p></li>
+<li><p><span class="math inline">\(X \sim \mathit{Poiss}(8)\)</span></p></li>
+<li><p><span class="math inline">\(P[X &lt; 3] = P[X \leq 2] = \sum\limits_{x = 0}^2 P[X = x]=P[X=0] + P[X=1]+P[X=2]\)</span>
+<span class="math inline">\(\simeq 0.0003 + 0.0027 + 0.0107=0.0138\)</span></p></li>
+</ul>
+<p>Supongamos que estamos interesados en las visitas que un cliente hace a la página web
+durante cuatro semanas. Y queremos saber la probabilidad de que acceda 30 veces.
+Entonces aplicamos la propiedad aditiva de la distribución de Poisson, y definimos:</p>
+<p><span class="math inline">\(Y: \text{ Número de visitas en cuatro semanas } = X_1 + X_2 + X_3 + X_4,\)</span></p>
+<p>donde</p>
+<p><span class="math inline">\(X_i: \text{ Número de visitas en el día } i, \, i = 1, 2, 3, 4 \sim \mathit{Poiss}(8)\)</span></p>
+<p>Entonces:</p>
+<p><span class="math display">\[Y \sim \mathit{Poiss}(32),\]</span></p>
+<p>y la probabilidad buscada es:</p>
+<p><span class="math display">\[P[Y = 30] = \frac{e^{-32}\cdot 32^{30}}{30!} \simeq 0.0681.\]</span></p>
+</div>
+
+<div class="rmdpractica">
+<p><strong>HOJA DE CÁLCULO</strong></p>
+<p><code>=POISSON.DIST(2;8;1)</code></p>
+<p><code>=POISSON.DIST(30;32;0)</code></p>
+<p><strong>R</strong></p>
+Las siguientes expresiones obtienen las probabilidades pedidas a través de la función
+de distribución y de probabilidad.
+</div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">ppois</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">2</span>, lambda <span class="op">=</span> <span class="fl">8</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.01375397</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">dpois</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">30</span>, lambda <span class="op">=</span> <span class="fl">32</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.06814215</span></code></pre></div>
+<p>La distribución de Poisson se puede utilizar como aproximación de la distribución
+binomial bajo ciertas condiciones. En la práctica, para <span class="math inline">\(n\geq 100\)</span> y <span class="math inline">\(p \leq 0.05\)</span>,
+se puede utilizar la aproximación:</p>
+<p><span class="math display">\[X\sim \mathit{Bin}(n;\;p) \leadsto \mathit{Poiss}(\lambda=np),\]</span>
+siempre y cuando <span class="math inline">\(np\)</span> tenga sentido como parámetro <span class="math inline">\(\lambda\)</span>, es decir, no excesivamente grande
+ni excesivamente pequeño. La figura <a href="modelos.html#fig:plotaprox1">7.3</a> muestra la función
+de distribución de una variable aleatoria binomial con parámetros <span class="math inline">\(n = 100, \, p = 0.05\)</span>
+y su aproximación por una Poisson de parámetro <span class="math inline">\(\lambda = 5\)</span>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:plotaprox1"></span>
+<img src="07-modelos_files/figure-html/plotaprox1-1.png" alt="Aproximación a binomial por la Poisson" width="70%"><p class="caption">
+Figura 7.3: Aproximación a binomial por la Poisson
+</p>
+</div>
+
+<div class="rmdejemplo">
+<p>Supongamos que tenemos en la página web del estudio un formulario de contacto, y
+que sabemos por históricos que el 1% de los sujetos
+de nuestro servicio que entran al formulario, terminan enviando una reclamación.</p>
+<p>Tomamos al azar 100 potenciales usuarios. ¿Cuál es la probabilidad de que
+menos de 3 hayan puesto una reclamación?</p>
+<p>La variable aleatoria con la que podemos modelizar este problema es:</p>
+<p><span class="math inline">\(X: \text{ Número de clientes de una muestra de 100 que pone una reclamación},\)</span></p>
+<p>que sigue una distribución binomial de parámetros <span class="math inline">\(n=100\)</span>, <span class="math inline">\(p = 0.01\)</span>. Como
+se dan los requisitos, podemos hacer la aproximación a la distribución de
+Poisson, y entonces:</p>
+<p><span class="math display">\[X \leadsto \mathit{Poiss}(\lambda=1),\]</span></p>
+<p>y la probabilidad pedida la podemos aproximar como:</p>
+<span class="math display">\[P[X &lt; 3] = \sum_{x=0}^2 \frac{e^{-1}1^x}{x!}\simeq 0.9199.\]</span>
+</div>
+
+<div class="rmdpractica">
+<p><strong>R</strong></p>
+Utilizando software, podemos hacer los cálculos exactos. Vemos
+que, en este caso concreto, nos estaremos equivocanto en el tercer decimal.
+</div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">100</span>, <span class="fl">0.01</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.9206268</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">ppois</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.9196986</span></code></pre></div>
+</div>
+<div id="distribución-binomial-negativa" class="section level3" number="7.2.4">
+<h3>
+<span class="header-section-number">7.2.4</span> Distribución binomial negativa<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-binomial-negativa"><i class="fas fa-link"></i></a>
+</h3>
+<p>La distribución binomial negativa describe procesos en los que realizamos
+sucesivos experimentos independientes de Bernoulli, con probabilidad de éxito <span class="math inline">\(p\)</span>.
+Pero no sabemos cuántos vamos a realizar, porque lo que nos interesa es
+el número de fracasos <span class="math inline">\(x\)</span> hasta que se
+produzcan <span class="math inline">\(c\)</span> éxitos. También se puede expresar como el número total de
+pruebas necesarias <span class="math inline">\(x+c\)</span> hasta obtener <span class="math inline">\(c\)</span> éxitos. Así, definimos la variable aleatoria:</p>
+<p><span class="math display">\[X: \text {Número de fracasos hasta  } c \text{ éxitos }\]</span></p>
+<p>que sigue el modelo de distribución de probabilidad binomial negativa con parámetros
+<span class="math inline">\(c\)</span> y <span class="math inline">\(p\)</span>:</p>
+<p><span class="math display">\[X \sim \mathit{BN}(c;\; p); \; c&gt;0;\; 0&lt;p&lt;1.\]</span></p>
+<p>Nótese que <span class="math inline">\(X\)</span> puede tomar, teóricamente, cualquier valor mayor o igual que <span class="math inline">\(0\)</span> (no tiene límite). Su función de probabilidad es:</p>
+<p><span class="math display">\[\boxed{P[X = x] =\binom{x+c-1}{x}\cdot p^c \cdot (1-p)^{x};\; x = 0, 1, 2, \ldots, \infty },\]</span></p>
+<p>donde:</p>
+<p><span class="math display">\[\binom{x+c-1}{x}=\frac{(c+x-1)!}{x!(c-1)!}.\]</span></p>
+<p>Si nos fijamos detenidamente en la función de probabilidad, podemos hacer
+el mismo análisis que en la binomial, multiplicando las probabilidades
+de cada experimento independiente de Bernoulli para una ordenación posible,
+y sumando las probabilidades
+de cada ordenación. La diferencia está en que el último experimento es
+siempre un éxito (habremos llegado al éxito número <span class="math inline">\(c\)</span>, y paramos).
+Si se da <span class="math inline">\(X=x\)</span>, entonces habremos realizado un total de <span class="math inline">\(x+c\)</span> pruebas de Bernoulli.</p>
+<p>El término <em>negativa</em> viene de la siguiente forma alternativa de escribir su función de probabilidad:</p>
+<p><span class="math display">\[P[X = x] =  \binom{-c}{x}\cdot p^c \cdot (1-p)^{x}.\]</span></p>
+<p>La figura <a href="modelos.html#fig:plotnbinom">7.4</a> muestra gráficamente la distribución
+de probabilidad para varios valores de <span class="math inline">\(c\)</span> y <span class="math inline">\(p\)</span>. Se representan valores
+desde <span class="math inline">\(x=0\)</span> hasta <span class="math inline">\(x= 20\)</span>. Aunque teóricamente los
+posibles valores son hasta infinito, a partir de cierto valor
+(dependiendo de los parámetros)
+la probabilidad es prácticamente cero. Para valores de <span class="math inline">\(p\)</span> pequeños,
+esto también sucede en los valores de <span class="math inline">\(x\)</span> bajos.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:plotnbinom"></span>
+<img src="07-modelos_files/figure-html/plotnbinom-1.png" alt="Representación de la función de probabilidad del modelo binomial negativo" width="70%"><p class="caption">
+Figura 7.4: Representación de la función de probabilidad del modelo binomial negativo
+</p>
+</div>
+<p>La media y la varianza de una variable aleatoria que sigue un modelo binomial negativo son:</p>
+<ul>
+<li>Media: <span class="math inline">\(\mu=E[X] = \frac{c\cdot (1-p)}{p}\)</span>.</li>
+<li>Varianza: <span class="math inline">\(\sigma^2=\mathit{V}[X] = \frac{c\cdot (1-p)}{p^2}\)</span>.</li>
+</ul>
+<p>Se cumple la propiedad aditiva de forma similar a como lo hacía en la distribución binomial.
+Es decir, la suma de <span class="math inline">\(m\)</span> variables aleatorias binomiales negativas con el mismo parámetro <span class="math inline">\(p\)</span>
+y parámetros <span class="math inline">\(c_j\)</span> que pueden ser diferentes, es una variable aleatoria que sigue también
+una distribución binomial negativa con el mismo parámetro <span class="math inline">\(p\)</span>:</p>
+<p><span class="math display">\[Y=\sum\limits_{j=1}^m {X_j},\; X_j \sim \mathit{BN}(c_j;\; p) \implies Y \sim \mathit{BN}\left ( \sum\limits_{j=1}^m c_j;\; p \right ).\]</span></p>
+
+<div class="rmdejemplo">
+<p>Dos equipos de balonmano A y B se disputan la final de liga al mejor de
+7 partidos. El factor campo no influye y el equipo A tiene una probabilidad
+de ganar un partido de <span class="math inline">\(0.6\)</span>. ¿Cuál es la probabilidad de que el equipo A gane
+la liga en 5 partidos?</p>
+<p>Para plantear el problema en términos de variable aleatoria, tenemos que pensar
+a qué llamamos éxito y a qué llamamos fracaso, definir la variable aleatoria, y decidir
+cuál es el valor del que queremos calcular la probabilidad. Como la pregunta se
+plantea para el equipo A, que tiene una probabilidad de ganar un partido de <span class="math inline">\(0.6\)</span>,
+cada partido es un experimento independiente de Bernoulli con probabilidad de
+éxito <span class="math inline">\(p=0.6\)</span>, que vamos realizando
+uno tras otro. Si la liga se disputa al mejor de 7, quiere decir que la ganará
+el primero que gane 4. Por tanto, repetiremos el experimento de Bernoulli que hemos
+definido hasta tener 4 éxitos (<span class="math inline">\(c=4\)</span>). Como el suceso que nos interesa
+es que el equipo A gane la partida en <span class="math inline">\(x+c=5\)</span> partidos, esto significará que habrá
+perdido <span class="math inline">\(5-4=1\)</span> partido (un fracaso). Si definimos la variable aleatoria</p>
+<p><span class="math inline">\(X:\)</span> Número de partidos que pierde A antes de
+ganar el cuarto,</p>
+<p>entonces</p>
+<p><span class="math inline">\(X\sim \mathit{BN}(c=4;\;p=0.6),\)</span></p>
+<p>y por tanto buscamos la
+probabilidad de que pierda solo uno es la probabilidad de que la variable aleatoria
+sea igual a uno:</p>
+<span class="math display">\[P[X=1]=\binom{4}{1}\cdot 0.6^4 \cdot (0.4)^{1}\simeq 0.2074.\]</span>
+</div>
+
+<div class="rmdpractica">
+<p><strong>HOJA DE CÁLCULO</strong></p>
+<p>En hojas de cálculo de Google hay que quitar el último argumento de la
+fórmula.</p>
+<p><code>=NEGBINOM.DIST(1;4;0,6;0)</code></p>
+<p><strong>R</strong></p>
+<p>La siguiente expresión obtiene la probabilidad pedida.</p>
+</div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">dnbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">4</span>, prob <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.20736</span></code></pre></div>
+
+<div class="rmdejemplo">
+<p>En nuestro ejemplo ilustrativo, se seleccionan sujetos al azar y de forma independiente. ¿Cuál es la probabilidad de que se necesiten más de 10 extracciones para que haya 4 mujeres?</p>
+<p>El experimento de Bernoulli consiste en observar si un sujeto es mujer (éxito)
+u hombre (fracaso). Y se repite hasta qu hayamos observado <span class="math inline">\(c=4\)</span> mujeres. Entonces</p>
+<ul>
+<li><p><span class="math inline">\(X\)</span>: Número de fracasos en pruebas independientes de Bernoulli con probabilidad de éxito 1/2 hasta el cuarto éxito</p></li>
+<li><p><span class="math inline">\(X \sim \mathit{BN(4;\; 1/2)}\)</span></p></li>
+</ul>
+<p>Nótese que aquí se está planteando la pregunta en términos de número total de
+experimentos, es decir, <span class="math inline">\(x+c &gt; 10\)</span>, y entonces buscamos <span class="math inline">\(x &gt; 10-4\)</span>:</p>
+<p><span class="math display">\[P[X &gt; 6] = 1- P[X \leq 6]= 1- \sum\limits_{x=0}^6 P[X=x] = \]</span>
+<span class="math display">\[ =1-(0.0625 + 0.125 + 0.1563 + 0.1562 + 0.1367 + 0.1094 + 0.082) =0.1719\]</span></p>
+</div>
+
+<div class="rmdpractica">
+<p><strong>HOJA DE CÁLCULO</strong></p>
+<p><code>=1-NEGBINOM.DIST(6;4;0,5;1)</code></p>
+<p>En hojas de cálculo de Google no está el argumento para calcular acumulado,
+por lo que habría que calcular primero las probabilidades (desde cero hasta 6),
+sumar y restarlo de 1.</p>
+<p><strong>R</strong></p>
+Con la siguiente expresión calculamos la probabilidad a través del complementario de la
+función de distribución.
+</div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">pnbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">6</span>, size <span class="op">=</span> <span class="fl">4</span>, prob <span class="op">=</span> <span class="fl">0.5</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.171875</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">pnbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">6</span>, size <span class="op">=</span> <span class="fl">4</span>, prob <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.171875</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">qnbinom</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.95</span>, size <span class="op">=</span> <span class="fl">4</span>, prob <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span>
+<span class="co">#&gt; [1] 9</span></code></pre></div>
+<p>Un caso particular de la distribución binomial negativa cuando
+<span class="math inline">\(c=1\)</span>, es la <strong>distribución geométrica</strong>. Es decir, nos interesan el número de fracasos hasta obtener el primer éxito y entonces:</p>
+<p><span class="math inline">\(X\)</span>: <em>Número de fracasos hasta obtener el primer éxito en una serie de pruebas independientes de Bernoulli con probabilidad de éxito <span class="math inline">\(p\)</span></em>:</p>
+<p><span class="math display">\[X \sim \mathit{Ge}(p); \; 0&lt;p&lt;1,\]</span>
+cuya función de probabilidad se simplifica bastante, ya que solo hay una ordenación posible de los éxitos y fracasos:</p>
+<p><span class="math display">\[\boxed{P[X = x] = p \cdot (1-p)^{x};\; x = 0, 1, \ldots, \infty }.\]</span></p>
+<p>En la figura <a href="modelos.html#fig:plotnbinom">7.4</a> la primera columna se corresponde con
+distribuciones geométricas. La media y varianza de una distribución geométrica son:</p>
+<ul>
+<li><p>Media: <span class="math inline">\(\mu=E[X] = \frac{1-p}{p}.\)</span></p></li>
+<li><p>Varianza: <span class="math inline">\(\sigma^2=\mathit{V}[X] = \frac{1-p}{p^2}.\)</span></p></li>
+</ul>
+<div class="rmdejemplo">
+<p>Observamos los sujetos que inician sesión en la página web del estudio, y nos
+interesa si es un investigador o no. ¿Cuál es la probabilidad de que se lleguen menos de 5 sujetos
+hasta que llega el primer investigador? ¿Cuál sería el número esperado de no investigadores hasta que llegue
+el primer investigador?</p>
+<p>La probabilidad de éxito es <span class="math inline">\(p=4/52\)</span>, y el suceso que nos interesa se corresponde con <span class="math inline">\(x+1&lt;5\)</span>.
+Entonces:</p>
+<ul>
+<li>
+<span class="math inline">\(X\)</span>: Número de fracasos en pruebas independientes de Bernoulli con probabilidad de éxito 4/52 hasta el primer éxito</li>
+<li><span class="math inline">\(X \sim \mathit{Ge(4/52)}\)</span></li>
+<li><span class="math inline">\(P[X &lt; 4] = P[X \leq 3] \simeq 0.0769 + 0.071 + 0.0655 + 0.0605 \simeq 0.2739\)</span></li>
+</ul>
+<p>A la segunda pregunta damos respuesta calculando la media:</p>
+<p><span class="math display">\[\mu = \frac{1-p}{p}= \frac{1-(4/52)}{4/52}=12,\]</span></p>
+Es decir, en promedio el primer directivo será el número 13 (ya que 12 es el número medio de no directivos)
+</div>
+
+<div class="rmdpractica">
+<p><strong>HOJA DE CÁLCULO</strong></p>
+<p>No hay una fórmula específica para la distribución geométrica, pero podemos usar
+la de la binomial negativa con parámetro <span class="math inline">\(c=1\)</span>.</p>
+<p><code>=NEGBINOM.DIST(3;1;4/52;1)</code></p>
+<p><strong>R</strong></p>
+La siguiente expresión obtiene la probabilidad pedida.
+</div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Geometric.html">pgeom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">3</span>, prob <span class="op">=</span> <span class="fl">4</span><span class="op">/</span><span class="fl">52</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.273975</span></code></pre></div>
+</div>
+<div id="distribución-hipergeométrica" class="section level3" number="7.2.5">
+<h3>
+<span class="header-section-number">7.2.5</span> Distribución hipergeométrica<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-hipergeom%C3%A9trica"><i class="fas fa-link"></i></a>
+</h3>
+<p>La distribución hipergeométrica es el equivalente a la binomial cuando las pruebas de Bernoulli no son independientes. Se asemeja a los problemas de urnas con bolas blancas y negras, o aquellos en los que realizamos muestreos sin reposición. La variable aleatoria
+se define en los siguientes términos: tenemos una conjunto de <span class="math inline">\(N\)</span> elementos (por ejemplo bolas) de los cuales <span class="math inline">\(M\)</span> son de una determinada
+clase <span class="math inline">\(A\)</span> (por ejemplo blancas). Por tanto, <span class="math inline">\(N-M\)</span> no son de la clase <span class="math inline">\(A\)</span> (por ejemplo negras). Extraemos <span class="math inline">\(n\)</span> elementos sin reposición de este conjunto, y lo que nos interesa es el número de elementos de la muestra que cumplen la característica. Entonces podemos definir
+la variable aleatoria:</p>
+<p><span class="math inline">\(X\)</span>: <em>Número de elementos de la clase <span class="math inline">\(A\)</span> obtenidos en un muestreo sin reemplazo de tamaño <span class="math inline">\(n\)</span> de un conjunto con <span class="math inline">\(N\)</span> elementos totales de los que <span class="math inline">\(M\)</span> son de dicha categoría <span class="math inline">\(A\)</span></em>.</p>
+<p>Que sigue una distribución geométrica de parámetros <span class="math inline">\(N\)</span>, <span class="math inline">\(M\)</span> y <span class="math inline">\(n\)</span>.</p>
+<p><span class="math display">\[X \sim \mathit{HG}(N;\; M;\; n);\;N&gt;M;\;N\geq n.\]</span></p>
+<p>La distribución hipergeométrica tiene la siguiente función de probabilidad:</p>
+<p><span class="math display">\[\boxed{P[X = x] = \frac{\binom{N-M}{n-x}\cdot \binom{M}{x}}{\binom{N}{n}};\; \max{(0, n+M-N)} \leq x \leq \min{(M,n)}}.\]</span></p>
+<p>La figura <a href="modelos.html#fig:plotbinom">7.1</a> muestra gráficamente la distribución
+de probabilidad para varios valores de <span class="math inline">\(M\)</span> y <span class="math inline">\(n\)</span> y <span class="math inline">\(N=20\)</span>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:plothiper"></span>
+<img src="07-modelos_files/figure-html/plothiper-1.png" alt="Representación de la función de probabilidad del modelo hipergeométrico" width="70%"><p class="caption">
+Figura 7.5: Representación de la función de probabilidad del modelo hipergeométrico
+</p>
+</div>
+<p>La media y la varianza de la distribución hipergeométrica son las siguientes:</p>
+<ul>
+<li>Media: <span class="math inline">\(\mu=E[X] = M\cdot \frac{n}{N}\)</span>.</li>
+<li>Varianza: <span class="math inline">\(\sigma^2=\mathit{V}[X] = \frac{M\cdot(N-M)\cdot n\cdot (N-n)}{N^2\cdot(N-1)}\)</span>.</li>
+</ul>
+<p>Nótese que la distribución hipergeométrica no asume la independencia de los
+sucesivos experimentos. No obstante, es asintótica a la distribución
+binomial <span class="math inline">\(\mathit{Bin}\left (n;\; p = \frac{M}{N}\right)\)</span> si <span class="math inline">\(p\)</span> se mantiene estable. Se suele
+considerar apropiada la aproximación si <span class="math inline">\(\frac{n}{N}&lt;0.1\)</span>.</p>
+
+<div class="rmdejemplo">
+<p>En una comunidad de vecinos con 50 propietarios, 30 están de acuerdo
+en instalar un ascensor, y el resto no. En el descanso, cinco vecinos (al azar) se
+salen a fumar a la puerta. ¿Cuál es la probabilidad de que de esos cinco solo uno
+esté de acuerdo en instalar el ascensor?</p>
+<p>Definimos la variable aleatoria:</p>
+<p><span class="math inline">\(X\)</span>: <em>Número de vecinos de esos cinco que están de acuerdo en instalar el ascensor</em>. Entonces:</p>
+<p><span class="math display">\[X\sim \mathit{HG}(N=50;\,M=30;\,n=5),\]</span></p>
+<p>y la probabilidad que buscamos es:</p>
+<span class="math display">\[P[X=1]=\frac{\binom{50-30}{5-1}\cdot \binom{30}{1}}{\binom{50}{5}}=\frac{4845\cdot 30}{2118760}\simeq0.0686.\]</span>
+</div>
+
+<div class="rmdpractica">
+<p><strong>HOJA DE CÁLCULO</strong></p>
+<p>[EXCEL] <code>=DISTR.HIPERGEOM.N(1;5;30;50;0)</code></p>
+<p>[LibreOffice] <code>=HYPGEOM.DIST(1;5;30;50;0)</code></p>
+<p>[Hojas de Cálculo de Google] <code>=HYPGEOM.DIST(1;5;30;50)</code></p>
+<p><strong>R</strong></p>
+<p>La parametrización en R es ligeramente distinta, aunque obviamente equivalente,
+a la que hemos usado aquí, que se corresponde con la que aparece
+en la definición 2.48 de la norma ISO 3534-1. Además, utiliza los términos utilizados
+en problemas de urnas, de forma que los argumentos de la función son:</p>
+<ul>
+<li>
+<code>x</code>: El valor (<em>quantile</em>) para el cual hay que calcular la probabilidad.</li>
+<li>
+<code>m</code>: Número de bolas blancas (<em>white balls</em>), que se corresponde con nuestro parámetro <span class="math inline">\(M\)</span>.</li>
+<li>
+<code>n</code>: Número de bolas negras (<em>black balls</em>), que se corresponde con <span class="math inline">\(N-M\)</span> según nuestra parametrización.</li>
+<li>
+<code>k</code>: Número de bolas extraídas, que se corresponde con nuestro parámetro <span class="math inline">\(n\)</span>.</li>
+</ul>
+<p>La siguiente expresión calcula la probabilidad del ejemplo.</p>
+</div>
+
+<div class="rmdejemplo">
+<p>Se asignan 10 premios a potenciales usuarios del servicio, pero no se pueden repetir ganadores. ¿Cuál es la probabilidad de que exactamente un directivo sea premiado?</p>
+<p>Recordemos que teníamos 52 potenciales usuarios, de los cuales 4 eran directivos. Conocemos
+la composición exacta del conjunto, y es un muestreo sin reemplazamiento, por tanto la distribución
+adecuada es la hipergeométrica. Además, no podríamos usar la aproximación de la binomial, ya que
+<span class="math inline">\(10/52 \nleq 0.1\)</span>.</p>
+<p>En términos de variable aleatoria, definimos:</p>
+<p><span class="math inline">\(X\)</span>: <em>Número de directivos en una muestra sin reemplazamiento de tamaño 10 realizada sobre un conjunto de 52 personas de las que 4 son directivos</em>.</p>
+<p>Entonces:</p>
+<ul>
+<li><span class="math inline">\(X \sim \mathit{HG}(N=52;\; M=4;\; n=10)\)</span></li>
+<li><span class="math inline">\(P[X = 1]\simeq 0.4240\)</span></li>
+</ul>
+</div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Hypergeometric.html">dhyper</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span>, m <span class="op">=</span> <span class="fl">4</span>, n <span class="op">=</span> <span class="fl">52</span><span class="op">-</span><span class="fl">4</span>, k <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.4240465</span></code></pre></div>
+</div>
+</div>
+<div id="modelos-de-distribución-de-probabilidad-continuos" class="section level2" number="7.3">
+<h2>
+<span class="header-section-number">7.3</span> Modelos de distribución de probabilidad continuos<a class="anchor" aria-label="anchor" href="#modelos-de-distribuci%C3%B3n-de-probabilidad-continuos"><i class="fas fa-link"></i></a>
+</h2>
+<div id="introducción-1" class="section level3" number="7.3.1">
+<h3>
+<span class="header-section-number">7.3.1</span> Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>En este apartado vamos a revisar algunas distribuciones de probabilidad
+continuas que tienen interés en ciencias e ingeniería. Al igual que en los modelos de
+distribución de probabilidad discretos, un conjunto de parámetros determinan
+completamente la distribución de probabilidad.
+Entonces tendremos la función de densidad, o la función de distribución, o ambas,
+en función de la variable <span class="math inline">\(x\)</span> y también del conjunto de parámetros <span class="math inline">\(\boldsymbol{\theta}\)</span>.
+Entonces, para valores concretos de los parámetros, podremos calcular probabilidades
+o determinar las características de la variable aleatoria en estudio.
+Para algunas distribuciones de probabilidad se han tabulado los valores de la
+función de distribución o su complementario, y tradicionalmente se han utilizado
+estas tablas para resolver problemas de probabilidad. Actualmente se pueden
+realizar los cálculos con el uso de software. Por tanto, seguiremos utilizando
+la notación vista en el apartado <a href="modelos.html#modelosdisc">7.2</a> para indicar
+la distribución de probabilida continua que sigue la variable aleatoria <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[X \sim \mathcal{D}\mathit{istr}(\boldsymbol{\theta}),\]</span></p>
+<p>donde <span class="math inline">\(\mathcal{D}\mathit{istr}\)</span> identifica el modelo de distribución de probabilidad, y <span class="math inline">\(\boldsymbol{\theta}\)</span> es el vector de parámetros. Entonces las expresiones de
+la función de densidad y de distribución contendrán los parámetros: <span class="math inline">\(f(x|\boldsymbol{\theta})\)</span>,
+<span class="math inline">\(F(x|\boldsymbol{\theta})\)</span>.</p>
+<p>En este capítulo veremos con detalle las distribuciones uniforme, exponencial y normal.
+Existen otros modelos de distribución de probabilidad continuos univariantes
+y multivariantes que se referencian al final del capítulo.</p>
+</div>
+<div id="distribución-uniforme" class="section level3" number="7.3.2">
+<h3>
+<span class="header-section-number">7.3.2</span> Distribución uniforme<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-uniforme"><i class="fas fa-link"></i></a>
+</h3>
+<p>La distribución uniforme se caracteriza por tener una densidad constante en un intervalo <span class="math inline">\([a, b]\)</span>.
+Si una variable aleatoria <span class="math inline">\(X\)</span> sigue una distribución uniforme en el intervalo entre <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> lo
+expresamos así:</p>
+<p><span class="math display">\[X \sim \mathit{U}(a;\; b);\; a &lt; b;\; a, b \in \mathbb{R}.\]</span>
+La función de densidad de una variable aleatoria continua que sigue un modelo uniforme tiene
+la siguiente función de densidad:</p>
+<p><span class="math display">\[f(x) = 
+\begin{cases}
+\frac{1}{b-a} &amp; \text{si } a \leq x \leq b\\
+0 &amp; \text{resto}
+\end{cases}\]</span></p>
+<p>y la función de distribución se obtiene fácilmente a partir de esta:</p>
+<p><span class="math display">\[F(x)=\int_a^x \frac{1}{b-a}dt=\left [ \frac{t}{b-a}\right ]_a^x = \frac{x}{b-a}- \frac{a}{b-a}=\frac{x-a}{b-a},\]</span></p>
+<p>quedando en su forma completa como:</p>
+<p><span class="math display">\[F(x) = 
+\begin{cases}
+0 &amp; \text{si } x &lt; a \\
+\frac{x-a}{b-a} &amp; \text{si } a \leq x &lt; b\\
+1 &amp; \text{si } x \geq b
+\end{cases}\]</span></p>
+<p>La media y la varianza de una variable aleatoria uniforme se deducen
+fácilmente a partir de su función de densidad:</p>
+<ul>
+<li>Media: <span class="math inline">\(\mu=E[X] = \frac{a+b}{2}\)</span>.</li>
+<li>Varianza: <span class="math inline">\(\sigma^2=\mathit{V}[X] = \frac{(b-a)^2}{12}.\)</span>
+</li>
+</ul>
+<p>El modelo de distribución uniforme es muy útil para simular probabilidades y variables aleatorias a través
+de la <span class="math inline">\(U(0; 1)\)</span>. También se suele utilizar cuando conocemos el rango de valores pero no tenemos información
+sobre cuáles de esos valores son más probables. La figura <a href="modelos.html#fig:distunif">7.6</a> muestra
+la representación de las funciones de densidad y distribución de una variable
+aleatoria que sigue una distribución continua uniforme.</p>
+<pre><code>#&gt; 
+#&gt; Attaching package: 'gridExtra'
+#&gt; The following object is masked from 'package:dplyr':
+#&gt; 
+#&gt;     combine</code></pre>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:distunif"></span>
+<img src="07-modelos_files/figure-html/distunif-1.png" alt="Representación gráfica de las funciones de densidad y distribución de una variable aleatoria uniforme" width="80%"><p class="caption">
+Figura 7.6: Representación gráfica de las funciones de densidad y distribución de una variable aleatoria uniforme
+</p>
+</div>
+
+<div class="rmdejemplo">
+<p>El volumen anual de ventas de un almacén se distribuye uniformemente entre 380 y 1200 miles de euros.
+¿Cuál es la probabilidad de que las ventas sean superiores a 1000 miles de euros? ¿Cuáles son las ventas esperadas en un año?</p>
+<p>Definimos la variable aleatoria:</p>
+<p><span class="math inline">\(X\)</span>: <em>ventas del almacén un año</em> <span class="math inline">\(X\sim U(380;\,1200)\)</span></p>
+<p>Entonces la función de densidad es:</p>
+<p><span class="math display">\[f(x)=\frac{1}{1200-380},\; 380&lt;x&lt;1200,\]</span></p>
+<p>la probabilidad pedida:</p>
+<p><span class="math display">\[P[X&gt;1000]= \int_{1000}^{1200}\frac{1}{820}dx = \frac{200}{820}\simeq 0.2439.\]</span></p>
+<p>Pero también podemos calcularla más fácilmente utilizando la función de distribución, que conocemos:</p>
+<p><span class="math display">\[P[X&gt;1000]= 1- P[X\leq 1000 ] = 1- F(1000) =\\= 1 - \frac{1000 - 380}{1200-380} \simeq 1 - 0.7561 \simeq 0.2439.\]</span></p>
+<p>y las ventas esperadas son la media de la variable aleatoria:</p>
+<span class="math display">\[\mu=E[X]=\frac{380+1200}{2}=790 \text{ miles de euros}.\]</span>
+La figura <a href="modelos.html#fig:ejunif">7.7</a> representa la función de densidad y la probabilidad pedida como área bajo
+la curva.
+</div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:ejunif"></span>
+<img src="07-modelos_files/figure-html/ejunif-1.png" alt="Ejemplo distribución uniforme" width="70%"><p class="caption">
+Figura 7.7: Ejemplo distribución uniforme
+</p>
+</div>
+
+<div class="rmdpractica">
+<p><strong>HOJA DE CÁLCULO</strong></p>
+<p>No hay funciones específicas para obtener la probabilidad de una variable
+aleatoria uniforme, aunque se puede insertar una fórmula con la función
+de distribución y a partir de ahí calcular probabilidades, por ejemplo, si
+en la celda <code>A1</code> tenemos el valor 1000, en la celda <code>A2</code> el parámetro
+a = 380 y en la celda <code>A3</code> el parámetro b = 1200, entonces
+en otra celda podemos calcular la
+probabilidad del ejemplo como:</p>
+<p><code>= 1 - (A1 - A2)/(A3 - A2)</code></p>
+<p><strong>R</strong></p>
+La función <code>punif</code> devuelve la función de distribución uniforme.
+</div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">punif</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">1000</span>, min <span class="op">=</span> <span class="fl">380</span>, max <span class="op">=</span> <span class="fl">1200</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.2439024</span></code></pre></div>
+
+<div class="rmdejemplo">
+<p>Si la proporción de video visualizado por un sujeto que sigue el mensaje se distribuye de forma uniforme, ¿cuál es la probabilidad de que un visitante de la web del estudio vea más del 90% del vídeo?</p>
+<p>En términos de variable aleatoria:</p>
+<p><span class="math inline">\(X\)</span>: <em>Proporción de video visualizado</em>, <span class="math inline">\(X \sim U(0;\; 1)\)</span>.</p>
+<p>Entonces:</p>
+<p><span class="math display">\[P[X &gt; 0.9]=\int_{0.9}^{1}dx = 0.1.\]</span></p>
+<p>O bien:</p>
+<p><span class="math display">\[P[X &gt; 0.9]=1-F(0.9)=1-\frac{0.9 - 0}{1-0} = 0.1.\]</span></p>
+</div>
+
+<div class="rmdpractica">
+<p><strong>R</strong></p>
+Análogamente al ejemplo anterior:
+</div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">punif</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">0.9</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">1</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.1</span></code></pre></div>
+</div>
+<div id="distribución-exponencial" class="section level3" number="7.3.3">
+<h3>
+<span class="header-section-number">7.3.3</span> Distribución exponencial<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-exponencial"><i class="fas fa-link"></i></a>
+</h3>
+<p>Cuando en un proceso de Poisson observamos el tiempo que transcurre entre un evento y otro, aparece la distribución exponencial. También modeliza bien tiempos de vida, por ejemplo de componentes electrónicos.
+La distribución exponencial solo tiene un parámetro:</p>
+<p><span class="math display">\[X \sim \mathit{Exp}(\beta),\; \beta&gt;0.\]</span></p>
+<p>El parámetro <span class="math inline">\(\beta\)</span> del modelo de distribución exponencial representa, al igual
+que en la distribución de Poisson, la tasa media de eventos por unidad de tiempo. Una variable aleatoria que sigue un modelo de distribución exponencial tiene la siguiente función de densidad:</p>
+<p><span class="math display">\[f(x) = 
+\begin{cases}
+\beta e^{-\beta x} &amp; \text{si } x &gt; 0\\
+0 &amp; \text{si } x\leq 0
+\end{cases}\]</span></p>
+<p>La función de distribución se obtiene fácilmente a partir de la función
+de densidad:</p>
+<p><span class="math display">\[F(x)=\int_{-\infty}^xf(t)dt=1-e^{-\beta x}, \; x &gt; 0.\]</span></p>
+<p>La figura <a href="modelos.html#fig:distexp">7.8</a> muestra
+la representación de las funciones de densidad y distribución de una variable
+aleatoria que sigue una distribución continua exponencial.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:distexp"></span>
+<img src="07-modelos_files/figure-html/distexp-1.png" alt="Representación gráfica de las funciones de densidad y distribución de una variable aleatoria exponencial" width="80%"><p class="caption">
+Figura 7.8: Representación gráfica de las funciones de densidad y distribución de una variable aleatoria exponencial
+</p>
+</div>
+<p>La media y la varianza de una variable aleatoria que sigue el modelo exponencial son:</p>
+<ul>
+<li>Media: <span class="math inline">\(\mu=E[X] = \frac{1}{\beta}\)</span>.</li>
+<li>Varianza: <span class="math inline">\(\mathit{V}[X] = \frac{1}{\beta^2}\)</span>
+</li>
+</ul>
+<p>Se dice que la exponencial es una variable aleatoria <em>sin memoria</em>, en el sentido de
+que el tiempo que haya tardado en ocurrir un evento, es independiente de cuándo
+sucedió el anterior:</p>
+<p><span class="math display">\[(P[X &gt; t_2 + t_1 | X &gt; t_1] = P[X &gt; t_2]).\]</span></p>
+<p>La distribución exponencial es un caso particular de la distribución gamma, que no
+vemos en este texto. La distribución gamma
+modeliza el tiempo transcurrido hasta ocurrir un número determinado de eventos.</p>
+
+<div class="rmdejemplo">
+<p>El tiempo en horas que se tarda en arreglar una máquina sigue una distribución
+exponencial de parámetro <span class="math inline">\(\beta=4\)</span>. ¿Cuál es la probabilidad de que una avería
+tarde más de una hora en ser reparada?</p>
+<p><span class="math display">\[X\sim \mathit{Exp}(4),\]</span></p>
+<p><span class="math display">\[P[X&gt;1]=1-\int_0^14 e^{-4x}dx=1-\left[-e^{-4x}\right]_0^1=1-(-e^{-4}-(-e^0))=e^{-4}\simeq 0.0183.\]</span></p>
+<p>Es más sencillo si lo resolvemos con la función de distribución:</p>
+<p><span class="math display">\[P[X&gt;1]=1-F(1)=1-(1-e^{-4\cdot 1})=\simeq 0.0183.\]</span></p>
+La figura <a href="modelos.html#fig:ejexp">7.9</a> muestra la representaciń gráfica de la función de
+densidad del ejemplo.
+</div>
+
+<div class="rmdpractica">
+<p><strong>HOJA DE CÁLCULO</strong></p>
+<p>[EXCEL] <code>=1-DISTR.EXP.N(1; 4; 1)</code></p>
+<p>[LibreOffice] <code>=1-EXPON.DIST(1;4;1)</code></p>
+<p><strong>R</strong></p>
+La función <code>pexp</code> obtiene la función de distribución del modelo exponencial.
+</div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Exponential.html">pexp</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">1</span>, rate <span class="op">=</span> <span class="fl">4</span>,lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.01831564</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:ejexp"></span>
+<img src="07-modelos_files/figure-html/ejexp-1.png" alt="Representación de la función de densidad del modelo exponencial del ejemplo" width="70%"><p class="caption">
+Figura 7.9: Representación de la función de densidad del modelo exponencial del ejemplo
+</p>
+</div>
+<p>En ocasiones nos interesa calcular la inversa de la función de distribución.
+Es decir, encontrar un valor de la variable aleatoria para el cual
+se cumple alguna condición de probabilidad, como en el siguiente ejemplo.</p>
+
+<div class="rmdejemplo">
+<p>El tiempo que permanece un visitante en la web del estudio sigue una distribución exponencial.
+La tasa media de abandonos es de 2 cada minuto. ¿Cuánto tiempo permanece como máximo el 95% de los usuarios antes de abandonar?</p>
+<p>En términos de variable aleatoria:</p>
+<p><span class="math inline">\(X\)</span>: <em>Tiempo hasta abandonar la web tras hacer clic en el mensaje</em>, <span class="math inline">\(X\sim \mathit{Exp}(2)\)</span>.</p>
+<p>En este caso, lo que nos interesa es obtener el cuantil 0.95, es decir, el valor <span class="math inline">\(x\)</span> de la variable aleatoria para el cual <span class="math inline">\(P[X &gt; x] = 0.05\)</span>, o lo que es lo mismo, <span class="math inline">\(P[X \leq x]=0.95\)</span>. como tenemos la expresión de la
+función de distribución, no hay más que despejar y tenemos:</p>
+<p><span class="math display">\[F(x) = 0.95 \iff 1-e^{-2x}=0.95 \iff x = 1.498 \text{ minutos}.\]</span></p>
+<p>También nos podemos preguntar cuánto tiempo permanece un visitante, en promedio, en la web.
+Entonce calculamos la experanza:</p>
+<p><span class="math display">\[\mu = \frac{1}{\beta} = 0.5\]</span></p>
+</div>
+
+<div class="rmdpractica">
+<p><strong>R</strong></p>
+La función <code>qexp</code> obtiene la inversa de la función de distribución del modelo exponencial.
+</div>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Exponential.html">qexp</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.95</span>, rate <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+<span class="co">#&gt; [1] 1.497866</span></code></pre></div>
+</div>
+<div id="distribución-normal" class="section level3" number="7.3.4">
+<h3>
+<span class="header-section-number">7.3.4</span> Distribución normal<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-normal"><i class="fas fa-link"></i></a>
+</h3>
+<p>Sin duda, la distribución normal (o gaussiana) es el modelo de distribución de probabilidad continuo más importante de todos.
+Gracias al teorema central del límite que veremos en el capítulo <a href="modelos.html#convergencia">7.5</a>, muchas situaciones se aproximan a la distribución normal<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Básicamente implica que la suma de muchas variables aleatorias, tengan la forma que tengan, seguirá una distribución normal. En muchas situaciones, la variable aleatoria será realmente la suma de muchas características y circunstancias, y por eso se distribuyen con el modelo de distribución normal.&lt;/p&gt;"><sup>52</sup></a>. El modelo de distribución
+normal queda determinado por dos parámetros, que son su media <span class="math inline">\(\mu\)</span> y su desviación típica <span class="math inline">\(\sigma\)</span>:</p>
+<p><span class="math display">\[X \sim \mathit{N}(\mu;\; \sigma);\; \mu \in \mathbb{R}, \sigma &gt; 0.\]</span></p>
+<p>La función de densidad de una variable aleatoria que sigue el modelo de distribución normal
+tiene la siguiente función de densidad:</p>
+<p><span class="math display">\[f(x) = 
+\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}},\;-\infty &lt; x &lt; \infty.\]</span></p>
+<p>La figura <a href="modelos.html#fig:dnormal">7.10</a> muestra la función de densidad y la función de distribución
+para unos valores determinados
+de <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(\mu\)</span>. La función de distribución se ha obtenido por métodos numéricos,
+ya que no es posible obtener una expresión analítica de <span class="math inline">\(F(x)\)</span> al no existir una
+primitiva de <span class="math inline">\(f(x)\)</span>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:dnormal"></span>
+<img src="07-modelos_files/figure-html/dnormal-1.png" alt="Representación gráfica de las funciones de densidad y distribución de una variable aleatoria normal" width="80%"><p class="caption">
+Figura 7.10: Representación gráfica de las funciones de densidad y distribución de una variable aleatoria normal
+</p>
+</div>
+<p>La distribución normal es simétrica respecto
+de la media, siendo la mediana y la moda igual a ella. Esta importante propiedad implica que <span class="math inline">\(P[X \leq \mu] = 0.5\)</span>. Cuanto más cerca de la media estén los valores, más probables son, y a medida que nos alejamos de la media, cada vez son más improbables, de hecho como vemos en la figura <a href="modelos.html#fig:dnormal2">7.11</a> entre la media y dos desviaciones típicas tenemos más del 95% de la probabilidad, y la probabilidad de que la variable aleatoria tome valores más allá de tres desviaciones típicas desde la media es de solo 0.0027. La función de densidad presenta puntos de inflexión en <span class="math inline">\(\mu \pm \sigma\)</span>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:dnormal2"></span>
+<img src="07-modelos_files/figure-html/dnormal2-1.png" alt="Función de densidad de la distribución normal" width="70%"><p class="caption">
+Figura 7.11: Función de densidad de la distribución normal
+</p>
+</div>
+<p>El modelo de distribución normal cumple la propiedad aditiva, de modo que si
+tenemos las variables aleatorias:</p>
+<p><span class="math display">\[X_j \sim N(\mu_j; \sigma_j) \; \forall\; j=1, \ldots, n,\]</span></p>
+<p>entonces la variable aleatoria:</p>
+<p><span class="math display">\[Y=a+\sum\limits_{j=1}^n b_j X_j,\]</span>
+no siendo todos los <span class="math inline">\(b_j\)</span> nulos, se distribuye también como una distribución normal,
+y por tanto por las propiedadades de la esperanza y la varianza que vimos en el
+capítulo <a href="vauni.html#vauni">5</a>:</p>
+<p><span class="math display">\[Y \sim N\left(a+\sum\limits_{j=1}^n b_j \mu_j; \sqrt{\sum\limits_{j=1}^n b_j^2 \sigma_j^2} \right ).\]</span></p>
+<p>Un caso particular del modelo de distribución normal, es la
+<strong>distribución normal estándar</strong>, cuyos parámetros serán <span class="math inline">\(\mu=0\)</span> y
+<span class="math inline">\(\sigma=1\)</span>, y que vamos a representar en este texto como <span class="math inline">\(Z\)</span><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;En otros textos la encontramos representada por la letra griega &lt;span class="math inline"&gt;\(\phi\)&lt;/span&gt;.&lt;/p&gt;'><sup>53</sup></a>:</p>
+<p><span class="math display">\[Z \sim N(0;1).\]</span>
+La función de densidad en este caso quedaría:</p>
+<p><span class="math display">\[f(x) = 
+\frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}},\;-\infty &lt; x &lt; \infty.\]</span></p>
+<p>Nótese que, al ser la distribución normal simétrica, se cumple que <span class="math inline">\(P[Z \leq 0] = 0.5\)</span>.</p>
+<p>Trabajar con variables aleatorias estandarizadas es conveniente en muchas situaciones.
+En particular, se ha utilizado tradicionalmente para obtener probabilidades
+por medio de tablas estadísticas que contienen probabilidades de la distribución
+normal estandarizada, bien la función de distribución <span class="math inline">\(F(z)=P[Z \leq z]\)</span> o su complementario
+<span class="math inline">\(P[Z&gt;z]\)</span>. A través de estas tablas podemos hacer cálculo de probabilidades para
+cualquier variable aleatoria normal, con cualesquiera <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span>, ya que se cumple,
+según la aditividad y las propiedades de la esperanza y la varianza:</p>
+<p><span class="math display">\[X \sim N(\mu;\; \sigma) \implies Z = \frac{X-\mu}{\sigma} \sim N(0;\;1).\]</span>
+Ya vimos en el capítulo <a href="vauni.html#vauni">5</a> que podemos estandarizar cualquier
+variable aleatoria. Si estandarizamos una distribución
+normal con cualesquiera parámetros <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span>, entonces tendremos
+variables aleatorias <em>estandarizadas</em>.</p>
+<p>A la hora de calcular probabilidades de la distribución normal, nos encontramos
+que la función de densidad no es integrable, es decir, no podemos
+encontrar una primitiva. Entonces, en vez de utilizar integrales se utilizan
+métodos numéricos o tablas como se ha descrito anteriormente.</p>
+<p>El procedimiento para calcular probabilidades
+de variables aleatorias que siguen el modelo de distribución normal es el siguiente:</p>
+<ol style="list-style-type: decimal">
+<li><p>Determinar los parámetros de la distribución <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span> (para el alcance de este capítulo, vendrán dados).</p></li>
+<li><p>Tipificar el/los valores de la variable <span class="math inline">\(X\)</span> para los que se quiere calcular la probabilidad (<span class="math inline">\(X \to Z\)</span>).</p></li>
+<li><p>Utilizando las propiedades de la probabilidad, transformar la expresión de la probabilidad que se quiere calcular en expresiones compatibles con la tabla a utilizar, por ejemplo <span class="math inline">\(P[Z\leq z]\)</span></p></li>
+<li><p>Buscar dentro de la tabla las probabilidades que se necesiten para los valores <span class="math inline">\(z\)</span> y hacer los cálculos.</p></li>
+</ol>
+<p>Para la operación inversa del cálculo de cuantiles a partir de una probabilidad, procedemos de la siguiente forma:</p>
+<ol style="list-style-type: decimal">
+<li><p>Tipificar la variable aleatoria, obteniendo una expresión <span class="math inline">\(z=\frac{x-\mu}{\sigma}\)</span>,
+donde <span class="math inline">\(x\)</span> es el valor que queremos encontrar.</p></li>
+<li><p>Expresar la probabilidad en forma compatible con la tabla a utilizar,
+por ejemplo <span class="math inline">\(P\left [Z\leq\frac{x-\mu}{\sigma}\right ]=p\)</span>.</p></li>
+<li><p>Buscar dentro la tabla la probabilidad deseada <span class="math inline">\(p\)</span>.</p></li>
+<li><p>Encontrar el valor de <span class="math inline">\(z\)</span> que se corresponde con dicha probabilidad, y despejar
+<span class="math inline">\(x\)</span> de la expresión <span class="math inline">\(z=\frac{x-\mu}{\sigma}\)</span>.</p></li>
+</ol>
+<p>En lo que sigue, utilizaremos la tabla de la cola inferior de la distribución
+normal estandarizada, disponible en el apéndice <a href="tablas.html#tablas">B</a>. En esta tabla tenemos, para
+valores de <span class="math inline">\(z&gt;0\)</span>, <span class="math inline">\(P[Z \leq z]\)</span>. Con estos valores, seremos capaces de calcular
+cualquier probabilidad utilizando las siguientes propiedades y
+gracias a la simetría de la distribución. Dados <span class="math inline">\(a &lt; b\)</span> positivos, debemos
+expresar cualquier probabilidad de forma que podamos buscarla en la tabla:</p>
+<ul>
+<li><p>En la tabla tenemos <span class="math inline">\(P[Z \leq b]\)</span> o <span class="math inline">\(P[Z \leq a]\)</span>.</p></li>
+<li><p><span class="math inline">\(P[Z &gt; a] = P[Z \leq -a] = 1- P[Z \leq a]\)</span>.</p></li>
+<li><p><span class="math inline">\(P[Z &gt; -a] = P[Z \leq a]\)</span>.</p></li>
+<li><p><span class="math inline">\(P[-b \leq Z\leq -a]\)</span> = <span class="math inline">\(P[a \leq Z \leq b]= P[Z \leq b] - P[Z \leq a]\)</span>.</p></li>
+<li><p><span class="math inline">\(P[-a \leq Z\leq b]\)</span> = <span class="math inline">\(P[Z \leq b] + P[Z \leq a] - 1\)</span>.</p></li>
+</ul>
+<p>La figura <a href="modelos.html#fig:probnor">7.12</a> resume estos cálculos. Ayudará al lector pensar en la probabilidad en términos de área bajo la curva
+de la función de densidad, teniendo en cuenta que el área total debe ser igual a
+la unidad, y que el área por encima y por debajo de cero es <span class="math inline">\(0.5\)</span>.
+La misma lógica se aplicaría en el caso de utilizar una tabla con la cola superior
+que podamos encontrar en alguna otra bibliografía.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:probnor"></span>
+<img src="07-modelos_files/figure-html/probnor-1.png" alt="Cálculo de probabilidades de la distribución $N(0; 1)$" width="100%"><p class="caption">
+Figura 7.12: Cálculo de probabilidades de la distribución <span class="math inline">\(N(0; 1)\)</span>
+</p>
+</div>
+
+<div class="rmdejemplo">
+<p>En un curso de reciclaje dirigido a teleoperadores las puntuaciones obtenidas en el
+test final se distribuyen siguiendo un modelo normal de media 5 y desviación típica 2.
+Con menos de tres puntos un teleoperador no promociona. ¿Cuál es la probabilidad
+de que un teleoperador no promocione? ¿Cuál es la puntuación mínima que han obtenido el 3% de los
+teleoperadores mejor preparados?</p>
+<p>La variable aleatoria es:</p>
+<p><span class="math inline">\(X:\)</span> <em>Calificación obtenida por el teleoperador</em>, <span class="math inline">\(\sim N(5; 2)\)</span>,</p>
+<p>y lo que buscamos es la probabilidad de obtener menos de tres puntos:</p>
+<p><span class="math display">\[P[X&lt;3]=P\left[\frac{X-5}{2}&lt;\frac{3-5}{2} \right]=P[Z &lt; -1]=1-P[Z\leq 1]=\boxed{0.1587}.\]</span></p>
+<p>A la segunda pregunta contestamos de manera inversa. Tenemos una probabilidad <span class="math inline">\(p=0.03\)</span>, y
+buscamos el valor <span class="math inline">\(x\)</span> de la variable que cumple:</p>
+<p><span class="math display">\[P[X\leq x] = 1- 0.03,\]</span>
+o lo que es lo mismo:</p>
+<p><span class="math display">\[P\left [Z\leq\frac{x-\mu}{\sigma}\right] = 0.97,\]</span></p>
+<p>Buscamos
+esta probabilidad en el interior de la tabla<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A los efectos de este texto, tomaremos el valor más próximo de la tabla. Sería más preciso obtener el valor mediante interpolación lineal, aunque si lo que queremos es precisión, entonces podemos calcular el valor exacto utilizando el ordenador. También se puede hacer una interpolación lineal, que es una aproximación más precisa.&lt;/p&gt;"><sup>54</sup></a>,
+en este caso el valor más próximo redondeando a dos decimales es <span class="math inline">\(0.9699\)</span>, que se corresponde
+con un valor <span class="math inline">\(z=1.88\)</span>. Entonces tenemos:</p>
+<p><span class="math display">\[z=\frac{x-\mu}{\sigma} \iff 1.88=\frac{x-5}{2} \iff x = 1.88\cdot 2 + 5=\boxed{8.76},\]</span></p>
+<p>Es decir,</p>
+<p><span class="math display">\[P[X&gt;8.76]\simeq 0.03.\]</span></p>
+La figura <a href="modelos.html#fig:ejnorp">7.13</a> representa gráficamente los dos cálculos realizados.
+</div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:ejnorp"></span>
+<img src="07-modelos_files/figure-html/ejnorp-1.png" alt="Ejemplo de cálculo de probabilidad y cuantil de la normal" width="672"><p class="caption">
+Figura 7.13: Ejemplo de cálculo de probabilidad y cuantil de la normal
+</p>
+</div>
+
+<div class="rmdpractica">
+<p>Al utilizar software, no es necesario estandarizar. Le pasaremos directamente
+los parámetros de la distribución normal a la función correspondiente.</p>
+<p><strong>HOJA DE CÁLCULO</strong></p>
+<p>[LibreOffice] <code>=NORM.DIST(3;5;2;1)</code></p>
+<p>[EXCEL] <code>=DISTR.NORM.N(3;5;2;1)</code></p>
+<p>Para obtener el cuantil, tenemos que pasar como argumento de probabilidad 1-0.03,
+ya que siempre da la cola inferior.</p>
+<p>[LibreOffice] <code>=NORM.INV(0,97;5;2)</code></p>
+<p>[EXCEL] <code>=INV.NORM(0,97;5;2)</code></p>
+<p><strong>R</strong></p>
+<p>Con la función <code>pnorm</code> calculamos la probabilidad, y con la función <code>qnorm</code>,
+el cuantil.</p>
+</div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">3</span>, mean <span class="op">=</span> <span class="fl">5</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.1586553</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.03</span>, mean <span class="op">=</span> <span class="fl">5</span>, sd <span class="op">=</span> <span class="fl">2</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="co">#&gt; [1] 8.761587</span></code></pre></div>
+
+<div class="rmdejemplo">
+<p>El peso de los paquetes que contienen los pedidos que recibe un laboratorio
+se distribuye según una distribución normal de media <span class="math inline">\(1.8\)</span> y desviación típica <span class="math inline">\(0.5\)</span> kg. ¿Cuál es la
+probabilidad de que un paquete esté entre 1 y 2 kilos?</p>
+<p>Definimos la variable aleatoria:</p>
+<p><span class="math inline">\(X:\)</span> <em>Peso de los paquetes</em>, <span class="math inline">\(X\sim N(1.8, 0.5)\)</span>.</p>
+<p>Entonces:</p>
+<p><span class="math display">\[P[1 \leq X \leq 2] = P \left [\frac{1-1.8}{0.5} \leq \frac{X-\mu}{\sigma} \leq \frac{2-1.8}{0.5} \right ]  = \]</span>
+<span class="math display">\[=P[-1.6 \leq Z \leq 0.4] =P[Z\leq 4]-P[Z\leq -1.6]=\]</span>
+<span class="math display">\[P[Z\leq4]-(1-P[Z\leq 1.6])=0.6554+0.9452-1=\boxed{0.6006}.\]</span></p>
+<p>¿Por debajo de qué peso estarán probablemente
+al menos el 95% de los paquetes?</p>
+<p>Buscamos el valor de <span class="math inline">\(x\)</span> que cumpla:</p>
+<p><span class="math display">\[P[X&lt;x] = 0.95\]</span></p>
+<p>Buscamos
+esta probabilidad en el interior de la tabla, y hay dos valores que nos servirían
+si redondeamos a dos decimales: <span class="math inline">\(0.9495\)</span>, correspondiente a <span class="math inline">\(z=1.64\)</span> y <span class="math inline">\(0.9505\)</span>,
+correspondiente a <span class="math inline">\(z=1.65\)</span>. Vamos a tomar este último para asegurarnos la probabilidad
+de <span class="math inline">\(0.95\)</span><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;si tomáramos 1.64, los valores que están por debajo serían el 94.95%&lt;/p&gt;"><sup>55</sup></a>.
+Solo nos queda igualar este valor a la <span class="math inline">\(x\)</span> estandarizada y depejar:</p>
+<p><span class="math display">\[z=\frac{x-\mu}{\sigma} \iff 1.65=\frac{x-1.8}{0.5} \iff x = 1.65\cdot 0.5 + 1.8=2.625.\]</span></p>
+Entonces, el 95% de los paquetes pesan más de <span class="math inline">\(2.625\)</span> <em>kg</em>.
+</div>
+
+<div class="rmdpractica">
+<p>Resolvemos de forma análoga al ejemplo anterior. Nótese cómo ahora calculamos
+el cuantil exacto para la probabilidad de 0.95. Como las funciones
+nos dan la función de distribución, aplicamos que <span class="math inline">\(P[a \leq x &lt; b] = F(b)- F(a)\)</span>.</p>
+<p><strong>HOJA DE CÁLCULO</strong></p>
+<p>[LibreOffice] <code>=NORM.DIST(2;1,8;0,5;1) - NORM.DIST(1;1,8;0,5;1)</code></p>
+<p>[LibreOffice] <code>=NORM.INV(0,95;1,8;0,5)</code></p>
+<p>[EXCEL] <code>=DISTR.NORM.N(2;1,8;0,5;1) - DISTR.NORM.N(1;1,8;0,5;1)</code></p>
+<p>[EXCEL] <code>=INV.NORM(0,95;1,8;0,5)</code></p>
+<strong>R</strong>
+</div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1.8</span>, <span class="fl">0.5</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1.8</span>, <span class="fl">0.5</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.6006224</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.95</span>, <span class="fl">1.8</span>, <span class="fl">0.5</span><span class="op">)</span>
+<span class="co">#&gt; [1] 2.622427</span></code></pre></div>
+</div>
+<div id="mezcla-de-poblaciones-y-adición-de-variables-aleatorias" class="section level3" number="7.3.5">
+<h3>
+<span class="header-section-number">7.3.5</span> Mezcla de poblaciones y adición de variables aleatorias<a class="anchor" aria-label="anchor" href="#mezcla-de-poblaciones-y-adici%C3%B3n-de-variables-aleatorias"><i class="fas fa-link"></i></a>
+</h3>
+<p>Vamos a ilustrar con un ejemplo más completo la propiedad de la
+<strong>aditividad</strong> de variables aleatorias normales. Es importante no confundir
+la aditividad con la <strong>mezcla</strong> de poblaciones. En ambos casos el
+problema al que nos enfrentamos puede estar referido a una característica que
+se observa en dos grupos, y a veces es difícil distinguir si tenemos que
+resolverlo mediante la probabilidad total y el teorema de Bayes, o mediante
+la suma de variables aleatorias. Para diferenciarlo, debemos entender bien
+el planteamiento del problema. Algunos indicios que nos ayudarán son:</p>
+<ul>
+<li><p>Mezcla de poblaciones: Hay dos o más grupos en los que se observan elementos
+tomados al azar. La característica tiene distinta distribución de probabilidad
+en cada grupo, pero la probabilidad de interés se refiere a las poblaciones
+mezcladas (probabilidad total) o a la probabilidad de pertenecer a uno de los
+grupos, condicionado a que se ha producido algún evento de interés.</p></li>
+<li><p>Suma de variables aleatorias: Hay dos o más variables aleatorias (que se pueden
+referir a grupos distintos, y de ahí la posible confusión con la mezcla de
+poblaciones). Pero lo que nos interesa es estudiar la variable aleatoria que
+resulta de hacer operaciones con esas variables aleatorias (por ejemplo, sumarlas).</p></li>
+</ul>
+<p>En el siguiente ejemplo se plantean preguntas que abordan los dos problemas.</p>
+
+<div class="rmdejemplo">
+<p>Una empresa de comercio minorista tiene tres tiendas (A, B y C) en una determinada
+ciudad. El tiempo que se tarda en atender a un cliente
+se distribuye según una distribución exponencial de media 2 minutos, 4 minutos y
+5 minutos en las tiendas A, B y C respectivamente. La tienda C atiende a tantos
+clientes como A y B juntas (que atienden al mismo número de clientes).
+Si llamamos <span class="math inline">\(T_A\)</span>, <span class="math inline">\(T_B\)</span>, <span class="math inline">\(T_C\)</span>
+a las variables aleatorias “tiempo en ser atendido en la tienda A, B, o C” respectivamente,
+entonces:</p>
+<p><span class="math display">\[T_A \sim \mathit{Exp}(0.5),\]</span>
+<span class="math display">\[T_B \sim \mathit{Exp}(0.25),\]</span>
+<span class="math display">\[T_C \sim \mathit{Exp}(0.2).\]</span></p>
+<p>Se considera que un cliente estará insatisfecho si se tarda más de 8 minutos en
+atenderle.</p>
+<p>Por otra parte, las ventas
+diarias de cada tienda, <span class="math inline">\(V_A\)</span>, <span class="math inline">\(V_B\)</span> y <span class="math inline">\(V_C\)</span>,
+son independientes, y se distribuyen según una
+distribución normal con los siguientes
+parámetros en miles de unidades monetarias (u.m.):</p>
+<p><span class="math display">\[V_A \sim N(\mu = 100; \sigma = 10),\]</span>
+<span class="math display">\[V_B \sim N(\mu = 150; \sigma = 20),\]</span>
+<span class="math display">\[V_C \sim N(\mu = 140; \sigma = 40).\]</span></p>
+<p><strong>Cuestion 1:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>¿Cuál es la probabilidad de que un cliente de la empresa no esté satisfecho con el tiempo de servicio?</li>
+<li>Recibimos una queja de un cliente insatisfecho con el tiempo de servicio. ¿Cuál es la probabilidad de que sea un cliente de la tienda A?</li>
+</ol>
+<p><strong>Cuestión 2:</strong></p>
+<p>Las tiendas A y B son propiedad 100% de la empresa. Pero de la tienda C la empresa
+realmente solo recauda el 50%, ya que el otro 50% es de otro socio.
+Por otra parte, la empresa recibe unos ingresos fijos de 25.000 u.m. diarios
+de una tienda franquiciada en otra ciudad.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>¿Qué distribución de probabilidad siguen las ventas totales de la empresa, teniendo
+en cuenta su participación en las tiendas?</p></li>
+<li><p>¿Cuál es la probabilidad de que un día cualquiera esas ventas totales
+sea de menos de 300.000 u.m.?</p></li>
+</ol>
+<p>Para resolver cada cuestión, tenemos que pensar si estamos anta una mezcla
+de poblaciones, o una suma de variables. Al estar los dos problemas planteados,
+es fácil de ver. Pero si solamente nos estuvieran preguntando por una de las dos
+cosas, pueden surgir dudas.</p>
+<p>La primera cuestión es un típico problema de probabilidad total y
+Teorema de Bayes en el que tenemos una partición del espacio muestral en tres
+tiendas, y conocemos las probabilidades <em>a priori</em>. En cuanto al suceso de
+interés (cliente insatisfecho), conocemos las distribuciones de
+probabilidad de cada tienda, y tendremos
+que calcular las probabilidades condicionadas a cada tienda.</p>
+<p>En la segunda cuestión lo que tenemos es una combinación lineal de variables
+aleatorias, porque las ventas totales serán la suma de las ventas de las tiendas.
+Además, una de las variables estará multiplicada por un coeficiente, y tenemos
+también una constante que sumar.</p>
+<p>Pasemos entonces a resolver cada cuestión.</p>
+<p><strong>Cuestión 1.a)</strong></p>
+<p>Consideremos el suceso <span class="math inline">\(D\)</span>: el cliente está insatisfecho (espera más de 8 minutos).
+Entonces buscamo <span class="math inline">\(P(D)\)</span>. En la definición del problema tenemos las distribuciones
+de probabilidad del tiempo de espera, entonces podemos calcular:</p>
+<p><span class="math display">\[P(D|A) = P[T_A &gt; 8] = 1 - F_{T_A}(8) = 1 - (1 - e^{-0.5\cdot 8}) \simeq 0.0183,\]</span>
+<span class="math display">\[P(D|B) = P[T_B &gt; 8] = 1 - F_{T_B}(8) = 1 - (1 - e^{-0.25\cdot 8}) \simeq 0.1353,\]</span>
+<span class="math display">\[P(D|C) = P[T_C &gt; 8] = 1 - F_{T_C}(8) = 1 - (1 - e^{-0.2\cdot 8}) \simeq 0.2019.\]</span></p>
+<p>Del enunciado también podemos deducir la probabilidad de que un cliente tomado
+al azar sea cliente de cada una de las tiendas. Las únicas proporciones que suman
+1 y cumplen que la tercera es la suma de las otras dos, que son iguales, es la
+siguiente:</p>
+<p><span class="math display">\[P(A) = P(B) = 0.25; \; P(C) = 0.5.\]</span></p>
+<p>Entonces ya tenemos todos los datos para calcular la probabilidad del suceso <span class="math inline">\(D\)</span>:</p>
+<p><span class="math display">\[P(D) = P(D|A)P(A)+P(D|B)P(B)+P(D|C)P(C) =\\
+= 0.0183\cdot 0.25 + 0.1353 \cdot 0.25 + 0.2019 \cdot 0.5 \simeq \boxed{0.1393}.\]</span></p>
+<p><strong>Cuestión 1.b)</strong></p>
+<p>En este caso la probabilidad pedida es <span class="math inline">\(P(A|D)\)</span>, que calculamos con la
+fórmula de Bayes, donde el denominador ya lo hemos calculado:</p>
+<p><span class="math display">\[P(A|D) = \frac{P(D|A)P(A)}{P(d)}= \frac{0.0183\cdot 0.25}{0.1393} \simeq \boxed{0.0329}. \]</span></p>
+<p><strong>Cuestión 2.a)</strong></p>
+<p>Ahora no estamos mezclando poblaciones, sino sumando variables aleatorias. En
+concreto, las ventas totales recaudadas por la empresa será una variable aleatoria
+que resulta de operar con las variables aleatorias <span class="math inline">\(V_A\)</span>, <span class="math inline">\(V_B\)</span> y $V_C):</p>
+<p><span class="math display">\[Y = 25 + V_A + V_B + 0.5\cdot V_C.\]</span></p>
+<p>Por la propiedad aditiva de la distribución normal, al ser variables independientes,
+esta variable sigue una distribución normal de parámetros:</p>
+<p><span class="math display">\[\mu_Y = 25 + 100 + 150 + 0.5\cdot 140= 345,\]</span>
+<span class="math display">\[\sigma_Y = \sqrt{10^2 + 20^2 + 0.5^2\cdot 40^2} = 30,\]</span></p>
+<p>Y por tanto:</p>
+<p><span class="math display">\[\boxed{Y \sim N(345, 30)},\]</span></p>
+<p><strong>Cuestión 2.b)</strong></p>
+<p>Una vez tenemos la distribución de probabilidad, obtenemos
+la probabilidad de la manera habitual:</p>
+<p><span class="math display">\[P[Y &lt; 300] = P \left[ \frac{Y-\mu_Y}{\sigma_Y} &lt; \frac{300 -345}{30}\right] = \\
+P[Z &lt; -1.5] = P[Z &gt; 1.5] \simeq \boxed{0.0668}.\]</span></p>
+</div>
+
+<div class="rmdpractica">
+<p>Las probabilidades de este ejemplo se resuelven de forma análoga
+a los anteriores. Se deja como ejercicio para el lector comprobar
+por sí mismo los resultados ofrecidos a través del programa
+de su elección.</p>
+</div>
+</div>
+</div>
+<div id="otros-modelos-de-distribución-de-probabilidad" class="section level2" number="7.4">
+<h2>
+<span class="header-section-number">7.4</span> Otros modelos de distribución de probabilidad<a class="anchor" aria-label="anchor" href="#otros-modelos-de-distribuci%C3%B3n-de-probabilidad"><i class="fas fa-link"></i></a>
+</h2>
+<p>Los modelos vistos en este capítulo y el anterior
+cubren la mayoría de los problemas cotidianos
+de modelización. Existen otros modelos de distribución que se
+aplican a problemas específicos.
+Para finalizar este capítulo, se proporciona una breve descripción
+de las que aparecen en la norma ISO 3534-1.</p>
+<ul>
+<li><p><strong>Distribución multinomial</strong>. Es el equivalente multivariante a la
+distribución binomial, donde no solamente hay dos resultados posibles
+sino más de dos. Entonces tenemos un vector aleatorio con tantas
+componentes como clases posibles (resultados del experimento). Cada componente
+del vector aleatorio sigue una distribución binomial.</p></li>
+<li><p><strong>Distribución lognormal</strong>. Una variable lognormal, al transformarla
+mediante el logaritmo será una normal.</p></li>
+<li><p><strong>La distribución Gamma</strong>. Ya se ha comentado que es una generalización de la
+distribución exponencial, y modeliza el tiempo hasta <span class="math inline">\(k\)</span> eventos</p></li>
+<li><p><strong>La distribución Beta</strong>. Es muy útil para modelizar proporciones y probabilidades.</p></li>
+<li><p><strong>La distribución de Weibull</strong>. También se utiliza para modelizar tiempos
+de vida, y es muy flexible describir formas muy diferentes de la distribución
+mediante el ajuste de sus parámetros. Es también una distribución de valores
+extremos (tipo III). La norma incluye otras dos distribuciones de valores extremos:
+Tipo I (Gumbel) y Tipo II (Fréchet).</p></li>
+<li><p><strong>La distribución normal multivariante</strong>. Se aplica a vectores aleatorios
+donde todas sus componentes son variables aleatorias normales.</p></li>
+<li><p><strong>La distribución multinomial</strong>. Se aplica a características cualitativas multiclase.</p></li>
+</ul>
+<p>En el apéndice <a href="tablas.html#tablas">B</a> se puede encontrar un resumen de todas
+las distribuciones de probabilidad y sus principales
+características.</p>
+</div>
+<div id="convergencia" class="section level2" number="7.5">
+<h2>
+<span class="header-section-number">7.5</span> Convergencia de variables aleatorias<a class="anchor" aria-label="anchor" href="#convergencia"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="distribuciones-relacionadas-con-la-normal" class="section level2" number="7.6">
+<h2>
+<span class="header-section-number">7.6</span> Distribuciones relacionadas con la normal<a class="anchor" aria-label="anchor" href="#distribuciones-relacionadas-con-la-normal"><i class="fas fa-link"></i></a>
+</h2>
 
 </div>
+</div>
+
 
 
 
@@ -97,7 +1299,31 @@
 <div class="next"><a href="muestreo.html"><span class="header-section-number">8</span> Muestreo y estimación</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="Índice capítulo"><h2>Índice capítulo</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#modelos"><span class="header-section-number">7</span> Modelos de distribución de probabilidad</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#modelos"><span class="header-section-number">7</span> Modelos de distribución de probabilidad</a></li>
+<li><a class="nav-link" href="#introducci%C3%B3n"><span class="header-section-number">7.1</span> Introducción</a></li>
+<li>
+<a class="nav-link" href="#modelosdisc"><span class="header-section-number">7.2</span> Modelos de distribución de probabilidad discretos</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#distribuci%C3%B3n-de-bernoulli"><span class="header-section-number">7.2.1</span> Distribución de Bernoulli</a></li>
+<li><a class="nav-link" href="#distribuci%C3%B3n-binomial"><span class="header-section-number">7.2.2</span> Distribución binomial</a></li>
+<li><a class="nav-link" href="#distribuci%C3%B3n-de-poisson"><span class="header-section-number">7.2.3</span> Distribución de Poisson</a></li>
+<li><a class="nav-link" href="#distribuci%C3%B3n-binomial-negativa"><span class="header-section-number">7.2.4</span> Distribución binomial negativa</a></li>
+<li><a class="nav-link" href="#distribuci%C3%B3n-hipergeom%C3%A9trica"><span class="header-section-number">7.2.5</span> Distribución hipergeométrica</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#modelos-de-distribuci%C3%B3n-de-probabilidad-continuos"><span class="header-section-number">7.3</span> Modelos de distribución de probabilidad continuos</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introducci%C3%B3n-1"><span class="header-section-number">7.3.1</span> Introducción</a></li>
+<li><a class="nav-link" href="#distribuci%C3%B3n-uniforme"><span class="header-section-number">7.3.2</span> Distribución uniforme</a></li>
+<li><a class="nav-link" href="#distribuci%C3%B3n-exponencial"><span class="header-section-number">7.3.3</span> Distribución exponencial</a></li>
+<li><a class="nav-link" href="#distribuci%C3%B3n-normal"><span class="header-section-number">7.3.4</span> Distribución normal</a></li>
+<li><a class="nav-link" href="#mezcla-de-poblaciones-y-adici%C3%B3n-de-variables-aleatorias"><span class="header-section-number">7.3.5</span> Mezcla de poblaciones y adición de variables aleatorias</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#otros-modelos-de-distribuci%C3%B3n-de-probabilidad"><span class="header-section-number">7.4</span> Otros modelos de distribución de probabilidad</a></li>
+<li><a class="nav-link" href="#convergencia"><span class="header-section-number">7.5</span> Convergencia de variables aleatorias</a></li>
+<li><a class="nav-link" href="#distribuciones-relacionadas-con-la-normal"><span class="header-section-number">7.6</span> Distribuciones relacionadas con la normal</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
