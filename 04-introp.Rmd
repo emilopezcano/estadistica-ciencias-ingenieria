@@ -257,7 +257,7 @@ y para ello queremos seleccionar dos de un total de cinco proyectos. El espacio 
 si asumimos que no nos importa el orden en el que se seleccionan y etiquetamos los proyectos
 con los números del 1 al 5, es $\Omega=\{$ (1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (3, 4), (3, 5), (4, 5) $\}$.
 Es decir, el espacio muestral tiene 10 elementos. El mero recuento se puede realizar 
-mediante técnicas de combinatoria, véase al apéndice \@ref(ap:combinatoria).
+mediante técnicas de combinatoria, véase al apéndice \@ref(combinatoria).
 En este caso, $C_{5, 2} = \binom{5}{2} = 10$.
 ```
 
@@ -914,7 +914,7 @@ por eso nos sorprendemos cuando escuchamos un _cumpleaños feliz_ el día de nue
 
 ```{block2, type='rmdpractica'}
 Para obtener los casos favorables, si intentamos utilizar la fórmula de
-las variaciones utilizando los factoriales (ver apéndice \@ref(ap:combinatoria)), 
+las variaciones utilizando los factoriales (ver apéndice \@ref(combinatoria)), 
 la calculadora y el software pueden devolver un error, por no poder calcular
 el factorial de 365.
 

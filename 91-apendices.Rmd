@@ -74,22 +74,22 @@ $\subseteq$                | Incluido o igual
 
 # newm <- xtable(m, digits = 4, align = "|c|cccccccccc|")
 ```
-La siguiente tabla contiene la probabilidad de la cola superior de la distribución normal estándar $Z\sim N(0;1)$, 
-es decir $1-F(z)=P[Z>z].$. 
+La siguiente tabla contiene la probabilidad de la cola inferior de la distribución normal estándar $Z\sim N(0;1)$, 
+es decir $F(z)=P[Z\leq z].$. 
 
 ```{r, echo=FALSE, out.width="70%"}
 curve(dnorm, -4, 4, axes = FALSE, ylab = "f(z)~N(0,1)", xlab = "z")
 axis(1, pos=0)
-cord.x <- seq(1.28, 4, by = 0.01)
+cord.x <- seq(-4, 1.28, by = 0.01)
 cord.y <- dnorm(cord.x)
-polygon(c(cord.x, 4, 1.28), c(cord.y, rep(0, 2)), col='skyblue')
-text(1.2, 0.015, expression(P(Z>z)), pos = 4, cex = 0.8)
+polygon(c(cord.x, 1.28, 4), c(cord.y, rep(0, 2)), col='skyblue')
+text(0.2, 0.015, expression(P(Z<=z)), pos = 4, cex = 0.8)
 ```
 
 ```{r, echo=FALSE, results='asis'}
 options(digits = 4)
 u <- seq(0, 3.99, by = 0.01)
-p <- pnorm(u, lower.tail = FALSE)
+p <- pnorm(u, lower.tail = TRUE)
 m <- matrix(p, ncol = 10, byrow = TRUE)
 dimnames(m) <- list(z = formatC(seq(0, 3.9, by = 0.1), digits = 1, format = "f"),
                     zz =formatC(seq(0, 0.09, by = 0.01), digits = 2, format = "f"))
