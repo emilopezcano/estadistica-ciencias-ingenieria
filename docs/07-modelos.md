@@ -74,7 +74,8 @@ Las características de posición y dispersión de esta variable aleatoria se de
 La distribución de Bernoulli aparece en los procesos de clasificación de 
 observaciones (individuos, empresas, etc.) en una de dos categorías.
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En el ejemplo de los potenciales usuarios de nuestro servicio, 
+\BeginKnitrBlock{rmdejemplo}
+En el ejemplo de los potenciales usuarios de nuestro servicio, 
 dedujimos en el capítulo \@ref(introp) que la probabilidad
 de que un cliente tomado al azar contrate el servicio era $0.25$. 
 Entonces la variable aleatoria:
@@ -86,7 +87,8 @@ su media es $\mu=0.25$, su varianza $\sigma^2=0.1875$ y su función de
 probabilidad:
   
 $$P[X=x]=0.25^x\times 0.75^{1-x}$$
-</div>\EndKnitrBlock{rmdejemplo}
+
+\EndKnitrBlock{rmdejemplo}
 
 
 
@@ -157,10 +159,14 @@ de probabilidad para varios valores de $n$ y $p$.
 #>     intersect, setdiff, setequal, union
 ```
 
-<div class="figure" style="text-align: center">
-<img src="07-modelos_files/figure-html/plotbinom-1.png" alt="Representación de la función de probabilidad del modelo binomial" width="70%" />
-<p class="caption">(\#fig:plotbinom)Representación de la función de probabilidad del modelo binomial</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{07-modelos_files/figure-latex/plotbinom-1} 
+
+}
+
+\caption{Representación de la función de probabilidad del modelo binomial}(\#fig:plotbinom)
+\end{figure}
 
 
 Las caracterísiticas principales de la distribución binomial se deducen fácilmente
@@ -187,7 +193,8 @@ aplicar los teoremas de la probabilidad total y de Bayes.
 
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
+\BeginKnitrBlock{rmdejemplo}
+
 Supongamos que la probabilidad de que un estudiante acabe un grado en Ciencias
 es de $0.4$. Tomamos al azar un grupo de 5 estudiantes. ¿Cuál es la probabilidad
 de que ninguno obtenga el grado? ¿Y la probabilidad de que al menos dos lo
@@ -204,10 +211,12 @@ $$P[X=0]=\binom{n}{x}\cdot p^x \cdot (1-p)^{(n-x)}=\binom{5}{0}\cdot 0.4^0 \cdot
 
 
 $$P[X\geq 2]=1-P[X < 2] = 1-\left [ P[X=0] + P[X=1]\right]=$$
-$$=1-\left[ 0.0778 + \binom{5}{1}\cdot 0.4^1 \cdot 0.6^4\right] \simeq 0.6630.$$</div>\EndKnitrBlock{rmdejemplo}
+$$=1-\left[ 0.0778 + \binom{5}{1}\cdot 0.4^1 \cdot 0.6^4\right] \simeq 0.6630.$$
+\EndKnitrBlock{rmdejemplo}
 
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO**
+\BeginKnitrBlock{rmdpractica}
+**HOJA DE CÁLCULO**
 
 En las aplicaciones de hoja de cálculo, tenemos funciones que devuelven
 la densidad (probabilidad en modelos discretos) y la probabilidad acumulada
@@ -240,7 +249,8 @@ el parámetro `p` y el parámetro `n`. A continución se muestran las expresione
 que calculan las probabiidades del ejemplo. Véase cómo la segunda probabilidad
 se puede calcular de varias formas, utilizando el complementario como en la hoja
 de cálculo, el argumento `lower.tail` de la función `dbinom`, o sumando las
-probabilidades para los valores que cumplen la condición.</div>\EndKnitrBlock{rmdpractica}
+probabilidades para los valores que cumplen la condición.
+\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -258,16 +268,19 @@ sum(dbinom(x = 2:5, size = 5, prob = 0.4))
 
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">Selecciono 10 potenciales sujetos del estudio al azar. ¿Cuál es la probabilidad de que al menos uno responda al tratamiento?
+\BeginKnitrBlock{rmdejemplo}
+Selecciono 10 potenciales sujetos del estudio al azar. ¿Cuál es la probabilidad de que al menos uno responda al tratamiento?
 
 En términos de variable aleatoria:
 
   - $X$: Número de éxitos en 10 experimentos independientes de Bernoulli con probabilidad de éxito 0.25
   - $X \sim \mathit{Bin(10;\; 0.25)}$
   - $P[X \geq 1] = 1- P[X < 1] = 1-P[X=0] \simeq 1- 0.0563 \simeq 0.9437$
-</div>\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO**
+\EndKnitrBlock{rmdejemplo}
+
+\BeginKnitrBlock{rmdpractica}
+**HOJA DE CÁLCULO**
 
 [LibreOffice] `=1-BINOM.DIST(0;10;0,25;1)`
   
@@ -276,7 +289,8 @@ En términos de variable aleatoria:
 **R**
 
 La siguiente expresión calcula la probabilidad buscada. El lector puede probar otros caminos
-para llegar a la misma probabilidad, como en el ejemplo anterior.</div>\EndKnitrBlock{rmdpractica}
+para llegar a la misma probabilidad, como en el ejemplo anterior.
+\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -316,9 +330,11 @@ distribución de Poisson tiene la siguiente función de probabilidad:
 
 $$\boxed{P[X = x] = \frac{e^{-\lambda}\lambda^x}{x!};\; x = 0, 1, \ldots\ \infty}.$$
 
-\BeginKnitrBlock{rmdcafe}<div class="rmdcafe">El estadístico ruso L. Bortkewicz explicó en 1898 que la distribución de Poisson
+\BeginKnitrBlock{rmdcafe}
+El estadístico ruso L. Bortkewicz explicó en 1898 que la distribución de Poisson
 describía muy bien el número de muertes producidas por coces de caballo en las 
-guerras prusianas.</div>\EndKnitrBlock{rmdcafe}
+guerras prusianas.
+\EndKnitrBlock{rmdcafe}
 
 La figura \@ref(fig:plotbinom) muestra gráficamente la distribución
 de probabilidad para varios valores de $n$ y $p$. Se representan valores
@@ -327,10 +343,14 @@ posibles valores son hasta infinito, a partir de ese valor
 la probabilidad es prácticamente cero. Para valores de $\lambda$ grandes,
 esto también sucede en los valores de $x$ bajos.
 
-<div class="figure" style="text-align: center">
-<img src="07-modelos_files/figure-html/plotpois-1.png" alt="Representación de la función de probabilidad del modelo de Poisson" width="70%" />
-<p class="caption">(\#fig:plotpois)Representación de la función de probabilidad del modelo de Poisson</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{07-modelos_files/figure-latex/plotpois-1} 
+
+}
+
+\caption{Representación de la función de probabilidad del modelo de Poisson}(\#fig:plotpois)
+\end{figure}
 
 
 
@@ -349,7 +369,8 @@ $$Y=\sum\limits_{j=1}^m {X_j},\; X_j \sim \mathit{Poiss}(\lambda_j) \implies Y \
 
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
+\BeginKnitrBlock{rmdejemplo}
+
 En una parada de autobús llegan de media cuatro autobuses cada hora. Cuál es la
 probabilidad de llevar una hora y que no haya pasado ninguno todavía?
 
@@ -358,9 +379,11 @@ Si $X:$ _número de autobuses que pasan en una hora_, entonces:
 $$X \sim \mathit{Poiss}(4),$$
 y entonces lo que queremos saber es:
 
-$$P[X=0]= \frac{e^{-\lambda}\lambda^x}{x!}=\frac{e^{-4}\cdot 4^0}{0!}\simeq 0.0183.$$</div>\EndKnitrBlock{rmdejemplo}
+$$P[X=0]= \frac{e^{-\lambda}\lambda^x}{x!}=\frac{e^{-4}\cdot 4^0}{0!}\simeq 0.0183.$$
+\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO**
+\BeginKnitrBlock{rmdpractica}
+**HOJA DE CÁLCULO**
 
 En este caso la función si es la misma en Excel y en las hojas de cálculo libres.
   
@@ -369,7 +392,8 @@ En este caso la función si es la misma en Excel y en las hojas de cálculo libr
 **R**
 
 La siguiente expresión calcula la probabilidad pedida. Nótese que ahora se
-utiliza `pois` en el nombre de la función.</div>\EndKnitrBlock{rmdpractica}
+utiliza `pois` en el nombre de la función.
+\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -378,7 +402,8 @@ dpois(x = 0, lambda = 4)
 ```
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
+\BeginKnitrBlock{rmdejemplo}
+
 La tasa media semanal de visitas de un cliente a la página web de ofertas es igual a 8. Calcular la probabilidad de que un posible cliente acceda menos de 3 veces en una semana. En términos de variable aleatoria, tenemos que:
 
   - $X$: Número de visitas por semana a la web de oferta
@@ -406,9 +431,11 @@ y la probabilidad buscada es:
   
 $$P[Y = 30] = \frac{e^{-32}\cdot 32^{30}}{30!} \simeq 0.0681.$$
   
-</div>\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO**
+\EndKnitrBlock{rmdejemplo}
+
+\BeginKnitrBlock{rmdpractica}
+**HOJA DE CÁLCULO**
 
 `=POISSON.DIST(2;8;1)`
 
@@ -417,7 +444,8 @@ $$P[Y = 30] = \frac{e^{-32}\cdot 32^{30}}{30!} \simeq 0.0681.$$
 **R**
 
 Las siguientes expresiones obtienen las probabilidades pedidas a través de la función
-de distribución y de probabilidad.</div>\EndKnitrBlock{rmdpractica}
+de distribución y de probabilidad.
+\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -439,15 +467,20 @@ ni excesivamente pequeño. La figura \@ref(fig:plotaprox1) muestra la función
 de distribución de una variable aleatoria binomial con parámetros $n = 100, \, p = 0.05$
 y su aproximación por una Poisson de parámetro $\lambda = 5$.
 
-<div class="figure" style="text-align: center">
-<img src="07-modelos_files/figure-html/plotaprox1-1.png" alt="Aproximación a binomial por la Poisson" width="70%" />
-<p class="caption">(\#fig:plotaprox1)Aproximación a binomial por la Poisson</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{07-modelos_files/figure-latex/plotaprox1-1} 
+
+}
+
+\caption{Aproximación a binomial por la Poisson}(\#fig:plotaprox1)
+\end{figure}
 
 
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">Supongamos que tenemos en la página web del estudio un formulario de contacto, y
+\BeginKnitrBlock{rmdejemplo}
+Supongamos que tenemos en la página web del estudio un formulario de contacto, y
 que sabemos por históricos que el 1% de los sujetos
 de nuestro servicio que entran al formulario, terminan enviando una reclamación.
 
@@ -466,12 +499,15 @@ $$X \leadsto \mathit{Poiss}(\lambda=1),$$
   
 y la probabilidad pedida la podemos aproximar como:
   
-$$P[X < 3] = \sum_{x=0}^2 \frac{e^{-1}1^x}{x!}\simeq 0.9199.$$</div>\EndKnitrBlock{rmdejemplo}
+$$P[X < 3] = \sum_{x=0}^2 \frac{e^{-1}1^x}{x!}\simeq 0.9199.$$
+\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**R**
+\BeginKnitrBlock{rmdpractica}
+**R**
 
 Utilizando software, podemos hacer los cálculos exactos. Vemos
-que, en este caso concreto, nos estaremos equivocanto en el tercer decimal.</div>\EndKnitrBlock{rmdpractica}
+que, en este caso concreto, nos estaremos equivocanto en el tercer decimal.
+\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -530,10 +566,14 @@ posibles valores son hasta infinito, a partir de cierto valor
 la probabilidad es prácticamente cero. Para valores de $p$ pequeños,
 esto también sucede en los valores de $x$ bajos.
 
-<div class="figure" style="text-align: center">
-<img src="07-modelos_files/figure-html/plotnbinom-1.png" alt="Representación de la función de probabilidad del modelo binomial negativo" width="70%" />
-<p class="caption">(\#fig:plotnbinom)Representación de la función de probabilidad del modelo binomial negativo</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{07-modelos_files/figure-latex/plotnbinom-1} 
+
+}
+
+\caption{Representación de la función de probabilidad del modelo binomial negativo}(\#fig:plotnbinom)
+\end{figure}
 
 
 
@@ -555,7 +595,8 @@ $$Y=\sum\limits_{j=1}^m {X_j},\; X_j \sim \mathit{BN}(c_j;\; p) \implies Y \sim 
 
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
+\BeginKnitrBlock{rmdejemplo}
+
 Dos equipos de balonmano A y B se disputan la final de liga al mejor de 
 7 partidos. El factor campo no influye y el equipo A tiene una probabilidad
 de ganar un partido de $0.6$. ¿Cuál es la probabilidad de que el equipo A gane
@@ -585,9 +626,11 @@ probabilidad de que pierda solo uno es la probabilidad de que la variable aleato
 sea igual a uno:
 
 $$P[X=1]=\binom{4}{1}\cdot 0.6^4 \cdot (0.4)^{1}\simeq 0.2074.$$
-  </div>\EndKnitrBlock{rmdejemplo}
+  
+\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO**
+\BeginKnitrBlock{rmdpractica}
+**HOJA DE CÁLCULO**
 
 En hojas de cálculo de Google hay que quitar el último argumento de la
 fórmula.
@@ -597,7 +640,8 @@ fórmula.
 **R**
   
 La siguiente expresión obtiene la probabilidad pedida.
-</div>\EndKnitrBlock{rmdpractica}
+
+\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -607,7 +651,8 @@ dnbinom(x = 1, size = 4, prob = 0.6)
 
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En nuestro ejemplo ilustrativo, se seleccionan sujetos al azar y de forma independiente. ¿Cuál es la probabilidad de que se necesiten más de 10 extracciones para que haya 4 mujeres?
+\BeginKnitrBlock{rmdejemplo}
+En nuestro ejemplo ilustrativo, se seleccionan sujetos al azar y de forma independiente. ¿Cuál es la probabilidad de que se necesiten más de 10 extracciones para que haya 4 mujeres?
 
 El experimento de Bernoulli consiste en observar si un sujeto es mujer (éxito)
 u hombre (fracaso). Y se repite hasta qu hayamos observado $c=4$ mujeres. Entonces
@@ -621,9 +666,11 @@ experimentos, es decir, $x+c > 10$, y entonces buscamos $x > 10-4$:
   
 $$P[X > 6] = 1- P[X \leq 6]= 1- \sum\limits_{x=0}^6 P[X=x] = $$ 
 $$ =1-(0.0625 + 0.125 + 0.1563 + 0.1562 + 0.1367 + 0.1094 + 0.082) =0.1719$$
-</div>\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO**
+\EndKnitrBlock{rmdejemplo}
+
+\BeginKnitrBlock{rmdpractica}
+**HOJA DE CÁLCULO**
 
 `=1-NEGBINOM.DIST(6;4;0,5;1)`
 
@@ -634,7 +681,8 @@ sumar y restarlo de 1.
 **R**
 
 Con la siguiente expresión calculamos la probabilidad a través del complementario de la
-función de distribución.</div>\EndKnitrBlock{rmdpractica}
+función de distribución.
+\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -677,7 +725,8 @@ distribuciones geométricas. La media y varianza de una distribución geométric
 
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
+\BeginKnitrBlock{rmdejemplo}
+
 Observamos los sujetos que inician sesión en la página web del estudio, y nos
 interesa si es un investigador o no. ¿Cuál es la probabilidad de que se lleguen menos de 5 sujetos
 hasta que llega el primer investigador? ¿Cuál sería el número esperado de no investigadores hasta que llegue
@@ -695,9 +744,11 @@ A la segunda pregunta damos respuesta calculando la media:
   
 $$\mu = \frac{1-p}{p}= \frac{1-(4/52)}{4/52}=12,$$
   
-Es decir, en promedio el primer directivo será el número 13 (ya que 12 es el número medio de no directivos)</div>\EndKnitrBlock{rmdejemplo}
+Es decir, en promedio el primer directivo será el número 13 (ya que 12 es el número medio de no directivos)
+\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO**
+\BeginKnitrBlock{rmdpractica}
+**HOJA DE CÁLCULO**
 
 No hay una fórmula específica para la distribución geométrica, pero podemos usar 
 la de la binomial negativa con parámetro $c=1$.
@@ -707,7 +758,8 @@ la de la binomial negativa con parámetro $c=1$.
 
 **R**
 
-La siguiente expresión obtiene la probabilidad pedida.</div>\EndKnitrBlock{rmdpractica}
+La siguiente expresión obtiene la probabilidad pedida.
+\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -740,10 +792,14 @@ $$\boxed{P[X = x] = \frac{\binom{N-M}{n-x}\cdot \binom{M}{x}}{\binom{N}{n}};\; \
 La figura \@ref(fig:plotbinom) muestra gráficamente la distribución
 de probabilidad para varios valores de $M$ y $n$ y $N=20$.
 
-<div class="figure" style="text-align: center">
-<img src="07-modelos_files/figure-html/plothiper-1.png" alt="Representación de la función de probabilidad del modelo hipergeométrico" width="70%" />
-<p class="caption">(\#fig:plothiper)Representación de la función de probabilidad del modelo hipergeométrico</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{07-modelos_files/figure-latex/plothiper-1} 
+
+}
+
+\caption{Representación de la función de probabilidad del modelo hipergeométrico}(\#fig:plothiper)
+\end{figure}
 
 
 
@@ -759,7 +815,8 @@ considerar apropiada la aproximación si $\frac{n}{N}<0.1$.
 
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
+\BeginKnitrBlock{rmdejemplo}
+
 
 En una comunidad de vecinos con 50 propietarios, 30 están de acuerdo
 en instalar un ascensor, y el resto no. En el descanso, cinco vecinos (al azar) se
@@ -774,9 +831,11 @@ $$X\sim \mathit{HG}(N=50;\,M=30;\,n=5),$$
 
 y la probabilidad que buscamos es:
 
-$$P[X=1]=\frac{\binom{50-30}{5-1}\cdot \binom{30}{1}}{\binom{50}{5}}=\frac{4845\cdot 30}{2118760}\simeq0.0686.$$</div>\EndKnitrBlock{rmdejemplo}
+$$P[X=1]=\frac{\binom{50-30}{5-1}\cdot \binom{30}{1}}{\binom{50}{5}}=\frac{4845\cdot 30}{2118760}\simeq0.0686.$$
+\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO**
+\BeginKnitrBlock{rmdpractica}
+**HOJA DE CÁLCULO**
 
 [EXCEL] `=DISTR.HIPERGEOM.N(1;5;30;50;0)`
 
@@ -797,14 +856,16 @@ en problemas de urnas, de forma que los argumentos de la función son:
 - `k`: Número de bolas extraídas, que se corresponde con nuestro parámetro $n$.
 
 La siguiente expresión calcula la probabilidad del ejemplo.
-</div>\EndKnitrBlock{rmdpractica}
+
+\EndKnitrBlock{rmdpractica}
 
 
 
 
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
+\BeginKnitrBlock{rmdejemplo}
+
 Se asignan 10 premios a potenciales usuarios del servicio, pero no se pueden repetir ganadores. ¿Cuál es la probabilidad de que exactamente un directivo sea premiado?
   
 Recordemos que teníamos 52 potenciales usuarios, de los cuales 4 eran directivos. Conocemos
@@ -820,7 +881,8 @@ Entonces:
 
   - $X \sim \mathit{HG}(N=52;\; M=4;\; n=10)$
   - $P[X = 1]\simeq 0.4240$
-</div>\EndKnitrBlock{rmdejemplo}
+
+\EndKnitrBlock{rmdejemplo}
 
 
 ```r
@@ -915,17 +977,22 @@ aleatoria que sigue una distribución continua uniforme.
 #>     combine
 ```
 
-<div class="figure" style="text-align: center">
-<img src="07-modelos_files/figure-html/distunif-1.png" alt="Representación gráfica de las funciones de densidad y distribución de una variable aleatoria uniforme" width="80%" />
-<p class="caption">(\#fig:distunif)Representación gráfica de las funciones de densidad y distribución de una variable aleatoria uniforme</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{07-modelos_files/figure-latex/distunif-1} 
+
+}
+
+\caption{Representación gráfica de las funciones de densidad y distribución de una variable aleatoria uniforme}(\#fig:distunif)
+\end{figure}
 
 
 
 
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
+\BeginKnitrBlock{rmdejemplo}
+
 El volumen anual de ventas de un almacén se distribuye uniformemente entre 380 y 1200 miles de euros.
 ¿Cuál es la probabilidad de que las ventas sean superiores a 1000 miles de euros? ¿Cuáles son las ventas esperadas en un año?
 
@@ -949,15 +1016,21 @@ y las ventas esperadas son la media de la variable aleatoria:
 
 $$\mu=E[X]=\frac{380+1200}{2}=790 \text{ miles de euros}.$$
 La figura \@ref(fig:ejunif) representa la función de densidad y la probabilidad pedida como área bajo 
-la curva.</div>\EndKnitrBlock{rmdejemplo}
+la curva.
+\EndKnitrBlock{rmdejemplo}
 
-<div class="figure" style="text-align: center">
-<img src="07-modelos_files/figure-html/ejunif-1.png" alt="Ejemplo distribución uniforme" width="70%" />
-<p class="caption">(\#fig:ejunif)Ejemplo distribución uniforme</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{07-modelos_files/figure-latex/ejunif-1} 
+
+}
+
+\caption{Ejemplo distribución uniforme}(\#fig:ejunif)
+\end{figure}
 
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO**
+\BeginKnitrBlock{rmdpractica}
+**HOJA DE CÁLCULO**
 
 No hay funciones específicas para obtener la probabilidad de una variable
 aleatoria uniforme, aunque se puede insertar una fórmula con la función 
@@ -972,7 +1045,8 @@ probabilidad del ejemplo como:
 
 **R**
 
-La función `punif` devuelve la función de distribución uniforme.</div>\EndKnitrBlock{rmdpractica}
+La función `punif` devuelve la función de distribución uniforme.
+\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -982,7 +1056,8 @@ punif(q = 1000, min = 380, max = 1200, lower.tail = FALSE)
 
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">Si la proporción de video visualizado por un sujeto que sigue el mensaje se distribuye de forma uniforme, ¿cuál es la probabilidad de que un visitante de la web del estudio vea más del 90% del vídeo?
+\BeginKnitrBlock{rmdejemplo}
+Si la proporción de video visualizado por un sujeto que sigue el mensaje se distribuye de forma uniforme, ¿cuál es la probabilidad de que un visitante de la web del estudio vea más del 90% del vídeo?
 
 En términos de variable aleatoria:
   
@@ -996,11 +1071,14 @@ O bien:
 
 $$P[X > 0.9]=1-F(0.9)=1-\frac{0.9 - 0}{1-0} = 0.1.$$
 
-</div>\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**R**
+\EndKnitrBlock{rmdejemplo}
 
-Análogamente al ejemplo anterior:</div>\EndKnitrBlock{rmdpractica}
+\BeginKnitrBlock{rmdpractica}
+**R**
+
+Análogamente al ejemplo anterior:
+\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -1035,10 +1113,14 @@ la representación de las funciones de densidad y distribución de una variable
 aleatoria que sigue una distribución continua exponencial.
 
 
-<div class="figure" style="text-align: center">
-<img src="07-modelos_files/figure-html/distexp-1.png" alt="Representación gráfica de las funciones de densidad y distribución de una variable aleatoria exponencial" width="80%" />
-<p class="caption">(\#fig:distexp)Representación gráfica de las funciones de densidad y distribución de una variable aleatoria exponencial</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{07-modelos_files/figure-latex/distexp-1} 
+
+}
+
+\caption{Representación gráfica de las funciones de densidad y distribución de una variable aleatoria exponencial}(\#fig:distexp)
+\end{figure}
 
 La media y la varianza de una variable aleatoria que sigue el modelo exponencial son:
 
@@ -1059,7 +1141,8 @@ modeliza el tiempo transcurrido hasta ocurrir un número determinado de eventos.
 
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">El tiempo en horas que se tarda en arreglar una máquina sigue una distribución
+\BeginKnitrBlock{rmdejemplo}
+El tiempo en horas que se tarda en arreglar una máquina sigue una distribución
 exponencial de parámetro $\beta=4$. ¿Cuál es la probabilidad de que una avería
 tarde más de una hora en ser reparada?
 
@@ -1072,9 +1155,11 @@ Es más sencillo si lo resolvemos con la función de distribución:
 $$P[X>1]=1-F(1)=1-(1-e^{-4\cdot 1})=\simeq 0.0183.$$
 
 La figura \@ref(fig:ejexp) muestra la representaciń gráfica de la función de 
-densidad del ejemplo.</div>\EndKnitrBlock{rmdejemplo}
+densidad del ejemplo.
+\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO**
+\BeginKnitrBlock{rmdpractica}
+**HOJA DE CÁLCULO**
 
 [EXCEL] `=1-DISTR.EXP.N(1; 4; 1)`
 
@@ -1082,7 +1167,8 @@ densidad del ejemplo.</div>\EndKnitrBlock{rmdejemplo}
 
 **R**
 
-La función `pexp` obtiene la función de distribución del modelo exponencial.</div>\EndKnitrBlock{rmdpractica}
+La función `pexp` obtiene la función de distribución del modelo exponencial.
+\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -1091,10 +1177,14 @@ pexp(q = 1, rate = 4,lower.tail = FALSE)
 ```
 
 
-<div class="figure" style="text-align: center">
-<img src="07-modelos_files/figure-html/ejexp-1.png" alt="Representación de la función de densidad del modelo exponencial del ejemplo" width="70%" />
-<p class="caption">(\#fig:ejexp)Representación de la función de densidad del modelo exponencial del ejemplo</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{07-modelos_files/figure-latex/ejexp-1} 
+
+}
+
+\caption{Representación de la función de densidad del modelo exponencial del ejemplo}(\#fig:ejexp)
+\end{figure}
 
 
 
@@ -1104,7 +1194,8 @@ Es decir, encontrar un valor de la variable aleatoria para el cual
 se cumple alguna condición de probabilidad, como en el siguiente ejemplo.
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
+\BeginKnitrBlock{rmdejemplo}
+
 El tiempo que permanece un visitante en la web del estudio sigue una distribución exponencial. 
 La tasa media de abandonos es de 2 cada minuto. ¿Cuánto tiempo permanece como máximo el 95% de los usuarios antes de abandonar?
 
@@ -1123,12 +1214,15 @@ Entonce calculamos la experanza:
   
 $$\mu = \frac{1}{\beta} = 0.5$$
   
-</div>\EndKnitrBlock{rmdejemplo}
+
+\EndKnitrBlock{rmdejemplo}
 
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**R**
+\BeginKnitrBlock{rmdpractica}
+**R**
 
-La función `qexp` obtiene la inversa de la función de distribución del modelo exponencial.</div>\EndKnitrBlock{rmdpractica}
+La función `qexp` obtiene la inversa de la función de distribución del modelo exponencial.
+\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -1161,20 +1255,28 @@ ya que no es posible obtener una expresión analítica de $F(x)$ al no existir u
 primitiva de $f(x)$.
 
 
-<div class="figure" style="text-align: center">
-<img src="07-modelos_files/figure-html/dnormal-1.png" alt="Representación gráfica de las funciones de densidad y distribución de una variable aleatoria normal" width="80%" />
-<p class="caption">(\#fig:dnormal)Representación gráfica de las funciones de densidad y distribución de una variable aleatoria normal</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{07-modelos_files/figure-latex/dnormal-1} 
+
+}
+
+\caption{Representación gráfica de las funciones de densidad y distribución de una variable aleatoria normal}(\#fig:dnormal)
+\end{figure}
 
 
 La distribución normal es simétrica respecto
 de la media, siendo la mediana y la moda igual a ella. Esta importante propiedad implica que $P[X \leq \mu] = 0.5$. Cuanto más cerca de la media estén los valores, más probables son, y a medida que nos alejamos de la media, cada vez son más improbables, de hecho como vemos en la figura \@ref(fig:dnormal2) entre la media y dos desviaciones típicas tenemos más del 95% de la probabilidad, y la probabilidad de que la variable aleatoria tome valores más allá de tres desviaciones típicas desde la media es de solo 0.0027. La función de densidad presenta puntos de inflexión en $\mu \pm \sigma$.
 
 
-<div class="figure" style="text-align: center">
-<img src="07-modelos_files/figure-html/dnormal2-1.png" alt="Función de densidad de la distribución normal" width="70%" />
-<p class="caption">(\#fig:dnormal2)Función de densidad de la distribución normal</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{07-modelos_files/figure-latex/dnormal2-1} 
+
+}
+
+\caption{Función de densidad de la distribución normal}(\#fig:dnormal2)
+\end{figure}
 
 
 
@@ -1276,14 +1378,74 @@ la unidad, y que el área por encima y por debajo de cero es $0.5$.
 La misma lógica se aplicaría en el caso de utilizar una tabla con la cola superior
 que podamos encontrar en alguna otra bibliografía. 
 
-<div class="figure" style="text-align: center">
-<img src="07-modelos_files/figure-html/probnor-1.png" alt="Cálculo de probabilidades de la distribución $N(0; 1)$" width="100%" />
-<p class="caption">(\#fig:probnor)Cálculo de probabilidades de la distribución $N(0; 1)$</p>
-</div>
+
+```
+#> Warning in mtext(expression("P" * group("[", "-a ≤ Z" <= b,
+#> "]") * "="), : font metrics unknown for Unicode character
+#> U+2264
+#> Warning in mtext(expression("P" * group("[", "-a ≤ Z"
+#> <= b, "]") * "="), : conversion failure on '-a ≤ Z' in
+#> 'mbcsToSbcs': dot substituted for <e2>
+#> Warning in mtext(expression("P" * group("[", "-a ≤ Z"
+#> <= b, "]") * "="), : conversion failure on '-a ≤ Z' in
+#> 'mbcsToSbcs': dot substituted for <89>
+#> Warning in mtext(expression("P" * group("[", "-a ≤ Z"
+#> <= b, "]") * "="), : conversion failure on '-a ≤ Z' in
+#> 'mbcsToSbcs': dot substituted for <a4>
+#> Warning in mtext(expression("P" * group("[", "-a ≤ Z" <= b,
+#> "]") * "="), : font metrics unknown for Unicode character
+#> U+2264
+#> Warning in mtext(expression("P" * group("[", "-a ≤ Z"
+#> <= b, "]") * "="), : conversion failure on '-a ≤ Z' in
+#> 'mbcsToSbcs': dot substituted for <e2>
+#> Warning in mtext(expression("P" * group("[", "-a ≤ Z"
+#> <= b, "]") * "="), : conversion failure on '-a ≤ Z' in
+#> 'mbcsToSbcs': dot substituted for <89>
+#> Warning in mtext(expression("P" * group("[", "-a ≤ Z"
+#> <= b, "]") * "="), : conversion failure on '-a ≤ Z' in
+#> 'mbcsToSbcs': dot substituted for <a4>
+#> Warning in mtext(expression("P" * group("[", "-a ≤ Z"
+#> <= b, "]") * "="), : conversion failure on '-a ≤ Z' in
+#> 'mbcsToSbcs': dot substituted for <e2>
+#> Warning in mtext(expression("P" * group("[", "-a ≤ Z"
+#> <= b, "]") * "="), : conversion failure on '-a ≤ Z' in
+#> 'mbcsToSbcs': dot substituted for <89>
+#> Warning in mtext(expression("P" * group("[", "-a ≤ Z"
+#> <= b, "]") * "="), : conversion failure on '-a ≤ Z' in
+#> 'mbcsToSbcs': dot substituted for <a4>
+#> Warning in mtext("P[Z ≤ b] + P[Z ≤ a] - 1", 1, 3):
+#> conversion failure on 'P[Z ≤ b] + P[Z ≤ a] - 1' in
+#> 'mbcsToSbcs': dot substituted for <e2>
+#> Warning in mtext("P[Z ≤ b] + P[Z ≤ a] - 1", 1, 3):
+#> conversion failure on 'P[Z ≤ b] + P[Z ≤ a] - 1' in
+#> 'mbcsToSbcs': dot substituted for <89>
+#> Warning in mtext("P[Z ≤ b] + P[Z ≤ a] - 1", 1, 3):
+#> conversion failure on 'P[Z ≤ b] + P[Z ≤ a] - 1' in
+#> 'mbcsToSbcs': dot substituted for <a4>
+#> Warning in mtext("P[Z ≤ b] + P[Z ≤ a] - 1", 1, 3):
+#> conversion failure on 'P[Z ≤ b] + P[Z ≤ a] - 1' in
+#> 'mbcsToSbcs': dot substituted for <e2>
+#> Warning in mtext("P[Z ≤ b] + P[Z ≤ a] - 1", 1, 3):
+#> conversion failure on 'P[Z ≤ b] + P[Z ≤ a] - 1' in
+#> 'mbcsToSbcs': dot substituted for <89>
+#> Warning in mtext("P[Z ≤ b] + P[Z ≤ a] - 1", 1, 3):
+#> conversion failure on 'P[Z ≤ b] + P[Z ≤ a] - 1' in
+#> 'mbcsToSbcs': dot substituted for <a4>
+```
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{07-modelos_files/figure-latex/probnor-1} 
+
+}
+
+\caption{Cálculo de probabilidades de la distribución $N(0; 1)$}(\#fig:probnor)
+\end{figure}
 
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
+\BeginKnitrBlock{rmdejemplo}
+
 En un curso de reciclaje dirigido a teleoperadores las puntuaciones obtenidas en el
 test final se distribuyen siguiendo un modelo normal de media 5 y desviación típica 2. 
 Con menos de tres puntos un teleoperador no promociona. ¿Cuál es la probabilidad
@@ -1319,18 +1481,24 @@ Es decir,
 
 $$P[X>8.76]\simeq 0.03.$$
 
-La figura \@ref(fig:ejnorp) representa gráficamente los dos cálculos realizados.</div>\EndKnitrBlock{rmdejemplo}
+La figura \@ref(fig:ejnorp) representa gráficamente los dos cálculos realizados.
+\EndKnitrBlock{rmdejemplo}
 
 
 
 
 
-<div class="figure" style="text-align: center">
-<img src="07-modelos_files/figure-html/ejnorp-1.png" alt="Ejemplo de cálculo de probabilidad y cuantil de la normal" width="672" />
-<p class="caption">(\#fig:ejnorp)Ejemplo de cálculo de probabilidad y cuantil de la normal</p>
-</div>
+\begin{figure}
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">Al utilizar software, no es necesario estandarizar. Le pasaremos directamente
+{\centering \includegraphics{07-modelos_files/figure-latex/ejnorp-1} 
+
+}
+
+\caption{Ejemplo de cálculo de probabilidad y cuantil de la normal}(\#fig:ejnorp)
+\end{figure}
+
+\BeginKnitrBlock{rmdpractica}
+Al utilizar software, no es necesario estandarizar. Le pasaremos directamente
 los parámetros de la distribución normal a la función correspondiente.
 
 **HOJA DE CÁLCULO**
@@ -1351,7 +1519,8 @@ ya que siempre da la cola inferior.
 
 Con la función `pnorm` calculamos la probabilidad, y con la función `qnorm`, 
 el cuantil.
-</div>\EndKnitrBlock{rmdpractica}
+
+\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -1365,7 +1534,8 @@ qnorm(p = 0.03, mean = 5, sd = 2, lower.tail = FALSE)
 
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">El peso de los paquetes que contienen los pedidos que recibe un laboratorio
+\BeginKnitrBlock{rmdejemplo}
+El peso de los paquetes que contienen los pedidos que recibe un laboratorio
 se distribuye según una distribución normal de media $1.8$ y desviación típica $0.5$ kg. ¿Cuál es la 
 probabilidad de que un paquete esté entre 1 y 2 kilos? 
 
@@ -1397,9 +1567,11 @@ Solo nos queda igualar este valor a la $x$ estandarizada y depejar:
 $$z=\frac{x-\mu}{\sigma} \iff 1.65=\frac{x-1.8}{0.5} \iff x = 1.65\cdot 0.5 + 1.8=2.625.$$
 
 Entonces, el 95% de los paquetes pesan más de $2.625$ _kg_.
-  </div>\EndKnitrBlock{rmdejemplo}
+  
+\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">Resolvemos de forma análoga al ejemplo anterior. Nótese cómo ahora calculamos
+\BeginKnitrBlock{rmdpractica}
+Resolvemos de forma análoga al ejemplo anterior. Nótese cómo ahora calculamos
 el cuantil exacto para la probabilidad de 0.95. Como las funciones
 nos dan la función de distribución, aplicamos que $P[a \leq x < b] = F(b)- F(a)$.
 
@@ -1415,7 +1587,8 @@ nos dan la función de distribución, aplicamos que $P[a \leq x < b] = F(b)- F(a
 
 
 **R**
-  </div>\EndKnitrBlock{rmdpractica}
+  
+\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -1456,7 +1629,8 @@ resulta de hacer operaciones con esas variables aleatorias (por ejemplo, sumarla
 En el siguiente ejemplo se plantean preguntas que abordan los dos problemas.
 
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">Una empresa de comercio minorista tiene tres tiendas (A, B y C) en una determinada
+\BeginKnitrBlock{rmdejemplo}
+Una empresa de comercio minorista tiene tres tiendas (A, B y C) en una determinada
 ciudad. El tiempo que se tarda en atender a un cliente 
 se distribuye según una distribución exponencial de media 2 minutos, 4 minutos y
 5 minutos en las tiendas A, B y C respectivamente. La tienda C atiende a tantos
@@ -1575,13 +1749,16 @@ la probabilidad de la manera habitual:
   
 $$P[Y < 300] = P \left[ \frac{Y-\mu_Y}{\sigma_Y} < \frac{300 -345}{30}\right] = \\
 P[Z < -1.5] = P[Z > 1.5] \simeq \boxed{0.0668}.$$
-</div>\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">Las probabilidades de este ejemplo se resuelven de forma análoga
+\EndKnitrBlock{rmdejemplo}
+
+\BeginKnitrBlock{rmdpractica}
+Las probabilidades de este ejemplo se resuelven de forma análoga
 a los anteriores. Se deja como ejercicio para el lector comprobar
 por sí mismo los resultados ofrecidos a través del programa
 de su elección.
-</div>\EndKnitrBlock{rmdpractica}
+
+\EndKnitrBlock{rmdpractica}
 
 
 
