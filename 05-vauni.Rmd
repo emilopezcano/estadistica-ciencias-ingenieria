@@ -15,14 +15,14 @@ Mediante la inferencia estadística, podremos utilizar datos empíricos
 de muestras para obtener conclusiones sobre la variable aleatoria que caracteriza a la población,
 recuérdese la figura \@ref(fig:dogma) al principio del capítulo \@ref(introp).
 
-La figura \@ref(fig:dogma2) muestra la relación de las variables aleatorias con la
+La figura \@ref(fig:dogma2b) muestra la relación de las variables aleatorias con la
 población. En una muestra tenemos datos con los que calculamos estadísticos (media, 
 varianza, etc) de esos datos. Representamos las frecuencias mediante histogramas.
 Por su parte, la población sigue una distribución de probabilidad teórica, con unas
 características teóricas (media, varianza, etc.). Ambos "mundos" se relacionan mediante
 la inferencia estadística, que no se trata en este texto.
 
-```{r dogma2, echo=FALSE,purl=FALSE, fig.width=6, fig.asp=0.6, fig.align='center', fig.cap="Variables aleatorias vs. datos empíricos", out.width="70%"}
+```{r dogma2b, echo=FALSE,purl=FALSE, fig.width=6, fig.asp=0.6, fig.align='center', fig.cap="Variables aleatorias vs. datos empíricos", out.width="70%"}
 library(grid)
 
 grid.newpage()
@@ -1096,7 +1096,7 @@ intervalo, representándolos en un **histograma**. Pues bien, si tenemos
 muchos números, y hacemos la amplitud
 de los intervalos muy pequeños, entonces el histograma de los datos
 se parece cada vez más a la función de densidad de la variable aleatoria
-que describe el experimento^[Se parecerá más cuantos más datos tengamos, pero téngase en cuenta que la forma del histograma, con datos empíricos, será _aproximada_ (nunca exacta) a la forma de la función, _teórica_.], recuérdese la Figura \@ref(fig:dogma2). Además, el área de las barras del histograma
+que describe el experimento^[Se parecerá más cuantos más datos tengamos, pero téngase en cuenta que la forma del histograma, con datos empíricos, será _aproximada_ (nunca exacta) a la forma de la función, _teórica_.], recuérdese la Figura \@ref(fig:dogma2b). Además, el área de las barras del histograma
 representa también las probabilidades de los intervalos que podamos formar.
 La figura \@ref(fig:densidadfreq) muestra esta relación entre frecuencias 
 y función de densidad en un determinado experimento.
@@ -1297,7 +1297,7 @@ A través de los posibles valores de una variable aleatoria y sus probabilidades
 definir estas características. Las más importantes son la esperanza (media) y la varianza. 
 Una vez más, téngase en cuenta que estos parámetros de la variable aleatoria
 son **valores teóricos de la variable aleatoria**, generalmente referidas a una
-población de la cual tenemos sólo información parcial a través de una muestra (recuérdese la figura \@ref(fig:dogma2)).
+población de la cual tenemos sólo información parcial a través de una muestra (recuérdese la figura \@ref(fig:dogma2b)).
 
 
 ### Esperanza Matemática

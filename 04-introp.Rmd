@@ -635,7 +635,7 @@ asignar probabilidades a medida que los experimentos alcanzan cierta complejidad
 Por una parte, no siempre tenemos una descripción completa del espacio muestral,
 o, simplemente, es infinito, con lo cual no podemos aplicar la fórmula de Laplace.
 otras veces no tenemos la información disponible necesaria. Pensemos en la 
-situación habitual descrita en la figura \@ref(fig:dogma) al principio de este
+situación habitual descrita en la figura \@ref(fig:dogma1) al principio de este
 capítulo. Queremos asignar
 una probabilidad a un suceso referido a nuestra **población** objeto de estudio. 
 Sin embargo, no tenemos información de los casos posibles y favorables a la
