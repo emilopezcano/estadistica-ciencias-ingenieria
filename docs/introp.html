@@ -7,7 +7,7 @@
 <title>Capítulo 4 Introducción a la Probabilidad | Estadística Aplicada a las Ciencias y la Ingeniería</title>
 <meta name="author" content="Emilio L. Cano">
 <meta name="description" content="4.1 Introducción En los capítulos anteriores, hemos visto cómo mediante la Estadística Descriptiva estudiamos variables estadísticas describiéndolas y representándolas. Mediante la Estadística...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.24.3 with bs4_book()">
 <meta property="og:title" content="Capítulo 4 Introducción a la Probabilidad | Estadística Aplicada a las Ciencias y la Ingeniería">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/introp.html">
@@ -56,13 +56,14 @@
 <li><a class="" href="modelos.html"><span class="header-section-number">7</span> Modelos de distribución de probabilidad</a></li>
 <li class="book-part">Inferencia estadística</li>
 <li><a class="" href="muestreo.html"><span class="header-section-number">8</span> Muestreo y estimación</a></li>
-<li><a class="" href="comparacion.html"><span class="header-section-number">9</span> Comparación de grupos</a></li>
-<li><a class="" href="regresion.html"><span class="header-section-number">10</span> Modelos de regresión</a></li>
+<li><a class="" href="comparacion2.html"><span class="header-section-number">9</span> Comparación de dos grupos</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">10</span> Análisis de la Varianza</a></li>
 <li><a class="" href="doe.html"><span class="header-section-number">11</span> Diseño de experimentos</a></li>
+<li><a class="" href="regresion.html"><span class="header-section-number">12</span> Modelos de regresión</a></li>
 <li class="book-part">Control estadístico de la calidad</li>
-<li><a class="" href="introc.html"><span class="header-section-number">12</span> Introducción</a></li>
-<li><a class="" href="spc.html"><span class="header-section-number">13</span> Control Estadístico de Procesos</a></li>
-<li><a class="" href="aceptacion.html"><span class="header-section-number">14</span> Inspección por muestreo</a></li>
+<li><a class="" href="introc.html"><span class="header-section-number">13</span> Introducción</a></li>
+<li><a class="" href="spc.html"><span class="header-section-number">14</span> Control Estadístico de Procesos</a></li>
+<li><a class="" href="aceptacion.html"><span class="header-section-number">15</span> Inspección por muestreo</a></li>
 <li class="book-part">Apéndices</li>
 <li><a class="" href="s%C3%ADmbolos-abreviaturas-y-acr%C3%B3nimos.html"><span class="header-section-number">A</span> Símbolos, abreviaturas y acrónimos</a></li>
 <li><a class="" href="tablas.html"><span class="header-section-number">B</span> Tablas estadísticas</a></li>
@@ -265,7 +266,7 @@ En este caso, <span class="math inline">\(C_{5, 2} = \binom{5}{2} = 10\)</span>.
 <p><strong>R</strong></p>
 La función <code>choose</code> obtiene el número de combinaciones como se ilustra a continuación.
 </div>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt; [1] 10</span></code></pre></div>
 </div>
@@ -514,7 +515,7 @@ asignar probabilidades a medida que los experimentos alcanzan cierta complejidad
 Por una parte, no siempre tenemos una descripción completa del espacio muestral,
 o, simplemente, es infinito, con lo cual no podemos aplicar la fórmula de Laplace.
 otras veces no tenemos la información disponible necesaria. Pensemos en la
-situación habitual descrita en la figura <a href="introp.html#fig:dogma">4.1</a> al principio de este
+situación habitual descrita en la figura <a href="intro.html#fig:dogma1">1.1</a> al principio de este
 capítulo. Queremos asignar
 una probabilidad a un suceso referido a nuestra <strong>población</strong> objeto de estudio.
 Sin embargo, no tenemos información de los casos posibles y favorables a la
@@ -752,7 +753,7 @@ la probabilidad pedida:</p>
 <p>El siguiente código realiza los cálculos paso a paso y devuelve la probabilidad pedida. Cambiando el valor <code>30</code> por otro número de personas cualquiera, se
 puede ver cómo aumenta la probabilidad.</p>
 </div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ncumple</span> <span class="op">&lt;-</span> <span class="fl">30</span>
 <span class="va">cposibles</span> <span class="op">&lt;-</span> <span class="fl">365</span><span class="op">^</span><span class="va">ncumple</span>
 <span class="va">cfavorables</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/prod.html">prod</a></span><span class="op">(</span><span class="fl">365</span><span class="op">:</span><span class="op">(</span><span class="fl">365</span> <span class="op">-</span> <span class="va">ncumple</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
@@ -1154,7 +1155,7 @@ probabilidad de ganar el coche.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2021-10-12.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2021-11-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

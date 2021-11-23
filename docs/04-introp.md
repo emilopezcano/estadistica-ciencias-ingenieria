@@ -33,14 +33,10 @@ En este capítulo se han aplicado los siguientes estándares:
 La figura \@ref(fig:dogma) representa una especie de _dogma_ de la Estadística, esto es,
 su relación con la probabilidad y la inferencia, a través de la población y la muestra.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{04-introp_files/figure-latex/dogma-1} 
-
-}
-
-\caption{Relación entre la Estadística Descriptiva, el Cálculo de Probabilidades y la Estadística Inferencial}(\#fig:dogma)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="04-introp_files/figure-html/dogma-1.png" alt="Relación entre la Estadística Descriptiva, el Cálculo de Probabilidades y la Estadística Inferencial" width="70%" />
+<p class="caption">(\#fig:dogma)Relación entre la Estadística Descriptiva, el Cálculo de Probabilidades y la Estadística Inferencial</p>
+</div>
 
 Es decir, partiendo de los datos de la muestra, estimaremos el modelo de
 distribución de probabilidad que sigue la variable en estudio en toda la
@@ -142,14 +138,10 @@ realidad sería:
 
 $$\emptyset = \Omega^c$$
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{04-introp_files/figure-latex/venn1-1} 
-
-}
-
-\caption{Representación del espacio muestral, un suceso cualquiera y su complementario}(\#fig:venn1)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="04-introp_files/figure-html/venn1-1.png" alt="Representación del espacio muestral, un suceso cualquiera y su complementario" width="70%" />
+<p class="caption">(\#fig:venn1)Representación del espacio muestral, un suceso cualquiera y su complementario</p>
+</div>
 
 
 
@@ -162,15 +154,13 @@ combinaciones de cartas en barajas de naipes. Los ejemplos con juegos de azar
 tienen la ventaja de que son fáciles de comprender. 
 
 
-\BeginKnitrBlock{rmdejemplo}
-_Lanzamiento de un dado_. El experimento consiste en lanzar un dado una vez; 
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">_Lanzamiento de un dado_. El experimento consiste en lanzar un dado una vez; 
 Los sucesos elementales son los resultados del 1 al 6; El espacio muestral
 es el conjunto de todos los sucesos elementales, es decir, 
 $\Omega = \{1, 2, 3, 4, 5, 6\}$;
 Si definimos el suceso $A$ "que salga número par", entonces 
 $A = \{2, 4, 6\}$; el suceso $A$ 
-ocurre si sale un 2, un 4, o un 6.
-\EndKnitrBlock{rmdejemplo}
+ocurre si sale un 2, un 4, o un 6.</div>\EndKnitrBlock{rmdejemplo}
 
 
 La aplicación de la probabilidad en casos distintos
@@ -182,8 +172,7 @@ en el futuro con ligeras variaciones según su ámbito de actuación.
 Utilizaremos en lo posible las cifras usadas en los problemas de azar
 para ver la utilidad de aquéllos ejemplos en casos más prácticos. 
 
-\BeginKnitrBlock{rmdejemplo}
-En un estudio se cuenta con un conjunto de 52 sujetos, 
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En un estudio se cuenta con un conjunto de 52 sujetos, 
 los cuales están clasificados
 según alguna característica.
 Vamos a considerar el _experimento_ de observar un sujeto 
@@ -206,20 +195,16 @@ El siguiente puede ser un ejemplo más real.
 
 
 
-
-\EndKnitrBlock{rmdejemplo}
-\BeginKnitrBlock{rmdejemplo}
-Estudiamos una serie de proyectos de inversión
+</div>\EndKnitrBlock{rmdejemplo}
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">Estudiamos una serie de proyectos de inversión
 y para ello queremos seleccionar dos de un total de cinco proyectos. El espacio muestral,
 si asumimos que no nos importa el orden en el que se seleccionan y etiquetamos los proyectos
 con los números del 1 al 5, es $\Omega=\{$ (1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (3, 4), (3, 5), (4, 5) $\}$.
 Es decir, el espacio muestral tiene 10 elementos. El mero recuento se puede realizar 
 mediante técnicas de combinatoria, véase al apéndice \@ref(combinatoria).
-En este caso, $C_{5, 2} = \binom{5}{2} = 10$.
-\EndKnitrBlock{rmdejemplo}
+En este caso, $C_{5, 2} = \binom{5}{2} = 10$.</div>\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}
-**CALCULADORA**
+\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**CALCULADORA**
 
 5 $\boxed{\mathsf{nCr}}$ 2 $\rightarrow$ 10
 
@@ -231,8 +216,7 @@ En este caso, $C_{5, 2} = \binom{5}{2} = 10$.
 **R**
 
 La función `choose` obtiene el número de combinaciones como se ilustra a continuación.
-  
-\EndKnitrBlock{rmdpractica}
+  </div>\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -262,20 +246,14 @@ véase la figura \@ref(fig:union).
 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{04-introp_files/figure-latex/union-1} 
-
-}
-
-\caption{Representación de la unión de dos sucesos}(\#fig:union)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="04-introp_files/figure-html/union-1.png" alt="Representación de la unión de dos sucesos" width="70%" />
+<p class="caption">(\#fig:union)Representación de la unión de dos sucesos</p>
+</div>
 
 
 
-\BeginKnitrBlock{rmdejemplo}
-El suceso "ser investigador **o** mujer" en nuestro ejemplo de los sujetos en estudio ($M \cup I$) incluirían a lo resultados elementales correspondientes con todas las mujeres (incluidas directivas) y los directivos hombres.
-\EndKnitrBlock{rmdejemplo}
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">El suceso "ser investigador **o** mujer" en nuestro ejemplo de los sujetos en estudio ($M \cup I$) incluirían a lo resultados elementales correspondientes con todas las mujeres (incluidas directivas) y los directivos hombres.</div>\EndKnitrBlock{rmdejemplo}
 
 
 
@@ -289,20 +267,14 @@ véase la figura \@ref(fig:intersec)
 Las operaciones de unión e intersección entre dos ducesos se extienden 
 inmediatamente a más de dos sucesos.
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="04-introp_files/figure-html/intersec-1.png" alt="Representación de la intersección de dos sucesos" width="70%" />
+<p class="caption">(\#fig:intersec)Representación de la intersección de dos sucesos</p>
+</div>
 
-{\centering \includegraphics[width=0.7\linewidth]{04-introp_files/figure-latex/intersec-1} 
-
-}
-
-\caption{Representación de la intersección de dos sucesos}(\#fig:intersec)
-\end{figure}
-
-\BeginKnitrBlock{rmdejemplo}
-El suceso "ser hombre" **y** "ser investigador", se corresponde con la
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">El suceso "ser hombre" **y** "ser investigador", se corresponde con la
 intersección ($I \cap M^c$), e incluiría solo a los resultados del experimento
-en el que los potenciales usuarios hombres son directivos.
-\EndKnitrBlock{rmdejemplo}
+en el que los potenciales usuarios hombres son directivos.</div>\EndKnitrBlock{rmdejemplo}
 
 
 
@@ -320,19 +292,13 @@ $$A-B = A\cap B^c.$$
 
 La figura \@ref(fig:conjuntos) muestra una representación de sucesos disjuntos, sucesos incluidos en otros sucesos y diferencia de sucesos.
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="04-introp_files/figure-html/conjuntos-1.png" alt="Representación de sucesos disjuntos (izquierda), suceso contenido en otro suceso (centro) y diferencia de sucesos (derecha)" width="90%" />
+<p class="caption">(\#fig:conjuntos)Representación de sucesos disjuntos (izquierda), suceso contenido en otro suceso (centro) y diferencia de sucesos (derecha)</p>
+</div>
 
-{\centering \includegraphics[width=0.9\linewidth]{04-introp_files/figure-latex/conjuntos-1} 
-
-}
-
-\caption{Representación de sucesos disjuntos (izquierda), suceso contenido en otro suceso (centro) y diferencia de sucesos (derecha)}(\#fig:conjuntos)
-\end{figure}
-
-\BeginKnitrBlock{rmdejemplo}
-El suceso "ser hombre" y el suceso "ser mujer" son sucesos disjuntos ($H \cap M = \emptyset$); El suceso "ser mujer joven" está incluido en el suceso "ser mujer", e incluye a las mujeres jóvenes; El suceso "Ser hombre joven", 
-se podría representar como $J-M = J \cap M^c$.
-\EndKnitrBlock{rmdejemplo}
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">El suceso "ser hombre" y el suceso "ser mujer" son sucesos disjuntos ($H \cap M = \emptyset$); El suceso "ser mujer joven" está incluido en el suceso "ser mujer", e incluye a las mujeres jóvenes; El suceso "Ser hombre joven", 
+se podría representar como $J-M = J \cap M^c$.</div>\EndKnitrBlock{rmdejemplo}
 
 
 **Partición del espacio muestral**. Dada una colección de sucesos $A_1, A_2, \ldots$, 
@@ -348,14 +314,10 @@ espacio muestral $\Omega$ en cinco sucesos $A_1, \ldots, A_5$.
 Nótese que los sucesos elementales de un experimento $\omega_i$ constituyen una
 partición del espacio muestral.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{04-introp_files/figure-latex/particion-1} 
-
-}
-
-\caption{Representación de una partición del espacio muestral}(\#fig:particion)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="04-introp_files/figure-html/particion-1.png" alt="Representación de una partición del espacio muestral" width="70%" />
+<p class="caption">(\#fig:particion)Representación de una partición del espacio muestral</p>
+</div>
 
 
 De la teoría de conjuntos se deducen fácilmente las siguientes propiedades
@@ -400,15 +362,13 @@ ejemplo
 anterior^[Nótese que si midiéramos el tiempo, por ejemplo, en horas, sí podríamos numerar los posibles valores (0, 1, ...). Pero esto es solo debido a la precisión con la que medimos, ya que teóricamente podríamos añadir toda la precisión necesaria. Esto será importante en los siguientes capítulos cuando diferenciemos las variables aleatorias discretas y continuas.]: 
 $\Omega = [0, \infty)$.
 
-\BeginKnitrBlock{rmdejemplo}
-Otro ejemplo de espacio muestral infinito no numerable consistiría en 
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">Otro ejemplo de espacio muestral infinito no numerable consistiría en 
 el resultado de un experimento consistente en realizar
 una medición de una magnitud continua que pueda tomar cualquier valor
 entre, por ejemplo, 10 y 20: $\Omega = x \in \mathbb{R}, 10 \leq x \leq 20$.
 Una partición de este espacio muestral sería $A_1 = [10, 15]$, $A_2 = (15, 20]$.)
 Nótese que los números (reales, naturales, etc.) son también conjuntos, y por tanto
-las operaciones relacionadas con sucesos se extienden fácilmente a estos conjuntos.
-\EndKnitrBlock{rmdejemplo}
+las operaciones relacionadas con sucesos se extienden fácilmente a estos conjuntos.</div>\EndKnitrBlock{rmdejemplo}
 
 
 
@@ -427,8 +387,7 @@ sucesos $\aleph$ es el conjunto de todos los sucesos que podemos crear a partir
 del espacio muestral $\Omega$ y las operaciones de unión, intersección y
 complementariedad con esos sucesos. El par $(\Omega, \aleph)$ se dice que es un **espacio probabilizable**.
 
-\BeginKnitrBlock{rmdejemplo}
-Observamos al azar el tipo de participante en el estudio de uno tomado al azar.
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">Observamos al azar el tipo de participante en el estudio de uno tomado al azar.
 Entonces los posibles resultados del _experimento_ o 
 sucesos elementales es:
 
@@ -438,8 +397,7 @@ Haciendo todas las operaciones posibles de unión, intersección y complementari
 podemos llegar fácilmente a la siguiente $\sigma$-álgebra de 
 sucesos:
 
-$$\aleph = \{I, T, P, (I \cup T),(I \cup P), (T \cup P), \emptyset, \Omega \}$$
-\EndKnitrBlock{rmdejemplo}
+$$\aleph = \{I, T, P, (I \cup T),(I \cup P), (T \cup P), \emptyset, \Omega \}$$</div>\EndKnitrBlock{rmdejemplo}
 
 
 
@@ -473,33 +431,27 @@ Utilizaremos la definición de Laplace para asignar probabilidades a sucesos
 cuando tengamos una enumeración completa del espacio muestral como en los 
 ejemplos anteriores.
 
-\BeginKnitrBlock{rmdejemplo}
-En el lanzamiento de un dado equilibrado de seis caras, la probabilidad de sacar
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En el lanzamiento de un dado equilibrado de seis caras, la probabilidad de sacar
 un seis es igual al cociente entre los casos favorables a sacar un 6 (1) y los
 casos posibles del experimento (6):
 
 $$A:\text{ Sacar un 6 en el lanzamiento de un dado}$$
 
-$$P(A) = \frac{\text{casos favorables a } A}{\text{casos posibles}}= \frac{1}{6} \simeq 0.1667.$$
-\EndKnitrBlock{rmdejemplo}
+$$P(A) = \frac{\text{casos favorables a } A}{\text{casos posibles}}= \frac{1}{6} \simeq 0.1667.$$</div>\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdejemplo}
-En el ejemplo de los sujetos en estudio, la probabilidad de que
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En el ejemplo de los sujetos en estudio, la probabilidad de que
 un sujeto al azar sea investigador es el cociente entre los casos favorables
 a ser investigador (4) y los casos posibles (52):
 
-$$P(I) = \frac{4}{52} = 0.0769$$
-\EndKnitrBlock{rmdejemplo}
+$$P(I) = \frac{4}{52} = 0.0769$$</div>\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdcafe}
-Casi dos siglos antes de que Laplace publicara su _Teoría Analítica de las probabilidades_, Pascal y Fermat intercambiaron correspondencia para intentar 
+\BeginKnitrBlock{rmdcafe}<div class="rmdcafe">Casi dos siglos antes de que Laplace publicara su _Teoría Analítica de las probabilidades_, Pascal y Fermat intercambiaron correspondencia para intentar 
 resolver los problemas que el _Caballero de Méré_ le planteó al primero. Este
 personaje era un jugador profesional de la época que planteaba estos problemas
 en términos de si tenía ventaja al apostar a unos u otros resultados 
 en el lanzamiento de dos dados. Este fue para muchos el origen de la teoría
 de la probabilidad. Una historia más detallada puede encontrarse en 
-@E-51-COR-teo-2010.
-\EndKnitrBlock{rmdcafe}
+@E-51-COR-teo-2010.</div>\EndKnitrBlock{rmdcafe}
 
 
 ### Definición frecuentista o empírica {#ch07-defempirica}
@@ -530,7 +482,7 @@ fáciles de realizar mediante simulación. En la siguiente aplicación
 se puede simular la elección de elementos de un conjunto^[Si no estás leyendo la versión html del libro puedes ver la aplicación en el siguiente enlace:  https://elcano.shinyapps.io/probability_as_relative_frequency/].
 
 
-[![](04-introp_files/figure-latex/unnamed-chunk-14-1.pdf)](https://elcano.shinyapps.io/probability_as_relative_frequency/)<!-- --> 
+<iframe src="https://elcano.shinyapps.io/probability_as_relative_frequency/?showcase=0" width="672" height="800px" data-external="1"></iframe>
 
 
 En la práctica, utilizaremos esta definición para asignar probabilidades
@@ -539,21 +491,17 @@ ocasiones, estos datos están disponibles en forma de porcentajes, y bastará
 con dividir por 100 para transformarlos en una frecuencia relativa, que
 se tomará como probabilidad.
 
-\BeginKnitrBlock{rmdejemplo}
-En nuestro ejemplo de los sujetos en estudio, podemos
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En nuestro ejemplo de los sujetos en estudio, podemos
 disponer de datos históricos que nos digan que 17 de 100 sujetos
 varones respondieron al tratamiento en un estudio similar. De ahí podemos
 asignar al suceso $A=$ "el sujeto masculino responde al tratamiento" una 
 probabilidad $P(A)=\frac{17}{100} \approx \frac{1}{6}$, equivalente a 
 "uno de cada 6" que se decía en 
-la descripción del ejemplo.
-\EndKnitrBlock{rmdejemplo}
+la descripción del ejemplo.</div>\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdejemplo}
-Históricamente, el 1% de las piezas producidas en una fábrica tienen algún
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">Históricamente, el 1% de las piezas producidas en una fábrica tienen algún
 tipo de defecto. Entonces, la probabilidad de que una pieza tomada al azar
-tenga defecto ($D$) es $P(D) = \frac{1}{100} = 0.01$.
-\EndKnitrBlock{rmdejemplo}
+tenga defecto ($D$) es $P(D) = \frac{1}{100} = 0.01$.</div>\EndKnitrBlock{rmdejemplo}
 
 
 
@@ -584,13 +532,11 @@ ejemplo, @deFinetti1992.
 
 
 
-\BeginKnitrBlock{rmdejemplo}
-
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
 ¿Cuál es la probabilidad de que me contraten en mi primera entrevista de trabajo?
 ¿Cuál es la probabilidad de que un proyecto de inversión determinado sea rentable?
 Podemos _asignar_ probabilidades, pero no tenemos información previa acerca
-de las frecuencias relativas o casos favorables/posibles.
-\EndKnitrBlock{rmdejemplo}
+de las frecuencias relativas o casos favorables/posibles.</div>\EndKnitrBlock{rmdejemplo}
 
 
 
@@ -684,8 +630,7 @@ La demostración de estos teoremas se puede encontrar, entre otros, en
 propiedades y por lo tanto son coherentes con la definición axiomática de la probabilidad.
 
 
-\BeginKnitrBlock{rmdejemplo}
-
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
 
 _Lanzamiento de un dado de seis caras_. Sean los siguientes sucesos:
 
@@ -714,18 +659,15 @@ o contar todas las posibilidades. Por ejemplo, conocidos $P(A_1), P(A_3)$ Y $P(A
 - $P(A_1 \cup A_3)=P(A_1) + P(A_3) - P(A_1 \cap A_3) = 0.5 + 0.3333 - 0.1667 \simeq 0.6667$,
 
 que conduce, obviamente, al mismo resultado. A medida que aumentan la complejidad de los experimentos, con espacios muestrales más grandes, o incluso infinitos, se hace dificultoso o imposible trabajar con enumeraciones, y es donde hay que aplicar la defición axiomática de la probabilidad.
+</div>\EndKnitrBlock{rmdejemplo}
 
-\EndKnitrBlock{rmdejemplo}
-
-\BeginKnitrBlock{rmdejemplo}
-En nuestro ejemplo del estudio, podríamos estar
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En nuestro ejemplo del estudio, podríamos estar
 interesados en el suceso "ser mujer o joven". Este suceso se 
 correspondería con el suceso $M \cup J$. Para calcular esta probabilidad,
 tendríamos en cuenta, según los datos del ejemplo, que $P(M) = \frac{1}{2}=0.5$, $P(J) = \frac{13}{52}=0.25$, y $P(M \cap J)=\frac{5}{52}\simeq 0.0962$. Entonces:
 
 $$P(M \cup J)=P(M)+P(J)-P(M\cap J)=0.5+0.25-0.0962 \simeq 0.6538.$$
-
-\EndKnitrBlock{rmdejemplo}
+</div>\EndKnitrBlock{rmdejemplo}
 
 
 
@@ -738,8 +680,7 @@ abordar el problema desde el punto de vista del suceso complementario.
 Un ejemplo es la _paradoja de los cumpleaños_. 
 
 
-\BeginKnitrBlock{rmdcafe}
-Si el día de nuestro cumpleaños asistimos a algún evento en el que haya
+\BeginKnitrBlock{rmdcafe}<div class="rmdcafe">Si el día de nuestro cumpleaños asistimos a algún evento en el que haya
 más de 30 personas, es muy probable que nos canten el cumpleaños feliz
 a más de una persona.
 Supongamos una clase de 30 alumnos. 
@@ -780,11 +721,9 @@ y entonces:
 
 $$P(A) = 1-P(A^c) = 1- \frac{2.171\cdot 10^{76}}{7.392\cdot 10^{76}}\simeq 0.7063.$$
 Intuitivamente nos parecería una probabilidad demasiado alta para un grupo tan pequeño de personas,
-por eso nos sorprendemos cuando escuchamos un _cumpleaños feliz_ el día de nuestro cumpleaños en un lugar concurrido y no es para nosotros. Como vemos, no es tan difícil.
-\EndKnitrBlock{rmdcafe}
+por eso nos sorprendemos cuando escuchamos un _cumpleaños feliz_ el día de nuestro cumpleaños en un lugar concurrido y no es para nosotros. Como vemos, no es tan difícil.</div>\EndKnitrBlock{rmdcafe}
 
-\BeginKnitrBlock{rmdpractica}
-Para obtener los casos favorables, si intentamos utilizar la fórmula de
+\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">Para obtener los casos favorables, si intentamos utilizar la fórmula de
 las variaciones utilizando los factoriales (ver apéndice \@ref(combinatoria)), 
 la calculadora y el software pueden devolver un error, por no poder calcular
 el factorial de 365.
@@ -807,8 +746,7 @@ la probabilidad pedida:
   
 El siguiente código realiza los cálculos paso a paso y devuelve la probabilidad pedida. Cambiando el valor `30` por otro número de personas cualquiera, se 
 puede ver cómo aumenta la probabilidad.
-
-\EndKnitrBlock{rmdpractica}
+</div>\EndKnitrBlock{rmdpractica}
 
 
 
@@ -924,8 +862,7 @@ probabilidad.
 
 
 
-\BeginKnitrBlock{rmdejemplo}
-
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
 La tabla \@ref(tab:fcond) contiene las frecuencias con las que se
 han observado los sucesos _aprobar_ y _suspender_ dos elementos evaluables
 de una asignatura: un examen y un trabajo.
@@ -941,34 +878,24 @@ Si incluimos más información a modo de condición, podemos calcular por ejempl
 la probabilidad de aprobar el examen condicionado a que se ha aprobado el trabajo:
 
 $$P(AE | AT)=\frac{P(AE \cap AT)}{P(AT)}=\frac{30/100}{35/100} \simeq 0.8571 .$$
-
-\EndKnitrBlock{rmdejemplo}
-
-
-\begin{table}
-
-\caption{(\#tab:fcond)Datos ejemplo probabilidad condicionada}
-\centering
-\begin{tabular}[t]{l|r|r}
-\hline
-  & Trabajo aprobado & Trabajo suspenso\\
-\hline
-Examen aprobado & 30 & 10\\
-\hline
-Examen suspenso & 5 & 55\\
-\hline
-\end{tabular}
-\end{table}
+</div>\EndKnitrBlock{rmdejemplo}
 
 
-\BeginKnitrBlock{rmdejemplo}
-En nuestro ejemplo de sujetos en estudio aparece la probabilidad 
+
+Table: (\#tab:fcond)Datos ejemplo probabilidad condicionada
+
+|                | Trabajo aprobado| Trabajo suspenso|
+|:---------------|----------------:|----------------:|
+|Examen aprobado |               30|               10|
+|Examen suspenso |                5|               55|
+
+
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En nuestro ejemplo de sujetos en estudio aparece la probabilidad 
 condicionada de la siguiente forma. Se dice que uno de cada seis hombres responde al tratamiento.
 Si definimos $S$ como el suceso "responder al tratamiento",
 entonces $P(S|H)=\frac{1}{6}\simeq 0.1667$. Por otra parte, si quisiéramos calcular 
 la probabilidad de que un potencial cliente sea mujer, condicionado a que
-es joven, entonces $P(M | J)=\frac{P(M \cap J)}{P(J)} = \frac{5/52}{13/52}\simeq 0.3846$.
-\EndKnitrBlock{rmdejemplo}
+es joven, entonces $P(M | J)=\frac{P(M \cap J)}{P(J)} = \frac{5/52}{13/52}\simeq 0.3846$.</div>\EndKnitrBlock{rmdejemplo}
 
 
 
@@ -987,8 +914,7 @@ Recuerda que $A \cap B$ significa _A_ **y** _B_, mientras que
 $A|B$ significa _A_ **si** ocurre _B_.
 
 
-\BeginKnitrBlock{rmdejemplo}
-La probabilidad condicionada aparece en los muestreos sin reemplazamiento. Se suele
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">La probabilidad condicionada aparece en los muestreos sin reemplazamiento. Se suele
 asociar a los problemas _de urnas_, o también a la extracción de cartas de una
 baraja. Por ejemplo, podemos calcular la probabilidad de sacar dos figuras
 seguidas de una baraja de cartas francesa, con 52 cartas en total de las cuales 
@@ -997,14 +923,11 @@ $A_1$ como "sacar figura en la primera extracción" y $A_2$ como "sacar figura
 en la segunda extracción", entonces lo que buscamos es la probabilidad de que
 ocurran los dos sucesos, $P(A_1 \cap A_2)$:
 
-$$P(A_1 \cap A_2)=P(A_1)\cdot P(A_2 | A_1)=\frac{12}{52}\cdot \frac{11}{51}=\frac{11}{221}\simeq 0.0498.$$
-\EndKnitrBlock{rmdejemplo}
+$$P(A_1 \cap A_2)=P(A_1)\cdot P(A_2 | A_1)=\frac{12}{52}\cdot \frac{11}{51}=\frac{11}{221}\simeq 0.0498.$$</div>\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdejemplo}
-En nuestro ejemplo de los sujetos en estudio, ¿cuál es la probabilidad de que un cliente al azar sea mujer y además responda al tratamiento?
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En nuestro ejemplo de los sujetos en estudio, ¿cuál es la probabilidad de que un cliente al azar sea mujer y además responda al tratamiento?
 
-$$P(M \cap S) = P(S|M)\cdot P(M) = \frac{2}{6}\cdot \frac{1}{2} = \frac{1}{6}\simeq 0.1667.$$
-\EndKnitrBlock{rmdejemplo}
+$$P(M \cap S) = P(S|M)\cdot P(M) = \frac{2}{6}\cdot \frac{1}{2} = \frac{1}{6}\simeq 0.1667.$$</div>\EndKnitrBlock{rmdejemplo}
 
 
 
@@ -1016,8 +939,7 @@ a la intersección de todos los anteriores.
 
 $$P\left( \bigcap\limits_{i=1}^{n} A_i \right) = P(A_1)\cdot P(A_2|A_1)\cdot P(A_3|A_1 \cap A_2)\cdot\ldots\cdot P\left(A_n | \bigcap\limits_{i=1}^{n-1} S_i \right). $$
 
-\BeginKnitrBlock{rmdejemplo}
-
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
 
 Por ejemplo, en una urna hay 5 bolas rojas y 3 bolas blancas. Hacemos 3
 extracciones. Si en una extracción sale blanca, devolvemos la bola
@@ -1037,8 +959,7 @@ si hemos sacado blanca, la devolvemos y añadimos dos más, es decir tenemos 5 d
 bolas blancas. si la segunda vuelve a ser blanca, entonces en el tercer experimento 
 tenemos 7 de 12 bolas blancas. Por lo tanto:
 
-$$P(A_1 \cap A_2 \cap A_3)= \frac{3}{8}\cdot \frac{5}{10} \cdot \frac{7}{12}=\frac{7}{64}\simeq 0.1094.$$
-\EndKnitrBlock{rmdejemplo}
+$$P(A_1 \cap A_2 \cap A_3)= \frac{3}{8}\cdot \frac{5}{10} \cdot \frac{7}{12}=\frac{7}{64}\simeq 0.1094.$$</div>\EndKnitrBlock{rmdejemplo}
 
 
 ### Independencia de sucesos
@@ -1070,16 +991,14 @@ $$P(A_1\cap \ldots \cap A_n)=p^n.$$
 
 El lanzamiento sucesivo de una moneda o de un dado son claros ejemplos de sucesos independientes.
 
-\BeginKnitrBlock{rmdejemplo}
-En el lanzamiento de un dado dos veces seguidas (o lo que es lo mismo, en el lanzamiento 
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En el lanzamiento de un dado dos veces seguidas (o lo que es lo mismo, en el lanzamiento 
 de dos dados), el resultado del primero no influye en el segundo. Por tanto, la
 probabilidad de sacar dos seises en el lanzamiento de dos dados es:
 
 $$P(A_1 \cap A_2)= \frac{1}{6}\cdot \frac{1}{6}=\frac{1}{36}\simeq 0.0278.$$
 Nótese que podemos llegar fácilmente al mismo resultado enumerando los posibles resultados,
 pero con más esfuerzo. Además, en espacios muestrales más grandes se complica
-enormemente la enumeración.
-\EndKnitrBlock{rmdejemplo}
+enormemente la enumeración.</div>\EndKnitrBlock{rmdejemplo}
 
 ### Probabilidad condicionada e independencia en ISO 3534-1
 
@@ -1128,14 +1047,10 @@ del suceso de interés $B$ con cada uno de los sucesos de la partición $A_i$. C
 estas intersecciones son sucesos disjuntos, la probabilidad de su unión es la
 suma de sus probabilidades por las propiedades de la probabilidad.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{04-introp_files/figure-latex/ptotal-1} 
-
-}
-
-\caption{Representación del espacio muestral particionado más otro suceso}(\#fig:ptotal)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="04-introp_files/figure-html/ptotal-1.png" alt="Representación del espacio muestral particionado más otro suceso" width="70%" />
+<p class="caption">(\#fig:ptotal)Representación del espacio muestral particionado más otro suceso</p>
+</div>
 
 
 
@@ -1155,8 +1070,7 @@ siempre que $P(B>0)$, que se puede expresar de forma simplificada como:
 $$\boxed{P(A_i|B)=\frac{P(B|A_i)\cdot P(A_i)}{P(B)}}$$
 
 
-\BeginKnitrBlock{rmdejemplo}
-
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
 En una empresa que produce componentes electrónicos tomamos 5 lotes de producto,
 cada uno compuesto de 50 componentes. Hay dos tipos de lotes. Los del
 tipo 1 ($A_1$) tienen 48 componentes correctos y 2 defectuosos. Los del tipo 2 ($A_2$)
@@ -1184,22 +1098,16 @@ Nótese que ahora lo que buscamos es $P(A_1|B)$, como conocemos las $P(B|A_i)$ y
 $P(A_i)$, entonces podemos aplicar la fórmula de Bayes. Como ya hemos calculado
 antes la probabilidad total de $B$, podemos usar la fórmula _abreviada_:
 
-$$P(A_1|B)=\frac{P(B|A_1)\cdot P(A_1)}{P(B)}=\frac{0.04\cdot 0.6}{0.064}=0.375.$$
-\EndKnitrBlock{rmdejemplo}
+$$P(A_1|B)=\frac{P(B|A_1)\cdot P(A_1)}{P(B)}=\frac{0.04\cdot 0.6}{0.064}=0.375.$$</div>\EndKnitrBlock{rmdejemplo}
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{04-introp_files/figure-latex/ptotalej-1} 
-
-}
-
-\caption{Representación del espacio muestral del ejemplo de los componentes electrónicos}(\#fig:ptotalej)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="04-introp_files/figure-html/ptotalej-1.png" alt="Representación del espacio muestral del ejemplo de los componentes electrónicos" width="70%" />
+<p class="caption">(\#fig:ptotalej)Representación del espacio muestral del ejemplo de los componentes electrónicos</p>
+</div>
 
 
 
-\BeginKnitrBlock{rmdejemplo}
-En nuestro ejemplo, conocíamos las probabilidades de que un sujeto responda al tratamiento
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En nuestro ejemplo, conocíamos las probabilidades de que un sujeto responda al tratamiento
 según si es hombre o mujer. También conocemos la probabilidad
 de que el sujeto sea hombre o mujer. Entonces podemos calcular la probabilidad
 de que un sujeto (independientemente de si es hombre o mujer) responda al tratamiento como:
@@ -1208,16 +1116,14 @@ $$P(S)=P(S|M)\cdot P(M) + P(S|H)\cdot P(H)= \frac{2}{6}\cdot \frac{1}{2} + \frac
 
 Si un sujeto responde al tratamiento, la probabilidad de que sea mujer es:
 
-$$P(M|S)=\frac{P(S|M)\cdot P(M)}{P(S)}=\frac{\frac{2}{6}\cdot 0.5}{0.25} \simeq 0.6667.$$
-\EndKnitrBlock{rmdejemplo}
+$$P(M|S)=\frac{P(S|M)\cdot P(M)}{P(S)}=\frac{\frac{2}{6}\cdot 0.5}{0.25} \simeq 0.6667.$$</div>\EndKnitrBlock{rmdejemplo}
 
 
 
 
 
 
-\BeginKnitrBlock{rmdcafe}
-**El problema de Monty Hall**
+\BeginKnitrBlock{rmdcafe}<div class="rmdcafe">**El problema de Monty Hall**
   
 _Monty Hall_ es el nombre del presentador del concurso televisivo 
 estadounidense _Let's make a deal_
@@ -1235,8 +1141,7 @@ tiene la opción de cambiar su puerta por la otra que queda cerrada.
 La solución puede parecer contraintuitiva, aunque tanto desde el razonamiento
 a través de las frecuencias como con un desarrollo matemático se llega a 
 la misma conclusión. Y la clave está en la **probabilidad condicionada**.
-
-\EndKnitrBlock{rmdcafe}
+</div>\EndKnitrBlock{rmdcafe}
 El problema de _Monty Hall_ dio lugar a historias curiosas que se pueden consultar en 
 @E-51-COR-teo-2010. Por ejemplo, el gran matemático Paul Erdös solo aceptó
 como buena la solución real tras comprobarla en una simulación por ordenador.

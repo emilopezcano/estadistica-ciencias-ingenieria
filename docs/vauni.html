@@ -7,7 +7,7 @@
 <title>Capítulo 5 Variable aleatoria univariante | Estadística Aplicada a las Ciencias y la Ingeniería</title>
 <meta name="author" content="Emilio L. Cano">
 <meta name="description" content="Trabajar con sucesos y todas sus combinaciones posibles puede resultar muy costoso, o incluso imposible. Con las variables aleatorias pasamos del ámbito de los sucesos a los números reales, de...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.24.3 with bs4_book()">
 <meta property="og:title" content="Capítulo 5 Variable aleatoria univariante | Estadística Aplicada a las Ciencias y la Ingeniería">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/vauni.html">
@@ -56,13 +56,14 @@
 <li><a class="" href="modelos.html"><span class="header-section-number">7</span> Modelos de distribución de probabilidad</a></li>
 <li class="book-part">Inferencia estadística</li>
 <li><a class="" href="muestreo.html"><span class="header-section-number">8</span> Muestreo y estimación</a></li>
-<li><a class="" href="comparacion.html"><span class="header-section-number">9</span> Comparación de grupos</a></li>
-<li><a class="" href="regresion.html"><span class="header-section-number">10</span> Modelos de regresión</a></li>
+<li><a class="" href="comparacion2.html"><span class="header-section-number">9</span> Comparación de dos grupos</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">10</span> Análisis de la Varianza</a></li>
 <li><a class="" href="doe.html"><span class="header-section-number">11</span> Diseño de experimentos</a></li>
+<li><a class="" href="regresion.html"><span class="header-section-number">12</span> Modelos de regresión</a></li>
 <li class="book-part">Control estadístico de la calidad</li>
-<li><a class="" href="introc.html"><span class="header-section-number">12</span> Introducción</a></li>
-<li><a class="" href="spc.html"><span class="header-section-number">13</span> Control Estadístico de Procesos</a></li>
-<li><a class="" href="aceptacion.html"><span class="header-section-number">14</span> Inspección por muestreo</a></li>
+<li><a class="" href="introc.html"><span class="header-section-number">13</span> Introducción</a></li>
+<li><a class="" href="spc.html"><span class="header-section-number">14</span> Control Estadístico de Procesos</a></li>
+<li><a class="" href="aceptacion.html"><span class="header-section-number">15</span> Inspección por muestreo</a></li>
 <li class="book-part">Apéndices</li>
 <li><a class="" href="s%C3%ADmbolos-abreviaturas-y-acr%C3%B3nimos.html"><span class="header-section-number">A</span> Símbolos, abreviaturas y acrónimos</a></li>
 <li><a class="" href="tablas.html"><span class="header-section-number">B</span> Tablas estadísticas</a></li>
@@ -91,16 +92,16 @@ propiedades de las variables aleatorias son teóricas.
 Mediante la inferencia estadística, podremos utilizar datos empíricos
 de muestras para obtener conclusiones sobre la variable aleatoria que caracteriza a la población,
 recuérdese la figura <a href="introp.html#fig:dogma">4.1</a> al principio del capítulo <a href="introp.html#introp">4</a>.</p>
-<p>La figura <a href="intro.html#fig:dogma2">1.2</a> muestra la relación de las variables aleatorias con la
+<p>La figura <a href="vauni.html#fig:dogma2b">5.1</a> muestra la relación de las variables aleatorias con la
 población. En una muestra tenemos datos con los que calculamos estadísticos (media,
 varianza, etc) de esos datos. Representamos las frecuencias mediante histogramas.
 Por su parte, la población sigue una distribución de probabilidad teórica, con unas
 características teóricas (media, varianza, etc.). Ambos “mundos” se relacionan mediante
 la inferencia estadística, que no se trata en este texto.</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:dogma2"></span>
-<img src="05-vauni_files/figure-html/dogma2-1.png" alt="Variables aleatorias vs. datos empíricos" width="70%"><p class="caption">
-Figura 1.2: Variables aleatorias vs. datos empíricos
+<span style="display:block;" id="fig:dogma2b"></span>
+<img src="05-vauni_files/figure-html/dogma2b-1.png" alt="Variables aleatorias vs. datos empíricos" width="70%"><p class="caption">
+Figura 5.1: Variables aleatorias vs. datos empíricos
 </p>
 </div>
 <div id="concepto-y-definición-de-variable-aleatoria" class="section level2" number="5.1">
@@ -308,7 +309,7 @@ p: &amp; \quad \mathbb{R} &amp; \longrightarrow &amp; \quad [0,1]\\
 &amp; \quad 2 &amp; \longrightarrow &amp; \quad P[X = 2] = \frac{3}{8}\\
 &amp; \quad 3 &amp; \longrightarrow &amp; \quad P[X = 3] = \frac{1}{8}
 \end{aligned}\]</span></p>
-<p>La figura <a href="vauni.html#fig:ddiscretam">5.1</a> representa gráficamente la función de
+<p>La figura <a href="vauni.html#fig:ddiscretam">5.2</a> representa gráficamente la función de
 probabilidad<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Normalmente se representan líneas verticales en vez de únicamente el punto para una mejor visualización.&lt;/p&gt;"><sup>46</sup></a>.</p>
 <p>A partir de la función de probabilidad, aplicando que <span class="math inline">\(F(x_i) = \sum\limits_{j=1}^i p(x_j)\)</span>, la función de distribución
 sería la siguiente:</p>
@@ -320,7 +321,7 @@ F: &amp; \quad \mathbb{R} &amp; \longrightarrow &amp; \quad [0,1]\\
 &amp; \quad 2 &amp; \longrightarrow &amp; \quad P[X \leq 2] = \frac{7}{8}\\
 &amp; \quad 3 &amp; \longrightarrow &amp; \quad P[X \leq 3] = \frac{8}{8}=1
 \end{aligned}\]</span></p>
-<p>La figura <a href="vauni.html#fig:pdiscretam">5.2</a> representa gráficamente la función de distribución, que
+<p>La figura <a href="vauni.html#fig:pdiscretam">5.3</a> representa gráficamente la función de distribución, que
 se puede expresar de la siguiente forma:</p>
 <span class="math display">\[F(x)=
 \begin{cases}
@@ -334,13 +335,13 @@ se puede expresar de la siguiente forma:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:ddiscretam"></span>
 <img src="05-vauni_files/figure-html/ddiscretam-1.png" alt="Representación de la función de probabilidad para el experimento de las monedas" width="70%"><p class="caption">
-Figura 5.1: Representación de la función de probabilidad para el experimento de las monedas
+Figura 5.2: Representación de la función de probabilidad para el experimento de las monedas
 </p>
 </div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:pdiscretam"></span>
 <img src="05-vauni_files/figure-html/pdiscretam-1.png" alt="Representación de la función de distribución para el ejemplo de las monedas" width="70%"><p class="caption">
-Figura 5.2: Representación de la función de distribución para el ejemplo de las monedas
+Figura 5.3: Representación de la función de distribución para el ejemplo de las monedas
 </p>
 </div>
 <p>Otros ejemplos de variables aleatorias discretas serían aquellos en los
@@ -358,7 +359,7 @@ descrito en el capítulo de introducción a la probabilidad. Supongamos que se e
 sujetos una serie de mensajes de seguimiento por correo electrónico de forma
 <em>aleatoria</em>, y que el número de mensajes recibidas por un cliente puede ser 20, 36, o 60,
 con probabilidades <span class="math inline">\(\frac{36}{52}\)</span>, <span class="math inline">\(\frac{12}{52}\)</span> y <span class="math inline">\(\frac{4}{52}\)</span> respectivamente.
-Podemos así definir la variable aleatoria <span class="math inline">\(X:\)</span> <em>Número de mensajes remitidos por correo electrónico en un año a los sujetos en estudio</em>, cuyo campo de variación es <span class="math inline">\(\{20, 36, 60\}\)</span> y cuyas funciones de probabilidad y distribución se representan respectivamente en las figuras <a href="vauni.html#fig:ddiscreta">5.3</a> y <a href="vauni.html#fig:pdiscreta">5.4</a>. La tabla <a href="vauni.html#tab:ejdiscretat">5.1</a> muestra ambas funciones numéricamente.
+Podemos así definir la variable aleatoria <span class="math inline">\(X:\)</span> <em>Número de mensajes remitidos por correo electrónico en un año a los sujetos en estudio</em>, cuyo campo de variación es <span class="math inline">\(\{20, 36, 60\}\)</span> y cuyas funciones de probabilidad y distribución se representan respectivamente en las figuras <a href="vauni.html#fig:ddiscreta">5.4</a> y <a href="vauni.html#fig:pdiscreta">5.5</a>. La tabla <a href="vauni.html#tab:ejdiscretat">5.1</a> muestra ambas funciones numéricamente.
 </div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
@@ -389,13 +390,13 @@ Podemos así definir la variable aleatoria <span class="math inline">\(X:\)</spa
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:ddiscreta"></span>
 <img src="05-vauni_files/figure-html/ddiscreta-1.png" alt="Representación de la función de probabilidad de una variable aleatoria discreta" width="70%"><p class="caption">
-Figura 5.3: Representación de la función de probabilidad de una variable aleatoria discreta
+Figura 5.4: Representación de la función de probabilidad de una variable aleatoria discreta
 </p>
 </div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:pdiscreta"></span>
 <img src="05-vauni_files/figure-html/pdiscreta-1.png" alt="Representación de la función de distribución de la variable aleatoria discreta del ejemplo ilustrativo" width="70%"><p class="caption">
-Figura 5.4: Representación de la función de distribución de la variable aleatoria discreta del ejemplo ilustrativo
+Figura 5.5: Representación de la función de distribución de la variable aleatoria discreta del ejemplo ilustrativo
 </p>
 </div>
 </div>
@@ -447,13 +448,13 @@ En realidad, si medimos con una precisión, por ejemplo, de un decimal, podemos 
 de los <em>sucesos</em> individuales, ¿cómo saber qué valores son más probables?
 ¿dónde se concentra la probabilidad? Precisamente la continuidad de la
 función de distribución nos proporciona la herramienta matemática para resolver
-estas cuestiones. La figura <a href="vauni.html#fig:fdistcambio">5.5</a>
+estas cuestiones. La figura <a href="vauni.html#fig:fdistcambio">5.6</a>
 muestra la representación gráfica de la función de densidad <span class="math inline">\(F(x)\)</span> de una determinada
 variable aleatoria <span class="math inline">\(X\)</span>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:fdistcambio"></span>
 <img src="05-vauni_files/figure-html/fdistcambio-1.png" alt="Función de distribución de una variable continua y probabilidad de un intervalo" width="70%"><p class="caption">
-Figura 5.5: Función de distribución de una variable continua y probabilidad de un intervalo
+Figura 5.6: Función de distribución de una variable continua y probabilidad de un intervalo
 </p>
 </div>
 <p>Como podemos ver, la probabilidad en un intervalo cualquiera,
@@ -484,7 +485,7 @@ representa por <span class="math inline">\(f(x)\)</span>:</p>
 <p>Además, por el teorema fundamental del cálculo, podemos obtener la función de distribución a
 partir de la función de densidad mediante la integral:</p>
 <p><span class="math display">\[F(x)=\int_{-\infty}^x f(t) dt =P[X\leq x].\]</span>
-La figura <a href="vauni.html#fig:dp">5.6</a> representa la relación entre la función de densidad y
+La figura <a href="vauni.html#fig:dp">5.7</a> representa la relación entre la función de densidad y
 la función de distribución. Como se puede apreciar, el área debajo de la curva
 de la función de densidad <span class="math inline">\(f(t)\)</span> se corresponde con las distintas probabilidades
 de que la variable aleatoria tome valores en los intervalos que encierran dicha
@@ -492,7 +493,7 @@ de que la variable aleatoria tome valores en los intervalos que encierran dicha
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:dp"></span>
 <img src="05-vauni_files/figure-html/dp-1.png" alt="Relación entre las funciones de densidad y de probabilidad" width="70%"><p class="caption">
-Figura 5.6: Relación entre las funciones de densidad y de probabilidad
+Figura 5.7: Relación entre las funciones de densidad y de probabilidad
 </p>
 </div>
 <p>Para que una función <span class="math inline">\(f(x)\)</span> sea función de densidad, tiene
@@ -523,12 +524,12 @@ k(25-x) &amp; \text{si } 5 \leq x \leq 25\\
 <p><span class="math display">\[\int_{-\infty}^\infty f(x) dx=1,\]</span></p>
 <p>y por tanto:
 <span class="math display">\[k=\frac{1}{\int_{5}^{25} (25-x) dx} = 0.005.\]</span></p>
-<p>La figura <a href="vauni.html#fig:ejcontdesc">5.7</a> representa esta función de densidad.</p>
+<p>La figura <a href="vauni.html#fig:ejcontdesc">5.8</a> representa esta función de densidad.</p>
 </div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:ejcontdesc"></span>
 <img src="05-vauni_files/figure-html/ejcontdesc-1.png" alt="Función de densidad del ejemplo de los descuentos" width="70%"><p class="caption">
-Figura 5.7: Función de densidad del ejemplo de los descuentos
+Figura 5.8: Función de densidad del ejemplo de los descuentos
 </p>
 </div>
 
@@ -544,7 +545,7 @@ obtenemos directamente el área bajo la curva de una función. En el ejemplo:</p
 <p>R puede calcular integrales definidas metiante métodos numéricos. El código a continuación
 muestra la expresión para calcular la integral buscada y el valor de <span class="math inline">\(k\)</span>.</p>
 </div>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">integral</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span>f <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="fl">25</span> <span class="op">-</span> <span class="va">x</span> <span class="op">}</span>, 
                       lower <span class="op">=</span> <span class="fl">5</span>, 
                       upper <span class="op">=</span> <span class="fl">25</span><span class="op">)</span>
@@ -564,7 +565,7 @@ muestra la expresión para calcular la integral buscada y el valor de <span clas
 <p>Comprobar que es función de densidad, y obtener la función de distribución.</p>
 <p>Para comprobar si es función de densidad, verificamos las dos condiciones:</p>
 <ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(f(x)\geq 0\)</span> según está definida (véase la figura <a href="vauni.html#fig:ejfdensidad">5.8</a>)</p></li>
+<li><p><span class="math inline">\(f(x)\geq 0\)</span> según está definida (véase la figura <a href="vauni.html#fig:ejfdensidad">5.9</a>)</p></li>
 <li><p>Integral en todo <span class="math inline">\(\mathbb{R}\)</span>:</p></li>
 </ol>
 <p><span class="math display">\[\int_{-\infty}^\infty f(x)dx = \int_{0}^4 \frac{1}{8}x dx = \left [ \frac{x^2}{16} \right]_{0}^4=1.\]</span></p>
@@ -590,7 +591,7 @@ estamos considerando. Entonces, para nuestra función:</p>
 <li><p>Si <span class="math inline">\(x&gt;4\)</span>:</p></li>
 </ul>
 <p><span class="math display">\[F(x)=\int_{-\infty}^0 0 dt + \int_{0}^4 \frac{1}{8}t dt + \int_{4}^x 0 dt= \left [ \frac{t^2}{16} \right]_{0}^4 = 1.\]</span></p>
-<p>Expresamos por tanto la función de distribución, cuya representación aparece en la figura <a href="vauni.html#fig:ejfdistrib">5.9</a>, de la siguiente forma para todos sus intervalos:</p>
+<p>Expresamos por tanto la función de distribución, cuya representación aparece en la figura <a href="vauni.html#fig:ejfdistrib">5.10</a>, de la siguiente forma para todos sus intervalos:</p>
 <span class="math display">\[
 F(x)=
 \begin{cases}
@@ -604,17 +605,17 @@ F(x)=
 <div class="rmdpractica">
 <p><strong>MAXIMA</strong></p>
 <p>La integral definida para comprobar que vale uno sería:</p>
-<p><code><a href="https://rdrr.io/r/stats/integrate.html">integrate((1/8)*x, x, 0, 4);</a></code></p>
+<p><code>integrate((1/8)*x, x, 0, 4);</code></p>
 <p>Podríamos obtener la expresión de la función de distribución en el intervalo en que está definida
 con la siguiente expresión:</p>
-<p><code><a href="https://rdrr.io/r/stats/integrate.html">integrate((1/8)*t, t, 0, x);</a></code></p>
+<p><code>integrate((1/8)*t, t, 0, x);</code></p>
 <p><strong>R</strong></p>
 <p>El código a continuación realiza la comprobación de que la integral vale 1. R no puede
 hacer cálculo simbólico para obtener una expresión de la función de distribución. No obstante,
 se puede crear una función que obtenga valores de la función de distribución para utilizar
 posteriormente, o representarla gráficamente.</p>
 </div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span>f <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span> <span class="op">}</span>, 
                       lower <span class="op">=</span> <span class="fl">0</span>, 
                       upper <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
@@ -629,13 +630,13 @@ posteriormente, o representarla gráficamente.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:ejfdensidad"></span>
 <img src="05-vauni_files/figure-html/ejfdensidad-1.png" alt="Representación de la función de densidad del ejemplo" width="70%"><p class="caption">
-Figura 5.8: Representación de la función de densidad del ejemplo
+Figura 5.9: Representación de la función de densidad del ejemplo
 </p>
 </div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:ejfdistrib"></span>
 <img src="05-vauni_files/figure-html/ejfdistrib-1.png" alt="Representación de la función de distribución del ejemplo" width="70%"><p class="caption">
-Figura 5.9: Representación de la función de distribución del ejemplo
+Figura 5.10: Representación de la función de distribución del ejemplo
 </p>
 </div>
 <hr>
@@ -651,11 +652,11 @@ al <strong>área bajo la curva</strong> de la función de densidad, que, esta ve
 sí, tiene que ser menor o igual que 1. Utilizando las propiedades
 de la probabilidad, podemos calcular probabilidades de cualquier intervalo
 utilizando tanto la función de densidad como la función de distribución, tal
-y como se resume en la figura <a href="vauni.html#fig:cprocont">5.10</a>.</p>
+y como se resume en la figura <a href="vauni.html#fig:cprocont">5.11</a>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:cprocont"></span>
 <img src="05-vauni_files/figure-html/cprocont-1.png" alt="Cálculo de probabilidades de una variable continua" width="672"><p class="caption">
-Figura 5.10: Cálculo de probabilidades de una variable continua
+Figura 5.11: Cálculo de probabilidades de una variable continua
 </p>
 </div>
 <p>Para mejorar la comprensión de la función de densidad, cuya importancia
@@ -677,14 +678,14 @@ intervalo, representándolos en un <strong>histograma</strong>. Pues bien, si te
 muchos números, y hacemos la amplitud
 de los intervalos muy pequeños, entonces el histograma de los datos
 se parece cada vez más a la función de densidad de la variable aleatoria
-que describe el experimento<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Se parecerá más cuantos más datos tengamos, pero téngase en cuenta que la forma del histograma, con datos empíricos, será &lt;em&gt;aproximada&lt;/em&gt; (nunca exacta) a la forma de la función, &lt;em&gt;teórica&lt;/em&gt;.&lt;/p&gt;"><sup>48</sup></a>, recuérdese la Figura <a href="intro.html#fig:dogma2">1.2</a>. Además, el área de las barras del histograma
+que describe el experimento<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Se parecerá más cuantos más datos tengamos, pero téngase en cuenta que la forma del histograma, con datos empíricos, será &lt;em&gt;aproximada&lt;/em&gt; (nunca exacta) a la forma de la función, &lt;em&gt;teórica&lt;/em&gt;.&lt;/p&gt;"><sup>48</sup></a>, recuérdese la Figura <a href="vauni.html#fig:dogma2b">5.1</a>. Además, el área de las barras del histograma
 representa también las probabilidades de los intervalos que podamos formar.
-La figura <a href="vauni.html#fig:densidadfreq">5.11</a> muestra esta relación entre frecuencias
+La figura <a href="vauni.html#fig:densidadfreq">5.12</a> muestra esta relación entre frecuencias
 y función de densidad en un determinado experimento.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:densidadfreq"></span>
 <img src="05-vauni_files/figure-html/densidadfreq-1.png" alt="Frecuencias, histograma y función de densidad" width="70%"><p class="caption">
-Figura 5.11: Frecuencias, histograma y función de densidad
+Figura 5.12: Frecuencias, histograma y función de densidad
 </p>
 </div>
 <p>Una última consideración en cuanto a las variables aleatorias continuas es
@@ -725,11 +726,11 @@ F(x)=
 <div class="rmdpractica">
 <p><strong>MAXIMA</strong></p>
 <p>La probabilidad pedida se calcularía simplemente:</p>
-<p><code><a href="https://rdrr.io/r/stats/integrate.html">integrate((1/8)*x, x, 1, 2);</a></code></p>
+<p><code>integrate((1/8)*x, x, 1, 2);</code></p>
 <p><strong>R</strong></p>
 <p>El código a continuación calcula la probabilidad pedida.</p>
 </div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span>f <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span> <span class="op">}</span>, 
                       lower <span class="op">=</span> <span class="fl">1</span>, 
                       upper <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
@@ -742,7 +743,7 @@ F(x)=
 2e^{-2x} &amp; \text{si } x &gt; 0\\
 0 &amp; \text{si } x\leq 0
 \end{cases}\]</span></p>
-<p>La representación gráfica de esta función aparece en la figura <a href="vauni.html#fig:densejilu">5.12</a>.
+<p>La representación gráfica de esta función aparece en la figura <a href="vauni.html#fig:densejilu">5.13</a>.
 Podemos comprobar que es una función de densidad verificando que cumple los dos
 requisitos. Es una función exponencial multiplicada por un número positivo, por
 tanto es siempre positiva. Comprobemos el área debajo de la curva para todo su
@@ -750,7 +751,7 @@ dominio:</p>
 <p><span class="math display">\[\int_{-\infty}^\infty f(x) dx = 1 \iff \int_0^\infty 2e^{-2x} dx=\left[-e^{-2x}\right ]_0^\infty=1\]</span></p>
 <p>La función de distribución de esta variable aleatoria será:</p>
 <p><span class="math display">\[F(x) = \int_{-\infty}^x f(x) dx = \int_0^x 2e^{-2t} dt=\left[-e^{-2t}\right ]_0^x=1-e^{-2x},\]</span></p>
-<p>y su representación gráfica es la que se muestra en la figura <a href="vauni.html#fig:distejilu">5.13</a>.</p>
+<p>y su representación gráfica es la que se muestra en la figura <a href="vauni.html#fig:distejilu">5.14</a>.</p>
 <p>¿Qué porcentaje de visitantes abandonarán probablemente la página antes de 10 segundos?
 (nótese que 10 segundos = 10/60 minutos).</p>
 <p>Dado que tenemos la función de distribución,
@@ -763,13 +764,13 @@ aproximadamente un 28.35% de los visitantes.</p>
 <div class="rmdpractica">
 <p><strong>MAXIMA</strong></p>
 <p>Las siguientes expresiones obtienen en Maxima los resultados del ejemplo.</p>
-<p><code><a href="https://rdrr.io/r/stats/integrate.html">integrate(2*exp(-2*x), x, 0, inf);</a></code></p>
-<p><code><a href="https://rdrr.io/r/stats/integrate.html">integrate(2*exp(-2*t),t, 0, x);</a></code></p>
-<p><code><a href="https://rdrr.io/r/stats/integrate.html">integrate(2*exp(-2*x), x, 0, 10/60);</a></code></p>
+<p><code>integrate(2*exp(-2*x), x, 0, inf);</code></p>
+<p><code>integrate(2*exp(-2*t),t, 0, x);</code></p>
+<p><code>integrate(2*exp(-2*x), x, 0, 10/60);</code></p>
 <p><strong>R</strong></p>
 <p>En el siguiente código de R se realizan los cálculos explicados en el ejemplo.</p>
 </div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span>
 <span class="co">#&gt; 1 with absolute error &lt; 5e-07</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="fl">10</span><span class="op">/</span><span class="fl">60</span><span class="op">)</span>
@@ -777,13 +778,13 @@ aproximadamente un 28.35% de los visitantes.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:densejilu"></span>
 <img src="05-vauni_files/figure-html/densejilu-1.png" alt="Representación de la función de densidad del ejemplo ilustrativo" width="70%"><p class="caption">
-Figura 5.12: Representación de la función de densidad del ejemplo ilustrativo
+Figura 5.13: Representación de la función de densidad del ejemplo ilustrativo
 </p>
 </div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:distejilu"></span>
 <img src="05-vauni_files/figure-html/distejilu-1.png" alt="Representación de la función de distribución del ejemplo ilustrativo" width="70%"><p class="caption">
-Figura 5.13: Representación de la función de distribución del ejemplo ilustrativo
+Figura 5.14: Representación de la función de distribución del ejemplo ilustrativo
 </p>
 </div>
 </div>
@@ -798,7 +799,7 @@ A través de los posibles valores de una variable aleatoria y sus probabilidades
 definir estas características. Las más importantes son la esperanza (media) y la varianza.
 Una vez más, téngase en cuenta que estos parámetros de la variable aleatoria
 son <strong>valores teóricos de la variable aleatoria</strong>, generalmente referidas a una
-población de la cual tenemos sólo información parcial a través de una muestra (recuérdese la figura <a href="intro.html#fig:dogma2">1.2</a>).</p>
+población de la cual tenemos sólo información parcial a través de una muestra (recuérdese la figura <a href="vauni.html#fig:dogma2b">5.1</a>).</p>
 <div id="esperanza-matemática" class="section level3" number="5.5.1">
 <h3>
 <span class="header-section-number">5.5.1</span> Esperanza Matemática<a class="anchor" aria-label="anchor" href="#esperanza-matem%C3%A1tica"><i class="fas fa-link"></i></a>
@@ -915,24 +916,24 @@ acumulada, y sustituir la probabilidad por <span class="math inline">\(0.5\)</sp
 <p><span class="math display">\[F(x) = p \iff x = F^{-1}(p) \implies Me = F^{-1}(0.5).\]</span>
 Cuando no es posible despejar la <span class="math inline">\(x\)</span> hay que recurrir a métodos
 numéricos para obtener la inversa de la función de distribución.
-La figura <a href="vauni.html#fig:inversaF">5.14</a> muestra gráficamente la mediana
+La figura <a href="vauni.html#fig:inversaF">5.15</a> muestra gráficamente la mediana
 como inversa de la función de distribución en <span class="math inline">\(F(x) = 0.5\)</span>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:inversaF"></span>
 <img src="05-vauni_files/figure-html/inversaF-1.png" alt="La mediana a portir de la inversa de la función de distribución" width="70%"><p class="caption">
-Figura 5.14: La mediana a portir de la inversa de la función de distribución
+Figura 5.15: La mediana a portir de la inversa de la función de distribución
 </p>
 </div>
 <p>Por último, la <strong>moda</strong> de una variable aleatoria es el valor donde la función de probabilidad o la función de densidad tienen su máximo. La moda puede no ser única, y en particular para variables continuas se suele hablar de distribuciones <em>bimodales</em> o
 <em>multimodales</em> cuando tienen más de un máximo local (aunque solo uno de ellos sea
-el máximo absoluto). En la figura <a href="vauni.html#fig:vacentra">5.15</a> se representan las tres medidas
+el máximo absoluto). En la figura <a href="vauni.html#fig:vacentra">5.16</a> se representan las tres medidas
 de una determinada variable aleatoria con una determinada función de densidad. Nótese que en una distribución de probabilidad
 asimétrica, como es la que se representa, la media se desplaza hacia la cola
 más larga.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:vacentra"></span>
 <img src="05-vauni_files/figure-html/vacentra-1.png" alt="Medidas de centralización de una variable aleatoria" width="70%"><p class="caption">
-Figura 5.15: Medidas de centralización de una variable aleatoria
+Figura 5.16: Medidas de centralización de una variable aleatoria
 </p>
 </div>
 
@@ -956,7 +957,7 @@ y sumamos los valores.</p>
 Podemos guardar los valores y sus probabilidades en sendos vectores y calcular la
 esperanza calculando la suma del producto de ambos vectores, como se muestra en el siguiente código.
 </div>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x_i</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span>
 <span class="va">p_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span>, <span class="fl">3</span><span class="op">/</span><span class="fl">8</span>, <span class="fl">3</span><span class="op">/</span><span class="fl">8</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span>
 <span class="va">Ex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x_i</span><span class="op">*</span><span class="va">p_i</span><span class="op">)</span>
@@ -981,17 +982,17 @@ Tomamos solo la raíz positiva puesto que sabemos que la variable está entre 0 
 Entonces la mediana de esta variable aleatoria es:</p>
 <p><span class="math display">\[F^{-1}(0.5) = +\sqrt{16\cdot 0.5} = 2\sqrt{2} \approx 2.8284.\]</span></p>
 <p>En cuanto a la moda sería 4, ya que es el valor donde la función de densidad
-es máximo, al ser una recta de pendiente positiva entre 0 y 4 (véase la figura <a href="vauni.html#fig:ejfdensidad">5.8</a>).</p>
+es máximo, al ser una recta de pendiente positiva entre 0 y 4 (véase la figura <a href="vauni.html#fig:ejfdensidad">5.9</a>).</p>
 </div>
 
 <div class="rmdpractica">
 <p><strong>MAXIMA</strong></p>
 <p>La siguiente expresión devuelve el valor la integral definida con el resultado de la esperanza:</p>
-<p><code><a href="https://rdrr.io/r/stats/integrate.html">integrate(x*(1/8)*x, x, 0, 4);</a></code></p>
+<p><code>integrate(x*(1/8)*x, x, 0, 4);</code></p>
 <p><strong>R</strong></p>
 <p>El código a continuación obtiene la esperanza de la variable aleatoria.</p>
 </div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span>, <span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span>
 <span class="co">#&gt; 2.666667 with absolute error &lt; 3e-14</span></code></pre></div>
 <div class="rmdejemplo">
@@ -1029,18 +1030,18 @@ y sumamos los valores.</p>
 <p><strong>MAXIMA</strong></p>
 <p>La esperanza de la variable continua la podemos obtener con la siguiente
 expresión:</p>
-<p><code><a href="https://rdrr.io/r/stats/integrate.html">integrate(x*2*exp(-2*x), x, 0, inf);</a></code></p>
+<p><code>integrate(x*2*exp(-2*x), x, 0, inf);</code></p>
 <p><strong>R</strong></p>
 Para la variable discreta, podemos guardar los valores y sus probabilidades en sendos vectores y calcular la
 esperanza calculando la suma del producto de ambos vectores, como se muestra en el siguiente código. Para la variable continua, utilizamos la función <code>integrate</code> para calcular la integral. Nótese que se pueden usar límites infinitos.
 </div>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">36</span>, <span class="fl">60</span><span class="op">)</span>
 <span class="va">p_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">36</span><span class="op">/</span><span class="fl">52</span>, <span class="fl">12</span><span class="op">/</span><span class="fl">52</span>, <span class="fl">4</span><span class="op">/</span><span class="fl">52</span><span class="op">)</span>
 <span class="va">Ex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x_i</span><span class="op">*</span><span class="va">p_i</span><span class="op">)</span>
 <span class="va">Ex</span>
 <span class="co">#&gt; [1] 26.76923</span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span>
 <span class="co">#&gt; 0.5 with absolute error &lt; 8.6e-06</span></code></pre></div>
 </div>
@@ -1113,11 +1114,11 @@ la media calculada anteriormente elevada al cuadrado, para obtener la varianza.<
 <p><strong>MAXIMA</strong></p>
 <p>Para la variable continua obtenemos <span class="math inline">\(\alpha_2\)</span> con la siguiente expresión,
 y después podemos hacer operaciones para calcular todas las características:</p>
-<p><code><a href="https://rdrr.io/r/stats/integrate.html">integrate(x^2*(1/8)*x, x, 0, 4);</a></code></p>
+<p><code>integrate(x^2*(1/8)*x, x, 0, 4);</code></p>
 <p><strong>R</strong></p>
 El siguiente código realiza todos los cálculos para obtener los distintos parámetros de dispersión.
 </div>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">alpha_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span>, <span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span><span class="op">$</span><span class="va">value</span>
 <span class="va">alpha_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span>, <span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span><span class="op">$</span><span class="va">value</span>
 <span class="va">varianza</span> <span class="op">&lt;-</span> <span class="va">alpha_2</span> <span class="op">-</span> <span class="va">alpha_1</span><span class="op">^</span><span class="fl">2</span>; <span class="va">varianza</span>
@@ -1172,13 +1173,13 @@ sumando totales y finalmente aplicando la fórmula.</p>
 <p><strong>MAXIMA</strong></p>
 <p>La siguiente expresión calcularía <span class="math inline">\(\alpha_2\)</span>, y a partir de ahí se
 aplican las fórmulas para obtener los distintos parámetros.</p>
-<p><code><a href="https://rdrr.io/r/stats/integrate.html">integrate(x^2*2*exp(-2*x), x, 0, inf);</a></code></p>
+<p><code>integrate(x^2*2*exp(-2*x), x, 0, inf);</code></p>
 <p><strong>R</strong></p>
 El código a continuación calcula la varianza de la variable
 aleatoria de forma análoga
 al ejemplo anterior.
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">alpha_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">*</span><span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">$</span><span class="va">value</span>
 <span class="va">alpha_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">$</span><span class="va">value</span>
 <span class="va">varianza</span> <span class="op">&lt;-</span> <span class="va">alpha_2</span> <span class="op">-</span> <span class="va">alpha_1</span><span class="op">^</span><span class="fl">2</span>; <span class="va">varianza</span>
@@ -1225,13 +1226,13 @@ probabilidad dada:</p>
 El método más general para calcular cualquier cuantil consiste en obtener
 la inversa de la función de distribución <span class="math inline">\(x = F^{-1}(p)\)</span> y dar valores a
 <span class="math inline">\(p\)</span> (véase el ejemplo de la mediana más arriba).
-La figura <a href="vauni.html#fig:cuartil">5.16</a> muestra la representación del cuantil 0.75
+La figura <a href="vauni.html#fig:cuartil">5.17</a> muestra la representación del cuantil 0.75
 en relación con una determinada función de densidad.</p>
 <p>También se pueden calcular a partir de los momentos otros parámetros como los coeficientes de asimetría y de curtosis de una variable aleatoria, que no se tratan en este texto.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:cuartil"></span>
 <img src="05-vauni_files/figure-html/cuartil-1.png" alt="Cuantiles de una variable aleatoria" width="70%"><p class="caption">
-Figura 5.16: Cuantiles de una variable aleatoria
+Figura 5.17: Cuantiles de una variable aleatoria
 </p>
 </div>
 </div>
@@ -1244,11 +1245,11 @@ esta acotación es la siguiente:</p>
 <p><span class="math display">\[P[|X-\mu|\geq k\sigma] \leq \frac{1}{k^2},\]</span>
 conocida como <strong>desigualdad de Chebyshev</strong><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Podemos encontrar diversas grafías del apellido de este matemático ruso (1821-1894) como Chebyshov, Tchebychev, Tchebycheff, Tschebyscheff, Chebyshev o Čebišëv.&lt;/p&gt;"><sup>51</sup></a> y que nos permite acotar la probabilidad de una variable aleatoria de dos formas:</p>
 <ul>
-<li>La probabilidad de que la variable aleatoria tome valores más extremos de <span class="math inline">\(k\)</span> desviaciones típicas desde la media es, como mucho, <span class="math inline">\(\frac{1}{k^2}\)</span>, véase la figura <a href="vauni.html#fig:cheby">5.17</a>:</li>
+<li>La probabilidad de que la variable aleatoria tome valores más extremos de <span class="math inline">\(k\)</span> desviaciones típicas desde la media es, como mucho, <span class="math inline">\(\frac{1}{k^2}\)</span>, véase la figura <a href="vauni.html#fig:cheby">5.18</a>:</li>
 </ul>
 <p><span class="math display">\[P[\mu-k\sigma \geq X \geq \mu+k\sigma] \leq \frac{1}{k^2}.\]</span></p>
 <ul>
-<li>La probabilidad de que la variable aleatoria tome valores dentro de <span class="math inline">\(k\)</span> desviaciones típicas desde la media es, como poco, <span class="math inline">\(1-\frac{1}{k^2}\)</span>, véase la figura <a href="vauni.html#fig:cheby2">5.18</a>:</li>
+<li>La probabilidad de que la variable aleatoria tome valores dentro de <span class="math inline">\(k\)</span> desviaciones típicas desde la media es, como poco, <span class="math inline">\(1-\frac{1}{k^2}\)</span>, véase la figura <a href="vauni.html#fig:cheby2">5.19</a>:</li>
 </ul>
 <p><span class="math display">\[P[\mu-k\sigma &lt; X &lt; \mu+k\sigma] \geq 1- \frac{1}{k^2}.\]</span>
 Si lo que queremos es acotar la probabilidad para un valor concreto <span class="math inline">\(x\)</span>, entonces podemos encontrar primero <span class="math inline">\(k\)</span> despejando de <span class="math inline">\(\mu+k\sigma=x\)</span> y después aplicar las propiedades de la probabilidad para encontrar una cota.</p>
@@ -1258,13 +1259,13 @@ También podemos determinar mediante esta desigualdad, entre qué valores estar�
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:cheby"></span>
 <img src="05-vauni_files/figure-html/cheby-1.png" alt="Cota superior externa Desigualdad de Chebyshev" width="70%"><p class="caption">
-Figura 5.17: Cota superior externa Desigualdad de Chebyshev
+Figura 5.18: Cota superior externa Desigualdad de Chebyshev
 </p>
 </div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:cheby2"></span>
 <img src="05-vauni_files/figure-html/cheby2-1.png" alt="Cota inferior interna Desigualdad de Chebyshev" width="70%"><p class="caption">
-Figura 5.18: Cota inferior interna Desigualdad de Chebyshev
+Figura 5.19: Cota inferior interna Desigualdad de Chebyshev
 </p>
 </div>
 
@@ -1343,7 +1344,7 @@ y por tanto si la suma de dos números es menor que 0.1111, entonces cada uno de
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2021-10-12.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2021-11-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -7,7 +7,7 @@
 <title>Apéndice C Repaso | Estadística Aplicada a las Ciencias y la Ingeniería</title>
 <meta name="author" content="Emilio L. Cano">
 <meta name="description" content="Este apéndice cubre algunas cuestiones matemáticas básicas que el lector de este libro con seguridad habrá aprendido con anterioridad. Se incluyen como referencia para facilitar el repaso a...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.24.3 with bs4_book()">
 <meta property="og:title" content="Apéndice C Repaso | Estadística Aplicada a las Ciencias y la Ingeniería">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/repaso.html">
@@ -56,13 +56,14 @@
 <li><a class="" href="modelos.html"><span class="header-section-number">7</span> Modelos de distribución de probabilidad</a></li>
 <li class="book-part">Inferencia estadística</li>
 <li><a class="" href="muestreo.html"><span class="header-section-number">8</span> Muestreo y estimación</a></li>
-<li><a class="" href="comparacion.html"><span class="header-section-number">9</span> Comparación de grupos</a></li>
-<li><a class="" href="regresion.html"><span class="header-section-number">10</span> Modelos de regresión</a></li>
+<li><a class="" href="comparacion2.html"><span class="header-section-number">9</span> Comparación de dos grupos</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">10</span> Análisis de la Varianza</a></li>
 <li><a class="" href="doe.html"><span class="header-section-number">11</span> Diseño de experimentos</a></li>
+<li><a class="" href="regresion.html"><span class="header-section-number">12</span> Modelos de regresión</a></li>
 <li class="book-part">Control estadístico de la calidad</li>
-<li><a class="" href="introc.html"><span class="header-section-number">12</span> Introducción</a></li>
-<li><a class="" href="spc.html"><span class="header-section-number">13</span> Control Estadístico de Procesos</a></li>
-<li><a class="" href="aceptacion.html"><span class="header-section-number">14</span> Inspección por muestreo</a></li>
+<li><a class="" href="introc.html"><span class="header-section-number">13</span> Introducción</a></li>
+<li><a class="" href="spc.html"><span class="header-section-number">14</span> Control Estadístico de Procesos</a></li>
+<li><a class="" href="aceptacion.html"><span class="header-section-number">15</span> Inspección por muestreo</a></li>
 <li class="book-part">Apéndices</li>
 <li><a class="" href="s%C3%ADmbolos-abreviaturas-y-acr%C3%B3nimos.html"><span class="header-section-number">A</span> Símbolos, abreviaturas y acrónimos</a></li>
 <li><a class="" href="tablas.html"><span class="header-section-number">B</span> Tablas estadísticas</a></li>
@@ -78,19 +79,19 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="repaso" class="section level1" number="17">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="repaso" class="section level1" number="18">
 <h1>
 <span class="header-section-number">Apéndice C</span> Repaso<a class="anchor" aria-label="anchor" href="#repaso"><i class="fas fa-link"></i></a>
 </h1>
 <p>Este apéndice cubre algunas cuestiones matemáticas básicas que el lector
 de este libro con seguridad habrá aprendido con anterioridad. Se incluyen
 como referencia para facilitar el repaso a aquellos que lo necesiten.</p>
-<div id="logaritmos-y-exponenciales" class="section level2" number="17.1">
+<div id="logaritmos-y-exponenciales" class="section level2" number="18.1">
 <h2>
 <span class="header-section-number">C.1</span> Logaritmos y exponenciales<a class="anchor" aria-label="anchor" href="#logaritmos-y-exponenciales"><i class="fas fa-link"></i></a>
 </h2>
 </div>
-<div id="combinatoria" class="section level2" number="17.2">
+<div id="combinatoria" class="section level2" number="18.2">
 <h2>
 <span class="header-section-number">C.2</span> Combinatoria<a class="anchor" aria-label="anchor" href="#combinatoria"><i class="fas fa-link"></i></a>
 </h2>
@@ -100,7 +101,7 @@ en muchas ocasiones el cálculo de probabilidades empieza contando las
 posibilidades de que ocurra un suceso. La Combinatoria es la parte de la
 Matemática discreta que nos ayuda en esta tarea. Incluimos un breve
 resumen con ejemplos de las fórmulas más habituales y su cálculo con R.</p>
-<div id="ejemplo-ilustrativo" class="section level3" number="17.2.1">
+<div id="ejemplo-ilustrativo" class="section level3" number="18.2.1">
 <h3>
 <span class="header-section-number">C.2.1</span> Ejemplo ilustrativo<a class="anchor" aria-label="anchor" href="#ejemplo-ilustrativo"><i class="fas fa-link"></i></a>
 </h3>
@@ -127,7 +128,7 @@ una determinada patología, equipos de una infraestructura, etc. Asimismo
 las categorías pueden ser cualesquiera aplicables a los elementos de los
 conjuntos.</p>
 </div>
-<div id="principio-básico-de-conteo" class="section level3" number="17.2.2">
+<div id="principio-básico-de-conteo" class="section level3" number="18.2.2">
 <h3>
 <span class="header-section-number">C.2.2</span> Principio básico de conteo<a class="anchor" aria-label="anchor" href="#principio-b%C3%A1sico-de-conteo"><i class="fas fa-link"></i></a>
 </h3>
@@ -138,11 +139,11 @@ el número total de resultados posibles es:</p>
 <p><strong>Ejemplo</strong>: Resultados posibles si tomamos al azar un individuo
 y observamos su grupo de edad y si contratará o no el servicio.</p>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fl">3</span><span class="op">*</span><span class="fl">2</span>
 <span class="co">#&gt; [1] 6</span></code></pre></div>
 </div>
-<div id="permutaciones" class="section level3" number="17.2.3">
+<div id="permutaciones" class="section level3" number="18.2.3">
 <h3>
 <span class="header-section-number">C.2.3</span> Permutaciones<a class="anchor" aria-label="anchor" href="#permutaciones"><i class="fas fa-link"></i></a>
 </h3>
@@ -152,11 +153,11 @@ conjunto de <span class="math inline">\(n\)</span> elementos sin repetirlos.</p>
 <p><strong>Ejemplo</strong>: De cuántas formas podemos ordenar un conjunto de
 tres individuos, uno de cada categoría laboral.</p>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt; [1] 6</span></code></pre></div>
 </div>
-<div id="variaciones-muestreo-sin-reemplazamiento" class="section level3" number="17.2.4">
+<div id="variaciones-muestreo-sin-reemplazamiento" class="section level3" number="18.2.4">
 <h3>
 <span class="header-section-number">C.2.4</span> Variaciones (muestreo sin reemplazamiento)<a class="anchor" aria-label="anchor" href="#variaciones-muestreo-sin-reemplazamiento"><i class="fas fa-link"></i></a>
 </h3>
@@ -168,11 +169,11 @@ repitan. Una ordenación distinta, es una posibilidad distinta.</p>
 de 5 individuos en nuestro conjunto de 52 sin que se repitan (por
 ejemplo para asignar un ranking)</p>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">52</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">52</span><span class="op">-</span><span class="fl">5</span><span class="op">)</span>
 <span class="co">#&gt; [1] 311875200</span></code></pre></div>
 </div>
-<div id="variaciones-con-repetición-muestreo-con-reemplazamiento" class="section level3" number="17.2.5">
+<div id="variaciones-con-repetición-muestreo-con-reemplazamiento" class="section level3" number="18.2.5">
 <h3>
 <span class="header-section-number">C.2.5</span> Variaciones con repetición (muestreo con reemplazamiento)<a class="anchor" aria-label="anchor" href="#variaciones-con-repetici%C3%B3n-muestreo-con-reemplazamiento"><i class="fas fa-link"></i></a>
 </h3>
@@ -184,11 +185,11 @@ repetir. Una ordenación distinta, es una posibilidad distinta.
 de 5 individuos en nuestro conjunto de 52 pudiéndose repetir (por
 ejemplo para asignar premios consecutivamente)</p>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fl">52</span><span class="op">^</span><span class="fl">5</span>
 <span class="co">#&gt; [1] 380204032</span></code></pre></div>
 </div>
-<div id="combinaciones-muestras-equivalentes" class="section level3" number="17.2.6">
+<div id="combinaciones-muestras-equivalentes" class="section level3" number="18.2.6">
 <h3>
 <span class="header-section-number">C.2.6</span> Combinaciones (muestras equivalentes)<a class="anchor" aria-label="anchor" href="#combinaciones-muestras-equivalentes"><i class="fas fa-link"></i></a>
 </h3>
@@ -208,11 +209,11 @@ Por otra parte, por convenio se tiene que:</p>
 de 5 individuos en nuestro conjunto de 52 sin importar el orden (por
 ejemplo para asignar premios de una sola vez)</p>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="fl">52</span>, <span class="fl">5</span><span class="op">)</span>
 <span class="co">#&gt; [1] 2598960</span></code></pre></div>
 </div>
-<div id="combinaciones-y-permutaciones-con-repetición" class="section level3" number="17.2.7">
+<div id="combinaciones-y-permutaciones-con-repetición" class="section level3" number="18.2.7">
 <h3>
 <span class="header-section-number">C.2.7</span> Combinaciones y permutaciones con repetición<a class="anchor" aria-label="anchor" href="#combinaciones-y-permutaciones-con-repetici%C3%B3n"><i class="fas fa-link"></i></a>
 </h3>
@@ -264,7 +265,7 @@ elementos aparece <span class="math inline">\(a\)</span> veces, y así sucesivam
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2021-10-12.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2021-11-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
