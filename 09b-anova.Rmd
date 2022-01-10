@@ -14,10 +14,10 @@ donde se busca explicar una o varias variables cuantitativas a partir de una
 o varias variables cualitativas o factores. Es decir, buscamos un modelo
 del tipo:
 
-$$\begin{equation}
+\begin{equation}
 \pmb{Y}=f(\pmb{X}) + \varepsilon
 (\#eq:modelogeneral)
-\end{equation}$$
+\end{equation}
 
 donde $\pmb{Y}$ es un vector de variables respuesta numéricas que queremos
 explicar o predecir, y $\pmb{X}$ es un vector de variables predictivas 
