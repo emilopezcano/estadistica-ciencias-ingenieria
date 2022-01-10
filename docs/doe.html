@@ -43,7 +43,36 @@
 </form>
 
       <nav aria-label="Contenido"><h2>Contenido</h2>
-        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Capítulo 11</span> Diseño de experimentos</a></li></ul>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Bienvenida</a></li>
+<li class="book-part">Estadística descriptiva</li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introducción</a></li>
+<li><a class="" href="aed-uni.html"><span class="header-section-number">2</span> Análisis exploratorio univariante</a></li>
+<li><a class="" href="aed-bi.html"><span class="header-section-number">3</span> Análisis exploratorio bivariante</a></li>
+<li class="book-part">Probabilidad</li>
+<li><a class="" href="introp.html"><span class="header-section-number">4</span> Introducción a la Probabilidad</a></li>
+<li><a class="" href="vauni.html"><span class="header-section-number">5</span> Variable aleatoria univariante</a></li>
+<li><a class="" href="vabi.html"><span class="header-section-number">6</span> Variable aleatoria bivariante</a></li>
+<li><a class="" href="modelos.html"><span class="header-section-number">7</span> Modelos de distribución de probabilidad</a></li>
+<li class="book-part">Inferencia estadística</li>
+<li><a class="" href="muestreo.html"><span class="header-section-number">8</span> Muestreo y estimación</a></li>
+<li><a class="" href="comparacion2.html"><span class="header-section-number">9</span> Comparación de dos grupos</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">10</span> Análisis de la Varianza</a></li>
+<li><a class="active" href="doe.html"><span class="header-section-number">11</span> Diseño de experimentos</a></li>
+<li><a class="" href="regresion.html"><span class="header-section-number">12</span> Modelos de regresión</a></li>
+<li class="book-part">Control estadístico de la calidad</li>
+<li><a class="" href="introc.html"><span class="header-section-number">13</span> Introducción</a></li>
+<li><a class="" href="spc.html"><span class="header-section-number">14</span> Control Estadístico de Procesos</a></li>
+<li><a class="" href="aceptacion.html"><span class="header-section-number">15</span> Inspección por muestreo</a></li>
+<li class="book-part">Apéndices</li>
+<li><a class="" href="s%C3%ADmbolos-abreviaturas-y-acr%C3%B3nimos.html"><span class="header-section-number">A</span> Símbolos, abreviaturas y acrónimos</a></li>
+<li><a class="" href="tablas.html"><span class="header-section-number">B</span> Tablas estadísticas</a></li>
+<li><a class="" href="repaso.html"><span class="header-section-number">C</span> Repaso</a></li>
+<li><a class="" href="ampliaci%C3%B3n.html"><span class="header-section-number">D</span> Ampliación</a></li>
+<li><a class="" href="demostraciones.html"><span class="header-section-number">E</span> Demostraciones</a></li>
+<li><a class="" href="creditos.html"><span class="header-section-number">F</span> Créditos</a></li>
+<li><a class="" href="referencias.html">Referencias</a></li>
+</ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria">Ver repositorio <i class="fab fa-github"></i></a></p>
@@ -62,7 +91,7 @@
 otra técnica estadística, se basa en el estudio de la variabilidad. DoE es la
 herramienta más potente para la mejora, lo que ha llevado a algunos autores a
 llamarlo “the jewel of quality engineering” (Ver por ejemplo
-<span class="citation">Theodore T. Allen<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Introduction to Engineering Statistics and Lean Six Sigma - Statistical Quality Control and Design of Experiments and Systems&lt;/em&gt; (Springer, 2010).&lt;/p&gt;"><sup>1</sup></a></span>).</p>
+<span class="citation">Theodore T. Allen<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Introduction to Engineering Statistics and Lean Six Sigma - Statistical Quality Control and Design of Experiments and Systems&lt;/em&gt; (Springer, 2010).&lt;/p&gt;"><sup>70</sup></a></span>).</p>
 <p>En apartados anteriores del libro hemos aprendido las herramientas básicas
 para <strong>analizar la variabilidad</strong> de los datos. En este apartado vamos a revisar
 las técnicas de Diseño de Experimentos y
@@ -89,7 +118,7 @@ el menor uso de recursos posible.
 Así, podremos tomar decisiones respaldadas por los datos.</p>
 <p>El objetivo del diseño de experimentos es encontrar los niveles de
 ciertos factores que optimizan una determinada característica medible.
-Esto se consigue con un método sistemático<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En realidad, el método científico.&lt;/p&gt;"><sup>2</sup></a> que evita salidas en falso y respuestas
+Esto se consigue con un método sistemático<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En realidad, el método científico.&lt;/p&gt;"><sup>71</sup></a> que evita salidas en falso y respuestas
 incompletas. Mediante la reducción del error experimental se consigue evitar la confusión de los efectos y anular los efectos sin interés para el estudio.</p>
 <p>Para empezar, lo primero que necesitamos es definir los datos del problema
 objeto de estudio y disponer de una forma de obtenerlos adecuadamente, en particular:</p>
@@ -147,7 +176,7 @@ R.A. Fisher</p>
 </blockquote>
 <blockquote>
 <p>As we know from Murphy’s Law, if anything can go wrong it will, and analysis of
-data can never compensate for botched experiments<br><span class="citation">John Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;, Chapman &amp;amp; Hall/CRC Texts in Statistical Science (CRC Press, 2015).&lt;/p&gt;"><sup>3</sup></a></span></p>
+data can never compensate for botched experiments<br><span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>72</sup></a></span></p>
 </blockquote>
 </div>
 <p>El análisis de la varianza sin diseño de experimentos tiene algunas
@@ -187,7 +216,7 @@ cambios que resulten en mejoras. Sin embargo, es
 necesario otro tipo de conocimiento (<em>profound knowledge</em>), en el que se
 incluye la Estadística. Combinar ambos conocimientos, lleva a una
 mayor capacidad de mejora.
-Estas ideas, originarias de Deming, se recogen en <span class="citation">R. Moen, T. Nolan, and L. Provost.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Quality Improvement Through Planned Experimentation 3/e&lt;/em&gt; (McGraw-Hill Education, 2012).&lt;/p&gt;"><sup>4</sup></a></span>
+Estas ideas, originarias de Deming, se recogen en <span class="citation">R. Moen, T. Nolan, and L. Provost.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Quality Improvement Through Planned Experimentation 3/e&lt;/em&gt; (McGraw-Hill Education, 2012).&lt;/p&gt;"><sup>73</sup></a></span>
 Algunas capacidades necesarias fruto de esta combinación son:</p>
 <ul>
 <li>Entender las interdependencias entre los sistemas donde se lleva a cabo
@@ -216,7 +245,7 @@ en un proceso iterativo de aprendizaje como se muestra en la figura <a href="doe
 Figura 11.3: Método iterativo de aprendizaje
 </p>
 </div>
-<p>En <span class="citation">Moen, Nolan, and Provost<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></span> se propone el ciclo PDSA (<em>Plan-Do-Study-Act</em>) para la mejora que se muestra en la figura <a href="doe.html#fig:ciclo">11.4</a>. Básicamente consiste en:</p>
+<p>En <span class="citation">Moen, Nolan, and Provost<a href="#fn74" class="footnote-ref" id="fnref74"><sup>74</sup></a></span> se propone el ciclo PDSA (<em>Plan-Do-Study-Act</em>) para la mejora que se muestra en la figura <a href="doe.html#fig:ciclo">11.4</a>. Básicamente consiste en:</p>
 <ol style="list-style-type: decimal">
 <li>Planifica un cambio o prueba, dirigido a la <strong>mejora</strong>
 </li>
@@ -321,7 +350,7 @@ experimentales (por ejemplo, días diferentes), se deben organizar en bloques.</
 <li><p><strong>Réplicas</strong>. Para poder estimar el error experimental y hacer contrastes de
 hipótesis, es necesario tener más de una <em>corrida</em> de cada combinación de tratamientos.</p></li>
 </ul>
-<p><span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>6</sup></a></span> propone la siguiente <em>checklist</em> a la hora de planificar
+<p><span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>75</sup></a></span> propone la siguiente <em>checklist</em> a la hora de planificar
 experimentos:</p>
 <ol style="list-style-type: decimal">
 <li>Definir objetivos</li>
@@ -405,7 +434,7 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <div class="rmdpractica">
 <p>En el siguiente código se analiza un experimento con dos factores A y B a dos niveles, <code>+</code> y + <code>-</code>. Se muestran los gráficos de los efectos.</p>
 </div>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://xtable.r-forge.r-project.org/">xtable</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://prof.beuth-hochschule.de/groemping/DoE/">DoE.base</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.r-project.org">effects</a></span><span class="op">)</span>
@@ -470,7 +499,7 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 </tr>
 </tbody>
 </table></div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">modelof22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/DoE.base/man/lm.design.html">lm</a></span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">A</span> <span class="op">+</span> <span class="va">B</span> <span class="op">+</span> <span class="va">A</span><span class="op">*</span><span class="va">B</span>, data <span class="op">=</span> <span class="va">datosf22</span><span class="op">)</span>
 <span class="co"># kable(anova(modelof22))</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof22</span><span class="op">)</span>
@@ -485,23 +514,23 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <span class="co">#&gt; ---</span>
 <span class="co">#&gt; Signif. codes:  </span>
 <span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://lattice.r-forge.r-project.org/">lattice</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/trellis.par.get.html">trellis.par.set</a></span><span class="op">(</span>background <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; NOTE: A is not a high-order term in the model</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; NOTE: B is not a high-order term in the model</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A:B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
 <div class="rmdejemplo">
 <p>Vemos que los dos efectos principales son significativos, pero no lo es la interacción. Podemos eliminar ese término del modelo para así ganar grados de libertad y tener una mejor estimación del error.</p>
 </div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">modelof22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/DoE.base/man/lm.design.html">lm</a></span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">A</span> <span class="op">+</span> <span class="va">B</span>, data <span class="op">=</span> <span class="va">datosf22</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof22</span><span class="op">)</span>
 <span class="co">#&gt; Analysis of Variance Table</span>
@@ -514,10 +543,10 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <span class="co">#&gt; ---</span>
 <span class="co">#&gt; Signif. codes:  </span>
 <span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
 <p><strong>Diseño factorial <span class="math inline">\(2^3\)</span></strong></p>
@@ -537,7 +566,7 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <div class="rmdejemplo">
 <p>En el siguiente ejemplo, analizamos tres factores, pero omitimos la interacción de orden 3. Después, podríamos eliminar las interacciones menos significativas para quedarnos con el modelo más sencillo.</p>
 </div>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datosf23</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/scan.html">scan</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"
 -   -   -   60
 +   -   -   72  
@@ -611,7 +640,7 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 </tr>
 </tbody>
 </table></div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">modelof23</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/DoE.base/man/lm.design.html">lm</a></span><span class="op">(</span><span class="va">rendimiento</span> <span class="op">~</span> <span class="cn">T</span> <span class="op">+</span> <span class="va">C</span> <span class="op">+</span> <span class="va">K</span> <span class="op">+</span> <span class="cn">T</span><span class="op">*</span><span class="va">C</span> <span class="op">+</span> <span class="cn">T</span><span class="op">*</span><span class="va">K</span> <span class="op">+</span> <span class="va">C</span><span class="op">*</span><span class="va">K</span>, data <span class="op">=</span> <span class="va">datosf23</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof23</span><span class="op">)</span>
 <span class="co">#&gt; Analysis of Variance Table</span>
@@ -628,26 +657,26 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <span class="co">#&gt; ---</span>
 <span class="co">#&gt; Signif. codes:  </span>
 <span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; NOTE: T is not a high-order term in the model</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"C"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; NOTE: C is not a high-order term in the model</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-2.png" width="672"></div>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; NOTE: K is not a high-order term in the model</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-3.png" width="672"></div>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T:C"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-4.png" width="672"></div>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T:K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-5.png" width="672"></div>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"C:K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-6.png" width="672"></div>
 <p><strong>Diseño factorial <span class="math inline">\(2^k\)</span></strong></p>
@@ -678,15 +707,31 @@ El número de experimentos necesarios aumenta exponencialmente, y se suelen pref
 </div>
 
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
+<div class="prev"><a href="anova.html"><span class="header-section-number">10</span> Análisis de la Varianza</a></div>
+<div class="next"><a href="regresion.html"><span class="header-section-number">12</span> Modelos de regresión</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="Índice capítulo"><h2>Índice capítulo</h2>
-      <div id="book-on-this-page"></div>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#doe"><span class="header-section-number">11</span> Diseño de experimentos</a></li>
+<li><a class="nav-link" href="#introducci%C3%B3n-3"><span class="header-section-number">11.1</span> Introducción</a></li>
+<li><a class="nav-link" href="#bases-del-doe-origen-importancia-objetivos-y-requerimientos"><span class="header-section-number">11.2</span> Bases del DoE: origen, importancia, objetivos y requerimientos</a></li>
+<li><a class="nav-link" href="#importancia-del-dise%C3%B1o"><span class="header-section-number">11.3</span> Importancia del diseño</a></li>
+<li><a class="nav-link" href="#planificaci%C3%B3n-de-la-experimentaci%C3%B3n"><span class="header-section-number">11.4</span> Planificación de la experimentación</a></li>
+<li>
+<a class="nav-link" href="#tipos-de-dise%C3%B1os-de-experimentos"><span class="header-section-number">11.5</span> Tipos de diseños de experimentos</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#experimentos-con-un-factor"><span class="header-section-number">11.5.1</span> Experimentos con un factor</a></li>
+<li><a class="nav-link" href="#dise%C3%B1os-multifactoriales"><span class="header-section-number">11.5.2</span> Diseños multifactoriales</a></li>
+<li><a class="nav-link" href="#dise%C3%B1os-factoriales-a-dos-niveles-2k"><span class="header-section-number">11.5.3</span> Diseños factoriales a dos niveles \(2^k\)</a></li>
+<li><a class="nav-link" href="#dise%C3%B1os-fraccionales"><span class="header-section-number">11.5.4</span> Diseños fraccionales</a></li>
+<li><a class="nav-link" href="#dise%C3%B1os-avanzados"><span class="header-section-number">11.5.5</span> Diseños avanzados</a></li>
+</ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+<li><a id="book-source" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/blob/master/11-doe.Rmd">Ver fuente <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/edit/master/11-doe.Rmd">Editar esta página <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -698,7 +743,7 @@ El número de experimentos necesarios aumenta exponencialmente, y se suelen pref
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2021-11-23.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-01-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

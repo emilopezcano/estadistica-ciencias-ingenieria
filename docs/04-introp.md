@@ -186,7 +186,7 @@ según un criterio determinado. Tendremos los siguientes sucesos:
   grupo respectivamente
 - 1 de cada seis hombres $(H)$ responderá al tratamiento $(S)$, el doble si es mujer
 
-````
+</div>\EndKnitrBlock{rmdejemplo}
 
 ¿Con qué juegos de azar relacionarías cada uno de los sucesos anteriores? 
 Piensa algunos ejemplos de sucesos en el entorno empresarial con datos similares.
@@ -195,7 +195,7 @@ El siguiente puede ser un ejemplo más real.
 
 
 
-</div>\EndKnitrBlock{rmdejemplo}
+
 \BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">Estudiamos una serie de proyectos de inversión
 y para ello queremos seleccionar dos de un total de cinco proyectos. El espacio muestral,
 si asumimos que no nos importa el orden en el que se seleccionan y etiquetamos los proyectos

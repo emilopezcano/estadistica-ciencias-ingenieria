@@ -1,7 +1,7 @@
 --- 
 title: "Estadística Aplicada a las Ciencias y la Ingeniería"
 author: "Emilio L. Cano"
-date: "2021-11-23"
+date: "2022-01-10"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -93,7 +93,7 @@ Obsérvese que los resultados se muestran precedidos de los símbolos
 
 ```r
 sessionInfo()
-#> R version 4.1.1 (2021-08-10)
+#> R version 4.1.2 (2021-11-01)
 #> Platform: x86_64-apple-darwin17.0 (64-bit)
 #> Running under: macOS Big Sur 10.16
 #> 
@@ -112,18 +112,15 @@ sessionInfo()
 #> [1] fontawesome_0.2.2
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] knitr_1.36      xml2_1.3.2      magrittr_2.0.1 
-#>  [4] downlit_0.4.0   R6_2.5.1        rlang_0.4.12   
-#>  [7] fastmap_1.1.0   fansi_0.5.0     stringr_1.4.0  
-#> [10] tools_4.1.1     xfun_0.28       utf8_1.2.2     
-#> [13] jquerylib_0.1.4 htmltools_0.5.2 ellipsis_0.3.2 
-#> [16] yaml_2.2.1      digest_0.6.28   tibble_3.1.6   
-#> [19] lifecycle_1.0.1 crayon_1.4.2    bookdown_0.24.3
-#> [22] vctrs_0.3.8     sass_0.4.0      fs_1.5.0       
-#> [25] memoise_2.0.0   cachem_1.0.6    evaluate_0.14  
-#> [28] rmarkdown_2.11  stringi_1.7.5   compiler_4.1.1 
-#> [31] bslib_0.3.1     pillar_1.6.4    jsonlite_1.7.2 
-#> [34] pkgconfig_2.0.3
+#>  [1] bookdown_0.24.3 digest_0.6.29   R6_2.5.1       
+#>  [4] jsonlite_1.7.2  magrittr_2.0.1  evaluate_0.14  
+#>  [7] stringi_1.7.6   cachem_1.0.6    rlang_0.4.12   
+#> [10] fs_1.5.2        jquerylib_0.1.4 xml2_1.3.3     
+#> [13] bslib_0.3.1     rmarkdown_2.11  tools_4.1.2    
+#> [16] stringr_1.4.0   xfun_0.29       yaml_2.2.1     
+#> [19] fastmap_1.1.0   compiler_4.1.2  memoise_2.0.1  
+#> [22] htmltools_0.5.2 knitr_1.37      downlit_0.4.0  
+#> [25] sass_0.4.0
 ```
 
 Normalmente, la descripción o enunciado de los ejemplos se incluyen en bloques 

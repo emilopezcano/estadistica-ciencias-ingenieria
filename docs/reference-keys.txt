@@ -157,7 +157,6 @@ sec:anova2
 introducción-a-los-modelos-mixtos-efectos-fijos-y-efectos-aleatorios
 análisis-multivariante-de-la-varianza
 doe
-sec:anova:doe
 introducción-3
 bases-del-doe-origen-importancia-objetivos-y-requerimientos
 importancia-del-diseño
@@ -166,6 +165,7 @@ tipos-de-diseños-de-experimentos
 experimentos-con-un-factor
 diseños-multifactoriales
 diseños-factoriales-a-dos-niveles-2k
+diseños-fraccionales
 diseños-avanzados
 regresion
 introc
@@ -206,4 +206,3 @@ función-de-probabilidad-1
 esperanza
 varianza
 creditos
-diseños-fraccionales
