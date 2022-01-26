@@ -1,7 +1,7 @@
 --- 
 title: "Estadística Aplicada a las Ciencias y la Ingeniería"
 author: "Emilio L. Cano"
-date: "2022-01-10"
+date: "2022-01-26"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -10,7 +10,7 @@ cover-image: 'images/cover.png'
 description: |
   Libro para asignaturas de Estadística en grados de Ciencias e Ingeniería.
   Puede ser útil también para asignaturas de Estadística en otros grados como
-  Economía o ADE. Contiene una visión muy particular del autor 
+  Economía o ADE. Contiene una visión muy particular del autor.
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
@@ -113,7 +113,7 @@ sessionInfo()
 #> 
 #> loaded via a namespace (and not attached):
 #>  [1] bookdown_0.24.3 digest_0.6.29   R6_2.5.1       
-#>  [4] jsonlite_1.7.2  magrittr_2.0.1  evaluate_0.14  
+#>  [4] jsonlite_1.7.3  magrittr_2.0.1  evaluate_0.14  
 #>  [7] stringi_1.7.6   cachem_1.0.6    rlang_0.4.12   
 #> [10] fs_1.5.2        jquerylib_0.1.4 xml2_1.3.3     
 #> [13] bslib_0.3.1     rmarkdown_2.11  tools_4.1.2    

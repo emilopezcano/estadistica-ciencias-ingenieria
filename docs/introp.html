@@ -91,7 +91,7 @@
 estudiamos variables estadísticas describiéndolas y representándolas. Mediante la
 <strong>Estadística Inferencial</strong> lo que tratamos es de inferir (estimar, predecir)
 las propiedades de una población basándonos en una muestra de
-datos<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;La inferencia estadística no se trata en este libro.&lt;/p&gt;"><sup>26</sup></a>. La Teoría de
+datos<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;La inferencia estadística no se trata en este libro.&lt;/p&gt;"><sup>38</sup></a>. La Teoría de
 Probabilidades y el Cálculo de Probabilidades son las bases en las que
 se sustentan estos métodos, partiendo de la estimación del modelo de
 datos, es decir, la distribución de probabilidad de una determinada
@@ -147,7 +147,7 @@ una tienda, etc.</p>
 a cada uno de los resultados posibles de un experimento. Al ser aleatorios,
 no conocemos cuál de ellos va a ser el resultado final del experimento, pero sí
 podemos conocer la probabilidad de que se produzca cada uno de los
-resultados<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Muchas veces, lo que tendremos es una estimación o idea aproximada de esas probabilidades&lt;/p&gt;"><sup>27</sup></a>.
+resultados<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Muchas veces, lo que tendremos es una estimación o idea aproximada de esas probabilidades&lt;/p&gt;"><sup>39</sup></a>.
 Por ejemplo: en una clase de 50 alumnos, si observamos
 el número de alumnos que obtiene sobresaliente en un curso, no sabemos cuántos
 van a ser. Pero sí podemos saber cuál es la probabilidad de cada uno de los
@@ -186,7 +186,7 @@ elementales que lo componen.</p>
 <p>Los siguientes sucesos tienen especial importancia en el cálculo de probabilidades:</p>
 <ul>
 <li>Suceso <span class="math inline">\(A \subseteq \Omega\)</span>.</li>
-<li>Suceso complementario<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;También se suele representar por &lt;span class="math inline"&gt;\(\bar{A}\)&lt;/span&gt; o &lt;span class="math inline"&gt;\(A^*\)&lt;/span&gt;.&lt;/p&gt;'><sup>28</sup></a> <span class="math inline">\(A^c\)</span>.</li>
+<li>Suceso complementario<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;También se suele representar por &lt;span class="math inline"&gt;\(\bar{A}\)&lt;/span&gt; o &lt;span class="math inline"&gt;\(A^*\)&lt;/span&gt;.&lt;/p&gt;'><sup>40</sup></a> <span class="math inline">\(A^c\)</span>.</li>
 <li>Suceso seguro <span class="math inline">\(\Omega\)</span>.</li>
 <li>Suceso imposible <span class="math inline">\(\emptyset\)</span>.</li>
 </ul>
@@ -265,7 +265,7 @@ En este caso, <span class="math inline">\(C_{5, 2} = \binom{5}{2} = 10\)</span>.
 <p><strong>R</strong></p>
 La función <code>choose</code> obtiene el número de combinaciones como se ilustra a continuación.
 </div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt; [1] 10</span></code></pre></div>
 </div>
@@ -276,7 +276,7 @@ La función <code>choose</code> obtiene el número de combinaciones como se ilus
 <p>Como se ha comentado anteriormente, los sucesos son conjuntos. Y como
 tales, aplican las operaciones y propiedades de la teoría de conjuntos.</p>
 <p><strong>Unión de sucesos</strong>. Dados dos sucesos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, definimos
-<span class="math inline">\(A \cup B\)</span><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;En ocasiones se utiliza la notación &lt;span class="math inline"&gt;\(A+B\)&lt;/span&gt; para la unión de sucesos.&lt;/p&gt;'><sup>29</sup></a>
+<span class="math inline">\(A \cup B\)</span><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;En ocasiones se utiliza la notación &lt;span class="math inline"&gt;\(A+B\)&lt;/span&gt; para la unión de sucesos.&lt;/p&gt;'><sup>41</sup></a>
 como
 el suceso que se cumple si:</p>
 <ul>
@@ -297,7 +297,7 @@ Figura 4.3: Representación de la unión de dos sucesos
 El suceso “ser investigador <strong>o</strong> mujer” en nuestro ejemplo de los sujetos en estudio (<span class="math inline">\(M \cup I\)</span>) incluirían a lo resultados elementales correspondientes con todas las mujeres (incluidas directivas) y los directivos hombres.
 </div>
 <p><strong>Intersección de sucesos</strong>. Dados dos sucesos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, definimos
-<span class="math inline">\(A \cap B\)</span><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;En ocasiones se utiliza la notación &lt;span class="math inline"&gt;\(A\cdot B\)&lt;/span&gt; o simplemente &lt;span class="math inline"&gt;\(AB\)&lt;/span&gt; para la intersección de sucesos.&lt;/p&gt;'><sup>30</sup></a>
+<span class="math inline">\(A \cap B\)</span><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;En ocasiones se utiliza la notación &lt;span class="math inline"&gt;\(A\cdot B\)&lt;/span&gt; o simplemente &lt;span class="math inline"&gt;\(AB\)&lt;/span&gt; para la intersección de sucesos.&lt;/p&gt;'><sup>42</sup></a>
 como el suceso que se cumple si ocurren <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> simultáneamente. El suceso
 intersección contiene únicamente los sucesos elementales comunes a ambos sucesos,
 véase la figura <a href="introp.html#fig:intersec">4.4</a></p>
@@ -417,7 +417,7 @@ produce un fallo: <span class="math inline">\(\Omega = \{ 0, 1, 2, 3, \ldots \}\
 infinitos posibles resultados, que no se pueden numerar.
 Por ejemplo el tiempo hasta el fallo en el
 ejemplo
-anterior<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Nótese que si midiéramos el tiempo, por ejemplo, en horas, sí podríamos numerar los posibles valores (0, 1, …). Pero esto es solo debido a la precisión con la que medimos, ya que teóricamente podríamos añadir toda la precisión necesaria. Esto será importante en los siguientes capítulos cuando diferenciemos las variables aleatorias discretas y continuas.&lt;/p&gt;"><sup>31</sup></a>:
+anterior<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Nótese que si midiéramos el tiempo, por ejemplo, en horas, sí podríamos numerar los posibles valores (0, 1, …). Pero esto es solo debido a la precisión con la que medimos, ya que teóricamente podríamos añadir toda la precisión necesaria. Esto será importante en los siguientes capítulos cuando diferenciemos las variables aleatorias discretas y continuas.&lt;/p&gt;"><sup>43</sup></a>:
 <span class="math inline">\(\Omega = [0, \infty)\)</span>.</p></li>
 </ul>
 <div class="rmdejemplo">
@@ -469,7 +469,7 @@ con ella.</p>
 </h3>
 <p>La definición <em>clásica</em> de la probabilidad, también conocida
 como definición de
-Laplace<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Pierre-Simon Laplace (1749–1827), astrónomo y matemático francés. &lt;a href="https://es.wikipedia.org/wiki/Pierre-Simon_Laplace" class="uri"&gt;https://es.wikipedia.org/wiki/Pierre-Simon_Laplace&lt;/a&gt;.&lt;/p&gt;'><sup>32</sup></a>,
+Laplace<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Pierre-Simon Laplace (1749–1827), astrónomo y matemático francés. &lt;a href="https://es.wikipedia.org/wiki/Pierre-Simon_Laplace" class="uri"&gt;https://es.wikipedia.org/wiki/Pierre-Simon_Laplace&lt;/a&gt;.&lt;/p&gt;'><sup>44</sup></a>,
 requiere disponer de un espacio muestral finito
 referido a un experimento en el que todos los resultados posibles son igualmente probables.
 Bajo estas condiciones, la probabilidad de un suceso cualquiera <span class="math inline">\(A\)</span> se obtiene
@@ -502,7 +502,7 @@ personaje era un jugador profesional de la época que planteaba estos problemas
 en términos de si tenía ventaja al apostar a unos u otros resultados
 en el lanzamiento de dos dados. Este fue para muchos el origen de la teoría
 de la probabilidad. Una historia más detallada puede encontrarse en
-<span class="citation">Fernando Corbalán and Gerardo Sanz.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;La Conquista Del Azar. La Teoría de Probabilidades&lt;/em&gt;, Ensayo (RBA, 2010).&lt;/p&gt;"><sup>33</sup></a></span>
+<span class="citation">Fernando Corbalán and Gerardo Sanz.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;La Conquista Del Azar. La Teoría de Probabilidades&lt;/em&gt;, Ensayo (RBA, 2010).&lt;/p&gt;"><sup>45</sup></a></span>
 </div>
 </div>
 <div id="ch07-defempirica" class="section level3" number="4.3.2">
@@ -530,7 +530,7 @@ a la probabilidad del suceso <span class="math inline">\(A\)</span>. Matemática
 ejemplo, podemos lanzar una moneda e ir anotando la frecuencia
 de caras con cada repetición. Este tipo de experimentos son también
 fáciles de realizar mediante simulación. En la siguiente aplicación
-se puede simular la elección de elementos de un conjunto<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Si no estás leyendo la versión html del libro puedes ver la aplicación en el siguiente enlace: &lt;a href="https://elcano.shinyapps.io/probability_as_relative_frequency/" class="uri"&gt;https://elcano.shinyapps.io/probability_as_relative_frequency/&lt;/a&gt;&lt;/p&gt;'><sup>34</sup></a>.</p>
+se puede simular la elección de elementos de un conjunto<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Si no estás leyendo la versión html del libro puedes ver la aplicación en el siguiente enlace: &lt;a href="https://elcano.shinyapps.io/probability_as_relative_frequency/" class="uri"&gt;https://elcano.shinyapps.io/probability_as_relative_frequency/&lt;/a&gt;&lt;/p&gt;'><sup>46</sup></a>.</p>
 <iframe src="https://elcano.shinyapps.io/probability_as_relative_frequency/?showcase=0" width="672" height="800px" data-external="1">
 </iframe>
 <p>En la práctica, utilizaremos esta definición para asignar probabilidades
@@ -573,11 +573,11 @@ información con sus conocimientos y percepciones sobre la materia de estudio.</
 <p>El enfoque subjetivista tiene especial interés en fenómenos que no se prestan
 a repetición, así como en métodos de estadística Bayesiana, donde se fija
 una probabilidad <em>a priori</em> de los parámetros de la
-población<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En el enfoque &lt;em&gt;frecuentista&lt;/em&gt;, que es el que sigue este libro, los parámetros de la población son fijos, aunque desconocidos.&lt;/p&gt;"><sup>35</sup></a>.
+población<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En el enfoque &lt;em&gt;frecuentista&lt;/em&gt;, que es el que sigue este libro, los parámetros de la población son fijos, aunque desconocidos.&lt;/p&gt;"><sup>47</sup></a>.
 Existen métodos
 específicos para asignar probabilidades subjetivas
 de forma racional, que quedan fuera de los objetivos de este libro, véase, por
-ejemplo, <span class="citation">Bruno de Finetti.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“Foresight: Its Logical Laws, Its Subjective Sources,”&lt;/span&gt; in &lt;em&gt;Breakthroughs in Statistics: Foundations and Basic Theory&lt;/em&gt;, ed. Samuel Kotz and Norman L. Johnson (New York, NY: Springer New York, 1992), 134–74, &lt;a href="https://doi.org/10.1007/978-1-4612-0919-5_10" role="doc-biblioref"&gt;https://doi.org/10.1007/978-1-4612-0919-5_10&lt;/a&gt;.&lt;/p&gt;'><sup>36</sup></a></span></p>
+ejemplo, <span class="citation">Bruno de Finetti.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“Foresight: Its Logical Laws, Its Subjective Sources,”&lt;/span&gt; in &lt;em&gt;Breakthroughs in Statistics: Foundations and Basic Theory&lt;/em&gt;, ed. Samuel Kotz and Norman L. Johnson (New York, NY: Springer New York, 1992), 134–74, &lt;a href="https://doi.org/10.1007/978-1-4612-0919-5_10" role="doc-biblioref"&gt;https://doi.org/10.1007/978-1-4612-0919-5_10&lt;/a&gt;.&lt;/p&gt;'><sup>48</sup></a></span></p>
 
 <div class="rmdejemplo">
 ¿Cuál es la probabilidad de que me contraten en mi primera entrevista de trabajo?
@@ -610,7 +610,7 @@ de probabilidad.</p>
 contextos, todas presentaban problemas para desarrollar una teoría de
 probabilidades que se pudiera aplicar a cualquier espacio probabilizable. La
 siguiente definición
-axiomática<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;O axiomática de &lt;em&gt;Kolmogorov&lt;/em&gt;, por Andrei Nikolaevich Kolmogorov (1903–1987), matemático ruso.&lt;/p&gt;"><sup>37</sup></a>
+axiomática<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;O axiomática de &lt;em&gt;Kolmogorov&lt;/em&gt;, por Andrei Nikolaevich Kolmogorov (1903–1987), matemático ruso.&lt;/p&gt;"><sup>49</sup></a>
 resolvió estos problemas.</p>
 <p>Una probabilidad <span class="math inline">\(\wp\)</span> es una función:</p>
 <p><span class="math display">\[
@@ -651,7 +651,7 @@ Los teoremas quinto y sexto nos permiten calcular probabilidades de la unión de
 conjuntos, sean o no disjuntos. Una consecuencia fundamental de las propiedades de la probabilidad es:</p>
 <p><span class="math display">\[ \boxed{0 \leq P(A) \leq 1}.\]</span></p>
 <p>La demostración de estos teoremas se puede encontrar, entre otros, en
-<span class="citation">M. D. Ugarte, A. F. Militino, and A. T. Arnholt.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Probability and Statistics with r, Second Edition&lt;/em&gt; (CRC Press, 2015).&lt;/p&gt;"><sup>38</sup></a></span> Asímismo, se puede comprobar fácilmente cómo las definiciones clásicas y frecuentistas cumplen todas estas
+<span class="citation">M. D. Ugarte, A. F. Militino, and A. T. Arnholt.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Probability and Statistics with r, Second Edition&lt;/em&gt; (CRC Press, 2015).&lt;/p&gt;"><sup>50</sup></a></span> Asímismo, se puede comprobar fácilmente cómo las definiciones clásicas y frecuentistas cumplen todas estas
 propiedades y por lo tanto son coherentes con la definición axiomática de la probabilidad.</p>
 
 <div class="rmdejemplo">
@@ -717,7 +717,7 @@ complementario. Es decir, si:</p>
 <p><span class="math display">\[A^c: \text{No hay dos personas en un grupo de 30 que cumplen años el mismo día.}\]</span></p>
 <p>Nótese cómo la probababilidad sería igual a 1 si el grupo de personas fuera
 de 365 personas o
-más<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Si no tenemos en cuenta los años bisiestos.&lt;/p&gt;"><sup>39</sup></a>,
+más<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Si no tenemos en cuenta los años bisiestos.&lt;/p&gt;"><sup>51</sup></a>,
 ya que en ese caso el suceso sería un suceso seguro. En este caso, el espacio muestral
 estará compuesto por el número de maneras que tendríamos de ordenar 30
 fechas de nacimiento dentro de un año (día-mes), para un conjunto total de 365 días
@@ -752,7 +752,7 @@ la probabilidad pedida:</p>
 <p>El siguiente código realiza los cálculos paso a paso y devuelve la probabilidad pedida. Cambiando el valor <code>30</code> por otro número de personas cualquiera, se
 puede ver cómo aumenta la probabilidad.</p>
 </div>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ncumple</span> <span class="op">&lt;-</span> <span class="fl">30</span>
 <span class="va">cposibles</span> <span class="op">&lt;-</span> <span class="fl">365</span><span class="op">^</span><span class="va">ncumple</span>
 <span class="va">cfavorables</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/prod.html">prod</a></span><span class="op">(</span><span class="fl">365</span><span class="op">:</span><span class="op">(</span><span class="fl">365</span> <span class="op">-</span> <span class="va">ncumple</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
@@ -823,7 +823,7 @@ grupos o localizaciones, siendo <span class="math inline">\(B\)</span> el suceso
 ese determinado grupo o característica.
 Se pueden considerar las frecuencias relativas del suceso <span class="math inline">\(A\)</span> sólo
 para aquellos experimentos en los que ha sucedido <span class="math inline">\(B\)</span>, y llamar a estas
-frecuencias<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Nótese la analogía con las frecuencias marginales utilizadas en el capítulo 3.&lt;/p&gt;"><sup>40</sup></a>
+frecuencias<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Nótese la analogía con las frecuencias marginales utilizadas en el capítulo 3.&lt;/p&gt;"><sup>52</sup></a>
 <em>frecuencias</em> de <span class="math inline">\(A\)</span> <em>condicionadas</em> a <span class="math inline">\(B\)</span>, <span class="math inline">\(fr_{A|B}\)</span>.
 Estas frecuencias relativas las podemos calcular dividiendo el número de veces que
 ocurren tanto <span class="math inline">\(A\)</span> como <span class="math inline">\(B\)</span> <span class="math inline">\((n_{AB})\)</span> entre el número total de veces que ocurre <span class="math inline">\(B\)</span>, <span class="math inline">\((n_{B})\)</span>:</p>
@@ -837,7 +837,7 @@ frecuencias relativas equivalen a la probabilidad, podemos definir la
 probabilidad del suceso <span class="math inline">\(A\)</span> condicionada al suceso <span class="math inline">\(B\)</span> como:</p>
 <p><span class="math display">\[\boxed{P(A | B)=\frac{P(A \cap B)}{P(B)}},\]</span></p>
 <p>siempre y cuando <span class="math inline">\(P(B) &gt; 0\)</span>. Se demuestra
-fácilmente<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Comprobando que se cumplen los tres axiomas de la definición axiomática.&lt;/p&gt;"><sup>41</sup></a>
+fácilmente<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Comprobando que se cumplen los tres axiomas de la definición axiomática.&lt;/p&gt;"><sup>53</sup></a>
 que esta definición de probabilidad condicionada cumple
 que dado un suceso <span class="math inline">\(A \in \aleph\)</span>, <span class="math inline">\((\Omega, \aleph, \wp(\cdot|A)\)</span> es un espacio de
 probabilidad.</p>
@@ -951,7 +951,7 @@ si dos sucesos son independientes, entonces:</p>
 Esta fórmula, que es una definición en sí misma de independendencia de sucesos, nos
 proporciona también un método para comprobar si dos sucesos son independientes o no
 conocidas las probabilidades de los mismos y la de la
-intersección<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Comprobar, por ejemplo, la independencia de los sucesos “aprobar el trabajo” y “aprobar el examen” en el ejemplo anterior.&lt;/p&gt;"><sup>42</sup></a>.</p>
+intersección<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Comprobar, por ejemplo, la independencia de los sucesos “aprobar el trabajo” y “aprobar el examen” en el ejemplo anterior.&lt;/p&gt;"><sup>54</sup></a>.</p>
 <p>Para más de dos sucesos, la regla de la cadena explicada más arriba se
 extiende inmediatamente de forma que la probabilidad de la intersección de <span class="math inline">\(n\)</span> sucesos independientes es el producto de sus probabilidades:</p>
 <p><span class="math display">\[P(A_1\cap \ldots \cap A_n)=P(A_1) \cdot \ldots \cdot P(A_n).\]</span>
@@ -1087,10 +1087,10 @@ a través de las frecuencias como con un desarrollo matemático se llega a
 la misma conclusión. Y la clave está en la <strong>probabilidad condicionada</strong>.</p>
 </div>
 <p>El problema de <em>Monty Hall</em> dio lugar a historias curiosas que se pueden consultar en
-<span class="citation">Corbalán and Sanz.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;La Conquista Del Azar. La Teoría de Probabilidades&lt;/em&gt;.&lt;/p&gt;"><sup>43</sup></a></span> Por ejemplo, el gran matemático Paul Erdös solo aceptó
+<span class="citation">Corbalán and Sanz.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;La Conquista Del Azar. La Teoría de Probabilidades&lt;/em&gt;.&lt;/p&gt;"><sup>55</sup></a></span> Por ejemplo, el gran matemático Paul Erdös solo aceptó
 como buena la solución real tras comprobarla en una simulación por ordenador.
 Invito al lector a que concurse en la aplicación que
-se muestra a continuación<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;accesible también en &lt;a href="https://elcano.shinyapps.io/monty_hall" class="uri"&gt;https://elcano.shinyapps.io/monty_hall&lt;/a&gt;&lt;/p&gt;'><sup>44</sup></a>
+se muestra a continuación<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;accesible también en &lt;a href="https://elcano.shinyapps.io/monty_hall" class="uri"&gt;https://elcano.shinyapps.io/monty_hall&lt;/a&gt;&lt;/p&gt;'><sup>56</sup></a>
 durante un buen número de jugadas y
 compruebe a través de las frecuencias relativas qué estrategia ofrece mayor
 probabilidad de ganar el coche.</p>
@@ -1154,7 +1154,7 @@ probabilidad de ganar el coche.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-01-10.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-01-26.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

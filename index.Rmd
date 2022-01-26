@@ -10,7 +10,7 @@ cover-image: 'images/cover.png'
 description: |
   Libro para asignaturas de Estadística en grados de Ciencias e Ingeniería.
   Puede ser útil también para asignaturas de Estadística en otros grados como
-  Economía o ADE. Contiene una visión muy particular del autor 
+  Economía o ADE. Contiene una visión muy particular del autor.
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---

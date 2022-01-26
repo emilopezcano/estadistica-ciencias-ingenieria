@@ -379,7 +379,7 @@ sumas de cuadrados, de manera que la suma de cuadrados total ($SCT$)
 la podemos descomponer en la suma de cuadrados entre grupos ($SCE$) más la suma de cuadrados
 dentro de grupos ($SCD$):
 
-$$\sum\limits_{ij} (y_{ij} - \overline{y}_{\cdot\cdot})^2 = \sum\limits_{i}n_i(\overline{y}_{i\cdot}-\overline{y}_{\cdot\cdot})^2 + \sum\limits_{ij}(y_{ij}-y_{i\cdot})^2,$$
+$$\sum\limits_{ij} (y_{ij} - \overline{y}_{\cdot\cdot})^2 = \sum\limits_{i}n_i(\overline{y}_{i\cdot}-\overline{y}_{\cdot\cdot})^2 + \sum\limits_{ij}(y_{ij}-\bar y_{i\cdot})^2,$$
 $$SCT = SCE + SCD.$$
 
 
@@ -390,7 +390,7 @@ entre grupos y dentro de grupos:
 
 $$CMT=\frac{\sum\limits_{ij} (y_{ij} - \overline{y}_{\cdot\cdot})^2 }{n-1},$$
 $$CME=\frac{\sum\limits_{i}n_i(\overline{y}_{i\cdot}-\overline{y}_{\cdot\cdot})^2 }{k-1},$$
-$$CMD=\frac{\sum\limits_{i}n_i(\overline{y}_{i\cdot}-\overline{y}_{\cdot\cdot})^2 }{n-k},$$
+$$CMD=\frac{\sum\limits_{ij}(y_{ij}-\bar y_{i\cdot})^2 }{n-k},$$
 
 Entonces, si se cumplen las condiciones para aplicar el modelo y la hipótesis nula es cierta,
 el estadístico:
