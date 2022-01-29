@@ -1,6 +1,8 @@
 ```{r, include=FALSE}
 library(knitr)
 library(fontawesome)
+library(gt)
+library(tidyverse)
 ```
 
 
@@ -396,18 +398,28 @@ include_graphics("images/ggplot2_obra_maestra.png")
 ## Notación
 
 Antes de comenzar a hacer resúmenes de los datos, vamos a definir la notación que
-utilizaremos. Representamos las variables con letras mayúsculas latinas del final 
-del alfabeto, como $X, Y, \ldots$. Cada uno de los posibles valores que toma la variable $X$ se representa por $x_i$. Así, $i$ es el identificador o índice para cada observación o clase. Si agrupamos los datos numéricos en intervalos (clases),
-$c_i$ es la marca de clase, es decir, el punto central del intervalo. El número total de observaciones lo representamos por $n$, mientras que el número de clases o niveles de una variable categórica o numérica agrupado es $k$.
-$n_i$ es el número de observaciones en la clase $i$.
+utilizaremos. Representamos las variables con letras mayúsculas latinas del final el alfabeto como $X, Y, \ldots$^[Para atributos, a veces se utilizan las primeras letras del alfabeto: $A, B, \ldots$]. Cada uno de los posibles valores que toma la variable $X$ se representa por $x_i$. Así, $i$ es el identificador o índice para cada observación o clase. 
+El número total de observaciones **en la muestra** lo representamos por $n$, mientras que si tenemos una enumeración de toda la población en estudio, denotaremos el número total de individuos por $N$. 
+El número de clases o niveles de una variable categórica o numérica agrupado es $k$.
+$n_i, i = 1, \ldots k$ es el número de observaciones en la clase $i$. Si agrupamos los datos numéricos en intervalos (clases),
+$c_i, i= 1, \ldots, k$ es la marca de clase, es decir, el punto central del intervalo. 
 
-Para representar los parámetros (recordemos, desconocidos) utilizamos letras griegas. Por ejemplo, $\mu$ es la media poblacional, y $\sigma^2$ la varianza poblacional. Para representar estadísticos (recordemos, calculados con los datos de la muestra) se representan con letras minúsculas. Por ejemplo, $\bar{x}$:es la media muestral de la variable $X$, y $s^2$: representa la varianza muestral (cuasivarianza).
+Para representar los parámetros (recordemos, desconocidos) utilizamos letras griegas. Por ejemplo, $\mu$ es la media poblacional, y $\sigma^2$ la varianza poblacional. Para representar estadísticos (recordemos, calculados con los datos de la muestra) se representan con letras minúsculas. Por ejemplo, $\bar{x}$ es la media muestral de la variable $X$, y $s^2$: representa la varianza muestral (cuasivarianza).
 $s$ es la desviación típica muestral
 
 Para representar que un estadístico es un estimador, utilizamos la notación
 $\hat{[\cdot]}$, que simboliza un estimador de $\cdot$. Por ejemplo,
 $s = \hat{\sigma}$ quiere decir que la desviación típica muestral
 $s$ es un estimador de la desviación típica poblacional $\sigma$.
+
+:::{.rmdejemplo data-latex=""}
+`r fa("tree", fill = "green")` Supongamos que tenemos que hacer un estudio de las emisiones de dióxido de carbono (CO$_2$) en las granjas de porcino de una determinada región. Este
+es un ejemplo en el que podemos enumerar la población (a partir de registros oficiales u otras fuentes). Supongamos que existen ${1\,000}$ granjas. Entonces, $N = {1\,000}$. En vez de
+analizar el 100% de las granjas, se decide hacer un muestreo, por ejemplo, del 10% de las granjas^[En el capítulo \@ref(muestreo) estudiaremos cómo decidir el tamaño de la muestra].
+Entonces, $n=100$. La región está dividida en tres zonas, y definimos el atributo $A \in \{Z1, Z2, Z3\}$. Entonces, para este atributo $k = 3$. Si en la muestra tenemos el doble de granjas en la zona 1 que en cualquiera de las otras dos, entonces $n_1 = 50, n_2 = 25$ y $n_3 = 25$.
+
+Una vez realizadas las mediciones de emisiones en cada granja de la muestra, tendremos valores $x_i, i = 1, \ldots, n$. Podremos agrupar estos valores en $k'$ intervalos (clases) de los que podremos calcular las marcas de clase $c_i, i = 1, \ldots, k'$. Como solo hemos medido las emisiones en una muestra, desconocemos el verdadero valor de la media de la población, $\mu$, y entonces lo estimaremos con la media muestral: $\hat{\mu} =\bar x.$
+:::
 
 ## Análisis exploratorio de variables cualitativas
 
@@ -421,9 +433,9 @@ información que el gráfico de barras y es mucho más difícil para el ojo
 humano distinguir ángulos que alturas.
 En variables cualitativas, llamamos a la categoría más frecuente **moda** de la variable.
 
-Para construir la tabla de frecuencias, contamos el número de elementos de cada clase $(n_i)$ que pertenecen a cada uno de los valores $(x_i)$ o de las clases $(c_i)$, que son
+Para construir la tabla de frecuencias, contamos el número de elementos de cada clase $(n_i)$ que pertenecen a cada una de las clases $(c_i)$, que son
 las **frecuencias absolutas**. Se pueden calcular también frecuencias relativas $(f_i=n_i/n)$ y acumuladas, 
-tanto para las absolutas $(N_i)$ como para las relativas $(F_i)$.
+tanto para las absolutas $(N_i)$ como para las relativas $(F_i)$. No obstante, estas frecuencias acumuladas solo tienen sentido cuando la variable está en escala ordinal.
 
 ```{r, echo=FALSE}
 library(dplyr)
@@ -437,7 +449,8 @@ lab <- readxl::read_excel("_data/lab.xlsx") |>
 Los datos que se utilizarán en este capítulo para ilustrar los ejemplos se pueden descargar e importar con el siguiente código.
 ```{r, eval=FALSE}
 library(dplyr)
-download.file("https://lcano.com/data/eaci/lab.xlsx", "lab.xlsx")
+download.file("https://lcano.com/data/eaci/lab.xlsx",
+              destfile = "lab.xlsx")
 lab <- readxl::read_excel("lab.xlsx") |> 
   mutate(fecha = as.Date(fecha))
 ```
@@ -452,22 +465,28 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
 :::
 
 ```{r ejlab, echo=FALSE}
-lab %>% slice_head(n=10) |> kable(caption = "Ejemplo datos de laboratorio")
+lab %>% slice_head(n=10) |> 
+  gt(caption = "Ejemplo datos de laboratorio") |> 
+  fmt_missing(everything(), missing_text = "") |> 
+  fmt_date(1, date_style = 1) 
 ```
 
 ```{r labfreq, echo=FALSE}
 lab |> count(tipo) |> 
   mutate(f = n/nrow(lab), N = cumsum(n),
          F = cumsum(f)) |> 
-  knitr::kable(digits = 3, caption = "Tabla de frecuencias del tipo de queso")
+  gt(caption = "Tabla de frecuencias del tipo de queso") |> 
+  fmt_number(c(3, 5), decimals = 2) 
+  # kable(digits = 3, 
+  #       caption = "Tabla de frecuencias del tipo de queso")
 ```
 
 :::{.rmdpractica data-latex=""}
 **R**
 
-La función `table` de R crea tablas de frecuencias absolutas. Si el resultado se lo pasamos a la función `prop.table`, las convierte en tabla de frecuencias relativas. La función `admargins` añade totales. Para obtener frecuencias acumuladas, podemos usar la función `cumsum`.
+La función `table` de R crea tablas de frecuencias absolutas. Si el resultado se lo pasamos a la función `prop.table()`, las convierte en tabla de frecuencias relativas. La función `addmargins()` añade totales. Para obtener frecuencias acumuladas, podemos usar la función `cumsum`.
 
-Las expresiones siguiente son ejemplos de uso de estas funciones. La tabla \@ref(tab:labfreq) se ha obtenido utilizando funciones del paquete `dplyr`:
+Las expresiones siguientes son ejemplos de uso de estas funciones. La tabla \@ref(tab:labfreq) se ha obtenido utilizando funciones del paquete `dplyr`:
 
     lab |> count(tipo) |> 
       mutate(f = n/nrow(lab), N = cumsum(n),
@@ -484,16 +503,18 @@ cumsum(table(lab$tipo))
 
 La representación gráfica adecuada para variables cualitativas es el **gráfico de barras**. En este gráfico, representamos las categorías en el eje horizontal (X) y las frecuencias en el eje vertical (Y), y representamos barras cuya altura representa la frecuencia. Se pueden representar frecuencias absolutas o relativas. Los gráficos de sectores también pueden representar variables cualitativas, aunque no se recomiendan porque el ojo humano no es tan bueno distinguiendo ángulos como alturas. En todo caso, si se usa se deberían incluir los valores (frecuencias o porcentajes). El gráfico de barras se puede representar también invirtiendo los ejes (a veces mejora la visualización de las etiquetas), representando líneas en vez de barras, u ordenando las barras según la frecuencia (por defecto este orden es arbitrario, muy a menudo alfabético según las etiquetas).
 
+Un aspecto importante de los gráficos de barras es que debe haber un espacio entre las barras, puesto que son variables cualitativas en las que no tiene sentido representar la continuidad que expresarían las barras adyacentes.
+
 :::{.rmdpractica data-latex=""}
 **R**
 
 La tabla de frecuencias \@ref(tab:labfreq) se puede representar con el siguiente código cuyo resultado se muestra en la figura \@ref(fig:barras1).
 
-El segundo fragmento de código produce la fugura \@ref(fig:tarta) muestra un ejemplo de gráfico de sectores que muestra las etiquetas e incluso algunos estadísticos y contrastes de hipótesis con el paquete {ggstatsplot}.
+El segundo fragmento de código produce la figura \@ref(fig:tarta), que representa un gráfico de sectores con etiquetas realizado con el paquete {ggstatsplot}.
 :::
 
 
-```{r barras1, , fig.align='center', fig.cap="Ejemplo gráfico de barras variable cualitativa"}
+```{r barras1, fig.align='center', fig.cap="Ejemplo gráfico de barras variable cualitativa"}
 library(ggplot2)
 lab |> 
   ggplot(aes(x = tipo)) +
@@ -506,7 +527,7 @@ lab |>
 
 
 
-```{r tarta, fig.align='center', fig.cap="Gráfico de sectores con etiquetas"}
+```{r tarta, fig.align='center', fig.cap="Gráfico de sectores con etiquetas", message=FALSE}
 library(ggstatsplot)
 lab %>% ggpiestats(x = tipo, title = "Fabricación de quesos",
                   legend.title = "Tipo de queso", 
@@ -519,10 +540,163 @@ lab %>% ggpiestats(x = tipo, title = "Fabricación de quesos",
 
 ## Análisis exploratorio de variables cuantitativas
 
+### Resúmenes de variables discretas
+
 En el caso de variables discretas,
 se puede realizar el mismo análisis exploratorio que para las variables
 categóricas, es decir, una tabla de frecuencias y su correspondiente gráfico
-de barras. Además de la **moda**, podemos calcular las siguientes medidas
+de barras. En este caso denotamos cada uno de los posibles valores como $x_i, i = 1, \ldots, k$, siendo $k$ el número de valores distintos que toma la variable discreta. La diferencia principal es que en este caso la tabla y el gráfico deben estar ordenados 
+de mayor a menor según los valores numéricos que toma la variable. Aquí las frecuencias acumuladas cobran más sentido, sobre todo las relativas. Así, $F_i$ se pueden interpretar como la proporción (o porcentaje si multiplicamos por cien) de observaciones que toman valores menores o iguales que $x_i$. 
+La idea detrás de este concepto es muy importante y nos volverá a aparecer en el capítulo \@ref(vauni) cuando definamos la función de distribución de probabilidad.
+
+En cuanto al gráfico, de nuevo
+aquí es importante decir que debe haber una separación entre las barras, porque
+por su naturaleza, no hay valores entre un valor y otro de la variable, y así queda
+bien representado que es una variable discreta. 
+
+Cuando el número de posibles valores es muy grande, aunque la variable sea discreta
+se puede tratar como si fuera continua, resumiendo en tablas de frecuencias por intervalos 
+e histogramas, para facilitar su interpretación. Pero no se debe perder nunca de vista la naturaleza de la variable.
+
+En variables discretas, también podemos resumir los datos con el valor más frecuente,
+es decir, la **moda**. También se podrán resumir los datos mediante los estadísticos
+y con el gráfico de cajas que se explicarán en el apartado siguiente de variables continuas.
+
+
+:::{.rmdejemplo data-latex=""}
+La variable `imperfecciones` es un recuento de defectos en una inspección visual. Vemos en la tabla de frecuencias \@ref(tab:freqdisc) que tenemos 10 valores posibles: desde cero imperfecciones hasta 9 imperfecciones. La moda es el 2, ya que es el valor que más se repite. Además, es única. Vemos además que el 94,9% de los quesos tienen 4 o menos imperfecciones. O lo que es lo mismo, el 5,1% de los quesos tiene más de 4 imperfecciones. La figura \@ref(fig:bardisc) es la representación gráfica de esta tabla de frecuencias, en este caso representada en horizontal.
+
+:::
+```{r freqdisc, echo=FALSE, message=FALSE}
+table(lab$imperfecciones) |> 
+  as.data.frame() |> 
+  mutate(F = cumsum(Freq)/nrow(lab)) |> 
+  gt(caption = "Tabla de frecuencias de la variable imperfecciones") |> 
+  cols_label(Var1 = "\\(x_i\\)",
+             Freq = "\\(n_i\\)",
+             F = "\\(F_i\\)") |> 
+  fmt_number(3, decimals = 3) |> 
+  tab_style(style = list(
+    cell_text(weight = "bold")),  
+    locations = cells_body(rows = c(3, 5)))
+```
+
+```{r bardisc, echo=FALSE, message=FALSE, fig.cap="Gráfico de barras de la variable discreta imperfecciones"}
+lab |> 
+  mutate(imperfecciones = fct_rev(as_factor(imperfecciones))) |> 
+  ggplot(aes(y = imperfecciones)) +
+  geom_bar(fill = "#CB0017") +
+  theme_bw() +
+  labs(x = expression("Frecuencia absoluta ("*n[i]*")"),
+       y = "Número de imperfecciones")
+```
+
+## Resúmenes de variables continuas
+
+Como se ha dicho anteriormente, lo que sigue también aplica a variables discretas, especialmente lo referido a las medidas de resumen.
+
+### Tablas de frecuencias 
+
+Si intentáramos hacer una tabla de frecuencias de una variable continua, es muy posible que no se repitiera ningún dato, y tendríamos una tabla con todos los valores que se han producido y frecuencia 1. O en todo caso, algunos valores repetidos, según el número de observaciones y la precisión en la medición. Como esto no tiene sentido, en variables continuas (o discretas con muchos posibles valores) es agrupar los datos en $k$ **intervalos** (clases). Hay varios criterios válidos para realizar esta división. Un criterio bastante aceptado es el siguiente:
+
+* Si $n \leq 100, k\approx\sqrt n$
+* Si $n > 100, k\approx 1 + \log_2 n$
+
+Como la amplitud total de los datos (también llamado rango o recorrido) es $A = x_{max} - x_{min}$, es decir, la diferencia entre el máximo y el mínimo de los datos, entonces la amplitud de cada clase es $a_i = A/k$ (en el caso más habitual en el que
+todos los intervalos tienen la misma amplitud. A menudo la amplitud del intervalo se redondea para una mejor lectura e interpretación de la tabla.
+
+Los intervalos se suelen tomar abiertos por la izquierda y cerrados por la derecha, y los límites se representan por $L_i, i = 0, \ldots, k$, donde $L_0$ puede ser el mínimo (o el valor redondeado inmediatamente inferior según se haya decidido en la amplitud). $L_k$ entonces será el máximo, o un valor superior según el redondeo indicado.
+
+La marca de clase es el punto central del intervalo, es decir, la media aritmética de los extremos:
+
+$$c_i = \frac{L_{i-1} + L_{i}}{2}$$
+La frecuencia absoluta de cada clase $i$, $n_i$, es el número de observaciones cuyo valor numérico de la variable está dentro del intervalo. La frecuencia relativa, $n_i/n$, y las acumuladas se calcularían sumando las frecuencias de las clases inferiores. De nuevo resaltamos la importancia del concepto de frecuencia acumulada, como proporción de observaciones que toman valores menores o iguales que el límite superior del intervalo.
+
+
+:::{.rmdinfo data-latex=""}
+En la práctica, sería muy raro que tuviéramos que calcular la tabla de frecuencias "a mano". El software estadístico se encargará de crear las clases para obtener la tabla de frecuencias, con algún método por defecto o indicando el número o amplitud de los intervalos. Lo que sí es importante es que el analista, a la vista del resumen (tabla o histograma) decida si cambia esta división por defecto por otra que cuente mejor la historia de los datos.
+
+No obstante, sí es importante conocer el proceso de creación de la tabla, para entender mejor esa historia.
+:::
+
+
+
+:::{.rmdejemplo data-latex=""}
+La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `ph` del conjunto de datos de ejemplo de la producción de quesos. Vemos que es aproximadamente simétrico, donde los valores centrales son los más frecuentes, y a menudo que nos alejamos de estos valores centrales disminuye la frecuencia. Parece que puede haber un valor extremo por la izquierda. Un dato importante es que aproximadamente la mitad de las observaciones están por debajo de la clase más frecuente.
+:::
+
+```{r tablacont, echo=FALSE}
+histo <- hist(lab$ph, plot = FALSE)
+lab <- lab |> 
+  mutate(clase = cut(ph, breaks = histo$breaks))
+levels(lab$clase) <- c(levels(lab$clase), "(6.4,6.45]")
+as.data.frame(table(lab$clase)) |>
+  mutate(F = cumsum(Freq)/nrow(lab)) |> 
+  gt(caption = "Tabla de frecuencias por intervalos") |>
+  cols_label(Var1 = "\\((L_{i-1}, L_i]\\)",
+             Freq = "\\(n_i\\)",
+             F = "\\(F_i\\)") |> 
+  fmt_number(3, decimals = 3)
+```
+
+### Representación gráfica
+
+La representación gráfica de la tabla de frecuencias por intervalos de una variable numérica es el **Histograma**. 
+Este gráfico es uno de los más importantes en Estadística Descriptiva, y prácticamente lo primero que hay que hacer al analizar una variable numérica. De forma análoga a las variables cualitativas y discretas, en el eje Y se representan las clases. En este caso, al ser intervalos continuos, se representan in espacios entre ellos. En el eje Y se representan las frecuencias (absolutas o relativas) de cada clase. La geometría serán barras, en este caso **sin espacio entre ellas** para representar la continuidad. Si hay un intervalo sin barra, será porque no hay ninguna observación que tome valores dentro de ese intervalo $(n_i = 0)$.
+
+El histograma nos proporciona un resumen muy completo de la variable, buscaremos la siguiente interpretación:
+
+* Valores mínimo y máximo (estarán dentro del primer y último intervalo respectivamente)
+
+* Valores más frecuentes: estarán en los intervalos con las barras más altas
+
+* Valores centrales: Intervalos entorno a los que se distribuyen las barras
+
+* Valores poco frecuentes: estarán en los intervalos con las barras más bajas
+
+* Valores extremos (alejados del resto): barras muy bajas en los extremos
+
+* Asimetría: Los datos serán simétricos si los valores a ambos lados de los valores centrales se distribuyen de forma parecida.
+
+* Forma: Identificaremos si tiene forma de campana (normal, gaussiana), exponencial, uniforme, etc.
+
+
+:::{.rmdejemplo data-latex=""}
+La figura \@ref(fig:histcont) representa la tabla de frecuencias \@ref(tab:tablacont). Vemos más claramente la forma aproximadamente simétrica del histograma, el valor extremo a la izquierda (aunque no se aprecia la barra). El intervalo más frecuente parece repartir el resto a ambos lados de forma homogénea, disminuyendo la frecuencia a medida que nos alejamos de estos valores centrales. En resumen, la típica forma de campana de Gauss.
+
+La figura \@ref(fig:histexp) representa el histogramna de la variable `bacteriax`. Es una variable discreta pero con muchos valores distintos, por lo que es mejor la representación del histograma que la del gráfico de barras. Vemos una distribución típicamente exponencial, con valores bajos muy frecuentes y altos muy poco frecuentes, altamente asimétrica.
+
+La figura \@ref(fig:histunif) representa el histograma de la variable `sal`. Muestra una distribución aproximadamente uniforme hasta un valor 1, y después también pero con menos frecuencia, con algunos valores más allá de 1.2. Esto puede estar indicando una mezcla de poblaciones (por ejemplo que los distintos tipos de quesos tengan una receta distinta).
+
+:::
+
+
+```{r histcont, fig.width=8, fig.height=5, fig.align='center', out.width="100%", echo=FALSE, fig.cap="Histograma de la variable ph"}
+hist(lab$ph, col = "#CB0017", main = "Historama pH",
+     xlab = "pH", ylab = "Frecuencia", border = "white")
+```
+
+```{r histexp, fig.width=8, fig.height=5, fig.align='center', out.width="100%", echo=FALSE, fig.cap="Histograma de la variable bacteriax"}
+lab |> 
+  ggplot(aes(bacteriax)) +
+  geom_histogram(bins = 10, fill = "#CB0017", col = "white") +
+  theme_bw() +
+  labs(title = "Historama recuento de bacterias",
+     x = "Recuento de bacterias", 
+     y = "Frecuencia")
+```
+```{r histunif, fig.width=8, fig.height=5, fig.align='center', out.width="100%", echo=FALSE, fig.cap="Histograma de la variable sal", warning=FALSE}
+lab |> 
+  ggplot(aes(sal)) +
+  geom_histogram(bins = 10, fill = "#CB0017", col = "white") +
+  theme_bw() +
+  labs(title = "Historama contenido en sal",
+     x = "Contenido en sal", 
+     y = "Frecuencia")
+```
+
+
+, podemos calcular las siguientes medidas
 de centralización que resumen los datos:
 
 - **Media**: Función `mean`.

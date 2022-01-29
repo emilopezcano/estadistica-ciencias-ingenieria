@@ -71,14 +71,6 @@ resumir los datos con la media de cada variable:
 
 ```r
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 anscombe %>% summarise(across(.fns = mean))
 #>   x1 x2 x3 x4       y1       y2  y3       y4
 #> 1  9  9  9  9 7.500909 7.500909 7.5 7.500909
@@ -386,18 +378,28 @@ La figura \@ref(fig:obra) es una ilustración de Allison Horst^[https://github.c
 ## Notación
 
 Antes de comenzar a hacer resúmenes de los datos, vamos a definir la notación que
-utilizaremos. Representamos las variables con letras mayúsculas latinas del final 
-del alfabeto, como $X, Y, \ldots$. Cada uno de los posibles valores que toma la variable $X$ se representa por $x_i$. Así, $i$ es el identificador o índice para cada observación o clase. Si agrupamos los datos numéricos en intervalos (clases),
-$c_i$ es la marca de clase, es decir, el punto central del intervalo. El número total de observaciones lo representamos por $n$, mientras que el número de clases o niveles de una variable categórica o numérica agrupado es $k$.
-$n_i$ es el número de observaciones en la clase $i$.
+utilizaremos. Representamos las variables con letras mayúsculas latinas del final el alfabeto como $X, Y, \ldots$^[Para atributos, a veces se utilizan las primeras letras del alfabeto: $A, B, \ldots$]. Cada uno de los posibles valores que toma la variable $X$ se representa por $x_i$. Así, $i$ es el identificador o índice para cada observación o clase. 
+El número total de observaciones **en la muestra** lo representamos por $n$, mientras que si tenemos una enumeración de toda la población en estudio, denotaremos el número total de individuos por $N$. 
+El número de clases o niveles de una variable categórica o numérica agrupado es $k$.
+$n_i, i = 1, \ldots k$ es el número de observaciones en la clase $i$. Si agrupamos los datos numéricos en intervalos (clases),
+$c_i, i= 1, \ldots, k$ es la marca de clase, es decir, el punto central del intervalo. 
 
-Para representar los parámetros (recordemos, desconocidos) utilizamos letras griegas. Por ejemplo, $\mu$ es la media poblacional, y $\sigma^2$ la varianza poblacional. Para representar estadísticos (recordemos, calculados con los datos de la muestra) se representan con letras minúsculas. Por ejemplo, $\bar{x}$:es la media muestral de la variable $X$, y $s^2$: representa la varianza muestral (cuasivarianza).
+Para representar los parámetros (recordemos, desconocidos) utilizamos letras griegas. Por ejemplo, $\mu$ es la media poblacional, y $\sigma^2$ la varianza poblacional. Para representar estadísticos (recordemos, calculados con los datos de la muestra) se representan con letras minúsculas. Por ejemplo, $\bar{x}$ es la media muestral de la variable $X$, y $s^2$: representa la varianza muestral (cuasivarianza).
 $s$ es la desviación típica muestral
 
 Para representar que un estadístico es un estimador, utilizamos la notación
 $\hat{[\cdot]}$, que simboliza un estimador de $\cdot$. Por ejemplo,
 $s = \hat{\sigma}$ quiere decir que la desviación típica muestral
 $s$ es un estimador de la desviación típica poblacional $\sigma$.
+
+:::{.rmdejemplo data-latex=""}
+`<svg aria-hidden="true" role="img" viewBox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M378.31 378.49L298.42 288h30.63c9.01 0 16.98-5 20.78-13.06 3.8-8.04 2.55-17.26-3.28-24.05L268.42 160h28.89c9.1 0 17.3-5.35 20.86-13.61 3.52-8.13 1.86-17.59-4.24-24.08L203.66 4.83c-6.03-6.45-17.28-6.45-23.32 0L70.06 122.31c-6.1 6.49-7.75 15.95-4.24 24.08C69.38 154.65 77.59 160 86.69 160h28.89l-78.14 90.91c-5.81 6.78-7.06 15.99-3.27 24.04C37.97 283 45.93 288 54.95 288h30.63L5.69 378.49c-6 6.79-7.36 16.09-3.56 24.26 3.75 8.05 12 13.25 21.01 13.25H160v24.45l-30.29 48.4c-5.32 10.64 2.42 23.16 14.31 23.16h95.96c11.89 0 19.63-12.52 14.31-23.16L224 440.45V416h136.86c9.01 0 17.26-5.2 21.01-13.25 3.8-8.17 2.44-17.47-3.56-24.26z"/></svg>`{=html} Supongamos que tenemos que hacer un estudio de las emisiones de dióxido de carbono (CO$_2$) en las granjas de porcino de una determinada región. Este
+es un ejemplo en el que podemos enumerar la población (a partir de registros oficiales u otras fuentes). Supongamos que existen ${1\,000}$ granjas. Entonces, $N = {1\,000}$. En vez de
+analizar el 100% de las granjas, se decide hacer un muestreo, por ejemplo, del 10% de las granjas^[En el capítulo \@ref(muestreo) estudiaremos cómo decidir el tamaño de la muestra].
+Entonces, $n=100$. La región está dividida en tres zonas, y definimos el atributo $A \in \{Z1, Z2, Z3\}$. Entonces, para este atributo $k = 3$. Si en la muestra tenemos el doble de granjas en la zona 1 que en cualquiera de las otras dos, entonces $n_1 = 50, n_2 = 25$ y $n_3 = 25$.
+
+Una vez realizadas las mediciones de emisiones en cada granja de la muestra, tendremos valores $x_i, i = 1, \ldots, n$. Podremos agrupar estos valores en $k'$ intervalos (clases) de los que podremos calcular las marcas de clase $c_i, i = 1, \ldots, k'$. Como solo hemos medido las emisiones en una muestra, desconocemos el verdadero valor de la media de la población, $\mu$, y entonces lo estimaremos con la media muestral: $\hat{\mu} =\bar x.$
+:::
 
 ## Análisis exploratorio de variables cualitativas
 
@@ -411,9 +413,9 @@ información que el gráfico de barras y es mucho más difícil para el ojo
 humano distinguir ángulos que alturas.
 En variables cualitativas, llamamos a la categoría más frecuente **moda** de la variable.
 
-Para construir la tabla de frecuencias, contamos el número de elementos de cada clase $(n_i)$ que pertenecen a cada uno de los valores $(x_i)$ o de las clases $(c_i)$, que son
+Para construir la tabla de frecuencias, contamos el número de elementos de cada clase $(n_i)$ que pertenecen a cada una de las clases $(c_i)$, que son
 las **frecuencias absolutas**. Se pueden calcular también frecuencias relativas $(f_i=n_i/n)$ y acumuladas, 
-tanto para las absolutas $(N_i)$ como para las relativas $(F_i)$.
+tanto para las absolutas $(N_i)$ como para las relativas $(F_i)$. No obstante, estas frecuencias acumuladas solo tienen sentido cuando la variable está en escala ordinal.
 
 
 
@@ -424,7 +426,8 @@ Los datos que se utilizarán en este capítulo para ilustrar los ejemplos se pue
 
 ```r
 library(dplyr)
-download.file("https://lcano.com/data/eaci/lab.xlsx", "lab.xlsx")
+download.file("https://lcano.com/data/eaci/lab.xlsx",
+              destfile = "lab.xlsx")
 lab <- readxl::read_excel("lab.xlsx") |> 
   mutate(fecha = as.Date(fecha))
 ```
@@ -439,36 +442,873 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
 :::
 
 
-Table: (\#tab:ejlab)Ejemplo datos de laboratorio
+```{=html}
+<div id="evurmxmlbx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
 
-|fecha      | codigo|   est|   mg|  sal|   ph|ebacteria |analista   |tipo | bacteriax| imperfecciones|origen |
-|:----------|------:|-----:|----:|----:|----:|:---------|:----------|:----|---------:|--------------:|:------|
-|2013-11-01 |      1| 33.50| 14.0|   NA| 6.64|<10       |analista_9 |C    |      8606|              1|Norte  |
-|2013-11-01 |      2| 31.05| 13.0|   NA| 6.65|<10       |analista_9 |C    |      3055|              2|Norte  |
-|2013-11-01 |      3| 31.42| 13.0| 1.20| 6.66|<10       |analista_9 |C    |     17153|              2|Norte  |
-|2013-11-01 |      4| 31.00| 13.0|   NA| 6.60|<10       |analista_9 |C    |     46089|              2|Norte  |
-|2013-11-01 |      5| 31.54| 13.5|   NA| 6.60|<10       |analista_9 |C    |      6488|              3|Norte  |
-|2013-11-01 |      6| 30.51| 12.5|   NA| 6.63|<10       |analista_9 |C    |      9639|              0|Norte  |
-|2013-11-01 |      7| 32.30| 13.0|   NA| 6.64|<10       |analista_9 |C    |      1398|              3|Norte  |
-|2013-11-01 |      8| 31.27| 12.5|   NA| 6.63|<10       |analista_9 |C    |     14768|              1|Norte  |
-|2013-11-01 |      9| 31.10| 12.5| 1.14| 6.62|<10       |analista_9 |C    |      6644|              3|Norte  |
-|2013-11-01 |     10| 30.76| 12.5|   NA| 6.64|<10       |analista_9 |C    |      1887|              2|Norte  |
+#evurmxmlbx .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#evurmxmlbx .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#evurmxmlbx .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#evurmxmlbx .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#evurmxmlbx .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#evurmxmlbx .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#evurmxmlbx .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#evurmxmlbx .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#evurmxmlbx .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#evurmxmlbx .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#evurmxmlbx .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#evurmxmlbx .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#evurmxmlbx .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#evurmxmlbx .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#evurmxmlbx .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#evurmxmlbx .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#evurmxmlbx .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#evurmxmlbx .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#evurmxmlbx .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#evurmxmlbx .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#evurmxmlbx .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#evurmxmlbx .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#evurmxmlbx .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#evurmxmlbx .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#evurmxmlbx .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#evurmxmlbx .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#evurmxmlbx .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#evurmxmlbx .gt_left {
+  text-align: left;
+}
+
+#evurmxmlbx .gt_center {
+  text-align: center;
+}
+
+#evurmxmlbx .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#evurmxmlbx .gt_font_normal {
+  font-weight: normal;
+}
+
+#evurmxmlbx .gt_font_bold {
+  font-weight: bold;
+}
+
+#evurmxmlbx .gt_font_italic {
+  font-style: italic;
+}
+
+#evurmxmlbx .gt_super {
+  font-size: 65%;
+}
+
+#evurmxmlbx .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<table class="gt_table">
+  <caption>(#tab:ejlab)Ejemplo datos de laboratorio</caption>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">fecha</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">codigo</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">est</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">mg</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">sal</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">ph</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">ebacteria</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">analista</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">tipo</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">bacteriax</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">imperfecciones</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">origen</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">2013-11-01</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">33.50</td>
+<td class="gt_row gt_right">14.0</td>
+<td class="gt_row gt_right"></td>
+<td class="gt_row gt_right">6.64</td>
+<td class="gt_row gt_left">&lt;10</td>
+<td class="gt_row gt_left">analista_9</td>
+<td class="gt_row gt_left">C</td>
+<td class="gt_row gt_right">8606</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_left">Norte</td></tr>
+    <tr><td class="gt_row gt_left">2013-11-01</td>
+<td class="gt_row gt_right">2</td>
+<td class="gt_row gt_right">31.05</td>
+<td class="gt_row gt_right">13.0</td>
+<td class="gt_row gt_right"></td>
+<td class="gt_row gt_right">6.65</td>
+<td class="gt_row gt_left">&lt;10</td>
+<td class="gt_row gt_left">analista_9</td>
+<td class="gt_row gt_left">C</td>
+<td class="gt_row gt_right">3055</td>
+<td class="gt_row gt_right">2</td>
+<td class="gt_row gt_left">Norte</td></tr>
+    <tr><td class="gt_row gt_left">2013-11-01</td>
+<td class="gt_row gt_right">3</td>
+<td class="gt_row gt_right">31.42</td>
+<td class="gt_row gt_right">13.0</td>
+<td class="gt_row gt_right">1.20</td>
+<td class="gt_row gt_right">6.66</td>
+<td class="gt_row gt_left">&lt;10</td>
+<td class="gt_row gt_left">analista_9</td>
+<td class="gt_row gt_left">C</td>
+<td class="gt_row gt_right">17153</td>
+<td class="gt_row gt_right">2</td>
+<td class="gt_row gt_left">Norte</td></tr>
+    <tr><td class="gt_row gt_left">2013-11-01</td>
+<td class="gt_row gt_right">4</td>
+<td class="gt_row gt_right">31.00</td>
+<td class="gt_row gt_right">13.0</td>
+<td class="gt_row gt_right"></td>
+<td class="gt_row gt_right">6.60</td>
+<td class="gt_row gt_left">&lt;10</td>
+<td class="gt_row gt_left">analista_9</td>
+<td class="gt_row gt_left">C</td>
+<td class="gt_row gt_right">46089</td>
+<td class="gt_row gt_right">2</td>
+<td class="gt_row gt_left">Norte</td></tr>
+    <tr><td class="gt_row gt_left">2013-11-01</td>
+<td class="gt_row gt_right">5</td>
+<td class="gt_row gt_right">31.54</td>
+<td class="gt_row gt_right">13.5</td>
+<td class="gt_row gt_right"></td>
+<td class="gt_row gt_right">6.60</td>
+<td class="gt_row gt_left">&lt;10</td>
+<td class="gt_row gt_left">analista_9</td>
+<td class="gt_row gt_left">C</td>
+<td class="gt_row gt_right">6488</td>
+<td class="gt_row gt_right">3</td>
+<td class="gt_row gt_left">Norte</td></tr>
+    <tr><td class="gt_row gt_left">2013-11-01</td>
+<td class="gt_row gt_right">6</td>
+<td class="gt_row gt_right">30.51</td>
+<td class="gt_row gt_right">12.5</td>
+<td class="gt_row gt_right"></td>
+<td class="gt_row gt_right">6.63</td>
+<td class="gt_row gt_left">&lt;10</td>
+<td class="gt_row gt_left">analista_9</td>
+<td class="gt_row gt_left">C</td>
+<td class="gt_row gt_right">9639</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_left">Norte</td></tr>
+    <tr><td class="gt_row gt_left">2013-11-01</td>
+<td class="gt_row gt_right">7</td>
+<td class="gt_row gt_right">32.30</td>
+<td class="gt_row gt_right">13.0</td>
+<td class="gt_row gt_right"></td>
+<td class="gt_row gt_right">6.64</td>
+<td class="gt_row gt_left">&lt;10</td>
+<td class="gt_row gt_left">analista_9</td>
+<td class="gt_row gt_left">C</td>
+<td class="gt_row gt_right">1398</td>
+<td class="gt_row gt_right">3</td>
+<td class="gt_row gt_left">Norte</td></tr>
+    <tr><td class="gt_row gt_left">2013-11-01</td>
+<td class="gt_row gt_right">8</td>
+<td class="gt_row gt_right">31.27</td>
+<td class="gt_row gt_right">12.5</td>
+<td class="gt_row gt_right"></td>
+<td class="gt_row gt_right">6.63</td>
+<td class="gt_row gt_left">&lt;10</td>
+<td class="gt_row gt_left">analista_9</td>
+<td class="gt_row gt_left">C</td>
+<td class="gt_row gt_right">14768</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_left">Norte</td></tr>
+    <tr><td class="gt_row gt_left">2013-11-01</td>
+<td class="gt_row gt_right">9</td>
+<td class="gt_row gt_right">31.10</td>
+<td class="gt_row gt_right">12.5</td>
+<td class="gt_row gt_right">1.14</td>
+<td class="gt_row gt_right">6.62</td>
+<td class="gt_row gt_left">&lt;10</td>
+<td class="gt_row gt_left">analista_9</td>
+<td class="gt_row gt_left">C</td>
+<td class="gt_row gt_right">6644</td>
+<td class="gt_row gt_right">3</td>
+<td class="gt_row gt_left">Norte</td></tr>
+    <tr><td class="gt_row gt_left">2013-11-01</td>
+<td class="gt_row gt_right">10</td>
+<td class="gt_row gt_right">30.76</td>
+<td class="gt_row gt_right">12.5</td>
+<td class="gt_row gt_right"></td>
+<td class="gt_row gt_right">6.64</td>
+<td class="gt_row gt_left">&lt;10</td>
+<td class="gt_row gt_left">analista_9</td>
+<td class="gt_row gt_left">C</td>
+<td class="gt_row gt_right">1887</td>
+<td class="gt_row gt_right">2</td>
+<td class="gt_row gt_left">Norte</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+```
 
 
-Table: (\#tab:labfreq)Tabla de frecuencias del tipo de queso
+```{=html}
+<div id="hwpygadlyq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
 
-|tipo |   n|     f|    N|     F|
-|:----|---:|-----:|----:|-----:|
-|A    | 175| 0.149|  175| 0.149|
-|B    | 148| 0.126|  323| 0.276|
-|C    | 848| 0.724| 1171| 1.000|
+#hwpygadlyq .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#hwpygadlyq .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hwpygadlyq .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#hwpygadlyq .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#hwpygadlyq .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hwpygadlyq .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hwpygadlyq .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#hwpygadlyq .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#hwpygadlyq .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#hwpygadlyq .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#hwpygadlyq .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#hwpygadlyq .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#hwpygadlyq .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#hwpygadlyq .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#hwpygadlyq .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#hwpygadlyq .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#hwpygadlyq .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#hwpygadlyq .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hwpygadlyq .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#hwpygadlyq .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hwpygadlyq .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#hwpygadlyq .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#hwpygadlyq .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hwpygadlyq .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hwpygadlyq .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#hwpygadlyq .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hwpygadlyq .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#hwpygadlyq .gt_left {
+  text-align: left;
+}
+
+#hwpygadlyq .gt_center {
+  text-align: center;
+}
+
+#hwpygadlyq .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hwpygadlyq .gt_font_normal {
+  font-weight: normal;
+}
+
+#hwpygadlyq .gt_font_bold {
+  font-weight: bold;
+}
+
+#hwpygadlyq .gt_font_italic {
+  font-style: italic;
+}
+
+#hwpygadlyq .gt_super {
+  font-size: 65%;
+}
+
+#hwpygadlyq .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<table class="gt_table">
+  <caption>(#tab:labfreq)Tabla de frecuencias del tipo de queso</caption>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">tipo</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">n</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">f</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">N</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">F</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">A</td>
+<td class="gt_row gt_right">175</td>
+<td class="gt_row gt_right">0.15</td>
+<td class="gt_row gt_right">175</td>
+<td class="gt_row gt_right">0.15</td></tr>
+    <tr><td class="gt_row gt_left">B</td>
+<td class="gt_row gt_right">148</td>
+<td class="gt_row gt_right">0.13</td>
+<td class="gt_row gt_right">323</td>
+<td class="gt_row gt_right">0.28</td></tr>
+    <tr><td class="gt_row gt_left">C</td>
+<td class="gt_row gt_right">848</td>
+<td class="gt_row gt_right">0.72</td>
+<td class="gt_row gt_right">1171</td>
+<td class="gt_row gt_right">1.00</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+```
 
 :::{.rmdpractica data-latex=""}
 **R**
 
-La función `table` de R crea tablas de frecuencias absolutas. Si el resultado se lo pasamos a la función `prop.table`, las convierte en tabla de frecuencias relativas. La función `admargins` añade totales. Para obtener frecuencias acumuladas, podemos usar la función `cumsum`.
+La función `table` de R crea tablas de frecuencias absolutas. Si el resultado se lo pasamos a la función `prop.table()`, las convierte en tabla de frecuencias relativas. La función `addmargins()` añade totales. Para obtener frecuencias acumuladas, podemos usar la función `cumsum`.
 
-Las expresiones siguiente son ejemplos de uso de estas funciones. La tabla \@ref(tab:labfreq) se ha obtenido utilizando funciones del paquete `dplyr`:
+Las expresiones siguientes son ejemplos de uso de estas funciones. La tabla \@ref(tab:labfreq) se ha obtenido utilizando funciones del paquete `dplyr`:
 
     lab |> count(tipo) |> 
       mutate(f = n/nrow(lab), N = cumsum(n),
@@ -497,12 +1337,14 @@ cumsum(table(lab$tipo))
 
 La representación gráfica adecuada para variables cualitativas es el **gráfico de barras**. En este gráfico, representamos las categorías en el eje horizontal (X) y las frecuencias en el eje vertical (Y), y representamos barras cuya altura representa la frecuencia. Se pueden representar frecuencias absolutas o relativas. Los gráficos de sectores también pueden representar variables cualitativas, aunque no se recomiendan porque el ojo humano no es tan bueno distinguiendo ángulos como alturas. En todo caso, si se usa se deberían incluir los valores (frecuencias o porcentajes). El gráfico de barras se puede representar también invirtiendo los ejes (a veces mejora la visualización de las etiquetas), representando líneas en vez de barras, u ordenando las barras según la frecuencia (por defecto este orden es arbitrario, muy a menudo alfabético según las etiquetas).
 
+Un aspecto importante de los gráficos de barras es que debe haber un espacio entre las barras, puesto que son variables cualitativas en las que no tiene sentido representar la continuidad que expresarían las barras adyacentes.
+
 :::{.rmdpractica data-latex=""}
 **R**
 
 La tabla de frecuencias \@ref(tab:labfreq) se puede representar con el siguiente código cuyo resultado se muestra en la figura \@ref(fig:barras1).
 
-El segundo fragmento de código produce la fugura \@ref(fig:tarta) muestra un ejemplo de gráfico de sectores que muestra las etiquetas e incluso algunos estadísticos y contrastes de hipótesis con el paquete {ggstatsplot}.
+El segundo fragmento de código produce la figura \@ref(fig:tarta), que representa un gráfico de sectores con etiquetas realizado con el paquete {ggstatsplot}.
 :::
 
 
@@ -519,8 +1361,8 @@ lab |>
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-aed-uni_files/figure-html/barras1, -1.png" alt="Ejemplo gráfico de barras variable cualitativa" width="672" />
-<p class="caption">(\#fig:barras1, )Ejemplo gráfico de barras variable cualitativa</p>
+<img src="02-aed-uni_files/figure-html/barras1-1.png" alt="Ejemplo gráfico de barras variable cualitativa" width="672" />
+<p class="caption">(\#fig:barras1)Ejemplo gráfico de barras variable cualitativa</p>
 </div>
 
 
@@ -528,9 +1370,6 @@ lab |>
 
 ```r
 library(ggstatsplot)
-#> You can cite this package as:
-#>      Patil, I. (2021). Visualizations with statistical details: The 'ggstatsplot' approach.
-#>      Journal of Open Source Software, 6(61), 3167, doi:10.21105/joss.03167
 lab %>% ggpiestats(x = tipo, title = "Fabricación de quesos",
                   legend.title = "Tipo de queso", 
                   bf.message = FALSE,
@@ -547,10 +1386,896 @@ lab %>% ggpiestats(x = tipo, title = "Fabricación de quesos",
 
 ## Análisis exploratorio de variables cuantitativas
 
+### Resúmenes de variables discretas
+
 En el caso de variables discretas,
 se puede realizar el mismo análisis exploratorio que para las variables
 categóricas, es decir, una tabla de frecuencias y su correspondiente gráfico
-de barras. Además de la **moda**, podemos calcular las siguientes medidas
+de barras. En este caso denotamos cada uno de los posibles valores como $x_i, i = 1, \ldots, k$, siendo $k$ el número de valores distintos que toma la variable discreta. La diferencia principal es que en este caso la tabla y el gráfico deben estar ordenados 
+de mayor a menor según los valores numéricos que toma la variable. Aquí las frecuencias acumuladas cobran más sentido, sobre todo las relativas. Así, $F_i$ se pueden interpretar como la proporción (o porcentaje si multiplicamos por cien) de observaciones que toman valores menores o iguales que $x_i$. 
+La idea detrás de este concepto es muy importante y nos volverá a aparecer en el capítulo \@ref(vauni) cuando definamos la función de distribución de probabilidad.
+
+En cuanto al gráfico, de nuevo
+aquí es importante decir que debe haber una separación entre las barras, porque
+por su naturaleza, no hay valores entre un valor y otro de la variable, y así queda
+bien representado que es una variable discreta. 
+
+Cuando el número de posibles valores es muy grande, aunque la variable sea discreta
+se puede tratar como si fuera continua, resumiendo en tablas de frecuencias por intervalos 
+e histogramas, para facilitar su interpretación. Pero no se debe perder nunca de vista la naturaleza de la variable.
+
+En variables discretas, también podemos resumir los datos con el valor más frecuente,
+es decir, la **moda**. También se podrán resumir los datos mediante los estadísticos
+y con el gráfico de cajas que se explicarán en el apartado siguiente de variables continuas.
+
+
+:::{.rmdejemplo data-latex=""}
+La variable `imperfecciones` es un recuento de defectos en una inspección visual. Vemos en la tabla de frecuencias \@ref(tab:freqdisc) que tenemos 10 valores posibles: desde cero imperfecciones hasta 9 imperfecciones. La moda es el 2, ya que es el valor que más se repite. Además, es única. Vemos además que el 94,9% de los quesos tienen 4 o menos imperfecciones. O lo que es lo mismo, el 5,1% de los quesos tiene más de 4 imperfecciones. La figura \@ref(fig:bardisc) es la representación gráfica de esta tabla de frecuencias, en este caso representada en horizontal.
+
+:::
+
+```{=html}
+<div id="owntcobibh" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#owntcobibh .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#owntcobibh .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#owntcobibh .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#owntcobibh .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#owntcobibh .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#owntcobibh .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#owntcobibh .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#owntcobibh .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#owntcobibh .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#owntcobibh .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#owntcobibh .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#owntcobibh .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#owntcobibh .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#owntcobibh .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#owntcobibh .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#owntcobibh .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#owntcobibh .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#owntcobibh .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#owntcobibh .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#owntcobibh .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#owntcobibh .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#owntcobibh .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#owntcobibh .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#owntcobibh .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#owntcobibh .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#owntcobibh .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#owntcobibh .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#owntcobibh .gt_left {
+  text-align: left;
+}
+
+#owntcobibh .gt_center {
+  text-align: center;
+}
+
+#owntcobibh .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#owntcobibh .gt_font_normal {
+  font-weight: normal;
+}
+
+#owntcobibh .gt_font_bold {
+  font-weight: bold;
+}
+
+#owntcobibh .gt_font_italic {
+  font-style: italic;
+}
+
+#owntcobibh .gt_super {
+  font-size: 65%;
+}
+
+#owntcobibh .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<table class="gt_table">
+  <caption>(#tab:freqdisc)Tabla de frecuencias de la variable imperfecciones</caption>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">\(x_i\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(n_i\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(F_i\)</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_center">0</td>
+<td class="gt_row gt_right">146</td>
+<td class="gt_row gt_right">0.125</td></tr>
+    <tr><td class="gt_row gt_center">1</td>
+<td class="gt_row gt_right">312</td>
+<td class="gt_row gt_right">0.391</td></tr>
+    <tr><td class="gt_row gt_center" style="font-weight: bold;">2</td>
+<td class="gt_row gt_right" style="font-weight: bold;">339</td>
+<td class="gt_row gt_right" style="font-weight: bold;">0.681</td></tr>
+    <tr><td class="gt_row gt_center">3</td>
+<td class="gt_row gt_right">215</td>
+<td class="gt_row gt_right">0.864</td></tr>
+    <tr><td class="gt_row gt_center" style="font-weight: bold;">4</td>
+<td class="gt_row gt_right" style="font-weight: bold;">99</td>
+<td class="gt_row gt_right" style="font-weight: bold;">0.949</td></tr>
+    <tr><td class="gt_row gt_center">5</td>
+<td class="gt_row gt_right">41</td>
+<td class="gt_row gt_right">0.984</td></tr>
+    <tr><td class="gt_row gt_center">6</td>
+<td class="gt_row gt_right">14</td>
+<td class="gt_row gt_right">0.996</td></tr>
+    <tr><td class="gt_row gt_center">7</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">0.997</td></tr>
+    <tr><td class="gt_row gt_center">8</td>
+<td class="gt_row gt_right">3</td>
+<td class="gt_row gt_right">0.999</td></tr>
+    <tr><td class="gt_row gt_center">9</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">1.000</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+```
+
+<div class="figure">
+<img src="02-aed-uni_files/figure-html/bardisc-1.png" alt="Gráfico de barras de la variable discreta imperfecciones" width="672" />
+<p class="caption">(\#fig:bardisc)Gráfico de barras de la variable discreta imperfecciones</p>
+</div>
+
+## Resúmenes de variables continuas
+
+Como se ha dicho anteriormente, lo que sigue también aplica a variables discretas, especialmente lo referido a las medidas de resumen.
+
+### Tablas de frecuencias 
+
+Si intentáramos hacer una tabla de frecuencias de una variable continua, es muy posible que no se repitiera ningún dato, y tendríamos una tabla con todos los valores que se han producido y frecuencia 1. O en todo caso, algunos valores repetidos, según el número de observaciones y la precisión en la medición. Como esto no tiene sentido, en variables continuas (o discretas con muchos posibles valores) es agrupar los datos en $k$ **intervalos** (clases). Hay varios criterios válidos para realizar esta división. Un criterio bastante aceptado es el siguiente:
+
+* Si $n \leq 100, k\approx\sqrt n$
+* Si $n > 100, k\approx 1 + \log_2 n$
+
+Como la amplitud total de los datos (también llamado rango o recorrido) es $A = x_{max} - x_{min}$, es decir, la diferencia entre el máximo y el mínimo de los datos, entonces la amplitud de cada clase es $a_i = A/k$ (en el caso más habitual en el que
+todos los intervalos tienen la misma amplitud. A menudo la amplitud del intervalo se redondea para una mejor lectura e interpretación de la tabla.
+
+Los intervalos se suelen tomar abiertos por la izquierda y cerrados por la derecha, y los límites se representan por $L_i, i = 0, \ldots, k$, donde $L_0$ puede ser el mínimo (o el valor redondeado inmediatamente inferior según se haya decidido en la amplitud). $L_k$ entonces será el máximo, o un valor superior según el redondeo indicado.
+
+La marca de clase es el punto central del intervalo, es decir, la media aritmética de los extremos:
+
+$$c_i = \frac{L_{i-1} + L_{i}}{2}$$
+La frecuencia absoluta de cada clase $i$, $n_i$, es el número de observaciones cuyo valor numérico de la variable está dentro del intervalo. La frecuencia relativa, $n_i/n$, y las acumuladas se calcularían sumando las frecuencias de las clases inferiores. De nuevo resaltamos la importancia del concepto de frecuencia acumulada, como proporción de observaciones que toman valores menores o iguales que el límite superior del intervalo.
+
+
+:::{.rmdinfo data-latex=""}
+En la práctica, sería muy raro que tuviéramos que calcular la tabla de frecuencias "a mano". El software estadístico se encargará de crear las clases para obtener la tabla de frecuencias, con algún método por defecto o indicando el número o amplitud de los intervalos. Lo que sí es importante es que el analista, a la vista del resumen (tabla o histograma) decida si cambia esta división por defecto por otra que cuente mejor la historia de los datos.
+
+No obstante, sí es importante conocer el proceso de creación de la tabla, para entender mejor esa historia.
+:::
+
+
+
+:::{.rmdejemplo data-latex=""}
+La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `ph` del conjunto de datos de ejemplo de la producción de quesos. Vemos que es aproximadamente simétrico, donde los valores centrales son los más frecuentes, y a menudo que nos alejamos de estos valores centrales disminuye la frecuencia. Parece que puede haber un valor extremo por la izquierda. Un dato importante es que aproximadamente la mitad de las observaciones están por debajo de la clase más frecuente.
+:::
+
+
+```{=html}
+<div id="micyecqkaq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#micyecqkaq .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#micyecqkaq .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#micyecqkaq .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#micyecqkaq .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#micyecqkaq .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#micyecqkaq .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#micyecqkaq .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#micyecqkaq .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#micyecqkaq .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#micyecqkaq .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#micyecqkaq .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#micyecqkaq .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#micyecqkaq .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#micyecqkaq .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#micyecqkaq .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#micyecqkaq .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#micyecqkaq .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#micyecqkaq .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#micyecqkaq .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#micyecqkaq .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#micyecqkaq .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#micyecqkaq .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#micyecqkaq .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#micyecqkaq .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#micyecqkaq .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#micyecqkaq .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#micyecqkaq .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#micyecqkaq .gt_left {
+  text-align: left;
+}
+
+#micyecqkaq .gt_center {
+  text-align: center;
+}
+
+#micyecqkaq .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#micyecqkaq .gt_font_normal {
+  font-weight: normal;
+}
+
+#micyecqkaq .gt_font_bold {
+  font-weight: bold;
+}
+
+#micyecqkaq .gt_font_italic {
+  font-style: italic;
+}
+
+#micyecqkaq .gt_super {
+  font-size: 65%;
+}
+
+#micyecqkaq .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<table class="gt_table">
+  <caption>(#tab:tablacont)Tabla de frecuencias por intervalos</caption>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">\((L_{i-1}, L_i]\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(n_i\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(F_i\)</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_center">(6.35,6.4]</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">0.001</td></tr>
+    <tr><td class="gt_row gt_center">(6.4,6.45]</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0.001</td></tr>
+    <tr><td class="gt_row gt_center">(6.45,6.5]</td>
+<td class="gt_row gt_right">3</td>
+<td class="gt_row gt_right">0.003</td></tr>
+    <tr><td class="gt_row gt_center">(6.5,6.55]</td>
+<td class="gt_row gt_right">54</td>
+<td class="gt_row gt_right">0.050</td></tr>
+    <tr><td class="gt_row gt_center">(6.55,6.6]</td>
+<td class="gt_row gt_right">184</td>
+<td class="gt_row gt_right">0.207</td></tr>
+    <tr><td class="gt_row gt_center">(6.6,6.65]</td>
+<td class="gt_row gt_right">404</td>
+<td class="gt_row gt_right">0.552</td></tr>
+    <tr><td class="gt_row gt_center">(6.65,6.7]</td>
+<td class="gt_row gt_right">369</td>
+<td class="gt_row gt_right">0.867</td></tr>
+    <tr><td class="gt_row gt_center">(6.7,6.75]</td>
+<td class="gt_row gt_right">129</td>
+<td class="gt_row gt_right">0.977</td></tr>
+    <tr><td class="gt_row gt_center">(6.75,6.8]</td>
+<td class="gt_row gt_right">21</td>
+<td class="gt_row gt_right">0.995</td></tr>
+    <tr><td class="gt_row gt_center">(6.8,6.85]</td>
+<td class="gt_row gt_right">6</td>
+<td class="gt_row gt_right">1.000</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+```
+
+### Representación gráfica
+
+La representación gráfica de la tabla de frecuencias por intervalos de una variable numérica es el **Histograma**. 
+Este gráfico es uno de los más importantes en Estadística Descriptiva, y prácticamente lo primero que hay que hacer al analizar una variable numérica. De forma análoga a las variables cualitativas y discretas, en el eje Y se representan las clases. En este caso, al ser intervalos continuos, se representan in espacios entre ellos. En el eje Y se representan las frecuencias (absolutas o relativas) de cada clase. La geometría serán barras, en este caso **sin espacio entre ellas** para representar la continuidad. Si hay un intervalo sin barra, será porque no hay ninguna observación que tome valores dentro de ese intervalo $(n_i = 0)$.
+
+El histograma nos proporciona un resumen muy completo de la variable, buscaremos la siguiente interpretación:
+
+* Valores mínimo y máximo (estarán dentro del primer y último intervalo respectivamente)
+
+* Valores más frecuentes: estarán en los intervalos con las barras más altas
+
+* Valores centrales: Intervalos entorno a los que se distribuyen las barras
+
+* Valores poco frecuentes: estarán en los intervalos con las barras más bajas
+
+* Valores extremos (alejados del resto): barras muy bajas en los extremos
+
+* Asimetría: Los datos serán simétricos si los valores a ambos lados de los valores centrales se distribuyen de forma parecida.
+
+* Forma: Identificaremos si tiene forma de campana (normal, gaussiana), exponencial, uniforme, etc.
+
+
+:::{.rmdejemplo data-latex=""}
+La figura \@ref(fig:histcont) representa la tabla de frecuencias \@ref(tab:tablacont). Vemos más claramente la forma aproximadamente simétrica del histograma, el valor extremo a la izquierda (aunque no se aprecia la barra). El intervalo más frecuente parece repartir el resto a ambos lados de forma homogénea, disminuyendo la frecuencia a medida que nos alejamos de estos valores centrales. En resumen, la típica forma de campana de Gauss.
+
+La figura \@ref(fig:histexp) representa el histogramna de la variable `bacteriax`. Es una variable discreta pero con muchos valores distintos, por lo que es mejor la representación del histograma que la del gráfico de barras. Vemos una distribución típicamente exponencial, con valores bajos muy frecuentes y altos muy poco frecuentes, altamente asimétrica.
+
+La figura \@ref(fig:histunif) representa el histograma de la variable `sal`. Muestra una distribución aproximadamente uniforme hasta un valor 1, y después también pero con menos frecuencia, con algunos valores más allá de 1.2. Esto puede estar indicando una mezcla de poblaciones (por ejemplo que los distintos tipos de quesos tengan una receta distinta).
+
+:::
+
+
+<div class="figure" style="text-align: center">
+<img src="02-aed-uni_files/figure-html/histcont-1.png" alt="Histograma de la variable ph" width="100%" />
+<p class="caption">(\#fig:histcont)Histograma de la variable ph</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<img src="02-aed-uni_files/figure-html/histexp-1.png" alt="Histograma de la variable bacteriax" width="100%" />
+<p class="caption">(\#fig:histexp)Histograma de la variable bacteriax</p>
+</div>
+<div class="figure" style="text-align: center">
+<img src="02-aed-uni_files/figure-html/histunif-1.png" alt="Histograma de la variable sal" width="100%" />
+<p class="caption">(\#fig:histunif)Histograma de la variable sal</p>
+</div>
+
+
+, podemos calcular las siguientes medidas
 de centralización que resumen los datos:
 
 - **Media**: Función `mean`.

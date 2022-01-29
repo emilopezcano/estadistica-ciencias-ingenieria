@@ -248,7 +248,7 @@ que se corresponde con la <span class="math inline">\(P[X\leq b]\)</span>, y com
 Como <span class="math inline">\((-\infty , a]\)</span> y <span class="math inline">\((a, b]\)</span> con conjuntos disjuntos (sucesos mutuamente excluyentes):</p>
 <p><span class="math display">\[P[X \in (-\infty, b]\, ] = P[X \in (-\infty , a]\,] + P[X \in (a, b]\,]\implies\\
  P[X \in (a, b]\,] = P[X \in (-\infty, b]\, ] - P[X \in (-\infty , a]\,] = F(b)- F(a).\]</span></p>
-<p>Además, por las propiedades de la probabilidad<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;O visto de otro modo, haciendo &lt;span class="math inline"&gt;\(b=\infty\)&lt;/span&gt;, y entonces &lt;span class="math inline"&gt;\(F(b)=1\)&lt;/span&gt;.&lt;/p&gt;'><sup>57</sup></a>:</p>
+<p>Además, por las propiedades de la probabilidad<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;O visto de otro modo, haciendo &lt;span class="math inline"&gt;\(b=\infty\)&lt;/span&gt;, y entonces &lt;span class="math inline"&gt;\(F(b)=1\)&lt;/span&gt;.&lt;/p&gt;'><sup>59</sup></a>:</p>
 <p><span class="math display">\[\boxed{P[X&gt;a] = 1-F(a)},\]</span>
 dado que <span class="math inline">\(P[X&gt;a] = P[(X\leq a)^c]=1 -P[X\leq a]=1-F(a).\)</span></p>
 </div>
@@ -310,7 +310,7 @@ p: &amp; \quad \mathbb{R} &amp; \longrightarrow &amp; \quad [0,1]\\
 &amp; \quad 3 &amp; \longrightarrow &amp; \quad P[X = 3] = \frac{1}{8}
 \end{aligned}\]</span></p>
 <p>La figura <a href="vauni.html#fig:ddiscretam">5.2</a> representa gráficamente la función de
-probabilidad<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Normalmente se representan líneas verticales en vez de únicamente el punto para una mejor visualización.&lt;/p&gt;"><sup>58</sup></a>.</p>
+probabilidad<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Normalmente se representan líneas verticales en vez de únicamente el punto para una mejor visualización.&lt;/p&gt;"><sup>60</sup></a>.</p>
 <p>A partir de la función de probabilidad, aplicando que <span class="math inline">\(F(x_i) = \sum\limits_{j=1}^i p(x_j)\)</span>, la función de distribución
 sería la siguiente:</p>
 <p><span class="math display">\[\begin{aligned}
@@ -470,7 +470,7 @@ La derivada de una función en un punto se corresponde con la pendiente de la re
 a la función en ese punto. En nuestro caso, la pendiente de la recta tangente a la
 función de distribución es la que nos proporciona la “densidad” de probabilidad.
 Se muestra a continuación una aplicación interactiva para visualizar el concepto
-de derivada como pendiente de la recta tangente<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;accesible también en &lt;a href="https://elcano.shinyapps.io/derivada/" class="uri"&gt;https://elcano.shinyapps.io/derivada/&lt;/a&gt;&lt;/p&gt;'><sup>59</sup></a>, que se puede aplicar a cualquier función de
+de derivada como pendiente de la recta tangente<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;accesible también en &lt;a href="https://elcano.shinyapps.io/derivada/" class="uri"&gt;https://elcano.shinyapps.io/derivada/&lt;/a&gt;&lt;/p&gt;'><sup>61</sup></a>, que se puede aplicar a cualquier función de
 distribución.
 </div>
 <iframe src="https://elcano.shinyapps.io/derivada/?showcase=0" width="100%" height="800px" data-external="1">
@@ -545,7 +545,7 @@ obtenemos directamente el área bajo la curva de una función. En el ejemplo:</p
 <p>R puede calcular integrales definidas metiante métodos numéricos. El código a continuación
 muestra la expresión para calcular la integral buscada y el valor de <span class="math inline">\(k\)</span>.</p>
 </div>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">integral</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span>f <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="fl">25</span> <span class="op">-</span> <span class="va">x</span> <span class="op">}</span>, 
                       lower <span class="op">=</span> <span class="fl">5</span>, 
                       upper <span class="op">=</span> <span class="fl">25</span><span class="op">)</span>
@@ -615,7 +615,7 @@ hacer cálculo simbólico para obtener una expresión de la función de distribu
 se puede crear una función que obtenga valores de la función de distribución para utilizar
 posteriormente, o representarla gráficamente.</p>
 </div>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span>f <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span> <span class="op">}</span>, 
                       lower <span class="op">=</span> <span class="fl">0</span>, 
                       upper <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
@@ -678,7 +678,7 @@ intervalo, representándolos en un <strong>histograma</strong>. Pues bien, si te
 muchos números, y hacemos la amplitud
 de los intervalos muy pequeños, entonces el histograma de los datos
 se parece cada vez más a la función de densidad de la variable aleatoria
-que describe el experimento<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Se parecerá más cuantos más datos tengamos, pero téngase en cuenta que la forma del histograma, con datos empíricos, será &lt;em&gt;aproximada&lt;/em&gt; (nunca exacta) a la forma de la función, &lt;em&gt;teórica&lt;/em&gt;.&lt;/p&gt;"><sup>60</sup></a>, recuérdese la Figura <a href="vauni.html#fig:dogma2b">5.1</a>. Además, el área de las barras del histograma
+que describe el experimento<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Se parecerá más cuantos más datos tengamos, pero téngase en cuenta que la forma del histograma, con datos empíricos, será &lt;em&gt;aproximada&lt;/em&gt; (nunca exacta) a la forma de la función, &lt;em&gt;teórica&lt;/em&gt;.&lt;/p&gt;"><sup>62</sup></a>, recuérdese la Figura <a href="vauni.html#fig:dogma2b">5.1</a>. Además, el área de las barras del histograma
 representa también las probabilidades de los intervalos que podamos formar.
 La figura <a href="vauni.html#fig:densidadfreq">5.12</a> muestra esta relación entre frecuencias
 y función de densidad en un determinado experimento.</p>
@@ -730,7 +730,7 @@ F(x)=
 <p><strong>R</strong></p>
 <p>El código a continuación calcula la probabilidad pedida.</p>
 </div>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span>f <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span> <span class="op">}</span>, 
                       lower <span class="op">=</span> <span class="fl">1</span>, 
                       upper <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
@@ -770,7 +770,7 @@ aproximadamente un 28.35% de los visitantes.</p>
 <p><strong>R</strong></p>
 <p>En el siguiente código de R se realizan los cálculos explicados en el ejemplo.</p>
 </div>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span>
 <span class="co">#&gt; 1 with absolute error &lt; 5e-07</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="fl">10</span><span class="op">/</span><span class="fl">60</span><span class="op">)</span>
@@ -852,7 +852,7 @@ a, b \;\;\text{constantes} \implies E[a + bX] = a + bE[X].
 \end{equation}\]</span></p>
 <ul>
 <li>Si la integral no existe, la variable aleatoria no tiene esperanza.
-Esto puede pasar cuando no existe la integral que la define<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En el caso de variables discretas, cuando la suma no converge.&lt;/p&gt;"><sup>61</sup></a>.</li>
+Esto puede pasar cuando no existe la integral que la define<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En el caso de variables discretas, cuando la suma no converge.&lt;/p&gt;"><sup>63</sup></a>.</li>
 </ul>
 </div>
 <div id="momentos-de-variables-aleatorias-unidimensionales" class="section level3" number="5.5.2">
@@ -957,7 +957,7 @@ y sumamos los valores.</p>
 Podemos guardar los valores y sus probabilidades en sendos vectores y calcular la
 esperanza calculando la suma del producto de ambos vectores, como se muestra en el siguiente código.
 </div>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x_i</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span>
 <span class="va">p_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span>, <span class="fl">3</span><span class="op">/</span><span class="fl">8</span>, <span class="fl">3</span><span class="op">/</span><span class="fl">8</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span>
 <span class="va">Ex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x_i</span><span class="op">*</span><span class="va">p_i</span><span class="op">)</span>
@@ -992,7 +992,7 @@ es máximo, al ser una recta de pendiente positiva entre 0 y 4 (véase la figura
 <p><strong>R</strong></p>
 <p>El código a continuación obtiene la esperanza de la variable aleatoria.</p>
 </div>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span>, <span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span>
 <span class="co">#&gt; 2.666667 with absolute error &lt; 3e-14</span></code></pre></div>
 <div class="rmdejemplo">
@@ -1035,13 +1035,13 @@ expresión:</p>
 Para la variable discreta, podemos guardar los valores y sus probabilidades en sendos vectores y calcular la
 esperanza calculando la suma del producto de ambos vectores, como se muestra en el siguiente código. Para la variable continua, utilizamos la función <code>integrate</code> para calcular la integral. Nótese que se pueden usar límites infinitos.
 </div>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">36</span>, <span class="fl">60</span><span class="op">)</span>
 <span class="va">p_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">36</span><span class="op">/</span><span class="fl">52</span>, <span class="fl">12</span><span class="op">/</span><span class="fl">52</span>, <span class="fl">4</span><span class="op">/</span><span class="fl">52</span><span class="op">)</span>
 <span class="va">Ex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x_i</span><span class="op">*</span><span class="va">p_i</span><span class="op">)</span>
 <span class="va">Ex</span>
 <span class="co">#&gt; [1] 26.76923</span></code></pre></div>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span>
 <span class="co">#&gt; 0.5 with absolute error &lt; 8.6e-06</span></code></pre></div>
 </div>
@@ -1118,7 +1118,7 @@ y después podemos hacer operaciones para calcular todas las características:</
 <p><strong>R</strong></p>
 El siguiente código realiza todos los cálculos para obtener los distintos parámetros de dispersión.
 </div>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">alpha_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span>, <span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span><span class="op">$</span><span class="va">value</span>
 <span class="va">alpha_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span>, <span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span><span class="op">$</span><span class="va">value</span>
 <span class="va">varianza</span> <span class="op">&lt;-</span> <span class="va">alpha_2</span> <span class="op">-</span> <span class="va">alpha_1</span><span class="op">^</span><span class="fl">2</span>; <span class="va">varianza</span>
@@ -1179,7 +1179,7 @@ El código a continuación calcula la varianza de la variable
 aleatoria de forma análoga
 al ejemplo anterior.
 </div>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">alpha_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">*</span><span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">$</span><span class="va">value</span>
 <span class="va">alpha_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">$</span><span class="va">value</span>
 <span class="va">varianza</span> <span class="op">&lt;-</span> <span class="va">alpha_2</span> <span class="op">-</span> <span class="va">alpha_1</span><span class="op">^</span><span class="fl">2</span>; <span class="va">varianza</span>
@@ -1222,7 +1222,7 @@ Así:</p>
 probabilidad dada:</p>
 <p><span class="math display">\[X_{p}= \inf x: F(x)\leq p\]</span></p>
 <p>Por ejemplo, los cuantiles <span class="math inline">\(0.25\)</span> y <span class="math inline">\(0.75\)</span> serían los valores
-<span class="math inline">\(X_{0.25}\)</span> y <span class="math inline">\(X_{0.75}\)</span> que dejan por debajo una probabilidad de <span class="math inline">\(0.25\)</span> y <span class="math inline">\(0.75\)</span> respectivamente<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A estos valores se les conoce como cuartiles&lt;/p&gt;"><sup>62</sup></a>.
+<span class="math inline">\(X_{0.25}\)</span> y <span class="math inline">\(X_{0.75}\)</span> que dejan por debajo una probabilidad de <span class="math inline">\(0.25\)</span> y <span class="math inline">\(0.75\)</span> respectivamente<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A estos valores se les conoce como cuartiles&lt;/p&gt;"><sup>64</sup></a>.
 El método más general para calcular cualquier cuantil consiste en obtener
 la inversa de la función de distribución <span class="math inline">\(x = F^{-1}(p)\)</span> y dar valores a
 <span class="math inline">\(p\)</span> (véase el ejemplo de la mediana más arriba).
@@ -1243,7 +1243,7 @@ Figura 5.17: Cuantiles de una variable aleatoria
 <p>En ocasiones, es posible que conozcamos la media, <span class="math inline">\(\mu\)</span>, y la varianza, <span class="math inline">\(\sigma^2\)</span>, de una variable aleatoria, pero no conozcamos nada sobre su distribución de probabilidad. En estos casos, no podemos calcular la probabilidad en un intervalo, pero podemos acotar la probabilidad entre dos valores entorno a la media conocida. La fórmula general para
 esta acotación es la siguiente:</p>
 <p><span class="math display">\[P[|X-\mu|\geq k\sigma] \leq \frac{1}{k^2},\]</span>
-conocida como <strong>desigualdad de Chebyshev</strong><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Podemos encontrar diversas grafías del apellido de este matemático ruso (1821-1894) como Chebyshov, Tchebychev, Tchebycheff, Tschebyscheff, Chebyshev o Čebišëv.&lt;/p&gt;"><sup>63</sup></a> y que nos permite acotar la probabilidad de una variable aleatoria de dos formas:</p>
+conocida como <strong>desigualdad de Chebyshev</strong><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Podemos encontrar diversas grafías del apellido de este matemático ruso (1821-1894) como Chebyshov, Tchebychev, Tchebycheff, Tschebyscheff, Chebyshev o Čebišëv.&lt;/p&gt;"><sup>65</sup></a> y que nos permite acotar la probabilidad de una variable aleatoria de dos formas:</p>
 <ul>
 <li>La probabilidad de que la variable aleatoria tome valores más extremos de <span class="math inline">\(k\)</span> desviaciones típicas desde la media es, como mucho, <span class="math inline">\(\frac{1}{k^2}\)</span>, véase la figura <a href="vauni.html#fig:cheby">5.18</a>:</li>
 </ul>
@@ -1344,7 +1344,7 @@ y por tanto si la suma de dos números es menor que 0.1111, entonces cada uno de
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-01-26.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-01-29.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

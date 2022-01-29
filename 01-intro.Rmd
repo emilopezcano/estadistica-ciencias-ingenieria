@@ -285,8 +285,8 @@ Control Estadístico de la Calidad.
 
 Todos tenemos nuestra percepción de la calidad. Pero veamos primero la definición estandarizad de calidad que tenemos en la norma ISO 9001.
 
-> **Calidad:** Grado en el que un conjunto de .red[características] inherentes de un objeto
-> cumple con los .red[requisitos]
+> **Calidad:** Grado en el que un conjunto de **características** inherentes de un objeto
+> cumple con los **requisitos**
 >
 > ISO 9001:2015 3.6.2
 
@@ -391,7 +391,7 @@ La metodología Seis Sigma y el ciclo DMAIC aplican el método científico a la 
 
 ## Objetivos de Desarrollo Sostenible (ODS)
 
-> El 25 de septiembre de 2015, los líderes mundiales adoptaron un conjunto de .red[**objetivos globales**] para erradicar la pobreza, proteger el planeta y asegurar la prosperidad para todos como parte de una nueva agenda de desarrollo sostenible. Cada objetivo tiene .red[**metas específicas**] que deben alcanzarse en los próximos 15 años.
+> El 25 de septiembre de 2015, los líderes mundiales adoptaron un conjunto de **objetivos globales** para erradicar la pobreza, proteger el planeta y asegurar la prosperidad para todos como parte de una nueva agenda de desarrollo sostenible. Cada objetivo tiene **metas específicas** que deben alcanzarse en los próximos 15 años.
 >
 > [Naciones Unidas](https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/)
 
