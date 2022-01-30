@@ -204,7 +204,7 @@ Por otra parte, se pueden seguir dos enfoques bien diferenciados a la hora de ha
 su valor. Esta estimación está ligada a una incertidumbre (error) derivada
 del muestreo. Por otra parte, en el **enfoque bayesiano** los parámetros no son valores fijos desconocidos, sino variables aleatorias de las que se estima su distribución de probabilidad. Y a partir de esa distribución de probabilidad, se hace la inferencia. En este libro no se tratarán los métodos bayesianos.
 
-### Organización de los datos
+### Organización de los datos {#orgdatos}
 
 Hemos hablado de características de forma aislada. Pero normalmente no estudiamos una sola característica de la población, sino que observamos varias características, teniendo así en la muestra
 un **conjunto de variables** relativas a una serie de elementos. Cuando analizamos una única variable, aislada del resto, estaremos 

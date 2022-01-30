@@ -1,8 +1,12 @@
+---
+output: html_document
+---
 ```{r, include=FALSE}
 library(knitr)
 library(fontawesome)
 library(gt)
 library(tidyverse)
+library(gridExtra)
 ```
 
 
@@ -639,7 +643,7 @@ as.data.frame(table(lab$clase)) |>
   fmt_number(3, decimals = 3)
 ```
 
-### Representación gráfica
+### El histograma y el gráfico de densidad
 
 La representación gráfica de la tabla de frecuencias por intervalos de una variable numérica es el **Histograma**. 
 Este gráfico es uno de los más importantes en Estadística Descriptiva, y prácticamente lo primero que hay que hacer al analizar una variable numérica. De forma análoga a las variables cualitativas y discretas, en el eje Y se representan las clases. En este caso, al ser intervalos continuos, se representan in espacios entre ellos. En el eje Y se representan las frecuencias (absolutas o relativas) de cada clase. La geometría serán barras, en este caso **sin espacio entre ellas** para representar la continuidad. Si hay un intervalo sin barra, será porque no hay ninguna observación que tome valores dentro de ese intervalo $(n_i = 0)$.
@@ -696,108 +700,508 @@ lab |>
 ```
 
 
-, podemos calcular las siguientes medidas
-de centralización que resumen los datos:
-
-- **Media**: Función `mean`.
-- **Mediana**: Función `median`.
-
-La mediana es una medida de posición central que indica el valor que divide los datos
-en dos mitades: los que son menores que la mediana y los que son mayores que la mediana.
-La mediana es el **cuantil** 0.5, y se puede calcular cualquier cuantil con
-la función `quantile`. Los cuantiles 0.25 y 0.75 se conocen como **cuartiles**
-(primer cuartil Q1 y tercer cuartil Q3 respectivamente).
-El **mínimo** y el **máximo** son también medidas de posición (funciones `min`)
-y `max` respectivamente.
-
-Las medidas de centralización y posición no son suficientes para resumir una
-variable, se debe acompañar de medidas de dispersión. Las más importantes:
-
-- **Varianza**: Función `var`
-- **Desviación típica**: Función `sd`
-- **Rango intercuartílico**: Función `IQR`
-- **Desviación absoluta mediana**: Función `mad`
-- **Coeficiente de Variación (CV)**: Se calcula fácilmente como `sd(x)/mean(x)`
-
-La función `summary` de R base es una función de las llamadas "genéricas",
-que proporciona distintos resultados según la clase del objeto que se le
-proporcione como argumento. Para un vector numérico, devuelve
-el mínimo, Q1, mediana, media, Q3 y máximo.
-
-Un análisis exploratorio de una variable suele incluir medidas de asimetría
-(_skewness_) y aplanamiento (_kurtosis_), así como información del número total
-de datos y porcentaje de datos válidos. Se pueden calcular todas estas medidas
-con las funciones indicadas, y otras existentes en diversos paquetes. El
-paquete `summarytools` proporciona un resumen completo de un vector numérico
-con la función `descr`.
-
-
-Los resúmenes numéricos anteriores sirven tanto para variables discretas como
-para continuas. Sin embargo, en el caso de las
-variables continuas, se cuenta el número de observaciones (frecuencia) por intervalos (_bins_). Estos
-intervalos se pueden calcular utilizando diferentes métodos. Habitualmente,
-primero se elige el número de intervalos (entre 5 y 20) y después se calcula la
-amplitud de los intervalos dividiendo el rango de valores entre ese número.
-Una posible regla
-sería el método de Sturges, y se puede obtener el número de intervalos con la función `nclass.Sturges`. Este es el método que utiliza por defecto la función `hist`
-de R base, que además redondea la amplitud del intervalo para facilitar la
-interpretación. Otra regla muy sencilla es tomar como número de intervalos
-entorno a la raíz cuadrada del número total de datos.
-Para obtener una tabla de frecuencias de una variable continua basta con
-"discretizarla" con la función `cut` y obtener una tabla de frecuencias
-igual que con las variables categóricas.
-
-
-La representación de la tabla de frecuencias de una variable continua
-es el **histograma**. Nótese que hay una diferencia importante con el
-gráfico de barras en variables discretas. En el histograma, las barras
-son contiguas, y si hubiera un espacio sin barra significaría que en
-ese intervalo no hay ninguna observación. En el gráfico de barras, las
-barras están separadas por un espacio, y hay una barra para cada valor
-que toma la variable, no intervalos. Una variable discreta también se
-puede visualizar mediante un histograma, que se preferirá cuando el
-número de posibles valores sea grande.
-
-El histograma nos da mucha información sobre la variable:
-
-- Si es aproximadamente simétrica
-- Si tiene forma de campana (se parece a la distribución normal, que veremos en
-la unidad \@ref(ch-prob))
-- Si hay valores extremos (alejados del centro) y cómo son de frecuentes
-- Si puede haber mezcla de poblaciones (más de una moda)
-
-La función `geom_histogram` del paquete `ggplot2` añade una capa con un
-histograma al gráfico. Solamente necesita el mapeo de una variable,
-pero los datos siempre se tienen que proporcionar como tabla (`data.frame` o `tibble`).
-El color de las barras se controla con el _aesthetics_ `fill`,
-y la altura puede representar las frecuencias absolutas (recuentos) o
-relativas (proporciones). Al contrario que la función `hist` de R base,
-el autor de `ggplot2` ha preferido que el número de barras por defecto sea
-un valor inadecuado en la mayoría de las ocasiones (30) argumentando
-que el analista debería explorar los datos y experimentar varias opciones
-para descubrir la historia completa detrás de los datos. Una vez
-decidido el número de intervalos, se lo podemos explicitar con el argumento
-`bins`, o alternativamente la anchura de intervalo con `bin_width`.
 
 Una representación alternativa al histograma es la línea de densidad, que sustituye
 las barras por una línea continua, generalmente suavizada, que nos da una idea
-de la forma de la distribución de forma más esquemática. La función de `ggplot2`
-que debemos utilizar en este caso es `geom_density`.
+de la forma de la distribución de forma más esquemática. Esta línea de densidad se puede superponer al histograma, o sustituirlo rellenando el área que queda por debajo de la curva.
 
-Otra representación gráfica muy útil de las variables continuas es el
-gráfico de cajas. La función `geom_boxplot` se encarga de producir este objeto
-geométrico, que representa la posición de los datos: máximo y  mínimo (extremos de las líneas o "bigotes"), primer y
-tercer cuartil (bordes de la caja) y mediana (línea que cruza la caja).
-Si existen valores extremos, candidatos a ser considerados valores atípicos,
-se representan separados de las líneas, que llegan al último valor no extremo.
+
+:::{.rmdejemplo data-latex=""}
+El gráfico de arriba en la figura \@ref(fig:densidades) muestra el histograma de la figura \@ref(fig:histunif) con la línea de densidad superpuesta. Aunque decíamos que era bastante uniforme, la línea suavizada parece que sugiere dos "picos" en la parte izquierda. Si no tenemos más información, tendríamos que plantearnos que puede haber mezclados grupos que son diferentes en cuanto al comportamiento de la variable a medir. El gráfico de abajo en la figura \@ref(fig:densidades) muestra un gráfico de densidades distinguiendo entre los tipos de queso (hemos "mapeado" en nuestro lienzo, el color a la variable tipo). Vemos claramente cómo el tipo de queso Ctiene un nivel de sal más alto que los otros dos, que sí parecen tener una distribución más similar. Con esta separación, la variable es más simétrica y podríamos aproximar a alguna distribución de probabilidad como veremos en el capítulo \@ref(vauni).
+:::
+
+```{r densidades, fig.cap="Ejemplo de gráficos de densidad", echo=FALSE, warning=FALSE, fig.height=7}
+p1 <- lab |> 
+  ggplot(aes(sal)) +
+  geom_histogram(aes(y = ..density..), 
+                 bins = 10, fill = "#CB0017", col = "white") + 
+  geom_density(size = 2, col = gray(0.25)) +
+  theme_bw() +
+  labs(x = "Contenido en sal",
+       y = "Densidad")
+p2 <- lab |> 
+  ggplot(aes(sal, fill = tipo)) +
+  geom_density(alpha = 0.5) +
+  theme_bw() +
+  labs(x = "Contenido en sal",
+       y = "Densidad")
+
+grid.arrange(p1, p2)
+```
+
+### Medidas de tendencia central
+
+La tabla de frecuencias y el histograma es un buen resumen de una variable. Pero podemos resumir o describir la variable con una serie de medidas características que resumen algún aspecto en concreto con un solo número. El primer grupo de medidas que podemos calcular son las medidas de centralización. Es decir, los valores centrales entorno a los que varían los datos.
+
+Ya conocemos la **moda**, que es el valor más frecuente en variables cualitativas y en variables numéricas discretas. En variables numéricas continuas, hablaremos de **intervalo modal**, que será el intervalo con la frecuencia más alta. Si tuviéramos que elegir un solo número, podríamos elegir la marca de clase como valor representativo, o utilizar la siguiente fórmula, con la que se obtiene un valor más próximo al intervalo adyacente más frecuente [@Sarasola2018]:
+
+$$Mo=L_i\frac{(n_i - n_{i-1})  + (n_i - i_{i+1})}{(n_i - n_{i-1})}\cdot a_i$$
+Es importante resaltar que la moda en variables continuas va a ser diferente según elijamos los intervalos en los que dividimos el rango.
+
+La **media aritmética** es sin duda la medida de centralización más conocida y más importante. Cuando disponemos de todos los valores $x_i, i = 1, \ldots, n$ de la variable, la calculamos con la siguiente fórmula: 
+
+$$\bar{x}= \frac{\sum\limits_{i=1}^n x_i}{n}$$
+
+La media es el centro de gravedad de los datos, el valor promedio. Está muy influenciada por observaciones extremas, por lo que es poco representativa en distribuciones asimétricas o donde hay mucha dispersión. Mantiene la linealidad, es decir: si $X$ e $Y$ son dos variables con
+medias $\bar x$ e $\bar y$ respectivamente:
+
+$$Y = a+ bX \implies \bar y = a + b \bar x$$ 
+Un concepto clave de la media es que los valores de la variable **varían** entorno a ella, por arriba y por abajo, y las diferencias con la media se compensan, de forma que:
+
+$$\sum\limits_{i=1}^n (x_i-\bar x) = 0.$$
+
+
+
+Si en vez de todos los datos tenemos una tabla de frecuencias, para variables discretas la calcularemos como:
+
+$$\bar{x}= \frac{1}{n}\sum\limits_{i=1}^k n_i x_i= \sum\limits_{i=1}^k f_i x_i,$$
+
+Siendo $x_i, i = 1, \ldots, k$ los posibles valores que toma la variable.Para datos agrupados:
+
+$$\bar{x}= \frac{1}{n}\sum\limits_{i=1}^k n_i c_i= \sum\limits_{i=1}^k f_i c_i,$$
+
+Siendo $c_i, i = 1, \ldots, k$ las marcas de clase. Nótese que, al utilizar tablas de frecuencias en vez de todos los valores, se pierde precisión en el cálculo. A veces esta fórmula la utilizamos también para calcular la **media ponderada** cuando tenemos unos pesos para cada valor. Por ejemplo, en encuestas donde cada entrevistado representa a un número determinado de individuos en estudio.
+
+Otra variante es la **media recortada** o media robusta. Para su cálculo, se eliminan un porcentaje de observaciones (por ejemplo, el 5%) a ambos extremos, quedando así menos "expuesta" a observaciones extremas, y ganando en representatividad.
+
+La media tiene muy buenas propiedades matemáticas y representa bien los datos en variables simétricas poco dispersas. No obstante hay que tener cuidado al interpretarla porque puede ser un valor sin sentido práctico. En un caso extremo, imaginemos una variable que toma valores -1 y 1 con la misma frecuencia. La media será 0, un valor que no puede ni siquiera tomar la variable.
+
+
+:::{.rmdinfo data-latex=""}
+Aunque en estadística será raro que nos las encontremos, existen otras dos medias que en ciertas aplicaciones de la ingeniería y las ciencias o de la economía son muy útiles:
+
+**Media Geométrica**
+
+$$m_g = \left ( \Pi_{i=1}^n x_i\right)^{\frac{1}{n}}$$
+**Media armónica**
+
+$$H = \frac{n}{\sum\limits_{i=1}^n\frac{ 1}{ x_i}}$$
+:::
+
+La **mediana** es otra medida de posición central que indica el valor que divide los datos
+en dos mitades: los que son menores que la mediana y los que son mayores que la mediana.
+La principal ventaja es que está muy poco influenciada por valores extremos. Para calcularla, se ordenan todos los datos $x_i, i=1, \ldots, n$ de menor a mayor. Si el número de datos es impar, el que ocupa la posición central, $[n/2]+1$ es la mediana. Si el número de datos es par, la mediana es la media aritmética de los dos valores centrales, $n/2$ y $n/2+1$.
+
+Si tenemos una tabla de frecuencias de una variable discreta, la mediana es el primer valor $x_i$ que cumpla $N_i\geq n/2$ o, equivalentemente, $Fi \geq 0.5$. Si lo que tenemos es una tabla de frecuencias por intervalos de una variable continua, entonces podemos tomar como intervalo mediano el primero para el cual $Fi \geq 0.5$ y usar la marca de clase de ese intervalo $c_i$ como valor representativo. También se puede utilizar la siguiente fórmula, aunque al igual que con la moda, el valor va a depender de la manera en que hayamos construido los intervalos:
+
+$$Me = L_i + \frac{\frac{n}{2} - N_{i-1}}{n_i}\cdot a_i.$$
+
+```{r, echo=FALSE}
+set.seed(666)
+merma1 <- round(rnorm(50, 5, 0.5), 3)
+```
+
+:::{.rmdejemplo data-latex=""}
+Supongamos un proceso en el que se produce una merma. Se extrae una muestra de 50 observaciones y se obtienen las mediciones de la merma de la tabla \@ref(tab:medianad), en el orden en el que aparecen (por filas). La tabla \@ref(medianadord) muestra los datos ordenados por filas, resaltando los dos valores centrales (el número 24 y el número 25 de orden). Entonces la mediana es:
+
+$$\mathit{Me} = \frac{`r paste(round(sort(merma1)[25:26], 3), collapse = " + ")`}{2} = `r round(median(merma1), 3)`.$$
+
+La figura \@ref(fig:medianap) muestra gráficamente cómo la mediana divide los datos en dos mitades.
+
+La principal ventaja de la mediana es que no está afectada por valores extremos, y siempre es más más representativa de los datos. En variables simétricas, coincide con la media y también con la moda. El inconveniente es que tiene muy malas propiedades matemáticas y es más difícil de tratar en inferencia.
+
+La media de esta variable sería `r round(mean(merma1), 3)`. Cuando la media y la mediana están próximas, como es este caso, indica **simetría** en los datos.
+
+:::
+
+```{r medianad, echo=FALSE}
+merma1 |> 
+  matrix(ncol = 10, byrow = TRUE) |> 
+  as.data.frame() |> 
+  gt(caption = "Datos de merma sin ordenar") |> 
+  tab_options(column_labels.hidden = TRUE)
+```
+
+```{r medianadord, echo=FALSE}
+sort(merma1) |> 
+  matrix(ncol = 10, byrow = TRUE) |> 
+  as.data.frame() |> 
+  gt(caption = "Datos de merma ordenados") |> 
+  tab_options(column_labels.hidden = TRUE) |> 
+    tab_style(style = list(
+    cell_text(weight = "bold")),  
+    locations = cells_body(rows = c(3), columns = 5:6))
+```
+
+```{r medianap, echo=FALSE, fig.height=3, fig.width=8, out.width="90%", results='asis', fig.align='center', fig.cap="Significado gráfico de la mediana y los cuantiles"}
+par(mai = c(0.3, 0, 0.2, 0), bg = "white")
+plot(merma1, rep(1, length(merma1)), 
+    pch = 16, col = scales::alpha("steelblue", 0.6),
+    ylab = "", xlab = "Peso",
+    ylim = c(0.8, 2),
+    axes = FALSE)
+abline(v = median(merma1), col = "darkred", lwd=1.5)
+mtext(round(fivenum(merma1), 4), side = 1, at = fivenum(merma1)) 
+
+mylabs <- c(format(min(merma1), digits=2),
+    rep("", 48),
+    format(max(merma1), digits=2))
+axis(1, at = merma1, labels = FALSE, pos=0.9
+)
+```
+
+
+### Medidas de posición
+
+La mediana es una medida de posición, que se encuentra en el 50% de los datos, y también se llama **cuantil** 0,5. Otras dos medidas básicas de posición son el **máximo**, $x_{max}$, y el **mínimo**, $x_{min}$, que nos informan de los extremos de los datos. Los **cuartiles** son los cuantiles que dejan a la izquierda de su posición el 25% (primer cuartil, $Q_1$y el 75% (tercer cuartil, $Q_3$) de los datos respectivamente. La mediana es también el segundo cuartil, $Q_2$. Se pueden definir análogamente terciles y deciles, así como percentiles $P_p$, que es el valor que deja por debajo de sí mismo el $p\%$ de los datos, $0 < p < 100$. Los cuantiles, $q_p$ son equivalentes a los percentiles, expresados en tanto por uno, $q_p, 0<p<1$.
+
+Las medidas de posición se representan con el gráfico de cajas y bigotes, pero antes de definirlo necesitamos conocer las medidas de dispersión.
+
+
+
+### Medidas de dispersión
+
+Las medidas de centralización y posición no son suficientes para resumir una
+variable, se debe acompañar de medidas de dispersión. Vamos a ver a continuación las más importantes. Las medidas de dispersión nos dan una idea de cómo es la **variación** de los datos alrededor de los valores centrales. Pensemos que una misma medida central, como por ejemplo la media, puede provenir de datos muy próximos a ella, o muy lejanos.
+
+
+La medida más básica de dispersión que podemos calcular es el **rango**, también conocido como el recorrido. Se define como la diferencia entre el máximo y el mínimo: 
+
+$$R = \max_i{x_i} - \min_i{x_i}$$
+
+
+:::{.rmdejemplo data-latex=""}
+La figura \@ref(fig:rango) muestra los valores de la merma estudiada en el ejemplo anterior. El rango sería:
+
+$$R = `r round(max(merma1), 3)` - `r round(min(merma1), 3)` = `r round(diff(range(merma1)), 3)`$$
+:::
+
+
+```{r rango, fig.cap="Representación del rango", echo=FALSE}
+par(bg = "white")
+plot(merma1, col="steelblue", pch=16,
+     ylab = "Merma", xlab = "Nº muestra", las = 1)
+# abline(h=mean(merma1), lwd=2, col="darkred")
+arrows(50, min(merma1), 50, max(merma1), code=3, col="darkred")
+text(x = which(merma1 == min(merma1)), 
+     y = min(merma1),
+     labels = "min", pos = 4)
+text(x = which(merma1 == max(merma1)), 
+     y = max(merma1),
+     labels = "max", pos = 4)
+
+
+```
+
+El rango es una medida muy pobre porque solo utilizamos dos valores de todos los del conjunto de datos. Sería mejor una medida que mida la dispersión con todos los datos. Una posibilidad sería hacer un promedio de las diferencias con algún valor central, por ejemplo, la media. Pero ya vimos que ese promedio es igual a cero, por lo que tendríamos que usar otra medida. Por ejemplo, las medias de esas desviaciones en valor absoluto. A esta medida la llamaremos **desviación media absoluta**, DMA o MAD por sus siglas en inglés:
+
+$$\mathit{DMA} = \frac{1}{n}\sum\limits_{i=1}^n |x_i-\bar x|.$$
+
+La **desviación absoluta mediana** es la mediana de las desviaciones con la mediana:
+
+$$\mathit{DAM} = Me |x_i- Me_x|,\; i = 1, \ldots, n.$$
+
+Estas dos medidas son bastante robustas, pero hacen uso de la función valor absoluto, que no tiene buenas propiedades matemáticas.
+
+La medida de la variabilidad más importante es la **Varianza**, que es el promedio de las desviaciones al cuadrado con respecto a la media. Si tuviéramos una población con $N$ valores $X_i$ y media conocida $\mu$:
+
+$$\sigma^2= \frac{\sum\limits_{i=1}^N (X_i- \mu)^2}{N}$$
+
+Pero en general, trabajaremos con muestras. Incluso cuando tenemos todo el universo en estudio, podemos considerar que es una muestra de los distintos estados en los que se puede encontrar. Entonces, la varianza muestral, también conocida como cuasivarianza, en muestras de tamaño  $n$ se define como:
+
+$$s^2= \frac{\sum\limits_{i=1}^n (x_i- \bar{x})^2}{n-1}$$
+
+La varianza se expresa en las unidades de la variable al cuadrado. Una medida de la variabilidad en las mismas unidades que la variable (y que la media) es la **desviación típica**, que no es más que la raíz cuadrada de la varianza:
+
+$$\sigma= \sqrt{\frac{\sum\limits_{i=1}^N (X_i- \mu)^2}{N}}; \; s= \sqrt{\frac{\sum\limits_{i=1}^n (x_i- \bar{x})^2}{n-1}}$$
+
+
+:::{.rmdejemplo data-latex=""}
+La figura \@ref(fig:var) esquematiza las desviaciones a la media (línea roja horizontal) del ejemplo de la merma. La suma de todas las desviaciones es cero, ya que se compensan las positivas con las negativas. La desviación media absoluta es `r round(mean(abs(merma1-mean(merma1))), 3)`. La desviación absoluta mediana es `r round(mad(merma1, constant = 1), 3)`. La varianza y la desviación típicas muestrales son:
+
+$$s^2 = `r round(var(merma1), 3)`, \; s = `r round(sd(merma1), 3)`.$$
+:::
+
+```{r var, fig.cap="Desviaciones de la media", echo=FALSE}
+par(bg = "white")
+plot(merma1, col="steelblue", pch = 16, 
+     ylab = "Merma", xlab = "Nº muestra", las = 1)
+abline(h=mean(merma1), lwd=2, 
+    col="darkred",
+    main = "Merma proceso 1",
+    xlab = "Pieza",
+    ylab = "Peso")
+for (i in 1:50){
+  lines(x = c(i,i), y = c(mean(merma1), merma1[i]))
+}
+```
+
+Nótese la relación entre la varianza y la cuasivarianza:
+
+$$s_{poblacional}^2=s_{muestral}^2\cdot \frac{n-1}{n}.$$
+Si desarrollamos la fórmula de la varianza, llegamos al siguiente cálculo abreviado:
+
+$$\sigma^2= \frac{\sum\limits_{i=1}^n (X_i- \mu)^2}{N} = \frac{1}{N} \sum\limits_{i=1}^n X_i^2 - \mu^2,$$
+
+que en el caso de la cuasivarianza quedaría:
+
+$$s^2= \frac{\sum\limits_{i=1}^n (x_i- \bar x)^2}{n-1} = \frac{n}{n-1} \left [\frac{1}{n}\sum\limits_{i=1}^n x_i^2 - \bar x^2\right ] = \frac{\sum\limits_{i=1}^n x_i^2}{n-1} - \frac{n\cdot\bar x^2}{n-1},$$
+
+Para variables discretas con datos agrupados y frecuencias absolutas, podríamos calcularlo así:
+
+$$
+s^2= \frac{1}{n-1} \sum\limits_{i=1}^n n_i x_i^2 - \bar{x}^2,
+$$
+o con frecuencias relativas:
+
+$$
+s^2= \sum\limits_{i=1}^n f_i x_i^2 - \bar{x}^2.
+$$
+Análogamente, en variables continuas agrupadas en intervalos, sustituiríamos $x_i$ por las marcas de clase $c_i$. Recordemos que de esta forma perderemos precisión.
+
+
+:::{.rmdinfo data-latex=""}
+Lo normal es que en nuestro análisis de datos trabajemos con datos rectangulares como se describía en el apartado \@ref(orgdatos), y usemos software que haga los cálculos. No obstante, en ocasiones tenemos los datos solo en forma de tablas de frecuencias, por ejemplo de publicaciones oficiales o en revistas científicas, y podemos analizarlos aunque se pierda algo de precisión. También aparecen este tipo de datos cuando provienen de encuestas en las que los encuestados responden directamente un intervalo (por ejemplo de ingresos, gastos, cantidades consumidas, etc.)
+
+En todo caso, y aunque no tengamos que aplicar nunca la fórmula "a mano" es muy importante cómo se hace el cálculo para entender los métodos en los que después se utilizan estos estadísticos.
+:::
+
+
+Al igual que la media, la varianza y la desviación típica son muy sensibles a datos extremos. Una propiedad importante de la desviación típica y la media es que entre la media y 2 desviaciones típicas $(\bar x-2s; \bar x + 2s)$, tenemos al menos
+el 75% de los datos. 
+
+La varianza no mantiene la transformación lineal. Si $Y=a+bX$ y la varianza de $X$ es $s_X$,
+entonces la varianza de $Y$ es: $b^2s^2_X$
+
+De las propiedades de la media y la varianza se deduce también que si:
+
+$$Z = \frac{X-\bar x}{s},$$
+entonces $\bar z = 0; s = 1$. Esta transformación es lo que llamamos "tipificar" (o escalar) la variable. Es útil para comparar distintas escalas, y mantiene la estructura correlación al aplicarlo a más de una variable. Veremos también su utilidad en variables aleatorias en el capítulo \@ref(vauni).
+
+La desviación típica está en las unidades de la variable, y podemos relativizarla a la propia variable. Pero si queremos comparar la variabilidad de dos variables, necesitamos una medida comparable. El
+**coeficiente de variación** es una medida adimensional que nos sirve para este cometido:
+
+$$CV = \frac{s}{|\bar x|}$$
+
+Es también útil para comparar la misma variable en grupos distintos, cuando la media no es igual en todos ellos. Por otra parte, al comparar dos procesos (o tratamientos) en los que se consigue un cambio en la media, el objetivo de mantener la variabilidad se suele fijar en términos del coeficiente de variación, ya que al cambiar la tendencia central del proceso también puede cambiar la varianza.
+
+La última medida de variabilidad que veremos es el **rango intercuartílico**. Se define como la diferencia entre el primer y tercer cuartil, y representa el rango del 50% de los datos centrales (alrededor de la mediana):
+
+$$IQR = Q_3 - Q_1$$
+
+
+
+### El gráfico de cajas y bigotes
+
+Ahora que hemos visto las medidas de dispersión, podemos definir otro gráfico muy esclarecedor para variables numéricas (tanto discretas como continuas). Se trata del
+**gráfico de cajas y bigotes**, aunque abreviaremos en general como gráfico de cajas. Este gráfico representa, generalmente en el eje vertical, los siguientes estadísticos:
+
+- El mínimo (extremo bigote inferior)
+- El primer cuartil (borde inferior de la caja)
+- La mediana (línea cruzando caja)
+- El tercer cuartil (borde superior de la caja)
+- El máximo (extremo bigote superior)
+- Si existen candidatos a ser considerados atípicos (_outliers_):
+   + El bigote llega hasta el último valor en "barreras"
+   + Los valores fuera de las barreras se representan mediante puntos
 
 El gráfico de
 cajas por sí solo puede estar ocultando información, por lo que se pueden utilizar
-variantes como los gráficos de violín, o representar también los puntos con
-cierto desplazamiento aleatorio en el eje para una mejor visualización.
+variantes como los gráficos de violín, o complementar con un gráfico de densidad.
+
+
+
+Las barreras se calculan como una distancia de 1.5 veces el rango intercuartílico desde el primer y tercer cuartil, es decir:
+
+$$Q1-1.5\cdot IQR;\; Q3+1.5\cdot IQR.$$   
+```{r, echo=FALSE}
+merma4 <- c(merma1, 6.8, 7.1)
+```
+
+
+:::{.rmdejemplo data-latex=""}
+La figura \@ref(fig:bpexplicado) muestra el gráfico de cajas del ejemplo de la merma añadiendo un punto más extremo que los que teníamos. El rango intercuartílico para estos datos es:
+
+$$\mathit{IQR} = Q_3 - Q_1 = `r round(IQR(merma4), 3)`$$   
+Con él se calculan las barreras, aunque no se representarán en el gráfico de cajas. Como todos los puntos por abajo están dentro de estas barreras, el bigote inferior llega hasta el mínimo. Sin embargo por arriba, como hay un valor más allá de la barrera, el bigote llega hasta el último valor dentro de la barrera, y el valor que hay fuera se representa con un punto.
+
+:::
+
+
+
+
+
+
+
+
+
+```{r bpexplicado, echo = FALSE, fig.cap="Explicación de los estadísticos representados en el gráfico de cajas"}
+par(bg = "white")
+ufence <- 1.5*IQR(merma4) + fivenum(merma4)[4]
+lfence <- fivenum(merma4)[2] - 1.5*IQR(merma4)
+mybp <- boxplot(merma4,
+    ylim = c(3.3, 7.3),
+    xlim = c(0.5, 2.5),
+    col = "lightBlue",
+    main = "Gráfico de caja para datos de merma",
+    ylab = "Peso",
+    las = 2)
+text(x = 1, y = mybp$out, label = mybp$out, pos = 4)
+text(x = 1.5,
+    y = c(lfence, mybp$stats[c(-5)], ufence, mybp$stats[c(5)]),
+    label = c(paste0("Barrera Inferior: ",  formatC(lfence)),
+        paste0("Mínimo: ",  formatC(min(merma4))),
+        paste0("Q1: ",  formatC(quantile(merma4, .25))),
+        paste0("Mediana: ",  formatC(quantile(merma4, .5))),
+        paste0("Q3: ",  formatC(quantile(merma4, .75))),
+        paste0("Barrera superior: ",  formatC(ufence)),
+        paste0("Máximo no atípico: ",  formatC(mybp$stats[5]))),
+    pos = 4)
+lines(x = c(0.98,1.05), y = rep(lfence,2), lty = 3)
+lines(x = c(0.98,1.05), y = rep(ufence,2), lty = 3)
+```
+
+
+
+
+### Medidas de forma
+
+Aunque el histograma nos da una idea de la forma de la distribución de los datos, podemos cuantificar esta forma principalmente con dos medidas. El **coeficiente de asimetría**, $\gamma_1$ nos indicará en qué medida los datos son simétricos. Esto sucede cuando la mediana es igual a la media. Si no son simétricos, el coeficiente nos indicará el tipo de asimetría.
+
+
+$$\gamma_1 = \frac{m_3}{s^3},$$
+donde $m_3 = \frac{1}{n}\sum\limits_{i=1}^n(x-\bar x ) ^3$
+
+La interpretación es la siguiente:
+
+* $\gamma_1 = 0 \implies$ Simétrica.
+* $\gamma_1 < 0 \implies$ Asimétrica negativa (valores bajos menos frecuentes que valores altos).
+* $\gamma_1 > 0 \implies$ Asimétrica positiva (valores bajos más frecuentes que valores altos).
+
+La figura \@ref(fig:asimetriag) muestra histogramas de variables con distinta asimetría, y la tabla \@ref(tab:asimetriat) los valores de sus coeficientes de asimetría.
+
+```{r asimetriag, fig.height=4, fig.align='center', out.width="90%", echo=FALSE, fig.cap="Histogramas de variables con distintos tipos de asimetría"}
+m <- function(x, orden){
+  sum((x-mean(x))^orden)/length(x)
+}
+set.seed(2)
+gdata <- data.frame(Tipo = rep(c("Asimetrica_positiva", "Simetrica", "Asimetrica_negativa"), each = 100), 
+                        Variable = 100 + c(rexp(100, 0.1),
+                                     rnorm(100, 20),
+                                     rbeta(100, 10, 0.5)))
+ggplot(gdata, aes(Variable)) +
+  geom_histogram(fill = "Orange", bins = 10, col = "white") +
+  facet_wrap(~Tipo, scales = "free_x") +
+  theme_bw()
+```
+
+```{r asimetriat, fig.height=4, fig.align='center', out.width="90%", echo=FALSE}
+gdata |> group_by(Tipo) |> summarise(asimetria = m(Variable, 3)/sd(Variable)^3) |> 
+  gt(caption = "Coeficientes de asimetría de distintas distribuciones") |> 
+  fmt_number(2, decimals = 3) |> 
+  cols_label(asimetria = "\\(\\gamma_1\\)")
+```
+
+El **coeficiente de apuntamiento o curtosis** nos indica cómo de "apuntados" son los datos (muy concentrados alrededor de la media):
+
+$$\gamma_2 = \frac{m_4}{s^4}-3,$$
+donde $m_4 = \frac{1}{n}\sum\limits_{i=1}^n(x-\bar x ) ^4$
+
+La interpretación es la siguiente:
+
+* $\gamma_2 = 0 \implies$ Igual de apuntada que la distribución normal.
+* $\gamma_2 < 0 \implies$ Más aplastada que la normal.
+* $\gamma_2 > 0 \implies$ Más apuntada que la normal.
+
+La figura \@ref(fig:curtosisg) muestra histogramas de variables con distinta curtosis, y la tabla \@ref(tab:curtosist) sus valores del coeficiente de curtosis.
+
+
+```{r curtosisg, fig.height=4, fig.align='center', out.width="90%", echo=FALSE, fig.cap="Histogramas de variables con distintos tipos de curtosis"}
+set.seed(4)
+gdata <- data.frame(Tipo = rep(c("Leptocúrtica", "Platicúrtica", "Normal"), each = 1000), 
+                        Variable =   c(rt(1000, 6),
+                                     runif(1000, 0, 1),
+                                     rnorm(1000, 0, 1)))
+ggplot(gdata, aes(Variable)) +
+  geom_histogram(fill = "Orange", bins = 12, col = "white") +
+  facet_wrap(~Tipo, scales = "free_x") +
+  theme_bw()
+
+```
+
+
+```{r curtosist, fig.height=4, fig.align='center', out.width="90%", echo=FALSE}
+gdata |> group_by(Tipo) |> summarise(curtosis = m(Variable, 4)/sd(Variable)^4-3) |> 
+  gt(caption = "Coeficientes de curtosis de distintas distribuciones") |> 
+  fmt_number(2, decimals = 3) |> 
+  cols_label(curtosis = "\\(\\gamma_2\\)")
+```
+
+
+
+### Resumen numérico
+
+Las medidas y gráficos vistos hasta el momento, no se suelen (ni deben) utilizar de forma aislada. En el análisis exploratorio de datos, se suelen obtener todos los resúmenes numéricos de la variable de interés, posiblemente por grupos si hay alguna variable categórica que pueda presentar distintas distribuciones de la variables numéricas según la categoría. Este resumen y los gráficos adecuados (cajas, histogramas, densidades, barras) describen la variable por completo. Este análisis se puede hacer de más de una variable para estudiarlas conjuntamente.
+
+
+:::{.rmdejemplo data-latex=""}
+La tabla \@ref(tab:resumen1) muestra un resumen de las variables `est` y `ph` del conjunto de datos de laboratorio de la fábrica de quesos.
+:::
+
+
+```{r resumen1, collapse=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+library(summarytools)
+lab |> 
+  select(ph, sal) |> 
+  descr() |> 
+  as.data.frame() |> 
+  gt(caption = "Resumen numérico completo de dos variables",  rownames_to_stub = TRUE) |> 
+  fmt_number(columns = 2:3, rows = 1:13, decimals = 3) |> 
+  fmt_number(columns = 2:3, rows = 14, decimals = 0) |> 
+  fmt_number(columns = 2:3, rows = 15, decimals = 1) 
+```
+
+```{r resumen2, collapse=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+
+l <- with(lab, stby(sal, tipo, descr, transpose = FALSE))
+bind_cols(lapply(l, as.data.frame)) |> 
+  gt(caption = "Resumen numérico completo de una variable por grupos",  rownames_to_stub = TRUE) |> 
+  fmt_number(columns = 2:4, rows = 1:13, decimals = 3) |> 
+  fmt_number(columns = 2:4, rows = 14, decimals = 0) |> 
+  fmt_number(columns = 2:4, rows = 15, decimals = 1) |> 
+  cols_label(sal...1 = "Tipo A",
+             sal...2 = "Tipo B",
+             sal...3 = "Tipo C")
+```
+
+
+
+### Gráficos dependientes del tiempo
 
 Otra visualización básica para una variable numérica es la visualización
-secuencial de las observaciones, bien a través de puntos (`geom_point`) o a través de
-líneas (`geom_line`). El orden de las observaciones nos pueden indicar cuándo se ha producido
-un cambio u otros patrones.
+secuencial de las observaciones, bien a través de puntos o a través de
+líneas. En el eje X se representa el orden de las observaciones, y en el eje Y la escala de la variable. El orden de las observaciones nos pueden indicar cuándo se ha producido
+un cambio u otros patrones. La figura \@ref(fig:puntos) representa un gráfico secuencial de puntos que podría estar indicando un patrón durante los días de la semana. Cuando las observaciones tienen una marca de tiempo (fecha o fecha y hora) entonces estamos ante una serie temporal, como la de la figura \@ref(fig:serie).
+
+```{r puntos, fig.height=5, fig.align='center', out.width="60%", echo=FALSE, fig.cap="Gráfico de puntos secuencial"}
+p <- lab |> 
+  filter(fecha == "2011-11-10") |> 
+  slice_head(n = 15) |> 
+  ggplot(aes(x = codigo, 
+             y = ph)) +
+  labs(title = "Gráfico secuencial",
+       x = "Número de orden",
+       y = "pH") +  
+  theme_bw()  
+p + geom_point() 
+```
+
+
+```{r serie, fig.height=5, fig.align='center', out.width="70%", , echo=FALSE, fig.cap="Gráfico de serie temporal"}
+p <- lab |> 
+  filter(fecha >= "2013-01-01" ) |>
+  group_by(tipo, fecha) |> 
+  summarise(ph = mean(ph)) |> 
+  # slice_head(n = 15) |> 
+  ggplot(aes(x = fecha, 
+             y = ph,
+             col = tipo)) +
+  labs(title = "Serie temporal",
+       x = "Fecha",
+       y = "pH") +  
+  theme_bw()  
+p + geom_line()  
+```
+
+
 

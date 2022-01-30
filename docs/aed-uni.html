@@ -43,7 +43,36 @@
 </form>
 
       <nav aria-label="Contenido"><h2>Contenido</h2>
-        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Capítulo 2</span> Análisis exploratorio univariante</a></li></ul>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Bienvenida</a></li>
+<li class="book-part">Estadística descriptiva</li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introducción</a></li>
+<li><a class="active" href="aed-uni.html"><span class="header-section-number">2</span> Análisis exploratorio univariante</a></li>
+<li><a class="" href="aed-bi.html"><span class="header-section-number">3</span> Análisis exploratorio bivariante</a></li>
+<li class="book-part">Probabilidad</li>
+<li><a class="" href="introp.html"><span class="header-section-number">4</span> Introducción a la Probabilidad</a></li>
+<li><a class="" href="vauni.html"><span class="header-section-number">5</span> Variable aleatoria univariante</a></li>
+<li><a class="" href="vabi.html"><span class="header-section-number">6</span> Variable aleatoria bivariante</a></li>
+<li><a class="" href="modelos.html"><span class="header-section-number">7</span> Modelos de distribución de probabilidad</a></li>
+<li class="book-part">Inferencia estadística</li>
+<li><a class="" href="muestreo.html"><span class="header-section-number">8</span> Muestreo y estimación</a></li>
+<li><a class="" href="comparacion2.html"><span class="header-section-number">9</span> Comparación de dos grupos</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">10</span> Análisis de la Varianza</a></li>
+<li><a class="" href="doe.html"><span class="header-section-number">11</span> Diseño de experimentos</a></li>
+<li><a class="" href="regresion.html"><span class="header-section-number">12</span> Modelos de regresión</a></li>
+<li class="book-part">Control estadístico de la calidad</li>
+<li><a class="" href="introc.html"><span class="header-section-number">13</span> Introducción</a></li>
+<li><a class="" href="spc.html"><span class="header-section-number">14</span> Control Estadístico de Procesos</a></li>
+<li><a class="" href="aceptacion.html"><span class="header-section-number">15</span> Inspección por muestreo</a></li>
+<li class="book-part">Apéndices</li>
+<li><a class="" href="s%C3%ADmbolos-abreviaturas-y-acr%C3%B3nimos.html"><span class="header-section-number">A</span> Símbolos, abreviaturas y acrónimos</a></li>
+<li><a class="" href="tablas.html"><span class="header-section-number">B</span> Tablas estadísticas</a></li>
+<li><a class="" href="repaso.html"><span class="header-section-number">C</span> Repaso</a></li>
+<li><a class="" href="ampliaci%C3%B3n.html"><span class="header-section-number">D</span> Ampliación</a></li>
+<li><a class="" href="demostraciones.html"><span class="header-section-number">E</span> Demostraciones</a></li>
+<li><a class="" href="creditos.html"><span class="header-section-number">F</span> Créditos</a></li>
+<li><a class="" href="referencias.html">Referencias</a></li>
+</ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria">Ver repositorio <i class="fab fa-github"></i></a></p>
@@ -64,7 +93,7 @@ antes de abordar otras técnicas estadísticas, sean sencillas o complejas.
 La “historia” que nos esté contando el gráfico de los datos, nos guiará
 hacia las técnicas de aprendizaje estadístico más adecuadas. Incluso,
 en muchas ocasiones será suficiente el análisis exploratorio para tomar
-una decisión sobre el problema en estudio. La figura <a href="aed-uni.html#fig:dogma1">2.1</a> representa
+una decisión sobre el problema en estudio. La figura <a href="intro.html#fig:dogma1">1.1</a> representa
 la esencia de la Estadística y sus métodos. Los datos que analizamos,
 provienen de una determinada <strong>población</strong>. Pero estos datos, no son más que
 una <strong>muestra</strong>, es decir, un subconjunto de toda la población. Incluso
@@ -86,14 +115,14 @@ En este tercer módulo del curso veremos algunos de estos métodos.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:dogma1"></span>
 <img src="images/dogma1.png" alt="La esencia de los métodos estadísticos" width="100%"><p class="caption">
-Figura 2.1: La esencia de los métodos estadísticos
+Figura 1.1: La esencia de los métodos estadísticos
 </p>
 </div>
 <p>El análisis exploratorio se realiza básicamente mediante dos herramientas: los resúmenes numéricos
 y las visualizaciones gráficas.
 Pero antes de aprender a hacer análisis exploratorio con R, vamos a resaltar la
 importancia, dentro del análisis exploratorio, de las representaciones gráficas.
-Para ello utilizaremos un conjunto de datos llamado “el cuarteto de Anscombe,”<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;F. J. Anscombe, &lt;span&gt;“&lt;span class="nocase"&gt;Graphs in statistical analysis&lt;/span&gt;,”&lt;/span&gt; &lt;em&gt;American Statistician&lt;/em&gt;, 1973, &lt;a href="https://doi.org/10.1080/00031305.1973.10478966" role="doc-biblioref"&gt;https://doi.org/10.1080/00031305.1973.10478966&lt;/a&gt;.&lt;/p&gt;'><sup>1</sup></a></span>
+Para ello utilizaremos un conjunto de datos llamado “el cuarteto de Anscombe,”<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;F. J. Anscombe, &lt;span&gt;“&lt;span class="nocase"&gt;Graphs in statistical analysis&lt;/span&gt;,”&lt;/span&gt; &lt;em&gt;American Statistician&lt;/em&gt;, 1973, &lt;a href="https://doi.org/10.1080/00031305.1973.10478966" role="doc-biblioref"&gt;https://doi.org/10.1080/00031305.1973.10478966&lt;/a&gt;.&lt;/p&gt;'><sup>26</sup></a></span>
 disponible con el nombre <code>anscombe</code> en el paquete <code>datasets</code> de R base.
 La tabla <a href="aed-uni.html#tab:anscombe">2.1</a> muestra
 este conjunto de datos.</p>
@@ -225,7 +254,7 @@ este conjunto de datos.</p>
 </table></div>
 <p>Son 11 filas de 8 variables numéricas, aunque las tres primeras son idénticas. Ya sabemos
 resumir los datos con la media de cada variable:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
 <span class="va">anscombe</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span>.fns <span class="op">=</span> <span class="va">mean</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;   x1 x2 x3 x4       y1       y2  y3       y4</span>
@@ -233,19 +262,19 @@ resumir los datos con la media de cada variable:</p>
 <p>Vemos que la media de las cuatro primeras variables es idéntica, 9. Pero los datos
 son muy distintos en la cuarta variable. Las cuatro últimas variables también tienen una media
 prácticamente idéntica. Sin embargo los datos también son muy distintos. La figura
-<a href="aed-uni.html#fig:anscombeuni">2.2</a> es un gráfico de los que aprenderemos a hacer enseguida, y
+<a href="aed-uni.html#fig:anscombeuni">2.1</a> es un gráfico de los que aprenderemos a hacer enseguida, y
 representa en el eje vertical los valores de las variables, y en el eje horizontal
 los nombres de cada variable. Vemos que, a pesar de tener medias prácticamente iguales,
 los datos son muy diferentes.</p>
 <div class="figure">
 <span style="display:block;" id="fig:anscombeuni"></span>
 <img src="02-aed-uni_files/figure-html/anscombeuni-1.png" alt="Representación de las variables del cuarteto de Anscombe" width="768"><p class="caption">
-Figura 2.2: Representación de las variables del cuarteto de Anscombe
+Figura 2.1: Representación de las variables del cuarteto de Anscombe
 </p>
 </div>
 <p>Pero si en el análisis por separado ya se ve la necesidad de hacer un gráfico,
 cuando analizamos las variables conjuntamente, todavía es más evidente. La
-figura <a href="aed-uni.html#fig:anscombelm">2.3</a> muestra los cuatro gráficos que constituyen
+figura <a href="aed-uni.html#fig:anscombelm">2.2</a> muestra los cuatro gráficos que constituyen
 “El cuarteto de Anscombe,” y que se puede obtener de la propia ayuda del
 conjunto de datos (<code>example(anscombe)</code>). La línea de regresión que se ajusta
 es prácticamente la misma (veremos la regresión en la unidad <a href="#ch-regresion"><strong>??</strong></a>).
@@ -254,7 +283,7 @@ Además, si calculáramos los coeficientes de correlación entre las variables �
 <div class="figure">
 <span style="display:block;" id="fig:anscombelm"></span>
 <img src="02-aed-uni_files/figure-html/anscombelm-1.png" alt="Los cuatro gráficos que constituyen 'El cuarteto de Anscombe'" width="672"><p class="caption">
-Figura 2.3: Los cuatro gráficos que constituyen ‘El cuarteto de Anscombe’
+Figura 2.2: Los cuatro gráficos que constituyen ‘El cuarteto de Anscombe’
 </p>
 </div>
 <p>Es evidente que la relación entre las variables es muy distinta en cada uno
@@ -263,7 +292,7 @@ de regresión y después interpretarlo, podemos estar tomando decisiones
 erróneas.</p>
 <div class="rmdcafe">
 <p>El cuarteto de Anscombe es muy ilustrativo, os animo a explorar
-también <em>The Datasaurus Dozen:</em><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Justin Matejka and George Fitzmaurice, &lt;span&gt;“&lt;span&gt;Same Stats, Different Graphs&lt;/span&gt;,”&lt;/span&gt; in &lt;em&gt;Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems&lt;/em&gt; (New York, NY, USA: ACM, 2017), 1290–94, &lt;a href="https://doi.org/10.1145/3025453.3025912" role="doc-biblioref"&gt;https://doi.org/10.1145/3025453.3025912&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a></span> en <a href="https://www.autodeskresearch.com/publications/samestats" class="uri">https://www.autodeskresearch.com/publications/samestats</a>.</p>
+también <em>The Datasaurus Dozen:</em><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Justin Matejka and George Fitzmaurice, &lt;span&gt;“&lt;span&gt;Same Stats, Different Graphs&lt;/span&gt;,”&lt;/span&gt; in &lt;em&gt;Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems&lt;/em&gt; (New York, NY, USA: ACM, 2017), 1290–94, &lt;a href="https://doi.org/10.1145/3025453.3025912" role="doc-biblioref"&gt;https://doi.org/10.1145/3025453.3025912&lt;/a&gt;.&lt;/p&gt;'><sup>27</sup></a></span> en <a href="https://www.autodeskresearch.com/publications/samestats" class="uri">https://www.autodeskresearch.com/publications/samestats</a>.</p>
 </div>
 </div>
 <div id="calidad-de-datos" class="section level2" number="2.2">
@@ -288,7 +317,7 @@ tienen que ver con valores atípicos (<em>outliers</em>) y con valores perdidos 
 <p>A medida que llevamos el análisis de datos a aplicaciones reales, es más fácil
 que aparezcan observaciones que <em>estropean</em> el análisis porque se salen de lo
 esperado en relación con el resto de datos.
-La parte 4 de norma UNE-ISO 16269,<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;ISO, &lt;span&gt;“&lt;span&gt;UNE-ISO&lt;/span&gt; 16269-4:2010 Interpretación Estadística de Datos – Parte 4: Detección y Tratamiento de Valores Atípicos.”&lt;/span&gt; (Norma Internacional, 2010).&lt;/p&gt;"><sup>3</sup></a></span> un <strong>valor atípico</strong> es
+La parte 4 de norma UNE-ISO 16269,<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;ISO, &lt;span&gt;“&lt;span&gt;UNE-ISO&lt;/span&gt; 16269-4:2010 Interpretación Estadística de Datos – Parte 4: Detección y Tratamiento de Valores Atípicos.”&lt;/span&gt; (Norma Internacional, 2010).&lt;/p&gt;"><sup>28</sup></a></span> un <strong>valor atípico</strong> es
 un “Miembro de un pequeño subconjunto de observaciones que parece ser inconsistente con el resto de una muestra dada.” La identificación de valores <strong>candidatos</strong> a ser
 considerados como atípicos es una labor muy importante para el analista,
 ya que pueden influir tanto en los resultados del análisis como en la
@@ -326,12 +355,12 @@ que usar alternativas robustas. Y en todo caso, nos ayuda a determinar
 la adecuada distribución de probabilidad.</p>
 <p>La observación de los datos con métodos gráficos a menudo proporciona
 suficiente información para identificar valores candidatos a ser
-atípicos. En concreto, el gráfico de cajas diseñado por John W. Tukey<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;John W Tukey et al., &lt;em&gt;Exploratory Data Analysis&lt;/em&gt;, vol. 2 (Reading, Mass., 1977).&lt;/p&gt;"><sup>4</sup></a></span> y recogido en la norma UNE-ISO 16269<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;ISO, &lt;span&gt;“&lt;span&gt;UNE-ISO&lt;/span&gt; 16269-4.”&lt;/span&gt;&lt;/p&gt;"><sup>5</sup></a></span>
+atípicos. En concreto, el gráfico de cajas diseñado por John W. Tukey<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Tukey et al., &lt;em&gt;Exploratory Data Analysis&lt;/em&gt;.&lt;/p&gt;"><sup>29</sup></a></span> y recogido en la norma UNE-ISO 16269<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;ISO, &lt;span&gt;“&lt;span&gt;UNE-ISO&lt;/span&gt; 16269-4.”&lt;/span&gt;&lt;/p&gt;"><sup>30</sup></a></span>
 marca estos valores de forma clara (véase el apartado <a href="#sec:graficosuni"><strong>??</strong></a>
 para una completa explicación de su construcción e interpretación).</p>
 <p>Aparte de los métodos gráficos, existen diversos contrastes de hipótesis
 para determinar si existen valores atípicos en una muestra de datos
-dada una distribución de probabilidad. La norma UNE-ISO 16269<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;ISO.&lt;/p&gt;"><sup>6</sup></a></span>
+dada una distribución de probabilidad. La norma UNE-ISO 16269<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;ISO.&lt;/p&gt;"><sup>31</sup></a></span>
 recoge métodos para la distribución normal y también para otros modelos
 de distribución, así como un método general para distribuciones desconocidas
 y el test de Cochran para varianza atípica. El paquete <code>outliers</code> de R contiene
@@ -346,7 +375,7 @@ candidatos a ser atípicos y comprobar cómo varía ese resultado.</p>
 <p>Entre las medidas de centralización robustas se encuentran la mediana y la media recortada
 (véase <a href="#sec:centralizacion"><strong>??</strong></a>), aunque hay otras. También para la
 estimación de la dispersión se encuentran estimadores robustos como la
-Mediana de las medianas de las desviaciones absolutas de los pares.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;ISO.&lt;/p&gt;"><sup>7</sup></a></span></p>
+Mediana de las medianas de las desviaciones absolutas de los pares.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;ISO.&lt;/p&gt;"><sup>32</sup></a></span></p>
 <p>Lo dicho hasta ahora sirve para detectar atípicos para una característica.
 En conjuntos multivariantes, se pueden observar valores atípicos con respecto
 a más de una variable. En particular, en modelos de regresión puede haber
@@ -363,7 +392,7 @@ es reducir este conjunto multivariate en univariante, obteniendo unas distancias
 de las observaciones a la media muestral del conjunto de datos, estandarizada
 mediante la matriz de varianzas-covarianzas de la muestra. Entonces aquellas
 observaciones muy alejadas de esos valores centrales pueden estudiarse como
-candidatos a ser valores atípicos multivariantes. En <span class="citation">ISO<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></span> se
+candidatos a ser valores atípicos multivariantes. En <span class="citation">ISO<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a></span> se
 proporciona un contraste de hipótesis y un método gráfico para identificar
 estos valores atípicos. En el apartado <a href="#aed:distancias"><strong>??</strong></a> se proporcionan
 las funciones necesarias para calcular la distancia de Mahalanobis.</p>
@@ -392,7 +421,7 @@ decisiones a este respecto. Por ejemplo, si queremos calcular una matriz de
 correlaciones, podemos considerar solo las observaciones en las que hay valores
 para todas las variables, o eliminar solo los pares de observaciones relevantes
 para cada coeficiente de correlación entre dos variables<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En R, la función &lt;code&gt;cor&lt;/code&gt;
-controla este comportamiento mediante el argumento &lt;code&gt;use&lt;/code&gt;.&lt;/p&gt;"><sup>9</sup></a>.</p>
+controla este comportamiento mediante el argumento &lt;code&gt;use&lt;/code&gt;.&lt;/p&gt;"><sup>34</sup></a>.</p>
 <p>El segundo camino es más complicado y requiere a su vez elegir el método de
 imputación del valor perdido. La imputación más sencilla es simplemente asignar
 la media o la mediana como valor representativo de toda la variable. Pero cuando
@@ -428,7 +457,7 @@ de que es así. Para confirmar que una relación es de causa-efecto, deberíamos
 recurrir al Diseño de Experimentos, donde además podremos estudiar las
 interacciones.</p>
 <p><strong>2. Falta de parsimonia.</strong></p>
-<p>La parsimoniosidad es un principio científico (véase <span class="citation">Wikipedia<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“Navaja de Ockham — Wikipedia&lt;span&gt;,&lt;/span&gt; La Enciclopedia Libre,”&lt;/span&gt; 2018, &lt;a href="https://es.wikipedia.org/w/index.php?title=Navaja_de_Ockham&amp;amp;oldid=112855301" role="doc-biblioref"&gt;https://es.wikipedia.org/w/index.php?title=Navaja_de_Ockham&amp;amp;oldid=112855301&lt;/a&gt;.&lt;/p&gt;'><sup>10</sup></a></span>)<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En igualdad de condiciones, la explicación más sencilla suele ser la más probable.&lt;/p&gt;"><sup>11</sup></a> que,
+<p>La parsimoniosidad es un principio científico (véase <span class="citation">Wikipedia<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“Navaja de Ockham — Wikipedia&lt;span&gt;,&lt;/span&gt; La Enciclopedia Libre,”&lt;/span&gt; 2018, &lt;a href="https://es.wikipedia.org/w/index.php?title=Navaja_de_Ockham&amp;amp;oldid=112855301" role="doc-biblioref"&gt;https://es.wikipedia.org/w/index.php?title=Navaja_de_Ockham&amp;amp;oldid=112855301&lt;/a&gt;.&lt;/p&gt;'><sup>35</sup></a></span>)<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En igualdad de condiciones, la explicación más sencilla suele ser la más probable.&lt;/p&gt;"><sup>36</sup></a> que,
 aplicado a la Estadística, significa seleccionar el modelo más reducido y
 simple posible que consiga explicar el fenómeno a estudiar, frente a modelos
 más complejos (con muchas variables) con una mínima o nula ganancia de poder
@@ -436,7 +465,7 @@ predictivo. En modelos de regresión múltiple, por ejemplo, ninguna variable
 cuyo coeficiente no sea significativo se debería incluir en el modelo
 final al que llega la investigación.</p>
 <p><strong>2. Interpretación de porcentajes sin fijarse en el tamaño.</strong></p>
-<p>Este error común viene explicado por la <strong>paradoja de Simpson</strong>.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Wikipedia, &lt;span&gt;“Paradoja de Simpson — Wikipedia&lt;span&gt;,&lt;/span&gt; La Enciclopedia Libre,”&lt;/span&gt; 2019, &lt;a href="https://es.wikipedia.org/w/index.php?title=Paradoja_de_Simpson&amp;amp;oldid=113172044" role="doc-biblioref"&gt;https://es.wikipedia.org/w/index.php?title=Paradoja_de_Simpson&amp;amp;oldid=113172044&lt;/a&gt;.&lt;/p&gt;'><sup>12</sup></a></span>
+<p>Este error común viene explicado por la <strong>paradoja de Simpson</strong>.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Wikipedia, &lt;span&gt;“Paradoja de Simpson — Wikipedia&lt;span&gt;,&lt;/span&gt; La Enciclopedia Libre,”&lt;/span&gt; 2019, &lt;a href="https://es.wikipedia.org/w/index.php?title=Paradoja_de_Simpson&amp;amp;oldid=113172044" role="doc-biblioref"&gt;https://es.wikipedia.org/w/index.php?title=Paradoja_de_Simpson&amp;amp;oldid=113172044&lt;/a&gt;.&lt;/p&gt;'><sup>37</sup></a></span>
 Esta paradoja aparece cuando hay un atributo <em>oculto</em> que no se tiene en cuenta
 a la hora de interpretar porcentajes, pudiendo darse el caso de que otro atributo
 presenta un porcentaje mayor en una categoría, pero si se analizan por separado
@@ -489,11 +518,11 @@ aquí, representaremos los datos con algún <strong>símbolo geométrico</strong
 o cualquier otro. Podremos añadir colores a los símbolos y otras características
 como transparencia o tamaño. También añadiremos anotaciones al gráfico, como
 las marcas en los ejes, títulos o incluso texto dentro del gráfico.</p>
-<p>La figura <a href="aed-uni.html#fig:obra">2.4</a> es una ilustración de Allison Horst<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://github.com/allisonhorst/stats-illustrations" class="uri"&gt;https://github.com/allisonhorst/stats-illustrations&lt;/a&gt;&lt;/p&gt;'><sup>13</sup></a> que simboliza este paradigmna de lienzo y capas. Si pensamos en los distintos elementos del gráfico y los relacionamos con las variables que estamos analizando, será mucho más fácil hacer el gráfico adecuado e interpretarlo.</p>
+<p>La figura <a href="aed-uni.html#fig:obra">2.3</a> es una ilustración de Allison Horst<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://github.com/allisonhorst/stats-illustrations" class="uri"&gt;https://github.com/allisonhorst/stats-illustrations&lt;/a&gt;&lt;/p&gt;'><sup>38</sup></a> que simboliza este paradigmna de lienzo y capas. Si pensamos en los distintos elementos del gráfico y los relacionamos con las variables que estamos analizando, será mucho más fácil hacer el gráfico adecuado e interpretarlo.</p>
 <div class="figure">
 <span style="display:block;" id="fig:obra"></span>
 <img src="images/ggplot2_obra_maestra.png" alt="El dispositivo gráfico como lienzo al que añadimos capas" width="100%"><p class="caption">
-Figura 2.4: El dispositivo gráfico como lienzo al que añadimos capas
+Figura 2.3: El dispositivo gráfico como lienzo al que añadimos capas
 </p>
 </div>
 </div>
@@ -502,7 +531,7 @@ Figura 2.4: El dispositivo gráfico como lienzo al que añadimos capas
 <span class="header-section-number">2.4</span> Notación<a class="anchor" aria-label="anchor" href="#notaci%C3%B3n"><i class="fas fa-link"></i></a>
 </h2>
 <p>Antes de comenzar a hacer resúmenes de los datos, vamos a definir la notación que
-utilizaremos. Representamos las variables con letras mayúsculas latinas del final el alfabeto como <span class="math inline">\(X, Y, \ldots\)</span><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Para atributos, a veces se utilizan las primeras letras del alfabeto: &lt;span class="math inline"&gt;\(A, B, \ldots\)&lt;/span&gt;&lt;/p&gt;'><sup>14</sup></a>. Cada uno de los posibles valores que toma la variable <span class="math inline">\(X\)</span> se representa por <span class="math inline">\(x_i\)</span>. Así, <span class="math inline">\(i\)</span> es el identificador o índice para cada observación o clase.
+utilizaremos. Representamos las variables con letras mayúsculas latinas del final el alfabeto como <span class="math inline">\(X, Y, \ldots\)</span><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Para atributos, a veces se utilizan las primeras letras del alfabeto: &lt;span class="math inline"&gt;\(A, B, \ldots\)&lt;/span&gt;&lt;/p&gt;'><sup>39</sup></a>. Cada uno de los posibles valores que toma la variable <span class="math inline">\(X\)</span> se representa por <span class="math inline">\(x_i\)</span>. Así, <span class="math inline">\(i\)</span> es el identificador o índice para cada observación o clase.
 El número total de observaciones <strong>en la muestra</strong> lo representamos por <span class="math inline">\(n\)</span>, mientras que si tenemos una enumeración de toda la población en estudio, denotaremos el número total de individuos por <span class="math inline">\(N\)</span>.
 El número de clases o niveles de una variable categórica o numérica agrupado es <span class="math inline">\(k\)</span>.
 <span class="math inline">\(n_i, i = 1, \ldots k\)</span> es el número de observaciones en la clase <span class="math inline">\(i\)</span>. Si agrupamos los datos numéricos en intervalos (clases),
@@ -516,7 +545,7 @@ El número de clases o niveles de una variable categórica o numérica agrupado 
 <div class="rmdejemplo">
 <p><svg aria-hidden="true" role="img" viewbox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M378.31 378.49L298.42 288h30.63c9.01 0 16.98-5 20.78-13.06 3.8-8.04 2.55-17.26-3.28-24.05L268.42 160h28.89c9.1 0 17.3-5.35 20.86-13.61 3.52-8.13 1.86-17.59-4.24-24.08L203.66 4.83c-6.03-6.45-17.28-6.45-23.32 0L70.06 122.31c-6.1 6.49-7.75 15.95-4.24 24.08C69.38 154.65 77.59 160 86.69 160h28.89l-78.14 90.91c-5.81 6.78-7.06 15.99-3.27 24.04C37.97 283 45.93 288 54.95 288h30.63L5.69 378.49c-6 6.79-7.36 16.09-3.56 24.26 3.75 8.05 12 13.25 21.01 13.25H160v24.45l-30.29 48.4c-5.32 10.64 2.42 23.16 14.31 23.16h95.96c11.89 0 19.63-12.52 14.31-23.16L224 440.45V416h136.86c9.01 0 17.26-5.2 21.01-13.25 3.8-8.17 2.44-17.47-3.56-24.26z"></path></svg> Supongamos que tenemos que hacer un estudio de las emisiones de dióxido de carbono (CO<span class="math inline">\(_2\)</span>) en las granjas de porcino de una determinada región. Este
 es un ejemplo en el que podemos enumerar la población (a partir de registros oficiales u otras fuentes). Supongamos que existen <span class="math inline">\({1\,000}\)</span> granjas. Entonces, <span class="math inline">\(N = {1\,000}\)</span>. En vez de
-analizar el 100% de las granjas, se decide hacer un muestreo, por ejemplo, del 10% de las granjas<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;En el capítulo &lt;a href="muestreo.html#muestreo"&gt;8&lt;/a&gt; estudiaremos cómo decidir el tamaño de la muestra&lt;/p&gt;'><sup>15</sup></a>.
+analizar el 100% de las granjas, se decide hacer un muestreo, por ejemplo, del 10% de las granjas<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;En el capítulo &lt;a href="muestreo.html#muestreo"&gt;8&lt;/a&gt; estudiaremos cómo decidir el tamaño de la muestra&lt;/p&gt;'><sup>40</sup></a>.
 Entonces, <span class="math inline">\(n=100\)</span>. La región está dividida en tres zonas, y definimos el atributo <span class="math inline">\(A \in \{Z1, Z2, Z3\}\)</span>. Entonces, para este atributo <span class="math inline">\(k = 3\)</span>. Si en la muestra tenemos el doble de granjas en la zona 1 que en cualquiera de las otras dos, entonces <span class="math inline">\(n_1 = 50, n_2 = 25\)</span> y <span class="math inline">\(n_3 = 25\)</span>.</p>
 <p>Una vez realizadas las mediciones de emisiones en cada granja de la muestra, tendremos valores <span class="math inline">\(x_i, i = 1, \ldots, n\)</span>. Podremos agrupar estos valores en <span class="math inline">\(k'\)</span> intervalos (clases) de los que podremos calcular las marcas de clase <span class="math inline">\(c_i, i = 1, \ldots, k'\)</span>. Como solo hemos medido las emisiones en una muestra, desconocemos el verdadero valor de la media de la población, <span class="math inline">\(\mu\)</span>, y entonces lo estimaremos con la media muestral: <span class="math inline">\(\hat{\mu} =\bar x.\)</span></p>
 </div>
@@ -539,7 +568,7 @@ las <strong>frecuencias absolutas</strong>. Se pueden calcular también frecuenc
 tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para las relativas <span class="math inline">\((F_i)\)</span>. No obstante, estas frecuencias acumuladas solo tienen sentido cuando la variable está en escala ordinal.</p>
 <div class="rmdpractica">
 <p>Los datos que se utilizarán en este capítulo para ilustrar los ejemplos se pueden descargar e importar con el siguiente código.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span><span class="st">"https://lcano.com/data/eaci/lab.xlsx"</span>,
               destfile <span class="op">=</span> <span class="st">"lab.xlsx"</span><span class="op">)</span>
@@ -551,12 +580,12 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
 12 columnas. La tabla <a href="aed-uni.html#tab:ejlab">2.2</a> muestra las primeras filas de este conjunto de datos.</p>
 <p>La columna <code>tipo</code> toma tres valores: A, B y C. La tabla <a href="aed-uni.html#tab:labfreq">2.3</a> muestra una tabla de frecuencias completa, donde se puede ver de un vistazo, por ejemplo, que la clase con más quesos en el conjunto de datos el tipo C. Las frecuencias relativas se pueden traducir fácilmente a porcentajes.</p>
 </div>
-<div id="evurmxmlbx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="iixqvcaice" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#evurmxmlbx .gt_table {
+#iixqvcaice .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -581,7 +610,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-left-color: #D3D3D3;
 }
 
-#evurmxmlbx .gt_heading {
+#iixqvcaice .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -593,7 +622,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#evurmxmlbx .gt_title {
+#iixqvcaice .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -603,7 +632,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-width: 0;
 }
 
-#evurmxmlbx .gt_subtitle {
+#iixqvcaice .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -613,13 +642,13 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-top-width: 0;
 }
 
-#evurmxmlbx .gt_bottom_border {
+#iixqvcaice .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#evurmxmlbx .gt_col_headings {
+#iixqvcaice .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -634,7 +663,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#evurmxmlbx .gt_col_heading {
+#iixqvcaice .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -654,7 +683,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   overflow-x: hidden;
 }
 
-#evurmxmlbx .gt_column_spanner_outer {
+#iixqvcaice .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -666,15 +695,15 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 4px;
 }
 
-#evurmxmlbx .gt_column_spanner_outer:first-child {
+#iixqvcaice .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#evurmxmlbx .gt_column_spanner_outer:last-child {
+#iixqvcaice .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#evurmxmlbx .gt_column_spanner {
+#iixqvcaice .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -686,7 +715,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   width: 100%;
 }
 
-#evurmxmlbx .gt_group_heading {
+#iixqvcaice .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -708,7 +737,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   vertical-align: middle;
 }
 
-#evurmxmlbx .gt_empty_group_heading {
+#iixqvcaice .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -723,15 +752,15 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   vertical-align: middle;
 }
 
-#evurmxmlbx .gt_from_md > :first-child {
+#iixqvcaice .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#evurmxmlbx .gt_from_md > :last-child {
+#iixqvcaice .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#evurmxmlbx .gt_row {
+#iixqvcaice .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -750,7 +779,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   overflow-x: hidden;
 }
 
-#evurmxmlbx .gt_stub {
+#iixqvcaice .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -762,7 +791,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-left: 12px;
 }
 
-#evurmxmlbx .gt_summary_row {
+#iixqvcaice .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -772,7 +801,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#evurmxmlbx .gt_first_summary_row {
+#iixqvcaice .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -782,7 +811,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-top-color: #D3D3D3;
 }
 
-#evurmxmlbx .gt_grand_summary_row {
+#iixqvcaice .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -792,7 +821,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#evurmxmlbx .gt_first_grand_summary_row {
+#iixqvcaice .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -802,11 +831,11 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-top-color: #D3D3D3;
 }
 
-#evurmxmlbx .gt_striped {
+#iixqvcaice .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#evurmxmlbx .gt_table_body {
+#iixqvcaice .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -815,7 +844,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-color: #D3D3D3;
 }
 
-#evurmxmlbx .gt_footnotes {
+#iixqvcaice .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -829,13 +858,13 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#evurmxmlbx .gt_footnote {
+#iixqvcaice .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#evurmxmlbx .gt_sourcenotes {
+#iixqvcaice .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -849,41 +878,41 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#evurmxmlbx .gt_sourcenote {
+#iixqvcaice .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#evurmxmlbx .gt_left {
+#iixqvcaice .gt_left {
   text-align: left;
 }
 
-#evurmxmlbx .gt_center {
+#iixqvcaice .gt_center {
   text-align: center;
 }
 
-#evurmxmlbx .gt_right {
+#iixqvcaice .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#evurmxmlbx .gt_font_normal {
+#iixqvcaice .gt_font_normal {
   font-weight: normal;
 }
 
-#evurmxmlbx .gt_font_bold {
+#iixqvcaice .gt_font_bold {
   font-weight: bold;
 }
 
-#evurmxmlbx .gt_font_italic {
+#iixqvcaice .gt_font_italic {
   font-style: italic;
 }
 
-#evurmxmlbx .gt_super {
+#iixqvcaice .gt_super {
   font-size: 65%;
 }
 
-#evurmxmlbx .gt_footnote_marks {
+#iixqvcaice .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1051,12 +1080,12 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
 </tbody>
 </table></div>
 </div>
-<div id="hwpygadlyq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="bdkwmvqnbg" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#hwpygadlyq .gt_table {
+#bdkwmvqnbg .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1081,7 +1110,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-left-color: #D3D3D3;
 }
 
-#hwpygadlyq .gt_heading {
+#bdkwmvqnbg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1093,7 +1122,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#hwpygadlyq .gt_title {
+#bdkwmvqnbg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1103,7 +1132,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-width: 0;
 }
 
-#hwpygadlyq .gt_subtitle {
+#bdkwmvqnbg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1113,13 +1142,13 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-top-width: 0;
 }
 
-#hwpygadlyq .gt_bottom_border {
+#bdkwmvqnbg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hwpygadlyq .gt_col_headings {
+#bdkwmvqnbg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1134,7 +1163,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#hwpygadlyq .gt_col_heading {
+#bdkwmvqnbg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1154,7 +1183,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   overflow-x: hidden;
 }
 
-#hwpygadlyq .gt_column_spanner_outer {
+#bdkwmvqnbg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1166,15 +1195,15 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 4px;
 }
 
-#hwpygadlyq .gt_column_spanner_outer:first-child {
+#bdkwmvqnbg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hwpygadlyq .gt_column_spanner_outer:last-child {
+#bdkwmvqnbg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hwpygadlyq .gt_column_spanner {
+#bdkwmvqnbg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1186,7 +1215,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   width: 100%;
 }
 
-#hwpygadlyq .gt_group_heading {
+#bdkwmvqnbg .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1208,7 +1237,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   vertical-align: middle;
 }
 
-#hwpygadlyq .gt_empty_group_heading {
+#bdkwmvqnbg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1223,15 +1252,15 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   vertical-align: middle;
 }
 
-#hwpygadlyq .gt_from_md > :first-child {
+#bdkwmvqnbg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hwpygadlyq .gt_from_md > :last-child {
+#bdkwmvqnbg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hwpygadlyq .gt_row {
+#bdkwmvqnbg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1250,7 +1279,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   overflow-x: hidden;
 }
 
-#hwpygadlyq .gt_stub {
+#bdkwmvqnbg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1262,7 +1291,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-left: 12px;
 }
 
-#hwpygadlyq .gt_summary_row {
+#bdkwmvqnbg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1272,7 +1301,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#hwpygadlyq .gt_first_summary_row {
+#bdkwmvqnbg .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1282,7 +1311,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-top-color: #D3D3D3;
 }
 
-#hwpygadlyq .gt_grand_summary_row {
+#bdkwmvqnbg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1292,7 +1321,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#hwpygadlyq .gt_first_grand_summary_row {
+#bdkwmvqnbg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1302,11 +1331,11 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-top-color: #D3D3D3;
 }
 
-#hwpygadlyq .gt_striped {
+#bdkwmvqnbg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hwpygadlyq .gt_table_body {
+#bdkwmvqnbg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1315,7 +1344,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-color: #D3D3D3;
 }
 
-#hwpygadlyq .gt_footnotes {
+#bdkwmvqnbg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1329,13 +1358,13 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#hwpygadlyq .gt_footnote {
+#bdkwmvqnbg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#hwpygadlyq .gt_sourcenotes {
+#bdkwmvqnbg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1349,41 +1378,41 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#hwpygadlyq .gt_sourcenote {
+#bdkwmvqnbg .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#hwpygadlyq .gt_left {
+#bdkwmvqnbg .gt_left {
   text-align: left;
 }
 
-#hwpygadlyq .gt_center {
+#bdkwmvqnbg .gt_center {
   text-align: center;
 }
 
-#hwpygadlyq .gt_right {
+#bdkwmvqnbg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hwpygadlyq .gt_font_normal {
+#bdkwmvqnbg .gt_font_normal {
   font-weight: normal;
 }
 
-#hwpygadlyq .gt_font_bold {
+#bdkwmvqnbg .gt_font_bold {
   font-weight: bold;
 }
 
-#hwpygadlyq .gt_font_italic {
+#bdkwmvqnbg .gt_font_italic {
   font-style: italic;
 }
 
-#hwpygadlyq .gt_super {
+#bdkwmvqnbg .gt_super {
   font-size: 65%;
 }
 
-#hwpygadlyq .gt_footnote_marks {
+#bdkwmvqnbg .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1433,7 +1462,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   mutate(f = n/nrow(lab), N = cumsum(n),
          F = cumsum(f))</code></pre>
 </div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">tipo</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   A   B   C </span>
@@ -1453,10 +1482,10 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
 <p>Un aspecto importante de los gráficos de barras es que debe haber un espacio entre las barras, puesto que son variables cualitativas en las que no tiene sentido representar la continuidad que expresarían las barras adyacentes.</p>
 <div class="rmdpractica">
 <p><strong>R</strong></p>
-<p>La tabla de frecuencias <a href="aed-uni.html#tab:labfreq">2.3</a> se puede representar con el siguiente código cuyo resultado se muestra en la figura <a href="aed-uni.html#fig:barras1">2.5</a>.</p>
-<p>El segundo fragmento de código produce la figura <a href="aed-uni.html#fig:tarta">2.6</a>, que representa un gráfico de sectores con etiquetas realizado con el paquete {ggstatsplot}.</p>
+<p>La tabla de frecuencias <a href="aed-uni.html#tab:labfreq">2.3</a> se puede representar con el siguiente código cuyo resultado se muestra en la figura <a href="aed-uni.html#fig:barras1">2.4</a>.</p>
+<p>El segundo fragmento de código produce la figura <a href="aed-uni.html#fig:tarta">2.5</a>, que representa un gráfico de sectores con etiquetas realizado con el paquete {ggstatsplot}.</p>
 </div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 <span class="va">lab</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">tipo</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -1468,10 +1497,10 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:barras1"></span>
 <img src="02-aed-uni_files/figure-html/barras1-1.png" alt="Ejemplo gráfico de barras variable cualitativa" width="672"><p class="caption">
-Figura 2.5: Ejemplo gráfico de barras variable cualitativa
+Figura 2.4: Ejemplo gráfico de barras variable cualitativa
 </p>
 </div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a></span><span class="op">)</span>
 <span class="va">lab</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://indrajeetpatil.github.io/ggstatsplot/reference/ggpiestats.html">ggpiestats</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">tipo</span>, title <span class="op">=</span> <span class="st">"Fabricación de quesos"</span>,
                   legend.title <span class="op">=</span> <span class="st">"Tipo de queso"</span>, 
@@ -1480,7 +1509,7 @@ Figura 2.5: Ejemplo gráfico de barras variable cualitativa
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:tarta"></span>
 <img src="02-aed-uni_files/figure-html/tarta-1.png" alt="Gráfico de sectores con etiquetas" width="672"><p class="caption">
-Figura 2.6: Gráfico de sectores con etiquetas
+Figura 2.5: Gráfico de sectores con etiquetas
 </p>
 </div>
 </div>
@@ -1509,14 +1538,14 @@ e histogramas, para facilitar su interpretación. Pero no se debe perder nunca d
 es decir, la <strong>moda</strong>. También se podrán resumir los datos mediante los estadísticos
 y con el gráfico de cajas que se explicarán en el apartado siguiente de variables continuas.</p>
 <div class="rmdejemplo">
-<p>La variable <code>imperfecciones</code> es un recuento de defectos en una inspección visual. Vemos en la tabla de frecuencias <a href="aed-uni.html#tab:freqdisc">2.4</a> que tenemos 10 valores posibles: desde cero imperfecciones hasta 9 imperfecciones. La moda es el 2, ya que es el valor que más se repite. Además, es única. Vemos además que el 94,9% de los quesos tienen 4 o menos imperfecciones. O lo que es lo mismo, el 5,1% de los quesos tiene más de 4 imperfecciones. La figura <a href="aed-uni.html#fig:bardisc">2.7</a> es la representación gráfica de esta tabla de frecuencias, en este caso representada en horizontal.</p>
+<p>La variable <code>imperfecciones</code> es un recuento de defectos en una inspección visual. Vemos en la tabla de frecuencias <a href="aed-uni.html#tab:freqdisc">2.4</a> que tenemos 10 valores posibles: desde cero imperfecciones hasta 9 imperfecciones. La moda es el 2, ya que es el valor que más se repite. Además, es única. Vemos además que el 94,9% de los quesos tienen 4 o menos imperfecciones. O lo que es lo mismo, el 5,1% de los quesos tiene más de 4 imperfecciones. La figura <a href="aed-uni.html#fig:bardisc">2.6</a> es la representación gráfica de esta tabla de frecuencias, en este caso representada en horizontal.</p>
 </div>
-<div id="owntcobibh" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ttksuxlprg" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#owntcobibh .gt_table {
+#ttksuxlprg .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1541,7 +1570,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-left-color: #D3D3D3;
 }
 
-#owntcobibh .gt_heading {
+#ttksuxlprg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1553,7 +1582,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-right-color: #D3D3D3;
 }
 
-#owntcobibh .gt_title {
+#ttksuxlprg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1563,7 +1592,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-bottom-width: 0;
 }
 
-#owntcobibh .gt_subtitle {
+#ttksuxlprg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1573,13 +1602,13 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-top-width: 0;
 }
 
-#owntcobibh .gt_bottom_border {
+#ttksuxlprg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#owntcobibh .gt_col_headings {
+#ttksuxlprg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1594,7 +1623,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-right-color: #D3D3D3;
 }
 
-#owntcobibh .gt_col_heading {
+#ttksuxlprg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1614,7 +1643,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   overflow-x: hidden;
 }
 
-#owntcobibh .gt_column_spanner_outer {
+#ttksuxlprg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1626,15 +1655,15 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-right: 4px;
 }
 
-#owntcobibh .gt_column_spanner_outer:first-child {
+#ttksuxlprg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#owntcobibh .gt_column_spanner_outer:last-child {
+#ttksuxlprg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#owntcobibh .gt_column_spanner {
+#ttksuxlprg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1646,7 +1675,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   width: 100%;
 }
 
-#owntcobibh .gt_group_heading {
+#ttksuxlprg .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1668,7 +1697,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   vertical-align: middle;
 }
 
-#owntcobibh .gt_empty_group_heading {
+#ttksuxlprg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1683,15 +1712,15 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   vertical-align: middle;
 }
 
-#owntcobibh .gt_from_md > :first-child {
+#ttksuxlprg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#owntcobibh .gt_from_md > :last-child {
+#ttksuxlprg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#owntcobibh .gt_row {
+#ttksuxlprg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1710,7 +1739,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   overflow-x: hidden;
 }
 
-#owntcobibh .gt_stub {
+#ttksuxlprg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1722,7 +1751,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-left: 12px;
 }
 
-#owntcobibh .gt_summary_row {
+#ttksuxlprg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1732,7 +1761,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-right: 5px;
 }
 
-#owntcobibh .gt_first_summary_row {
+#ttksuxlprg .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1742,7 +1771,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-top-color: #D3D3D3;
 }
 
-#owntcobibh .gt_grand_summary_row {
+#ttksuxlprg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1752,7 +1781,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-right: 5px;
 }
 
-#owntcobibh .gt_first_grand_summary_row {
+#ttksuxlprg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1762,11 +1791,11 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-top-color: #D3D3D3;
 }
 
-#owntcobibh .gt_striped {
+#ttksuxlprg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#owntcobibh .gt_table_body {
+#ttksuxlprg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1775,7 +1804,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-bottom-color: #D3D3D3;
 }
 
-#owntcobibh .gt_footnotes {
+#ttksuxlprg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1789,13 +1818,13 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-right-color: #D3D3D3;
 }
 
-#owntcobibh .gt_footnote {
+#ttksuxlprg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#owntcobibh .gt_sourcenotes {
+#ttksuxlprg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1809,41 +1838,41 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-right-color: #D3D3D3;
 }
 
-#owntcobibh .gt_sourcenote {
+#ttksuxlprg .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#owntcobibh .gt_left {
+#ttksuxlprg .gt_left {
   text-align: left;
 }
 
-#owntcobibh .gt_center {
+#ttksuxlprg .gt_center {
   text-align: center;
 }
 
-#owntcobibh .gt_right {
+#ttksuxlprg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#owntcobibh .gt_font_normal {
+#ttksuxlprg .gt_font_normal {
   font-weight: normal;
 }
 
-#owntcobibh .gt_font_bold {
+#ttksuxlprg .gt_font_bold {
   font-weight: bold;
 }
 
-#owntcobibh .gt_font_italic {
+#ttksuxlprg .gt_font_italic {
   font-style: italic;
 }
 
-#owntcobibh .gt_super {
+#ttksuxlprg .gt_super {
   font-size: 65%;
 }
 
-#owntcobibh .gt_footnote_marks {
+#ttksuxlprg .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1915,7 +1944,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
 <div class="figure">
 <span style="display:block;" id="fig:bardisc"></span>
 <img src="02-aed-uni_files/figure-html/bardisc-1.png" alt="Gráfico de barras de la variable discreta imperfecciones" width="672"><p class="caption">
-Figura 2.7: Gráfico de barras de la variable discreta imperfecciones
+Figura 2.6: Gráfico de barras de la variable discreta imperfecciones
 </p>
 </div>
 </div>
@@ -1949,12 +1978,12 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
 <div class="rmdejemplo">
 <p>La tabla <a href="aed-uni.html#tab:tablacont">2.5</a> muestra una tabla de frecuencias de la variable <code>ph</code> del conjunto de datos de ejemplo de la producción de quesos. Vemos que es aproximadamente simétrico, donde los valores centrales son los más frecuentes, y a menudo que nos alejamos de estos valores centrales disminuye la frecuencia. Parece que puede haber un valor extremo por la izquierda. Un dato importante es que aproximadamente la mitad de las observaciones están por debajo de la clase más frecuente.</p>
 </div>
-<div id="micyecqkaq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wyshfybgix" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#micyecqkaq .gt_table {
+#wyshfybgix .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1979,7 +2008,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-left-color: #D3D3D3;
 }
 
-#micyecqkaq .gt_heading {
+#wyshfybgix .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1991,7 +2020,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-right-color: #D3D3D3;
 }
 
-#micyecqkaq .gt_title {
+#wyshfybgix .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2001,7 +2030,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-bottom-width: 0;
 }
 
-#micyecqkaq .gt_subtitle {
+#wyshfybgix .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2011,13 +2040,13 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-top-width: 0;
 }
 
-#micyecqkaq .gt_bottom_border {
+#wyshfybgix .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#micyecqkaq .gt_col_headings {
+#wyshfybgix .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2032,7 +2061,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-right-color: #D3D3D3;
 }
 
-#micyecqkaq .gt_col_heading {
+#wyshfybgix .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2052,7 +2081,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   overflow-x: hidden;
 }
 
-#micyecqkaq .gt_column_spanner_outer {
+#wyshfybgix .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2064,15 +2093,15 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-right: 4px;
 }
 
-#micyecqkaq .gt_column_spanner_outer:first-child {
+#wyshfybgix .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#micyecqkaq .gt_column_spanner_outer:last-child {
+#wyshfybgix .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#micyecqkaq .gt_column_spanner {
+#wyshfybgix .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2084,7 +2113,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   width: 100%;
 }
 
-#micyecqkaq .gt_group_heading {
+#wyshfybgix .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2106,7 +2135,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   vertical-align: middle;
 }
 
-#micyecqkaq .gt_empty_group_heading {
+#wyshfybgix .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2121,15 +2150,15 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   vertical-align: middle;
 }
 
-#micyecqkaq .gt_from_md > :first-child {
+#wyshfybgix .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#micyecqkaq .gt_from_md > :last-child {
+#wyshfybgix .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#micyecqkaq .gt_row {
+#wyshfybgix .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2148,7 +2177,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   overflow-x: hidden;
 }
 
-#micyecqkaq .gt_stub {
+#wyshfybgix .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2160,7 +2189,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-left: 12px;
 }
 
-#micyecqkaq .gt_summary_row {
+#wyshfybgix .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2170,7 +2199,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-right: 5px;
 }
 
-#micyecqkaq .gt_first_summary_row {
+#wyshfybgix .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2180,7 +2209,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-top-color: #D3D3D3;
 }
 
-#micyecqkaq .gt_grand_summary_row {
+#wyshfybgix .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2190,7 +2219,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-right: 5px;
 }
 
-#micyecqkaq .gt_first_grand_summary_row {
+#wyshfybgix .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2200,11 +2229,11 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-top-color: #D3D3D3;
 }
 
-#micyecqkaq .gt_striped {
+#wyshfybgix .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#micyecqkaq .gt_table_body {
+#wyshfybgix .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2213,7 +2242,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-bottom-color: #D3D3D3;
 }
 
-#micyecqkaq .gt_footnotes {
+#wyshfybgix .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2227,13 +2256,13 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-right-color: #D3D3D3;
 }
 
-#micyecqkaq .gt_footnote {
+#wyshfybgix .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#micyecqkaq .gt_sourcenotes {
+#wyshfybgix .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2247,41 +2276,41 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-right-color: #D3D3D3;
 }
 
-#micyecqkaq .gt_sourcenote {
+#wyshfybgix .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#micyecqkaq .gt_left {
+#wyshfybgix .gt_left {
   text-align: left;
 }
 
-#micyecqkaq .gt_center {
+#wyshfybgix .gt_center {
   text-align: center;
 }
 
-#micyecqkaq .gt_right {
+#wyshfybgix .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#micyecqkaq .gt_font_normal {
+#wyshfybgix .gt_font_normal {
   font-weight: normal;
 }
 
-#micyecqkaq .gt_font_bold {
+#wyshfybgix .gt_font_bold {
   font-weight: bold;
 }
 
-#micyecqkaq .gt_font_italic {
+#wyshfybgix .gt_font_italic {
   font-style: italic;
 }
 
-#micyecqkaq .gt_super {
+#wyshfybgix .gt_super {
   font-size: 65%;
 }
 
-#micyecqkaq .gt_footnote_marks {
+#wyshfybgix .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2351,9 +2380,9 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
 </table></div>
 </div>
 </div>
-<div id="representación-gráfica" class="section level3" number="2.7.2">
+<div id="el-histograma-y-el-gráfico-de-densidad" class="section level3" number="2.7.2">
 <h3>
-<span class="header-section-number">2.7.2</span> Representación gráfica<a class="anchor" aria-label="anchor" href="#representaci%C3%B3n-gr%C3%A1fica"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.7.2</span> El histograma y el gráfico de densidad<a class="anchor" aria-label="anchor" href="#el-histograma-y-el-gr%C3%A1fico-de-densidad"><i class="fas fa-link"></i></a>
 </h3>
 <p>La representación gráfica de la tabla de frecuencias por intervalos de una variable numérica es el <strong>Histograma</strong>.
 Este gráfico es uno de los más importantes en Estadística Descriptiva, y prácticamente lo primero que hay que hacer al analizar una variable numérica. De forma análoga a las variables cualitativas y discretas, en el eje Y se representan las clases. En este caso, al ser intervalos continuos, se representan in espacios entre ellos. En el eje Y se representan las frecuencias (absolutas o relativas) de cada clase. La geometría serán barras, en este caso <strong>sin espacio entre ellas</strong> para representar la continuidad. Si hay un intervalo sin barra, será porque no hay ninguna observación que tome valores dentro de ese intervalo <span class="math inline">\((n_i = 0)\)</span>.</p>
@@ -2368,148 +2397,2728 @@ Este gráfico es uno de los más importantes en Estadística Descriptiva, y prá
 <li><p>Forma: Identificaremos si tiene forma de campana (normal, gaussiana), exponencial, uniforme, etc.</p></li>
 </ul>
 <div class="rmdejemplo">
-<p>La figura <a href="aed-uni.html#fig:histcont">2.8</a> representa la tabla de frecuencias <a href="aed-uni.html#tab:tablacont">2.5</a>. Vemos más claramente la forma aproximadamente simétrica del histograma, el valor extremo a la izquierda (aunque no se aprecia la barra). El intervalo más frecuente parece repartir el resto a ambos lados de forma homogénea, disminuyendo la frecuencia a medida que nos alejamos de estos valores centrales. En resumen, la típica forma de campana de Gauss.</p>
-<p>La figura <a href="aed-uni.html#fig:histexp">2.9</a> representa el histogramna de la variable <code>bacteriax</code>. Es una variable discreta pero con muchos valores distintos, por lo que es mejor la representación del histograma que la del gráfico de barras. Vemos una distribución típicamente exponencial, con valores bajos muy frecuentes y altos muy poco frecuentes, altamente asimétrica.</p>
-<p>La figura <a href="aed-uni.html#fig:histunif">2.10</a> representa el histograma de la variable <code>sal</code>. Muestra una distribución aproximadamente uniforme hasta un valor 1, y después también pero con menos frecuencia, con algunos valores más allá de 1.2. Esto puede estar indicando una mezcla de poblaciones (por ejemplo que los distintos tipos de quesos tengan una receta distinta).</p>
+<p>La figura <a href="aed-uni.html#fig:histcont">2.7</a> representa la tabla de frecuencias <a href="aed-uni.html#tab:tablacont">2.5</a>. Vemos más claramente la forma aproximadamente simétrica del histograma, el valor extremo a la izquierda (aunque no se aprecia la barra). El intervalo más frecuente parece repartir el resto a ambos lados de forma homogénea, disminuyendo la frecuencia a medida que nos alejamos de estos valores centrales. En resumen, la típica forma de campana de Gauss.</p>
+<p>La figura <a href="aed-uni.html#fig:histexp">2.8</a> representa el histogramna de la variable <code>bacteriax</code>. Es una variable discreta pero con muchos valores distintos, por lo que es mejor la representación del histograma que la del gráfico de barras. Vemos una distribución típicamente exponencial, con valores bajos muy frecuentes y altos muy poco frecuentes, altamente asimétrica.</p>
+<p>La figura <a href="aed-uni.html#fig:histunif">2.9</a> representa el histograma de la variable <code>sal</code>. Muestra una distribución aproximadamente uniforme hasta un valor 1, y después también pero con menos frecuencia, con algunos valores más allá de 1.2. Esto puede estar indicando una mezcla de poblaciones (por ejemplo que los distintos tipos de quesos tengan una receta distinta).</p>
 </div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:histcont"></span>
 <img src="02-aed-uni_files/figure-html/histcont-1.png" alt="Histograma de la variable ph" width="100%"><p class="caption">
-Figura 2.8: Histograma de la variable ph
+Figura 2.7: Histograma de la variable ph
 </p>
 </div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:histexp"></span>
 <img src="02-aed-uni_files/figure-html/histexp-1.png" alt="Histograma de la variable bacteriax" width="100%"><p class="caption">
-Figura 2.9: Histograma de la variable bacteriax
+Figura 2.8: Histograma de la variable bacteriax
 </p>
 </div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:histunif"></span>
 <img src="02-aed-uni_files/figure-html/histunif-1.png" alt="Histograma de la variable sal" width="100%"><p class="caption">
-Figura 2.10: Histograma de la variable sal
+Figura 2.9: Histograma de la variable sal
 </p>
 </div>
-<p>, podemos calcular las siguientes medidas
-de centralización que resumen los datos:</p>
-<ul>
-<li>
-<strong>Media</strong>: Función <code>mean</code>.</li>
-<li>
-<strong>Mediana</strong>: Función <code>median</code>.</li>
-</ul>
-<p>La mediana es una medida de posición central que indica el valor que divide los datos
-en dos mitades: los que son menores que la mediana y los que son mayores que la mediana.
-La mediana es el <strong>cuantil</strong> 0.5, y se puede calcular cualquier cuantil con
-la función <code>quantile</code>. Los cuantiles 0.25 y 0.75 se conocen como <strong>cuartiles</strong>
-(primer cuartil Q1 y tercer cuartil Q3 respectivamente).
-El <strong>mínimo</strong> y el <strong>máximo</strong> son también medidas de posición (funciones <code>min</code>)
-y <code>max</code> respectivamente.</p>
-<p>Las medidas de centralización y posición no son suficientes para resumir una
-variable, se debe acompañar de medidas de dispersión. Las más importantes:</p>
-<ul>
-<li>
-<strong>Varianza</strong>: Función <code>var</code>
-</li>
-<li>
-<strong>Desviación típica</strong>: Función <code>sd</code>
-</li>
-<li>
-<strong>Rango intercuartílico</strong>: Función <code>IQR</code>
-</li>
-<li>
-<strong>Desviación absoluta mediana</strong>: Función <code>mad</code>
-</li>
-<li>
-<strong>Coeficiente de Variación (CV)</strong>: Se calcula fácilmente como <code>sd(x)/mean(x)</code>
-</li>
-</ul>
-<p>La función <code>summary</code> de R base es una función de las llamadas “genéricas,”
-que proporciona distintos resultados según la clase del objeto que se le
-proporcione como argumento. Para un vector numérico, devuelve
-el mínimo, Q1, mediana, media, Q3 y máximo.</p>
-<p>Un análisis exploratorio de una variable suele incluir medidas de asimetría
-(<em>skewness</em>) y aplanamiento (<em>kurtosis</em>), así como información del número total
-de datos y porcentaje de datos válidos. Se pueden calcular todas estas medidas
-con las funciones indicadas, y otras existentes en diversos paquetes. El
-paquete <code>summarytools</code> proporciona un resumen completo de un vector numérico
-con la función <code>descr</code>.</p>
-<p>Los resúmenes numéricos anteriores sirven tanto para variables discretas como
-para continuas. Sin embargo, en el caso de las
-variables continuas, se cuenta el número de observaciones (frecuencia) por intervalos (<em>bins</em>). Estos
-intervalos se pueden calcular utilizando diferentes métodos. Habitualmente,
-primero se elige el número de intervalos (entre 5 y 20) y después se calcula la
-amplitud de los intervalos dividiendo el rango de valores entre ese número.
-Una posible regla
-sería el método de Sturges, y se puede obtener el número de intervalos con la función <code>nclass.Sturges</code>. Este es el método que utiliza por defecto la función <code>hist</code>
-de R base, que además redondea la amplitud del intervalo para facilitar la
-interpretación. Otra regla muy sencilla es tomar como número de intervalos
-entorno a la raíz cuadrada del número total de datos.
-Para obtener una tabla de frecuencias de una variable continua basta con
-“discretizarla” con la función <code>cut</code> y obtener una tabla de frecuencias
-igual que con las variables categóricas.</p>
-<p>La representación de la tabla de frecuencias de una variable continua
-es el <strong>histograma</strong>. Nótese que hay una diferencia importante con el
-gráfico de barras en variables discretas. En el histograma, las barras
-son contiguas, y si hubiera un espacio sin barra significaría que en
-ese intervalo no hay ninguna observación. En el gráfico de barras, las
-barras están separadas por un espacio, y hay una barra para cada valor
-que toma la variable, no intervalos. Una variable discreta también se
-puede visualizar mediante un histograma, que se preferirá cuando el
-número de posibles valores sea grande.</p>
-<p>El histograma nos da mucha información sobre la variable:</p>
-<ul>
-<li>Si es aproximadamente simétrica</li>
-<li>Si tiene forma de campana (se parece a la distribución normal, que veremos en
-la unidad <a href="#ch-prob"><strong>??</strong></a>)</li>
-<li>Si hay valores extremos (alejados del centro) y cómo son de frecuentes</li>
-<li>Si puede haber mezcla de poblaciones (más de una moda)</li>
-</ul>
-<p>La función <code>geom_histogram</code> del paquete <code>ggplot2</code> añade una capa con un
-histograma al gráfico. Solamente necesita el mapeo de una variable,
-pero los datos siempre se tienen que proporcionar como tabla (<code>data.frame</code> o <code>tibble</code>).
-El color de las barras se controla con el <em>aesthetics</em> <code>fill</code>,
-y la altura puede representar las frecuencias absolutas (recuentos) o
-relativas (proporciones). Al contrario que la función <code>hist</code> de R base,
-el autor de <code>ggplot2</code> ha preferido que el número de barras por defecto sea
-un valor inadecuado en la mayoría de las ocasiones (30) argumentando
-que el analista debería explorar los datos y experimentar varias opciones
-para descubrir la historia completa detrás de los datos. Una vez
-decidido el número de intervalos, se lo podemos explicitar con el argumento
-<code>bins</code>, o alternativamente la anchura de intervalo con <code>bin_width</code>.</p>
 <p>Una representación alternativa al histograma es la línea de densidad, que sustituye
 las barras por una línea continua, generalmente suavizada, que nos da una idea
-de la forma de la distribución de forma más esquemática. La función de <code>ggplot2</code>
-que debemos utilizar en este caso es <code>geom_density</code>.</p>
-<p>Otra representación gráfica muy útil de las variables continuas es el
-gráfico de cajas. La función <code>geom_boxplot</code> se encarga de producir este objeto
-geométrico, que representa la posición de los datos: máximo y mínimo (extremos de las líneas o “bigotes”), primer y
-tercer cuartil (bordes de la caja) y mediana (línea que cruza la caja).
-Si existen valores extremos, candidatos a ser considerados valores atípicos,
-se representan separados de las líneas, que llegan al último valor no extremo.</p>
+de la forma de la distribución de forma más esquemática. Esta línea de densidad se puede superponer al histograma, o sustituirlo rellenando el área que queda por debajo de la curva.</p>
+<div class="rmdejemplo">
+<p>El gráfico de arriba en la figura <a href="aed-uni.html#fig:densidades">2.10</a> muestra el histograma de la figura <a href="aed-uni.html#fig:histunif">2.9</a> con la línea de densidad superpuesta. Aunque decíamos que era bastante uniforme, la línea suavizada parece que sugiere dos “picos” en la parte izquierda. Si no tenemos más información, tendríamos que plantearnos que puede haber mezclados grupos que son diferentes en cuanto al comportamiento de la variable a medir. El gráfico de abajo en la figura <a href="aed-uni.html#fig:densidades">2.10</a> muestra un gráfico de densidades distinguiendo entre los tipos de queso (hemos “mapeado” en nuestro lienzo, el color a la variable tipo). Vemos claramente cómo el tipo de queso Ctiene un nivel de sal más alto que los otros dos, que sí parecen tener una distribución más similar. Con esta separación, la variable es más simétrica y podríamos aproximar a alguna distribución de probabilidad como veremos en el capítulo <a href="vauni.html#vauni">5</a>.</p>
+</div>
+<div class="figure">
+<span style="display:block;" id="fig:densidades"></span>
+<img src="02-aed-uni_files/figure-html/densidades-1.png" alt="Ejemplo de gráficos de densidad" width="672"><p class="caption">
+Figura 2.10: Ejemplo de gráficos de densidad
+</p>
+</div>
+</div>
+<div id="medidas-de-tendencia-central" class="section level3" number="2.7.3">
+<h3>
+<span class="header-section-number">2.7.3</span> Medidas de tendencia central<a class="anchor" aria-label="anchor" href="#medidas-de-tendencia-central"><i class="fas fa-link"></i></a>
+</h3>
+<p>La tabla de frecuencias y el histograma es un buen resumen de una variable. Pero podemos resumir o describir la variable con una serie de medidas características que resumen algún aspecto en concreto con un solo número. El primer grupo de medidas que podemos calcular son las medidas de centralización. Es decir, los valores centrales entorno a los que varían los datos.</p>
+<p>Ya conocemos la <strong>moda</strong>, que es el valor más frecuente en variables cualitativas y en variables numéricas discretas. En variables numéricas continuas, hablaremos de <strong>intervalo modal</strong>, que será el intervalo con la frecuencia más alta. Si tuviéramos que elegir un solo número, podríamos elegir la marca de clase como valor representativo, o utilizar la siguiente fórmula, con la que se obtiene un valor más próximo al intervalo adyacente más frecuente:<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Josemari Sarasola, &lt;span&gt;“Cálculo de La Moda Para Datos Agrupados En Intervalos”&lt;/span&gt; (Gizapedia, 2018), &lt;a href="https://gizapedia.hirusta.io/calculo-moda-estadistica-datos-agrupados-intervalos/" role="doc-biblioref"&gt;https://gizapedia.hirusta.io/calculo-moda-estadistica-datos-agrupados-intervalos/&lt;/a&gt;.&lt;/p&gt;'><sup>41</sup></a></span></p>
+<p><span class="math display">\[Mo=L_i\frac{(n_i - n_{i-1})  + (n_i - i_{i+1})}{(n_i - n_{i-1})}\cdot a_i\]</span>
+Es importante resaltar que la moda en variables continuas va a ser diferente según elijamos los intervalos en los que dividimos el rango.</p>
+<p>La <strong>media aritmética</strong> es sin duda la medida de centralización más conocida y más importante. Cuando disponemos de todos los valores <span class="math inline">\(x_i, i = 1, \ldots, n\)</span> de la variable, la calculamos con la siguiente fórmula:</p>
+<p><span class="math display">\[\bar{x}= \frac{\sum\limits_{i=1}^n x_i}{n}\]</span></p>
+<p>La media es el centro de gravedad de los datos, el valor promedio. Está muy influenciada por observaciones extremas, por lo que es poco representativa en distribuciones asimétricas o donde hay mucha dispersión. Mantiene la linealidad, es decir: si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son dos variables con
+medias <span class="math inline">\(\bar x\)</span> e <span class="math inline">\(\bar y\)</span> respectivamente:</p>
+<p><span class="math display">\[Y = a+ bX \implies \bar y = a + b \bar x\]</span>
+Un concepto clave de la media es que los valores de la variable <strong>varían</strong> entorno a ella, por arriba y por abajo, y las diferencias con la media se compensan, de forma que:</p>
+<p><span class="math display">\[\sum\limits_{i=1}^n (x_i-\bar x) = 0.\]</span></p>
+<p>Si en vez de todos los datos tenemos una tabla de frecuencias, para variables discretas la calcularemos como:</p>
+<p><span class="math display">\[\bar{x}= \frac{1}{n}\sum\limits_{i=1}^k n_i x_i= \sum\limits_{i=1}^k f_i x_i,\]</span></p>
+<p>Siendo <span class="math inline">\(x_i, i = 1, \ldots, k\)</span> los posibles valores que toma la variable.Para datos agrupados:</p>
+<p><span class="math display">\[\bar{x}= \frac{1}{n}\sum\limits_{i=1}^k n_i c_i= \sum\limits_{i=1}^k f_i c_i,\]</span></p>
+<p>Siendo <span class="math inline">\(c_i, i = 1, \ldots, k\)</span> las marcas de clase. Nótese que, al utilizar tablas de frecuencias en vez de todos los valores, se pierde precisión en el cálculo. A veces esta fórmula la utilizamos también para calcular la <strong>media ponderada</strong> cuando tenemos unos pesos para cada valor. Por ejemplo, en encuestas donde cada entrevistado representa a un número determinado de individuos en estudio.</p>
+<p>Otra variante es la <strong>media recortada</strong> o media robusta. Para su cálculo, se eliminan un porcentaje de observaciones (por ejemplo, el 5%) a ambos extremos, quedando así menos “expuesta” a observaciones extremas, y ganando en representatividad.</p>
+<p>La media tiene muy buenas propiedades matemáticas y representa bien los datos en variables simétricas poco dispersas. No obstante hay que tener cuidado al interpretarla porque puede ser un valor sin sentido práctico. En un caso extremo, imaginemos una variable que toma valores -1 y 1 con la misma frecuencia. La media será 0, un valor que no puede ni siquiera tomar la variable.</p>
+<div class="rmdinfo">
+<p>Aunque en estadística será raro que nos las encontremos, existen otras dos medias que en ciertas aplicaciones de la ingeniería y las ciencias o de la economía son muy útiles:</p>
+<p><strong>Media Geométrica</strong></p>
+<p><span class="math display">\[m_g = \left ( \Pi_{i=1}^n x_i\right)^{\frac{1}{n}}\]</span>
+<strong>Media armónica</strong></p>
+<p><span class="math display">\[H = \frac{n}{\sum\limits_{i=1}^n\frac{ 1}{ x_i}}\]</span></p>
+</div>
+<p>La <strong>mediana</strong> es otra medida de posición central que indica el valor que divide los datos
+en dos mitades: los que son menores que la mediana y los que son mayores que la mediana.
+La principal ventaja es que está muy poco influenciada por valores extremos. Para calcularla, se ordenan todos los datos <span class="math inline">\(x_i, i=1, \ldots, n\)</span> de menor a mayor. Si el número de datos es impar, el que ocupa la posición central, <span class="math inline">\([n/2]+1\)</span> es la mediana. Si el número de datos es par, la mediana es la media aritmética de los dos valores centrales, <span class="math inline">\(n/2\)</span> y <span class="math inline">\(n/2+1\)</span>.</p>
+<p>Si tenemos una tabla de frecuencias de una variable discreta, la mediana es el primer valor <span class="math inline">\(x_i\)</span> que cumpla <span class="math inline">\(N_i\geq n/2\)</span> o, equivalentemente, <span class="math inline">\(Fi \geq 0.5\)</span>. Si lo que tenemos es una tabla de frecuencias por intervalos de una variable continua, entonces podemos tomar como intervalo mediano el primero para el cual <span class="math inline">\(Fi \geq 0.5\)</span> y usar la marca de clase de ese intervalo <span class="math inline">\(c_i\)</span> como valor representativo. También se puede utilizar la siguiente fórmula, aunque al igual que con la moda, el valor va a depender de la manera en que hayamos construido los intervalos:</p>
+<p><span class="math display">\[Me = L_i + \frac{\frac{n}{2} - N_{i-1}}{n_i}\cdot a_i.\]</span></p>
+<div class="rmdejemplo">
+<p>Supongamos un proceso en el que se produce una merma. Se extrae una muestra de 50 observaciones y se obtienen las mediciones de la merma de la tabla <a href="aed-uni.html#tab:medianad">2.6</a>, en el orden en el que aparecen (por filas). La tabla <a href="#medianadord"><strong>??</strong></a> muestra los datos ordenados por filas, resaltando los dos valores centrales (el número 24 y el número 25 de orden). Entonces la mediana es:</p>
+<p><span class="math display">\[\mathit{Me} = \frac{4.979 + 5.015}{2} = 4.997.\]</span></p>
+<p>La figura <a href="aed-uni.html#fig:medianap">2.11</a> muestra gráficamente cómo la mediana divide los datos en dos mitades.</p>
+<p>La principal ventaja de la mediana es que no está afectada por valores extremos, y siempre es más más representativa de los datos. En variables simétricas, coincide con la media y también con la moda. El inconveniente es que tiene muy malas propiedades matemáticas y es más difícil de tratar en inferencia.</p>
+<p>La media de esta variable sería 4.968. Cuando la media y la mediana están próximas, como es este caso, indica <strong>simetría</strong> en los datos.</p>
+</div>
+<div id="kridwdlzou" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#kridwdlzou .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#kridwdlzou .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kridwdlzou .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#kridwdlzou .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#kridwdlzou .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kridwdlzou .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kridwdlzou .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#kridwdlzou .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#kridwdlzou .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#kridwdlzou .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#kridwdlzou .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#kridwdlzou .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#kridwdlzou .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#kridwdlzou .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#kridwdlzou .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#kridwdlzou .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#kridwdlzou .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#kridwdlzou .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kridwdlzou .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#kridwdlzou .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kridwdlzou .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#kridwdlzou .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#kridwdlzou .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kridwdlzou .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kridwdlzou .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#kridwdlzou .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kridwdlzou .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#kridwdlzou .gt_left {
+  text-align: left;
+}
+
+#kridwdlzou .gt_center {
+  text-align: center;
+}
+
+#kridwdlzou .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#kridwdlzou .gt_font_normal {
+  font-weight: normal;
+}
+
+#kridwdlzou .gt_font_bold {
+  font-weight: bold;
+}
+
+#kridwdlzou .gt_font_italic {
+  font-style: italic;
+}
+
+#kridwdlzou .gt_super {
+  font-size: 65%;
+}
+
+#kridwdlzou .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<div class="inline-table"><table class="gt_table">
+<caption>
+<span id="tab:medianad">Tabla 2.6: </span>Datos de merma sin ordenar</caption>
+  
+  
+  <tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_right">5.377</td>
+<td class="gt_row gt_right">6.007</td>
+<td class="gt_row gt_right">4.822</td>
+<td class="gt_row gt_right">6.014</td>
+<td class="gt_row gt_right">3.892</td>
+<td class="gt_row gt_right">5.379</td>
+<td class="gt_row gt_right">4.347</td>
+<td class="gt_row gt_right">4.599</td>
+<td class="gt_row gt_right">4.104</td>
+<td class="gt_row gt_right">4.979</td>
+</tr>
+<tr>
+<td class="gt_row gt_right">6.075</td>
+<td class="gt_row gt_right">4.115</td>
+<td class="gt_row gt_right">5.432</td>
+<td class="gt_row gt_right">4.140</td>
+<td class="gt_row gt_right">5.067</td>
+<td class="gt_row gt_right">4.962</td>
+<td class="gt_row gt_right">5.429</td>
+<td class="gt_row gt_right">5.172</td>
+<td class="gt_row gt_right">4.709</td>
+<td class="gt_row gt_right">5.393</td>
+</tr>
+<tr>
+<td class="gt_row gt_right">4.654</td>
+<td class="gt_row gt_right">4.408</td>
+<td class="gt_row gt_right">5.634</td>
+<td class="gt_row gt_right">4.844</td>
+<td class="gt_row gt_right">5.015</td>
+<td class="gt_row gt_right">4.259</td>
+<td class="gt_row gt_right">4.437</td>
+<td class="gt_row gt_right">4.118</td>
+<td class="gt_row gt_right">4.469</td>
+<td class="gt_row gt_right">4.329</td>
+</tr>
+<tr>
+<td class="gt_row gt_right">5.377</td>
+<td class="gt_row gt_right">4.679</td>
+<td class="gt_row gt_right">5.716</td>
+<td class="gt_row gt_right">4.688</td>
+<td class="gt_row gt_right">5.114</td>
+<td class="gt_row gt_right">5.132</td>
+<td class="gt_row gt_right">5.215</td>
+<td class="gt_row gt_right">4.258</td>
+<td class="gt_row gt_right">5.090</td>
+<td class="gt_row gt_right">6.031</td>
+</tr>
+<tr>
+<td class="gt_row gt_right">5.363</td>
+<td class="gt_row gt_right">4.756</td>
+<td class="gt_row gt_right">4.758</td>
+<td class="gt_row gt_right">5.923</td>
+<td class="gt_row gt_right">5.258</td>
+<td class="gt_row gt_right">4.443</td>
+<td class="gt_row gt_right">4.845</td>
+<td class="gt_row gt_right">5.046</td>
+<td class="gt_row gt_right">5.322</td>
+<td class="gt_row gt_right">5.187</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="mcseotocqu" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#mcseotocqu .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mcseotocqu .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mcseotocqu .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mcseotocqu .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mcseotocqu .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mcseotocqu .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mcseotocqu .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mcseotocqu .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mcseotocqu .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mcseotocqu .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mcseotocqu .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mcseotocqu .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mcseotocqu .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mcseotocqu .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mcseotocqu .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mcseotocqu .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mcseotocqu .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#mcseotocqu .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mcseotocqu .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#mcseotocqu .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mcseotocqu .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mcseotocqu .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mcseotocqu .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mcseotocqu .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mcseotocqu .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#mcseotocqu .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mcseotocqu .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#mcseotocqu .gt_left {
+  text-align: left;
+}
+
+#mcseotocqu .gt_center {
+  text-align: center;
+}
+
+#mcseotocqu .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mcseotocqu .gt_font_normal {
+  font-weight: normal;
+}
+
+#mcseotocqu .gt_font_bold {
+  font-weight: bold;
+}
+
+#mcseotocqu .gt_font_italic {
+  font-style: italic;
+}
+
+#mcseotocqu .gt_super {
+  font-size: 65%;
+}
+
+#mcseotocqu .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<div class="inline-table"><table class="gt_table">
+<caption>
+<span id="tab:medianadord">Tabla 2.7: </span>Datos de merma ordenados</caption>
+  
+  
+  <tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_right">3.892</td>
+<td class="gt_row gt_right">4.104</td>
+<td class="gt_row gt_right">4.115</td>
+<td class="gt_row gt_right">4.118</td>
+<td class="gt_row gt_right">4.140</td>
+<td class="gt_row gt_right">4.258</td>
+<td class="gt_row gt_right">4.259</td>
+<td class="gt_row gt_right">4.329</td>
+<td class="gt_row gt_right">4.347</td>
+<td class="gt_row gt_right">4.408</td>
+</tr>
+<tr>
+<td class="gt_row gt_right">4.437</td>
+<td class="gt_row gt_right">4.443</td>
+<td class="gt_row gt_right">4.469</td>
+<td class="gt_row gt_right">4.599</td>
+<td class="gt_row gt_right">4.654</td>
+<td class="gt_row gt_right">4.679</td>
+<td class="gt_row gt_right">4.688</td>
+<td class="gt_row gt_right">4.709</td>
+<td class="gt_row gt_right">4.756</td>
+<td class="gt_row gt_right">4.758</td>
+</tr>
+<tr>
+<td class="gt_row gt_right">4.822</td>
+<td class="gt_row gt_right">4.844</td>
+<td class="gt_row gt_right">4.845</td>
+<td class="gt_row gt_right">4.962</td>
+<td class="gt_row gt_right" style="font-weight: bold;">4.979</td>
+<td class="gt_row gt_right" style="font-weight: bold;">5.015</td>
+<td class="gt_row gt_right">5.046</td>
+<td class="gt_row gt_right">5.067</td>
+<td class="gt_row gt_right">5.090</td>
+<td class="gt_row gt_right">5.114</td>
+</tr>
+<tr>
+<td class="gt_row gt_right">5.132</td>
+<td class="gt_row gt_right">5.172</td>
+<td class="gt_row gt_right">5.187</td>
+<td class="gt_row gt_right">5.215</td>
+<td class="gt_row gt_right">5.258</td>
+<td class="gt_row gt_right">5.322</td>
+<td class="gt_row gt_right">5.363</td>
+<td class="gt_row gt_right">5.377</td>
+<td class="gt_row gt_right">5.377</td>
+<td class="gt_row gt_right">5.379</td>
+</tr>
+<tr>
+<td class="gt_row gt_right">5.393</td>
+<td class="gt_row gt_right">5.429</td>
+<td class="gt_row gt_right">5.432</td>
+<td class="gt_row gt_right">5.634</td>
+<td class="gt_row gt_right">5.716</td>
+<td class="gt_row gt_right">5.923</td>
+<td class="gt_row gt_right">6.007</td>
+<td class="gt_row gt_right">6.014</td>
+<td class="gt_row gt_right">6.031</td>
+<td class="gt_row gt_right">6.075</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:medianap"></span>
+<img src="02-aed-uni_files/figure-html/medianap-1.png" alt="Significado gráfico de la mediana y los cuantiles" width="90%"><p class="caption">
+Figura 2.11: Significado gráfico de la mediana y los cuantiles
+</p>
+</div>
+</div>
+<div id="medidas-de-posición" class="section level3" number="2.7.4">
+<h3>
+<span class="header-section-number">2.7.4</span> Medidas de posición<a class="anchor" aria-label="anchor" href="#medidas-de-posici%C3%B3n"><i class="fas fa-link"></i></a>
+</h3>
+<p>La mediana es una medida de posición, que se encuentra en el 50% de los datos, y también se llama <strong>cuantil</strong> 0,5. Otras dos medidas básicas de posición son el <strong>máximo</strong>, <span class="math inline">\(x_{max}\)</span>, y el <strong>mínimo</strong>, <span class="math inline">\(x_{min}\)</span>, que nos informan de los extremos de los datos. Los <strong>cuartiles</strong> son los cuantiles que dejan a la izquierda de su posición el 25% (primer cuartil, <span class="math inline">\(Q_1\)</span>y el 75% (tercer cuartil, <span class="math inline">\(Q_3\)</span>) de los datos respectivamente. La mediana es también el segundo cuartil, <span class="math inline">\(Q_2\)</span>. Se pueden definir análogamente terciles y deciles, así como percentiles <span class="math inline">\(P_p\)</span>, que es el valor que deja por debajo de sí mismo el <span class="math inline">\(p\%\)</span> de los datos, <span class="math inline">\(0 &lt; p &lt; 100\)</span>. Los cuantiles, <span class="math inline">\(q_p\)</span> son equivalentes a los percentiles, expresados en tanto por uno, <span class="math inline">\(q_p, 0&lt;p&lt;1\)</span>.</p>
+<p>Las medidas de posición se representan con el gráfico de cajas y bigotes, pero antes de definirlo necesitamos conocer las medidas de dispersión.</p>
+</div>
+<div id="medidas-de-dispersión" class="section level3" number="2.7.5">
+<h3>
+<span class="header-section-number">2.7.5</span> Medidas de dispersión<a class="anchor" aria-label="anchor" href="#medidas-de-dispersi%C3%B3n"><i class="fas fa-link"></i></a>
+</h3>
+<p>Las medidas de centralización y posición no son suficientes para resumir una
+variable, se debe acompañar de medidas de dispersión. Vamos a ver a continuación las más importantes. Las medidas de dispersión nos dan una idea de cómo es la <strong>variación</strong> de los datos alrededor de los valores centrales. Pensemos que una misma medida central, como por ejemplo la media, puede provenir de datos muy próximos a ella, o muy lejanos.</p>
+<p>La medida más básica de dispersión que podemos calcular es el <strong>rango</strong>, también conocido como el recorrido. Se define como la diferencia entre el máximo y el mínimo:</p>
+<p><span class="math display">\[R = \max_i{x_i} - \min_i{x_i}\]</span></p>
+<div class="rmdejemplo">
+<p>La figura <a href="aed-uni.html#fig:rango">2.12</a> muestra los valores de la merma estudiada en el ejemplo anterior. El rango sería:</p>
+<p><span class="math display">\[R = 6.075 - 3.892 = 2.183\]</span></p>
+</div>
+<div class="figure">
+<span style="display:block;" id="fig:rango"></span>
+<img src="02-aed-uni_files/figure-html/rango-1.png" alt="Representación del rango" width="672"><p class="caption">
+Figura 2.12: Representación del rango
+</p>
+</div>
+<p>El rango es una medida muy pobre porque solo utilizamos dos valores de todos los del conjunto de datos. Sería mejor una medida que mida la dispersión con todos los datos. Una posibilidad sería hacer un promedio de las diferencias con algún valor central, por ejemplo, la media. Pero ya vimos que ese promedio es igual a cero, por lo que tendríamos que usar otra medida. Por ejemplo, las medias de esas desviaciones en valor absoluto. A esta medida la llamaremos <strong>desviación media absoluta</strong>, DMA o MAD por sus siglas en inglés:</p>
+<p><span class="math display">\[\mathit{DMA} = \frac{1}{n}\sum\limits_{i=1}^n |x_i-\bar x|.\]</span></p>
+<p>La <strong>desviación absoluta mediana</strong> es la mediana de las desviaciones con la mediana:</p>
+<p><span class="math display">\[\mathit{DAM} = Me |x_i- Me_x|,\; i = 1, \ldots, n.\]</span></p>
+<p>Estas dos medidas son bastante robustas, pero hacen uso de la función valor absoluto, que no tiene buenas propiedades matemáticas.</p>
+<p>La medida de la variabilidad más importante es la <strong>Varianza</strong>, que es el promedio de las desviaciones al cuadrado con respecto a la media. Si tuviéramos una población con <span class="math inline">\(N\)</span> valores <span class="math inline">\(X_i\)</span> y media conocida <span class="math inline">\(\mu\)</span>:</p>
+<p><span class="math display">\[\sigma^2= \frac{\sum\limits_{i=1}^N (X_i- \mu)^2}{N}\]</span></p>
+<p>Pero en general, trabajaremos con muestras. Incluso cuando tenemos todo el universo en estudio, podemos considerar que es una muestra de los distintos estados en los que se puede encontrar. Entonces, la varianza muestral, también conocida como cuasivarianza, en muestras de tamaño <span class="math inline">\(n\)</span> se define como:</p>
+<p><span class="math display">\[s^2= \frac{\sum\limits_{i=1}^n (x_i- \bar{x})^2}{n-1}\]</span></p>
+<p>La varianza se expresa en las unidades de la variable al cuadrado. Una medida de la variabilidad en las mismas unidades que la variable (y que la media) es la <strong>desviación típica</strong>, que no es más que la raíz cuadrada de la varianza:</p>
+<p><span class="math display">\[\sigma= \sqrt{\frac{\sum\limits_{i=1}^N (X_i- \mu)^2}{N}}; \; s= \sqrt{\frac{\sum\limits_{i=1}^n (x_i- \bar{x})^2}{n-1}}\]</span></p>
+<div class="rmdejemplo">
+<p>La figura <a href="aed-uni.html#fig:var">2.13</a> esquematiza las desviaciones a la media (línea roja horizontal) del ejemplo de la merma. La suma de todas las desviaciones es cero, ya que se compensan las positivas con las negativas. La desviación media absoluta es 0.464. La desviación absoluta mediana es 0.381. La varianza y la desviación típicas muestrales son:</p>
+<p><span class="math display">\[s^2 = 0.321, \; s = 0.566.\]</span></p>
+</div>
+<div class="figure">
+<span style="display:block;" id="fig:var"></span>
+<img src="02-aed-uni_files/figure-html/var-1.png" alt="Desviaciones de la media" width="672"><p class="caption">
+Figura 2.13: Desviaciones de la media
+</p>
+</div>
+<p>Nótese la relación entre la varianza y la cuasivarianza:</p>
+<p><span class="math display">\[s_{poblacional}^2=s_{muestral}^2\cdot \frac{n-1}{n}.\]</span>
+Si desarrollamos la fórmula de la varianza, llegamos al siguiente cálculo abreviado:</p>
+<p><span class="math display">\[\sigma^2= \frac{\sum\limits_{i=1}^n (X_i- \mu)^2}{N} = \frac{1}{N} \sum\limits_{i=1}^n X_i^2 - \mu^2,\]</span></p>
+<p>que en el caso de la cuasivarianza quedaría:</p>
+<p><span class="math display">\[s^2= \frac{\sum\limits_{i=1}^n (x_i- \bar x)^2}{n-1} = \frac{n}{n-1} \left [\frac{1}{n}\sum\limits_{i=1}^n x_i^2 - \bar x^2\right ] = \frac{\sum\limits_{i=1}^n x_i^2}{n-1} - \frac{n\cdot\bar x^2}{n-1},\]</span></p>
+<p>Para variables discretas con datos agrupados y frecuencias absolutas, podríamos calcularlo así:</p>
+<p><span class="math display">\[
+s^2= \frac{1}{n-1} \sum\limits_{i=1}^n n_i x_i^2 - \bar{x}^2,
+\]</span>
+o con frecuencias relativas:</p>
+<p><span class="math display">\[
+s^2= \sum\limits_{i=1}^n f_i x_i^2 - \bar{x}^2.
+\]</span>
+Análogamente, en variables continuas agrupadas en intervalos, sustituiríamos <span class="math inline">\(x_i\)</span> por las marcas de clase <span class="math inline">\(c_i\)</span>. Recordemos que de esta forma perderemos precisión.</p>
+<div class="rmdinfo">
+<p>Lo normal es que en nuestro análisis de datos trabajemos con datos rectangulares como se describía en el apartado <a href="intro.html#orgdatos">1.2.4</a>, y usemos software que haga los cálculos. No obstante, en ocasiones tenemos los datos solo en forma de tablas de frecuencias, por ejemplo de publicaciones oficiales o en revistas científicas, y podemos analizarlos aunque se pierda algo de precisión. También aparecen este tipo de datos cuando provienen de encuestas en las que los encuestados responden directamente un intervalo (por ejemplo de ingresos, gastos, cantidades consumidas, etc.)</p>
+<p>En todo caso, y aunque no tengamos que aplicar nunca la fórmula “a mano” es muy importante cómo se hace el cálculo para entender los métodos en los que después se utilizan estos estadísticos.</p>
+</div>
+<p>Al igual que la media, la varianza y la desviación típica son muy sensibles a datos extremos. Una propiedad importante de la desviación típica y la media es que entre la media y 2 desviaciones típicas <span class="math inline">\((\bar x-2s; \bar x + 2s)\)</span>, tenemos al menos
+el 75% de los datos.</p>
+<p>La varianza no mantiene la transformación lineal. Si <span class="math inline">\(Y=a+bX\)</span> y la varianza de <span class="math inline">\(X\)</span> es <span class="math inline">\(s_X\)</span>,
+entonces la varianza de <span class="math inline">\(Y\)</span> es: <span class="math inline">\(b^2s^2_X\)</span></p>
+<p>De las propiedades de la media y la varianza se deduce también que si:</p>
+<p><span class="math display">\[Z = \frac{X-\bar x}{s},\]</span>
+entonces <span class="math inline">\(\bar z = 0; s = 1\)</span>. Esta transformación es lo que llamamos “tipificar” (o escalar) la variable. Es útil para comparar distintas escalas, y mantiene la estructura correlación al aplicarlo a más de una variable. Veremos también su utilidad en variables aleatorias en el capítulo <a href="vauni.html#vauni">5</a>.</p>
+<p>La desviación típica está en las unidades de la variable, y podemos relativizarla a la propia variable. Pero si queremos comparar la variabilidad de dos variables, necesitamos una medida comparable. El
+<strong>coeficiente de variación</strong> es una medida adimensional que nos sirve para este cometido:</p>
+<p><span class="math display">\[CV = \frac{s}{|\bar x|}\]</span></p>
+<p>Es también útil para comparar la misma variable en grupos distintos, cuando la media no es igual en todos ellos. Por otra parte, al comparar dos procesos (o tratamientos) en los que se consigue un cambio en la media, el objetivo de mantener la variabilidad se suele fijar en términos del coeficiente de variación, ya que al cambiar la tendencia central del proceso también puede cambiar la varianza.</p>
+<p>La última medida de variabilidad que veremos es el <strong>rango intercuartílico</strong>. Se define como la diferencia entre el primer y tercer cuartil, y representa el rango del 50% de los datos centrales (alrededor de la mediana):</p>
+<p><span class="math display">\[IQR = Q_3 - Q_1\]</span></p>
+</div>
+<div id="el-gráfico-de-cajas-y-bigotes" class="section level3" number="2.7.6">
+<h3>
+<span class="header-section-number">2.7.6</span> El gráfico de cajas y bigotes<a class="anchor" aria-label="anchor" href="#el-gr%C3%A1fico-de-cajas-y-bigotes"><i class="fas fa-link"></i></a>
+</h3>
+<p>Ahora que hemos visto las medidas de dispersión, podemos definir otro gráfico muy esclarecedor para variables numéricas (tanto discretas como continuas). Se trata del
+<strong>gráfico de cajas y bigotes</strong>, aunque abreviaremos en general como gráfico de cajas. Este gráfico representa, generalmente en el eje vertical, los siguientes estadísticos:</p>
+<ul>
+<li>El mínimo (extremo bigote inferior)</li>
+<li>El primer cuartil (borde inferior de la caja)</li>
+<li>La mediana (línea cruzando caja)</li>
+<li>El tercer cuartil (borde superior de la caja)</li>
+<li>El máximo (extremo bigote superior)</li>
+<li>Si existen candidatos a ser considerados atípicos (<em>outliers</em>):
+<ul>
+<li>El bigote llega hasta el último valor en “barreras”</li>
+<li>Los valores fuera de las barreras se representan mediante puntos</li>
+</ul>
+</li>
+</ul>
 <p>El gráfico de
 cajas por sí solo puede estar ocultando información, por lo que se pueden utilizar
-variantes como los gráficos de violín, o representar también los puntos con
-cierto desplazamiento aleatorio en el eje para una mejor visualización.</p>
+variantes como los gráficos de violín, o complementar con un gráfico de densidad.</p>
+<p>Las barreras se calculan como una distancia de 1.5 veces el rango intercuartílico desde el primer y tercer cuartil, es decir:</p>
+<p><span class="math display">\[Q1-1.5\cdot IQR;\; Q3+1.5\cdot IQR.\]</span></p>
+<div class="rmdejemplo">
+<p>La figura <a href="aed-uni.html#fig:bpexplicado">2.14</a> muestra el gráfico de cajas del ejemplo de la merma añadiendo un punto más extremo que los que teníamos. El rango intercuartílico para estos datos es:</p>
+<p><span class="math display">\[\mathit{IQR} = Q_3 - Q_1 = 0.811\]</span><br>
+Con él se calculan las barreras, aunque no se representarán en el gráfico de cajas. Como todos los puntos por abajo están dentro de estas barreras, el bigote inferior llega hasta el mínimo. Sin embargo por arriba, como hay un valor más allá de la barrera, el bigote llega hasta el último valor dentro de la barrera, y el valor que hay fuera se representa con un punto.</p>
+</div>
+<div class="figure">
+<span style="display:block;" id="fig:bpexplicado"></span>
+<img src="02-aed-uni_files/figure-html/bpexplicado-1.png" alt="Explicación de los estadísticos representados en el gráfico de cajas" width="672"><p class="caption">
+Figura 2.14: Explicación de los estadísticos representados en el gráfico de cajas
+</p>
+</div>
+</div>
+<div id="medidas-de-forma" class="section level3" number="2.7.7">
+<h3>
+<span class="header-section-number">2.7.7</span> Medidas de forma<a class="anchor" aria-label="anchor" href="#medidas-de-forma"><i class="fas fa-link"></i></a>
+</h3>
+<p>Aunque el histograma nos da una idea de la forma de la distribución de los datos, podemos cuantificar esta forma principalmente con dos medidas. El <strong>coeficiente de asimetría</strong>, <span class="math inline">\(\gamma_1\)</span> nos indicará en qué medida los datos son simétricos. Esto sucede cuando la mediana es igual a la media. Si no son simétricos, el coeficiente nos indicará el tipo de asimetría.</p>
+<p><span class="math display">\[\gamma_1 = \frac{m_3}{s^3},\]</span>
+donde <span class="math inline">\(m_3 = \frac{1}{n}\sum\limits_{i=1}^n(x-\bar x ) ^3\)</span></p>
+<p>La interpretación es la siguiente:</p>
+<ul>
+<li>
+<span class="math inline">\(\gamma_1 = 0 \implies\)</span> Simétrica.</li>
+<li>
+<span class="math inline">\(\gamma_1 &lt; 0 \implies\)</span> Asimétrica negativa (valores bajos menos frecuentes que valores altos).</li>
+<li>
+<span class="math inline">\(\gamma_1 &gt; 0 \implies\)</span> Asimétrica positiva (valores bajos más frecuentes que valores altos).</li>
+</ul>
+<p>La figura <a href="aed-uni.html#fig:asimetriag">2.15</a> muestra histogramas de variables con distinta asimetría, y la tabla <a href="aed-uni.html#tab:asimetriat">2.8</a> los valores de sus coeficientes de asimetría.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:asimetriag"></span>
+<img src="02-aed-uni_files/figure-html/asimetriag-1.png" alt="Histogramas de variables con distintos tipos de asimetría" width="90%"><p class="caption">
+Figura 2.15: Histogramas de variables con distintos tipos de asimetría
+</p>
+</div>
+<div id="zpqgjwzvgt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#zpqgjwzvgt .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#zpqgjwzvgt .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zpqgjwzvgt .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#zpqgjwzvgt .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#zpqgjwzvgt .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zpqgjwzvgt .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zpqgjwzvgt .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#zpqgjwzvgt .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#zpqgjwzvgt .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#zpqgjwzvgt .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#zpqgjwzvgt .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#zpqgjwzvgt .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#zpqgjwzvgt .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#zpqgjwzvgt .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#zpqgjwzvgt .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#zpqgjwzvgt .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#zpqgjwzvgt .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#zpqgjwzvgt .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zpqgjwzvgt .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#zpqgjwzvgt .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zpqgjwzvgt .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#zpqgjwzvgt .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#zpqgjwzvgt .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zpqgjwzvgt .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zpqgjwzvgt .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#zpqgjwzvgt .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zpqgjwzvgt .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#zpqgjwzvgt .gt_left {
+  text-align: left;
+}
+
+#zpqgjwzvgt .gt_center {
+  text-align: center;
+}
+
+#zpqgjwzvgt .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#zpqgjwzvgt .gt_font_normal {
+  font-weight: normal;
+}
+
+#zpqgjwzvgt .gt_font_bold {
+  font-weight: bold;
+}
+
+#zpqgjwzvgt .gt_font_italic {
+  font-style: italic;
+}
+
+#zpqgjwzvgt .gt_super {
+  font-size: 65%;
+}
+
+#zpqgjwzvgt .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<div class="inline-table"><table class="gt_table">
+<caption>
+<span id="tab:asimetriat">Tabla 2.8: </span>Coeficientes de asimetría de distintas distribuciones</caption>
+  
+  <thead class="gt_col_headings"><tr>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Tipo</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(\gamma_1\)</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left">Asimetrica_negativa</td>
+<td class="gt_row gt_right">−1.917</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Asimetrica_positiva</td>
+<td class="gt_row gt_right">1.943</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Simetrica</td>
+<td class="gt_row gt_right">0.089</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>El <strong>coeficiente de apuntamiento o curtosis</strong> nos indica cómo de “apuntados” son los datos (muy concentrados alrededor de la media):</p>
+<p><span class="math display">\[\gamma_2 = \frac{m_4}{s^4}-3,\]</span>
+donde <span class="math inline">\(m_4 = \frac{1}{n}\sum\limits_{i=1}^n(x-\bar x ) ^4\)</span></p>
+<p>La interpretación es la siguiente:</p>
+<ul>
+<li>
+<span class="math inline">\(\gamma_2 = 0 \implies\)</span> Igual de apuntada que la distribución normal.</li>
+<li>
+<span class="math inline">\(\gamma_2 &lt; 0 \implies\)</span> Más aplastada que la normal.</li>
+<li>
+<span class="math inline">\(\gamma_2 &gt; 0 \implies\)</span> Más apuntada que la normal.</li>
+</ul>
+<p>La figura <a href="aed-uni.html#fig:curtosisg">2.16</a> muestra histogramas de variables con distinta curtosis, y la tabla <a href="aed-uni.html#tab:curtosist">2.9</a> sus valores del coeficiente de curtosis.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:curtosisg"></span>
+<img src="02-aed-uni_files/figure-html/curtosisg-1.png" alt="Histogramas de variables con distintos tipos de curtosis" width="90%"><p class="caption">
+Figura 2.16: Histogramas de variables con distintos tipos de curtosis
+</p>
+</div>
+<div id="rlxgbtyuem" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#rlxgbtyuem .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#rlxgbtyuem .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rlxgbtyuem .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#rlxgbtyuem .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#rlxgbtyuem .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rlxgbtyuem .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rlxgbtyuem .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#rlxgbtyuem .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#rlxgbtyuem .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#rlxgbtyuem .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#rlxgbtyuem .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#rlxgbtyuem .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rlxgbtyuem .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rlxgbtyuem .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#rlxgbtyuem .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#rlxgbtyuem .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#rlxgbtyuem .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#rlxgbtyuem .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rlxgbtyuem .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#rlxgbtyuem .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rlxgbtyuem .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#rlxgbtyuem .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#rlxgbtyuem .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rlxgbtyuem .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rlxgbtyuem .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#rlxgbtyuem .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rlxgbtyuem .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#rlxgbtyuem .gt_left {
+  text-align: left;
+}
+
+#rlxgbtyuem .gt_center {
+  text-align: center;
+}
+
+#rlxgbtyuem .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#rlxgbtyuem .gt_font_normal {
+  font-weight: normal;
+}
+
+#rlxgbtyuem .gt_font_bold {
+  font-weight: bold;
+}
+
+#rlxgbtyuem .gt_font_italic {
+  font-style: italic;
+}
+
+#rlxgbtyuem .gt_super {
+  font-size: 65%;
+}
+
+#rlxgbtyuem .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<div class="inline-table"><table class="gt_table">
+<caption>
+<span id="tab:curtosist">Tabla 2.9: </span>Coeficientes de curtosis de distintas distribuciones</caption>
+  
+  <thead class="gt_col_headings"><tr>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Tipo</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(\gamma_2\)</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left">Leptocúrtica</td>
+<td class="gt_row gt_right">5.587</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Normal</td>
+<td class="gt_row gt_right">0.033</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Platicúrtica</td>
+<td class="gt_row gt_right">−1.167</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="resumen-numérico" class="section level3" number="2.7.8">
+<h3>
+<span class="header-section-number">2.7.8</span> Resumen numérico<a class="anchor" aria-label="anchor" href="#resumen-num%C3%A9rico"><i class="fas fa-link"></i></a>
+</h3>
+<p>Las medidas y gráficos vistos hasta el momento, no se suelen (ni deben) utilizar de forma aislada. En el análisis exploratorio de datos, se suelen obtener todos los resúmenes numéricos de la variable de interés, posiblemente por grupos si hay alguna variable categórica que pueda presentar distintas distribuciones de la variables numéricas según la categoría. Este resumen y los gráficos adecuados (cajas, histogramas, densidades, barras) describen la variable por completo. Este análisis se puede hacer de más de una variable para estudiarlas conjuntamente.</p>
+<div class="rmdejemplo">
+<p>La tabla <a href="aed-uni.html#tab:resumen1">2.10</a> muestra un resumen de las variables <code>est</code> y <code>ph</code> del conjunto de datos de laboratorio de la fábrica de quesos.</p>
+</div>
+<div id="oegbywtpjt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#oegbywtpjt .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#oegbywtpjt .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#oegbywtpjt .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#oegbywtpjt .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#oegbywtpjt .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#oegbywtpjt .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#oegbywtpjt .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#oegbywtpjt .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#oegbywtpjt .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#oegbywtpjt .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#oegbywtpjt .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#oegbywtpjt .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#oegbywtpjt .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#oegbywtpjt .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#oegbywtpjt .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#oegbywtpjt .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#oegbywtpjt .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#oegbywtpjt .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#oegbywtpjt .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#oegbywtpjt .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#oegbywtpjt .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#oegbywtpjt .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#oegbywtpjt .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#oegbywtpjt .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#oegbywtpjt .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#oegbywtpjt .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#oegbywtpjt .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#oegbywtpjt .gt_left {
+  text-align: left;
+}
+
+#oegbywtpjt .gt_center {
+  text-align: center;
+}
+
+#oegbywtpjt .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#oegbywtpjt .gt_font_normal {
+  font-weight: normal;
+}
+
+#oegbywtpjt .gt_font_bold {
+  font-weight: bold;
+}
+
+#oegbywtpjt .gt_font_italic {
+  font-style: italic;
+}
+
+#oegbywtpjt .gt_super {
+  font-size: 65%;
+}
+
+#oegbywtpjt .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<div class="inline-table"><table class="gt_table">
+<caption>
+<span id="tab:resumen1">Tabla 2.10: </span>Resumen numérico completo de dos variables</caption>
+  
+  <thead class="gt_col_headings"><tr>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1"></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">ph</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">sal</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left gt_stub">Mean</td>
+<td class="gt_row gt_right">6.648</td>
+<td class="gt_row gt_right">0.883</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Std.Dev</td>
+<td class="gt_row gt_right">0.055</td>
+<td class="gt_row gt_right">0.145</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Min</td>
+<td class="gt_row gt_right">6.360</td>
+<td class="gt_row gt_right">0.650</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Q1</td>
+<td class="gt_row gt_right">6.610</td>
+<td class="gt_row gt_right">0.760</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Median</td>
+<td class="gt_row gt_right">6.650</td>
+<td class="gt_row gt_right">0.880</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Q3</td>
+<td class="gt_row gt_right">6.680</td>
+<td class="gt_row gt_right">0.990</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Max</td>
+<td class="gt_row gt_right">6.840</td>
+<td class="gt_row gt_right">1.200</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">MAD</td>
+<td class="gt_row gt_right">0.044</td>
+<td class="gt_row gt_right">0.163</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">IQR</td>
+<td class="gt_row gt_right">0.070</td>
+<td class="gt_row gt_right">0.230</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">CV</td>
+<td class="gt_row gt_right">0.008</td>
+<td class="gt_row gt_right">0.165</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Skewness</td>
+<td class="gt_row gt_right">−0.012</td>
+<td class="gt_row gt_right">0.338</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">SE.Skewness</td>
+<td class="gt_row gt_right">0.071</td>
+<td class="gt_row gt_right">0.169</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Kurtosis</td>
+<td class="gt_row gt_right">0.846</td>
+<td class="gt_row gt_right">−0.723</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">N.Valid</td>
+<td class="gt_row gt_right">1,171</td>
+<td class="gt_row gt_right">207</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Pct.Valid</td>
+<td class="gt_row gt_right">100.0</td>
+<td class="gt_row gt_right">17.7</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="birucsabya" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#birucsabya .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#birucsabya .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#birucsabya .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#birucsabya .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#birucsabya .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#birucsabya .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#birucsabya .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#birucsabya .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#birucsabya .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#birucsabya .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#birucsabya .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#birucsabya .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#birucsabya .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#birucsabya .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#birucsabya .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#birucsabya .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#birucsabya .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#birucsabya .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#birucsabya .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#birucsabya .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#birucsabya .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#birucsabya .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#birucsabya .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#birucsabya .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#birucsabya .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#birucsabya .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#birucsabya .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#birucsabya .gt_left {
+  text-align: left;
+}
+
+#birucsabya .gt_center {
+  text-align: center;
+}
+
+#birucsabya .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#birucsabya .gt_font_normal {
+  font-weight: normal;
+}
+
+#birucsabya .gt_font_bold {
+  font-weight: bold;
+}
+
+#birucsabya .gt_font_italic {
+  font-style: italic;
+}
+
+#birucsabya .gt_super {
+  font-size: 65%;
+}
+
+#birucsabya .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<div class="inline-table"><table class="gt_table">
+<caption>
+<span id="tab:resumen2">Tabla 2.11: </span>Resumen numérico completo de una variable por grupos</caption>
+  
+  <thead class="gt_col_headings"><tr>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1"></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Tipo A</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Tipo B</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Tipo C</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left gt_stub">Mean</td>
+<td class="gt_row gt_right">0.764</td>
+<td class="gt_row gt_right">0.778</td>
+<td class="gt_row gt_right">0.987</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Std.Dev</td>
+<td class="gt_row gt_right">0.077</td>
+<td class="gt_row gt_right">0.088</td>
+<td class="gt_row gt_right">0.109</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Min</td>
+<td class="gt_row gt_right">0.650</td>
+<td class="gt_row gt_right">0.650</td>
+<td class="gt_row gt_right">0.710</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Q1</td>
+<td class="gt_row gt_right">0.700</td>
+<td class="gt_row gt_right">0.720</td>
+<td class="gt_row gt_right">0.900</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Median</td>
+<td class="gt_row gt_right">0.760</td>
+<td class="gt_row gt_right">0.760</td>
+<td class="gt_row gt_right">0.990</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Q3</td>
+<td class="gt_row gt_right">0.810</td>
+<td class="gt_row gt_right">0.830</td>
+<td class="gt_row gt_right">1.070</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Max</td>
+<td class="gt_row gt_right">0.930</td>
+<td class="gt_row gt_right">0.970</td>
+<td class="gt_row gt_right">1.200</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">MAD</td>
+<td class="gt_row gt_right">0.089</td>
+<td class="gt_row gt_right">0.089</td>
+<td class="gt_row gt_right">0.133</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">IQR</td>
+<td class="gt_row gt_right">0.110</td>
+<td class="gt_row gt_right">0.110</td>
+<td class="gt_row gt_right">0.170</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">CV</td>
+<td class="gt_row gt_right">0.101</td>
+<td class="gt_row gt_right">0.113</td>
+<td class="gt_row gt_right">0.110</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Skewness</td>
+<td class="gt_row gt_right">0.475</td>
+<td class="gt_row gt_right">0.473</td>
+<td class="gt_row gt_right">0.258</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">SE.Skewness</td>
+<td class="gt_row gt_right">0.333</td>
+<td class="gt_row gt_right">0.340</td>
+<td class="gt_row gt_right">0.234</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Kurtosis</td>
+<td class="gt_row gt_right">−0.822</td>
+<td class="gt_row gt_right">−0.867</td>
+<td class="gt_row gt_right">−0.588</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">N.Valid</td>
+<td class="gt_row gt_right">51</td>
+<td class="gt_row gt_right">49</td>
+<td class="gt_row gt_right">107</td>
+</tr>
+<tr>
+<td class="gt_row gt_left gt_stub">Pct.Valid</td>
+<td class="gt_row gt_right">29.1</td>
+<td class="gt_row gt_right">33.1</td>
+<td class="gt_row gt_right">12.6</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="gráficos-dependientes-del-tiempo" class="section level3" number="2.7.9">
+<h3>
+<span class="header-section-number">2.7.9</span> Gráficos dependientes del tiempo<a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos-dependientes-del-tiempo"><i class="fas fa-link"></i></a>
+</h3>
 <p>Otra visualización básica para una variable numérica es la visualización
-secuencial de las observaciones, bien a través de puntos (<code>geom_point</code>) o a través de
-líneas (<code>geom_line</code>). El orden de las observaciones nos pueden indicar cuándo se ha producido
-un cambio u otros patrones.</p>
+secuencial de las observaciones, bien a través de puntos o a través de
+líneas. En el eje X se representa el orden de las observaciones, y en el eje Y la escala de la variable. El orden de las observaciones nos pueden indicar cuándo se ha producido
+un cambio u otros patrones. La figura <a href="aed-uni.html#fig:puntos">2.17</a> representa un gráfico secuencial de puntos que podría estar indicando un patrón durante los días de la semana. Cuando las observaciones tienen una marca de tiempo (fecha o fecha y hora) entonces estamos ante una serie temporal, como la de la figura <a href="aed-uni.html#fig:serie">2.18</a>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:puntos"></span>
+<img src="02-aed-uni_files/figure-html/puntos-1.png" alt="Gráfico de puntos secuencial" width="60%"><p class="caption">
+Figura 2.17: Gráfico de puntos secuencial
+</p>
+</div>
+<pre><code>#&gt; `summarise()` has grouped output by 'tipo'. You can override using the `.groups` argument.</code></pre>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:serie"></span>
+<img src="02-aed-uni_files/figure-html/serie-1.png" alt="Gráfico de serie temporal" width="70%"><p class="caption">
+Figura 2.18: Gráfico de serie temporal
+</p>
+</div>
 
 </div>
 </div>
 </div>
 
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
+<div class="prev"><a href="intro.html"><span class="header-section-number">1</span> Introducción</a></div>
+<div class="next"><a href="aed-bi.html"><span class="header-section-number">3</span> Análisis exploratorio bivariante</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="Índice capítulo"><h2>Índice capítulo</h2>
-      <div id="book-on-this-page"></div>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#aed-uni"><span class="header-section-number">2</span> Análisis exploratorio univariante</a></li>
+<li><a class="nav-link" href="#la-importancia-del-an%C3%A1lisis-exploratorio"><span class="header-section-number">2.1</span> La importancia del análisis exploratorio</a></li>
+<li>
+<a class="nav-link" href="#calidad-de-datos"><span class="header-section-number">2.2</span> Calidad de datos</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#datos-at%C3%ADpicos"><span class="header-section-number">2.2.1</span> Datos atípicos</a></li>
+<li><a class="nav-link" href="#valores-perdidos-missing-values"><span class="header-section-number">2.2.2</span> Valores perdidos (missing values)</a></li>
+<li><a class="nav-link" href="#errores-comunes"><span class="header-section-number">2.2.3</span> Errores comunes</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#componentes-de-un-gr%C3%A1fico"><span class="header-section-number">2.3</span> Componentes de un gráfico</a></li>
+<li><a class="nav-link" href="#notaci%C3%B3n"><span class="header-section-number">2.4</span> Notación</a></li>
+<li><a class="nav-link" href="#an%C3%A1lisis-exploratorio-de-variables-cualitativas"><span class="header-section-number">2.5</span> Análisis exploratorio de variables cualitativas</a></li>
+<li>
+<a class="nav-link" href="#an%C3%A1lisis-exploratorio-de-variables-cuantitativas"><span class="header-section-number">2.6</span> Análisis exploratorio de variables cuantitativas</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#res%C3%BAmenes-de-variables-discretas"><span class="header-section-number">2.6.1</span> Resúmenes de variables discretas</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#res%C3%BAmenes-de-variables-continuas"><span class="header-section-number">2.7</span> Resúmenes de variables continuas</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#tablas-de-frecuencias"><span class="header-section-number">2.7.1</span> Tablas de frecuencias</a></li>
+<li><a class="nav-link" href="#el-histograma-y-el-gr%C3%A1fico-de-densidad"><span class="header-section-number">2.7.2</span> El histograma y el gráfico de densidad</a></li>
+<li><a class="nav-link" href="#medidas-de-tendencia-central"><span class="header-section-number">2.7.3</span> Medidas de tendencia central</a></li>
+<li><a class="nav-link" href="#medidas-de-posici%C3%B3n"><span class="header-section-number">2.7.4</span> Medidas de posición</a></li>
+<li><a class="nav-link" href="#medidas-de-dispersi%C3%B3n"><span class="header-section-number">2.7.5</span> Medidas de dispersión</a></li>
+<li><a class="nav-link" href="#el-gr%C3%A1fico-de-cajas-y-bigotes"><span class="header-section-number">2.7.6</span> El gráfico de cajas y bigotes</a></li>
+<li><a class="nav-link" href="#medidas-de-forma"><span class="header-section-number">2.7.7</span> Medidas de forma</a></li>
+<li><a class="nav-link" href="#resumen-num%C3%A9rico"><span class="header-section-number">2.7.8</span> Resumen numérico</a></li>
+<li><a class="nav-link" href="#gr%C3%A1ficos-dependientes-del-tiempo"><span class="header-section-number">2.7.9</span> Gráficos dependientes del tiempo</a></li>
+</ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+<li><a id="book-source" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/blob/master/02-aed-uni.Rmd">Ver fuente <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/edit/master/02-aed-uni.Rmd">Editar esta página <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -2521,7 +5130,7 @@ un cambio u otros patrones.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-01-29.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-01-30.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

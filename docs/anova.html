@@ -130,7 +130,7 @@ el test de Wilcoxon, o el test de Wilcoxon-Mann-Whitney.</p>
 <p><svg aria-hidden="true" role="img" viewbox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M378.31 378.49L298.42 288h30.63c9.01 0 16.98-5 20.78-13.06 3.8-8.04 2.55-17.26-3.28-24.05L268.42 160h28.89c9.1 0 17.3-5.35 20.86-13.61 3.52-8.13 1.86-17.59-4.24-24.08L203.66 4.83c-6.03-6.45-17.28-6.45-23.32 0L70.06 122.31c-6.1 6.49-7.75 15.95-4.24 24.08C69.38 154.65 77.59 160 86.69 160h28.89l-78.14 90.91c-5.81 6.78-7.06 15.99-3.27 24.04C37.97 283 45.93 288 54.95 288h30.63L5.69 378.49c-6 6.79-7.36 16.09-3.56 24.26 3.75 8.05 12 13.25 21.01 13.25H160v24.45l-30.29 48.4c-5.32 10.64 2.42 23.16 14.31 23.16h95.96c11.89 0 19.63-12.52 14.31-23.16L224 440.45V416h136.86c9.01 0 17.26-5.2 21.01-13.25 3.8-8.17 2.44-17.47-3.56-24.26z"></path></svg> Una granja experimental quiere estudiar el efecto que tiene
 el tipo de fertilizante utilizado en el cultivo de una determinada variedad de plantas y su peso en su punto óptimo de recolección. Para ello diseña un experimento en el que selecciona doce semillas aleatoriamente de un determinado lote.
 Se asigna aleatoriamente cada semilla a una maceta. Y a cada maceta, se le asigna también aleatoriamente un tipo de fertilizante entre tres varieaddes: A, B y C. El peso de cada planta en gramos se recoge en la tabla <a href="anova.html#tab:anovaplanta">10.1</a>, que están guardados en el data frame
-<code>danova</code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Se puede descargar el conjunto de datos de &lt;a href="http://emilio.lcano.com/b/adr/datos/danova2.rds" class="uri"&gt;http://emilio.lcano.com/b/adr/datos/danova2.rds&lt;/a&gt;&lt;/p&gt;'><sup>70</sup></a>.
+<code>danova</code><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Se puede descargar el conjunto de datos de &lt;a href="http://emilio.lcano.com/b/adr/datos/danova2.rds" class="uri"&gt;http://emilio.lcano.com/b/adr/datos/danova2.rds&lt;/a&gt;&lt;/p&gt;'><sup>72</sup></a>.
 Vamos a utilizar este ejemplo a lo largo de este capítulo.</p>
 </div>
 <div class="rmdpractica">
@@ -223,7 +223,7 @@ con también con el fertilizante C. Una vez ajustado el modelo lo comprobaremos 
 </tr>
 </tbody>
 </table></div>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="va">danova</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Fertilizante</span><span class="op">)</span> |&gt; 
@@ -285,7 +285,7 @@ o bien como:
 el modelo de nuestro ejemplo, pero de momento solo lo guardamos, veremos
 en los siguientes apartados cómo extraer información e interpretarla.</p>
 </div>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">modelo.aov</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">Peso</span> <span class="op">~</span> <span class="va">Fertilizante</span>, <span class="va">danova</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="estimación-de-los-parámetros" class="section level3" number="10.2.2">
@@ -295,7 +295,7 @@ en los siguientes apartados cómo extraer información e interpretarla.</p>
 <p>Si tenemos un total
 de <span class="math inline">\(n\)</span> datos de los cuales hay <span class="math inline">\(n_i\)</span> de cada nivel <span class="math inline">\(i\)</span>, de forma que <span class="math inline">\(\sum_i n_i = n\)</span>,
 los estimadores obtenidos tanto por el método de mínimos cuadradados como por
-el método de máxima verosimilitud (véase por ejemplo <span class="citation">John Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;, Chapman &amp;amp; Hall/CRC Texts in Statistical Science (CRC Press, 2015).&lt;/p&gt;"><sup>71</sup></a></span>) son los siguientes:</p>
+el método de máxima verosimilitud (véase por ejemplo <span class="citation">John Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;, Chapman &amp;amp; Hall/CRC Texts in Statistical Science (CRC Press, 2015).&lt;/p&gt;"><sup>73</sup></a></span>) son los siguientes:</p>
 <p><span class="math display">\[\hat{\mu_i} = \overline{y}_{i\cdot}= \frac{\sum\limits_{j=1}^{n_i}{y_{ij}}}{n_i},\]</span>
 <span class="math display">\[\hat{\mu} = \overline{y}_{\cdot\cdot}= \frac{\sum\limits_{i=1}^{k}{y_{i\cdot}}}{k}=\frac{\sum\limits_{i=1}^k\sum\limits_{j=1}^{n_i}{y_{ij}}}{n},\]</span></p>
 <p><span class="math display">\[\hat{\alpha}_i=\hat{\mu}_i-\hat{\mu},\]</span></p>
@@ -360,7 +360,7 @@ y_{kn_k}
 \end{array}
 \right )\]</span></p>
 <p>Debido a la singularidad de la
-matriz <span class="math inline">\(\pmb{X}^T \pmb{X}\)</span> (véase por ejemplo <span class="citation">Lawson<a href="#fn72" class="footnote-ref" id="fnref72"><sup>72</sup></a></span>),
+matriz <span class="math inline">\(\pmb{X}^T \pmb{X}\)</span> (véase por ejemplo <span class="citation">Lawson<a href="#fn74" class="footnote-ref" id="fnref74"><sup>74</sup></a></span>),
 lo que se hace es fijar
 uno de los niveles del factor como nivel “base,” y estimar
 la media del nivel base y los efectos de los otros niveles con respecto a la media del nivel
@@ -387,7 +387,7 @@ y más de 33 cuando es el <code>C</code>.
 Se pueden visualizar los efectos con el paquete <code>effects</code>, como se muestra en
 la figura <a href="anova.html#fig:efectotipo">10.2</a>.</p>
 </div>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## El primer nivel es el de referencia</span>
 <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">danova</span><span class="op">$</span><span class="va">Fertilizante</span><span class="op">)</span>
 <span class="co">#&gt; [1] "A" "B" "C"</span>
@@ -425,7 +425,7 @@ la figura <a href="anova.html#fig:efectotipo">10.2</a>.</p>
 <span class="co">#&gt; (Intercept)   124.89704 161.436297</span>
 <span class="co">#&gt; FertilizanteB -43.78716   7.887158</span>
 <span class="co">#&gt; FertilizanteC -59.38716  -7.712842</span></code></pre></div>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">effects</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span><span class="st">"Fertilizante"</span>, <span class="va">modelo.aov</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:efectotipo"></span>
@@ -508,9 +508,9 @@ las sumas de cuadrados, cuadrados medios, estadístico F y el p-valor.</p>
 <p>La función genérica <code>summary</code> aplicada a un modelo <code>aov</code> devuelve precisamente la tabla ANOVA.
 En nuestro ejemplo, el p-valor es pequeño, menor de 0.05 (aunque por poco). Luego para
 un nivel de significación del 5% podemos rechazar la hipótesis nula y aceptamos
-que hay diferencias en las medias<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Con cautela, por lo ajustado del p-valor.&lt;/p&gt;"><sup>73</sup></a>.</p>
+que hay diferencias en las medias<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Con cautela, por lo ajustado del p-valor.&lt;/p&gt;"><sup>75</sup></a>.</p>
 </div>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">modelo.aov</span><span class="op">)</span>
 <span class="co">#&gt;              Df Sum Sq Mean Sq F value Pr(&gt;F)  </span>
 <span class="co">#&gt; Fertilizante  2   3382  1691.2   3.836 0.0451 *</span>
@@ -523,7 +523,7 @@ no todos los niveles del factor producen una misma respuesta en la variable
 <span class="math inline">\(Y\)</span>. Una vez rechazada la hipótesis nula, tendremos que comprobar qué niveles son realmente distintos para, en última
 instancia, sacar conclusiones o tomar decisiones. Un enfoque erróneo sería
 realizar comparaciones con el test de la t de Student para cada par de
-niveles del factor. En su lugar, utilizamos el método HSD<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Honestly Significance Difference&lt;/p&gt;"><sup>74</sup></a> de Tukey,
+niveles del factor. En su lugar, utilizamos el método HSD<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Honestly Significance Difference&lt;/p&gt;"><sup>76</sup></a> de Tukey,
 que utiliza el estadístico de los rangos <em>estudentizados</em>, <span class="math inline">\(R/\hat{\sigma}\)</span> para
 realizar todos los contrastes siguientes:</p>
 <p><span class="math display">\[H_0: \mu_i = \mu_j \quad \forall i\neq j.\]</span></p>
@@ -533,7 +533,7 @@ ejemplo. La salida proporciona las diferencias entre cada par de niveles, un int
 y el p-valor del contraste. Vemos que hay diferencias significativas entre los fertilizantes A y C, pero no en el resto de comparaciones. Estas diferencias se pueden visualizar utilizando
 la función <code>plot</code>, que produce la figura <a href="anova.html#fig:tukeytipo">10.3</a>.</p>
 </div>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span><span class="va">modelo.aov</span><span class="op">)</span>
 <span class="co">#&gt;   Tukey multiple comparisons of means</span>
 <span class="co">#&gt;     95% family-wise confidence level</span>
@@ -564,12 +564,12 @@ véase <a href="#sec:anova:doe"><strong>??</strong></a>.</p>
 <p>Las hipótesis del test de la <span class="math inline">\(F\)</span> y de los tests HSD de Tukey son la igualdad
 de varianzas entre grupos, y la normalidad de los residuos. La igualdad de varianzas
 se pueden comprobar fácilmente con el test de Bartlett<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Hay otras alternativas,
-como el test de Levene en la función &lt;code&gt;levene.test&lt;/code&gt; del paquete &lt;code&gt;car&lt;/code&gt;.&lt;/p&gt;"><sup>75</sup></a>. La normalidad de los residuos
+como el test de Levene en la función &lt;code&gt;levene.test&lt;/code&gt; del paquete &lt;code&gt;car&lt;/code&gt;.&lt;/p&gt;"><sup>77</sup></a>. La normalidad de los residuos
 se puede verificar con alguno de los múltiples tests de normalidad existentes,
 como por ejemplo el de Kolmogorov-Smirnoff, el de Shapiro-Wilk o el de
 Anderson-Darling. La función genérica <code>plot</code> de R sobre un modelo ANOVA guardado
 produce una serie de gráficos de diagnóstico que nos dan una idea a veces suficiente
-del cumplimiento de las hipótesis. La función <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot()</a></code> del paquete {ggfortify}<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Masaaki Horikoshi and Yuan Tang, &lt;em&gt;Ggfortify: Data Visualization Tools for Statistical Analysis Results&lt;/em&gt;, 2022, &lt;a href="https://github.com/sinhrks/ggfortify" role="doc-biblioref"&gt;https://github.com/sinhrks/ggfortify&lt;/a&gt;.&lt;/p&gt;'><sup>76</sup></a></span> los realiza con {ggplot2}.</p>
+del cumplimiento de las hipótesis. La función <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot()</a></code> del paquete {ggfortify}<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Masaaki Horikoshi and Yuan Tang, &lt;em&gt;Ggfortify: Data Visualization Tools for Statistical Analysis Results&lt;/em&gt;, 2022, &lt;a href="https://github.com/sinhrks/ggfortify" role="doc-biblioref"&gt;https://github.com/sinhrks/ggfortify&lt;/a&gt;.&lt;/p&gt;'><sup>78</sup></a></span> los realiza con {ggplot2}.</p>
 <div class="rmdpractica">
 <p>La función genérica <code><a href="https://rdrr.io/r/stats/residuals.html">residuals()</a></code> sobre el objeto <code>modelo.aov</code>
 devuelve los residuos del modelo. Podemos entonces hacer un contraste
@@ -591,7 +591,7 @@ la normalidad de los residuos, en este caso se ajusta bastante bien.
 El gráfico inferior derecho sirve para detectar observaciones con gran influencia
 en el modelo. En este caso no se etiqueta ninguna.</p>
 </div>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">modelo.aov</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;  Shapiro-Wilk normality test</span>
@@ -605,7 +605,7 @@ en el modelo. En este caso no se etiqueta ninguna.</p>
 <span class="co">#&gt; data:  Peso by Fertilizante</span>
 <span class="co">#&gt; Bartlett's K-squared = 5.3317, df = 2, p-value =</span>
 <span class="co">#&gt; 0.06954</span></code></pre></div>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sinhrks/ggfortify">ggfortify</a></span><span class="op">)</span>
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">modelo.aov</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -632,20 +632,20 @@ Ajustamos el modelo ANOVA
 para estudiar el efecto de este factor en el Peso de la planta. Toma los valores <code>Z1</code>, <code>Z2</code>, <code>Z3</code>, según la zona de origen de la tierra utilizada en la maceta. En este caso,
 el contraste de hipótesis no permite rechazar la igualdad de medias.
 No obstante, al validar las hipótesis del modelo<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Se deja como ejercicio al
-lector analizar los gráficos de diagnóstico.&lt;/p&gt;"><sup>77</sup></a> vemos que no se cumple
+lector analizar los gráficos de diagnóstico.&lt;/p&gt;"><sup>79</sup></a> vemos que no se cumple
 la hipótesis de normalidad, por lo que hay que hacer el contraste de Kruskal-Wallis
 para confirmar que la Tierra no explica el Peso. Obtenemos
 un p-valor muy grande, por lo que no podemos rechazar que los datos
 vengan de la misma población, y por tanto llegamos a la conclusión
 de que no hay diferencias. Aunque en este caso no sería necesario seguir,
 por completitud del ejemplo vamos a realizar las comparaciones por pares
-utilizando la función <code>kruskalmc()</code> del paquete {pgirmess}.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Patrick Giraudoux, &lt;em&gt;Pgirmess: Spatial Analysis and Data Mining for Field Ecologists&lt;/em&gt;, 2021, &lt;a href="https://giraudoux.pagesperso-orange.fr" role="doc-biblioref"&gt;https://giraudoux.pagesperso-orange.fr&lt;/a&gt;.&lt;/p&gt;'><sup>78</sup></a></span> Obtenemos en
+utilizando la función <code>kruskalmc()</code> del paquete {pgirmess}.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Patrick Giraudoux, &lt;em&gt;Pgirmess: Spatial Analysis and Data Mining for Field Ecologists&lt;/em&gt;, 2021, &lt;a href="https://giraudoux.pagesperso-orange.fr" role="doc-biblioref"&gt;https://giraudoux.pagesperso-orange.fr&lt;/a&gt;.&lt;/p&gt;'><sup>80</sup></a></span> Obtenemos en
 este caso las diferencias observadas y críticas (para un determinado nivel de
 significación) y un indicador (<code>TRUE/FALSE</code>) de diferencia significativa.
 Como era de esperar, no se encuentra ningún par de niveles con
 diferencias significativas.</p>
 </div>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">modelo.aov2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">Peso</span> <span class="op">~</span> <span class="va">Tierra</span>, <span class="va">danova</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">modelo.aov2</span><span class="op">)</span>
 <span class="co">#&gt;             Df Sum Sq Mean Sq F value Pr(&gt;F)</span>
@@ -803,7 +803,7 @@ Fertilizante y Tierra. Pero deberíamos analizarlos en un modelo multifactorial.
 <div class="rmdpractica">
 <p>Las siguientes expresiones crean el modelo multifactorial, realizan los contrastes, calcula los efectos y representa las interacciones.</p>
 </div>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">modelo.aov3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">Peso</span> <span class="op">~</span> <span class="va">Fertilizante</span><span class="op">*</span><span class="va">Tierra</span>, <span class="va">danova</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">modelo.aov3</span><span class="op">)</span>
 <span class="co">#&gt;                     Df Sum Sq Mean Sq F value  Pr(&gt;F)   </span>
@@ -882,7 +882,7 @@ que intervengan en alguna interacción.</p>
 <p>Si no se cumplieran las hipótesis del modelo podríamos usar el contraste de
 Kruskal-Wallis para los efectos principales. Para la interacción también hay
 métodos paramétricos, aunque no están tan extendidos, véase una revisión
-en <span class="citation">Jos Feys.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;span&gt;“Nonparametric Tests for the Interaction in Two-Way Factorial Designs Using r,”&lt;/span&gt; &lt;em&gt;The R Journal&lt;/em&gt; 8, no. 1 (2016): 367–78.&lt;/p&gt;"><sup>79</sup></a></span> En muchas ocasiones una transformación de
+en <span class="citation">Jos Feys.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;span&gt;“Nonparametric Tests for the Interaction in Two-Way Factorial Designs Using r,”&lt;/span&gt; &lt;em&gt;The R Journal&lt;/em&gt; 8, no. 1 (2016): 367–78.&lt;/p&gt;"><sup>81</sup></a></span> En muchas ocasiones una transformación de
 Box-Cox en la variable respuesta es suficiente para ajustar un modelo
 válido, véase <a href="#sec:aed:boxcox"><strong>??</strong></a>.</p>
 </div>
@@ -913,10 +913,10 @@ que podamos controlar, y por tanto su efecto es aleatorio.
 En este caso tendríamos que ajustar un modelo mixto.
 En este ejemplo vemos que el factor Tierra afecta poco o nada a la variable
 respuesta, ya que la varianza es prácticamente nula<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Aunque aparezca un cero,
-es debido al redondeo.&lt;/p&gt;"><sup>80</sup></a>. Podemos obtener una estimación de los efectos
+es debido al redondeo.&lt;/p&gt;"><sup>82</sup></a>. Podemos obtener una estimación de los efectos
 con la función <code>ranef</code> del paquete <code>lme4</code>.</p>
 </div>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lme4/lme4/">lme4</a></span><span class="op">)</span>
 <span class="co">#&gt; Loading required package: Matrix</span>
 <span class="co">#&gt; </span>
@@ -974,7 +974,7 @@ y la unidad observable dentro del tiempo forman el factor aleatorio</p></li>
 </ul>
 <p>Como se ha podido comprobar, el análisis de
 modelos mixtos no es tan sencillo como el de efectos fijos. Para una
-revisión más completa se recomienda consultar el libro de <span class="citation">J. J. Faraway.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Extending the Linear Model with r: Generalized Linear, Mixed Effects and Nonparametric Regression Models&lt;/em&gt;, Chapman &amp;amp; Hall/CRC Texts in Statistical Science (CRC Press, 2016).&lt;/p&gt;"><sup>81</sup></a></span></p>
+revisión más completa se recomienda consultar el libro de <span class="citation">J. J. Faraway.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Extending the Linear Model with r: Generalized Linear, Mixed Effects and Nonparametric Regression Models&lt;/em&gt;, Chapman &amp;amp; Hall/CRC Texts in Statistical Science (CRC Press, 2016).&lt;/p&gt;"><sup>83</sup></a></span></p>
 </div>
 <div id="análisis-multivariante-de-la-varianza" class="section level2" number="10.5">
 <h2>
@@ -989,9 +989,9 @@ y queremos determinar si esta variable multivariante
 se comporta de forma distinta para los distintos niveles
 de las variables en el vector de variables independientes <span class="math inline">\(\pmb{X}\)</span>.
 El método calcula una matriz de errores y una matriz de
-hipótesis<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Ver: &lt;a href="https://rpubs.com/aaronsc32/manova-test-statistics" class="uri"&gt;https://rpubs.com/aaronsc32/manova-test-statistics&lt;/a&gt;&lt;/p&gt;'><sup>82</sup></a>,
+hipótesis<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Ver: &lt;a href="https://rpubs.com/aaronsc32/manova-test-statistics" class="uri"&gt;https://rpubs.com/aaronsc32/manova-test-statistics&lt;/a&gt;&lt;/p&gt;'><sup>84</sup></a>,
 y mediante el cálculo de un estadístico (por defecto Pillai<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;ver
-una descripción de las alternativas en &lt;a href="https://rpubs.com/aaronsc32/manova-test-statistics" class="uri"&gt;https://rpubs.com/aaronsc32/manova-test-statistics&lt;/a&gt;.&lt;/p&gt;'><sup>83</sup></a>)
+una descripción de las alternativas en &lt;a href="https://rpubs.com/aaronsc32/manova-test-statistics" class="uri"&gt;https://rpubs.com/aaronsc32/manova-test-statistics&lt;/a&gt;.&lt;/p&gt;'><sup>85</sup></a>)
 se contrasta la hipótesis.</p>
 <div class="rmdpractica">
 <p>En el conjunto de datos de ejemplo tenemos otra variable en escala métrica que es
@@ -1006,7 +1006,7 @@ al obtenido en el ejemplo univariante. En ocasiones puede suceder que
 los contrastes univariantes no son significativos pero sí lo es el contraste
 multivariante.</p>
 </div>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">Y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">danova</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Peso"</span>, <span class="st">"Pureza"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>
 <span class="va">modelo.manova</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">Y</span> <span class="op">~</span> <span class="va">Fertilizante</span><span class="op">*</span><span class="va">Tierra</span>, data <span class="op">=</span> <span class="va">danova</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/summary.manova.html">summary.manova</a></span><span class="op">(</span><span class="va">modelo.manova</span><span class="op">)</span>
@@ -1083,7 +1083,7 @@ multivariante.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-01-29.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-01-30.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
