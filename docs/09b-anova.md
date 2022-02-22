@@ -839,7 +839,7 @@ library(lme4)
 #> 
 #>     expand, pack, unpack
 modelo.mixto <- lmer(Peso ~ 1 + Fertilizante + (1|Tierra), danova)
-#> boundary (singular) fit: see ?isSingular
+#> boundary (singular) fit: see help('isSingular')
 summary(modelo.mixto)
 #> Linear mixed model fit by REML ['lmerMod']
 #> Formula: Peso ~ 1 + Fertilizante + (1 | Tierra)
@@ -868,7 +868,7 @@ summary(modelo.mixto)
 #> FertilizntB -0.707       
 #> FertilizntC -0.707  0.500
 #> optimizer (nloptwrap) convergence code: 0 (OK)
-#> boundary (singular) fit: see ?isSingular
+#> boundary (singular) fit: see help('isSingular')
 ranef(modelo.mixto)
 #> $Tierra
 #>    (Intercept)

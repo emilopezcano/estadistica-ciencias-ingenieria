@@ -12,7 +12,7 @@ En los capítulos anteriores, hemos visto cómo mediante la **Estadística Descr
 estudiamos variables estadísticas describiéndolas y representándolas. Mediante la
 **Estadística Inferencial** lo que tratamos es de inferir (estimar, predecir)
 las propiedades de una población basándonos en una muestra de 
-datos^[La inferencia estadística no se trata en este libro.]. La Teoría de
+datos. La Teoría de
 Probabilidades y el Cálculo de Probabilidades son las bases en las que
 se sustentan estos métodos, partiendo de la estimación del modelo de
 datos, es decir, la distribución de probabilidad de una determinada
@@ -30,7 +30,7 @@ En este capítulo se han aplicado los siguientes estándares:
 
 ### Estadística y Cálculo de Probabilidades {-}
 
-La figura \@ref(fig:dogma) representa una especie de _dogma_ de la Estadística, esto es,
+La figura \@ref(fig:dogma) representa la esencia de la Estadística, esto es,
 su relación con la probabilidad y la inferencia, a través de la población y la muestra.
 
 <div class="figure" style="text-align: center">
@@ -894,7 +894,7 @@ Table: (\#tab:fcond)Datos ejemplo probabilidad condicionada
 condicionada de la siguiente forma. Se dice que uno de cada seis hombres responde al tratamiento.
 Si definimos $S$ como el suceso "responder al tratamiento",
 entonces $P(S|H)=\frac{1}{6}\simeq 0.1667$. Por otra parte, si quisiéramos calcular 
-la probabilidad de que un potencial cliente sea mujer, condicionado a que
+la probabilidad de que un sujeto sea mujer, condicionado a que
 es joven, entonces $P(M | J)=\frac{P(M \cap J)}{P(J)} = \frac{5/52}{13/52}\simeq 0.3846$.</div>\EndKnitrBlock{rmdejemplo}
 
 
@@ -925,7 +925,7 @@ ocurran los dos sucesos, $P(A_1 \cap A_2)$:
 
 $$P(A_1 \cap A_2)=P(A_1)\cdot P(A_2 | A_1)=\frac{12}{52}\cdot \frac{11}{51}=\frac{11}{221}\simeq 0.0498.$$</div>\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En nuestro ejemplo de los sujetos en estudio, ¿cuál es la probabilidad de que un cliente al azar sea mujer y además responda al tratamiento?
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En nuestro ejemplo de los sujetos en estudio, ¿cuál es la probabilidad de que un sujeto al azar sea mujer y además responda al tratamiento?
 
 $$P(M \cap S) = P(S|M)\cdot P(M) = \frac{2}{6}\cdot \frac{1}{2} = \frac{1}{6}\simeq 0.1667.$$</div>\EndKnitrBlock{rmdejemplo}
 

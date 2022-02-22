@@ -10,6 +10,8 @@
 \definecolor{practicaf}{RGB}{255,238,186}
 \definecolor{premiumb}{RGB}{248,215,218}
 \definecolor{premiumf}{RGB}{245,198,203}
+\definecolor{infob}{RGB}{209, 236, 241}
+\definecolor{infof}{RGB}{190, 229, 235}
 
 \newtcolorbox{rmdejemplo}{
   colback=ejemplob,
@@ -54,5 +56,16 @@
   % overlay={\node[inner sep=0pt, xshift=.85cm, anchor=center] 
   %   at ($ (frame.north west)!.5!(frame.south west) $) {\includegraphics[width=6mm]{images/ejemplo}}; }}
   overlay={{\includegraphics[width=8mm]{images/premium}}; }}
+
+\newtcolorbox{rmdinfo}{
+  colback=infob,
+  colframe=infof,
+  coltext=black,
+  boxsep=5pt,
+  left = 25pt,
+  arc=4pt,
+  % overlay={\node[inner sep=0pt, xshift=.85cm, anchor=center] 
+  %   at ($ (frame.north west)!.5!(frame.south west) $) {\includegraphics[width=6mm]{images/ejemplo}}; }}
+  overlay={{\includegraphics[width=8mm]{images/bulb}}; }}
 
 

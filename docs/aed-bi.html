@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Capítulo 3 Análisis exploratorio bivariante | Estadística Aplicada a las Ciencias y la Ingeniería</title>
 <meta name="author" content="Emilio L. Cano">
-<meta name="description" content="Representación gráfica Correlación Regresión Intro multivariante En preparación.">
+<meta name="description" content="3.1 Datos bivariantes y multivariantes El análisis univariante es muy útil para describir una única característica de la población en estudio. Pero rara vez estudiamos una característica aislada,...">
 <meta name="generator" content="bookdown 0.24.3 with bs4_book()">
 <meta property="og:title" content="Capítulo 3 Análisis exploratorio bivariante | Estadística Aplicada a las Ciencias y la Ingeniería">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/aed-bi.html">
 <meta property="og:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
-<meta property="og:description" content="Representación gráfica Correlación Regresión Intro multivariante En preparación.">
+<meta property="og:description" content="3.1 Datos bivariantes y multivariantes El análisis univariante es muy útil para describir una única característica de la población en estudio. Pero rara vez estudiamos una característica aislada,...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Capítulo 3 Análisis exploratorio bivariante | Estadística Aplicada a las Ciencias y la Ingeniería">
-<meta name="twitter:description" content="Representación gráfica Correlación Regresión Intro multivariante En preparación.">
+<meta name="twitter:description" content="3.1 Datos bivariantes y multivariantes El análisis univariante es muy útil para describir una única característica de la población en estudio. Pero rara vez estudiamos una característica aislada,...">
 <meta name="twitter:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -83,12 +83,540 @@
 <h1>
 <span class="header-section-number">Capítulo 3</span> Análisis exploratorio bivariante<a class="anchor" aria-label="anchor" href="#aed-bi"><i class="fas fa-link"></i></a>
 </h1>
-<p>Representación gráfica</p>
-<p>Correlación</p>
-<p>Regresión</p>
-<p>Intro multivariante</p>
-<p>En preparación.</p>
+<div id="datos-bivariantes-y-multivariantes" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Datos bivariantes y multivariantes<a class="anchor" aria-label="anchor" href="#datos-bivariantes-y-multivariantes"><i class="fas fa-link"></i></a>
+</h2>
+<p>El análisis univariante es muy útil para describir una única característica de la
+población en estudio. Pero rara vez estudiamos una característica aislada, y lo
+habitual es tener conjuntos de datos con varias variables (cuantitativas y cualitativas)
+que podemos estudiar por separado (análisis univariante) o conjuntamente (análisis multivariante).</p>
+<p>El caso especial del <strong>análisis bivariante</strong> es cuando estudiamos dos características a la vez: <span class="math inline">\(X, Y\)</span>.
+Nos interesa la <strong>relación</strong> entre ellas, para lo que realizaremos resúmenes numéricos y gráficos.
+Los datos bivariantes se encontrarán como pares de valores <span class="math inline">\(x_i, y_i\)</span> para cada
+observación <span class="math inline">\(i = 1, \ldots, n\)</span>.</p>
+<p>Cuando estudiamos más de dos variables, tenemos datos multivariantes. En este caso,
+estudiamos las relaciones “dos a dos” entre las variables (como en el caso bivariante) y
+la estructura conjunta. Hay algunas técnicas multivariantes específicas para este último caso.
+En este capítulo nos vamos a centrar solo en el primer caso.</p>
+</div>
+<div id="frecuencias-conjuntas-marginales-y-condicionadas" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> Frecuencias conjuntas, marginales y condicionadas<a class="anchor" aria-label="anchor" href="#frecuencias-conjuntas-marginales-y-condicionadas"><i class="fas fa-link"></i></a>
+</h2>
+<p>El primer resumen que podemos hacer de datos bivariante es la tabla de frecuencias conjunta.
+Igual que en el caso univariante <span class="math inline">\(n\)</span> es número total de datos, es decir, la frecuencia total.
+La frecuencia absoluta conjunta, <span class="math inline">\(n_{ij}\)</span>, es el número de observaciones en la clase <span class="math inline">\(i\)</span> de <span class="math inline">\(X\)</span> <strong>y</strong> en la clase <span class="math inline">\(j\)</span> de <span class="math inline">\(Y\)</span>.
+La frecuencia relativa conjunta es <span class="math inline">\(f_{ij}= \frac{n_{ij}}{n}\)</span>.</p>
+<div id="distribución-conjunta-de-frecuencias" class="section level3" number="3.2.1">
+<h3>
+<span class="header-section-number">3.2.1</span> Distribución conjunta de frecuencias<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-conjunta-de-frecuencias"><i class="fas fa-link"></i></a>
+</h3>
+<p>Las frecuencias conjuntas se representan en una tabla de doble entrada,
+con los valores de una variable en filas y los de la otra en columnas.
+En el interior, se ponen las frecuencias conjuntas (absolutas, marginales o ambas).
+Si las dos variables son cualitativas, la tabla se denomina <strong>Tabla de contingencia</strong>.</p>
+<div class="rmdejemplo">
+<p>La Tabla <a href="aed-bi.html#tab:tabs">3.1</a> muestra la tabla de contingencia de los analistas y el tipo de queso en el ejemplo del análisis de la producción de quesos. Asignamos la variable <span class="math inline">\(X\)</span> al Analista (en filas) y la variable <span class="math inline">\(Y\)</span> al Tipo (en columnas).
+La Tabla <a href="aed-bi.html#tab:trel">3.2</a> muestra la tabla de frecuencias relativas de los mismos datos.</p>
+</div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">analista</span>, <span class="va">lab</span><span class="op">$</span><span class="va">tipo</span><span class="op">)</span>,
+      caption <span class="op">=</span> <span class="st">"Tabla de contingencia (frecuencias absolutas) de los analistas y el tipo de queso."</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:tabs">Tabla 3.1: </span>Tabla de contingencia (frecuencias absolutas) de los analistas y el tipo de queso.</caption>
+<thead><tr class="header">
+<th align="left"></th>
+<th align="right">A</th>
+<th align="right">B</th>
+<th align="right">C</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">analista_10</td>
+<td align="right">52</td>
+<td align="right">47</td>
+<td align="right">219</td>
+</tr>
+<tr class="even">
+<td align="left">analista_13</td>
+<td align="right">42</td>
+<td align="right">36</td>
+<td align="right">198</td>
+</tr>
+<tr class="odd">
+<td align="left">analista_6</td>
+<td align="right">44</td>
+<td align="right">32</td>
+<td align="right">235</td>
+</tr>
+<tr class="even">
+<td align="left">analista_9</td>
+<td align="right">37</td>
+<td align="right">33</td>
+<td align="right">196</td>
+</tr>
+</tbody>
+</table></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">analista</span>, <span class="va">lab</span><span class="op">$</span><span class="va">tipo</span><span class="op">)</span><span class="op">)</span>, digits <span class="op">=</span> <span class="fl">2</span>, 
+      caption <span class="op">=</span> <span class="st">"Tabla de frecuencias relativas de los analistas y el tipo de queso."</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:trel">Tabla 3.2: </span>Tabla de frecuencias relativas de los analistas y el tipo de queso.</caption>
+<thead><tr class="header">
+<th align="left"></th>
+<th align="right">A</th>
+<th align="right">B</th>
+<th align="right">C</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">analista_10</td>
+<td align="right">0.04</td>
+<td align="right">0.04</td>
+<td align="right">0.19</td>
+</tr>
+<tr class="even">
+<td align="left">analista_13</td>
+<td align="right">0.04</td>
+<td align="right">0.03</td>
+<td align="right">0.17</td>
+</tr>
+<tr class="odd">
+<td align="left">analista_6</td>
+<td align="right">0.04</td>
+<td align="right">0.03</td>
+<td align="right">0.20</td>
+</tr>
+<tr class="even">
+<td align="left">analista_9</td>
+<td align="right">0.03</td>
+<td align="right">0.03</td>
+<td align="right">0.17</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="ejemplo-variables-continuas" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Ejemplo: Variables continuas<a class="anchor" aria-label="anchor" href="#ejemplo-variables-continuas"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Debemos tener los datos agrupados en intervalos (clases)</li>
+<li>
+<span class="math inline">\(X\)</span> = ph (filas); <span class="math inline">\(Y\)</span> = est (columnas)</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">histo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">ph</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="va">histo2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">est</span>, plot <span class="op">=</span> <span class="cn">FALSE</span>, breaks <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
+<span class="va">lab</span> <span class="op">&lt;-</span> <span class="va">lab</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>clase_ph <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">ph</span>, breaks <span class="op">=</span> <span class="va">histo</span><span class="op">$</span><span class="va">breaks</span><span class="op">)</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>clase_est <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">est</span>, breaks <span class="op">=</span> <span class="va">histo2</span><span class="op">$</span><span class="va">breaks</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">clase_ph</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">clase_ph</span><span class="op">)</span>, <span class="st">"(6.4,6.45]"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">clase_ph</span>, <span class="va">lab</span><span class="op">$</span><span class="va">clase_est</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left"></th>
+<th align="right">(28,30]</th>
+<th align="right">(30,32]</th>
+<th align="right">(32,34]</th>
+<th align="right">(34,36]</th>
+<th align="right">(36,38]</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">(6.35,6.4]</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">(6.4,6.45]</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">(6.45,6.5]</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">(6.5,6.55]</td>
+<td align="right">3</td>
+<td align="right">50</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">(6.55,6.6]</td>
+<td align="right">17</td>
+<td align="right">129</td>
+<td align="right">36</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">(6.6,6.65]</td>
+<td align="right">18</td>
+<td align="right">195</td>
+<td align="right">167</td>
+<td align="right">20</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">(6.65,6.7]</td>
+<td align="right">9</td>
+<td align="right">160</td>
+<td align="right">182</td>
+<td align="right">18</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">(6.7,6.75]</td>
+<td align="right">2</td>
+<td align="right">53</td>
+<td align="right">70</td>
+<td align="right">4</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">(6.75,6.8]</td>
+<td align="right">0</td>
+<td align="right">9</td>
+<td align="right">10</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">(6.8,6.85]</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="frecuencias-marginales" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> Frecuencias marginales<a class="anchor" aria-label="anchor" href="#frecuencias-marginales"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p>Si partimos de la distribución conjunta, podemos obtener la de cada
+una de las variables (marginal) y estudiarla como en el apartado anterior</p></li>
+<li><p>Basta con hacer las sumas por columnas <span class="math inline">\((X)\)</span> o por filas <span class="math inline">\((Y)\)</span>:</p></li>
+<li><p>Frecuencias marginales absolutas de <span class="math inline">\(X\)</span>: <span class="math inline">\(n_{i.} = \sum\limits_{j = 1}^{n_j}n_{ij}\)</span></p></li>
+<li><p>Frecuencias marginales absolutas de <span class="math inline">\(Y\)</span>: <span class="math inline">\(n_{j.} = \sum\limits_{i = 1}^{n_i}n_{ij}\)</span></p></li>
+<li><p>Igual para relativas</p></li>
+</ul>
+</div>
+<div id="ejemplo-frecuencias-marginales" class="section level2" number="3.5">
+<h2>
+<span class="header-section-number">3.5</span> Ejemplo frecuencias marginales<a class="anchor" aria-label="anchor" href="#ejemplo-frecuencias-marginales"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">tabla</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">clase_ph</span>, <span class="va">lab</span><span class="op">$</span><span class="va">clase_est</span><span class="op">)</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/stats/addmargins.html">addmargins</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">tabla</span> |&gt; <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left"></th>
+<th align="right">(28,30]</th>
+<th align="right">(30,32]</th>
+<th align="right">(32,34]</th>
+<th align="right">(34,36]</th>
+<th align="right">(36,38]</th>
+<th align="right">Sum</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">(6.35,6.4]</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">(6.4,6.45]</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">(6.45,6.5]</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">(6.5,6.55]</td>
+<td align="right">3</td>
+<td align="right">50</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">54</td>
+</tr>
+<tr class="odd">
+<td align="left">(6.55,6.6]</td>
+<td align="right">17</td>
+<td align="right">129</td>
+<td align="right">36</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">184</td>
+</tr>
+<tr class="even">
+<td align="left">(6.6,6.65]</td>
+<td align="right">18</td>
+<td align="right">195</td>
+<td align="right">167</td>
+<td align="right">20</td>
+<td align="right">4</td>
+<td align="right">404</td>
+</tr>
+<tr class="odd">
+<td align="left">(6.65,6.7]</td>
+<td align="right">9</td>
+<td align="right">160</td>
+<td align="right">182</td>
+<td align="right">18</td>
+<td align="right">0</td>
+<td align="right">369</td>
+</tr>
+<tr class="even">
+<td align="left">(6.7,6.75]</td>
+<td align="right">2</td>
+<td align="right">53</td>
+<td align="right">70</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">129</td>
+</tr>
+<tr class="odd">
+<td align="left">(6.75,6.8]</td>
+<td align="right">0</td>
+<td align="right">9</td>
+<td align="right">10</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="left">(6.8,6.85]</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Sum</td>
+<td align="right">50</td>
+<td align="right">602</td>
+<td align="right">468</td>
+<td align="right">46</td>
+<td align="right">5</td>
+<td align="right">1171</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="ejemplo-distribuciones-marginales" class="section level2" number="3.6">
+<h2>
+<span class="header-section-number">3.6</span> Ejemplo distribuciones marginales<a class="anchor" aria-label="anchor" href="#ejemplo-distribuciones-marginales"><i class="fas fa-link"></i></a>
+</h2>
+<div id="de-x" class="section level3" number="3.6.1">
+<h3>
+<span class="header-section-number">3.6.1</span> De <span class="math inline">\(X\)</span><a class="anchor" aria-label="anchor" href="#de-x"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="aed-bi.html#cb15-1" aria-hidden="true" tabindex="-1"></a>tabla[, <span class="dv">6</span>]</span>
+<span id="cb15-2"><a href="aed-bi.html#cb15-2" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.35</span>,<span class="fl">6.4</span>] (<span class="fl">6.4</span>,<span class="fl">6.45</span>] (<span class="fl">6.45</span>,<span class="fl">6.5</span>] (<span class="fl">6.5</span>,<span class="fl">6.55</span>] (<span class="fl">6.55</span>,<span class="fl">6.6</span>] </span>
+<span id="cb15-3"><a href="aed-bi.html#cb15-3" aria-hidden="true" tabindex="-1"></a>         <span class="dv">1</span>          <span class="dv">0</span>          <span class="dv">3</span>         <span class="dv">54</span>        <span class="dv">184</span> </span>
+<span id="cb15-4"><a href="aed-bi.html#cb15-4" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.6</span>,<span class="fl">6.65</span>] (<span class="fl">6.65</span>,<span class="fl">6.7</span>] (<span class="fl">6.7</span>,<span class="fl">6.75</span>] (<span class="fl">6.75</span>,<span class="fl">6.8</span>] (<span class="fl">6.8</span>,<span class="fl">6.85</span>] </span>
+<span id="cb15-5"><a href="aed-bi.html#cb15-5" aria-hidden="true" tabindex="-1"></a>       <span class="dv">404</span>        <span class="dv">369</span>        <span class="dv">129</span>         <span class="dv">21</span>          <span class="dv">6</span> </span>
+<span id="cb15-6"><a href="aed-bi.html#cb15-6" aria-hidden="true" tabindex="-1"></a>       Sum </span>
+<span id="cb15-7"><a href="aed-bi.html#cb15-7" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1171</span> </span>
+<span id="cb15-8"><a href="aed-bi.html#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(tabla[, <span class="dv">6</span>] <span class="sc">/</span> tabla[<span class="dv">11</span>, <span class="dv">6</span>], <span class="dv">2</span>)</span>
+<span id="cb15-9"><a href="aed-bi.html#cb15-9" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.35</span>,<span class="fl">6.4</span>] (<span class="fl">6.4</span>,<span class="fl">6.45</span>] (<span class="fl">6.45</span>,<span class="fl">6.5</span>] (<span class="fl">6.5</span>,<span class="fl">6.55</span>] (<span class="fl">6.55</span>,<span class="fl">6.6</span>] </span>
+<span id="cb15-10"><a href="aed-bi.html#cb15-10" aria-hidden="true" tabindex="-1"></a>      <span class="fl">0.00</span>       <span class="fl">0.00</span>       <span class="fl">0.00</span>       <span class="fl">0.05</span>       <span class="fl">0.16</span> </span>
+<span id="cb15-11"><a href="aed-bi.html#cb15-11" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.6</span>,<span class="fl">6.65</span>] (<span class="fl">6.65</span>,<span class="fl">6.7</span>] (<span class="fl">6.7</span>,<span class="fl">6.75</span>] (<span class="fl">6.75</span>,<span class="fl">6.8</span>] (<span class="fl">6.8</span>,<span class="fl">6.85</span>] </span>
+<span id="cb15-12"><a href="aed-bi.html#cb15-12" aria-hidden="true" tabindex="-1"></a>      <span class="fl">0.35</span>       <span class="fl">0.32</span>       <span class="fl">0.11</span>       <span class="fl">0.02</span>       <span class="fl">0.01</span> </span>
+<span id="cb15-13"><a href="aed-bi.html#cb15-13" aria-hidden="true" tabindex="-1"></a>       Sum </span>
+<span id="cb15-14"><a href="aed-bi.html#cb15-14" aria-hidden="true" tabindex="-1"></a>      <span class="fl">1.00</span> </span></code></pre></div>
+</div>
+<div id="de-y" class="section level3" number="3.6.2">
+<h3>
+<span class="header-section-number">3.6.2</span> De <span class="math inline">\(Y\)</span><a class="anchor" aria-label="anchor" href="#de-y"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="aed-bi.html#cb16-1" aria-hidden="true" tabindex="-1"></a>tabla[<span class="dv">11</span>,]</span>
+<span id="cb16-2"><a href="aed-bi.html#cb16-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">28</span>,<span class="dv">30</span>] (<span class="dv">30</span>,<span class="dv">32</span>] (<span class="dv">32</span>,<span class="dv">34</span>] (<span class="dv">34</span>,<span class="dv">36</span>] (<span class="dv">36</span>,<span class="dv">38</span>]     Sum </span>
+<span id="cb16-3"><a href="aed-bi.html#cb16-3" aria-hidden="true" tabindex="-1"></a>     <span class="dv">50</span>     <span class="dv">602</span>     <span class="dv">468</span>      <span class="dv">46</span>       <span class="dv">5</span>    <span class="dv">1171</span> </span>
+<span id="cb16-4"><a href="aed-bi.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(tabla[<span class="dv">11</span>,] <span class="sc">/</span> tabla[<span class="dv">11</span>, <span class="dv">6</span>], <span class="dv">2</span>)</span>
+<span id="cb16-5"><a href="aed-bi.html#cb16-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">28</span>,<span class="dv">30</span>] (<span class="dv">30</span>,<span class="dv">32</span>] (<span class="dv">32</span>,<span class="dv">34</span>] (<span class="dv">34</span>,<span class="dv">36</span>] (<span class="dv">36</span>,<span class="dv">38</span>]     Sum </span>
+<span id="cb16-6"><a href="aed-bi.html#cb16-6" aria-hidden="true" tabindex="-1"></a>   <span class="fl">0.04</span>    <span class="fl">0.51</span>    <span class="fl">0.40</span>    <span class="fl">0.04</span>    <span class="fl">0.00</span>    <span class="fl">1.00</span> </span></code></pre></div>
+</div>
+</div>
+<div id="distribuciones-condicionadas" class="section level2" number="3.7">
+<h2>
+<span class="header-section-number">3.7</span> Distribuciones condicionadas<a class="anchor" aria-label="anchor" href="#distribuciones-condicionadas"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p>Distribución de una variable condicionada a algún/os valores de la otra</p></li>
+<li><p>Se representa por <span class="math inline">\(Y | X = x_i\)</span></p></li>
+<li><p>Se lee “Distribución de <span class="math inline">\(Y\)</span> condicionada a que <span class="math inline">\(X\)</span> es igual a <span class="math inline">\(x_i\)</span></p></li>
+<li><p>Son variables univariantes que se pueden estudiar como en el apartado anterior</p></li>
+</ul>
+</div>
+<div id="ejemplo-distribuciones-condicionadas" class="section level2" number="3.8">
+<h2>
+<span class="header-section-number">3.8</span> Ejemplo distribuciones condicionadas<a class="anchor" aria-label="anchor" href="#ejemplo-distribuciones-condicionadas"><i class="fas fa-link"></i></a>
+</h2>
+<div id="de-x-y-in-3032" class="section level3" number="3.8.1">
+<h3>
+<span class="header-section-number">3.8.1</span> De <span class="math inline">\(X | Y \in (30,32]\)</span><a class="anchor" aria-label="anchor" href="#de-x-y-in-3032"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="aed-bi.html#cb17-1" aria-hidden="true" tabindex="-1"></a>tabla[, <span class="dv">2</span>]</span>
+<span id="cb17-2"><a href="aed-bi.html#cb17-2" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.35</span>,<span class="fl">6.4</span>] (<span class="fl">6.4</span>,<span class="fl">6.45</span>] (<span class="fl">6.45</span>,<span class="fl">6.5</span>] (<span class="fl">6.5</span>,<span class="fl">6.55</span>] (<span class="fl">6.55</span>,<span class="fl">6.6</span>] </span>
+<span id="cb17-3"><a href="aed-bi.html#cb17-3" aria-hidden="true" tabindex="-1"></a>         <span class="dv">0</span>          <span class="dv">0</span>          <span class="dv">2</span>         <span class="dv">50</span>        <span class="dv">129</span> </span>
+<span id="cb17-4"><a href="aed-bi.html#cb17-4" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.6</span>,<span class="fl">6.65</span>] (<span class="fl">6.65</span>,<span class="fl">6.7</span>] (<span class="fl">6.7</span>,<span class="fl">6.75</span>] (<span class="fl">6.75</span>,<span class="fl">6.8</span>] (<span class="fl">6.8</span>,<span class="fl">6.85</span>] </span>
+<span id="cb17-5"><a href="aed-bi.html#cb17-5" aria-hidden="true" tabindex="-1"></a>       <span class="dv">195</span>        <span class="dv">160</span>         <span class="dv">53</span>          <span class="dv">9</span>          <span class="dv">4</span> </span>
+<span id="cb17-6"><a href="aed-bi.html#cb17-6" aria-hidden="true" tabindex="-1"></a>       Sum </span>
+<span id="cb17-7"><a href="aed-bi.html#cb17-7" aria-hidden="true" tabindex="-1"></a>       <span class="dv">602</span> </span>
+<span id="cb17-8"><a href="aed-bi.html#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(tabla[, <span class="dv">2</span>] <span class="sc">/</span> tabla[<span class="dv">2</span>, <span class="dv">6</span>], <span class="dv">2</span>)</span>
+<span id="cb17-9"><a href="aed-bi.html#cb17-9" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.35</span>,<span class="fl">6.4</span>] (<span class="fl">6.4</span>,<span class="fl">6.45</span>] (<span class="fl">6.45</span>,<span class="fl">6.5</span>] (<span class="fl">6.5</span>,<span class="fl">6.55</span>] (<span class="fl">6.55</span>,<span class="fl">6.6</span>] </span>
+<span id="cb17-10"><a href="aed-bi.html#cb17-10" aria-hidden="true" tabindex="-1"></a>       <span class="cn">NaN</span>        <span class="cn">NaN</span>        <span class="cn">Inf</span>        <span class="cn">Inf</span>        <span class="cn">Inf</span> </span>
+<span id="cb17-11"><a href="aed-bi.html#cb17-11" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.6</span>,<span class="fl">6.65</span>] (<span class="fl">6.65</span>,<span class="fl">6.7</span>] (<span class="fl">6.7</span>,<span class="fl">6.75</span>] (<span class="fl">6.75</span>,<span class="fl">6.8</span>] (<span class="fl">6.8</span>,<span class="fl">6.85</span>] </span>
+<span id="cb17-12"><a href="aed-bi.html#cb17-12" aria-hidden="true" tabindex="-1"></a>       <span class="cn">Inf</span>        <span class="cn">Inf</span>        <span class="cn">Inf</span>        <span class="cn">Inf</span>        <span class="cn">Inf</span> </span>
+<span id="cb17-13"><a href="aed-bi.html#cb17-13" aria-hidden="true" tabindex="-1"></a>       Sum </span>
+<span id="cb17-14"><a href="aed-bi.html#cb17-14" aria-hidden="true" tabindex="-1"></a>       <span class="cn">Inf</span> </span></code></pre></div>
+</div>
+<div id="de-y-x-in-6.556.6" class="section level3" number="3.8.2">
+<h3>
+<span class="header-section-number">3.8.2</span> De <span class="math inline">\(Y | X \in (6.55,6.6]\)</span><a class="anchor" aria-label="anchor" href="#de-y-x-in-6.556.6"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="aed-bi.html#cb18-1" aria-hidden="true" tabindex="-1"></a>tabla[<span class="dv">5</span>,]</span>
+<span id="cb18-2"><a href="aed-bi.html#cb18-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">28</span>,<span class="dv">30</span>] (<span class="dv">30</span>,<span class="dv">32</span>] (<span class="dv">32</span>,<span class="dv">34</span>] (<span class="dv">34</span>,<span class="dv">36</span>] (<span class="dv">36</span>,<span class="dv">38</span>]     Sum </span>
+<span id="cb18-3"><a href="aed-bi.html#cb18-3" aria-hidden="true" tabindex="-1"></a>     <span class="dv">17</span>     <span class="dv">129</span>      <span class="dv">36</span>       <span class="dv">2</span>       <span class="dv">0</span>     <span class="dv">184</span> </span>
+<span id="cb18-4"><a href="aed-bi.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(tabla[<span class="dv">5</span>,] <span class="sc">/</span> tabla[<span class="dv">5</span>, <span class="dv">6</span>], <span class="dv">2</span>)</span>
+<span id="cb18-5"><a href="aed-bi.html#cb18-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">28</span>,<span class="dv">30</span>] (<span class="dv">30</span>,<span class="dv">32</span>] (<span class="dv">32</span>,<span class="dv">34</span>] (<span class="dv">34</span>,<span class="dv">36</span>] (<span class="dv">36</span>,<span class="dv">38</span>]     Sum </span>
+<span id="cb18-6"><a href="aed-bi.html#cb18-6" aria-hidden="true" tabindex="-1"></a>   <span class="fl">0.09</span>    <span class="fl">0.70</span>    <span class="fl">0.20</span>    <span class="fl">0.01</span>    <span class="fl">0.00</span>    <span class="fl">1.00</span> </span></code></pre></div>
+</div>
+</div>
+<div id="independencia-de-variables" class="section level2" number="3.9">
+<h2>
+<span class="header-section-number">3.9</span> Independencia de variables<a class="anchor" aria-label="anchor" href="#independencia-de-variables"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p>Cuando la distribución de una variable <span class="math inline">\(X\)</span> no varía en función
+de los valores de otra variable <span class="math inline">\(Y\)</span>, entonces las variables <span class="math inline">\(X\)</span> e
+<span class="math inline">\(Y\)</span> son estadísticamente independientes.</p></li>
+<li><p>Equivalentemente, la distribución de <span class="math inline">\(X | Y=y_j\)</span> es igual para
+cualquier valor de <span class="math inline">\(y_j\)</span></p></li>
+<li><p>Si son independientes, se cumple:</p></li>
+</ul>
+<p><span class="math display">\[f_{ij} = f_{i.}\cdot f_{.j}\]</span></p>
+<p>class: center, middle, inverse, toc</p>
+</div>
+<div id="representación-gráfica-conjunta" class="section level2" number="3.10">
+<h2>
+<span class="header-section-number">3.10</span> 2.3. Representación gráfica conjunta<a class="anchor" aria-label="anchor" href="#representaci%C3%B3n-gr%C3%A1fica-conjunta"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="gráficos-de-barras-para-frecuencias-conjuntas" class="section level2" number="3.11">
+<h2>
+<span class="header-section-number">3.11</span> Gráficos de barras para frecuencias conjuntas<a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos-de-barras-para-frecuencias-conjuntas"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">lab</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">tipo</span>, fill <span class="op">=</span> <span class="va">analista</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="03-aed-bi_files/figure-html/unnamed-chunk-10-1.png" width="80%" style="display: block; margin: auto;"></div>
+<p>Varias variantes: apiladas, pegadas, saturadas, horizontales</p>
+</div>
+<div id="el-gráfico-de-dispersión" class="section level2" number="3.12">
+<h2>
+<span class="header-section-number">3.12</span> El gráfico de dispersión<a class="anchor" aria-label="anchor" href="#el-gr%C3%A1fico-de-dispersi%C3%B3n"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p>Ejes cartesianos <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span></p></li>
+<li><p>Una variable en cada eje</p></li>
+<li><p>Un punto en cada par <span class="math inline">\((x_i, y_i)\)</span></p></li>
+<li><p>A simple vista se puede ver si hay relación lineal o de otro tipo</p></li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">lab</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">ph</span>, y <span class="op">=</span> <span class="va">est</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="03-aed-bi_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
+</div>
+<div id="gráfico-de-dispersión-enriquecido" class="section level2" number="3.13">
+<h2>
+<span class="header-section-number">3.13</span> Gráfico de dispersión “enriquecido”<a class="anchor" aria-label="anchor" href="#gr%C3%A1fico-de-dispersi%C3%B3n-enriquecido"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">lab</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">ph</span>, y <span class="op">=</span> <span class="va">est</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Gráfico de dispersión con ajuste de regresión"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="03-aed-bi_files/figure-html/unnamed-chunk-12-1.png" width="672"></div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">lab</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">ph</span>, y <span class="op">=</span> <span class="va">est</span>, col <span class="op">=</span> <span class="va">tipo</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Gráfico de dispersión identificando grupos"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="03-aed-bi_files/figure-html/unnamed-chunk-13-1.png" width="672"></div>
+</div>
+<div id="gráficos-de-cajas-por-grupos" class="section level2" number="3.14">
+<h2>
+<span class="header-section-number">3.14</span> Gráficos de cajas por grupos<a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos-de-cajas-por-grupos"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">lab</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">tipo</span>, y <span class="op">=</span> <span class="va">ph</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"pH por tipo de queso"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="03-aed-bi_files/figure-html/unnamed-chunk-14-1.png" width="672"></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">lab</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">analista</span>, y <span class="op">=</span> <span class="va">ph</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>col <span class="op">=</span> <span class="va">tipo</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"pH por analista"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="03-aed-bi_files/figure-html/unnamed-chunk-15-1.png" width="672"></div>
+<div id="intro-multivariante" class="section level3" number="3.14.1">
+<h3>
+<span class="header-section-number">3.14.1</span> Intro multivariante<a class="anchor" aria-label="anchor" href="#intro-multivariante"><i class="fas fa-link"></i></a>
+</h3>
 
+</div>
+</div>
 </div>
 
 
@@ -98,7 +626,37 @@
 <div class="next"><a href="introp.html"><span class="header-section-number">4</span> Introducción a la Probabilidad</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="Índice capítulo"><h2>Índice capítulo</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#aed-bi"><span class="header-section-number">3</span> Análisis exploratorio bivariante</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#aed-bi"><span class="header-section-number">3</span> Análisis exploratorio bivariante</a></li>
+<li><a class="nav-link" href="#datos-bivariantes-y-multivariantes"><span class="header-section-number">3.1</span> Datos bivariantes y multivariantes</a></li>
+<li>
+<a class="nav-link" href="#frecuencias-conjuntas-marginales-y-condicionadas"><span class="header-section-number">3.2</span> Frecuencias conjuntas, marginales y condicionadas</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#distribuci%C3%B3n-conjunta-de-frecuencias"><span class="header-section-number">3.2.1</span> Distribución conjunta de frecuencias</a></li></ul>
+</li>
+<li><a class="nav-link" href="#ejemplo-variables-continuas"><span class="header-section-number">3.3</span> Ejemplo: Variables continuas</a></li>
+<li><a class="nav-link" href="#frecuencias-marginales"><span class="header-section-number">3.4</span> Frecuencias marginales</a></li>
+<li><a class="nav-link" href="#ejemplo-frecuencias-marginales"><span class="header-section-number">3.5</span> Ejemplo frecuencias marginales</a></li>
+<li>
+<a class="nav-link" href="#ejemplo-distribuciones-marginales"><span class="header-section-number">3.6</span> Ejemplo distribuciones marginales</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#de-x"><span class="header-section-number">3.6.1</span> De \(X\)</a></li>
+<li><a class="nav-link" href="#de-y"><span class="header-section-number">3.6.2</span> De \(Y\)</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#distribuciones-condicionadas"><span class="header-section-number">3.7</span> Distribuciones condicionadas</a></li>
+<li>
+<a class="nav-link" href="#ejemplo-distribuciones-condicionadas"><span class="header-section-number">3.8</span> Ejemplo distribuciones condicionadas</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#de-x-y-in-3032"><span class="header-section-number">3.8.1</span> De \(X | Y \in (30,32]\)</a></li>
+<li><a class="nav-link" href="#de-y-x-in-6.556.6"><span class="header-section-number">3.8.2</span> De \(Y | X \in (6.55,6.6]\)</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#independencia-de-variables"><span class="header-section-number">3.9</span> Independencia de variables</a></li>
+<li><a class="nav-link" href="#representaci%C3%B3n-gr%C3%A1fica-conjunta"><span class="header-section-number">3.10</span> 2.3. Representación gráfica conjunta</a></li>
+<li><a class="nav-link" href="#gr%C3%A1ficos-de-barras-para-frecuencias-conjuntas"><span class="header-section-number">3.11</span> Gráficos de barras para frecuencias conjuntas</a></li>
+<li><a class="nav-link" href="#el-gr%C3%A1fico-de-dispersi%C3%B3n"><span class="header-section-number">3.12</span> El gráfico de dispersión</a></li>
+<li><a class="nav-link" href="#gr%C3%A1fico-de-dispersi%C3%B3n-enriquecido"><span class="header-section-number">3.13</span> Gráfico de dispersión “enriquecido”</a></li>
+<li>
+<a class="nav-link" href="#gr%C3%A1ficos-de-cajas-por-grupos"><span class="header-section-number">3.14</span> Gráficos de cajas por grupos</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#intro-multivariante"><span class="header-section-number">3.14.1</span> Intro multivariante</a></li></ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -115,7 +673,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-01-30.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-02-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

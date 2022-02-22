@@ -634,13 +634,22 @@ histo <- hist(lab$ph, plot = FALSE)
 lab <- lab |> 
   mutate(clase = cut(ph, breaks = histo$breaks))
 levels(lab$clase) <- c(levels(lab$clase), "(6.4,6.45]")
-as.data.frame(table(lab$clase)) |>
-  mutate(F = cumsum(Freq)/nrow(lab)) |> 
-  gt(caption = "Tabla de frecuencias por intervalos") |>
-  cols_label(Var1 = "\\((L_{i-1}, L_i]\\)",
-             Freq = "\\(n_i\\)",
-             F = "\\(F_i\\)") |> 
-  fmt_number(3, decimals = 3)
+tdata <- as.data.frame(table(lab$clase)) |>
+  mutate(F = cumsum(Freq)/nrow(lab))
+
+if(is_latex_output()){
+  tdata |> kable(digits = 3, 
+                 col.names = c("\\((L_{i-1}, L_i]\\)",
+                               "\\(n_i\\)",
+                               F = "\\(F_i\\)"),
+                 caption = "Tabla de frecuencias por intervalos")
+} else {
+  tdata |>  gt(caption = "Tabla de frecuencias por intervalos") |>
+    cols_label(Var1 = "\\((L_{i-1}, L_i]\\)",
+               Freq = "\\(n_i\\)",
+               F = "\\(F_i\\)") |>
+    fmt_number(3, decimals = 3)
+}
 ```
 
 ### El histograma y el gráfico de densidad
@@ -676,7 +685,7 @@ La figura \@ref(fig:histunif) representa el histograma de la variable `sal`. Mue
 
 
 ```{r histcont, fig.width=8, fig.height=5, fig.align='center', out.width="100%", echo=FALSE, fig.cap="Histograma de la variable ph"}
-hist(lab$ph, col = "#CB0017", main = "Historama pH",
+hist(lab$ph, col = "#CB0017", main = "Histograma pH",
      xlab = "pH", ylab = "Frecuencia", border = "white")
 ```
 
@@ -685,7 +694,7 @@ lab |>
   ggplot(aes(bacteriax)) +
   geom_histogram(bins = 10, fill = "#CB0017", col = "white") +
   theme_bw() +
-  labs(title = "Historama recuento de bacterias",
+  labs(title = "Histograma recuento de bacterias",
      x = "Recuento de bacterias", 
      y = "Frecuencia")
 ```
@@ -694,7 +703,7 @@ lab |>
   ggplot(aes(sal)) +
   geom_histogram(bins = 10, fill = "#CB0017", col = "white") +
   theme_bw() +
-  labs(title = "Historama contenido en sal",
+  labs(title = "Histograma contenido en sal",
      x = "Contenido en sal", 
      y = "Frecuencia")
 ```
