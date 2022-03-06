@@ -30,11 +30,11 @@ con muestras, ya que generalmente tomaremos decisiones o llegaremos a conclusion
 sobre el futuro, y esos datos seguro que no los tenemos. Por eso es importante
 considerar siempre este paradigma población-muestra. La **Estadística Descriptiva**
 se ocupa del análisis exploratorio de datos en sentido amplio, que aplicaremos
-sobre los datos concretos de la muestra en este unidad y la siguiente. La
+sobre los datos concretos de la muestra en este capítulo y el siguiente. La
 **Inferencia Estadística** hace referencia a los métodos mediante los cuales,
 a través de los datos de la muestra, tomaremos decisiones, explicaremos relaciones,
 o haremos predicciones sobre la población. Para ello, haremos uso de la 
-**Probabilidad**, que veremos en la unidad \@ref(introp), aplicando
+**Probabilidad**, que veremos en el capítulo \@ref(introp), aplicando
 el método más adecuado. 
 En estos métodos será muy importante considerar el método de obtención de la muestra
 que, en términos generales, debe ser representativa de la población para que las
@@ -79,7 +79,7 @@ representa en el eje vertical los valores de las variables, y en el eje horizont
 los nombres de cada variable. Vemos que, a pesar de tener medias prácticamente iguales,
 los datos son muy diferentes.
 
-```{r anscombeuni, echo = FALSE, fig.cap="Representación de las variables del cuarteto de Anscombe", fig.width=8 }
+```{r anscombeuni, echo = FALSE, fig.cap="Representación de las variables del cuarteto de Anscombe", fig.width=8, out.width="100%" }
 library(tidyr)
 library(ggplot2)
 gdata <- 
@@ -97,9 +97,9 @@ cuando analizamos las variables conjuntamente, todavía es más evidente. La
 figura \@ref(fig:anscombelm) muestra los cuatro gráficos que constituyen
 "El cuarteto de Anscombe", y que se puede obtener de la propia ayuda del
 conjunto de datos (`example(anscombe)`). La línea de regresión que se ajusta
-es prácticamente la misma (veremos la regresión en la unidad \@ref(ch-regresion)).
+es prácticamente la misma (veremos la regresión en el capítulo \@ref(aed-bi)).
 Además, si calculáramos los coeficientes de correlación entre las variables "x" e
-"y" de los cuatro gráficos, obtendríamos el mismo valor: 0.8163. 
+"y" de los cuatro gráficos, obtendríamos el mismo valor: 0,8163. 
 
 ```{r anscombelm, echo=FALSE, results='hide', fig.cap="Los cuatro gráficos que constituyen 'El cuarteto de Anscombe'"}
 ff <- y ~ x
@@ -791,7 +791,7 @@ La **mediana** es otra medida de posición central que indica el valor que divid
 en dos mitades: los que son menores que la mediana y los que son mayores que la mediana.
 La principal ventaja es que está muy poco influenciada por valores extremos. Para calcularla, se ordenan todos los datos $x_i, i=1, \ldots, n$ de menor a mayor. Si el número de datos es impar, el que ocupa la posición central, $[n/2]+1$ es la mediana. Si el número de datos es par, la mediana es la media aritmética de los dos valores centrales, $n/2$ y $n/2+1$.
 
-Si tenemos una tabla de frecuencias de una variable discreta, la mediana es el primer valor $x_i$ que cumpla $N_i\geq n/2$ o, equivalentemente, $Fi \geq 0.5$. Si lo que tenemos es una tabla de frecuencias por intervalos de una variable continua, entonces podemos tomar como intervalo mediano el primero para el cual $Fi \geq 0.5$ y usar la marca de clase de ese intervalo $c_i$ como valor representativo. También se puede utilizar la siguiente fórmula, aunque al igual que con la moda, el valor va a depender de la manera en que hayamos construido los intervalos:
+Si tenemos una tabla de frecuencias de una variable discreta, la mediana es el primer valor $x_i$ que cumpla $N_i\geq n/2$ o, equivalentemente, $F_i \geq 0{,}5$. Si lo que tenemos es una tabla de frecuencias por intervalos de una variable continua, entonces podemos tomar como intervalo mediano el primero para el cual $Fi \geq 0{,}5$ y usar la marca de clase de ese intervalo $c_i$ como valor representativo. También se puede utilizar la siguiente fórmula, aunque al igual que con la moda, el valor va a depender de la manera en que hayamos construido los intervalos:
 
 $$Me = L_i + \frac{\frac{n}{2} - N_{i-1}}{n_i}\cdot a_i.$$
 
@@ -946,6 +946,8 @@ que en el caso de la cuasivarianza quedaría:
 
 $$s^2= \frac{\sum\limits_{i=1}^n (x_i- \bar x)^2}{n-1} = \frac{n}{n-1} \left [\frac{1}{n}\sum\limits_{i=1}^n x_i^2 - \bar x^2\right ] = \frac{\sum\limits_{i=1}^n x_i^2}{n-1} - \frac{n\cdot\bar x^2}{n-1},$$
 
+$$s^2 = \frac{1}{n-1}\left (\sum\limits_{i=1}^n x_i^2 - n \bar x^2\right )$$
+
 Para variables discretas con datos agrupados y frecuencias absolutas, podríamos calcularlo así:
 
 $$
@@ -962,7 +964,7 @@ Análogamente, en variables continuas agrupadas en intervalos, sustituiríamos $
 :::{.rmdinfo data-latex=""}
 Lo normal es que en nuestro análisis de datos trabajemos con datos rectangulares como se describía en el apartado \@ref(orgdatos), y usemos software que haga los cálculos. No obstante, en ocasiones tenemos los datos solo en forma de tablas de frecuencias, por ejemplo de publicaciones oficiales o en revistas científicas, y podemos analizarlos aunque se pierda algo de precisión. También aparecen este tipo de datos cuando provienen de encuestas en las que los encuestados responden directamente un intervalo (por ejemplo de ingresos, gastos, cantidades consumidas, etc.)
 
-En todo caso, y aunque no tengamos que aplicar nunca la fórmula "a mano" es muy importante cómo se hace el cálculo para entender los métodos en los que después se utilizan estos estadísticos.
+En todo caso, y aunque no tengamos que aplicar nunca la fórmula "a mano" es muy importante saber cómo se hace el cálculo para entender los métodos en los que después se utilizan estos estadísticos.
 :::
 
 
@@ -975,7 +977,7 @@ entonces la varianza de $Y$ es: $b^2s^2_X$
 De las propiedades de la media y la varianza se deduce también que si:
 
 $$Z = \frac{X-\bar x}{s},$$
-entonces $\bar z = 0; s = 1$. Esta transformación es lo que llamamos "tipificar" (o escalar) la variable. Es útil para comparar distintas escalas, y mantiene la estructura correlación al aplicarlo a más de una variable. Veremos también su utilidad en variables aleatorias en el capítulo \@ref(vauni).
+entonces $\bar z = 0; s^2 = 1$. Esta transformación es lo que llamamos "tipificar" (o escalar) la variable. Es útil para comparar distintas escalas, y mantiene la estructura correlación al aplicarlo a más de una variable. Veremos también su utilidad en variables aleatorias en el capítulo \@ref(modelos).
 
 La desviación típica está en las unidades de la variable, y podemos relativizarla a la propia variable. Pero si queremos comparar la variabilidad de dos variables, necesitamos una medida comparable. El
 **coeficiente de variación** es una medida adimensional que nos sirve para este cometido:
