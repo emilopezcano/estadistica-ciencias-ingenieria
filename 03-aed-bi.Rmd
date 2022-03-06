@@ -668,7 +668,10 @@ Derivando e igualando a cero tenemos los siguientes valores que minimizan la fun
 
 $$b = \frac{s_{xy}}{s_x^2},$$
 $$a = \bar y - b \bar x.$$
+Es inmediato demostrar que la pendiente de la recta también la podemos
+calcular como:
 
+$$b = \frac{s_y}{s_x}r_{xy}.$$
 
 ### Interpretación de los coeficientes
 
@@ -708,9 +711,11 @@ y de ahí:
 
 $$r^2_{xy} = 1- \frac{s_\varepsilon^2}{s_y^2} \equiv R^2,$$
 
-que definimos como **coeficiente de determinación**, y su interpretación es como sigue. La varianza residual $s_\varepsilon^2$ es la variabilidad no explicada por la recta. Cuanto más se acerquen los puntos a la recta, mejor explicado está el modelo, y más pequeña es esta varianza. La varianza de $Y$, $s_y^2$, es la variabilidad Total. Por tanto, $\frac{s_\varepsilon^2}{s_y^2}$ es la proporción de variabilidad no explicada por la recta de regresión. Y entonces $R^2$ es **la proporción de variabilidad explicada por la regresión**.
+que definimos como **coeficiente de determinación**, y su interpretación es como sigue. La varianza residual $s_\varepsilon^2$ es la variabilidad no explicada por la recta. Cuanto más se acerquen los puntos a la recta, mejor explicado está el modelo, y más pequeña es esta varianza. La varianza de $Y$, $s_y^2$, es la variabilidad Total. Por tanto, $\frac{s_\varepsilon^2}{s_y^2}$ es la proporción de variabilidad no explicada por la recta de regresión. Y entonces $R^2$ es **la proporción de variabilidad explicada por la regresión**. 
 
-La expresión general $R^2 = 1- \frac{s_\varepsilon^2}{s_y^2}$ es válida para cualquier modelo de regresión en el que podamos calcular los residuos y su varianza. Pero la equivalencia $R^2=r^2$ solo solo es válida en el caso de la regresión lineal simple.
+
+
+La expresión general $R^2 = 1- \frac{s_\varepsilon^2}{s_y^2}$ es válida para cualquier modelo de regresión en el que podamos calcular los residuos y su varianza. Pero la equivalencia $R^2=r^2$ solo es válida en el caso de la regresión lineal simple.
 
 ```{r, echo=FALSE}
 ldata <- lab |> slice(1:15) |> select(mg, est) 
@@ -726,7 +731,7 @@ mod.c <- mod |> broom::tidy()
 En el ejemplo de la fábrica de quesos, tomemos $X$ la variable "materia grasa" e $Y$ el extracto seco total. Para simplificar el ejemplo, tomamos solo las 15 primeras observaciones, que se muestran en la tabla \@ref(tab:reglabt). La figura \@ref(fig:reglab) muestra la nube de puntos
 y la recta de regresión estimada por mínimos cuadrados. La recta de regresión estimada es:
 
-```{r}
+```{r, echo=FALSE}
 extract_eq(mod, use_coefs = TRUE, coef_digits = 3)
 ```
 
@@ -747,7 +752,7 @@ ldata |> t() |> kable(digits = 2, caption = "Datos de quesos para la regresión"
 ```
 
 
-```{r reglab, echo = FALSE, fig.height=4, fig.align='center', out.width="55%", fig.cap="Recta de regresión del extracto seco frente a la materia grasa"}
+```{r reglab, echo = FALSE, fig.height=4, fig.align='center', out.width="100%", fig.cap="Recta de regresión del extracto seco frente a la materia grasa"}
 
 ldata |> ggplot(aes(x=mg, y = est)) +
   geom_point() + theme_bw() +
@@ -764,7 +769,7 @@ relaciones no lineales. Una manera sencilla es aplicar logaritmos a la variable 
 
 Otra extensión es la regresión multivariante, generalizando a $p$ variables independientes, que incluso pueden ser cualitativas. Por último, los modelos
 lineales generalizados pueden estimar modelos con respuestas no continuas, por 
-çejemplo binarias (regresión logística) o de recuentos (regresión de Poisson).
+ejemplo binarias (regresión logística) o de recuentos (regresión de Poisson).
 
 
 :::{.rmdcafe data-latex=""}
@@ -775,6 +780,10 @@ que esta relación sea de causa-efecto. Para demostrar este tipo de
 relaciones, sería necesario confirmar con diseño de experimentos.
 
 Visita este enlace para ver algunas correlaciones espúreas (¡y curiosas!).
+
+https://tylervigen.com/spurious-correlations
+
+
 :::
 
 

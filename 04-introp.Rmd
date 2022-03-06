@@ -333,7 +333,7 @@ El suceso "ser investigador **o** mujer" en nuestro ejemplo de los sujetos en es
 $A \cap B$^[En ocasiones se utiliza la notación $A\cdot B$ o simplemente $AB$ para la intersección de sucesos.] 
 como el suceso que se cumple si ocurren $A$ y $B$ simultáneamente. El suceso
 intersección contiene únicamente los sucesos elementales comunes a ambos sucesos,
-véase la figura \@ref(fig:intersec)
+véase la figura \@ref(fig:intersec).
 
 Las operaciones de unión e intersección entre dos ducesos se extienden 
 inmediatamente a más de dos sucesos.
@@ -796,7 +796,8 @@ $$P \left (\bigcup\limits_{i=1}^{n} A_i \right ) = \sum\limits_{i=1}^{n} P(A_i).
 
 5. $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
 
-6. $P(\bigcup\limits_{i=1}^n A_i) = \sum\limits_{i=1}^n P(A_i) - \sum\limits_{i<j} P(A_i \cap A_j) + \sum\limits_{i<j<k} P(A_i \cap A_j \cap A_k) - \ldots + (-1)^{n-1} P \left(\bigcap\limits_{i=1}^n A_i\right )$.
+6. $P(\bigcup\limits_{i=1}^n A_i) = \sum\limits_{i=1}^n P(A_i) - \sum\limits_{i<j} P(A_i \cap A_j) + \sum\limits_{i<j<k} P(A_i \cap A_j \cap A_k) -$    
+$- \ldots + (-1)^{n-1} P \left(\bigcap\limits_{i=1}^n A_i\right ).$
 
 El primer teorema particulariza el tercer axioma a un conjunto finito de sucesos disjuntos del espacio muestral. El segundo teorema es una de las propiedades que más aplicaremos en cálculo
 de probabilidades, y nos indica cómo calcular la probabilidad de un suceso restándole a 1 la probabilidad de su complementario. El tercer teorema es una consecuencia del anterior y del primer axioma, por los cuales la probabilidad del suceso imposible es cero. El cuarto teorema es
@@ -881,11 +882,11 @@ de uniones e intersecciones. Sin embargo,
 se resuelve de forma casi inmediata sin consideramos la probabilidad del suceso
 complementario. Es decir, si:
 
-$$A: \text{Al menos dos personas de un grupo de 30 cumplen años el mismo día,}$$
+$A:$ Al menos dos personas de un grupo de 30 cumplen años el mismo día,
 
 entonces el suceso complementario es:
 
-$$A^c: \text{No hay dos personas en un grupo de 30 que cumplen años el mismo día.}$$
+$A^c$: No hay dos personas en un grupo de 30 que cumplen años el mismo día.
 
 Nótese cómo la probababilidad sería igual a 1 si el grupo de personas fuera 
 de 365 personas o 
