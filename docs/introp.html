@@ -210,7 +210,7 @@ tienen la ventaja de que son fáciles de comprender.</p>
 Los sucesos elementales son los resultados del 1 al 6; El espacio muestral
 es el conjunto de todos los sucesos elementales, es decir,
 <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span>;
-Si definimos el suceso <span class="math inline">\(A\)</span> “que salga número par,” entonces
+Si definimos el suceso <span class="math inline">\(A\)</span> “que salga número par”, entonces
 <span class="math inline">\(A = \{2, 4, 6\}\)</span>; el suceso <span class="math inline">\(A\)</span>
 ocurre si sale un 2, un 4, o un 6.
 </div>
@@ -265,7 +265,7 @@ En este caso, <span class="math inline">\(C_{5, 2} = \binom{5}{2} = 10\)</span>.
 <p><strong>R</strong></p>
 La función <code>choose</code> obtiene el número de combinaciones como se ilustra a continuación.
 </div>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt; [1] 10</span></code></pre></div>
 </div>
@@ -311,7 +311,7 @@ Figura 4.4: Representación de la intersección de dos sucesos
 </div>
 
 <div class="rmdejemplo">
-El suceso “ser hombre” <strong>y</strong> “ser investigador,” se corresponde con la
+El suceso “ser hombre” <strong>y</strong> “ser investigador”, se corresponde con la
 intersección (<span class="math inline">\(I \cap M^c\)</span>), e incluiría solo a los resultados del experimento
 en el que los potenciales usuarios hombres son directivos.
 </div>
@@ -331,7 +331,7 @@ Figura 4.5: Representación de sucesos disjuntos (izquierda), suceso contenido e
 </div>
 
 <div class="rmdejemplo">
-El suceso “ser hombre” y el suceso “ser mujer” son sucesos disjuntos (<span class="math inline">\(H \cap M = \emptyset\)</span>); El suceso “ser mujer joven” está incluido en el suceso “ser mujer,” e incluye a las mujeres jóvenes; El suceso “Ser hombre joven,”
+El suceso “ser hombre” y el suceso “ser mujer” son sucesos disjuntos (<span class="math inline">\(H \cap M = \emptyset\)</span>); El suceso “ser mujer joven” está incluido en el suceso “ser mujer”, e incluye a las mujeres jóvenes; El suceso “Ser hombre joven”,
 se podría representar como <span class="math inline">\(J-M = J \cap M^c\)</span>.
 </div>
 <p><strong>Partición del espacio muestral</strong>. Dada una colección de sucesos <span class="math inline">\(A_1, A_2, \ldots\)</span>,
@@ -502,7 +502,7 @@ personaje era un jugador profesional de la época que planteaba estos problemas
 en términos de si tenía ventaja al apostar a unos u otros resultados
 en el lanzamiento de dos dados. Este fue para muchos el origen de la teoría
 de la probabilidad. Una historia más detallada puede encontrarse en
-<span class="citation">Fernando Corbalán and Gerardo Sanz.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;La Conquista Del Azar. La Teoría de Probabilidades&lt;/em&gt;, Ensayo (RBA, 2010).&lt;/p&gt;"><sup>48</sup></a></span>
+<span class="citation">Fernando Corbalán and Gerardo Sanz<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;La Conquista Del Azar. La Teoría de Probabilidades&lt;/em&gt;, Ensayo (RBA, 2010).&lt;/p&gt;"><sup>48</sup></a></span>.
 </div>
 </div>
 <div id="ch07-defempirica" class="section level3" number="4.3.2">
@@ -577,7 +577,7 @@ población<a class="footnote-ref" tabindex="0" data-toggle="popover" data-conten
 Existen métodos
 específicos para asignar probabilidades subjetivas
 de forma racional, que quedan fuera de los objetivos de este libro, véase, por
-ejemplo, <span class="citation">Bruno de Finetti.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“Foresight: Its Logical Laws, Its Subjective Sources,”&lt;/span&gt; in &lt;em&gt;Breakthroughs in Statistics: Foundations and Basic Theory&lt;/em&gt;, ed. Samuel Kotz and Norman L. Johnson (New York, NY: Springer New York, 1992), 134–74, &lt;a href="https://doi.org/10.1007/978-1-4612-0919-5_10" role="doc-biblioref"&gt;https://doi.org/10.1007/978-1-4612-0919-5_10&lt;/a&gt;.&lt;/p&gt;'><sup>51</sup></a></span></p>
+ejemplo, <span class="citation">Bruno de Finetti<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“Foresight: Its Logical Laws, Its Subjective Sources,”&lt;/span&gt; in &lt;em&gt;Breakthroughs in Statistics: Foundations and Basic Theory&lt;/em&gt;, ed. Samuel Kotz and Norman L. Johnson (New York, NY: Springer New York, 1992), 134–74, &lt;a href="https://doi.org/10.1007/978-1-4612-0919-5_10" role="doc-biblioref"&gt;https://doi.org/10.1007/978-1-4612-0919-5_10&lt;/a&gt;.&lt;/p&gt;'><sup>51</sup></a></span>.</p>
 
 <div class="rmdejemplo">
 ¿Cuál es la probabilidad de que me contraten en mi primera entrevista de trabajo?
@@ -651,7 +651,7 @@ Los teoremas quinto y sexto nos permiten calcular probabilidades de la unión de
 conjuntos, sean o no disjuntos. Una consecuencia fundamental de las propiedades de la probabilidad es:</p>
 <p><span class="math display">\[ \boxed{0 \leq P(A) \leq 1}.\]</span></p>
 <p>La demostración de estos teoremas se puede encontrar, entre otros, en
-<span class="citation">M. D. Ugarte, A. F. Militino, and A. T. Arnholt.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Probability and Statistics with r, Second Edition&lt;/em&gt; (CRC Press, 2015).&lt;/p&gt;"><sup>53</sup></a></span> Asímismo, se puede comprobar fácilmente cómo las definiciones clásicas y frecuentistas cumplen todas estas
+<span class="citation">M. D. Ugarte, A. F. Militino, and A. T. Arnholt<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Probability and Statistics with r, Second Edition&lt;/em&gt; (CRC Press, 2015).&lt;/p&gt;"><sup>53</sup></a></span>. Asímismo, se puede comprobar fácilmente cómo las definiciones clásicas y frecuentistas cumplen todas estas
 propiedades y por lo tanto son coherentes con la definición axiomática de la probabilidad.</p>
 
 <div class="rmdejemplo">
@@ -687,7 +687,7 @@ o contar todas las posibilidades. Por ejemplo, conocidos <span class="math inlin
 
 <div class="rmdejemplo">
 <p>En nuestro ejemplo del estudio, podríamos estar
-interesados en el suceso “ser mujer o joven.” Este suceso se
+interesados en el suceso “ser mujer o joven”. Este suceso se
 correspondería con el suceso <span class="math inline">\(M \cup J\)</span>. Para calcular esta probabilidad,
 tendríamos en cuenta, según los datos del ejemplo, que <span class="math inline">\(P(M) = \frac{1}{2}=0.5\)</span>, <span class="math inline">\(P(J) = \frac{13}{52}=0.25\)</span>, y <span class="math inline">\(P(M \cap J)=\frac{5}{52}\simeq 0.0962\)</span>. Entonces:</p>
 <p><span class="math display">\[P(M \cup J)=P(M)+P(J)-P(M\cap J)=0.5+0.25-0.0962 \simeq 0.6538.\]</span></p>
@@ -752,7 +752,7 @@ la probabilidad pedida:</p>
 <p>El siguiente código realiza los cálculos paso a paso y devuelve la probabilidad pedida. Cambiando el valor <code>30</code> por otro número de personas cualquiera, se
 puede ver cómo aumenta la probabilidad.</p>
 </div>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ncumple</span> <span class="op">&lt;-</span> <span class="fl">30</span>
 <span class="va">cposibles</span> <span class="op">&lt;-</span> <span class="fl">365</span><span class="op">^</span><span class="va">ncumple</span>
 <span class="va">cfavorables</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/prod.html">prod</a></span><span class="op">(</span><span class="fl">365</span><span class="op">:</span><span class="op">(</span><span class="fl">365</span> <span class="op">-</span> <span class="va">ncumple</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
@@ -878,7 +878,7 @@ la probabilidad de aprobar el examen condicionado a que se ha aprobado el trabaj
 <div class="rmdejemplo">
 En nuestro ejemplo de sujetos en estudio aparece la probabilidad
 condicionada de la siguiente forma. Se dice que uno de cada seis hombres responde al tratamiento.
-Si definimos <span class="math inline">\(S\)</span> como el suceso “responder al tratamiento,”
+Si definimos <span class="math inline">\(S\)</span> como el suceso “responder al tratamiento”,
 entonces <span class="math inline">\(P(S|H)=\frac{1}{6}\simeq 0.1667\)</span>. Por otra parte, si quisiéramos calcular
 la probabilidad de que un sujeto sea mujer, condicionado a que
 es joven, entonces <span class="math inline">\(P(M | J)=\frac{P(M \cap J)}{P(J)} = \frac{5/52}{13/52}\simeq 0.3846\)</span>.
@@ -903,7 +903,7 @@ baraja. Por ejemplo, podemos calcular la probabilidad de sacar dos figuras
 seguidas de una baraja de cartas francesa, con 52 cartas en total de las cuales
 12 son figuras (J, Q, K de cada uno de los cuatro palos). Entonces, si definimos
 <span class="math inline">\(A_1\)</span> como “sacar figura en la primera extracción” y <span class="math inline">\(A_2\)</span> como “sacar figura
-en la segunda extracción,” entonces lo que buscamos es la probabilidad de que
+en la segunda extracción”, entonces lo que buscamos es la probabilidad de que
 ocurran los dos sucesos, <span class="math inline">\(P(A_1 \cap A_2)\)</span>:</p>
 <span class="math display">\[P(A_1 \cap A_2)=P(A_1)\cdot P(A_2 | A_1)=\frac{12}{52}\cdot \frac{11}{51}=\frac{11}{221}\simeq 0.0498.\]</span>
 </div>
@@ -924,7 +924,7 @@ extracciones. Si en una extracción sale blanca, devolvemos la bola
 a la urna y metemos 2 bolas blancas adicionales. ¿Qué probabilidad
 hay de sacar 3 blancas seguidas?</p>
 <p>Si definimos los sucesos <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span> y <span class="math inline">\(A_3\)</span> como “sacar bola blanca en la primera,
-segunda y tercera extracción respectivamente,” entonces estamos buscando:</p>
+segunda y tercera extracción respectivamente”, entonces estamos buscando:</p>
 <p><span class="math display">\[P(A_1 \cap A_2 \cap A_3),\]</span>
 que utilizando la regla de la cadena calcularemos como:</p>
 <p><span class="math display">\[P(A_1)\cdot P(A_2|A_1) \cdot P(A_3|A_1 \cap A_2).\]</span></p>
@@ -1037,7 +1037,7 @@ una pieza, ¿qué probabilidad hay de que ese componente sea defectuoso?</p>
 <p>La figura <a href="introp.html#fig:ptotalej">4.8</a> representa la partición del espacio muestral de
 este ejemplo.</p>
 <p>En este ejemplo se dan todos los elementos que habíamos descrito para
-calcular la probabilidad total del suceso <span class="math inline">\(B:\)</span> “el componente es defectuosos.”
+calcular la probabilidad total del suceso <span class="math inline">\(B:\)</span> “el componente es defectuosos”.
 Tenemos información parcial, en el sentido de que conocemos las probabilidades
 de ser defectuoso para cada uno de los tipos de lote, es decir <span class="math inline">\(P(B|A_1)=\frac{2}{50}=0.04\)</span>
 y <span class="math inline">\(P(B|A_2)=\frac{5}{50}=0.1\)</span>. También conocemos las probabilidades de los
@@ -1087,7 +1087,7 @@ a través de las frecuencias como con un desarrollo matemático se llega a
 la misma conclusión. Y la clave está en la <strong>probabilidad condicionada</strong>.</p>
 </div>
 <p>El problema de <em>Monty Hall</em> dio lugar a historias curiosas que se pueden consultar en
-<span class="citation">Corbalán and Sanz.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;La Conquista Del Azar. La Teoría de Probabilidades&lt;/em&gt;.&lt;/p&gt;"><sup>58</sup></a></span> Por ejemplo, el gran matemático Paul Erdös solo aceptó
+<span class="citation">Corbalán and Sanz<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;La Conquista Del Azar. La Teoría de Probabilidades&lt;/em&gt;.&lt;/p&gt;"><sup>58</sup></a></span>. Por ejemplo, el gran matemático Paul Erdös solo aceptó
 como buena la solución real tras comprobarla en una simulación por ordenador.
 Invito al lector a que concurse en la aplicación que
 se muestra a continuación<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;accesible también en &lt;a href="https://elcano.shinyapps.io/monty_hall" class="uri"&gt;https://elcano.shinyapps.io/monty_hall&lt;/a&gt;&lt;/p&gt;'><sup>59</sup></a>
@@ -1154,7 +1154,7 @@ probabilidad de ganar el coche.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-02-22.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -93,7 +93,7 @@ habitual es tener conjuntos de datos con varias variables (cuantitativas y cuali
 que podemos estudiar por separado (análisis univariante) o conjuntamente (análisis multivariante).</p>
 <p>El caso especial del <strong>análisis bivariante</strong> es cuando estudiamos dos características a la vez: <span class="math inline">\(X, Y\)</span>.
 Nos interesa la <strong>relación</strong> entre ellas, para lo que realizaremos resúmenes numéricos y gráficos.
-Los datos bivariantes se encontrarán como pares de valores <span class="math inline">\(x_i, y_i\)</span> para cada
+Los datos bivariantes se encontrarán como pares de valores <span class="math inline">\((x_i, y_i)\)</span> para cada
 observación <span class="math inline">\(i = 1, \ldots, n\)</span>.</p>
 <p>Cuando estudiamos más de dos variables, tenemos datos multivariantes. En este caso,
 estudiamos las relaciones “dos a dos” entre las variables (como en el caso bivariante) y
@@ -118,11 +118,9 @@ En el interior, se ponen las frecuencias conjuntas (absolutas, marginales o amba
 Si las dos variables son cualitativas, la tabla se denomina <strong>Tabla de contingencia</strong>.</p>
 <div class="rmdejemplo">
 <p>La Tabla <a href="aed-bi.html#tab:tabs">3.1</a> muestra la tabla de contingencia de los analistas y el tipo de queso en el ejemplo del análisis de la producción de quesos. Asignamos la variable <span class="math inline">\(X\)</span> al Analista (en filas) y la variable <span class="math inline">\(Y\)</span> al Tipo (en columnas).
-La Tabla <a href="aed-bi.html#tab:trel">3.2</a> muestra la tabla de frecuencias relativas de los mismos datos.</p>
+La Tabla <a href="aed-bi.html#tab:trel">3.2</a> muestra la tabla de frecuencias relativas de los mismos datos. El número total de datos es
+<span class="math inline">\(n= 1171\)</span>.</p>
 </div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">analista</span>, <span class="va">lab</span><span class="op">$</span><span class="va">tipo</span><span class="op">)</span>,
-      caption <span class="op">=</span> <span class="st">"Tabla de contingencia (frecuencias absolutas) de los analistas y el tipo de queso."</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
 <span id="tab:tabs">Tabla 3.1: </span>Tabla de contingencia (frecuencias absolutas) de los analistas y el tipo de queso.</caption>
@@ -159,9 +157,6 @@ La Tabla <a href="aed-bi.html#tab:trel">3.2</a> muestra la tabla de frecuencias 
 </tr>
 </tbody>
 </table></div>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">analista</span>, <span class="va">lab</span><span class="op">$</span><span class="va">tipo</span><span class="op">)</span><span class="op">)</span>, digits <span class="op">=</span> <span class="fl">2</span>, 
-      caption <span class="op">=</span> <span class="st">"Tabla de frecuencias relativas de los analistas y el tipo de queso."</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
 <span id="tab:trel">Tabla 3.2: </span>Tabla de frecuencias relativas de los analistas y el tipo de queso.</caption>
@@ -198,27 +193,18 @@ La Tabla <a href="aed-bi.html#tab:trel">3.2</a> muestra la tabla de frecuencias 
 </tr>
 </tbody>
 </table></div>
-</div>
-</div>
-<div id="ejemplo-variables-continuas" class="section level2" number="3.3">
-<h2>
-<span class="header-section-number">3.3</span> Ejemplo: Variables continuas<a class="anchor" aria-label="anchor" href="#ejemplo-variables-continuas"><i class="fas fa-link"></i></a>
-</h2>
+<p>En el caso de variables continuas, debemos tener los datos agrupados en intervalos (clases).</p>
+<div class="rmdejemplo">
+<p>La tabla <a href="aed-bi.html#tab:tcont">3.3</a> contiene las frecuencias absolutas conjuntas
+de las variables:</p>
 <ul>
-<li>Debemos tener los datos agrupados en intervalos (clases)</li>
-<li>
-<span class="math inline">\(X\)</span> = ph (filas); <span class="math inline">\(Y\)</span> = est (columnas)</li>
+<li><p><span class="math inline">\(X\)</span> = ph (filas);</p></li>
+<li><p><span class="math inline">\(Y\)</span> = est (columnas)</p></li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">histo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">ph</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="va">histo2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">est</span>, plot <span class="op">=</span> <span class="cn">FALSE</span>, breaks <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
-<span class="va">lab</span> <span class="op">&lt;-</span> <span class="va">lab</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>clase_ph <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">ph</span>, breaks <span class="op">=</span> <span class="va">histo</span><span class="op">$</span><span class="va">breaks</span><span class="op">)</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>clase_est <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">est</span>, breaks <span class="op">=</span> <span class="va">histo2</span><span class="op">$</span><span class="va">breaks</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">clase_ph</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">clase_ph</span><span class="op">)</span>, <span class="st">"(6.4,6.45]"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">clase_ph</span>, <span class="va">lab</span><span class="op">$</span><span class="va">clase_est</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+</div>
 <div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:tcont">Tabla 3.3: </span>Tabla de frecuencias conjunta del pH y el extracto seco total agrupadas en intervalos.</caption>
 <thead><tr class="header">
 <th align="left"></th>
 <th align="right">(28,30]</th>
@@ -311,311 +297,2549 @@ La Tabla <a href="aed-bi.html#tab:trel">3.2</a> muestra la tabla de frecuencias 
 </tbody>
 </table></div>
 </div>
-<div id="frecuencias-marginales" class="section level2" number="3.4">
-<h2>
-<span class="header-section-number">3.4</span> Frecuencias marginales<a class="anchor" aria-label="anchor" href="#frecuencias-marginales"><i class="fas fa-link"></i></a>
-</h2>
+<div id="distribución-marginal" class="section level3" number="3.2.2">
+<h3>
+<span class="header-section-number">3.2.2</span> Distribución marginal<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-marginal"><i class="fas fa-link"></i></a>
+</h3>
+<p>Si partimos de la distribución conjunta, podemos obtener la de cada
+una de las variables (marginal) y estudiarla como datos univariantes.
+Basta con hacer las sumas por columnas, <span class="math inline">\((X)\)</span>, o por filas, <span class="math inline">\((Y)\)</span>:</p>
 <ul>
-<li><p>Si partimos de la distribución conjunta, podemos obtener la de cada
-una de las variables (marginal) y estudiarla como en el apartado anterior</p></li>
-<li><p>Basta con hacer las sumas por columnas <span class="math inline">\((X)\)</span> o por filas <span class="math inline">\((Y)\)</span>:</p></li>
-<li><p>Frecuencias marginales absolutas de <span class="math inline">\(X\)</span>: <span class="math inline">\(n_{i.} = \sum\limits_{j = 1}^{n_j}n_{ij}\)</span></p></li>
-<li><p>Frecuencias marginales absolutas de <span class="math inline">\(Y\)</span>: <span class="math inline">\(n_{j.} = \sum\limits_{i = 1}^{n_i}n_{ij}\)</span></p></li>
-<li><p>Igual para relativas</p></li>
+<li><p>Frecuencias marginales absolutas de <span class="math inline">\(X\)</span>: <span class="math inline">\(n_{i\cdot} = \sum\limits_{j = 1}^{n_j}n_{ij}\)</span></p></li>
+<li><p>Frecuencias marginales absolutas de <span class="math inline">\(Y\)</span>: <span class="math inline">\(n_{\cdot j} = \sum\limits_{i = 1}^{n_i}n_{ij}\)</span></p></li>
 </ul>
+<p>donde <span class="math inline">\(n_i\)</span> es el número de clases de la variable <span class="math inline">\(X\)</span> y <span class="math inline">\(n_j\)</span> es el
+número de clases de la variable <span class="math inline">\(Y\)</span>. Análogamente, para frecuencias marginales relativas sumamos las frecuencias relativas conjuntas,
+o bien dividimos las frecuencias absolutas marginales entre el número total de datos <span class="math inline">\(n\)</span>.</p>
+<div class="rmdejemplo">
+<p>La tabla <a href="aed-bi.html#tab:tmar">3.4</a> contiene las frecuencias marginales como suma de filas y
+columnas de la distribución conjunta en la tabla <a href="aed-bi.html#tab:tcont">3.3</a>. Las distribuciones
+marginales de <span class="math inline">\(X\)</span> y de <span class="math inline">\(Y\)</span> por separado se muestran en las tablas <a href="aed-bi.html#tab:tmarx">3.5</a> y <a href="aed-bi.html#tab:tmary">3.6</a>
+respectivamente.</p>
 </div>
-<div id="ejemplo-frecuencias-marginales" class="section level2" number="3.5">
-<h2>
-<span class="header-section-number">3.5</span> Ejemplo frecuencias marginales<a class="anchor" aria-label="anchor" href="#ejemplo-frecuencias-marginales"><i class="fas fa-link"></i></a>
-</h2>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tabla</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">clase_ph</span>, <span class="va">lab</span><span class="op">$</span><span class="va">clase_est</span><span class="op">)</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/stats/addmargins.html">addmargins</a></span><span class="op">(</span><span class="op">)</span>
-<span class="va">tabla</span> |&gt; <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
-<th align="left"></th>
-<th align="right">(28,30]</th>
-<th align="right">(30,32]</th>
-<th align="right">(32,34]</th>
-<th align="right">(34,36]</th>
-<th align="right">(36,38]</th>
-<th align="right">Sum</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">(6.35,6.4]</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="left">(6.4,6.45]</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="left">(6.45,6.5]</td>
-<td align="right">1</td>
-<td align="right">2</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">3</td>
-</tr>
-<tr class="even">
-<td align="left">(6.5,6.55]</td>
-<td align="right">3</td>
-<td align="right">50</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">54</td>
-</tr>
-<tr class="odd">
-<td align="left">(6.55,6.6]</td>
-<td align="right">17</td>
-<td align="right">129</td>
-<td align="right">36</td>
-<td align="right">2</td>
-<td align="right">0</td>
-<td align="right">184</td>
-</tr>
-<tr class="even">
-<td align="left">(6.6,6.65]</td>
-<td align="right">18</td>
-<td align="right">195</td>
-<td align="right">167</td>
-<td align="right">20</td>
-<td align="right">4</td>
-<td align="right">404</td>
-</tr>
-<tr class="odd">
-<td align="left">(6.65,6.7]</td>
-<td align="right">9</td>
-<td align="right">160</td>
-<td align="right">182</td>
-<td align="right">18</td>
-<td align="right">0</td>
-<td align="right">369</td>
-</tr>
-<tr class="even">
-<td align="left">(6.7,6.75]</td>
-<td align="right">2</td>
-<td align="right">53</td>
-<td align="right">70</td>
-<td align="right">4</td>
-<td align="right">0</td>
-<td align="right">129</td>
-</tr>
-<tr class="odd">
-<td align="left">(6.75,6.8]</td>
-<td align="right">0</td>
-<td align="right">9</td>
-<td align="right">10</td>
-<td align="right">2</td>
-<td align="right">0</td>
-<td align="right">21</td>
-</tr>
-<tr class="even">
-<td align="left">(6.8,6.85]</td>
-<td align="right">0</td>
-<td align="right">4</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">6</td>
-</tr>
-<tr class="odd">
-<td align="left">Sum</td>
-<td align="right">50</td>
-<td align="right">602</td>
-<td align="right">468</td>
-<td align="right">46</td>
-<td align="right">5</td>
-<td align="right">1171</td>
-</tr>
-</tbody>
-</table></div>
-</div>
-<div id="ejemplo-distribuciones-marginales" class="section level2" number="3.6">
-<h2>
-<span class="header-section-number">3.6</span> Ejemplo distribuciones marginales<a class="anchor" aria-label="anchor" href="#ejemplo-distribuciones-marginales"><i class="fas fa-link"></i></a>
-</h2>
-<div id="de-x" class="section level3" number="3.6.1">
-<h3>
-<span class="header-section-number">3.6.1</span> De <span class="math inline">\(X\)</span><a class="anchor" aria-label="anchor" href="#de-x"><i class="fas fa-link"></i></a>
-</h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="aed-bi.html#cb15-1" aria-hidden="true" tabindex="-1"></a>tabla[, <span class="dv">6</span>]</span>
-<span id="cb15-2"><a href="aed-bi.html#cb15-2" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.35</span>,<span class="fl">6.4</span>] (<span class="fl">6.4</span>,<span class="fl">6.45</span>] (<span class="fl">6.45</span>,<span class="fl">6.5</span>] (<span class="fl">6.5</span>,<span class="fl">6.55</span>] (<span class="fl">6.55</span>,<span class="fl">6.6</span>] </span>
-<span id="cb15-3"><a href="aed-bi.html#cb15-3" aria-hidden="true" tabindex="-1"></a>         <span class="dv">1</span>          <span class="dv">0</span>          <span class="dv">3</span>         <span class="dv">54</span>        <span class="dv">184</span> </span>
-<span id="cb15-4"><a href="aed-bi.html#cb15-4" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.6</span>,<span class="fl">6.65</span>] (<span class="fl">6.65</span>,<span class="fl">6.7</span>] (<span class="fl">6.7</span>,<span class="fl">6.75</span>] (<span class="fl">6.75</span>,<span class="fl">6.8</span>] (<span class="fl">6.8</span>,<span class="fl">6.85</span>] </span>
-<span id="cb15-5"><a href="aed-bi.html#cb15-5" aria-hidden="true" tabindex="-1"></a>       <span class="dv">404</span>        <span class="dv">369</span>        <span class="dv">129</span>         <span class="dv">21</span>          <span class="dv">6</span> </span>
-<span id="cb15-6"><a href="aed-bi.html#cb15-6" aria-hidden="true" tabindex="-1"></a>       Sum </span>
-<span id="cb15-7"><a href="aed-bi.html#cb15-7" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1171</span> </span>
-<span id="cb15-8"><a href="aed-bi.html#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(tabla[, <span class="dv">6</span>] <span class="sc">/</span> tabla[<span class="dv">11</span>, <span class="dv">6</span>], <span class="dv">2</span>)</span>
-<span id="cb15-9"><a href="aed-bi.html#cb15-9" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.35</span>,<span class="fl">6.4</span>] (<span class="fl">6.4</span>,<span class="fl">6.45</span>] (<span class="fl">6.45</span>,<span class="fl">6.5</span>] (<span class="fl">6.5</span>,<span class="fl">6.55</span>] (<span class="fl">6.55</span>,<span class="fl">6.6</span>] </span>
-<span id="cb15-10"><a href="aed-bi.html#cb15-10" aria-hidden="true" tabindex="-1"></a>      <span class="fl">0.00</span>       <span class="fl">0.00</span>       <span class="fl">0.00</span>       <span class="fl">0.05</span>       <span class="fl">0.16</span> </span>
-<span id="cb15-11"><a href="aed-bi.html#cb15-11" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.6</span>,<span class="fl">6.65</span>] (<span class="fl">6.65</span>,<span class="fl">6.7</span>] (<span class="fl">6.7</span>,<span class="fl">6.75</span>] (<span class="fl">6.75</span>,<span class="fl">6.8</span>] (<span class="fl">6.8</span>,<span class="fl">6.85</span>] </span>
-<span id="cb15-12"><a href="aed-bi.html#cb15-12" aria-hidden="true" tabindex="-1"></a>      <span class="fl">0.35</span>       <span class="fl">0.32</span>       <span class="fl">0.11</span>       <span class="fl">0.02</span>       <span class="fl">0.01</span> </span>
-<span id="cb15-13"><a href="aed-bi.html#cb15-13" aria-hidden="true" tabindex="-1"></a>       Sum </span>
-<span id="cb15-14"><a href="aed-bi.html#cb15-14" aria-hidden="true" tabindex="-1"></a>      <span class="fl">1.00</span> </span></code></pre></div>
-</div>
-<div id="de-y" class="section level3" number="3.6.2">
-<h3>
-<span class="header-section-number">3.6.2</span> De <span class="math inline">\(Y\)</span><a class="anchor" aria-label="anchor" href="#de-y"><i class="fas fa-link"></i></a>
-</h3>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="aed-bi.html#cb16-1" aria-hidden="true" tabindex="-1"></a>tabla[<span class="dv">11</span>,]</span>
-<span id="cb16-2"><a href="aed-bi.html#cb16-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">28</span>,<span class="dv">30</span>] (<span class="dv">30</span>,<span class="dv">32</span>] (<span class="dv">32</span>,<span class="dv">34</span>] (<span class="dv">34</span>,<span class="dv">36</span>] (<span class="dv">36</span>,<span class="dv">38</span>]     Sum </span>
-<span id="cb16-3"><a href="aed-bi.html#cb16-3" aria-hidden="true" tabindex="-1"></a>     <span class="dv">50</span>     <span class="dv">602</span>     <span class="dv">468</span>      <span class="dv">46</span>       <span class="dv">5</span>    <span class="dv">1171</span> </span>
-<span id="cb16-4"><a href="aed-bi.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(tabla[<span class="dv">11</span>,] <span class="sc">/</span> tabla[<span class="dv">11</span>, <span class="dv">6</span>], <span class="dv">2</span>)</span>
-<span id="cb16-5"><a href="aed-bi.html#cb16-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">28</span>,<span class="dv">30</span>] (<span class="dv">30</span>,<span class="dv">32</span>] (<span class="dv">32</span>,<span class="dv">34</span>] (<span class="dv">34</span>,<span class="dv">36</span>] (<span class="dv">36</span>,<span class="dv">38</span>]     Sum </span>
-<span id="cb16-6"><a href="aed-bi.html#cb16-6" aria-hidden="true" tabindex="-1"></a>   <span class="fl">0.04</span>    <span class="fl">0.51</span>    <span class="fl">0.40</span>    <span class="fl">0.04</span>    <span class="fl">0.00</span>    <span class="fl">1.00</span> </span></code></pre></div>
-</div>
-</div>
-<div id="distribuciones-condicionadas" class="section level2" number="3.7">
-<h2>
-<span class="header-section-number">3.7</span> Distribuciones condicionadas<a class="anchor" aria-label="anchor" href="#distribuciones-condicionadas"><i class="fas fa-link"></i></a>
-</h2>
-<ul>
-<li><p>Distribución de una variable condicionada a algún/os valores de la otra</p></li>
-<li><p>Se representa por <span class="math inline">\(Y | X = x_i\)</span></p></li>
-<li><p>Se lee “Distribución de <span class="math inline">\(Y\)</span> condicionada a que <span class="math inline">\(X\)</span> es igual a <span class="math inline">\(x_i\)</span></p></li>
-<li><p>Son variables univariantes que se pueden estudiar como en el apartado anterior</p></li>
-</ul>
-</div>
-<div id="ejemplo-distribuciones-condicionadas" class="section level2" number="3.8">
-<h2>
-<span class="header-section-number">3.8</span> Ejemplo distribuciones condicionadas<a class="anchor" aria-label="anchor" href="#ejemplo-distribuciones-condicionadas"><i class="fas fa-link"></i></a>
-</h2>
-<div id="de-x-y-in-3032" class="section level3" number="3.8.1">
-<h3>
-<span class="header-section-number">3.8.1</span> De <span class="math inline">\(X | Y \in (30,32]\)</span><a class="anchor" aria-label="anchor" href="#de-x-y-in-3032"><i class="fas fa-link"></i></a>
-</h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="aed-bi.html#cb17-1" aria-hidden="true" tabindex="-1"></a>tabla[, <span class="dv">2</span>]</span>
-<span id="cb17-2"><a href="aed-bi.html#cb17-2" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.35</span>,<span class="fl">6.4</span>] (<span class="fl">6.4</span>,<span class="fl">6.45</span>] (<span class="fl">6.45</span>,<span class="fl">6.5</span>] (<span class="fl">6.5</span>,<span class="fl">6.55</span>] (<span class="fl">6.55</span>,<span class="fl">6.6</span>] </span>
-<span id="cb17-3"><a href="aed-bi.html#cb17-3" aria-hidden="true" tabindex="-1"></a>         <span class="dv">0</span>          <span class="dv">0</span>          <span class="dv">2</span>         <span class="dv">50</span>        <span class="dv">129</span> </span>
-<span id="cb17-4"><a href="aed-bi.html#cb17-4" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.6</span>,<span class="fl">6.65</span>] (<span class="fl">6.65</span>,<span class="fl">6.7</span>] (<span class="fl">6.7</span>,<span class="fl">6.75</span>] (<span class="fl">6.75</span>,<span class="fl">6.8</span>] (<span class="fl">6.8</span>,<span class="fl">6.85</span>] </span>
-<span id="cb17-5"><a href="aed-bi.html#cb17-5" aria-hidden="true" tabindex="-1"></a>       <span class="dv">195</span>        <span class="dv">160</span>         <span class="dv">53</span>          <span class="dv">9</span>          <span class="dv">4</span> </span>
-<span id="cb17-6"><a href="aed-bi.html#cb17-6" aria-hidden="true" tabindex="-1"></a>       Sum </span>
-<span id="cb17-7"><a href="aed-bi.html#cb17-7" aria-hidden="true" tabindex="-1"></a>       <span class="dv">602</span> </span>
-<span id="cb17-8"><a href="aed-bi.html#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(tabla[, <span class="dv">2</span>] <span class="sc">/</span> tabla[<span class="dv">2</span>, <span class="dv">6</span>], <span class="dv">2</span>)</span>
-<span id="cb17-9"><a href="aed-bi.html#cb17-9" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.35</span>,<span class="fl">6.4</span>] (<span class="fl">6.4</span>,<span class="fl">6.45</span>] (<span class="fl">6.45</span>,<span class="fl">6.5</span>] (<span class="fl">6.5</span>,<span class="fl">6.55</span>] (<span class="fl">6.55</span>,<span class="fl">6.6</span>] </span>
-<span id="cb17-10"><a href="aed-bi.html#cb17-10" aria-hidden="true" tabindex="-1"></a>       <span class="cn">NaN</span>        <span class="cn">NaN</span>        <span class="cn">Inf</span>        <span class="cn">Inf</span>        <span class="cn">Inf</span> </span>
-<span id="cb17-11"><a href="aed-bi.html#cb17-11" aria-hidden="true" tabindex="-1"></a>(<span class="fl">6.6</span>,<span class="fl">6.65</span>] (<span class="fl">6.65</span>,<span class="fl">6.7</span>] (<span class="fl">6.7</span>,<span class="fl">6.75</span>] (<span class="fl">6.75</span>,<span class="fl">6.8</span>] (<span class="fl">6.8</span>,<span class="fl">6.85</span>] </span>
-<span id="cb17-12"><a href="aed-bi.html#cb17-12" aria-hidden="true" tabindex="-1"></a>       <span class="cn">Inf</span>        <span class="cn">Inf</span>        <span class="cn">Inf</span>        <span class="cn">Inf</span>        <span class="cn">Inf</span> </span>
-<span id="cb17-13"><a href="aed-bi.html#cb17-13" aria-hidden="true" tabindex="-1"></a>       Sum </span>
-<span id="cb17-14"><a href="aed-bi.html#cb17-14" aria-hidden="true" tabindex="-1"></a>       <span class="cn">Inf</span> </span></code></pre></div>
-</div>
-<div id="de-y-x-in-6.556.6" class="section level3" number="3.8.2">
-<h3>
-<span class="header-section-number">3.8.2</span> De <span class="math inline">\(Y | X \in (6.55,6.6]\)</span><a class="anchor" aria-label="anchor" href="#de-y-x-in-6.556.6"><i class="fas fa-link"></i></a>
-</h3>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="aed-bi.html#cb18-1" aria-hidden="true" tabindex="-1"></a>tabla[<span class="dv">5</span>,]</span>
-<span id="cb18-2"><a href="aed-bi.html#cb18-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">28</span>,<span class="dv">30</span>] (<span class="dv">30</span>,<span class="dv">32</span>] (<span class="dv">32</span>,<span class="dv">34</span>] (<span class="dv">34</span>,<span class="dv">36</span>] (<span class="dv">36</span>,<span class="dv">38</span>]     Sum </span>
-<span id="cb18-3"><a href="aed-bi.html#cb18-3" aria-hidden="true" tabindex="-1"></a>     <span class="dv">17</span>     <span class="dv">129</span>      <span class="dv">36</span>       <span class="dv">2</span>       <span class="dv">0</span>     <span class="dv">184</span> </span>
-<span id="cb18-4"><a href="aed-bi.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(tabla[<span class="dv">5</span>,] <span class="sc">/</span> tabla[<span class="dv">5</span>, <span class="dv">6</span>], <span class="dv">2</span>)</span>
-<span id="cb18-5"><a href="aed-bi.html#cb18-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">28</span>,<span class="dv">30</span>] (<span class="dv">30</span>,<span class="dv">32</span>] (<span class="dv">32</span>,<span class="dv">34</span>] (<span class="dv">34</span>,<span class="dv">36</span>] (<span class="dv">36</span>,<span class="dv">38</span>]     Sum </span>
-<span id="cb18-6"><a href="aed-bi.html#cb18-6" aria-hidden="true" tabindex="-1"></a>   <span class="fl">0.09</span>    <span class="fl">0.70</span>    <span class="fl">0.20</span>    <span class="fl">0.01</span>    <span class="fl">0.00</span>    <span class="fl">1.00</span> </span></code></pre></div>
-</div>
-</div>
-<div id="independencia-de-variables" class="section level2" number="3.9">
-<h2>
-<span class="header-section-number">3.9</span> Independencia de variables<a class="anchor" aria-label="anchor" href="#independencia-de-variables"><i class="fas fa-link"></i></a>
-</h2>
-<ul>
-<li><p>Cuando la distribución de una variable <span class="math inline">\(X\)</span> no varía en función
-de los valores de otra variable <span class="math inline">\(Y\)</span>, entonces las variables <span class="math inline">\(X\)</span> e
-<span class="math inline">\(Y\)</span> son estadísticamente independientes.</p></li>
-<li><p>Equivalentemente, la distribución de <span class="math inline">\(X | Y=y_j\)</span> es igual para
-cualquier valor de <span class="math inline">\(y_j\)</span></p></li>
-<li><p>Si son independientes, se cumple:</p></li>
-</ul>
-<p><span class="math display">\[f_{ij} = f_{i.}\cdot f_{.j}\]</span></p>
-<p>class: center, middle, inverse, toc</p>
-</div>
-<div id="representación-gráfica-conjunta" class="section level2" number="3.10">
-<h2>
-<span class="header-section-number">3.10</span> 2.3. Representación gráfica conjunta<a class="anchor" aria-label="anchor" href="#representaci%C3%B3n-gr%C3%A1fica-conjunta"><i class="fas fa-link"></i></a>
-</h2>
-</div>
-<div id="gráficos-de-barras-para-frecuencias-conjuntas" class="section level2" number="3.11">
-<h2>
-<span class="header-section-number">3.11</span> Gráficos de barras para frecuencias conjuntas<a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos-de-barras-para-frecuencias-conjuntas"><i class="fas fa-link"></i></a>
-</h2>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">lab</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">tipo</span>, fill <span class="op">=</span> <span class="va">analista</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="03-aed-bi_files/figure-html/unnamed-chunk-10-1.png" width="80%" style="display: block; margin: auto;"></div>
-<p>Varias variantes: apiladas, pegadas, saturadas, horizontales</p>
-</div>
-<div id="el-gráfico-de-dispersión" class="section level2" number="3.12">
-<h2>
-<span class="header-section-number">3.12</span> El gráfico de dispersión<a class="anchor" aria-label="anchor" href="#el-gr%C3%A1fico-de-dispersi%C3%B3n"><i class="fas fa-link"></i></a>
-</h2>
-<ul>
-<li><p>Ejes cartesianos <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span></p></li>
-<li><p>Una variable en cada eje</p></li>
-<li><p>Un punto en cada par <span class="math inline">\((x_i, y_i)\)</span></p></li>
-<li><p>A simple vista se puede ver si hay relación lineal o de otro tipo</p></li>
-</ul>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">lab</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">ph</span>, y <span class="op">=</span> <span class="va">est</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="03-aed-bi_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
-</div>
-<div id="gráfico-de-dispersión-enriquecido" class="section level2" number="3.13">
-<h2>
-<span class="header-section-number">3.13</span> Gráfico de dispersión “enriquecido”<a class="anchor" aria-label="anchor" href="#gr%C3%A1fico-de-dispersi%C3%B3n-enriquecido"><i class="fas fa-link"></i></a>
-</h2>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">lab</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">ph</span>, y <span class="op">=</span> <span class="va">est</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Gráfico de dispersión con ajuste de regresión"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="03-aed-bi_files/figure-html/unnamed-chunk-12-1.png" width="672"></div>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">lab</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">ph</span>, y <span class="op">=</span> <span class="va">est</span>, col <span class="op">=</span> <span class="va">tipo</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Gráfico de dispersión identificando grupos"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="03-aed-bi_files/figure-html/unnamed-chunk-13-1.png" width="672"></div>
-</div>
-<div id="gráficos-de-cajas-por-grupos" class="section level2" number="3.14">
-<h2>
-<span class="header-section-number">3.14</span> Gráficos de cajas por grupos<a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos-de-cajas-por-grupos"><i class="fas fa-link"></i></a>
-</h2>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">lab</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">tipo</span>, y <span class="op">=</span> <span class="va">ph</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"pH por tipo de queso"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="03-aed-bi_files/figure-html/unnamed-chunk-14-1.png" width="672"></div>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">lab</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">analista</span>, y <span class="op">=</span> <span class="va">ph</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>col <span class="op">=</span> <span class="va">tipo</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"pH por analista"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="03-aed-bi_files/figure-html/unnamed-chunk-15-1.png" width="672"></div>
-<div id="intro-multivariante" class="section level3" number="3.14.1">
-<h3>
-<span class="header-section-number">3.14.1</span> Intro multivariante<a class="anchor" aria-label="anchor" href="#intro-multivariante"><i class="fas fa-link"></i></a>
-</h3>
+<div id="pluzwfrowp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
 
+#pluzwfrowp .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#pluzwfrowp .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pluzwfrowp .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#pluzwfrowp .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#pluzwfrowp .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pluzwfrowp .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pluzwfrowp .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#pluzwfrowp .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#pluzwfrowp .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#pluzwfrowp .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#pluzwfrowp .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#pluzwfrowp .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pluzwfrowp .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pluzwfrowp .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#pluzwfrowp .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#pluzwfrowp .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#pluzwfrowp .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pluzwfrowp .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#pluzwfrowp .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#pluzwfrowp .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pluzwfrowp .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#pluzwfrowp .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#pluzwfrowp .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pluzwfrowp .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pluzwfrowp .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#pluzwfrowp .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#pluzwfrowp .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pluzwfrowp .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pluzwfrowp .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pluzwfrowp .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pluzwfrowp .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pluzwfrowp .gt_left {
+  text-align: left;
+}
+
+#pluzwfrowp .gt_center {
+  text-align: center;
+}
+
+#pluzwfrowp .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#pluzwfrowp .gt_font_normal {
+  font-weight: normal;
+}
+
+#pluzwfrowp .gt_font_bold {
+  font-weight: bold;
+}
+
+#pluzwfrowp .gt_font_italic {
+  font-style: italic;
+}
+
+#pluzwfrowp .gt_super {
+  font-size: 65%;
+}
+
+#pluzwfrowp .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#pluzwfrowp .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#pluzwfrowp .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#pluzwfrowp .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#pluzwfrowp .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<div class="inline-table"><table class="gt_table">
+<caption>
+<span id="tab:tmar">Tabla 3.4: </span>Frecuencias marginales como suma de filas y columnas de la distribución conjunta</caption>
+  
+  <thead class="gt_col_headings"><tr>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">X\Y</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">(28,30]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">(30,32]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">(32,34]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">(34,36]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">(36,38]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Sum</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left">(6.35,6.4]</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right" style="font-weight: bold;">1</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.4,6.45]</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right" style="font-weight: bold;">0</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.45,6.5]</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">2</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right" style="font-weight: bold;">3</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.5,6.55]</td>
+<td class="gt_row gt_right">3</td>
+<td class="gt_row gt_right">50</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right" style="font-weight: bold;">54</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.55,6.6]</td>
+<td class="gt_row gt_right">17</td>
+<td class="gt_row gt_right">129</td>
+<td class="gt_row gt_right">36</td>
+<td class="gt_row gt_right">2</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right" style="font-weight: bold;">184</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.6,6.65]</td>
+<td class="gt_row gt_right">18</td>
+<td class="gt_row gt_right">195</td>
+<td class="gt_row gt_right">167</td>
+<td class="gt_row gt_right">20</td>
+<td class="gt_row gt_right">4</td>
+<td class="gt_row gt_right" style="font-weight: bold;">404</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.65,6.7]</td>
+<td class="gt_row gt_right">9</td>
+<td class="gt_row gt_right">160</td>
+<td class="gt_row gt_right">182</td>
+<td class="gt_row gt_right">18</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right" style="font-weight: bold;">369</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.7,6.75]</td>
+<td class="gt_row gt_right">2</td>
+<td class="gt_row gt_right">53</td>
+<td class="gt_row gt_right">70</td>
+<td class="gt_row gt_right">4</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right" style="font-weight: bold;">129</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.75,6.8]</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">9</td>
+<td class="gt_row gt_right">10</td>
+<td class="gt_row gt_right">2</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right" style="font-weight: bold;">21</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.8,6.85]</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">4</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right" style="font-weight: bold;">6</td>
+</tr>
+<tr>
+<td class="gt_row gt_left" style="font-weight: bold;">Sum</td>
+<td class="gt_row gt_right" style="font-weight: bold;">50</td>
+<td class="gt_row gt_right" style="font-weight: bold;">602</td>
+<td class="gt_row gt_right" style="font-weight: bold;">468</td>
+<td class="gt_row gt_right" style="font-weight: bold;">46</td>
+<td class="gt_row gt_right" style="font-weight: bold;">5</td>
+<td class="gt_row gt_right" style="font-weight: bold;">1171</td>
+</tr>
+</tbody>
+</table></div>
 </div>
+<div id="sqdedzlkia" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#sqdedzlkia .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#sqdedzlkia .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#sqdedzlkia .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#sqdedzlkia .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#sqdedzlkia .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sqdedzlkia .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#sqdedzlkia .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#sqdedzlkia .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#sqdedzlkia .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#sqdedzlkia .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#sqdedzlkia .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#sqdedzlkia .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#sqdedzlkia .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#sqdedzlkia .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#sqdedzlkia .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#sqdedzlkia .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#sqdedzlkia .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sqdedzlkia .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#sqdedzlkia .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#sqdedzlkia .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sqdedzlkia .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#sqdedzlkia .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#sqdedzlkia .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sqdedzlkia .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sqdedzlkia .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#sqdedzlkia .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#sqdedzlkia .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sqdedzlkia .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#sqdedzlkia .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sqdedzlkia .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#sqdedzlkia .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sqdedzlkia .gt_left {
+  text-align: left;
+}
+
+#sqdedzlkia .gt_center {
+  text-align: center;
+}
+
+#sqdedzlkia .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#sqdedzlkia .gt_font_normal {
+  font-weight: normal;
+}
+
+#sqdedzlkia .gt_font_bold {
+  font-weight: bold;
+}
+
+#sqdedzlkia .gt_font_italic {
+  font-style: italic;
+}
+
+#sqdedzlkia .gt_super {
+  font-size: 65%;
+}
+
+#sqdedzlkia .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#sqdedzlkia .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#sqdedzlkia .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#sqdedzlkia .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#sqdedzlkia .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<div class="inline-table"><table class="gt_table">
+<caption>
+<span id="tab:tmarx">Tabla 3.5: </span>Frecuencias marginales de X (pH)</caption>
+  
+  <thead class="gt_col_headings"><tr>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">\(x_i\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(n_{i·}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(f_{i·}\)</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left">(6.35,6.4]</td>
+<td class="gt_row gt_right">1</td>
+<td class="gt_row gt_right">0.001</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.4,6.45]</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0.000</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.45,6.5]</td>
+<td class="gt_row gt_right">3</td>
+<td class="gt_row gt_right">0.003</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.5,6.55]</td>
+<td class="gt_row gt_right">54</td>
+<td class="gt_row gt_right">0.046</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.55,6.6]</td>
+<td class="gt_row gt_right">184</td>
+<td class="gt_row gt_right">0.157</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.6,6.65]</td>
+<td class="gt_row gt_right">404</td>
+<td class="gt_row gt_right">0.345</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.65,6.7]</td>
+<td class="gt_row gt_right">369</td>
+<td class="gt_row gt_right">0.315</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.7,6.75]</td>
+<td class="gt_row gt_right">129</td>
+<td class="gt_row gt_right">0.110</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.75,6.8]</td>
+<td class="gt_row gt_right">21</td>
+<td class="gt_row gt_right">0.018</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.8,6.85]</td>
+<td class="gt_row gt_right">6</td>
+<td class="gt_row gt_right">0.005</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Sum</td>
+<td class="gt_row gt_right">1171</td>
+<td class="gt_row gt_right">1.000</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="rabqmxxybi" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#rabqmxxybi .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#rabqmxxybi .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rabqmxxybi .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#rabqmxxybi .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#rabqmxxybi .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rabqmxxybi .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rabqmxxybi .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#rabqmxxybi .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#rabqmxxybi .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#rabqmxxybi .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#rabqmxxybi .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#rabqmxxybi .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rabqmxxybi .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rabqmxxybi .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#rabqmxxybi .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#rabqmxxybi .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#rabqmxxybi .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rabqmxxybi .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#rabqmxxybi .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#rabqmxxybi .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rabqmxxybi .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#rabqmxxybi .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#rabqmxxybi .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rabqmxxybi .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rabqmxxybi .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#rabqmxxybi .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#rabqmxxybi .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rabqmxxybi .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rabqmxxybi .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rabqmxxybi .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rabqmxxybi .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rabqmxxybi .gt_left {
+  text-align: left;
+}
+
+#rabqmxxybi .gt_center {
+  text-align: center;
+}
+
+#rabqmxxybi .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#rabqmxxybi .gt_font_normal {
+  font-weight: normal;
+}
+
+#rabqmxxybi .gt_font_bold {
+  font-weight: bold;
+}
+
+#rabqmxxybi .gt_font_italic {
+  font-style: italic;
+}
+
+#rabqmxxybi .gt_super {
+  font-size: 65%;
+}
+
+#rabqmxxybi .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#rabqmxxybi .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#rabqmxxybi .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#rabqmxxybi .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#rabqmxxybi .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<div class="inline-table"><table class="gt_table">
+<caption>
+<span id="tab:tmary">Tabla 3.6: </span>Frecuencias marginales de Y (est)</caption>
+  
+  <thead class="gt_col_headings"><tr>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">\(y_j\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(n_{·j}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(f_{·j}\)</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left">(28,30]</td>
+<td class="gt_row gt_right">50</td>
+<td class="gt_row gt_right">0.043</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(30,32]</td>
+<td class="gt_row gt_right">602</td>
+<td class="gt_row gt_right">0.514</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(32,34]</td>
+<td class="gt_row gt_right">468</td>
+<td class="gt_row gt_right">0.400</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(34,36]</td>
+<td class="gt_row gt_right">46</td>
+<td class="gt_row gt_right">0.039</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(36,38]</td>
+<td class="gt_row gt_right">5</td>
+<td class="gt_row gt_right">0.004</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Sum</td>
+<td class="gt_row gt_right">1171</td>
+<td class="gt_row gt_right">1.000</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="distribución-condicionada" class="section level3" number="3.2.3">
+<h3>
+<span class="header-section-number">3.2.3</span> Distribución condicionada<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-condicionada"><i class="fas fa-link"></i></a>
+</h3>
+<p>La distribución de la variable <span class="math inline">\(Y\)</span> condicionada a un valor <span class="math inline">\(x_i\)</span> de la variable <span class="math inline">\(X\)</span>
+se representa por <span class="math inline">\(Y | X = x_i\)</span>. Análogamente se puede definir para varios valores
+de <span class="math inline">\(X\)</span>, o de <span class="math inline">\(X\)</span> condicionada a <span class="math inline">\(Y\)</span>.
+Se lee “Distribución de <span class="math inline">\(Y\)</span> condicionada a que <span class="math inline">\(X\)</span> es igual a <span class="math inline">\(x_i\)</span>”.
+Estas distribuciones condicionadas son variables univariantes que se pueden estudiar
+con análisis univariante.</p>
+<p>A partir de la distribución conjunta, tomaríamos la fila o columna que se corresponde
+con el valor “conocido”, es decir, el de la condición. Las frecuencias relativas se calcularán
+dividiendo entre la frecuencia marginal, y no entre la frecuencia total. Por ejemplo:</p>
+<p><span class="math display">\[f_{x_i|y=y_j}=\frac{n_{ij}}{n_{·j}}.\]</span></p>
+<div class="rmdejemplo">
+<p>La tabla <a href="aed-bi.html#tab:tcondx">3.7</a> muestra la distribución De <span class="math inline">\(X\)</span> condicionada a que
+<span class="math inline">\(Y = y_2\)</span>. Es decir, como es una variable numérica que hemos dividido en intervalos,
+condicionada a que <span class="math inline">\(Y \in (30,32]\)</span>. La tabla <a href="aed-bi.html#tab:tcondy">3.8</a>
+muestra la distribución de <span class="math inline">\(Y\)</span> condicionada a que
+<span class="math inline">\(X = x_5\)</span>, es decir, de <span class="math inline">\(Y | X \in (6.55,6.6]\)</span>.</p>
+</div>
+<div id="wamsdrqacn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#wamsdrqacn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#wamsdrqacn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wamsdrqacn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#wamsdrqacn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#wamsdrqacn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wamsdrqacn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wamsdrqacn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#wamsdrqacn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#wamsdrqacn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#wamsdrqacn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#wamsdrqacn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#wamsdrqacn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#wamsdrqacn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#wamsdrqacn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#wamsdrqacn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#wamsdrqacn .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#wamsdrqacn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wamsdrqacn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#wamsdrqacn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#wamsdrqacn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wamsdrqacn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#wamsdrqacn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#wamsdrqacn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wamsdrqacn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wamsdrqacn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#wamsdrqacn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#wamsdrqacn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wamsdrqacn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wamsdrqacn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wamsdrqacn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wamsdrqacn .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wamsdrqacn .gt_left {
+  text-align: left;
+}
+
+#wamsdrqacn .gt_center {
+  text-align: center;
+}
+
+#wamsdrqacn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#wamsdrqacn .gt_font_normal {
+  font-weight: normal;
+}
+
+#wamsdrqacn .gt_font_bold {
+  font-weight: bold;
+}
+
+#wamsdrqacn .gt_font_italic {
+  font-style: italic;
+}
+
+#wamsdrqacn .gt_super {
+  font-size: 65%;
+}
+
+#wamsdrqacn .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#wamsdrqacn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#wamsdrqacn .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#wamsdrqacn .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#wamsdrqacn .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<div class="inline-table"><table class="gt_table">
+<caption>
+<span id="tab:tcondx">Tabla 3.7: </span>Frecuencias condicionadas de X</caption>
+  
+  <thead class="gt_col_headings"><tr>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">\(x_i\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(n_{i|j=2}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(f_{i|j=2}\)</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left">(6.35,6.4]</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0.000</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.4,6.45]</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0.000</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.45,6.5]</td>
+<td class="gt_row gt_right">2</td>
+<td class="gt_row gt_right">0.003</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.5,6.55]</td>
+<td class="gt_row gt_right">50</td>
+<td class="gt_row gt_right">0.083</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.55,6.6]</td>
+<td class="gt_row gt_right">129</td>
+<td class="gt_row gt_right">0.214</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.6,6.65]</td>
+<td class="gt_row gt_right">195</td>
+<td class="gt_row gt_right">0.324</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.65,6.7]</td>
+<td class="gt_row gt_right">160</td>
+<td class="gt_row gt_right">0.266</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.7,6.75]</td>
+<td class="gt_row gt_right">53</td>
+<td class="gt_row gt_right">0.088</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.75,6.8]</td>
+<td class="gt_row gt_right">9</td>
+<td class="gt_row gt_right">0.015</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(6.8,6.85]</td>
+<td class="gt_row gt_right">4</td>
+<td class="gt_row gt_right">0.007</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Sum</td>
+<td class="gt_row gt_right">602</td>
+<td class="gt_row gt_right">1.000</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="egpwvjrsnk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#egpwvjrsnk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#egpwvjrsnk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#egpwvjrsnk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#egpwvjrsnk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#egpwvjrsnk .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#egpwvjrsnk .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#egpwvjrsnk .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#egpwvjrsnk .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#egpwvjrsnk .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#egpwvjrsnk .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#egpwvjrsnk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#egpwvjrsnk .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#egpwvjrsnk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#egpwvjrsnk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#egpwvjrsnk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#egpwvjrsnk .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#egpwvjrsnk .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#egpwvjrsnk .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#egpwvjrsnk .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#egpwvjrsnk .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#egpwvjrsnk .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#egpwvjrsnk .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#egpwvjrsnk .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#egpwvjrsnk .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#egpwvjrsnk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#egpwvjrsnk .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#egpwvjrsnk .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#egpwvjrsnk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#egpwvjrsnk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#egpwvjrsnk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#egpwvjrsnk .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#egpwvjrsnk .gt_left {
+  text-align: left;
+}
+
+#egpwvjrsnk .gt_center {
+  text-align: center;
+}
+
+#egpwvjrsnk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#egpwvjrsnk .gt_font_normal {
+  font-weight: normal;
+}
+
+#egpwvjrsnk .gt_font_bold {
+  font-weight: bold;
+}
+
+#egpwvjrsnk .gt_font_italic {
+  font-style: italic;
+}
+
+#egpwvjrsnk .gt_super {
+  font-size: 65%;
+}
+
+#egpwvjrsnk .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#egpwvjrsnk .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#egpwvjrsnk .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#egpwvjrsnk .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#egpwvjrsnk .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<div class="inline-table"><table class="gt_table">
+<caption>
+<span id="tab:tcondy">Tabla 3.8: </span>Frecuencias condicionadas de Y</caption>
+  
+  <thead class="gt_col_headings"><tr>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">\(y_{j}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(n_{j|i=5}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(f_{j|i=5}\)</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left">(28,30]</td>
+<td class="gt_row gt_right">17</td>
+<td class="gt_row gt_right">0.092</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(30,32]</td>
+<td class="gt_row gt_right">129</td>
+<td class="gt_row gt_right">0.701</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(32,34]</td>
+<td class="gt_row gt_right">36</td>
+<td class="gt_row gt_right">0.196</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(34,36]</td>
+<td class="gt_row gt_right">2</td>
+<td class="gt_row gt_right">0.011</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">(36,38]</td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_right">0.000</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Sum</td>
+<td class="gt_row gt_right">184</td>
+<td class="gt_row gt_right">1.000</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="independencia-de-variables" class="section level3" number="3.2.4">
+<h3>
+<span class="header-section-number">3.2.4</span> Independencia de variables<a class="anchor" aria-label="anchor" href="#independencia-de-variables"><i class="fas fa-link"></i></a>
+</h3>
+<p>Cuando la distribución de una variable <span class="math inline">\(X\)</span> no varía en función
+de los valores de otra variable <span class="math inline">\(Y\)</span>, entonces las variables <span class="math inline">\(X\)</span> e
+<span class="math inline">\(Y\)</span> son estadísticamente independientes. Equivalentemente, la distribución de <span class="math inline">\(X | Y=y_j\)</span> es igual para
+cualquier valor de <span class="math inline">\(y_j\)</span>. Es decir, si son independientes se cumple:</p>
+<p><span class="math display">\[f_{ij} = f_{i.}\cdot f_{.j} \;\forall i, j.\]</span></p>
+</div>
+</div>
+<div id="representación-gráfica-conjunta" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Representación gráfica conjunta<a class="anchor" aria-label="anchor" href="#representaci%C3%B3n-gr%C3%A1fica-conjunta"><i class="fas fa-link"></i></a>
+</h2>
+<div id="gráficos-de-barras" class="section level3" number="3.3.1">
+<h3>
+<span class="header-section-number">3.3.1</span> Gráficos de barras<a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos-de-barras"><i class="fas fa-link"></i></a>
+</h3>
+<p>Al igual que en el caso univariante, la mejor representación de tablas de
+frecuencias para variables cualitativas y para variables numéricas discretas
+sigue siendo el gráfico de barras. Hay varias variantes para representar las
+dos variables:</p>
+<ol style="list-style-type: decimal">
+<li><p>El eje horizontal del gráfico representa las clases de ambas variables
+<span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> de las variables, y se representan barras que representan las frecuencias absolutas conjuntas.</p></li>
+<li><p>El eje horizontal del gráfico representa las clases de una de las variables,
+la altura total de las barras representa la frecuencia absoluta de esa variable, y cada barra
+se divide en trozos cuya altura es la frecuencia absoluta conjunta.</p></li>
+<li><p>El eje horizontal del gráfico representa las clases de una de las variables,
+la altura total de las barras representa el 100% (todas la misma altura), y cada barra
+se divide en trozos cuya altura es la frecuencia relativa condicionada a la clase de la barra.</p></li>
+</ol>
+<div class="rmdejemplo">
+<p>La figura <a href="aed-bi.html#fig:barras2">3.1</a> muestra la representación de la tabla de
+frecuencias <a href="aed-bi.html#tab:tabs">3.1</a> con las barras adyacentes, mientras que la figura
+<a href="aed-bi.html#fig:barras2api">3.2</a> la representa con las barras apiladas.
+La figura <a href="aed-bi.html#fig:barras2cond">3.3</a> muestra la representación de la tabla de
+frecuencias de la variable “analista” condicionadas a cada tipo de queso.</p>
+</div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:barras2"></span>
+<img src="03-aed-bi_files/figure-html/barras2-1.png" alt="Gráfico de barras con frecuencias conjuntas" width="80%"><p class="caption">
+Figura 3.1: Gráfico de barras con frecuencias conjuntas
+</p>
+</div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:barras2api"></span>
+<img src="03-aed-bi_files/figure-html/barras2api-1.png" alt="Gráfico de barras con frecuencias conjuntas apiladas" width="80%"><p class="caption">
+Figura 3.2: Gráfico de barras con frecuencias conjuntas apiladas
+</p>
+</div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:barras2cond"></span>
+<img src="03-aed-bi_files/figure-html/barras2cond-1.png" alt="Gráfico de barras con frecuencias condicionadas" width="80%"><p class="caption">
+Figura 3.3: Gráfico de barras con frecuencias condicionadas
+</p>
+</div>
+<p>Los gráficos de sectores son una representación muy popular para representar
+tablas de frecuencias, aunque en general no están recomendados ya que el ojo humano
+no es muy bueno para apreciar las diferencias entre ángulos, en comparación
+con la capacidad para distinguir alturas.</p>
+<p>Las tablas de frecuencias conjuntas de variables continuas agrupadas en intervalos
+se pueden representar también mediante gráficos de barras igual que las
+cualitativas y las discretas. No obstante, si disponemos de todos los datos,
+es más adecuado utilizar las representaciones que se explican a continuación.</p>
+</div>
+<div id="el-gráfico-de-dispersión" class="section level3" number="3.3.2">
+<h3>
+<span class="header-section-number">3.3.2</span> El gráfico de dispersión<a class="anchor" aria-label="anchor" href="#el-gr%C3%A1fico-de-dispersi%C3%B3n"><i class="fas fa-link"></i></a>
+</h3>
+<p>Para dos variables continuas, la representación más adecuada es el gráfico de
+dispersión. El gráfico de dispersión es una “nube de puntos” representada
+en unos ejes cartesianos <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, que representan las escalas de cada una
+de las variables. Cada punto representa un par de valores <span class="math inline">\((x_i, y_i)\)</span>.
+Este gráfico permite apreciar a simple vista si hay relación lineal o de otro tipo
+entre ambas variables.</p>
+<div class="rmdejemplo">
+<p>La figura <a href="aed-bi.html#fig:disp">3.4</a> representa la variable “est” (extracto seco total) frente
+al pH en el ejemplo de los quesos. Se ha añadido transparencia a los puntos para
+apreciar dónde hay mayor densidad de datos. A simple vista no se ve una relación clara.
+Si añadimos algunos elementos al gráfico, podemos descubrir algo más. El gráfico
+de la izquierda de la figura <a href="aed-bi.html#fig:disp2">3.5</a> añade una línea de tendencia suavizada
+en la que parece que hay un intervalo del pH en el que el est crece en la misma dirección
+(entre 6,5 y 6,6 aproximadamente). En el gráfico de la derecha de la misma figura <a href="aed-bi.html#fig:disp2">3.5</a>
+hemos añadido una “capa” de color representando el tipo de queso. Aquí se puede ver claramente
+como la “masa” inferior de puntos se corresponde con quesos distintos a los de la
+“masa” superior.</p>
+</div>
+<div class="figure">
+<span style="display:block;" id="fig:disp"></span>
+<img src="03-aed-bi_files/figure-html/disp-1.png" alt="Gráfico de dispersión del ejemplo de los quesos" width="672"><p class="caption">
+Figura 3.4: Gráfico de dispersión del ejemplo de los quesos
+</p>
+</div>
+<div class="figure">
+<span style="display:block;" id="fig:disp2"></span>
+<img src="03-aed-bi_files/figure-html/disp2-1.png" alt="Gráficos de dispersión 'enriquecidos'" width="100%"><p class="caption">
+Figura 3.5: Gráficos de dispersión ‘enriquecidos’
+</p>
+</div>
+</div>
+<div id="gráficos-de-cajas-por-grupos" class="section level3" number="3.3.3">
+<h3>
+<span class="header-section-number">3.3.3</span> Gráficos de cajas por grupos<a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos-de-cajas-por-grupos"><i class="fas fa-link"></i></a>
+</h3>
+<p>Cuando queremos estudiar conjuntamente una variable cuantitativa y una
+variable cualitativa, la representación más adecuada es mediante gráficos
+de cajas representando en el eje horizontal las clases de la variable
+cualitativa. De esta forma podemos comparar los principales estadísticos
+en cada uno de los grupos. Los gráficos de cajas pueden ocultar información importante acerca de la distribución, por lo que otra representación muy útil
+es el gráfico de densidad por grupos. También se pueden añadir capas de puntos,
+o utilizar el gráfico de violín que suaviza la caja a la forma de la distribución.</p>
+<div class="rmdejemplo">
+<p>En la figura <a href="aed-bi.html#fig:bp2">3.6</a> se representa la relación entre el tipo de queso
+y el pH. El gráfico de la izquierda muestra el gráficos de cajas, y el de la derecha, un gráfico de violín. La figura <a href="aed-bi.html#fig:dens2">3.7</a> mustra gráficos de
+densidad de la variable pH para cada tipo de queso. En ambos casos se aprecia claramente el comportamiento diferente de los quesos de tipo C.</p>
+</div>
+<div class="figure">
+<span style="display:block;" id="fig:bp2"></span>
+<img src="03-aed-bi_files/figure-html/bp2-1.png" alt="Representación de la relación entre pH y tipo de queso" width="100%"><p class="caption">
+Figura 3.6: Representación de la relación entre pH y tipo de queso
+</p>
+</div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">lab</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">ph</span>, colour <span class="op">=</span> <span class="va">tipo</span>, fill <span class="op">=</span> <span class="va">tipo</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Gráficos de densidad por tipo de queso"</span>,
+       x <span class="op">=</span> <span class="st">"pH"</span>,
+       y <span class="op">=</span> <span class="st">"Densidad"</span>,
+       fill <span class="op">=</span> <span class="st">"Tipo de queso"</span>,
+       colour <span class="op">=</span> <span class="st">"Tipo de queso"</span><span class="op">)</span> </code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:dens2"></span>
+<img src="03-aed-bi_files/figure-html/dens2-1.png" alt="Gráficos de densidad por grupos" width="672"><p class="caption">
+Figura 3.7: Gráficos de densidad por grupos
+</p>
+</div>
+</div>
+</div>
+<div id="intro-multivariante" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> Intro multivariante<a class="anchor" aria-label="anchor" href="#intro-multivariante"><i class="fas fa-link"></i></a>
+</h2>
+
 </div>
 </div>
 
@@ -630,32 +2854,21 @@ cualquier valor de <span class="math inline">\(y_j\)</span></p></li>
 <li><a class="nav-link" href="#aed-bi"><span class="header-section-number">3</span> Análisis exploratorio bivariante</a></li>
 <li><a class="nav-link" href="#datos-bivariantes-y-multivariantes"><span class="header-section-number">3.1</span> Datos bivariantes y multivariantes</a></li>
 <li>
-<a class="nav-link" href="#frecuencias-conjuntas-marginales-y-condicionadas"><span class="header-section-number">3.2</span> Frecuencias conjuntas, marginales y condicionadas</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#distribuci%C3%B3n-conjunta-de-frecuencias"><span class="header-section-number">3.2.1</span> Distribución conjunta de frecuencias</a></li></ul>
-</li>
-<li><a class="nav-link" href="#ejemplo-variables-continuas"><span class="header-section-number">3.3</span> Ejemplo: Variables continuas</a></li>
-<li><a class="nav-link" href="#frecuencias-marginales"><span class="header-section-number">3.4</span> Frecuencias marginales</a></li>
-<li><a class="nav-link" href="#ejemplo-frecuencias-marginales"><span class="header-section-number">3.5</span> Ejemplo frecuencias marginales</a></li>
-<li>
-<a class="nav-link" href="#ejemplo-distribuciones-marginales"><span class="header-section-number">3.6</span> Ejemplo distribuciones marginales</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#de-x"><span class="header-section-number">3.6.1</span> De \(X\)</a></li>
-<li><a class="nav-link" href="#de-y"><span class="header-section-number">3.6.2</span> De \(Y\)</a></li>
+<a class="nav-link" href="#frecuencias-conjuntas-marginales-y-condicionadas"><span class="header-section-number">3.2</span> Frecuencias conjuntas, marginales y condicionadas</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#distribuci%C3%B3n-conjunta-de-frecuencias"><span class="header-section-number">3.2.1</span> Distribución conjunta de frecuencias</a></li>
+<li><a class="nav-link" href="#distribuci%C3%B3n-marginal"><span class="header-section-number">3.2.2</span> Distribución marginal</a></li>
+<li><a class="nav-link" href="#distribuci%C3%B3n-condicionada"><span class="header-section-number">3.2.3</span> Distribución condicionada</a></li>
+<li><a class="nav-link" href="#independencia-de-variables"><span class="header-section-number">3.2.4</span> Independencia de variables</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#distribuciones-condicionadas"><span class="header-section-number">3.7</span> Distribuciones condicionadas</a></li>
 <li>
-<a class="nav-link" href="#ejemplo-distribuciones-condicionadas"><span class="header-section-number">3.8</span> Ejemplo distribuciones condicionadas</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#de-x-y-in-3032"><span class="header-section-number">3.8.1</span> De \(X | Y \in (30,32]\)</a></li>
-<li><a class="nav-link" href="#de-y-x-in-6.556.6"><span class="header-section-number">3.8.2</span> De \(Y | X \in (6.55,6.6]\)</a></li>
+<a class="nav-link" href="#representaci%C3%B3n-gr%C3%A1fica-conjunta"><span class="header-section-number">3.3</span> Representación gráfica conjunta</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#gr%C3%A1ficos-de-barras"><span class="header-section-number">3.3.1</span> Gráficos de barras</a></li>
+<li><a class="nav-link" href="#el-gr%C3%A1fico-de-dispersi%C3%B3n"><span class="header-section-number">3.3.2</span> El gráfico de dispersión</a></li>
+<li><a class="nav-link" href="#gr%C3%A1ficos-de-cajas-por-grupos"><span class="header-section-number">3.3.3</span> Gráficos de cajas por grupos</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#independencia-de-variables"><span class="header-section-number">3.9</span> Independencia de variables</a></li>
-<li><a class="nav-link" href="#representaci%C3%B3n-gr%C3%A1fica-conjunta"><span class="header-section-number">3.10</span> 2.3. Representación gráfica conjunta</a></li>
-<li><a class="nav-link" href="#gr%C3%A1ficos-de-barras-para-frecuencias-conjuntas"><span class="header-section-number">3.11</span> Gráficos de barras para frecuencias conjuntas</a></li>
-<li><a class="nav-link" href="#el-gr%C3%A1fico-de-dispersi%C3%B3n"><span class="header-section-number">3.12</span> El gráfico de dispersión</a></li>
-<li><a class="nav-link" href="#gr%C3%A1fico-de-dispersi%C3%B3n-enriquecido"><span class="header-section-number">3.13</span> Gráfico de dispersión “enriquecido”</a></li>
-<li>
-<a class="nav-link" href="#gr%C3%A1ficos-de-cajas-por-grupos"><span class="header-section-number">3.14</span> Gráficos de cajas por grupos</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#intro-multivariante"><span class="header-section-number">3.14.1</span> Intro multivariante</a></li></ul>
-</li>
+<li><a class="nav-link" href="#intro-multivariante"><span class="header-section-number">3.4</span> Intro multivariante</a></li>
 </ul>
 
       <div class="book-extra">
@@ -673,7 +2886,7 @@ cualquier valor de <span class="math inline">\(y_j\)</span></p></li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-02-22.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

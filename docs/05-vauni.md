@@ -415,8 +415,18 @@ aquellos problemas prácticos, aunque el aparato de medida utilizado no
 nos permita ir más allá de cierta precisión.
 
 <div class="rmdcafe">
-<p>Piensa en tu marca de cerveza favorita (o cualquier otra bebida), por ejemplo en el formato de 33 cl (tercio). Cuando la pides en un bar, ¿cuál crees que es la probabilidad de que la botella tenga <strong>exactamente</strong> 33 cl?</p>
-<p>En realidad, si medimos con una precisión, por ejemplo, de un decimal, podemos obtener mediciones de <span class="math inline">\(33.0\)</span> <em>cl</em>. Pero las mediciones están sujetas a un error, y en realidad lo que nos está diciendo esa medición es que el volumen está entre <span class="math inline">\(32.95\)</span> y <span class="math inline">\(33.05\)</span>, intervalo del cual sí podemos calcular su probabilidad.</p>
+<p>Piensa en tu marca de cerveza favorita (o cualquier otra bebida), por
+ejemplo en el formato de 33 cl (tercio). Cuando la pides en un bar,
+¿cuál crees que es la probabilidad de que la botella tenga
+<strong>exactamente</strong> 33 cl?</p>
+<p>En realidad, si medimos con una precisión, por ejemplo, de un
+decimal, podemos obtener mediciones de <span
+class="math inline">\(33.0\)</span> <em>cl</em>. Pero las mediciones
+están sujetas a un error, y en realidad lo que nos está diciendo esa
+medición es que el volumen está entre <span
+class="math inline">\(32.95\)</span> y <span
+class="math inline">\(33.05\)</span>, intervalo del cual sí podemos
+calcular su probabilidad.</p>
 </div>
 
 
@@ -905,7 +915,10 @@ que se corresponde con la media de la distribución, su valor central.
 
 
 <div class="rmdcafe">
-<p>El uso de la palabra esperanza en este ámbito tiene su origen, cómo no, en los juegos de azar. Así, se hablaba de la esperanza de ganar en el juego (y la ganancia que se esperaba tener era el resultado), y también del <em>temor</em>, cuando la esperanza era negativa.</p>
+<p>El uso de la palabra esperanza en este ámbito tiene su origen, cómo
+no, en los juegos de azar. Así, se hablaba de la esperanza de ganar en
+el juego (y la ganancia que se esperaba tener era el resultado), y
+también del <em>temor</em>, cuando la esperanza era negativa.</p>
 </div>
 
 
@@ -1138,14 +1151,22 @@ integrate(function(x) x*(1/8)*x, 0, 4)
 
 
 <div class="rmdejemplo">
-<p>Vamos a calcular las medias de las variables aleatorias de los ejemplos de sujetos en estudio. Para la variable aleatoria discreta:</p>
-<p><span class="math inline">\(X:\)</span> Número de mensajes remitidas por correo electrónico en un año a los sujetos,</p>
+<p>Vamos a calcular las medias de las variables aleatorias de los
+ejemplos de sujetos en estudio. Para la variable aleatoria discreta:</p>
+<p><span class="math inline">\(X:\)</span> Número de mensajes remitidas
+por correo electrónico en un año a los sujetos,</p>
 <p>la media sería:</p>
-<p><span class="math display">\[\mu=E[X]=\sum\limits_{i=1}^3 x_i p_i = 20\cdot \frac{36}{52} + 36 \cdot \frac{12}{52} + 60\cdot\frac{4}{52}\simeq26.7692.\]</span> Para la variable aleatoria continua:</p>
-<p><span class="math inline">\(X:\)</span> Tiempo de duración de la visita a la web de un sujeto,</p>
+<p><span class="math display">\[\mu=E[X]=\sum\limits_{i=1}^3 x_i p_i =
+20\cdot \frac{36}{52} + 36 \cdot \frac{12}{52} +
+60\cdot\frac{4}{52}\simeq26.7692.\]</span> Para la variable aleatoria
+continua:</p>
+<p><span class="math inline">\(X:\)</span> Tiempo de duración de la
+visita a la web de un sujeto,</p>
 <p>la media sería:</p>
-<p><span class="math display">\[\mu=E[X]=\int_{-\infty}^\infty x f(x) dx = \int_{0}^\infty x \cdot 2 e^{-2x}dx = 0.5,\]</span></p>
-<p>resolviendo la integral por partes y aplicando la regla de Barrow.</p>
+<p><span class="math display">\[\mu=E[X]=\int_{-\infty}^\infty x f(x) dx
+= \int_{0}^\infty x \cdot 2 e^{-2x}dx = 0.5,\]</span></p>
+<p>resolviendo la integral por partes y aplicando la regla de
+Barrow.</p>
 </div>
 
 \BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO** (variable discreta)
@@ -1311,18 +1332,26 @@ cv <- desv.tip/alpha_1; cv
 
 
 <div class="rmdejemplo">
-<p>Vamos a calcular las varianzas de las variables aleatorias de los ejemplos de sujetos en estudio. Para la variable aleatoria discreta:</p>
-<p><span class="math inline">\(X:\)</span> Número de mensajes remitidos por correo electrónico en un año a los sujetos,</p>
+<p>Vamos a calcular las varianzas de las variables aleatorias de los
+ejemplos de sujetos en estudio. Para la variable aleatoria discreta:</p>
+<p><span class="math inline">\(X:\)</span> Número de mensajes remitidos
+por correo electrónico en un año a los sujetos,</p>
 <p>el momento de orden dos con respecto al origen sería:</p>
-<p><span class="math display">\[\alpha_2=E[X^2]=\sum\limits_{i=1}^3 x_i^2 p_i = 20^2\cdot \frac{36}{52} + 36^2 \cdot \frac{12}{52} + 60^2\cdot\frac{4}{52}\simeq 852.9231.\]</span></p>
+<p><span class="math display">\[\alpha_2=E[X^2]=\sum\limits_{i=1}^3
+x_i^2 p_i = 20^2\cdot \frac{36}{52} + 36^2 \cdot \frac{12}{52} +
+60^2\cdot\frac{4}{52}\simeq 852.9231.\]</span></p>
 <p>Y entonces, la varianza es:</p>
-<p><span class="math display">\[\sigma^2=\alpha_2 -  \mu^2=852.9231-(26.7692)^2=136.333.\]</span></p>
+<p><span class="math display">\[\sigma^2=\alpha_2
+-  \mu^2=852.9231-(26.7692)^2=136.333.\]</span></p>
 <p>Para la variable aleatoria continua:</p>
-<p><span class="math inline">\(X:\)</span> Tiempo de duración de la visita a la web de un sujeto,</p>
+<p><span class="math inline">\(X:\)</span> Tiempo de duración de la
+visita a la web de un sujeto,</p>
 <p>el momento de orden dos sería:</p>
-<p><span class="math display">\[\alpha_2=E[X^2]=\int_{-\infty}^\infty x^2 f(x) dx = \int_{0}^\infty x^2 \cdot 2 e^{-2x}dx = 0.5,\]</span></p>
+<p><span class="math display">\[\alpha_2=E[X^2]=\int_{-\infty}^\infty
+x^2 f(x) dx = \int_{0}^\infty x^2 \cdot 2 e^{-2x}dx = 0.5,\]</span></p>
 <p>y entonces la varianza es:</p>
-<p><span class="math display">\[\sigma^2=\alpha_2 -  \mu^2=0.5-(0.5)^2=0.25.\]</span></p>
+<p><span class="math display">\[\sigma^2=\alpha_2
+-  \mu^2=0.5-(0.5)^2=0.25.\]</span></p>
 </div>
 
 \BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO (discreta)**

@@ -118,10 +118,10 @@ de una asignatura de grado.</p>
 <p>La distribución Beta se utiliza en problemas de inferencia relativos a proporciones, especialmente en inferencia bayesiana.</p>
 <p><span class="math display">\[X \sim \mathit{Be}(\alpha, \beta)\]</span></p>
 <p><strong>Función de densidad</strong></p>
-<p><span class="math display">\[f(x) = 
+<p><span class="math display">\[f(x) =
 \begin{cases}
 \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta -1} &amp; \text{si } 0 &lt; x &lt; 1\\
-0 &amp; \text{resto } 
+0 &amp; \text{resto }
 \end{cases}\]</span></p>
 <p>En matemáticas, la función Gamma (<span class="math inline">\(\Gamma\)</span>) es una integral indefinida que tiene entre otras las siguientes propiedades:</p>
 <ul>
@@ -142,7 +142,7 @@ de una asignatura de grado.</p>
 <p><span class="math inline">\(X\)</span>: Proporción de clientes que contratarán el servicio</p>
 <p><span class="math inline">\(X\sim \mathit{Be}(1, 5)\)</span></p>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mibeta</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="va">mibeta</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="91-apendices_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
@@ -169,7 +169,7 @@ de una asignatura de grado.</p>
 <li>La exponencial es un caso particular</li>
 </ul>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 
 <span class="va">migamma</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">dgamma</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span>, <span class="fl">2</span><span class="op">)</span>
@@ -184,7 +184,7 @@ de una asignatura de grado.</p>
 <h3>
 <span class="header-section-number">D.5.3</span> Distribución de Weibull<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-de-weibull"><i class="fas fa-link"></i></a>
 </h3>
-<p>La distribución Gamma presenta algunos inconventientes al modelizar tiempos de vida, y por eso algunas veces se prefiere la distribución de Weibull, que básicamente sirve para lo mismo. Véase  para los detalles.</p>
+<p>La distribución Gamma presenta algunos inconventientes al modelizar tiempos de vida, y por eso algunas veces se prefiere la distribución de Weibull, que básicamente sirve para lo mismo. Véase para los detalles.</p>
 <p><span class="math display">\[X \sim \mathit{We}(a, b) \]</span></p>
 <p><strong>Función de densidad</strong>
 <span class="math display">\[f(x) =
@@ -200,7 +200,7 @@ de una asignatura de grado.</p>
 </li>
 </ul>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">miweibull</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/Weibull.html">dweibull</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">a</span>, <span class="fl">2</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu">miweibull</span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">2</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">5</span><span class="op">)</span>, 
       ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,
@@ -266,7 +266,7 @@ de una asignatura de grado.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-02-22.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

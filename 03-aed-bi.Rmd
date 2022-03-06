@@ -3,6 +3,8 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = "
 library(tidyverse)
 library(knitr)
 library(flextable)
+library(gt)
+library(gridExtra)
 ```
 
 # Análisis exploratorio bivariante {#aed-bi}
@@ -20,7 +22,7 @@ que podemos estudiar por separado (análisis univariante) o conjuntamente (anál
 
 El caso especial del **análisis bivariante** es cuando estudiamos dos características a la vez: $X, Y$.
 Nos interesa la **relación** entre ellas, para lo que realizaremos resúmenes numéricos y gráficos.
-Los datos bivariantes se encontrarán como pares de valores $x_i, y_i$ para cada
+Los datos bivariantes se encontrarán como pares de valores $(x_i, y_i)$ para cada
 observación $i = 1, \ldots, n$.
 
 Cuando estudiamos más de dos variables, tenemos datos multivariantes. En este caso,
@@ -52,17 +54,18 @@ lab <- readxl::read_excel("_data/lab.xlsx") |>
 
 :::{.rmdejemplo data-latex=""}
 La Tabla \@ref(tab:tabs) muestra la tabla de contingencia de los analistas y el tipo de queso en el ejemplo del análisis de la producción de quesos. Asignamos la variable $X$ al Analista (en filas) y la variable $Y$ al Tipo (en columnas).
-La Tabla \@ref(tab:trel) muestra la tabla de frecuencias relativas de los mismos datos.
+La Tabla \@ref(tab:trel) muestra la tabla de frecuencias relativas de los mismos datos. El número total de datos es
+$n= `r nrow(lab)`$.
 :::
 
 
-```{r tabs}
+```{r tabs, echo=FALSE}
 kable(table(lab$analista, lab$tipo),
       caption = "Tabla de contingencia (frecuencias absolutas) de los analistas y el tipo de queso.")
 ```
 
 
-```{r trel}
+```{r trel, echo=FALSE}
 kable(prop.table(table(lab$analista, lab$tipo)), digits = 2, 
       caption = "Tabla de frecuencias relativas de los analistas y el tipo de queso.")
 ```
@@ -70,13 +73,23 @@ kable(prop.table(table(lab$analista, lab$tipo)), digits = 2,
 
 
 
-## Ejemplo: Variables continuas
-
-* Debemos tener los datos agrupados en intervalos (clases)
-* $X$ = ph (filas); $Y$ = est (columnas)
+En el caso de variables continuas, debemos tener los datos agrupados en intervalos (clases).
 
 
-```{r}
+:::{.rmdejemplo data-latex=""}
+
+La tabla \@ref(tab:tcont) contiene las frecuencias absolutas conjuntas
+de las variables:
+
+* $X$ = ph (filas); 
+
+* $Y$ = est (columnas)
+
+:::
+
+
+
+```{r, echo = FALSE}
 histo <- hist(lab$ph, plot = FALSE)
 histo2 <- hist(lab$est, plot = FALSE, breaks = 4)
 lab <- lab |> 
@@ -87,196 +100,323 @@ levels(lab$clase_ph) <- c(levels(lab$clase_ph), "(6.4,6.45]")
 
 
 
-```{r}
-kable(table(lab$clase_ph, lab$clase_est))
+```{r tcont, echo=FALSE}
+kable(table(lab$clase_ph, lab$clase_est), 
+      caption = "Tabla de frecuencias conjunta del pH y el extracto seco total agrupadas en intervalos.")
 ```
 
 
 
 
+### Distribución marginal
 
+Si partimos de la distribución conjunta, podemos obtener la de cada
+una de las variables (marginal) y estudiarla como datos univariantes.
+Basta con hacer las sumas por columnas, $(X)$, o por filas, $(Y)$:
 
-## Frecuencias marginales
+* Frecuencias marginales absolutas de $X$: $n_{i\cdot} = \sum\limits_{j = 1}^{n_j}n_{ij}$
 
-* Si partimos de la distribución conjunta, podemos obtener la de cada
-una de las variables (marginal) y estudiarla como en el apartado anterior
+* Frecuencias marginales absolutas de $Y$: $n_{\cdot j} = \sum\limits_{i = 1}^{n_i}n_{ij}$
 
-* Basta con hacer las sumas por columnas $(X)$ o por filas $(Y)$:
-
-* Frecuencias marginales absolutas de $X$: $n_{i.} = \sum\limits_{j = 1}^{n_j}n_{ij}$
-
-* Frecuencias marginales absolutas de $Y$: $n_{j.} = \sum\limits_{i = 1}^{n_i}n_{ij}$
-
-* Igual para relativas
-
+donde $n_i$ es el número de clases de la variable $X$ y $n_j$ es el 
+número de clases de la variable $Y$. Análogamente, para frecuencias marginales relativas sumamos las frecuencias relativas conjuntas,
+o bien dividimos las frecuencias absolutas marginales entre el número total de datos $n$.
 
 
 
 
-## Ejemplo frecuencias marginales
+:::{.rmdejemplo data-latex=""}
+La tabla \@ref(tab:tmar) contiene las frecuencias marginales como suma de filas y
+columnas de la distribución conjunta en la tabla \@ref(tab:tcont). Las distribuciones
+marginales de $X$ y de $Y$ por separado se muestran en las tablas \@ref(tab:tmarx) y \@ref(tab:tmary)
+respectivamente.
+:::
 
-```{r}
-tabla <- table(lab$clase_ph, lab$clase_est) |> addmargins()
-tabla |> kable()
+
+```{r tmar, echo=FALSE}
+tabla <- table(lab$clase_ph, lab$clase_est) |> addmargins() 
+tabla <- tabla |> 
+  as.data.frame.matrix(tabla, row.names = rownames(tabla)) |> 
+  rownames_to_column("X\\Y") 
+tabla |> 
+  gt(caption = "Frecuencias marginales como suma de filas y columnas de la distribución conjunta") |> 
+  tab_style(style = list(cell_text(weight = "bold")),
+            locations = cells_body(columns = Sum)) |> 
+  tab_style(style = list(cell_text(weight = "bold")),
+            locations = cells_body(rows = nrow(tabla)))
 ```
 
 
 
-## Ejemplo distribuciones marginales
-
-### De $X$
-
-```{r}
-tabla[, 6]
-round(tabla[, 6] / tabla[11, 6], 2)
-
+```{r tmarx, echo=FALSE}
+tabla |> select(1, ncol(tabla)) |> 
+  mutate(rel = round(Sum/nrow(lab), 3)) |> 
+  gt(caption = "Frecuencias marginales de X (pH)") |> 
+  cols_label(Sum = "\\(n_{i·}\\)",
+             rel = "\\(f_{i·}\\)",
+             `X\\Y` = "\\(x_i\\)")
 ```
 
 
-### De $Y$
-
-```{r}
-tabla[11,]
-round(tabla[11,] / tabla[11, 6], 2)
-```
-
-
-
-
-## Distribuciones condicionadas
-
-* Distribución de una variable condicionada a algún/os valores de la otra
-
-* Se representa por $Y | X = x_i$
-
-* Se lee "Distribución de $Y$ condicionada a que $X$ es igual a $x_i$
-
-* Son variables univariantes que se pueden estudiar como en el apartado anterior
-
-
-
-
-
-## Ejemplo distribuciones condicionadas
-
-### De $X | Y \in `r colnames(tabla)[2]`$
-
-```{r}
-tabla[, 2]
-round(tabla[, 2] / tabla[2, 6], 2)
-
-```
-
-
-### De $Y | X \in `r rownames(tabla)[5]`$
-
-```{r}
-tabla[5,]
-round(tabla[5,] / tabla[5, 6], 2)
+```{r tmary, echo=FALSE}
+tabla |> slice_tail() |> select(-1) |> t() |> as_tibble(rownames = "Y") |> 
+  mutate(rel = round(V1/nrow(lab), 3)) |> 
+  gt(caption = "Frecuencias marginales de Y (est)") |> 
+  cols_label(Y = "\\(y_j\\)",
+             V1 = "\\(n_{·j}\\)",
+             rel = "\\(f_{·j}\\)")
 ```
 
 
 
 
-## Independencia de variables
+### Distribución condicionada
 
-* Cuando la distribución de una variable $X$ no varía en función
+La distribución de la variable $Y$ condicionada a un valor $x_i$ de la variable $X$ 
+se representa por $Y | X = x_i$. Análogamente se puede definir para varios valores
+de $X$, o de $X$ condicionada a $Y$.
+Se lee "Distribución de $Y$ condicionada a que $X$ es igual a $x_i$".
+Estas distribuciones condicionadas son variables univariantes que se pueden estudiar 
+con análisis univariante.
+
+A partir de la distribución conjunta, tomaríamos la fila o columna que se corresponde
+con el valor "conocido", es decir, el de la condición. Las frecuencias relativas se calcularán 
+dividiendo entre la frecuencia marginal, y no entre la frecuencia total. Por ejemplo:
+
+$$f_{x_i|y=y_j}=\frac{n_{ij}}{n_{·j}}.$$
+
+
+
+:::{.rmdejemplo data-latex=""}
+La tabla \@ref(tab:tcondx) muestra la distribución De $X$ condicionada a que 
+$Y = y_2$. Es decir, como es una variable numérica que hemos dividido en intervalos,
+condicionada a que $Y \in `r colnames(tabla)[3]`$. La tabla \@ref(tab:tcondy)
+muestra la distribución de $Y$ condicionada a que
+$X = x_5$, es decir, de $Y | X \in `r tabla[5,1]`$.
+:::
+
+
+
+```{r tcondx, echo=FALSE}
+tabla |> select(1, 3) |> rename(X = 1, n = 2) |> 
+  mutate(f = round(n/602, 3)) |>
+  gt(caption = "Frecuencias condicionadas de X") |>
+  cols_label(X = "\\(x_i\\)",
+             n = "\\(n_{i|j=2}\\)",
+             f = "\\(f_{i|j=2}\\)")
+```
+
+```{r tcondy, echo=FALSE}
+tt <- tabla |> slice(5) |> t() |>  as.data.frame() |> rownames_to_column("y")
+# colnames(tt) <- tt[1,] 
+tt <- tt |> slice(-1) |> mutate(V1 = as.numeric(V1))
+tt |> 
+  mutate(f = round(V1/184, 3)) |> 
+  gt(caption = "Frecuencias condicionadas de Y") |> 
+  cols_label(y = "\\(y_{j}\\)",
+             V1 = "\\(n_{j|i=5}\\)",
+             f = "\\(f_{j|i=5}\\)")
+
+```
+
+
+
+### Independencia de variables
+
+Cuando la distribución de una variable $X$ no varía en función
 de los valores de otra variable $Y$, entonces las variables $X$ e
-$Y$ son estadísticamente independientes.
+$Y$ son estadísticamente independientes. Equivalentemente, la distribución de $X | Y=y_j$ es igual para
+cualquier valor de $y_j$. Es decir, si son independientes se cumple:
 
-* Equivalentemente, la distribución de $X | Y=y_j$ es igual para
-cualquier valor de $y_j$
-
-* Si son independientes, se cumple:
-
-$$f_{ij} = f_{i.}\cdot f_{.j}$$
+$$f_{ij} = f_{i.}\cdot f_{.j} \;\forall i, j.$$
 
 
+## Representación gráfica conjunta
 
-class: center, middle, inverse, toc
+### Gráficos de barras
 
-## 2.3. Representación gráfica conjunta
+Al igual que en el caso univariante, la mejor representación de tablas de
+frecuencias para variables cualitativas y para variables numéricas discretas
+sigue siendo el gráfico de barras. Hay varias variantes para representar las
+dos variables:
+
+1. El eje horizontal del gráfico representa las clases de ambas variables
+$X$ e $Y$ de las variables, y se representan barras que representan las frecuencias absolutas conjuntas.
+
+2. El eje horizontal del gráfico representa las clases de una de las variables,
+la altura total de las barras representa la frecuencia absoluta de esa variable, y cada barra
+se divide en trozos cuya altura es la frecuencia absoluta conjunta.
+
+3.  El eje horizontal del gráfico representa las clases de una de las variables,
+la altura total de las barras representa el 100% (todas la misma altura), y cada barra
+se divide en trozos cuya altura es la frecuencia relativa condicionada a la clase de la barra.
 
 
 
+:::{.rmdejemplo data-latex=""}
+La figura \@ref(fig:barras2) muestra la representación de la tabla de
+frecuencias \@ref(tab:tabs) con las barras adyacentes, mientras que la figura
+\@ref(fig:barras2api) la representa con las barras apiladas. 
+La figura \@ref(fig:barras2cond) muestra la representación de la tabla de
+frecuencias de la variable "analista" condicionadas a cada tipo de queso.
+:::
 
 
-## Gráficos de barras para frecuencias conjuntas
 
-```{r, fig.width=7, fig.height=4, fig.align='center', out.width="80%"}
+```{r barras2, fig.width=7, fig.height=4, fig.align='center', out.width="80%", fig.cap="Gráfico de barras con frecuencias conjuntas", echo=FALSE}
 lab |> 
   ggplot(aes(x = tipo, fill = analista)) +
-  geom_bar() +
-  theme_bw()
+  geom_bar(position = position_dodge2()) +
+  theme_bw() +
+  labs(x = "Tipo de queso",
+       y = "Frecuencia absoluta",
+       title = "Gráfico de barras tabla de frecuencias",
+       fill = "Analista") 
+  
+```
+
+```{r barras2api, fig.width=7, fig.height=4, fig.align='center', out.width="80%", fig.cap="Gráfico de barras con frecuencias conjuntas apiladas", echo=FALSE}
+lab |> 
+  ggplot(aes(x = tipo, fill = analista)) +
+  geom_bar(position = position_stack()) +
+  theme_bw() +
+  labs(x = "Tipo de queso",
+       y = "Frecuencia absoluta",
+       title = "Gráfico de barras tabla de frecuencias",
+       fill = "Analista") 
+  
+```
+
+```{r barras2cond, fig.width=7, fig.height=4, fig.align='center', out.width="80%", fig.cap="Gráfico de barras con frecuencias condicionadas", echo=FALSE}
+lab |> 
+  ggplot(aes(x = tipo, fill = analista)) +
+  geom_bar(position = position_fill()) +
+  theme_bw() +
+  labs(x = "Tipo de queso",
+       y = "Frecuencia relativa",
+       title = "Gráfico de barras tabla de frecuencias condicionadas",
+       fill = "Analista") 
+  
+```
+
+Los gráficos de sectores son una representación muy popular para representar
+tablas de frecuencias, aunque en general no están recomendados ya que el ojo humano
+no es muy bueno para apreciar las diferencias entre ángulos, en comparación
+con la capacidad para distinguir alturas.
+
+Las tablas de frecuencias conjuntas de variables continuas agrupadas en intervalos
+se pueden representar también mediante gráficos de barras igual que las 
+cualitativas y las discretas. No obstante, si disponemos de todos los datos,
+es más adecuado utilizar las representaciones que se explican a continuación.
+
+
+### El gráfico de dispersión
+
+Para dos variables continuas, la representación más adecuada es el gráfico de 
+dispersión. El gráfico de dispersión es una "nube  de puntos" representada
+en unos ejes cartesianos $X$, $Y$, que representan las escalas de cada una
+de las variables. Cada punto representa un par de valores $(x_i, y_i)$.
+Este gráfico permite apreciar a simple vista si hay relación lineal o de otro tipo
+entre ambas variables.
+
+
+:::{.rmdejemplo data-latex=""}
+La figura \@ref(fig:disp) representa la variable "est" (extracto seco total) frente 
+al pH en el ejemplo de los quesos. Se ha añadido transparencia a los puntos para
+apreciar dónde hay mayor densidad de datos. A simple vista no se ve una relación clara.
+Si añadimos algunos elementos al gráfico, podemos descubrir algo más. El gráfico
+de la izquierda de la figura \@ref(fig:disp2) añade una línea de tendencia suavizada
+en la que parece que hay un intervalo del pH en el que el est crece en la misma dirección
+(entre 6,5 y 6,6 aproximadamente). En el gráfico de la derecha de la misma figura \@ref(fig:disp2)
+hemos añadido una "capa" de color representando el tipo de queso. Aquí se puede ver claramente
+como la "masa" inferior de puntos se corresponde con quesos distintos a los de la
+"masa" superior.
+:::
+
+
+```{r disp, fig.cap="Gráfico de dispersión del ejemplo de los quesos", echo=FALSE}
+lab |> 
+  ggplot(aes(x = ph, y = est)) +
+  geom_point(alpha = 0.6) +
+  theme_bw() +
+  labs("Gráfico de dispersión del extracto seco total frente al pH",
+       x = "pH",
+       y = "Extracto seco total")
 ```
 
 
-Varias variantes: apiladas, pegadas, saturadas, horizontales
+```{r disp2, echo=FALSE, fig.height = 4, fig.width=9, out.width="100%", fig.cap="Gráficos de dispersión 'enriquecidos'"}
 
-
-
-
-
-
-
-
-## El gráfico de dispersión
-
-
-* Ejes cartesianos $X$, $Y$
-
-* Una variable en cada eje
-
-* Un punto en cada par $(x_i, y_i)$
-
-* A simple vista se puede ver si hay relación lineal o de otro tipo
-
-```{r}
-lab |> 
+p1 <- lab |> 
   ggplot(aes(x = ph, y = est)) +
-  geom_point()
-```
-
-
-
-## Gráfico de dispersión "enriquecido"
-
-
-```{r}
-lab |> 
-  ggplot(aes(x = ph, y = est)) +
-  geom_point() +
+  geom_point(alpha = 0.6) +
   geom_smooth() +
-  labs(title = "Gráfico de dispersión con ajuste de regresión")
-```
-
-```{r}
-lab |> 
+  labs(title = "Gráfico de dispersión con ajuste de regresión",
+       x = "pH",
+       y = "Extracto seco total") +
+  theme_bw()
+p2 <- lab |> 
   ggplot(aes(x = ph, y = est, col = tipo)) +
-  geom_point() +
-  labs(title = "Gráfico de dispersión identificando grupos")
+  geom_point(alpha = 0.6) +
+  labs(title = "Gráfico de dispersión identificando grupos",
+       x = "pH",
+       y = "Extracto seco total",
+       colour = "Tipo") +
+  theme_bw()
+
+grid.arrange(p1, p2, nrow = 1, widths = c(0.4, 0.6))
 ```
 
 
+### Gráficos de cajas por grupos
 
-## Gráficos de cajas por grupos
+Cuando queremos estudiar conjuntamente una variable cuantitativa y una 
+variable cualitativa, la representación más adecuada es mediante gráficos 
+de cajas representando en el eje horizontal las clases de la variable 
+cualitativa. De esta forma podemos comparar los principales estadísticos
+en cada uno de los grupos. Los gráficos de cajas pueden ocultar información importante acerca de la distribución, por lo que otra representación muy útil
+es el gráfico de densidad por grupos. También se pueden añadir capas de puntos,
+o utilizar el gráfico de violín que suaviza la caja a la forma de la distribución.
 
 
-```{r}
-lab |> 
+:::{.rmdejemplo data-latex=""}
+En la figura \@ref(fig:bp2) se representa la relación entre el tipo de queso
+y el pH. El gráfico de la izquierda muestra el gráficos de cajas, y el de la derecha, un gráfico de violín. La figura \@ref(fig:dens2) mustra gráficos de 
+densidad de la variable pH para cada tipo de queso. En ambos casos se aprecia claramente el comportamiento diferente de los quesos de tipo C.
+:::
+
+
+
+
+```{r bp2, echo=FALSE, fig.height = 4, fig.width=9, out.width="100%", fig.cap="Representación de la relación entre pH y tipo de queso"}
+p1 <- lab |> 
   ggplot(aes(x = tipo, y = ph)) + 
   geom_boxplot() +
   theme_bw() +
-  labs(title = "pH por tipo de queso")
-```
-
-```{r}
-lab |> 
-  ggplot(aes(x = analista, y = ph)) + 
-  geom_boxplot() +
-  geom_jitter(aes(col = tipo), alpha = 0.2) + 
+  labs(x = NULL, y = NULL)
+p2 <- lab |> 
+  ggplot(aes(x = tipo, y = ph)) + 
+  geom_violin() +
+  geom_jitter(aes(col = analista), alpha = 0.2) + 
   theme_bw() +
-  labs(title = "pH por analista")
+  labs(x = NULL, y = NULL, colour = "Analista")
+grid.arrange(p1, p2, nrow = 1, 
+             top = "pH por tipo de queso",
+             bottom = "Tipo de queso",
+             left = "pH", widths = c(0.4, 0.6))
+```
+
+```{r dens2, fig.cap="Gráficos de densidad por grupos", fig.height=4}
+lab |> 
+  ggplot(aes(x = ph, colour = tipo, fill = tipo)) +
+  geom_density(alpha = 0.4) +
+  theme_bw() +
+  labs(title = "Gráficos de densidad por tipo de queso",
+       x = "pH",
+       y = "Densidad",
+       fill = "Tipo de queso",
+       colour = "Tipo de queso") 
+  
 ```
 
 
@@ -285,11 +425,7 @@ lab |>
 
 
 
-
-
-
-
-### Intro multivariante
+## Intro multivariante
 
 
 
