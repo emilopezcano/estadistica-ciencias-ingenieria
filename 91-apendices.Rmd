@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # (APPENDIX) Apéndices {-} 
 
 # Símbolos, abreviaturas y acrónimos
@@ -104,13 +109,13 @@ $\subseteq$                | Incluido o igual
 
 * $a_i$: Amplitud de la clase $i$. $a_i = A/k$
 
-* $c_i$: Marca de clase. $$c_i = \frac{L_{i-1} + L_{i}}{2}$$
+* $c_i$: Marca de clase. $c_i = \frac{L_{i-1} + L_{i}}{2}$
 
 
 
 ### Medidas de tendencia central
 
-* Moda: clase más frecuente. $x_i: n_i = \max_\limits{j=1,...k}\{n_j\}$
+<!-- * Moda: clase más frecuente. $x_i: n_i = \max_\limits_{j=1,...k}\{n_j\}$ -->
 
 * Media aritmética: $\bar{x}= \frac{\sum\limits_{i=1}^n x_i}{n}$. 
   + Propiedad: $Y = a+ bX \implies \bar y = a + b \bar x$
@@ -228,15 +233,109 @@ s_{xy} & s_y^2
 * Recta de regresión: $y=a+bx$
   + $b = \frac{s_{xy}}{s_x^2}$
   + $a = \bar y - b \bar x$
-  
+  + $b = \frac{s_y}{s_x}r_{xy}$
+
 * Predicción de nuevos valores: $\hat{y}_{n+1} = a + bx_{n+1}$
 
+* Residuos: $\varepsilon_i=y_i - \hat{y}_i = y_i - (a+bx_i)$
+
 * Varianza residual: $s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i^2$
+  + $\frac{s_\varepsilon^2}{s_y^2}=(1-r_{xy}^2)$
+
+* Coeficiente de determinación: $R^2 = 1- \frac{s_\varepsilon^2}{s_y^2} = r^2_{xy}$
 
 
 
 ## Probabilidad
 
+### Notación
+
+* $A, B, \ldots$: Sucesos
+* $\omega$: Suceso elemental
+* $\Omega$: Espacio muestral
+* $\emptyset$: Suceso imposible
+* $A^c$: Suceso complementario del suceso $A$
+
+### Definiciones 
+
+* Unión de sucesos: $A \cup B$: Ocurre $A$ **o** Ocurre $B$, o los dos
+* Intersección de sucesos: $A \cap B$: Ocurre $A$ **y** Ocurre $B$
+* Sucesos disjuntos o mutuamente excluyentes, o incompatibles: $A \cap B = \emptyset$
+* Partición del espacio muestral: Colección de sucesos $A_1, A_2, \ldots \in \Omega$ que cumplen:
+  - $A_1, A_2, \ldots: \quad A_i \subset \Omega \; \forall i$ 
+  - $A_i \cap A_j = \emptyset \; \forall i \neq j$,
+  - $\displaystyle \underset{i}\bigcup A_i = \Omega$.
+* Sigma álgebra de sucesos $\aleph$ (_aleph_). conjunto de sucesos que:
+  - Pertenecen a $\aleph$,
+  - Si $A \in \aleph \implies A^c \in \aleph$
+  - Si $\{A_i\}\in \aleph\;\; \forall i$, entonces $\displaystyle \underset{i}\bigcup A_i \in \aleph$ y $\displaystyle \underset{i}\bigcap A_i \in \aleph$
+  
+### Propiedades
+- **Conmutativa**: 
+    - $A\cup B= B\cup A$.
+    - $A\cap B= B\cap A$.
+- **Asociativa**:
+    - $A \cup (B \cup C) = (A \cup B) \cup C$.
+    - $A \cap (B \cap C) = (A \cap B) \cap C$.
+- **Distributiva**:
+    - $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$.
+    - $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
+- **Leyes de De Morgan**:
+    - $(A \cup B)^c = A^c \cap B^c$.
+    - $(A \cap B)^c = A^c \cup B^c$.
+- $A \cup A = A \cap A = A \cup \emptyset = A \cap \Omega = A$.
+- $A \cup \Omega = \Omega$.
+
+## Definiciones de probabilidad
+
+* Definición de Laplace: $P(A) = \frac{\text{casos favorables a } A}{\text{casos posibles}}$
+
+* Definición frecuentista: $P(A) = \lim\limits_{n \to \infty} \frac{n(A)}{n}$
+
+* Definición axiomática:
+  + **Primer axioma**: $\forall A \in \aleph \; \exists \; P(A) \geq 0$.
+  + **Segundo axioma**: $P(\Omega) = 1$.
+  + **Tercer axioma**: Dada la sucesión $A_1, \ldots, A_i, \ldots: A_i \in \aleph \; \forall\, i, A_i \cap A_j = \emptyset \; \forall i \neq j$, se cumple:
+
+$$P \left (\bigcup\limits_{i=1}^{\infty} A_i \right ) = \sum\limits_{i=1}^{\infty} P(A_i).$$
+
+### Teoremas derivados
+
+* Dados $n$ sucesos disjuntos dos a dos $A_1, \ldots, A_n: A_i \cap A_j = \emptyset \; \forall i \neq j$:
+
+$$P \left (\bigcup\limits_{i=1}^{n} A_i \right ) = \sum\limits_{i=1}^{n} P(A_i).$$
+* $P(A^c)=1-P(A)$.
+
+* $P(\emptyset) = 0$.
+
+* Dados $A_1, A_2: A_1 \subset A_2 \implies P(A_1) \leq P(A_2)$.
+
+* $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
+
+* $P(\bigcup\limits_{i=1}^n A_i) = \sum\limits_{i=1}^n P(A_i) - \sum\limits_{i<j} P(A_i \cap A_j) + \sum\limits_{i<j<k} P(A_i \cap A_j \cap A_k) -$    
+$- \ldots + (-1)^{n-1} P \left(\bigcap\limits_{i=1}^n A_i\right ).$
+
+$$ \boxed{0 \leq P(A) \leq 1}.$$
+
+### Probabilidad condicionada e independencia
+
+* Probabilidad de $A$ condicionada a $B$: ${P(A | B)=\frac{P(A \cap B)}{P(B)}}$
+* Probabilidad de la interesección: $\boxed{P(A\cap B)=P(A|B)\cdot P(B)=P(B|A)\cdot P(A)}$
+* Regla de la cadena:
+$$P\left( \bigcap\limits_{i=1}^{n} A_i \right) = P(A_1)\cdot P(A_2|A_1)\cdot P(A_3|A_1 \cap A_2)\cdot\ldots\cdot P\left(A_n | \bigcap\limits_{i=1}^{n-1} S_i \right)$$
+* $A$ y $B$ independientes $\iff P(A|B) = P(A)\;\; \text{y}\;\; P(B|A) = P(B)$
+  + $\boxed{P(A\cap B)=P(A)\cdot P(B)}$ (solo si son independientes)
+  + $P(A^c|B) = 1- P(A^c|B)$
+  
+### Probabilidad total y fórmula de Bayes
+
+* Probabilidad total:
+
+$$\boxed{P(B)=\sum\limits_{i=1}^{n} P(B/A_i)\cdot P(A_i)}$$
+
+* Fórmula de Bayes:
+
+$$\boxed{P(A_i|B)=\frac{P(B|A_i)\cdot P(A_i)}{\sum\limits_{i=1}^{n} P(B/A_i)\cdot P(A_i)}}$$
 
 ## Variable aleatoria
 
