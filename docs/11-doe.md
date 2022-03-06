@@ -126,10 +126,14 @@ sea el factor 2, que no ha sido medido y está muy correlacionado con el factor 
 En el gráfico de la derecha vemos que la variable respuesta crece en el mismo sentido que los factores 1 y 2, pero podría ser que el factor 2, no medido al principio, sea la causa, y no el que realmente se ha medido.
 
 
-<div class="figure" style="text-align: center">
-<img src="11-doe_files/figure-html/c1-1.png" alt="Efecto de no medir un factor" width="672" />
-<p class="caption">(\#fig:c1)Efecto de no medir un factor</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{11-doe_files/figure-latex/c1-1} 
+
+}
+
+\caption{Efecto de no medir un factor}(\#fig:c1)
+\end{figure}
 
 
 Por otra parte, el rango de valores de la variable respuesta está limitado por su
@@ -140,10 +144,14 @@ los factores de un proceso. En el de la izquierda, ampliamos el rango de
 posibles valores de la variable, y vemos una relación más clara, que queda
 oculta en el otro caso.
 
-<div class="figure" style="text-align: center">
-<img src="11-doe_files/figure-html/valuesrange1-1.png" alt="Efecto de la limitación del rango de valores" width="672" />
-<p class="caption">(\#fig:valuesrange1)Efecto de la limitación del rango de valores</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{11-doe_files/figure-latex/valuesrange1-1} 
+
+}
+
+\caption{Efecto de la limitación del rango de valores}(\#fig:valuesrange1)
+\end{figure}
 
 
 
@@ -183,10 +191,14 @@ en un proceso iterativo de aprendizaje como se muestra en la figura \@ref(fig:me
 
 
 
-<div class="figure" style="text-align: center">
-<img src="11-doe_files/figure-html/metodo-1.png" alt="Método iterativo de aprendizaje" width="672" />
-<p class="caption">(\#fig:metodo)Método iterativo de aprendizaje</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{11-doe_files/figure-latex/metodo-1} 
+
+}
+
+\caption{Método iterativo de aprendizaje}(\#fig:metodo)
+\end{figure}
 
 
 En @moen2012 se propone el ciclo PDSA (_Plan-Do-Study-Act_) para la mejora que se muestra en la figura \@ref(fig:ciclo). Básicamente consiste en:
@@ -202,10 +214,14 @@ En @moen2012 se propone el ciclo PDSA (_Plan-Do-Study-Act_) para la mejora que s
 **¡Documenta todas las acciones de mejora!**
 
 
-<div class="figure" style="text-align: center">
-<img src="11-doe_files/figure-html/ciclo-1.png" alt="Ciclo PDSA para la mejora" width="672" />
-<p class="caption">(\#fig:ciclo)Ciclo PDSA para la mejora</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{11-doe_files/figure-latex/ciclo-1} 
+
+}
+
+\caption{Ciclo PDSA para la mejora}(\#fig:ciclo)
+\end{figure}
 
 
 
@@ -213,10 +229,14 @@ Una buena forma de empezar el ciclo es a partir de un análisis de causa y
 efecto, por ejemplo con un diagrama de Ishikawa como el que aparece en la
 figura \@ref(fig:cefecto).
 
-<div class="figure" style="text-align: center">
-<img src="11-doe_files/figure-html/cefecto-1.png" alt="Ejemplo diagrama de causa-efecto" width="672" />
-<p class="caption">(\#fig:cefecto)Ejemplo diagrama de causa-efecto</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{11-doe_files/figure-latex/cefecto-1} 
+
+}
+
+\caption{Ejemplo diagrama de causa-efecto}(\#fig:cefecto)
+\end{figure}
 
 Lo siguiente probablemente sería determinar el presupuesto/recursos disponibles,
 en especial determinar el número de experimentos que se pueden realizar
@@ -431,13 +451,19 @@ kable(dcast(datosf22, A + B ~ replica, value.var = "respuesta"))
 ```
 
 
-
-|A  |B  |  1|  2|  3|
-|:--|:--|--:|--:|--:|
-|-  |-  | 28| 25| 27|
-|-  |+  | 18| 19| 23|
-|+  |-  | 36| 32| 32|
-|+  |+  | 31| 30| 29|
+\begin{tabular}{l|l|r|r|r}
+\hline
+A & B & 1 & 2 & 3\\
+\hline
+- & - & 28 & 25 & 27\\
+\hline
+- & + & 18 & 19 & 23\\
+\hline
++ & - & 36 & 32 & 32\\
+\hline
++ & + & 31 & 30 & 29\\
+\hline
+\end{tabular}
 
 ```r
 modelof22 <- lm(respuesta ~ A + B + A*B, data = datosf22)
@@ -465,7 +491,7 @@ plot(effect(term = "A", mod = modelof22))
 #> NOTE: A is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+![](11-doe_files/figure-latex/unnamed-chunk-2-1.pdf)<!-- --> 
 
 
 ```r
@@ -473,14 +499,14 @@ plot(effect(term = "B", mod = modelof22))
 #> NOTE: B is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](11-doe_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
 
 
 ```r
 plot(effect(term = "A:B", mod = modelof22))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](11-doe_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
 
 
 ::: {.rmdejemplo data-latex=""}
@@ -508,14 +534,14 @@ anova(modelof22)
 plot(effect(term = "A", mod = modelof22))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+![](11-doe_files/figure-latex/unnamed-chunk-6-1.pdf)<!-- --> 
 
 
 ```r
 plot(effect(term = "B", mod = modelof22))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+![](11-doe_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
 
 **Diseño factorial $2^3$**
 
@@ -561,17 +587,27 @@ kable(dcast(datosf23, T + C + K ~ ., value.var = "rendimiento"))
 ```
 
 
-
-|T  |C  |K  |  .|
-|:--|:--|:--|--:|
-|-  |-  |-  | 60|
-|-  |-  |+  | 52|
-|-  |+  |-  | 54|
-|-  |+  |+  | 45|
-|+  |-  |-  | 72|
-|+  |-  |+  | 83|
-|+  |+  |-  | 68|
-|+  |+  |+  | 80|
+\begin{tabular}{l|l|l|r}
+\hline
+T & C & K & .\\
+\hline
+- & - & - & 60\\
+\hline
+- & - & + & 52\\
+\hline
+- & + & - & 54\\
+\hline
+- & + & + & 45\\
+\hline
++ & - & - & 72\\
+\hline
++ & - & + & 83\\
+\hline
++ & + & - & 68\\
+\hline
++ & + & + & 80\\
+\hline
+\end{tabular}
 
 ```r
 modelof23 <- lm(rendimiento ~ T + C + K + T*C + T*K + C*K, data = datosf23)
@@ -598,7 +634,7 @@ plot(effect(term = "T", mod = modelof23))
 #> NOTE: T is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](11-doe_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
 
 ```r
 
@@ -606,32 +642,32 @@ plot(effect(term = "C", mod = modelof23))
 #> NOTE: C is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-9-2.png" width="672" />
+![](11-doe_files/figure-latex/unnamed-chunk-9-2.pdf)<!-- --> 
 
 ```r
 plot(effect(term = "K", mod = modelof23))
 #> NOTE: K is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-9-3.png" width="672" />
+![](11-doe_files/figure-latex/unnamed-chunk-9-3.pdf)<!-- --> 
 
 ```r
 plot(effect(term = "T:C", mod = modelof23))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-9-4.png" width="672" />
+![](11-doe_files/figure-latex/unnamed-chunk-9-4.pdf)<!-- --> 
 
 ```r
 plot(effect(term = "T:K", mod = modelof23))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-9-5.png" width="672" />
+![](11-doe_files/figure-latex/unnamed-chunk-9-5.pdf)<!-- --> 
 
 ```r
 plot(effect(term = "C:K", mod = modelof23))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-9-6.png" width="672" />
+![](11-doe_files/figure-latex/unnamed-chunk-9-6.pdf)<!-- --> 
 
 **Diseño factorial $2^k$**
 

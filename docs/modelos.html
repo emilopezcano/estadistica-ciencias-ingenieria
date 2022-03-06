@@ -66,11 +66,12 @@
 <li><a class="" href="aceptacion.html"><span class="header-section-number">15</span> Inspección por muestreo</a></li>
 <li class="book-part">Apéndices</li>
 <li><a class="" href="s%C3%ADmbolos-abreviaturas-y-acr%C3%B3nimos.html"><span class="header-section-number">A</span> Símbolos, abreviaturas y acrónimos</a></li>
-<li><a class="" href="tablas.html"><span class="header-section-number">B</span> Tablas estadísticas</a></li>
-<li><a class="" href="repaso.html"><span class="header-section-number">C</span> Repaso</a></li>
-<li><a class="" href="ampliaci%C3%B3n.html"><span class="header-section-number">D</span> Ampliación</a></li>
-<li><a class="" href="demostraciones.html"><span class="header-section-number">E</span> Demostraciones</a></li>
-<li><a class="" href="creditos.html"><span class="header-section-number">F</span> Créditos</a></li>
+<li><a class="" href="formulario.html"><span class="header-section-number">B</span> Formulario</a></li>
+<li><a class="" href="tablas.html"><span class="header-section-number">C</span> Tablas estadísticas</a></li>
+<li><a class="" href="repaso.html"><span class="header-section-number">D</span> Repaso</a></li>
+<li><a class="" href="ampliaci%C3%B3n.html"><span class="header-section-number">E</span> Ampliación</a></li>
+<li><a class="" href="demostraciones.html"><span class="header-section-number">F</span> Demostraciones</a></li>
+<li><a class="" href="creditos.html"><span class="header-section-number">G</span> Créditos</a></li>
 <li><a class="" href="referencias.html">Referencias</a></li>
 </ul>
 
@@ -179,7 +180,7 @@ Bernoulli:</p>
 <p>donde:</p>
 <p><span class="math display">\[\binom{n}{x}=\frac{n!}{x!(n-x)!},\]</span></p>
 <p>conocido como número combinatorio o coeficiente binomial. En el apéndice
-<a href="repaso.html#combinatoria">C.2</a> se encuentran algunas propiedades de este coeficiente, que
+<a href="repaso.html#combinatoria">D.2</a> se encuentran algunas propiedades de este coeficiente, que
 se puede calcular fácilmente en las calculadoras científicas con la tecla <code>nCr</code>.</p>
 <p>Nótese que en la fórmula de la función de probabilidad de la distribución binomial aparecen
 muchos conceptos de probabilidad aprendidos hasta ahora. Como son sucesos independientes,
@@ -267,7 +268,7 @@ se puede calcular de varias formas, utilizando el complementario como en la hoja
 de cálculo, el argumento <code>lower.tail</code> de la función <code>dbinom</code>, o sumando las
 probabilidades para los valores que cumplen la condición.
 </div>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">5</span>, prob <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.07776</span>
 <span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">5</span>, prob <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span>
@@ -296,7 +297,7 @@ probabilidades para los valores que cumplen la condición.
 La siguiente expresión calcula la probabilidad buscada. El lector puede probar otros caminos
 para llegar a la misma probabilidad, como en el ejemplo anterior.
 </div>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.25</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.9436865</span></code></pre></div>
 <p>Hay tres consideraciones muy importantes a la hora de resolver ejercicios en variables
@@ -367,7 +368,7 @@ y entonces lo que queremos saber es:</p>
 La siguiente expresión calcula la probabilidad pedida. Nótese que ahora se
 utiliza <code>pois</code> en el nombre de la función.
 </div>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">dpois</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, lambda <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.01831564</span></code></pre></div>
 
@@ -399,7 +400,7 @@ Entonces aplicamos la propiedad aditiva de la distribución de Poisson, y defini
 Las siguientes expresiones obtienen las probabilidades pedidas a través de la función
 de distribución y de probabilidad.
 </div>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">ppois</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">2</span>, lambda <span class="op">=</span> <span class="fl">8</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.01375397</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">dpois</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">30</span>, lambda <span class="op">=</span> <span class="fl">32</span><span class="op">)</span>
@@ -440,7 +441,7 @@ Poisson, y entonces:</p>
 Utilizando software, podemos hacer los cálculos exactos. Vemos
 que, en este caso concreto, nos estaremos equivocanto en el tercer decimal.
 </div>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">100</span>, <span class="fl">0.01</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.9206268</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">ppois</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>
@@ -531,7 +532,7 @@ fórmula.</p>
 <p><strong>R</strong></p>
 <p>La siguiente expresión obtiene la probabilidad pedida.</p>
 </div>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">dnbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">4</span>, prob <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.20736</span></code></pre></div>
 
@@ -559,10 +560,10 @@ sumar y restarlo de 1.</p>
 Con la siguiente expresión calculamos la probabilidad a través del complementario de la
 función de distribución.
 </div>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">pnbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">6</span>, size <span class="op">=</span> <span class="fl">4</span>, prob <span class="op">=</span> <span class="fl">0.5</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.171875</span></code></pre></div>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">pnbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">6</span>, size <span class="op">=</span> <span class="fl">4</span>, prob <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.171875</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">qnbinom</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.95</span>, size <span class="op">=</span> <span class="fl">4</span>, prob <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span>
@@ -605,7 +606,7 @@ la de la binomial negativa con parámetro <span class="math inline">\(c=1\)</spa
 <p><strong>R</strong></p>
 La siguiente expresión obtiene la probabilidad pedida.
 </div>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Geometric.html">pgeom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">3</span>, prob <span class="op">=</span> <span class="fl">4</span><span class="op">/</span><span class="fl">52</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.273975</span></code></pre></div>
 </div>
@@ -689,7 +690,7 @@ adecuada es la hipergeométrica. Además, no podríamos usar la aproximación de
 <li><span class="math inline">\(P[X = 1]\simeq 0.4240\)</span></li>
 </ul>
 </div>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Hypergeometric.html">dhyper</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span>, m <span class="op">=</span> <span class="fl">4</span>, n <span class="op">=</span> <span class="fl">52</span><span class="op">-</span><span class="fl">4</span>, k <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.4240465</span></code></pre></div>
 </div>
@@ -808,7 +809,7 @@ probabilidad del ejemplo como:</p>
 <p><strong>R</strong></p>
 La función <code>punif</code> devuelve la función de distribución uniforme.
 </div>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">punif</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">1000</span>, min <span class="op">=</span> <span class="fl">380</span>, max <span class="op">=</span> <span class="fl">1200</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.2439024</span></code></pre></div>
 
@@ -826,7 +827,7 @@ La función <code>punif</code> devuelve la función de distribución uniforme.
 <p><strong>R</strong></p>
 Análogamente al ejemplo anterior:
 </div>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">punif</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">0.9</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">1</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.1</span></code></pre></div>
 </div>
@@ -889,7 +890,7 @@ densidad del ejemplo.
 <p><strong>R</strong></p>
 La función <code>pexp</code> obtiene la función de distribución del modelo exponencial.
 </div>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Exponential.html">pexp</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">1</span>, rate <span class="op">=</span> <span class="fl">4</span>,lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.01831564</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -919,7 +920,7 @@ Entonce calculamos la experanza:</p>
 <p><strong>R</strong></p>
 La función <code>qexp</code> obtiene la inversa de la función de distribución del modelo exponencial.
 </div>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Exponential.html">qexp</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.95</span>, rate <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1.497866</span></code></pre></div>
 </div>
@@ -1006,7 +1007,7 @@ por ejemplo <span class="math inline">\(P\left [Z\leq\frac{x-\mu}{\sigma}\right 
 <span class="math inline">\(x\)</span> de la expresión <span class="math inline">\(z=\frac{x-\mu}{\sigma}\)</span>.</p></li>
 </ol>
 <p>En lo que sigue, utilizaremos la tabla de la cola inferior de la distribución
-normal estandarizada, disponible en el apéndice <a href="tablas.html#tablas">B</a>. En esta tabla tenemos, para
+normal estandarizada, disponible en el apéndice <a href="tablas.html#tablas">C</a>. En esta tabla tenemos, para
 valores de <span class="math inline">\(z&gt;0\)</span>, <span class="math inline">\(P[Z \leq z]\)</span>. Con estos valores, seremos capaces de calcular
 cualquier probabilidad utilizando las siguientes propiedades y
 gracias a la simetría de la distribución. Dados <span class="math inline">\(a &lt; b\)</span> positivos, debemos
@@ -1075,7 +1076,7 @@ ya que siempre da la cola inferior.</p>
 <p>Con la función <code>pnorm</code> calculamos la probabilidad, y con la función <code>qnorm</code>,
 el cuantil.</p>
 </div>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">3</span>, mean <span class="op">=</span> <span class="fl">5</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.1586553</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.03</span>, mean <span class="op">=</span> <span class="fl">5</span>, sd <span class="op">=</span> <span class="fl">2</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
@@ -1116,7 +1117,7 @@ nos dan la función de distribución, aplicamos que <span class="math inline">\(
 <p>[EXCEL] <code>=INV.NORM(0,95;1,8;0,5)</code></p>
 <strong>R</strong>
 </div>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1.8</span>, <span class="fl">0.5</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1.8</span>, <span class="fl">0.5</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.6006224</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.95</span>, <span class="fl">1.8</span>, <span class="fl">0.5</span><span class="op">)</span>
@@ -1275,7 +1276,7 @@ Tipo I (Gumbel) y Tipo II (Fréchet).</p></li>
 donde todas sus componentes son variables aleatorias normales.</p></li>
 <li><p><strong>La distribución multinomial</strong>. Se aplica a características cualitativas multiclase.</p></li>
 </ul>
-<p>En el apéndice <a href="tablas.html#tablas">B</a> se puede encontrar un resumen de todas
+<p>En el apéndice <a href="tablas.html#tablas">C</a> se puede encontrar un resumen de todas
 las distribuciones de probabilidad y sus principales
 características.</p>
 </div>

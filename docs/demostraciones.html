@@ -1,34 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Apéndice E Demostraciones | Estadística Aplicada a las Ciencias y la Ingeniería</title>
-<meta name="author" content="Emilio L. Cano">
-<meta name="description" content="Em este apéndice se incluyen aquellas demostraciones de teoremas y propiedades no incluidas en los capítulos para mantener el carácter práctico del mismo.  E.1 Variable aleatoria discreta  E.1.1...">
-<meta name="generator" content="bookdown 0.24.3 with bs4_book()">
-<meta property="og:title" content="Apéndice E Demostraciones | Estadística Aplicada a las Ciencias y la Ingeniería">
-<meta property="og:type" content="book">
-<meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/demostraciones.html">
-<meta property="og:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
-<meta property="og:description" content="Em este apéndice se incluyen aquellas demostraciones de teoremas y propiedades no incluidas en los capítulos para mantener el carácter práctico del mismo.  E.1 Variable aleatoria discreta  E.1.1...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Apéndice E Demostraciones | Estadística Aplicada a las Ciencias y la Ingeniería">
-<meta name="twitter:description" content="Em este apéndice se incluyen aquellas demostraciones de teoremas y propiedades no incluidas en los capítulos para mantener el carácter práctico del mismo.  E.1 Variable aleatoria discreta  E.1.1...">
-<meta name="twitter:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
-<link rel="stylesheet" href="bs4_book.css">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Apéndice F Demostraciones | Estadística Aplicada a las Ciencias y la Ingeniería</title>
+
+    <meta name="author" content="Emilio L. Cano" />
+  
+   <meta name="description" content="<p>Libro para asignaturas de Estadística en grados de Ciencias e Ingeniería.
+Puede ser útil también para asignaturas de Estadística en otros grados como
+Economía o ADE. Contiene una visión muy particular del autor.</p>" />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Apéndice F Demostraciones | Estadística Aplicada a las Ciencias y la Ingeniería" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/" />
+  <meta property="og:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png" />
+  <meta property="og:description" content="<p>Libro para asignaturas de Estadística en grados de Ciencias e Ingeniería.
+Puede ser útil también para asignaturas de Estadística en otros grados como
+Economía o ADE. Contiene una visión muy particular del autor.</p>" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Apéndice F Demostraciones | Estadística Aplicada a las Ciencias y la Ingeniería" />
+  
+  <meta name="twitter:description" content="<p>Libro para asignaturas de Estadística en grados de Ciencias e Ingeniería.
+Puede ser útil también para asignaturas de Estadística en otros grados como
+Economía o ADE. Contiene una visión muy particular del autor.</p>" />
+  <meta name="twitter:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png" />
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.3.1/transition.js"></script>
+    <script src="libs/bs3compat-0.3.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.3.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="bs4_style.css" />
+    <link rel="stylesheet" href="bs4_book.css" />
+    <link rel="stylesheet" href="style.css" />
+  
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -40,101 +68,58 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
-</form>
+      </form>
 
-      <nav aria-label="Contenido"><h2>Contenido</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Bienvenida</a></li>
-<li class="book-part">Estadística descriptiva</li>
-<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introducción</a></li>
-<li><a class="" href="aed-uni.html"><span class="header-section-number">2</span> Análisis exploratorio univariante</a></li>
-<li><a class="" href="aed-bi.html"><span class="header-section-number">3</span> Análisis exploratorio bivariante</a></li>
-<li class="book-part">Probabilidad</li>
-<li><a class="" href="introp.html"><span class="header-section-number">4</span> Introducción a la Probabilidad</a></li>
-<li><a class="" href="vauni.html"><span class="header-section-number">5</span> Variable aleatoria univariante</a></li>
-<li><a class="" href="vabi.html"><span class="header-section-number">6</span> Variable aleatoria bivariante</a></li>
-<li><a class="" href="modelos.html"><span class="header-section-number">7</span> Modelos de distribución de probabilidad</a></li>
-<li class="book-part">Inferencia estadística</li>
-<li><a class="" href="muestreo.html"><span class="header-section-number">8</span> Muestreo y estimación</a></li>
-<li><a class="" href="comparacion2.html"><span class="header-section-number">9</span> Comparación de dos grupos</a></li>
-<li><a class="" href="anova.html"><span class="header-section-number">10</span> Análisis de la Varianza</a></li>
-<li><a class="" href="doe.html"><span class="header-section-number">11</span> Diseño de experimentos</a></li>
-<li><a class="" href="regresion.html"><span class="header-section-number">12</span> Modelos de regresión</a></li>
-<li class="book-part">Control estadístico de la calidad</li>
-<li><a class="" href="introc.html"><span class="header-section-number">13</span> Introducción</a></li>
-<li><a class="" href="spc.html"><span class="header-section-number">14</span> Control Estadístico de Procesos</a></li>
-<li><a class="" href="aceptacion.html"><span class="header-section-number">15</span> Inspección por muestreo</a></li>
-<li class="book-part">Apéndices</li>
-<li><a class="" href="s%C3%ADmbolos-abreviaturas-y-acr%C3%B3nimos.html"><span class="header-section-number">A</span> Símbolos, abreviaturas y acrónimos</a></li>
-<li><a class="" href="tablas.html"><span class="header-section-number">B</span> Tablas estadísticas</a></li>
-<li><a class="" href="repaso.html"><span class="header-section-number">C</span> Repaso</a></li>
-<li><a class="" href="ampliaci%C3%B3n.html"><span class="header-section-number">D</span> Ampliación</a></li>
-<li><a class="active" href="demostraciones.html"><span class="header-section-number">E</span> Demostraciones</a></li>
-<li><a class="" href="creditos.html"><span class="header-section-number">F</span> Créditos</a></li>
-<li><a class="" href="referencias.html">Referencias</a></li>
-</ul>
+      <nav aria-label="Contenido">
+        <h2>Contenido</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria">Ver repositorio <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="#">Ver repositorio <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="demostraciones" class="section level1" number="20">
-<h1>
-<span class="header-section-number">Apéndice E</span> Demostraciones<a class="anchor" aria-label="anchor" href="#demostraciones"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="demostraciones" class="section level1" number="21">
+<h1><span class="header-section-number">Apéndice F</span> Demostraciones</h1>
 <p>Em este apéndice se incluyen aquellas demostraciones de teoremas y propiedades
 no incluidas en los capítulos para mantener el carácter práctico del mismo.</p>
-<div id="variable-aleatoria-discreta" class="section level2" number="20.1">
-<h2>
-<span class="header-section-number">E.1</span> Variable aleatoria discreta<a class="anchor" aria-label="anchor" href="#variable-aleatoria-discreta"><i class="fas fa-link"></i></a>
-</h2>
-<div id="función-de-probabilidad-1" class="section level3" number="20.1.1">
-<h3>
-<span class="header-section-number">E.1.1</span> Función de probabilidad<a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-probabilidad-1"><i class="fas fa-link"></i></a>
-</h3>
+<div id="variable-aleatoria-discreta" class="section level2" number="21.1">
+<h2><span class="header-section-number">F.1</span> Variable aleatoria discreta</h2>
+<div id="función-de-probabilidad-1" class="section level3" number="21.1.1">
+<h3><span class="header-section-number">F.1.1</span> Función de probabilidad</h3>
 </div>
-<div id="esperanza" class="section level3" number="20.1.2">
-<h3>
-<span class="header-section-number">E.1.2</span> Esperanza<a class="anchor" aria-label="anchor" href="#esperanza"><i class="fas fa-link"></i></a>
-</h3>
+<div id="esperanza" class="section level3" number="21.1.2">
+<h3><span class="header-section-number">F.1.2</span> Esperanza</h3>
 </div>
-<div id="varianza" class="section level3" number="20.1.3">
-<h3>
-<span class="header-section-number">E.1.3</span> Varianza<a class="anchor" aria-label="anchor" href="#varianza"><i class="fas fa-link"></i></a>
-</h3>
+<div id="varianza" class="section level3" number="21.1.3">
+<h3><span class="header-section-number">F.1.3</span> Varianza</h3>
 </div>
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="ampliaci%C3%B3n.html"><span class="header-section-number">D</span> Ampliación</a></div>
-<div class="next"><a href="creditos.html"><span class="header-section-number">F</span> Créditos</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="Índice capítulo"><h2>Índice capítulo</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#demostraciones"><span class="header-section-number">E</span> Demostraciones</a></li>
-<li>
-<a class="nav-link" href="#variable-aleatoria-discreta"><span class="header-section-number">E.1</span> Variable aleatoria discreta</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#funci%C3%B3n-de-probabilidad-1"><span class="header-section-number">E.1.1</span> Función de probabilidad</a></li>
-<li><a class="nav-link" href="#esperanza"><span class="header-section-number">E.1.2</span> Esperanza</a></li>
-<li><a class="nav-link" href="#varianza"><span class="header-section-number">E.1.3</span> Varianza</a></li>
-</ul>
-</li>
-</ul>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="Índice capítulo">
+      <h2>Índice capítulo</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/blob/master/91-apendices.Rmd">Ver fuente <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/edit/master/91-apendices.Rmd">Editar esta página <i class="fab fa-github"></i></a></li>
+          <li><a id="book-source" href="#">Ver fuente <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Editar esta página <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
     <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-06.</p>
@@ -145,7 +130,11 @@ no incluidas en los capítulos para mantener el carácter práctico del mismo.</
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -157,7 +146,8 @@ no incluidas en los capítulos para mantener el carácter práctico del mismo.</
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
 for (let popover of popovers) {
   const div = document.createElement('div');
   div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
@@ -175,4 +165,5 @@ for (let popover of popovers) {
 }
 </script>
 </body>
+
 </html>

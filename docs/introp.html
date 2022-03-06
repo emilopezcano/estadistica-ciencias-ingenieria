@@ -66,11 +66,12 @@
 <li><a class="" href="aceptacion.html"><span class="header-section-number">15</span> Inspección por muestreo</a></li>
 <li class="book-part">Apéndices</li>
 <li><a class="" href="s%C3%ADmbolos-abreviaturas-y-acr%C3%B3nimos.html"><span class="header-section-number">A</span> Símbolos, abreviaturas y acrónimos</a></li>
-<li><a class="" href="tablas.html"><span class="header-section-number">B</span> Tablas estadísticas</a></li>
-<li><a class="" href="repaso.html"><span class="header-section-number">C</span> Repaso</a></li>
-<li><a class="" href="ampliaci%C3%B3n.html"><span class="header-section-number">D</span> Ampliación</a></li>
-<li><a class="" href="demostraciones.html"><span class="header-section-number">E</span> Demostraciones</a></li>
-<li><a class="" href="creditos.html"><span class="header-section-number">F</span> Créditos</a></li>
+<li><a class="" href="formulario.html"><span class="header-section-number">B</span> Formulario</a></li>
+<li><a class="" href="tablas.html"><span class="header-section-number">C</span> Tablas estadísticas</a></li>
+<li><a class="" href="repaso.html"><span class="header-section-number">D</span> Repaso</a></li>
+<li><a class="" href="ampliaci%C3%B3n.html"><span class="header-section-number">E</span> Ampliación</a></li>
+<li><a class="" href="demostraciones.html"><span class="header-section-number">F</span> Demostraciones</a></li>
+<li><a class="" href="creditos.html"><span class="header-section-number">G</span> Créditos</a></li>
 <li><a class="" href="referencias.html">Referencias</a></li>
 </ul>
 
@@ -252,7 +253,7 @@ y para ello queremos seleccionar dos de un total de cinco proyectos. El espacio 
 si asumimos que no nos importa el orden en el que se seleccionan y etiquetamos los proyectos
 con los números del 1 al 5, es <span class="math inline">\(\Omega=\{\)</span> (1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (3, 4), (3, 5), (4, 5) <span class="math inline">\(\}\)</span>.
 Es decir, el espacio muestral tiene 10 elementos. El mero recuento se puede realizar
-mediante técnicas de combinatoria, véase al apéndice <a href="repaso.html#combinatoria">C.2</a>.
+mediante técnicas de combinatoria, véase al apéndice <a href="repaso.html#combinatoria">D.2</a>.
 En este caso, <span class="math inline">\(C_{5, 2} = \binom{5}{2} = 10\)</span>.
 </div>
 
@@ -265,7 +266,7 @@ En este caso, <span class="math inline">\(C_{5, 2} = \binom{5}{2} = 10\)</span>.
 <p><strong>R</strong></p>
 La función <code>choose</code> obtiene el número de combinaciones como se ilustra a continuación.
 </div>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt; [1] 10</span></code></pre></div>
 </div>
@@ -300,7 +301,7 @@ El suceso “ser investigador <strong>o</strong> mujer” en nuestro ejemplo de 
 <span class="math inline">\(A \cap B\)</span><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;En ocasiones se utiliza la notación &lt;span class="math inline"&gt;\(A\cdot B\)&lt;/span&gt; o simplemente &lt;span class="math inline"&gt;\(AB\)&lt;/span&gt; para la intersección de sucesos.&lt;/p&gt;'><sup>45</sup></a>
 como el suceso que se cumple si ocurren <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> simultáneamente. El suceso
 intersección contiene únicamente los sucesos elementales comunes a ambos sucesos,
-véase la figura <a href="introp.html#fig:intersec">4.4</a></p>
+véase la figura <a href="introp.html#fig:intersec">4.4</a>.</p>
 <p>Las operaciones de unión e intersección entre dos ducesos se extienden
 inmediatamente a más de dos sucesos.</p>
 <div class="figure" style="text-align: center">
@@ -641,7 +642,7 @@ muestrales infinitos (numerables y no numerables).</p>
 <li><p><span class="math inline">\(P(\emptyset) = 0\)</span>.</p></li>
 <li><p>Dados <span class="math inline">\(A_1, A_2: A_1 \subset A_2 \implies P(A_1) \leq P(A_2)\)</span>.</p></li>
 <li><p><span class="math inline">\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</span>.</p></li>
-<li><p><span class="math inline">\(P(\bigcup\limits_{i=1}^n A_i) = \sum\limits_{i=1}^n P(A_i) - \sum\limits_{i&lt;j} P(A_i \cap A_j) + \sum\limits_{i&lt;j&lt;k} P(A_i \cap A_j \cap A_k) - \ldots + (-1)^{n-1} P \left(\bigcap\limits_{i=1}^n A_i\right )\)</span>.</p></li>
+<li><p><span class="math inline">\(P(\bigcup\limits_{i=1}^n A_i) = \sum\limits_{i=1}^n P(A_i) - \sum\limits_{i&lt;j} P(A_i \cap A_j) + \sum\limits_{i&lt;j&lt;k} P(A_i \cap A_j \cap A_k) -\)</span><br><span class="math inline">\(- \ldots + (-1)^{n-1} P \left(\bigcap\limits_{i=1}^n A_i\right ).\)</span></p></li>
 </ol>
 <p>El primer teorema particulariza el tercer axioma a un conjunto finito de sucesos disjuntos del espacio muestral. El segundo teorema es una de las propiedades que más aplicaremos en cálculo
 de probabilidades, y nos indica cómo calcular la probabilidad de un suceso restándole a 1 la probabilidad de su complementario. El tercer teorema es una consecuencia del anterior y del primer axioma, por los cuales la probabilidad del suceso imposible es cero. El cuarto teorema es
@@ -712,9 +713,9 @@ habría que considerar todos los casos posibles y después calcular probabilidad
 de uniones e intersecciones. Sin embargo,
 se resuelve de forma casi inmediata sin consideramos la probabilidad del suceso
 complementario. Es decir, si:</p>
-<p><span class="math display">\[A: \text{Al menos dos personas de un grupo de 30 cumplen años el mismo día,}\]</span></p>
+<p><span class="math inline">\(A:\)</span> Al menos dos personas de un grupo de 30 cumplen años el mismo día,</p>
 <p>entonces el suceso complementario es:</p>
-<p><span class="math display">\[A^c: \text{No hay dos personas en un grupo de 30 que cumplen años el mismo día.}\]</span></p>
+<p><span class="math inline">\(A^c\)</span>: No hay dos personas en un grupo de 30 que cumplen años el mismo día.</p>
 <p>Nótese cómo la probababilidad sería igual a 1 si el grupo de personas fuera
 de 365 personas o
 más<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Si no tenemos en cuenta los años bisiestos.&lt;/p&gt;"><sup>54</sup></a>,
@@ -737,7 +738,7 @@ por eso nos sorprendemos cuando escuchamos un <em>cumpleaños feliz</em> el día
 
 <div class="rmdpractica">
 <p>Para obtener los casos favorables, si intentamos utilizar la fórmula de
-las variaciones utilizando los factoriales (ver apéndice <a href="repaso.html#combinatoria">C.2</a>),
+las variaciones utilizando los factoriales (ver apéndice <a href="repaso.html#combinatoria">D.2</a>),
 la calculadora y el software pueden devolver un error, por no poder calcular
 el factorial de 365.</p>
 <p><strong>HOJA DE CÁLCULO</strong></p>
@@ -752,7 +753,7 @@ la probabilidad pedida:</p>
 <p>El siguiente código realiza los cálculos paso a paso y devuelve la probabilidad pedida. Cambiando el valor <code>30</code> por otro número de personas cualquiera, se
 puede ver cómo aumenta la probabilidad.</p>
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ncumple</span> <span class="op">&lt;-</span> <span class="fl">30</span>
 <span class="va">cposibles</span> <span class="op">&lt;-</span> <span class="fl">365</span><span class="op">^</span><span class="va">ncumple</span>
 <span class="va">cfavorables</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/prod.html">prod</a></span><span class="op">(</span><span class="fl">365</span><span class="op">:</span><span class="op">(</span><span class="fl">365</span> <span class="op">-</span> <span class="va">ncumple</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span>

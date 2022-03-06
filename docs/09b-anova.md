@@ -51,7 +51,7 @@ el test de Wilcoxon, o el test de Wilcoxon-Mann-Whitney.
 
 ::: {.rmdejemplo data-latex=""}
 
-`<svg aria-hidden="true" role="img" viewBox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M378.31 378.49L298.42 288h30.63c9.01 0 16.98-5 20.78-13.06 3.8-8.04 2.55-17.26-3.28-24.05L268.42 160h28.89c9.1 0 17.3-5.35 20.86-13.61 3.52-8.13 1.86-17.59-4.24-24.08L203.66 4.83c-6.03-6.45-17.28-6.45-23.32 0L70.06 122.31c-6.1 6.49-7.75 15.95-4.24 24.08C69.38 154.65 77.59 160 86.69 160h28.89l-78.14 90.91c-5.81 6.78-7.06 15.99-3.27 24.04C37.97 283 45.93 288 54.95 288h30.63L5.69 378.49c-6 6.79-7.36 16.09-3.56 24.26 3.75 8.05 12 13.25 21.01 13.25H160v24.45l-30.29 48.4c-5.32 10.64 2.42 23.16 14.31 23.16h95.96c11.89 0 19.63-12.52 14.31-23.16L224 440.45V416h136.86c9.01 0 17.26-5.2 21.01-13.25 3.8-8.17 2.44-17.47-3.56-24.26z"/></svg>`{=html} Una granja experimental quiere estudiar el efecto que tiene 
+![](09b-anova_files/figure-latex/fa-icon-cad1ca165b8df24cf4a6670c9354ee87.pdf){height=1em width=0.75em} Una granja experimental quiere estudiar el efecto que tiene 
 el tipo de fertilizante utilizado en el cultivo de una determinada variedad de plantas y su peso en su punto óptimo de recolección. Para ello diseña un experimento en el que selecciona doce semillas aleatoriamente de un determinado lote. 
 Se asigna aleatoriamente cada semilla a una maceta. Y a cada maceta, se le asigna también aleatoriamente un tipo de fertilizante entre tres varieaddes: A, B y C. El peso de cada planta en gramos se recoge en la tabla \@ref(tab:anovaplanta), que están guardados en el data frame 
 `danova`^[Se puede descargar el conjunto de datos de http://emilio.lcano.com/b/adr/datos/danova2.rds].
@@ -68,29 +68,52 @@ Por otra parte parece que hay menos variabilidad
 con también con el fertilizante C. Una vez ajustado el modelo lo comprobaremos numéricamente.
 :::
 
+\begin{table}
 
-Table: (\#tab:anovaplanta)Peso de la planta a su recogida
-
-|Fertilizante |  Peso|
-|:------------|-----:|
-|A            | 137.4|
-|A            | 176.2|
-|A            | 113.5|
-|A            | 138.6|
-|A            | 178.7|
-|A            | 114.6|
-|B            | 105.3|
-|B            | 105.7|
-|B            | 127.5|
-|B            | 156.8|
-|B            | 115.2|
-|B            | 140.8|
-|C            | 102.4|
-|C            | 106.4|
-|C            | 106.8|
-|C            | 127.0|
-|C            | 106.2|
-|C            | 108.9|
+\caption{(\#tab:anovaplanta)Peso de la planta a su recogida}
+\centering
+\begin{tabular}[t]{l|r}
+\hline
+Fertilizante & Peso\\
+\hline
+A & 137.4\\
+\hline
+A & 176.2\\
+\hline
+A & 113.5\\
+\hline
+A & 138.6\\
+\hline
+A & 178.7\\
+\hline
+A & 114.6\\
+\hline
+B & 105.3\\
+\hline
+B & 105.7\\
+\hline
+B & 127.5\\
+\hline
+B & 156.8\\
+\hline
+B & 115.2\\
+\hline
+B & 140.8\\
+\hline
+C & 102.4\\
+\hline
+C & 106.4\\
+\hline
+C & 106.8\\
+\hline
+C & 127.0\\
+\hline
+C & 106.2\\
+\hline
+C & 108.9\\
+\hline
+\end{tabular}
+\end{table}
 
 
 
@@ -101,7 +124,7 @@ danova |>
   group_by(Fertilizante) |> 
   summarise(Peso_medio = mean(Peso),
             Desv.Tipica = sd(Peso)) 
-#> # A tibble: 3 × 3
+#> # A tibble: 3 x 3
 #>   Fertilizante Peso_medio Desv.Tipica
 #>   <fct>             <dbl>       <dbl>
 #> 1 A                  143.       28.6 
@@ -114,10 +137,14 @@ danova |>
              col = "orangered")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="09b-anova_files/figure-html/plantaspuntos-1.png" alt="Gráfico de puntos del experimento en plantas" width="672" />
-<p class="caption">(\#fig:plantaspuntos)Gráfico de puntos del experimento en plantas</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{09b-anova_files/figure-latex/plantaspuntos-1} 
+
+}
+
+\caption{Gráfico de puntos del experimento en plantas}(\#fig:plantaspuntos)
+\end{figure}
 
 
 
@@ -324,7 +351,7 @@ danova |>
   group_by(Fertilizante) |> 
   summarise(Medias = mean(Peso)) |> 
   mutate(Efectos = Medias - mean(danova$Peso))
-#> # A tibble: 3 × 3
+#> # A tibble: 3 x 3
 #>   Fertilizante Medias Efectos
 #>   <fct>         <dbl>   <dbl>
 #> 1 A              143.  17.2  
@@ -344,10 +371,14 @@ confint(modelo.aov, alpha = 0.99)
 plot(effects::effect("Fertilizante", modelo.aov))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="09b-anova_files/figure-html/efectotipo-1.png" alt="Visualización de los efectos" width="672" />
-<p class="caption">(\#fig:efectotipo)Visualización de los efectos</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{09b-anova_files/figure-latex/efectotipo-1} 
+
+}
+
+\caption{Visualización de los efectos}(\#fig:efectotipo)
+\end{figure}
 
 
 ### Contrastes
@@ -402,13 +433,20 @@ p-valor, para llegar a una conclusión o decisión. En Análisis de la Varianza 
 se resume normalmente en la llamada tabla ANOVA (ver tabla \@ref(tab:anova0)), que incluye 
 las sumas de cuadrados, cuadrados medios, estadístico F y el p-valor.
 
+\begin{table}
 
-Table: (\#tab:anova0)Contenido de la tabla ANOVA
-
-|         |GL    |SC  |CM  |F  |p-valor |
-|:--------|:-----|:---|:---|:--|:-------|
-|factor   |$k-1$ |SCE |CME |F  |p       |
-|residuos |$n-k$ |SCD |CMD |   |        |
+\caption{(\#tab:anova0)Contenido de la tabla ANOVA}
+\centering
+\begin{tabular}[t]{l|l|l|l|l|l}
+\hline
+  & GL & SC & CM & F & p-valor\\
+\hline
+factor & \$k-1\$ & SCE & CME & F & p\\
+\hline
+residuos & \$n-k\$ & SCD & CMD &  & \\
+\hline
+\end{tabular}
+\end{table}
 
 
 
@@ -470,10 +508,14 @@ TukeyHSD(modelo.aov)
 plot(TukeyHSD(modelo.aov))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="09b-anova_files/figure-html/tukeytipo-1.png" alt="Visualización de las diferencias por pares" width="672" />
-<p class="caption">(\#fig:tukeytipo)Visualización de las diferencias por pares</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{09b-anova_files/figure-latex/tukeytipo-1} 
+
+}
+
+\caption{Visualización de las diferencias por pares}(\#fig:tukeytipo)
+\end{figure}
 
 
 Recordemos que en un estudio observacional si se rechaza la hipótesis nula estamos confirmando
@@ -542,10 +584,14 @@ library(ggfortify)
 autoplot(modelo.aov)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="09b-anova_files/figure-html/anovadiag-1.png" alt="Gráficos de diagnóstico modelo ANOVA" width="672" />
-<p class="caption">(\#fig:anovadiag)Gráficos de diagnóstico modelo ANOVA</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{09b-anova_files/figure-latex/anovadiag-1} 
+
+}
+
+\caption{Gráficos de diagnóstico modelo ANOVA}(\#fig:anovadiag)
+\end{figure}
 
 
 
@@ -622,29 +668,52 @@ pgirmess::kruskalmc(Peso ~ Tierra, data = danova)
 #> Z2-Z3 1.7777778     8.520237      FALSE
 ```
 
+\begin{table}
 
-Table: (\#tab:anovatemp)Peso de las plantas y origen de la tierra
-
-|Tierra |  Peso|
-|:------|-----:|
-|Z2     | 137.4|
-|Z2     | 176.2|
-|Z3     | 113.5|
-|Z1     | 138.6|
-|Z2     | 178.7|
-|Z1     | 114.6|
-|Z2     | 105.3|
-|Z2     | 105.7|
-|Z3     | 127.5|
-|Z1     | 156.8|
-|Z2     | 115.2|
-|Z1     | 140.8|
-|Z2     | 102.4|
-|Z1     | 106.4|
-|Z2     | 106.8|
-|Z3     | 127.0|
-|Z1     | 106.2|
-|Z2     | 108.9|
+\caption{(\#tab:anovatemp)Peso de las plantas y origen de la tierra}
+\centering
+\begin{tabular}[t]{l|r}
+\hline
+Tierra & Peso\\
+\hline
+Z2 & 137.4\\
+\hline
+Z2 & 176.2\\
+\hline
+Z3 & 113.5\\
+\hline
+Z1 & 138.6\\
+\hline
+Z2 & 178.7\\
+\hline
+Z1 & 114.6\\
+\hline
+Z2 & 105.3\\
+\hline
+Z2 & 105.7\\
+\hline
+Z3 & 127.5\\
+\hline
+Z1 & 156.8\\
+\hline
+Z2 & 115.2\\
+\hline
+Z1 & 140.8\\
+\hline
+Z2 & 102.4\\
+\hline
+Z1 & 106.4\\
+\hline
+Z2 & 106.8\\
+\hline
+Z3 & 127.0\\
+\hline
+Z1 & 106.2\\
+\hline
+Z2 & 108.9\\
+\hline
+\end{tabular}
+\end{table}
 
 
 
@@ -748,10 +817,14 @@ with(danova,
                       las = 1))
 ```
 
-<div class="figure" style="text-align: center">
-<img src="09b-anova_files/figure-html/anovainter-1.png" alt="Visualización de las interacciones entre iluminación y Tierra." width="672" />
-<p class="caption">(\#fig:anovainter)Visualización de las interacciones entre iluminación y Tierra.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{09b-anova_files/figure-latex/anovainter-1} 
+
+}
+
+\caption{Visualización de las interacciones entre iluminación y Tierra.}(\#fig:anovainter)
+\end{figure}
 
 ::: {.rmdejemplo data-latex=""}
 La tabla ANOVA nos muestra que el término de la interacción es altamente significativo,

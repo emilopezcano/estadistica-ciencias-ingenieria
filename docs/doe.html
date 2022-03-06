@@ -66,11 +66,12 @@
 <li><a class="" href="aceptacion.html"><span class="header-section-number">15</span> Inspección por muestreo</a></li>
 <li class="book-part">Apéndices</li>
 <li><a class="" href="s%C3%ADmbolos-abreviaturas-y-acr%C3%B3nimos.html"><span class="header-section-number">A</span> Símbolos, abreviaturas y acrónimos</a></li>
-<li><a class="" href="tablas.html"><span class="header-section-number">B</span> Tablas estadísticas</a></li>
-<li><a class="" href="repaso.html"><span class="header-section-number">C</span> Repaso</a></li>
-<li><a class="" href="ampliaci%C3%B3n.html"><span class="header-section-number">D</span> Ampliación</a></li>
-<li><a class="" href="demostraciones.html"><span class="header-section-number">E</span> Demostraciones</a></li>
-<li><a class="" href="creditos.html"><span class="header-section-number">F</span> Créditos</a></li>
+<li><a class="" href="formulario.html"><span class="header-section-number">B</span> Formulario</a></li>
+<li><a class="" href="tablas.html"><span class="header-section-number">C</span> Tablas estadísticas</a></li>
+<li><a class="" href="repaso.html"><span class="header-section-number">D</span> Repaso</a></li>
+<li><a class="" href="ampliaci%C3%B3n.html"><span class="header-section-number">E</span> Ampliación</a></li>
+<li><a class="" href="demostraciones.html"><span class="header-section-number">F</span> Demostraciones</a></li>
+<li><a class="" href="creditos.html"><span class="header-section-number">G</span> Créditos</a></li>
 <li><a class="" href="referencias.html">Referencias</a></li>
 </ul>
 
@@ -434,7 +435,7 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <div class="rmdpractica">
 <p>En el siguiente código se analiza un experimento con dos factores A y B a dos niveles, <code>+</code> y + <code>-</code>. Se muestran los gráficos de los efectos.</p>
 </div>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://xtable.r-forge.r-project.org/">xtable</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://prof.beuth-hochschule.de/groemping/DoE/">DoE.base</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.r-project.org">effects</a></span><span class="op">)</span>
@@ -499,7 +500,7 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 </tr>
 </tbody>
 </table></div>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">modelof22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/DoE.base/man/lm.design.html">lm</a></span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">A</span> <span class="op">+</span> <span class="va">B</span> <span class="op">+</span> <span class="va">A</span><span class="op">*</span><span class="va">B</span>, data <span class="op">=</span> <span class="va">datosf22</span><span class="op">)</span>
 <span class="co"># kable(anova(modelof22))</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof22</span><span class="op">)</span>
@@ -514,23 +515,23 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <span class="co">#&gt; ---</span>
 <span class="co">#&gt; Signif. codes:  </span>
 <span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></code></pre></div>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://lattice.r-forge.r-project.org/">lattice</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/trellis.par.get.html">trellis.par.set</a></span><span class="op">(</span>background <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; NOTE: A is not a high-order term in the model</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; NOTE: B is not a high-order term in the model</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A:B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
 <div class="rmdejemplo">
 <p>Vemos que los dos efectos principales son significativos, pero no lo es la interacción. Podemos eliminar ese término del modelo para así ganar grados de libertad y tener una mejor estimación del error.</p>
 </div>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">modelof22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/DoE.base/man/lm.design.html">lm</a></span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">A</span> <span class="op">+</span> <span class="va">B</span>, data <span class="op">=</span> <span class="va">datosf22</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof22</span><span class="op">)</span>
 <span class="co">#&gt; Analysis of Variance Table</span>
@@ -543,10 +544,10 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <span class="co">#&gt; ---</span>
 <span class="co">#&gt; Signif. codes:  </span>
 <span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></code></pre></div>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
 <p><strong>Diseño factorial <span class="math inline">\(2^3\)</span></strong></p>
@@ -566,7 +567,7 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <div class="rmdejemplo">
 <p>En el siguiente ejemplo, analizamos tres factores, pero omitimos la interacción de orden 3. Después, podríamos eliminar las interacciones menos significativas para quedarnos con el modelo más sencillo.</p>
 </div>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datosf23</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/scan.html">scan</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"
 -   -   -   60
 +   -   -   72  
@@ -640,7 +641,7 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 </tr>
 </tbody>
 </table></div>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">modelof23</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/DoE.base/man/lm.design.html">lm</a></span><span class="op">(</span><span class="va">rendimiento</span> <span class="op">~</span> <span class="cn">T</span> <span class="op">+</span> <span class="va">C</span> <span class="op">+</span> <span class="va">K</span> <span class="op">+</span> <span class="cn">T</span><span class="op">*</span><span class="va">C</span> <span class="op">+</span> <span class="cn">T</span><span class="op">*</span><span class="va">K</span> <span class="op">+</span> <span class="va">C</span><span class="op">*</span><span class="va">K</span>, data <span class="op">=</span> <span class="va">datosf23</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof23</span><span class="op">)</span>
 <span class="co">#&gt; Analysis of Variance Table</span>
@@ -657,26 +658,26 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <span class="co">#&gt; ---</span>
 <span class="co">#&gt; Signif. codes:  </span>
 <span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></code></pre></div>
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; NOTE: T is not a high-order term in the model</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"C"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; NOTE: C is not a high-order term in the model</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-2.png" width="672"></div>
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; NOTE: K is not a high-order term in the model</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-3.png" width="672"></div>
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T:C"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-4.png" width="672"></div>
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T:K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-5.png" width="672"></div>
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"C:K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-6.png" width="672"></div>
 <p><strong>Diseño factorial <span class="math inline">\(2^k\)</span></strong></p>

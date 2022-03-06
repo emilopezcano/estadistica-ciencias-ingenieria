@@ -2,12 +2,12 @@
 ```r
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = "")
 library(tidyverse)
-#> ── Attaching packages ─────────────────── tidyverse 1.3.1 ──
-#> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-#> ✓ tibble  3.1.6     ✓ dplyr   1.0.8
-#> ✓ tidyr   1.2.0     ✓ stringr 1.4.0
-#> ✓ readr   2.1.2     ✓ forcats 0.5.1
-#> ── Conflicts ────────────────────── tidyverse_conflicts() ──
+#> -- Attaching packages ------------------- tidyverse 1.3.1 --
+#> v ggplot2 3.3.5     v purrr   0.3.4
+#> v tibble  3.1.6     v dplyr   1.0.8
+#> v tidyr   1.2.0     v stringr 1.4.0
+#> v readr   2.1.2     v forcats 0.5.1
+#> -- Conflicts ---------------------- tidyverse_conflicts() --
 #> x dplyr::filter() masks stats::filter()
 #> x dplyr::lag()    masks stats::lag()
 library(knitr)
@@ -24,6 +24,7 @@ library(gridExtra)
 #> The following object is masked from 'package:dplyr':
 #> 
 #>     combine
+library(equatiomatic)
 ```
 
 # Análisis exploratorio bivariante {#aed-bi}
@@ -74,26 +75,44 @@ $n= 1171$.
 :::
 
 
+\begin{table}
 
-Table: (\#tab:tabs)Tabla de contingencia (frecuencias absolutas) de los analistas y el tipo de queso.
+\caption{(\#tab:tabs)Tabla de contingencia (frecuencias absolutas) de los analistas y el tipo de queso.}
+\centering
+\begin{tabular}[t]{l|r|r|r}
+\hline
+  & A & B & C\\
+\hline
+analista\_10 & 52 & 47 & 219\\
+\hline
+analista\_13 & 42 & 36 & 198\\
+\hline
+analista\_6 & 44 & 32 & 235\\
+\hline
+analista\_9 & 37 & 33 & 196\\
+\hline
+\end{tabular}
+\end{table}
 
-|            |  A|  B|   C|
-|:-----------|--:|--:|---:|
-|analista_10 | 52| 47| 219|
-|analista_13 | 42| 36| 198|
-|analista_6  | 44| 32| 235|
-|analista_9  | 37| 33| 196|
 
+\begin{table}
 
-
-Table: (\#tab:trel)Tabla de frecuencias relativas de los analistas y el tipo de queso.
-
-|            |    A|    B|    C|
-|:-----------|----:|----:|----:|
-|analista_10 | 0.04| 0.04| 0.19|
-|analista_13 | 0.04| 0.03| 0.17|
-|analista_6  | 0.04| 0.03| 0.20|
-|analista_9  | 0.03| 0.03| 0.17|
+\caption{(\#tab:trel)Tabla de frecuencias relativas de los analistas y el tipo de queso.}
+\centering
+\begin{tabular}[t]{l|r|r|r}
+\hline
+  & A & B & C\\
+\hline
+analista\_10 & 0.04 & 0.04 & 0.19\\
+\hline
+analista\_13 & 0.04 & 0.03 & 0.17\\
+\hline
+analista\_6 & 0.04 & 0.03 & 0.20\\
+\hline
+analista\_9 & 0.03 & 0.03 & 0.17\\
+\hline
+\end{tabular}
+\end{table}
 
 
 
@@ -118,21 +137,36 @@ de las variables:
 
 
 
+\begin{table}
 
-Table: (\#tab:tcont)Tabla de frecuencias conjunta del pH y el extracto seco total agrupadas en intervalos.
-
-|           | (28,30]| (30,32]| (32,34]| (34,36]| (36,38]|
-|:----------|-------:|-------:|-------:|-------:|-------:|
-|(6.35,6.4] |       0|       0|       1|       0|       0|
-|(6.4,6.45] |       0|       0|       0|       0|       0|
-|(6.45,6.5] |       1|       2|       0|       0|       0|
-|(6.5,6.55] |       3|      50|       1|       0|       0|
-|(6.55,6.6] |      17|     129|      36|       2|       0|
-|(6.6,6.65] |      18|     195|     167|      20|       4|
-|(6.65,6.7] |       9|     160|     182|      18|       0|
-|(6.7,6.75] |       2|      53|      70|       4|       0|
-|(6.75,6.8] |       0|       9|      10|       2|       0|
-|(6.8,6.85] |       0|       4|       1|       0|       1|
+\caption{(\#tab:tcont)Tabla de frecuencias conjunta del pH y el extracto seco total agrupadas en intervalos.}
+\centering
+\begin{tabular}[t]{l|r|r|r|r|r}
+\hline
+  & (28,30] & (30,32] & (32,34] & (34,36] & (36,38]\\
+\hline
+(6.35,6.4] & 0 & 0 & 1 & 0 & 0\\
+\hline
+(6.4,6.45] & 0 & 0 & 0 & 0 & 0\\
+\hline
+(6.45,6.5] & 1 & 2 & 0 & 0 & 0\\
+\hline
+(6.5,6.55] & 3 & 50 & 1 & 0 & 0\\
+\hline
+(6.55,6.6] & 17 & 129 & 36 & 2 & 0\\
+\hline
+(6.6,6.65] & 18 & 195 & 167 & 20 & 4\\
+\hline
+(6.65,6.7] & 9 & 160 & 182 & 18 & 0\\
+\hline
+(6.7,6.75] & 2 & 53 & 70 & 4 & 0\\
+\hline
+(6.75,6.8] & 0 & 9 & 10 & 2 & 0\\
+\hline
+(6.8,6.85] & 0 & 4 & 1 & 0 & 1\\
+\hline
+\end{tabular}
+\end{table}
 
 
 
@@ -143,9 +177,13 @@ Si partimos de la distribución conjunta, podemos obtener la de cada
 una de las variables (marginal) y estudiarla como datos univariantes.
 Basta con hacer las sumas por columnas, $(X)$, o por filas, $(Y)$:
 
-* Frecuencias marginales absolutas de $X$: $n_{i\cdot} = \sum\limits_{j = 1}^{n_j}n_{ij}$
-
-* Frecuencias marginales absolutas de $Y$: $n_{\cdot j} = \sum\limits_{i = 1}^{n_i}n_{ij}$
+* Frecuencias marginales de $X$: 
+  + Absolutas: $n_{i\cdot} = \sum\limits_{j = 1}^{n_j}n_{ij}$
+  + Relativas: $f_{i\cdot} = \sum\limits_{j = 1}^{n_j}f_{ij}$
+  
+* Frecuencias marginales de $Y$: 
+  + $n_{\cdot j} = \sum\limits_{i = 1}^{n_i}n_{ij}$
+  + $f_{\cdot j} = \sum\limits_{i = 1}^{n_i}f_{ij}$
 
 donde $n_i$ es el número de clases de la variable $X$ y $n_j$ es el 
 número de clases de la variable $Y$. Análogamente, para frecuencias marginales relativas sumamos las frecuencias relativas conjuntas,
@@ -162,1409 +200,60 @@ respectivamente.
 :::
 
 
-
-```{=html}
-<div id="pluzwfrowp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-#pluzwfrowp .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#pluzwfrowp .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#pluzwfrowp .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#pluzwfrowp .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#pluzwfrowp .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#pluzwfrowp .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#pluzwfrowp .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#pluzwfrowp .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#pluzwfrowp .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#pluzwfrowp .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#pluzwfrowp .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#pluzwfrowp .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#pluzwfrowp .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#pluzwfrowp .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#pluzwfrowp .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#pluzwfrowp .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#pluzwfrowp .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#pluzwfrowp .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#pluzwfrowp .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#pluzwfrowp .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#pluzwfrowp .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#pluzwfrowp .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#pluzwfrowp .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#pluzwfrowp .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#pluzwfrowp .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#pluzwfrowp .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#pluzwfrowp .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#pluzwfrowp .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#pluzwfrowp .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#pluzwfrowp .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#pluzwfrowp .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#pluzwfrowp .gt_left {
-  text-align: left;
-}
-
-#pluzwfrowp .gt_center {
-  text-align: center;
-}
-
-#pluzwfrowp .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#pluzwfrowp .gt_font_normal {
-  font-weight: normal;
-}
-
-#pluzwfrowp .gt_font_bold {
-  font-weight: bold;
-}
-
-#pluzwfrowp .gt_font_italic {
-  font-style: italic;
-}
-
-#pluzwfrowp .gt_super {
-  font-size: 65%;
-}
-
-#pluzwfrowp .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-#pluzwfrowp .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#pluzwfrowp .gt_slash_mark {
-  font-size: 0.7em;
-  line-height: 0.7em;
-  vertical-align: 0.15em;
-}
-
-#pluzwfrowp .gt_fraction_numerator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.45em;
-}
-
-#pluzwfrowp .gt_fraction_denominator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: -0.05em;
-}
-</style>
-<table class="gt_table">
-  <caption>(#tab:tmar)Frecuencias marginales como suma de filas y columnas de la distribución conjunta</caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">X\Y</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">(28,30]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">(30,32]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">(32,34]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">(34,36]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">(36,38]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Sum</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">(6.35,6.4]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">1</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">1</td></tr>
-    <tr><td class="gt_row gt_left">(6.4,6.45]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">0</td></tr>
-    <tr><td class="gt_row gt_left">(6.45,6.5]</td>
-<td class="gt_row gt_right">1</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">3</td></tr>
-    <tr><td class="gt_row gt_left">(6.5,6.55]</td>
-<td class="gt_row gt_right">3</td>
-<td class="gt_row gt_right">50</td>
-<td class="gt_row gt_right">1</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">54</td></tr>
-    <tr><td class="gt_row gt_left">(6.55,6.6]</td>
-<td class="gt_row gt_right">17</td>
-<td class="gt_row gt_right">129</td>
-<td class="gt_row gt_right">36</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">184</td></tr>
-    <tr><td class="gt_row gt_left">(6.6,6.65]</td>
-<td class="gt_row gt_right">18</td>
-<td class="gt_row gt_right">195</td>
-<td class="gt_row gt_right">167</td>
-<td class="gt_row gt_right">20</td>
-<td class="gt_row gt_right">4</td>
-<td class="gt_row gt_right" style="font-weight: bold;">404</td></tr>
-    <tr><td class="gt_row gt_left">(6.65,6.7]</td>
-<td class="gt_row gt_right">9</td>
-<td class="gt_row gt_right">160</td>
-<td class="gt_row gt_right">182</td>
-<td class="gt_row gt_right">18</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">369</td></tr>
-    <tr><td class="gt_row gt_left">(6.7,6.75]</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">53</td>
-<td class="gt_row gt_right">70</td>
-<td class="gt_row gt_right">4</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">129</td></tr>
-    <tr><td class="gt_row gt_left">(6.75,6.8]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">9</td>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">21</td></tr>
-    <tr><td class="gt_row gt_left">(6.8,6.85]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">4</td>
-<td class="gt_row gt_right">1</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">1</td>
-<td class="gt_row gt_right" style="font-weight: bold;">6</td></tr>
-    <tr><td class="gt_row gt_left" style="font-weight: bold;">Sum</td>
-<td class="gt_row gt_right" style="font-weight: bold;">50</td>
-<td class="gt_row gt_right" style="font-weight: bold;">602</td>
-<td class="gt_row gt_right" style="font-weight: bold;">468</td>
-<td class="gt_row gt_right" style="font-weight: bold;">46</td>
-<td class="gt_row gt_right" style="font-weight: bold;">5</td>
-<td class="gt_row gt_right" style="font-weight: bold;">1171</td></tr>
-  </tbody>
-  
-  
-</table>
-</div>
-```
-
-
-
-
-```{=html}
-<div id="sqdedzlkia" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-#sqdedzlkia .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#sqdedzlkia .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#sqdedzlkia .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#sqdedzlkia .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#sqdedzlkia .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#sqdedzlkia .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#sqdedzlkia .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#sqdedzlkia .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#sqdedzlkia .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#sqdedzlkia .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#sqdedzlkia .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#sqdedzlkia .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#sqdedzlkia .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#sqdedzlkia .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#sqdedzlkia .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#sqdedzlkia .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#sqdedzlkia .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#sqdedzlkia .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#sqdedzlkia .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#sqdedzlkia .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#sqdedzlkia .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#sqdedzlkia .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#sqdedzlkia .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#sqdedzlkia .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#sqdedzlkia .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#sqdedzlkia .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#sqdedzlkia .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#sqdedzlkia .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#sqdedzlkia .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#sqdedzlkia .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#sqdedzlkia .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#sqdedzlkia .gt_left {
-  text-align: left;
-}
-
-#sqdedzlkia .gt_center {
-  text-align: center;
-}
-
-#sqdedzlkia .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#sqdedzlkia .gt_font_normal {
-  font-weight: normal;
-}
-
-#sqdedzlkia .gt_font_bold {
-  font-weight: bold;
-}
-
-#sqdedzlkia .gt_font_italic {
-  font-style: italic;
-}
-
-#sqdedzlkia .gt_super {
-  font-size: 65%;
-}
-
-#sqdedzlkia .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-#sqdedzlkia .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#sqdedzlkia .gt_slash_mark {
-  font-size: 0.7em;
-  line-height: 0.7em;
-  vertical-align: 0.15em;
-}
-
-#sqdedzlkia .gt_fraction_numerator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.45em;
-}
-
-#sqdedzlkia .gt_fraction_denominator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: -0.05em;
-}
-</style>
-<table class="gt_table">
-  <caption>(#tab:tmarx)Frecuencias marginales de X (pH)</caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">\(x_i\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(n_{i·}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(f_{i·}\)</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">(6.35,6.4]</td>
-<td class="gt_row gt_right">1</td>
-<td class="gt_row gt_right">0.001</td></tr>
-    <tr><td class="gt_row gt_left">(6.4,6.45]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0.000</td></tr>
-    <tr><td class="gt_row gt_left">(6.45,6.5]</td>
-<td class="gt_row gt_right">3</td>
-<td class="gt_row gt_right">0.003</td></tr>
-    <tr><td class="gt_row gt_left">(6.5,6.55]</td>
-<td class="gt_row gt_right">54</td>
-<td class="gt_row gt_right">0.046</td></tr>
-    <tr><td class="gt_row gt_left">(6.55,6.6]</td>
-<td class="gt_row gt_right">184</td>
-<td class="gt_row gt_right">0.157</td></tr>
-    <tr><td class="gt_row gt_left">(6.6,6.65]</td>
-<td class="gt_row gt_right">404</td>
-<td class="gt_row gt_right">0.345</td></tr>
-    <tr><td class="gt_row gt_left">(6.65,6.7]</td>
-<td class="gt_row gt_right">369</td>
-<td class="gt_row gt_right">0.315</td></tr>
-    <tr><td class="gt_row gt_left">(6.7,6.75]</td>
-<td class="gt_row gt_right">129</td>
-<td class="gt_row gt_right">0.110</td></tr>
-    <tr><td class="gt_row gt_left">(6.75,6.8]</td>
-<td class="gt_row gt_right">21</td>
-<td class="gt_row gt_right">0.018</td></tr>
-    <tr><td class="gt_row gt_left">(6.8,6.85]</td>
-<td class="gt_row gt_right">6</td>
-<td class="gt_row gt_right">0.005</td></tr>
-    <tr><td class="gt_row gt_left">Sum</td>
-<td class="gt_row gt_right">1171</td>
-<td class="gt_row gt_right">1.000</td></tr>
-  </tbody>
-  
-  
-</table>
-</div>
-```
-
-
-
-```{=html}
-<div id="rabqmxxybi" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-#rabqmxxybi .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#rabqmxxybi .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#rabqmxxybi .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#rabqmxxybi .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#rabqmxxybi .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#rabqmxxybi .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#rabqmxxybi .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#rabqmxxybi .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#rabqmxxybi .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#rabqmxxybi .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#rabqmxxybi .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#rabqmxxybi .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#rabqmxxybi .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#rabqmxxybi .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#rabqmxxybi .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#rabqmxxybi .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#rabqmxxybi .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#rabqmxxybi .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#rabqmxxybi .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#rabqmxxybi .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#rabqmxxybi .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#rabqmxxybi .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#rabqmxxybi .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#rabqmxxybi .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#rabqmxxybi .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#rabqmxxybi .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#rabqmxxybi .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#rabqmxxybi .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#rabqmxxybi .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#rabqmxxybi .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#rabqmxxybi .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#rabqmxxybi .gt_left {
-  text-align: left;
-}
-
-#rabqmxxybi .gt_center {
-  text-align: center;
-}
-
-#rabqmxxybi .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#rabqmxxybi .gt_font_normal {
-  font-weight: normal;
-}
-
-#rabqmxxybi .gt_font_bold {
-  font-weight: bold;
-}
-
-#rabqmxxybi .gt_font_italic {
-  font-style: italic;
-}
-
-#rabqmxxybi .gt_super {
-  font-size: 65%;
-}
-
-#rabqmxxybi .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-#rabqmxxybi .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#rabqmxxybi .gt_slash_mark {
-  font-size: 0.7em;
-  line-height: 0.7em;
-  vertical-align: 0.15em;
-}
-
-#rabqmxxybi .gt_fraction_numerator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.45em;
-}
-
-#rabqmxxybi .gt_fraction_denominator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: -0.05em;
-}
-</style>
-<table class="gt_table">
-  <caption>(#tab:tmary)Frecuencias marginales de Y (est)</caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">\(y_j\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(n_{·j}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(f_{·j}\)</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">(28,30]</td>
-<td class="gt_row gt_right">50</td>
-<td class="gt_row gt_right">0.043</td></tr>
-    <tr><td class="gt_row gt_left">(30,32]</td>
-<td class="gt_row gt_right">602</td>
-<td class="gt_row gt_right">0.514</td></tr>
-    <tr><td class="gt_row gt_left">(32,34]</td>
-<td class="gt_row gt_right">468</td>
-<td class="gt_row gt_right">0.400</td></tr>
-    <tr><td class="gt_row gt_left">(34,36]</td>
-<td class="gt_row gt_right">46</td>
-<td class="gt_row gt_right">0.039</td></tr>
-    <tr><td class="gt_row gt_left">(36,38]</td>
-<td class="gt_row gt_right">5</td>
-<td class="gt_row gt_right">0.004</td></tr>
-    <tr><td class="gt_row gt_left">Sum</td>
-<td class="gt_row gt_right">1171</td>
-<td class="gt_row gt_right">1.000</td></tr>
-  </tbody>
-  
-  
-</table>
-</div>
-```
+\captionsetup[table]{labelformat=empty,skip=1pt}
+\begin{longtable}{lrrrrrr}
+\toprule
+X\textbackslash Y & (28,30] & (30,32] & (32,34] & (34,36] & (36,38] & Sum \\ 
+\midrule
+(6.35,6.4] & 0 & 0 & 1 & 0 & 0 & 1 \\ 
+(6.4,6.45] & 0 & 0 & 0 & 0 & 0 & 0 \\ 
+(6.45,6.5] & 1 & 2 & 0 & 0 & 0 & 3 \\ 
+(6.5,6.55] & 3 & 50 & 1 & 0 & 0 & 54 \\ 
+(6.55,6.6] & 17 & 129 & 36 & 2 & 0 & 184 \\ 
+(6.6,6.65] & 18 & 195 & 167 & 20 & 4 & 404 \\ 
+(6.65,6.7] & 9 & 160 & 182 & 18 & 0 & 369 \\ 
+(6.7,6.75] & 2 & 53 & 70 & 4 & 0 & 129 \\ 
+(6.75,6.8] & 0 & 9 & 10 & 2 & 0 & 21 \\ 
+(6.8,6.85] & 0 & 4 & 1 & 0 & 1 & 6 \\ 
+Sum & 50 & 602 & 468 & 46 & 5 & 1171 \\ 
+\bottomrule
+\end{longtable}
+
+
+
+\captionsetup[table]{labelformat=empty,skip=1pt}
+\begin{longtable}{lrr}
+\toprule
+\textbackslash (x\_i\textbackslash ) & \textbackslash (n\_\{i·\}\textbackslash ) & \textbackslash (f\_\{i·\}\textbackslash ) \\ 
+\midrule
+(6.35,6.4] & 1 & 0.001 \\ 
+(6.4,6.45] & 0 & 0.000 \\ 
+(6.45,6.5] & 3 & 0.003 \\ 
+(6.5,6.55] & 54 & 0.046 \\ 
+(6.55,6.6] & 184 & 0.157 \\ 
+(6.6,6.65] & 404 & 0.345 \\ 
+(6.65,6.7] & 369 & 0.315 \\ 
+(6.7,6.75] & 129 & 0.110 \\ 
+(6.75,6.8] & 21 & 0.018 \\ 
+(6.8,6.85] & 6 & 0.005 \\ 
+Sum & 1171 & 1.000 \\ 
+\bottomrule
+\end{longtable}
+
+
+\captionsetup[table]{labelformat=empty,skip=1pt}
+\begin{longtable}{lrr}
+\toprule
+\textbackslash (y\_j\textbackslash ) & \textbackslash (n\_\{·j\}\textbackslash ) & \textbackslash (f\_\{·j\}\textbackslash ) \\ 
+\midrule
+(28,30] & 50 & 0.043 \\ 
+(30,32] & 602 & 0.514 \\ 
+(32,34] & 468 & 0.400 \\ 
+(34,36] & 46 & 0.039 \\ 
+(36,38] & 5 & 0.004 \\ 
+Sum & 1171 & 1.000 \\ 
+\bottomrule
+\end{longtable}
 
 
 
@@ -1596,902 +285,38 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
 
 
 
-
-```{=html}
-<div id="wamsdrqacn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-#wamsdrqacn .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#wamsdrqacn .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#wamsdrqacn .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#wamsdrqacn .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#wamsdrqacn .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#wamsdrqacn .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#wamsdrqacn .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#wamsdrqacn .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#wamsdrqacn .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#wamsdrqacn .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#wamsdrqacn .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#wamsdrqacn .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#wamsdrqacn .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#wamsdrqacn .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#wamsdrqacn .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#wamsdrqacn .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#wamsdrqacn .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#wamsdrqacn .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#wamsdrqacn .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#wamsdrqacn .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#wamsdrqacn .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#wamsdrqacn .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#wamsdrqacn .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#wamsdrqacn .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#wamsdrqacn .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#wamsdrqacn .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#wamsdrqacn .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#wamsdrqacn .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#wamsdrqacn .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#wamsdrqacn .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#wamsdrqacn .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#wamsdrqacn .gt_left {
-  text-align: left;
-}
-
-#wamsdrqacn .gt_center {
-  text-align: center;
-}
-
-#wamsdrqacn .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#wamsdrqacn .gt_font_normal {
-  font-weight: normal;
-}
-
-#wamsdrqacn .gt_font_bold {
-  font-weight: bold;
-}
-
-#wamsdrqacn .gt_font_italic {
-  font-style: italic;
-}
-
-#wamsdrqacn .gt_super {
-  font-size: 65%;
-}
-
-#wamsdrqacn .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-#wamsdrqacn .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#wamsdrqacn .gt_slash_mark {
-  font-size: 0.7em;
-  line-height: 0.7em;
-  vertical-align: 0.15em;
-}
-
-#wamsdrqacn .gt_fraction_numerator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.45em;
-}
-
-#wamsdrqacn .gt_fraction_denominator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: -0.05em;
-}
-</style>
-<table class="gt_table">
-  <caption>(#tab:tcondx)Frecuencias condicionadas de X</caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">\(x_i\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(n_{i|j=2}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(f_{i|j=2}\)</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">(6.35,6.4]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0.000</td></tr>
-    <tr><td class="gt_row gt_left">(6.4,6.45]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0.000</td></tr>
-    <tr><td class="gt_row gt_left">(6.45,6.5]</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">0.003</td></tr>
-    <tr><td class="gt_row gt_left">(6.5,6.55]</td>
-<td class="gt_row gt_right">50</td>
-<td class="gt_row gt_right">0.083</td></tr>
-    <tr><td class="gt_row gt_left">(6.55,6.6]</td>
-<td class="gt_row gt_right">129</td>
-<td class="gt_row gt_right">0.214</td></tr>
-    <tr><td class="gt_row gt_left">(6.6,6.65]</td>
-<td class="gt_row gt_right">195</td>
-<td class="gt_row gt_right">0.324</td></tr>
-    <tr><td class="gt_row gt_left">(6.65,6.7]</td>
-<td class="gt_row gt_right">160</td>
-<td class="gt_row gt_right">0.266</td></tr>
-    <tr><td class="gt_row gt_left">(6.7,6.75]</td>
-<td class="gt_row gt_right">53</td>
-<td class="gt_row gt_right">0.088</td></tr>
-    <tr><td class="gt_row gt_left">(6.75,6.8]</td>
-<td class="gt_row gt_right">9</td>
-<td class="gt_row gt_right">0.015</td></tr>
-    <tr><td class="gt_row gt_left">(6.8,6.85]</td>
-<td class="gt_row gt_right">4</td>
-<td class="gt_row gt_right">0.007</td></tr>
-    <tr><td class="gt_row gt_left">Sum</td>
-<td class="gt_row gt_right">602</td>
-<td class="gt_row gt_right">1.000</td></tr>
-  </tbody>
-  
-  
-</table>
-</div>
-```
-
-
-```{=html}
-<div id="egpwvjrsnk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-#egpwvjrsnk .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#egpwvjrsnk .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#egpwvjrsnk .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#egpwvjrsnk .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#egpwvjrsnk .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#egpwvjrsnk .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#egpwvjrsnk .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#egpwvjrsnk .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#egpwvjrsnk .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#egpwvjrsnk .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#egpwvjrsnk .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#egpwvjrsnk .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#egpwvjrsnk .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#egpwvjrsnk .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#egpwvjrsnk .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#egpwvjrsnk .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#egpwvjrsnk .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#egpwvjrsnk .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#egpwvjrsnk .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#egpwvjrsnk .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#egpwvjrsnk .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#egpwvjrsnk .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#egpwvjrsnk .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#egpwvjrsnk .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#egpwvjrsnk .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#egpwvjrsnk .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#egpwvjrsnk .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#egpwvjrsnk .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#egpwvjrsnk .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#egpwvjrsnk .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#egpwvjrsnk .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#egpwvjrsnk .gt_left {
-  text-align: left;
-}
-
-#egpwvjrsnk .gt_center {
-  text-align: center;
-}
-
-#egpwvjrsnk .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#egpwvjrsnk .gt_font_normal {
-  font-weight: normal;
-}
-
-#egpwvjrsnk .gt_font_bold {
-  font-weight: bold;
-}
-
-#egpwvjrsnk .gt_font_italic {
-  font-style: italic;
-}
-
-#egpwvjrsnk .gt_super {
-  font-size: 65%;
-}
-
-#egpwvjrsnk .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-#egpwvjrsnk .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#egpwvjrsnk .gt_slash_mark {
-  font-size: 0.7em;
-  line-height: 0.7em;
-  vertical-align: 0.15em;
-}
-
-#egpwvjrsnk .gt_fraction_numerator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.45em;
-}
-
-#egpwvjrsnk .gt_fraction_denominator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: -0.05em;
-}
-</style>
-<table class="gt_table">
-  <caption>(#tab:tcondy)Frecuencias condicionadas de Y</caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">\(y_{j}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(n_{j|i=5}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(f_{j|i=5}\)</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">(28,30]</td>
-<td class="gt_row gt_right">17</td>
-<td class="gt_row gt_right">0.092</td></tr>
-    <tr><td class="gt_row gt_left">(30,32]</td>
-<td class="gt_row gt_right">129</td>
-<td class="gt_row gt_right">0.701</td></tr>
-    <tr><td class="gt_row gt_left">(32,34]</td>
-<td class="gt_row gt_right">36</td>
-<td class="gt_row gt_right">0.196</td></tr>
-    <tr><td class="gt_row gt_left">(34,36]</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">0.011</td></tr>
-    <tr><td class="gt_row gt_left">(36,38]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0.000</td></tr>
-    <tr><td class="gt_row gt_left">Sum</td>
-<td class="gt_row gt_right">184</td>
-<td class="gt_row gt_right">1.000</td></tr>
-  </tbody>
-  
-  
-</table>
-</div>
-```
+\captionsetup[table]{labelformat=empty,skip=1pt}
+\begin{longtable}{lrr}
+\toprule
+\textbackslash (x\_i\textbackslash ) & \textbackslash (n\_\{i|j=2\}\textbackslash ) & \textbackslash (f\_\{i|j=2\}\textbackslash ) \\ 
+\midrule
+(6.35,6.4] & 0 & 0.000 \\ 
+(6.4,6.45] & 0 & 0.000 \\ 
+(6.45,6.5] & 2 & 0.003 \\ 
+(6.5,6.55] & 50 & 0.083 \\ 
+(6.55,6.6] & 129 & 0.214 \\ 
+(6.6,6.65] & 195 & 0.324 \\ 
+(6.65,6.7] & 160 & 0.266 \\ 
+(6.7,6.75] & 53 & 0.088 \\ 
+(6.75,6.8] & 9 & 0.015 \\ 
+(6.8,6.85] & 4 & 0.007 \\ 
+Sum & 602 & 1.000 \\ 
+\bottomrule
+\end{longtable}
+
+\captionsetup[table]{labelformat=empty,skip=1pt}
+\begin{longtable}{lrr}
+\toprule
+\textbackslash (y\_\{j\}\textbackslash ) & \textbackslash (n\_\{j|i=5\}\textbackslash ) & \textbackslash (f\_\{j|i=5\}\textbackslash ) \\ 
+\midrule
+(28,30] & 17 & 0.092 \\ 
+(30,32] & 129 & 0.701 \\ 
+(32,34] & 36 & 0.196 \\ 
+(34,36] & 2 & 0.011 \\ 
+(36,38] & 0 & 0.000 \\ 
+Sum & 184 & 1.000 \\ 
+\bottomrule
+\end{longtable}
 
 
 
@@ -2537,20 +362,32 @@ frecuencias de la variable "analista" condicionadas a cada tipo de queso.
 
 
 
-<div class="figure" style="text-align: center">
-<img src="03-aed-bi_files/figure-html/barras2-1.png" alt="Gráfico de barras con frecuencias conjuntas" width="80%" />
-<p class="caption">(\#fig:barras2)Gráfico de barras con frecuencias conjuntas</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="03-aed-bi_files/figure-html/barras2api-1.png" alt="Gráfico de barras con frecuencias conjuntas apiladas" width="80%" />
-<p class="caption">(\#fig:barras2api)Gráfico de barras con frecuencias conjuntas apiladas</p>
-</div>
+{\centering \includegraphics[width=0.8\linewidth]{03-aed-bi_files/figure-latex/barras2-1} 
 
-<div class="figure" style="text-align: center">
-<img src="03-aed-bi_files/figure-html/barras2cond-1.png" alt="Gráfico de barras con frecuencias condicionadas" width="80%" />
-<p class="caption">(\#fig:barras2cond)Gráfico de barras con frecuencias condicionadas</p>
-</div>
+}
+
+\caption{Gráfico de barras con frecuencias conjuntas}(\#fig:barras2)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{03-aed-bi_files/figure-latex/barras2api-1} 
+
+}
+
+\caption{Gráfico de barras con frecuencias conjuntas apiladas}(\#fig:barras2api)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{03-aed-bi_files/figure-latex/barras2cond-1} 
+
+}
+
+\caption{Gráfico de barras con frecuencias condicionadas}(\#fig:barras2cond)
+\end{figure}
 
 Los gráficos de sectores son una representación muy popular para representar
 tablas de frecuencias, aunque en general no están recomendados ya que el ojo humano
@@ -2587,16 +424,12 @@ como la "masa" inferior de puntos se corresponde con quesos distintos a los de l
 :::
 
 
-<div class="figure">
-<img src="03-aed-bi_files/figure-html/disp-1.png" alt="Gráfico de dispersión del ejemplo de los quesos" width="672" />
-<p class="caption">(\#fig:disp)Gráfico de dispersión del ejemplo de los quesos</p>
-</div>
+![(\#fig:disp)Gráfico de dispersión del ejemplo de los quesos](03-aed-bi_files/figure-latex/disp-1.pdf) 
 
 
-<div class="figure">
-<img src="03-aed-bi_files/figure-html/disp2-1.png" alt="Gráficos de dispersión 'enriquecidos'" width="100%" />
-<p class="caption">(\#fig:disp2)Gráficos de dispersión 'enriquecidos'</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{03-aed-bi_files/figure-latex/disp2-1} \caption{Gráficos de dispersión 'enriquecidos'}(\#fig:disp2)
+\end{figure}
 
 
 ### Gráficos de cajas por grupos
@@ -2619,10 +452,9 @@ densidad de la variable pH para cada tipo de queso. En ambos casos se aprecia cl
 
 
 
-<div class="figure">
-<img src="03-aed-bi_files/figure-html/bp2-1.png" alt="Representación de la relación entre pH y tipo de queso" width="100%" />
-<p class="caption">(\#fig:bp2)Representación de la relación entre pH y tipo de queso</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{03-aed-bi_files/figure-latex/bp2-1} \caption{Representación de la relación entre pH y tipo de queso}(\#fig:bp2)
+\end{figure}
 
 
 ```r
@@ -2637,14 +469,339 @@ lab |>
        colour = "Tipo de queso") 
 ```
 
-<div class="figure">
-<img src="03-aed-bi_files/figure-html/dens2-1.png" alt="Gráficos de densidad por grupos" width="672" />
-<p class="caption">(\#fig:dens2)Gráficos de densidad por grupos</p>
-</div>
+![(\#fig:dens2)Gráficos de densidad por grupos](03-aed-bi_files/figure-latex/dens2-1.pdf) 
 
 
 
 
+
+## Medidas conjuntas
+
+Al igual que en el caso univariante, podemos obtener medidas conjuntas
+de dos variables que resuman su relación. 
+
+### Covarianza
+
+La medida más importante es 
+la **covarianza**. La covarianza mide la dependencia **lineal** entre las variables, y se define como:
+
+$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^n(X_i-\bar X)(Y_i-\bar Y)$$
+
+Para datos muestrales, dividimos por $n - 1$:
+
+$$s_{xy} = \frac{1}{n-1} \sum\limits_{i=1}^n(x_i-\bar x)(y_i-\bar y).$$
+
+
+
+* Si $s_{xy} > 0$: Relación lineal positiva (cuando una crece, la otra también).
+* Si $s_{xy} < 0$: Relación lineal negativa (cuando una crece, la otra decrece).
+* Si $s_{xy} = 0$: No hay relación lineal.
+
+
+Decimos que hay relación lineal cuando una variable se puede expresar en función de la otra como una transformación lineal, es decir: $Y=a+bX$. Esta sería una relación perfecta entre dos variables. En la práctica, habrá cierto "error" en esta relación, como veremos más adelante.
+
+Podemos realizar el cálculo abreviado al igual que con la varianza. Según el caso:
+
+* Covarianza poblacional con todos los datos:
+
+$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(X_i \cdot Y_i) - \bar X \cdot \bar Y.$$
+
+* Covarianza poblacional con tablas de frecuencias:
+
+$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(n_i \cdot X_i \cdot Y_i) - \bar x \cdot \bar y.$$
+
+* Covarianza muestral, con todos los datos:
+
+$$s_{xy} = \frac{1}{n-1} \left ( \sum\limits_{i=1}^n(x_i \cdot y_i) - n \cdot \bar x \cdot \bar y \right ).$$
+
+
+Una propiedad importante de la covarianza es que si $X$ e $Y$ son variables independientes, su covarianza es cero. Lo contrario no tiene por qué ser verdad, ya que puede existir una relación no lineal, como veremos más adelante.
+
+La covarianza es un estadístico muy importante para aplicar muchas técnicas estadísticas. Sin embargo, su interpretación más allá del signo no es muy útil, ya que no está acotada: depende de las unidades de las variables. 
+
+### Correlación
+
+Para interpretar la relación lineal entre dos variables, en vez de la covarianza calcularemos el **coeficiente de correlación lineal**, que sí está acotado, en concreto entre -1 y 1:
+
+$$r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}$$
+
+* Si $r_{xy}$ próximo a 0, no hay relación lineal
+* Si $r_{xy}$ próximo a -1 o 1, relación lineal **fuerte**, negativa o positiva respectivamente
+* Si $r_{xy} = 1$ relación lineal perfecta. Aparece también al correlacionar una variable con sí misma.
+
+
+Un conjunto de datos bivariantes quedará caracterizado por su vector de medias
+y su matriz de varianzas-covarianzas. El vector de medias contiene las medias
+de las dos variables:
+
+$$\left [
+\begin{array}{c}\bar x\\
+\bar y\end{array}\right ].$$
+
+
+La Matriz de varianzas-covarianzas, o simplemente matriz de covarianzas, sería:
+
+$$\mathbf{S} = \left [\begin{array}{cc}
+s^2_x & s_{xy}\\
+s_{xy} & s_y^2
+\end{array}\right ]$$
+
+Mientras que la matriz de correlaciones tendría valores igual a 1 en la diagonal,
+y el coeficiente de correlación fuera de la diagonal:
+
+$$\mathbf{R} = \left [\begin{array}{cc}
+1 & r_{xy}\\
+r_{xy} & 1
+\end{array}\right ]$$
+
+
+
+
+:::{.rmdejemplo data-latex=""}
+En el ejemplo de la producción de quesos,
+si tomamos $X$ = ph; $Y$ = est, tenemos los siguientes datos resumidos:
+
+$$n = 1.171;\; \sum x_i = 7.784,447;\; \sum y_i = 37.203,32$$
+$$\sum x_i^2 = 51.752,12;\; \sum y_i^2 = 1.183.966 ;\; \sum x_i y_i = 247.344,4$$
+
+
+el vector de medias sería:
+
+$$\left [
+\begin{array}{c} 6,648\\
+31,771\end{array}\right ],$$
+
+y la matriz de covarianzas (muestrales)
+
+$$\mathbf{S} = \left [\begin{array}{cc}
+s^2_x & s_{xy}\\
+s_{xy} & s_y^2
+\end{array}\right ]=\left [\begin{array}{cc}
+0,003 & 0,0241\\
+0,0241 & 1,7061
+\end{array}\right ]$$
+
+El coeficiente de correlación lineal será entonces:
+
+$$r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}= \frac{0,0241}{\sqrt{0,003\cdot 1,7061}} = 0,3366.$$
+:::
+
+### Caso multivariante
+
+En el caso de estudiar más de dos características numéricas, se extiende la matriz de 
+covarianzas a cualquier número de variables. En este caso las matrices de covarianzas y de correlaciones tendrán tantas filas o columnas como variables. Estas matrices se utilizan en cálculo multivariante y multitud de métodos estadísticdos. Una propiedad importante de la matriz de covarianzas es que si previamente **tipificamos** las variables, la matriz de covarianzas de la variable tipificada es igual a la matriz de correlaciones de las variables originales.
+
+:::{.rmdpractica data-latex=""}
+Con el código a continuación obtenemos la matriz de correlaciones de todas
+las variables numéricas del conjunto de datos de la producción de queso.
+:::
+
+
+
+```r
+lab |> select(where(is.numeric), -codigo) |> 
+  drop_na() |> 
+  cor() |> 
+  round(2)
+                 est    mg   sal    ph bacteriax
+est             1.00 -0.27  0.62  0.37      0.01
+mg             -0.27  1.00 -0.49 -0.44     -0.01
+sal             0.62 -0.49  1.00  0.46      0.00
+ph              0.37 -0.44  0.46  1.00     -0.12
+bacteriax       0.01 -0.01  0.00 -0.12      1.00
+imperfecciones -0.03  0.00  0.00  0.03     -0.02
+               imperfecciones
+est                     -0.03
+mg                       0.00
+sal                      0.00
+ph                       0.03
+bacteriax               -0.02
+imperfecciones           1.00
+```
+
+
+
+### Patrones en los gráficos
+
+La nube de puntos del gráfico de dispersión nos da una idea de la relación entre 
+las variables. También nos da pistas de cómo será el coeficiente de correlación.
+Es importante volver a resaltar que Los resúmenes numéricos pueden estar escondiendo información importante, por ejemplo relaciones no lineales. La figura \@ref(fig:patronesr) muestra los gráficos de dispersión de dos variables
+y sus correspondientes coeficientes de correlación. Los dos primeros gráficos de la primera columna muestran una relación perfecta, mientras que el tercero muestra ausencia de correlación, y además independencia (no se aprecia otro tipo de relación, solo "ruido"). En la segunda columna, el primer gráfico muestra una alta correlación lineal, es decir hay una relación **fuerte** entre las variables. El segundo sin embargo también muestra relación lineal, pero más moderada. El último gráfico ilustra cómo una correlación muy baja, próxima a cero, indica que no hay relación lineal, como en el gráfico de la izquierda. Si embargo, no podemos decir que las variables sean independientes, porque hay claramente una dependencia funcional entre la $X$ y la $Y$, pero no es lineal.
+
+
+
+
+\begin{figure}
+
+\hfill{}\includegraphics[width=1\linewidth]{03-aed-bi_files/figure-latex/patronesr-1} 
+
+\caption{Patrones en la nube de puntos según el coeficiente de correlación}(\#fig:patronesr)
+\end{figure}
+
+
+
+
+
+
+## Regresión lineal simple
+
+Las técnicas de regresión, de manera general tratan de encontrar una
+relación funcional entre una variable dependiente $Y$ y una o más variables
+independientes $X$:
+
+$$Y = f(\mathbf{X}) + \varepsilon.$$
+
+En el caso más sencillo de una sola variable independiente, cuando existe relación lineal los puntos del gráfico de dispersión se disponen alrededor de una **línea recta**, y podemos expresar la relación mediante la ecuación de la recta que mejor
+se aproxima a la nube de puntos. Esta aproximación estará ligada a un error, representado en la expresión anterior por $\varepsilon$, que mediremos con la variabilidad alrededor de la línea, de forma análoga a como la varianza expresa la variabilidad de los datos entorno a la media. Así, la recta de regresión quedaría expresada como:
+
+$$Y = a + bX + \varepsilon,$$
+donde $X$ es la variable independiente o explicativa, $Y$ es la variable dependiente o variable respuesta, $a$ y $b$ son los coeficientes de regresión (término independiente y pendiente de la recta respectivamente) y $\varepsilon$ es el error. 
+
+### Estimación de los coeficienetes
+
+Tenemos pares de datos $(x_i, y_i)$ que queremos ajustar al modelo matemático de la recta. Para cualesquiera valores de $a$ y $b$ que elijamos, podemos
+aproximar los valores de $y_i$ como:
+
+$$\hat{y}_i = a + bx_i.$$
+
+Esta aproximación tiene un error, que es el **residuo** de esa observación:
+
+$$y_i = \hat y + \varepsilon_i \implies \varepsilon_i=y_i - \hat{y}_i.$$
+La figura \@ref(fig:resid) esquematiza la relación entre los valores de la
+variable bivariante (puntos naranjas), la recta de regresión (línea azul) y
+los residuos (líneas negras).
+
+![(\#fig:resid)Esquematización de los valores, recta y residuos en regresión lineal](03-aed-bi_files/figure-latex/resid-1.pdf) 
+
+
+
+Una forma de estimar los coeficientes de regresión es minimizando la suma de los
+cuadrados de los residuos:
+
+$${a; b}: \min \sum\limits_{i=1}^n \varepsilon_i^2 =\min \sum\limits_{i=1}^n(y_i-(a+bx_i))^2.$$
+Derivando e igualando a cero tenemos los siguientes valores que minimizan la función:
+
+$$b = \frac{s_{xy}}{s_x^2},$$
+$$a = \bar y - b \bar x.$$
+Es inmediato demostrar que la pendiente de la recta también la podemos
+calcular como:
+
+$$b = \frac{s_y}{s_x}r_{xy}.$$
+
+### Interpretación de los coeficientes
+
+La recta de regresión nos sirve para dos cometidos: explicar la relación entre
+las variables, y hacer predicciones. En cuanto a la interpretación, el coeficiente $a$ es el valor medio esperado de $Y$ cuando $X=0$. 
+No siempre tiene interpretación ya que el 0 puede estar fuera del dominio de $X$.
+El coeficiente $b$ significa "cuántas unidades aumenta $Y$ por cada unidad 
+que aumenta $X$ (si $b<0$, cuánto disminuye).
+
+En cuanto a la predicción, podemos predecir cuánto valdrá, en promedio, la variable $Y$ para un
+determinado valor de $X, x_{n+1}$. Para hacer la predicción, sustuimos $x$ por el nuevo valor en la ecuación de la recta:
+
+$$\hat{y}_{n+1} = a + bx_{n+1}.$$
+Hay que tener en cuenta que esta predicción solo es válida para el rango de $X$ utilizado para obtener los coeficientes.
+
+
+
+### Error y bondad de ajuste
+
+Pare resumir el error cometido, podríamos buscar una medida resumen de los residuos. Por las propiedades del método de mínimos cuadrados, la media de los 
+residuos es cero:
+
+$$\bar \varepsilon = \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i = 0.$$
+
+Entonces, para cuantificar el error, calculamos la media de los residuos al cuadrado, a
+la que llamamos "varianza residual":
+
+$$s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i^2.$$
+
+Si desarrollamos los términos de la varianza residual: 
+
+$$s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n (y_i - (a + b x_i))^2,$$
+llegamos a la siguiente expresión:
+
+$$\frac{s_\varepsilon^2}{s_y^2}=(1-r_{xy}^2),$$
+y de ahí:
+
+$$r^2_{xy} = 1- \frac{s_\varepsilon^2}{s_y^2} \equiv R^2,$$
+
+que definimos como **coeficiente de determinación**, y su interpretación es como sigue. La varianza residual $s_\varepsilon^2$ es la variabilidad no explicada por la recta. Cuanto más se acerquen los puntos a la recta, mejor explicado está el modelo, y más pequeña es esta varianza. La varianza de $Y$, $s_y^2$, es la variabilidad Total. Por tanto, $\frac{s_\varepsilon^2}{s_y^2}$ es la proporción de variabilidad no explicada por la recta de regresión. Y entonces $R^2$ es **la proporción de variabilidad explicada por la regresión**. 
+
+
+
+La expresión general $R^2 = 1- \frac{s_\varepsilon^2}{s_y^2}$ es válida para cualquier modelo de regresión en el que podamos calcular los residuos y su varianza. Pero la equivalencia $R^2=r^2$ solo es válida en el caso de la regresión lineal simple.
+
+
+
+
+:::{.rmdejemplo data-latex=""}
+En el ejemplo de la fábrica de quesos, tomemos $X$ la variable "materia grasa" e $Y$ el extracto seco total. Para simplificar el ejemplo, tomamos solo las 15 primeras observaciones, que se muestran en la tabla \@ref(tab:reglabt). La figura \@ref(fig:reglab) muestra la nube de puntos
+y la recta de regresión estimada por mínimos cuadrados. La recta de regresión estimada es:
+
+
+\begin{equation}
+\operatorname{\widehat{est}} = 9.509 + 1.696(\operatorname{mg})
+\end{equation}
+
+El coeficiente $a$ no tiene interpretación, ya que el cero no es un valor
+posible en la variable materia grasa, al menos en esta muestra. La interpretación del coeficiente $b$ es la siguiente: por cada unidad que aumente `mg`, porcentaje de materia grasa, aumenta 1.696 unidades `est` (extracto seco total).
+
+La varianza residual es 0.329, y el coeficiente de determinación:
+
+$$R^2 = 0,685.$$
+
+Por tanto, la regresión explica el 68,48% de la variabilidad de los datos.
+
+
+:::
+
+\begin{table}
+
+\caption{(\#tab:reglabt)Datos de quesos para la regresión}
+\centering
+\begin{tabular}[t]{l|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r}
+\hline
+mg & 14.0 & 13.00 & 13.00 & 13 & 13.50 & 12.50 & 13.0 & 12.50 & 12.5 & 12.50 & 12.50 & 13.00 & 13.50 & 13.50 & 13.50\\
+\hline
+est & 33.5 & 31.05 & 31.42 & 31 & 31.54 & 30.51 & 32.3 & 31.27 & 31.1 & 30.76 & 30.33 & 31.46 & 31.71 & 33.35 & 32.96\\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{03-aed-bi_files/figure-latex/reglab-1} 
+
+}
+
+\caption{Recta de regresión del extracto seco frente a la materia grasa}(\#fig:reglab)
+\end{figure}
+
+### Extensiones del modelo lineal
+
+El modelo lineal explicado aquí se puede extender fácilmente para recoger algunas
+relaciones no lineales. Una manera sencilla es aplicar logaritmos a la variable explicativa, a la respuesta o a ambas, y estimar los coeficientes con las variables transformadas. Del mismo modo, se pueden transformar usando potencias o exponenciales, y ajustar polinomios añadiendo términos cuadráticos, cúbicos, etc.
+
+Otra extensión es la regresión multivariante, generalizando a $p$ variables independientes, que incluso pueden ser cualitativas. Por último, los modelos
+lineales generalizados pueden estimar modelos con respuestas no continuas, por 
+ejemplo binarias (regresión logística) o de recuentos (regresión de Poisson).
+
+
+:::{.rmdcafe data-latex=""}
+¡Correlación no implica **causalidad**!
+
+El hecho de que exista relación entre las variables, no significa
+que esta relación sea de causa-efecto. Para demostrar este tipo de
+relaciones, sería necesario confirmar con diseño de experimentos.
+
+Visita este enlace para ver algunas correlaciones espúreas (¡y curiosas!).
+
+https://tylervigen.com/spurious-correlations
+
+
+:::
 
 
 

@@ -116,14 +116,18 @@ que, en términos generales, debe ser representativa de la población para que l
 conclusiones sean válidas.
 
 
-<div class="figure" style="text-align: center">
-<img src="images/dogma1.png" alt="La esencia de los métodos estadísticos" width="100%" />
-<p class="caption">(\#fig:dogma1)La esencia de los métodos estadísticos</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/dogma1} 
+
+}
+
+\caption{La esencia de los métodos estadísticos}(\#fig:dogma1)
+\end{figure}
 
 ::: {.rmdejemplo data-latex=""}
 
-`<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:purple;overflow:visible;position:relative;"><path d="M511,102.93A23.76,23.76,0,0,0,481.47,87l-15.12,4.48a111.85,111.85,0,0,0-48.5-47.42l3.79-14.47a23.74,23.74,0,0,0-46-11.91l-3.76,14.37a111.94,111.94,0,0,0-22.33,1.47,386.74,386.74,0,0,0-44.33,10.41l-4.3-12a23.74,23.74,0,0,0-44.75,15.85l4.3,12.05a383.4,383.4,0,0,0-58.69,31.83l-8-10.63a23.85,23.85,0,0,0-33.24-4.8,23.57,23.57,0,0,0-4.83,33.09l8,10.63a386.14,386.14,0,0,0-46.7,47.44l-11-8a23.68,23.68,0,1,0-28,38.17l11.09,8.06a383.45,383.45,0,0,0-30.92,58.75l-12.93-4.43a23.65,23.65,0,1,0-15.47,44.69l13,4.48a385.81,385.81,0,0,0-9.3,40.53A111.58,111.58,0,0,0,32.44,375L17,379.56a23.64,23.64,0,0,0,13.51,45.31l15-4.44a111.49,111.49,0,0,0,48.53,47.24l-3.85,14.75a23.66,23.66,0,0,0,17,28.83,24.7,24.7,0,0,0,6,.75,23.73,23.73,0,0,0,23-17.7L140,479.67c1.37.05,2.77.35,4.13.35A111.22,111.22,0,0,0,205,461.5l11.45,11.74a23.7,23.7,0,0,0,34.08-32.93l-12.19-12.5a111,111,0,0,0,16.11-41.4,158.69,158.69,0,0,1,5.16-20.71l12,5.64a23.66,23.66,0,1,0,20.19-42.79l-11.72-5.49c.89-1.32,1.59-2.77,2.52-4.06a157.86,157.86,0,0,1,10.46-12.49,159.5,159.5,0,0,1,15.59-15.28,162.18,162.18,0,0,1,13.23-10.4c1.5-1,3.1-1.89,4.63-2.87l5.23,11.8a23.74,23.74,0,0,0,43.48-19.08l-5.36-12.11a158.87,158.87,0,0,1,16.49-4.1,111,111,0,0,0,45-18.54l13.33,12a23.69,23.69,0,1,0,31.88-35l-12.94-11.67A110.83,110.83,0,0,0,479.21,137L495,132.32A23.61,23.61,0,0,0,511,102.93ZM160,368a48,48,0,1,1,48-48A48,48,0,0,1,160,368Zm80-136a24,24,0,1,1,24-24A24,24,0,0,1,240,232Z"/></svg>`{=html} En un ensayo clínico, se eligen una serie de participantes en el estudio a los
+![](01-intro_files/figure-latex/fa-icon-37b8d5b2b6c465edf79712060e1bfd05.pdf){height=1em width=1em} En un ensayo clínico, se eligen una serie de participantes en el estudio a los
 que se le suministran distintos tratamientos según el diseño del ensayo. 
 Los participantes en el estudio son sujetos que constituyen la **muestra**.
 A través de los resultados de esta muestra, obtendremos conclusiones
@@ -187,10 +191,14 @@ que tengan una distribución en el muestreo que nos permitirá hacer inferencia 
 
 La figura \@ref(fig:dogma2) representa la esencia de la estadística relacionando parámetros y estadísticos. Además de la equivalencia entre parámetros y estadísticos, la distribución de frecuencias de los datos de la muestra representada en el histograma se corresponde con la distribución de probabilidad teórica de la población.
 
-<div class="figure" style="text-align: center">
-<img src="images/dogma2.png" alt="La esencia de los métodos estadísticos" width="100%" />
-<p class="caption">(\#fig:dogma2)La esencia de los métodos estadísticos</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/dogma2} 
+
+}
+
+\caption{La esencia de los métodos estadísticos}(\#fig:dogma2)
+\end{figure}
 
 ### La inferencia y sus métodos
 
@@ -218,17 +226,28 @@ El analista y software deben entender lo mismo, lo que podríamos decir que es p
 La tabla \@ref(tab:rectangular) muestra las primeras filas de una tabla de datos bien organizada. Cada fila representa un solo elemento, cada columna una sola variable, sin mezclar datos. Los nombres de las variables son cortos pero informativos.
 :::
 
+\begin{table}
 
-Table: (\#tab:rectangular)Tabla rectangular bien organizada
-
-|maquina  | merma1| merma2| manchas|defecto | defecto2| temp|
-|:--------|------:|------:|-------:|:-------|--------:|----:|
-|maquina1 |  5.377|  4.007|      11|No      |        0| 15.7|
-|maquina1 |  6.007|  4.598|       7|Sí      |        1| 18.8|
-|maquina1 |  4.822|  5.742|       9|No      |        0| 13.9|
-|maquina1 |  6.014|  3.960|       6|Sí      |        1| 18.5|
-|maquina1 |  3.892|  5.268|       6|No      |        0| 12.0|
-|maquina1 |  5.379|  5.913|       9|No      |        0| 17.3|
+\caption{(\#tab:rectangular)Tabla rectangular bien organizada}
+\centering
+\begin{tabular}[t]{l|r|r|r|l|r|r}
+\hline
+maquina & merma1 & merma2 & manchas & defecto & defecto2 & temp\\
+\hline
+maquina1 & 5.377 & 4.007 & 11 & No & 0 & 15.7\\
+\hline
+maquina1 & 6.007 & 4.598 & 7 & Sí & 1 & 18.8\\
+\hline
+maquina1 & 4.822 & 5.742 & 9 & No & 0 & 13.9\\
+\hline
+maquina1 & 6.014 & 3.960 & 6 & Sí & 1 & 18.5\\
+\hline
+maquina1 & 3.892 & 5.268 & 6 & No & 0 & 12.0\\
+\hline
+maquina1 & 5.379 & 5.913 & 9 & No & 0 & 17.3\\
+\hline
+\end{tabular}
+\end{table}
 
 ### Tipos de datos y escalas
 
@@ -309,10 +328,9 @@ elementos de nuestro proceso no satisfacen los requisitos. En este ejemplo se ve
 claramente cómo reducir la variabilidad mejora la calidad ¡sin hacer nada
 más! (ni nada menos). 
 
-<div class="figure">
-<img src="images/histos-1.png" alt="Procesos con la misma media y distinta variabilidad" width="672" />
-<p class="caption">(\#fig:histos)Procesos con la misma media y distinta variabilidad</p>
-</div>
+\begin{figure}
+\includegraphics[width=18.67in]{images/histos-1} \caption{Procesos con la misma media y distinta variabilidad}(\#fig:histos)
+\end{figure}
 
 En general,
 las CTQs (_Critical to Quality_ características críticas para la calidad) tendrán un valor objetivo (_target_, $T$), o valor nominal, que es el ideal.
@@ -342,10 +360,14 @@ siempre que no se consigue el objetivo, frente al coste _contable_ (línea punte
 que solo se produce con las no conformidades. El análisis de la función de 
 pérdida es una herramienta muy útil en proyectos de mejora, véase @cano2012sixsigma. 
 
-<div class="figure" style="text-align: center">
-<img src="01-intro_files/figure-html/taguchi-1.png" alt="Función de pérdida de Taguchi" width="70%" />
-<p class="caption">(\#fig:taguchi)Función de pérdida de Taguchi</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{01-intro_files/figure-latex/taguchi-1} 
+
+}
+
+\caption{Función de pérdida de Taguchi}(\#fig:taguchi)
+\end{figure}
 
 
 ### Métodos estadísticos para la calidad
@@ -356,10 +378,9 @@ Control Estadístico de Procesos (SPC, _Statistical Process Control_)
 son los **gráficos de control** y el **análisis de la capacidad del proceso**.
 La figura \@ref(fig:spc) muestra un ejemplo de ambas. El gráfico de control de la parte superior sirve para monitorizar las muestras (subgrupos de los que se calcula un estadístico) con el objetivo de detectar el cambio con respecto a su situación de control estadístico. Así, los límites son "la voz del proceso". La parte inferior representa "la voz de cliente", comparando las especificaciones con la variabilidad del proceso, y calculando los índices de capacidad que son la medida real de calidad a largo plazo (frente a la mera contabilización de las unidades defectuosas y su cuantificación monetaria). Estas técnicas se combinan con otras tanto exploratorias como de inferencia para controlar y mejorar la calidad.
 
-<div class="figure">
-<img src="images/spc.png" alt="Gráficos de control y capacidad del proceso" width="624" />
-<p class="caption">(\#fig:spc)Gráficos de control y capacidad del proceso</p>
-</div>
+\begin{figure}
+\includegraphics[width=17.33in]{images/spc} \caption{Gráficos de control y capacidad del proceso}(\#fig:spc)
+\end{figure}
 
 Otra técnica de calidad en la que la Estadística juega un papel fundamental es la **inspección por muestreo**, también conocida como muestreos de aceptación. La aceptación de unidades o lotes de producto, se puede hacer con inspección completa, comprobando si los productos están dentro de los límites de especificación. Esto a veces es muy caro o directamente imposible, por lo que se recurre al muestreo. El análisis se puede hacer por atributos (variables cualitativas y por variables (variables cuantitativas). La base de esto métodos reside en la probabilidad de aceptar/rechazar un lote defectuoso/correcto, desde el punto de vista del consumidor/productor. Existen una gran variedad de planes de muestreo específicos, como planes simples, planes dobles y múltiples o planes secuenciales. Muchos están descritos en las normas clásicas MIL-STD, que evolucionaron a las series de normas ISO 2859 e ISO 3951.
 
@@ -401,10 +422,9 @@ Esta iniciativa de la ONU (_Sustainable Development Goals_, SDG) plantea 17 obje
 16. **Paz, justicia e instituciones sólidas**- Promover sociedades, justas, pacíficas e inclusivas para el desarrollo sostenible, proporcionar a todas las personas acceso a la justicia y desarrollar instituciones eficaces, responsables e inclusivas en todos los niveles
 17. **Alianzas para lograr objetivos**- Fortalecer los medios de ejecución y revitalizar la Alianza Mundial para el Desarrollo Sostenible
 
-<div class="figure">
-<img src="images/ods.jpg" alt="Objetivos de Desarrollo Sostenible. Fuente: un.org" width="100%" />
-<p class="caption">(\#fig:ods)Objetivos de Desarrollo Sostenible. Fuente: un.org</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/ods} \caption{Objetivos de Desarrollo Sostenible. Fuente: un.org}(\#fig:ods)
+\end{figure}
 
 
 ### Estadística y sostenibilidad
