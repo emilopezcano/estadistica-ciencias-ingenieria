@@ -5,6 +5,7 @@ library(knitr)
 library(flextable)
 library(gt)
 library(gridExtra)
+library(equatiomatic)
 ```
 
 # Análisis exploratorio bivariante {#aed-bi}
@@ -114,9 +115,13 @@ Si partimos de la distribución conjunta, podemos obtener la de cada
 una de las variables (marginal) y estudiarla como datos univariantes.
 Basta con hacer las sumas por columnas, $(X)$, o por filas, $(Y)$:
 
-* Frecuencias marginales absolutas de $X$: $n_{i\cdot} = \sum\limits_{j = 1}^{n_j}n_{ij}$
-
-* Frecuencias marginales absolutas de $Y$: $n_{\cdot j} = \sum\limits_{i = 1}^{n_i}n_{ij}$
+* Frecuencias marginales de $X$: 
+  + Absolutas: $n_{i\cdot} = \sum\limits_{j = 1}^{n_j}n_{ij}$
+  + Relativas: $f_{i\cdot} = \sum\limits_{j = 1}^{n_j}f_{ij}$
+  
+* Frecuencias marginales de $Y$: 
+  + $n_{\cdot j} = \sum\limits_{i = 1}^{n_i}n_{ij}$
+  + $f_{\cdot j} = \sum\limits_{i = 1}^{n_i}f_{ij}$
 
 donde $n_i$ es el número de clases de la variable $X$ y $n_j$ es el 
 número de clases de la variable $Y$. Análogamente, para frecuencias marginales relativas sumamos las frecuencias relativas conjuntas,
@@ -422,6 +427,355 @@ lab |>
 
 
 
+
+## Medidas conjuntas
+
+Al igual que en el caso univariante, podemos obtener medidas conjuntas
+de dos variables que resuman su relación. 
+
+### Covarianza
+
+La medida más importante es 
+la **covarianza**. La covarianza mide la dependencia **lineal** entre las variables, y se define como:
+
+$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^n(X_i-\bar X)(Y_i-\bar Y)$$
+
+Para datos muestrales, dividimos por $n - 1$:
+
+$$s_{xy} = \frac{1}{n-1} \sum\limits_{i=1}^n(x_i-\bar x)(y_i-\bar y).$$
+
+
+
+* Si $s_{xy} > 0$: Relación lineal positiva (cuando una crece, la otra también).
+* Si $s_{xy} < 0$: Relación lineal negativa (cuando una crece, la otra decrece).
+* Si $s_{xy} = 0$: No hay relación lineal.
+
+
+Decimos que hay relación lineal cuando una variable se puede expresar en función de la otra como una transformación lineal, es decir: $Y=a+bX$. Esta sería una relación perfecta entre dos variables. En la práctica, habrá cierto "error" en esta relación, como veremos más adelante.
+
+Podemos realizar el cálculo abreviado al igual que con la varianza. Según el caso:
+
+* Covarianza poblacional con todos los datos:
+
+$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(X_i \cdot Y_i) - \bar X \cdot \bar Y.$$
+
+* Covarianza poblacional con tablas de frecuencias:
+
+$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(n_i \cdot X_i \cdot Y_i) - \bar x \cdot \bar y.$$
+
+* Covarianza muestral, con todos los datos:
+
+$$s_{xy} = \frac{1}{n-1} \left ( \sum\limits_{i=1}^n(x_i \cdot y_i) - n \cdot \bar x \cdot \bar y \right ).$$
+
+
+Una propiedad importante de la covarianza es que si $X$ e $Y$ son variables independientes, su covarianza es cero. Lo contrario no tiene por qué ser verdad, ya que puede existir una relación no lineal, como veremos más adelante.
+
+La covarianza es un estadístico muy importante para aplicar muchas técnicas estadísticas. Sin embargo, su interpretación más allá del signo no es muy útil, ya que no está acotada: depende de las unidades de las variables. 
+
+### Correlación
+
+Para interpretar la relación lineal entre dos variables, en vez de la covarianza calcularemos el **coeficiente de correlación lineal**, que sí está acotado, en concreto entre -1 y 1:
+
+$$r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}$$
+
+* Si $r_{xy}$ próximo a 0, no hay relación lineal
+* Si $r_{xy}$ próximo a -1 o 1, relación lineal **fuerte**, negativa o positiva respectivamente
+* Si $r_{xy} = 1$ relación lineal perfecta. Aparece también al correlacionar una variable con sí misma.
+
+
+Un conjunto de datos bivariantes quedará caracterizado por su vector de medias
+y su matriz de varianzas-covarianzas. El vector de medias contiene las medias
+de las dos variables:
+
+$$\left [
+\begin{array}{c}\bar x\\
+\bar y\end{array}\right ].$$
+
+
+La Matriz de varianzas-covarianzas, o simplemente matriz de covarianzas, sería:
+
+$$\mathbf{S} = \left [\begin{array}{cc}
+s^2_x & s_{xy}\\
+s_{xy} & s_y^2
+\end{array}\right ]$$
+
+Mientras que la matriz de correlaciones tendría valores igual a 1 en la diagonal,
+y el coeficiente de correlación fuera de la diagonal:
+
+$$\mathbf{R} = \left [\begin{array}{cc}
+1 & r_{xy}\\
+r_{xy} & 1
+\end{array}\right ]$$
+
+
+
+
+:::{.rmdejemplo data-latex=""}
+En el ejemplo de la producción de quesos,
+si tomamos $X$ = ph; $Y$ = est, tenemos los siguientes datos resumidos:
+
+$$n = `r fnum(nrow(lab))`;\; \sum x_i = `r fnum(sum(lab$ph))`;\; \sum y_i = `r fnum(sum(lab$est))`$$
+$$\sum x_i^2 = `r fnum(sum(lab$ph^2))`;\; \sum y_i^2 = `r fnum(sum(lab$est^2))` ;\; \sum x_i y_i = `r fnum(sum(lab$ph*lab$est))`$$
+
+
+el vector de medias sería:
+
+$$\left [
+\begin{array}{c} `r fnum(mean(lab$ph))`\\
+`r fnum(mean(lab$est))`\end{array}\right ],$$
+
+y la matriz de covarianzas (muestrales)
+
+$$\mathbf{S} = \left [\begin{array}{cc}
+s^2_x & s_{xy}\\
+s_{xy} & s_y^2
+\end{array}\right ]=\left [\begin{array}{cc}
+`r fnum(var(lab$ph), 4)` & `r fnum(var(lab$ph, lab$est), 4)`\\
+`r fnum(var(lab$ph, lab$est), 4)` & `r fnum(var(lab$est), 4)`
+\end{array}\right ]$$
+
+El coeficiente de correlación lineal será entonces:
+
+$$r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}= \frac{`r fnum(var(lab$ph, lab$est),4)`}{\sqrt{`r fnum(var(lab$ph),4)`\cdot `r fnum(var(lab$est),4)`}} = `r fnum(cor(lab$ph, lab$est),4)`.$$
+:::
+
+### Caso multivariante
+
+En el caso de estudiar más de dos características numéricas, se extiende la matriz de 
+covarianzas a cualquier número de variables. En este caso las matrices de covarianzas y de correlaciones tendrán tantas filas o columnas como variables. Estas matrices se utilizan en cálculo multivariante y multitud de métodos estadísticdos. Una propiedad importante de la matriz de covarianzas es que si previamente **tipificamos** las variables, la matriz de covarianzas de la variable tipificada es igual a la matriz de correlaciones de las variables originales.
+
+:::{.rmdpractica data-latex=""}
+Con el código a continuación obtenemos la matriz de correlaciones de todas
+las variables numéricas del conjunto de datos de la producción de queso.
+:::
+
+
+```{r}
+lab |> select(where(is.numeric), -codigo) |> 
+  drop_na() |> 
+  cor() |> 
+  round(2)
+```
+
+
+
+### Patrones en los gráficos
+
+La nube de puntos del gráfico de dispersión nos da una idea de la relación entre 
+las variables. También nos da pistas de cómo será el coeficiente de correlación.
+Es importante volver a resaltar que Los resúmenes numéricos pueden estar escondiendo información importante, por ejemplo relaciones no lineales. La figura \@ref(fig:patronesr) muestra los gráficos de dispersión de dos variables
+y sus correspondientes coeficientes de correlación. Los dos primeros gráficos de la primera columna muestran una relación perfecta, mientras que el tercero muestra ausencia de correlación, y además independencia (no se aprecia otro tipo de relación, solo "ruido"). En la segunda columna, el primer gráfico muestra una alta correlación lineal, es decir hay una relación **fuerte** entre las variables. El segundo sin embargo también muestra relación lineal, pero más moderada. El último gráfico ilustra cómo una correlación muy baja, próxima a cero, indica que no hay relación lineal, como en el gráfico de la izquierda. Si embargo, no podemos decir que las variables sean independientes, porque hay claramente una dependencia funcional entre la $X$ y la $Y$, pero no es lineal.
+
+
+
+
+```{r patronesr, echo=FALSE, fig.width=7, fig.height=6, fig.align='right', out.width="100%", fig.cap="Patrones en la nube de puntos según el coeficiente de correlación"}
+set.seed(2)
+micolor <- "orange"
+x1  <-  runif(100, 6, 7)
+x7 <- runif(100, -1, 1)
+cdata <- data.frame(
+  x1 = x1,
+  x2 = 5 + 0.5*x1,
+  x3 = 5+2*x1 + rnorm(100, sd = 0.2),
+  x4 = sample(rnorm(100, 100, 4)),
+  x5 = 5 - 0.2*x1 ,
+  x6 = 5 - 0.2*x1 + rnorm(100, mean = 10, sd = 0.06),
+  x7,
+  x8 = -0.8*x7^2 + 2 + rnorm(100, sd = 0.02))
+p1 <- cdata |> ggplot(aes(x1, x2)) + geom_point(col = micolor) + theme_bw() +
+  labs(title = paste0("r = ", cor(cdata$x1, cdata$x2)))
+p2 <- cdata |> ggplot(aes(x1, x3)) + geom_point(col = micolor) + theme_bw() +
+  labs(title = paste0("r = ", round(cor(cdata$x1, cdata$x3), 4)))
+p3 <- cdata |> ggplot(aes(x1, x4)) + geom_point(col = micolor) + theme_bw() +
+  labs(title = paste0("r = ", round(cor(cdata$x1, cdata$x4), 4)))
+p4 <- cdata |> ggplot(aes(x1, x5)) + geom_point(col = micolor) + theme_bw() +
+  labs(title = paste0("r = ", round(cor(cdata$x1, cdata$x5), 4)))
+p5 <- cdata |> ggplot(aes(x1, x6)) + geom_point(col = micolor) + theme_bw() +
+  labs(title = paste0("r = ", round(cor(cdata$x1, cdata$x6), 4)))
+p6 <- cdata |> ggplot(aes(x7, x8)) + geom_point(col = "red3") + theme_bw() +
+  labs(title = paste0("r = ", round(cor(cdata$x7, cdata$x8), 4)))
+
+
+library(gridExtra)
+grid.arrange(p1, p2,  p4, p5, p3, p6)
+```
+
+
+
+
+
+
+## Regresión lineal simple
+
+Las técnicas de regresión, de manera general tratan de encontrar una
+relación funcional entre una variable dependiente $Y$ y una o más variables
+independientes $X$:
+
+$$Y = f(\mathbf{X}) + \varepsilon.$$
+
+En el caso más sencillo de una sola variable independiente, cuando existe relación lineal los puntos del gráfico de dispersión se disponen alrededor de una **línea recta**, y podemos expresar la relación mediante la ecuación de la recta que mejor
+se aproxima a la nube de puntos. Esta aproximación estará ligada a un error, representado en la expresión anterior por $\varepsilon$, que mediremos con la variabilidad alrededor de la línea, de forma análoga a como la varianza expresa la variabilidad de los datos entorno a la media. Así, la recta de regresión quedaría expresada como:
+
+$$Y = a + bX + \varepsilon,$$
+donde $X$ es la variable independiente o explicativa, $Y$ es la variable dependiente o variable respuesta, $a$ y $b$ son los coeficientes de regresión (término independiente y pendiente de la recta respectivamente) y $\varepsilon$ es el error. 
+
+### Estimación de los coeficienetes
+
+Tenemos pares de datos $(x_i, y_i)$ que queremos ajustar al modelo matemático de la recta. Para cualesquiera valores de $a$ y $b$ que elijamos, podemos
+aproximar los valores de $y_i$ como:
+
+$$\hat{y}_i = a + bx_i.$$
+
+Esta aproximación tiene un error, que es el **residuo** de esa observación:
+
+$$y_i = \hat y + \varepsilon_i \implies \varepsilon_i=y_i - \hat{y}_i.$$
+La figura \@ref(fig:resid) esquematiza la relación entre los valores de la
+variable bivariante (puntos naranjas), la recta de regresión (línea azul) y
+los residuos (líneas negras).
+
+```{r resid, echo = FALSE, fig.cap="Esquematización de los valores, recta y residuos en regresión lineal"}
+set.seed(2)
+micolor <- "orange"
+x1  <-  runif(100, 6, 7)
+x7 <- runif(100, -1, 1)
+cdata <- data.frame(
+  x1 = x1,
+  x2 = 5 + 0.5*x1,
+  x3 = 5+2*x1 + rnorm(100, sd = 0.2),
+  x4 = sample(rnorm(100, 100, 4)),
+  x5 = 5 - 0.2*x1 ,
+  x6 = 5 - 0.2*x1 + rnorm(100, mean = 10, sd = 0.06),
+  x7,
+  x8 = -0.8*x7^2 + 2 + rnorm(100, sd = 0.02))
+
+cdata2 <- lm(x3~x1, cdata |> slice_head(n =10) ) |> broom::augment() 
+cdata2 |> 
+  ggplot(aes(x1, x3)) + geom_point(col = micolor) + theme_bw() +
+  labs(title = "Valores, recta y residuos") +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_segment(aes(x= x1, xend = x1, y = x3, yend = .fitted))
+
+```
+
+
+
+Una forma de estimar los coeficientes de regresión es minimizando la suma de los
+cuadrados de los residuos:
+
+$${a; b}: \min \sum\limits_{i=1}^n \varepsilon_i^2 =\min \sum\limits_{i=1}^n(y_i-(a+bx_i))^2.$$
+Derivando e igualando a cero tenemos los siguientes valores que minimizan la función:
+
+$$b = \frac{s_{xy}}{s_x^2},$$
+$$a = \bar y - b \bar x.$$
+
+
+### Interpretación de los coeficientes
+
+La recta de regresión nos sirve para dos cometidos: explicar la relación entre
+las variables, y hacer predicciones. En cuanto a la interpretación, el coeficiente $a$ es el valor medio esperado de $Y$ cuando $X=0$. 
+No siempre tiene interpretación ya que el 0 puede estar fuera del dominio de $X$.
+El coeficiente $b$ significa "cuántas unidades aumenta $Y$ por cada unidad 
+que aumenta $X$ (si $b<0$, cuánto disminuye).
+
+En cuanto a la predicción, podemos predecir cuánto valdrá, en promedio, la variable $Y$ para un
+determinado valor de $X, x_{n+1}$. Para hacer la predicción, sustuimos $x$ por el nuevo valor en la ecuación de la recta:
+
+$$\hat{y}_{n+1} = a + bx_{n+1}.$$
+Hay que tener en cuenta que esta predicción solo es válida para el rango de $X$ utilizado para obtener los coeficientes.
+
+
+
+### Error y bondad de ajuste
+
+Pare resumir el error cometido, podríamos buscar una medida resumen de los residuos. Por las propiedades del método de mínimos cuadrados, la media de los 
+residuos es cero:
+
+$$\bar \varepsilon = \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i = 0.$$
+
+Entonces, para cuantificar el error, calculamos la media de los residuos al cuadrado, a
+la que llamamos "varianza residual":
+
+$$s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i^2.$$
+
+Si desarrollamos los términos de la varianza residual: 
+
+$$s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n (y_i - (a + b x_i))^2,$$
+llegamos a la siguiente expresión:
+
+$$\frac{s_\varepsilon^2}{s_y^2}=(1-r_{xy}^2),$$
+y de ahí:
+
+$$r^2_{xy} = 1- \frac{s_\varepsilon^2}{s_y^2} \equiv R^2,$$
+
+que definimos como **coeficiente de determinación**, y su interpretación es como sigue. La varianza residual $s_\varepsilon^2$ es la variabilidad no explicada por la recta. Cuanto más se acerquen los puntos a la recta, mejor explicado está el modelo, y más pequeña es esta varianza. La varianza de $Y$, $s_y^2$, es la variabilidad Total. Por tanto, $\frac{s_\varepsilon^2}{s_y^2}$ es la proporción de variabilidad no explicada por la recta de regresión. Y entonces $R^2$ es **la proporción de variabilidad explicada por la regresión**.
+
+La expresión general $R^2 = 1- \frac{s_\varepsilon^2}{s_y^2}$ es válida para cualquier modelo de regresión en el que podamos calcular los residuos y su varianza. Pero la equivalencia $R^2=r^2$ solo solo es válida en el caso de la regresión lineal simple.
+
+```{r, echo=FALSE}
+ldata <- lab |> slice(1:15) |> select(mg, est) 
+mod <- lm(est ~ mg, ldata)
+mod.a <- mod |> broom::augment()
+mod.m <- mod |> broom::glance()
+mod.c <- mod |> broom::tidy()
+# summary(mod)
+```
+
+
+:::{.rmdejemplo data-latex=""}
+En el ejemplo de la fábrica de quesos, tomemos $X$ la variable "materia grasa" e $Y$ el extracto seco total. Para simplificar el ejemplo, tomamos solo las 15 primeras observaciones, que se muestran en la tabla \@ref(tab:reglabt). La figura \@ref(fig:reglab) muestra la nube de puntos
+y la recta de regresión estimada por mínimos cuadrados. La recta de regresión estimada es:
+
+```{r}
+extract_eq(mod, use_coefs = TRUE, coef_digits = 3)
+```
+
+El coeficiente $a$ no tiene interpretación, ya que el cero no es un valor
+posible en la variable materia grasa, al menos en esta muestra. La interpretación del coeficiente $b$ es la siguiente: por cada unidad que aumente `mg`, porcentaje de materia grasa, aumenta `r round(coef(mod)[2], 3)` unidades `est` (extracto seco total).
+
+La varianza residual es `r round(mod.m$sigma^2, 3)`, y el coeficiente de determinación:
+
+$$R^2 = `r fnum(mod.m$r.squared)`.$$
+
+Por tanto, la regresión explica el 68,48% de la variabilidad de los datos.
+
+
+:::
+
+```{r reglabt, echo=FALSE}
+ldata |> t() |> kable(digits = 2, caption = "Datos de quesos para la regresión")
+```
+
+
+```{r reglab, echo = FALSE, fig.height=4, fig.align='center', out.width="55%", fig.cap="Recta de regresión del extracto seco frente a la materia grasa"}
+
+ldata |> ggplot(aes(x=mg, y = est)) +
+  geom_point() + theme_bw() +
+  geom_smooth(method = lm, se = FALSE) +
+  labs(title = "Recta de regresión ejemplo quesos",
+       x = "Materia grasa",
+       y = "Extracto seco total")
+```
+
+### Extensiones del modelo lineal
+
+El modelo lineal explicado aquí se puede extender fácilmente para recoger algunas
+relaciones no lineales. Una manera sencilla es aplicar logaritmos a la variable explicativa, a la respuesta o a ambas, y estimar los coeficientes con las variables transformadas. Del mismo modo, se pueden transformar usando potencias o exponenciales, y ajustar polinomios añadiendo términos cuadráticos, cúbicos, etc.
+
+Otra extensión es la regresión multivariante, generalizando a $p$ variables independientes, que incluso pueden ser cualitativas. Por último, los modelos
+lineales generalizados pueden estimar modelos con respuestas no continuas, por 
+çejemplo binarias (regresión logística) o de recuentos (regresión de Poisson).
+
+
+:::{.rmdcafe data-latex=""}
+¡Correlación no implica **causalidad**!
+
+El hecho de que exista relación entre las variables, no significa
+que esta relación sea de causa-efecto. Para demostrar este tipo de
+relaciones, sería necesario confirmar con diseño de experimentos.
+
+Visita este enlace para ver algunas correlaciones espúreas (¡y curiosas!).
+:::
 
 
 
