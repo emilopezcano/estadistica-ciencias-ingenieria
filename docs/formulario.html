@@ -116,13 +116,13 @@ Economía o ADE. Contiene una visión muy particular del autor.</p>" />
 </ul></li>
 <li><p><span class="math inline">\(A\)</span>: amplitud de la variable. <span class="math inline">\(A = x_{max} - x_{min}\)</span></p></li>
 <li><p><span class="math inline">\(a_i\)</span>: Amplitud de la clase <span class="math inline">\(i\)</span>. <span class="math inline">\(a_i = A/k\)</span></p></li>
-<li><p><span class="math inline">\(c_i\)</span>: Marca de clase. <span class="math display">\[c_i = \frac{L_{i-1} + L_{i}}{2}\]</span></p></li>
+<li><p><span class="math inline">\(c_i\)</span>: Marca de clase. <span class="math inline">\(c_i = \frac{L_{i-1} + L_{i}}{2}\)</span></p></li>
 </ul>
 </div>
 <div id="medidas-de-tendencia-central-1" class="section level3" number="17.1.3">
 <h3><span class="header-section-number">B.1.3</span> Medidas de tendencia central</h3>
+<!-- * Moda: clase más frecuente. $x_i: n_i = \max_\limits_{j=1,...k}\{n_j\}$ -->
 <ul>
-<li><p>Moda: clase más frecuente. <span class="math inline">\(x_i: n_i = \max_\limits{j=1,...k}\{n_j\}\)</span></p></li>
 <li><p>Media aritmética: <span class="math inline">\(\bar{x}= \frac{\sum\limits_{i=1}^n x_i}{n}\)</span>.</p>
 <ul>
 <li>Propiedad: <span class="math inline">\(Y = a+ bX \implies \bar y = a + b \bar x\)</span></li>
@@ -342,14 +342,14 @@ s_{xy} &amp; s_y^2
 <div id="probabilidad-condicionada-e-independencia" class="section level3" number="17.4.2">
 <h3><span class="header-section-number">B.4.2</span> Probabilidad condicionada e independencia</h3>
 <ul>
-<li>Probabilidad de <span class="math inline">\(A\)</span> condicionada a <span class="math inline">\(B\)</span>: <span class="math inline">\({P(A | B)=\frac{P(A \cap B)}{P(B)}}\)</span></li>
-<li>Probabilidad de la interesección: <span class="math inline">\(\boxed{P(A\cap B)=P(A|B)\cdot P(B)=P(B|A)\cdot P(A)}\)</span></li>
-<li>Regla de la cadena:
-<span class="math display">\[P\left( \bigcap\limits_{i=1}^{n} A_i \right) = P(A_1)\cdot P(A_2|A_1)\cdot P(A_3|A_1 \cap A_2)\cdot\ldots\cdot P\left(A_n | \bigcap\limits_{i=1}^{n-1} S_i \right)\]</span></li>
-<li><span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> independientes <span class="math inline">\(\iff P(A|B) = P(A)\;\; \text{y}\;\; P(B|A) = P(B)\)</span>
+<li><p>Probabilidad de <span class="math inline">\(A\)</span> condicionada a <span class="math inline">\(B\)</span>: <span class="math inline">\({P(A | B)=\frac{P(A \cap B)}{P(B)}}\)</span></p></li>
+<li><p>Probabilidad de la interesección: <span class="math inline">\(\boxed{P(A\cap B)=P(A|B)\cdot P(B)=P(B|A)\cdot P(A)}\)</span></p></li>
+<li><p>Regla de la cadena:
+<span class="math display">\[P\left( \bigcap\limits_{i=1}^{n} A_i \right) = P(A_1)\cdot P(A_2|A_1)\cdot P(A_3|A_1 \cap A_2)\cdot\ldots\cdot P\left(A_n | \bigcap\limits_{i=1}^{n-1} S_i \right)\]</span></p></li>
+<li><p><span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> independientes <span class="math inline">\(\iff P(A|B) = P(A)\)</span> y <span class="math inline">\(P(B|A) = P(B)\)</span></p>
 <ul>
 <li><span class="math inline">\(\boxed{P(A\cap B)=P(A)\cdot P(B)}\)</span> (solo si son independientes)</li>
-<li><span class="math inline">\(P(A^c|B) = 1- P(A^c|B)\)</span></li>
+<li><span class="math inline">\(P(A^c|B) = 1- P(A|B)\)</span></li>
 </ul></li>
 </ul>
 </div>
@@ -367,6 +367,55 @@ s_{xy} &amp; s_y^2
 </div>
 <div id="variable-aleatoria" class="section level2" number="17.5">
 <h2><span class="header-section-number">B.5</span> Variable aleatoria</h2>
+<ul>
+<li><p>Función de distribución: <span class="math inline">\(F(x) = P[X \leq x]\)</span></p></li>
+<li><p>Probabilidad en un intervalo: <span class="math inline">\(P[a &lt; X \leq b] = F(b)- F(a)\)</span></p></li>
+<li><p>Probabilidad del intervalo complementario: <span class="math inline">\(P[X&gt;a] = 1-F(a)\)</span></p></li>
+<li><p>Función de masa de probabilidad (VA discreta):</p>
+<ul>
+<li><p><span class="math inline">\(p(x_i) = P[X=x_i]=P[x_{i-1}&lt;X \leq x_i] = F(x_i)-F(x_{i-1})\)</span></p></li>
+<li><p>Condiciones:</p>
+<ul>
+<li><span class="math inline">\(p(x_i) \geq 0 \; \forall i\)</span>.</li>
+<li><span class="math inline">\(\sum\limits_{i=1}^\infty p(x_i) = 1\)</span>.</li>
+</ul></li>
+<li><p>Función de distribución: <span class="math inline">\(F(x_i) = \sum\limits_{j=1}^i p(x_j)\)</span></p></li>
+</ul></li>
+<li><p>Función de densidad (VA continua):</p>
+<ul>
+<li><p><span class="math inline">\(f(x)= \frac{d F(x)}{dx}\)</span></p></li>
+<li><p><span class="math inline">\(F(x)=\int_{-\infty}^x f(t) dt =P[X\leq x]\)</span></p></li>
+<li><p>Condiciones:</p>
+<ul>
+<li><span class="math inline">\(f(x)\geq 0\)</span></li>
+<li><span class="math inline">\(\int_{-\infty}^\infty f(x)dx = 1\)</span></li>
+</ul></li>
+<li><p>Probabilidad en un intervalo: <span class="math inline">\(P[a&lt;X\leq b]=\int_a^b f(x)dx\)</span></p></li>
+<li><p>Consecuencia: <span class="math inline">\(P[X=x]=0\)</span></p></li>
+</ul></li>
+<li><p>Características:</p>
+<ul>
+<li><p>Media: <span class="math inline">\(\mu = E[X]\)</span></p>
+<ul>
+<li>VA discreta: <span class="math inline">\(\mu = E[X] = \sum\limits_{i} x_i p(x_i)\)</span></li>
+<li>VA continua: <span class="math inline">\(\mu = E[X] = \int_{-\infty}^\infty x f(x) dx\)</span></li>
+<li>Propiedad: <span class="math inline">\(E[a + bX] = a + bE[X]\)</span></li>
+</ul></li>
+<li><p>Varianza: <span class="math inline">\(\sigma^2 = E[(X-\mu)^2] = E[X^2]-(E[X])^2\)</span></p>
+<ul>
+<li>VA discreta: <span class="math inline">\(\alpha_2=E[X^2]= \sum\limits_{i} x_i^2 p(x_i)\)</span></li>
+<li>VA continua: <span class="math inline">\(\alpha_2=E[X^2]= \int_{-\infty}^\infty x^2 f(x) dx\)</span></li>
+<li>Propiedad: <span class="math inline">\(a, b \;\;\text{constantes} \implies \boxed{V[a + bX] = b^2 V[X]}\)</span></li>
+</ul></li>
+<li><p>Desviación típica: <span class="math inline">\(\sigma = +\sqrt{\sigma^2}\)</span></p></li>
+<li><p>Coeficiente de variación: <span class="math inline">\(\mathit{CV}= \frac{\sigma}{\mu}\)</span></p></li>
+</ul></li>
+<li><p>Tipificación de variables aleatorias:</p></li>
+</ul>
+<p><span class="math display">\[Z=\frac{X-\mu}{\sigma}\implies \mu_Z=0;\; \sigma_Z=1\]</span></p>
+<ul>
+<li>Modelos de distribución de probabilidad</li>
+</ul>
 </div>
 <div id="inferencia" class="section level2" number="17.6">
 <h2><span class="header-section-number">B.6</span> Inferencia</h2>
@@ -398,7 +447,7 @@ s_{xy} &amp; s_y^2
   <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-06.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

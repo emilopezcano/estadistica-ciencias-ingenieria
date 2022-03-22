@@ -1717,8 +1717,8 @@ $X:$ _Peso de los paquetes_, $X\sim N(1.8, 0.5)$.
 Entonces:
 
 $$P[1 \leq X \leq 2] = P \left [\frac{1-1.8}{0.5} \leq \frac{X-\mu}{\sigma} \leq \frac{2-1.8}{0.5} \right ]  = $$
-$$=P[-1.6 \leq Z \leq 0.4] =P[Z\leq 4]-P[Z\leq -1.6]=$$
-$$P[Z\leq4]-(1-P[Z\leq 1.6])=0.6554+0.9452-1=\boxed{0.6006}.$$
+$$=P[-1.6 \leq Z \leq 0.4] =P[Z\leq 0.4]-P[Z\leq -1.6]=$$
+$$P[Z\leq 0.4]-(1-P[Z\leq 1.6])=0.6554+0.9452-1=\boxed{0.6006}.$$
 
 ¿Por debajo de qué peso estarán probablemente
 al menos el 95% de los paquetes? 

@@ -109,13 +109,13 @@ $\subseteq$                | Incluido o igual
 
 * $a_i$: Amplitud de la clase $i$. $a_i = A/k$
 
-* $c_i$: Marca de clase. $$c_i = \frac{L_{i-1} + L_{i}}{2}$$
+* $c_i$: Marca de clase. $c_i = \frac{L_{i-1} + L_{i}}{2}$
 
 
 
 ### Medidas de tendencia central
 
-* Moda: clase más frecuente. $x_i: n_i = \max_\limits{j=1,...k}\{n_j\}$
+<!-- * Moda: clase más frecuente. $x_i: n_i = \max_\limits_{j=1,...k}\{n_j\}$ -->
 
 * Media aritmética: $\bar{x}= \frac{\sum\limits_{i=1}^n x_i}{n}$. 
   + Propiedad: $Y = a+ bX \implies \bar y = a + b \bar x$
@@ -323,9 +323,10 @@ $$ \boxed{0 \leq P(A) \leq 1}.$$
 * Probabilidad de la interesección: $\boxed{P(A\cap B)=P(A|B)\cdot P(B)=P(B|A)\cdot P(A)}$
 * Regla de la cadena:
 $$P\left( \bigcap\limits_{i=1}^{n} A_i \right) = P(A_1)\cdot P(A_2|A_1)\cdot P(A_3|A_1 \cap A_2)\cdot\ldots\cdot P\left(A_n | \bigcap\limits_{i=1}^{n-1} S_i \right)$$
-* $A$ y $B$ independientes $\iff P(A|B) = P(A)\;\; \text{y}\;\; P(B|A) = P(B)$
+
+* $A$ y $B$ independientes $\iff P(A|B) = P(A)$ y $P(B|A) = P(B)$
   + $\boxed{P(A\cap B)=P(A)\cdot P(B)}$ (solo si son independientes)
-  + $P(A^c|B) = 1- P(A^c|B)$
+  + $P(A^c|B) = 1- P(A|B)$
   
 ### Probabilidad total y fórmula de Bayes
 
@@ -338,6 +339,66 @@ $$\boxed{P(B)=\sum\limits_{i=1}^{n} P(B/A_i)\cdot P(A_i)}$$
 $$\boxed{P(A_i|B)=\frac{P(B|A_i)\cdot P(A_i)}{\sum\limits_{i=1}^{n} P(B/A_i)\cdot P(A_i)}}$$
 
 ## Variable aleatoria
+
+* Función de distribución: $F(x) = P[X \leq x]$
+
+* Probabilidad en un intervalo: $P[a < X \leq b] = F(b)- F(a)$
+
+* Probabilidad del intervalo complementario: $P[X>a] = 1-F(a)$
+
+* Función de masa de probabilidad (VA discreta): 
+
+  * $p(x_i) = P[X=x_i]=P[x_{i-1}<X \leq x_i] = F(x_i)-F(x_{i-1})$
+  
+  * Condiciones:
+    - $p(x_i) \geq 0 \; \forall i$.
+    - $\sum\limits_{i=1}^\infty p(x_i) = 1$.
+  
+  * Función de distribución: $F(x_i) = \sum\limits_{j=1}^i p(x_j)$
+  
+* Función de densidad (VA continua):
+
+  
+  * $f(x)= \frac{d F(x)}{dx}$
+  
+  * $F(x)=\int_{-\infty}^x f(t) dt =P[X\leq x]$
+  
+  * Condiciones:
+    * $f(x)\geq 0$
+    * $\int_{-\infty}^\infty f(x)dx = 1$
+    
+  * Probabilidad en un intervalo: $P[a<X\leq b]=\int_a^b f(x)dx$
+  
+  * Consecuencia: $P[X=x]=0$
+  
+* Características:
+
+  * Media: $\mu = E[X]$
+    * VA discreta: $\mu = E[X] =  \sum\limits_{i} x_i p(x_i)$
+    * VA continua: $\mu = E[X] = \int_{-\infty}^\infty x f(x) dx$
+    * Propiedad: $E[a + bX] = a + bE[X]$
+    
+  * Varianza: $\sigma^2 = E[(X-\mu)^2] = E[X^2]-(E[X])^2$
+    * VA discreta: $\alpha_2=E[X^2]= \sum\limits_{i} x_i^2 p(x_i)$
+    * VA continua: $\alpha_2=E[X^2]= \int_{-\infty}^\infty x^2 f(x) dx$
+    * Propiedad: $a, b \;\;\text{constantes} \implies \boxed{V[a + bX] = b^2 V[X]}$
+    
+  * Desviación típica: $\sigma = +\sqrt{\sigma^2}$
+  
+  * Coeficiente de variación: $\mathit{CV}= \frac{\sigma}{\mu}$
+  
+* Tipificación de variables aleatorias: 
+
+$$Z=\frac{X-\mu}{\sigma}\implies \mu_Z=0;\; \sigma_Z=1$$
+
+  
+* Modelos de distribución de probabilidad
+  
+
+
+
+
+
 
 
 ## Inferencia
@@ -401,10 +462,34 @@ es decir $F(z)=P[Z\leq z].$.
 
 ## Resumen modelos de distribución de probabilidad
 
+### Distribuciones discretas más importantes
 
-|Distribución                         |Probabilidad/Densidad/Distribución                                                                   |Esperanza |Varianza |
-|:------------------------------------|:----------------------------------------------------------------------------------------------------|:---------|:--------|
-|$\text{Bernoulli}\\ \mathit{Ber}(p)$ |$X = \begin{cases} 1 & \mbox{ con probabilidad } p \\ 0 & \mbox{ con probabilidad } 1-p \end{cases}$ |$p$       |$p(1-p)$ |
+
+|Distribución                                    |Masa de probabilidad                                                                                             |Esperanza                  |Varianza                                              |
+|:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------------------------------------------------|
+|$\text{Bernoulli}\\ \mathit{Ber}(p)$            |$X = \begin{cases} 1 & \mbox{ con probabilidad } p \\ 0 & \mbox{ con probabilidad } 1-p \end{cases}$             |$p$                        |$p(1-p)$                                              |
+|$\text{Binomial}\\ \mathit{Bin}(n;p)$           |$P[X = x] = \binom{n}{x}\cdot p^x \cdot (1-p)^{(n-x)};\\ x = 0, 1, \ldots, n$                                    |$n\cdot p$                 |$n \cdot p\cdot (1-p)$                                |
+|$\text{Geométrica}\\ \mathit{Ge}(p)$            |$P[X = x] = p \cdot (1-p)^{x};\\ x = 0, 1, \ldots, \infty$                                                       |$\frac 1 p$                |$\frac{1-p}{p^2}$                                     |
+|$\text{Binomial negativa}\\ \mathit{BN}(r;p)$   |$P[X = x] =\binom{x+c-1}{x}\cdot p^c \cdot (1-p)^{x};\\ x = 0, 1, 2, \ldots, \infty$                             |$\frac{r \cdot (1-p)}{ p}$ |$\frac{r\cdot(1-p)}{p^2}$                             |
+|$\text{Poisson}\\ \mathit{Poiss}(\lambda)$      |$P[X = x] = \frac{e^{-\lambda}\lambda^x}{x!};\\ x = 0, 1, \ldots \infty$                                         |$\lambda$                  |$\lambda$                                             |
+|$\text{Hipergeométrica}\\ \mathit{HG}(N; M; N)$ |$P[X = x] = \frac{\binom{N-M}{n-x}\cdot \binom{M}{x}}{\binom{N}{n}};\\ \max{(0, n+M-N)} \leq x \leq \min{(M,n)}$ |$M\cdot \frac{n}{N}$       |$\frac{M\cdot(N-M)\cdot n\cdot (N-n)}{N^2\cdot(N-1)}$ |
+
+
+
+### Distribuciones continuas más importantes
+
+
+|Distribución                               |Densidad/Distribución                                                                                  |Esperanza       |Varianza             |
+|:------------------------------------------|:------------------------------------------------------------------------------------------------------|:---------------|:--------------------|
+|$\text{Uniforme}\\ \mathit{U}(a;b)$        |$f(x) = 
+\begin{cases}
+\frac{1}{b-a} & \text{si } a \leq x \leq b\
+0 & \\text{resto}
+\end{cases} \\ a<x<b$ |$\frac{a+b}{2}$ |$\frac{(b-a)^2}{12}$ |
+|$\text{Exponencial}\\ \mathit{Exp}(\beta)$ |$f(x) = 
+\beta e^{-\beta x},\; x > 0\\F(x)=\int_{-\infty}^xf(t)dt=1-e^{-\beta x}, \; x > 0$             |$\frac 1 \beta$ |$\frac{1}{\beta^2}$  |
+|$\text{Normal}\\ \mathit{N}(\mu; \sigma)$  |$f(x) = 
+\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}},\;-\infty < x < \infty$         |$\mu$           |$\sigma^2$           |
 
 
 
@@ -643,7 +728,7 @@ mibeta <- function(x) dbeta(x, 1, 5)
 curve(mibeta, lwd = 2)
 ```
 
-<img src="91-apendices_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<img src="91-apendices_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 
 
@@ -683,7 +768,7 @@ curve(migamma(x, 4), lwd = 2, add = TRUE, lty = 3)
 legend(x = 6, y = 2, c("a = 1", "a = 2", "a = 4"), lty = 1:3)
 ```
 
-<img src="91-apendices_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<img src="91-apendices_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 
 ### Distribución de Weibull
 
@@ -720,7 +805,7 @@ curve(miweibull(x, 5), lwd = 2, add = TRUE, lty = 3)
 legend(x = 4, y = 1, c("a = 1", "a = 2", "a = 5"), lty = 1:3)
 ```
 
-<img src="91-apendices_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<img src="91-apendices_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 
 ## Modelos de distribución de probabilidad multivariantes

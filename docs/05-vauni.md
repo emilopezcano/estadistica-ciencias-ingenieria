@@ -20,14 +20,10 @@ Por su parte, la población sigue una distribución de probabilidad teórica, co
 características teóricas (media, varianza, etc.). Ambos "mundos" se relacionan mediante
 la inferencia estadística, que no se trata en este texto.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/dogma2b-1} 
-
-}
-
-\caption{Variables aleatorias vs. datos empíricos}(\#fig:dogma2b)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/dogma2b-1.png" alt="Variables aleatorias vs. datos empíricos" width="70%" />
+<p class="caption">(\#fig:dogma2b)Variables aleatorias vs. datos empíricos</p>
+</div>
 
 
 ## Concepto y definición de variable aleatoria
@@ -61,8 +57,7 @@ A esta medida de probabilidad inducida por una variable aleatoria se le suele de
 
 
 
-\BeginKnitrBlock{rmdejemplo}
-
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
 
 Consideremos un experimento consistente en lanzar una moneda equilibrada 
 al aire tres veces. El espacio
@@ -93,8 +88,7 @@ $$\mathit{Im}(X) = \{0, 1, 2, 3\}$$
 Ahora, basándonos en el espacio de probabilidad $(\Omega, \aleph, \wp)$, podemos
 calcular probabilidades sobre cualquier subconjunto de $\mathbb{R}$, por ejemplo:
 
-$$P[X=0] = \frac{1}{8}; \quad P[X \geq 2] = \frac{1}{2}; \quad P[X >10] = 0.$$
-\EndKnitrBlock{rmdejemplo}
+$$P[X=0] = \frac{1}{8}; \quad P[X \geq 2] = \frac{1}{2}; \quad P[X >10] = 0.$$</div>\EndKnitrBlock{rmdejemplo}
 
 
 
@@ -261,8 +255,7 @@ cada valor $x_i$.
 
 
 
-\BeginKnitrBlock{rmdejemplo}
-
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
 
 
 En el experimento descrito anteriormente de lanzar tres monedas, definíamos la
@@ -309,33 +302,24 @@ $$F(x)=
 \frac{1}{2}  \quad \text{ si }  \quad 1\leq x < 2\\
 \frac{7}{8}  \quad \text{ si }  \quad 2\leq x < 3\\
 1  \quad \;\,\text{si }  \quad x \geq 3\\
-\end{cases}$$  
-\EndKnitrBlock{rmdejemplo}
+\end{cases}$$  </div>\EndKnitrBlock{rmdejemplo}
 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/ddiscretam-1} 
-
-}
-
-\caption{Representación de la función de probabilidad para el experimento de las monedas}(\#fig:ddiscretam)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/ddiscretam-1.png" alt="Representación de la función de probabilidad para el experimento de las monedas" width="70%" />
+<p class="caption">(\#fig:ddiscretam)Representación de la función de probabilidad para el experimento de las monedas</p>
+</div>
 
 
 
 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/pdiscretam-1} 
-
-}
-
-\caption{Representación de la función de distribución para el ejemplo de las monedas}(\#fig:pdiscretam)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/pdiscretam-1.png" alt="Representación de la función de distribución para el ejemplo de las monedas" width="70%" />
+<p class="caption">(\#fig:pdiscretam)Representación de la función de distribución para el ejemplo de las monedas</p>
+</div>
 
 
 
@@ -353,54 +337,36 @@ que realizamos recuentos u observamos características, por ejemplo:
 
 
 
-\BeginKnitrBlock{rmdejemplo}
-Vamos a ampliar el ejemplo ilustrativo de los sujetos en estudio
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">Vamos a ampliar el ejemplo ilustrativo de los sujetos en estudio
 descrito en el capítulo de introducción a la probabilidad. Supongamos que se envía a los 
 sujetos una serie de mensajes de seguimiento por correo electrónico de forma
 *aleatoria*, y que el número de mensajes recibidas por un cliente puede ser 20, 36, o 60, 
 con probabilidades $\frac{36}{52}$, $\frac{12}{52}$ y $\frac{4}{52}$ respectivamente.
-Podemos así definir la variable aleatoria $X:$ _Número de mensajes remitidos por correo electrónico en un año a los sujetos en estudio_, cuyo campo de variación es $\{20, 36, 60\}$ y cuyas funciones de probabilidad y distribución se representan respectivamente en las figuras \@ref(fig:ddiscreta) y \@ref(fig:pdiscreta). La tabla \@ref(tab:ejdiscretat) muestra ambas funciones numéricamente.
-\EndKnitrBlock{rmdejemplo}
+Podemos así definir la variable aleatoria $X:$ _Número de mensajes remitidos por correo electrónico en un año a los sujetos en estudio_, cuyo campo de variación es $\{20, 36, 60\}$ y cuyas funciones de probabilidad y distribución se representan respectivamente en las figuras \@ref(fig:ddiscreta) y \@ref(fig:pdiscreta). La tabla \@ref(tab:ejdiscretat) muestra ambas funciones numéricamente.</div>\EndKnitrBlock{rmdejemplo}
 
-\begin{table}
 
-\caption{(\#tab:ejdiscretat)Funciones de probabilidad y distribución para la variable discreta del ejemplo ilustrativo}
-\centering
-\begin{tabular}[t]{r|r|r}
-\hline
-$x_i$ & $p(x_i)$ & $F(x_i)$\\
-\hline
-20 & 0,6923 & 0,6923\\
-\hline
-36 & 0,2308 & 0,9231\\
-\hline
-60 & 0,0769 & 1,0000\\
-\hline
-\end{tabular}
-\end{table}
+Table: (\#tab:ejdiscretat)Funciones de probabilidad y distribución para la variable discreta del ejemplo ilustrativo
+
+| $x_i$| $p(x_i)$| $F(x_i)$|
+|-----:|--------:|--------:|
+|    20|   0,6923|   0,6923|
+|    36|   0,2308|   0,9231|
+|    60|   0,0769|   1,0000|
 
 
 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/ddiscreta-1} 
-
-}
-
-\caption{Representación de la función de probabilidad de una variable aleatoria discreta}(\#fig:ddiscreta)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/ddiscreta-1.png" alt="Representación de la función de probabilidad de una variable aleatoria discreta" width="70%" />
+<p class="caption">(\#fig:ddiscreta)Representación de la función de probabilidad de una variable aleatoria discreta</p>
+</div>
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/pdiscreta-1} 
-
-}
-
-\caption{Representación de la función de distribución de la variable aleatoria discreta del ejemplo ilustrativo}(\#fig:pdiscreta)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/pdiscreta-1.png" alt="Representación de la función de distribución de la variable aleatoria discreta del ejemplo ilustrativo" width="70%" />
+<p class="caption">(\#fig:pdiscreta)Representación de la función de distribución de la variable aleatoria discreta del ejemplo ilustrativo</p>
+</div>
 
 
 ## Variable aleatoria continua
@@ -431,13 +397,11 @@ $$\boxed{P[X=x]=0}\; \forall x \in \mathbb{R}.$$
 
 
 
-\BeginKnitrBlock{rmdcafe}
-Intuitivamente, podemos entender esta característica pensando en la definición de probabilidad
+\BeginKnitrBlock{rmdcafe}<div class="rmdcafe">Intuitivamente, podemos entender esta característica pensando en la definición de probabilidad
 de Laplace. Si tuviéramos que _contar_ el número de casos favorables para que la
 variable aleatoria tome un valor concreto, sería 1. Pero los casos posibles, por
 ser variable continua, son infinitos, y por tanto la probabilidad 
-sería $\frac{1}{\infty}$.
-\EndKnitrBlock{rmdcafe}
+sería $\frac{1}{\infty}$.</div>\EndKnitrBlock{rmdcafe}
 
 
 
@@ -450,18 +414,20 @@ continua conceptualmente, y la aplicación de sus propiedades nos permitirá res
 aquellos problemas prácticos, aunque el aparato de medida utilizado no 
 nos permita ir más allá de cierta precisión.
 
-\begin{rmdcafe}
-Piensa en tu marca de cerveza favorita (o cualquier otra bebida), por
+<div class="rmdcafe">
+<p>Piensa en tu marca de cerveza favorita (o cualquier otra bebida), por
 ejemplo en el formato de 33 cl (tercio). Cuando la pides en un bar,
 ¿cuál crees que es la probabilidad de que la botella tenga
-\textbf{exactamente} 33 cl?
-
-En realidad, si medimos con una precisión, por ejemplo, de un decimal,
-podemos obtener mediciones de \(33.0\) \emph{cl}. Pero las mediciones
+<strong>exactamente</strong> 33 cl?</p>
+<p>En realidad, si medimos con una precisión, por ejemplo, de un
+decimal, podemos obtener mediciones de <span
+class="math inline">\(33.0\)</span> <em>cl</em>. Pero las mediciones
 están sujetas a un error, y en realidad lo que nos está diciendo esa
-medición es que el volumen está entre \(32.95\) y \(33.05\), intervalo
-del cual sí podemos calcular su probabilidad.
-\end{rmdcafe}
+medición es que el volumen está entre <span
+class="math inline">\(32.95\)</span> y <span
+class="math inline">\(33.05\)</span>, intervalo del cual sí podemos
+calcular su probabilidad.</p>
+</div>
 
 
 
@@ -473,14 +439,10 @@ estas cuestiones. La figura \@ref(fig:fdistcambio)
 muestra la representación gráfica de la función de densidad $F(x)$ de una determinada
 variable aleatoria $X$. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/fdistcambio-1} 
-
-}
-
-\caption{Función de distribución de una variable continua y probabilidad de un intervalo}(\#fig:fdistcambio)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/fdistcambio-1.png" alt="Función de distribución de una variable continua y probabilidad de un intervalo" width="70%" />
+<p class="caption">(\#fig:fdistcambio)Función de distribución de una variable continua y probabilidad de un intervalo</p>
+</div>
 
 
 Como podemos ver, la probabilidad en un intervalo cualquiera,
@@ -492,17 +454,14 @@ de la función de distribución en ese punto:
 
 $$\lim\limits_{b \to a}\frac{F(b)- F(a)}{b-a}.$$
 
-\BeginKnitrBlock{rmdcafe}
-La derivada de una función en un punto se corresponde con la pendiente de la recta tangente
+\BeginKnitrBlock{rmdcafe}<div class="rmdcafe">La derivada de una función en un punto se corresponde con la pendiente de la recta tangente
 a la función en ese punto. En nuestro caso, la pendiente de la recta tangente a la 
 función de distribución es la que nos proporciona la "densidad" de probabilidad.
 Se muestra a continuación una aplicación interactiva para visualizar el concepto
 de derivada como pendiente de la recta tangente^[accesible también en https://elcano.shinyapps.io/derivada/], que se puede aplicar a cualquier función de
-distribución.
-\EndKnitrBlock{rmdcafe}
+distribución.</div>\EndKnitrBlock{rmdcafe}
 
-
-\href{https://elcano.shinyapps.io/derivada/}{\includegraphics[width=1\linewidth]{05-vauni_files/figure-latex/unnamed-chunk-8-1} }
+<iframe src="https://elcano.shinyapps.io/derivada/?showcase=0" width="100%" height="800px" data-external="1"></iframe>
 
 
 
@@ -524,14 +483,10 @@ de que la variable aleatoria tome valores en los intervalos que encierran dicha
 área.
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/dp-1} 
-
-}
-
-\caption{Relación entre las funciones de densidad y de probabilidad}(\#fig:dp)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/dp-1.png" alt="Relación entre las funciones de densidad y de probabilidad" width="70%" />
+<p class="caption">(\#fig:dp)Relación entre las funciones de densidad y de probabilidad</p>
+</div>
 
 
 
@@ -555,8 +510,7 @@ $k$ calculada como:
 
 $$k=\frac{1}{\int_{-\infty}^\infty g(x)dx}.$$
 
-\BeginKnitrBlock{rmdejemplo}
-Supóngase que la empresa de servicios de nuestro ejemplo quiere hacer una campaña para aplicar entre un 5% y un 25% de descuento a sus clientes de forma aleatoria y lineal de forma que haya más descuentos bajos que altos. Entonces la función de densidad para la variable aleatoria $X=$ _Descuento aplicado a un cliente_ se puede modelizar mediante una recta con esta forma:
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">Supóngase que la empresa de servicios de nuestro ejemplo quiere hacer una campaña para aplicar entre un 5% y un 25% de descuento a sus clientes de forma aleatoria y lineal de forma que haya más descuentos bajos que altos. Entonces la función de densidad para la variable aleatoria $X=$ _Descuento aplicado a un cliente_ se puede modelizar mediante una recta con esta forma:
 
 $$
 f(x) = 
@@ -574,20 +528,14 @@ y por tanto:
 $$k=\frac{1}{\int_{5}^{25} (25-x) dx} = 0.005.$$
 
 La figura \@ref(fig:ejcontdesc) representa esta función de densidad.
+</div>\EndKnitrBlock{rmdejemplo}
 
-\EndKnitrBlock{rmdejemplo}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/ejcontdesc-1.png" alt="Función de densidad del ejemplo de los descuentos" width="70%" />
+<p class="caption">(\#fig:ejcontdesc)Función de densidad del ejemplo de los descuentos</p>
+</div>
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/ejcontdesc-1} 
-
-}
-
-\caption{Función de densidad del ejemplo de los descuentos}(\#fig:ejcontdesc)
-\end{figure}
-
-\BeginKnitrBlock{rmdpractica}
-Aunque las integrales que se presentan en este texto son inmediatas, en la práctica
+\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">Aunque las integrales que se presentan en este texto son inmediatas, en la práctica
 el uso del software para resolverlas es más rápido y productivo. Se aconseja al lector
 realizar las comprobaciones por sí mismo.
 
@@ -602,8 +550,7 @@ obtenemos directamente el área bajo la curva de una función. En el ejemplo:
   
 R puede calcular integrales definidas metiante métodos numéricos. El código a continuación
 muestra la expresión para calcular la integral buscada y el valor de $k$.
-
-\EndKnitrBlock{rmdpractica}
+</div>\EndKnitrBlock{rmdpractica}
 
 
 
@@ -619,8 +566,7 @@ k
 ```
 
 
-\BeginKnitrBlock{rmdejemplo}
-
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
 Sea la variable aleatoria $X$ con función de densidad:
 
 $$f(x)=
@@ -674,11 +620,9 @@ F(x)=
 \frac{x^2}{16} \quad \text{si} \quad 0 <x <4\\
 1 \;\; \quad \text{si} \quad x \geq 4\\
 \end{cases}
-$$
-\EndKnitrBlock{rmdejemplo}
+$$</div>\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}
-
+\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">
 **MAXIMA**
 
 La integral definida para comprobar que vale uno sería:
@@ -696,8 +640,7 @@ El código a continuación realiza la comprobación de que la integral vale 1. R
 hacer cálculo simbólico para obtener una expresión de la función de distribución. No obstante,
 se puede crear una función que obtenga valores de la función de distribución para utilizar 
 posteriormente, o representarla gráficamente.
-
-\EndKnitrBlock{rmdpractica}
+</div>\EndKnitrBlock{rmdpractica}
 
 
 
@@ -715,26 +658,18 @@ Fx(2)
 #> 0.25 with absolute error < 2.8e-15
 ```
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/ejfdensidad-1} 
-
-}
-
-\caption{Representación de la función de densidad del ejemplo}(\#fig:ejfdensidad)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/ejfdensidad-1.png" alt="Representación de la función de densidad del ejemplo" width="70%" />
+<p class="caption">(\#fig:ejfdensidad)Representación de la función de densidad del ejemplo</p>
+</div>
 
 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/ejfdistrib-1} 
-
-}
-
-\caption{Representación de la función de distribución del ejemplo}(\#fig:ejfdistrib)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/ejfdistrib-1.png" alt="Representación de la función de distribución del ejemplo" width="70%" />
+<p class="caption">(\#fig:ejfdistrib)Representación de la función de distribución del ejemplo</p>
+</div>
 
 
 ----
@@ -759,14 +694,10 @@ de la probabilidad, podemos calcular probabilidades de cualquier intervalo
 utilizando tanto la función de densidad como la función de distribución, tal
 y como se resume en la figura \@ref(fig:cprocont).
 
-\begin{figure}
-
-{\centering \includegraphics{05-vauni_files/figure-latex/cprocont-1} 
-
-}
-
-\caption{Cálculo de probabilidades de una variable continua}(\#fig:cprocont)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/cprocont-1.png" alt="Cálculo de probabilidades de una variable continua" width="672" />
+<p class="caption">(\#fig:cprocont)Cálculo de probabilidades de una variable continua</p>
+</div>
 
 
 Para mejorar la comprensión de la función de densidad, cuya importancia
@@ -793,14 +724,10 @@ representa también las probabilidades de los intervalos que podamos formar.
 La figura \@ref(fig:densidadfreq) muestra esta relación entre frecuencias 
 y función de densidad en un determinado experimento.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/densidadfreq-1} 
-
-}
-
-\caption{Frecuencias, histograma y función de densidad}(\#fig:densidadfreq)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/densidadfreq-1.png" alt="Frecuencias, histograma y función de densidad" width="70%" />
+<p class="caption">(\#fig:densidadfreq)Frecuencias, histograma y función de densidad</p>
+</div>
 
 
 
@@ -819,8 +746,7 @@ Además, siempre es preferible utilizar los símbolos de forma adecuada aunque
 no tenga consecuencias prácticas.
 
 
-\BeginKnitrBlock{rmdejemplo}
-
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
 Sea la variable aleatoria del ejemplo anterior, con las siguientes
 funciones de densidad y de distribución:
 
@@ -848,11 +774,9 @@ $$P[1<X<2]=\int_{1}^2 f(x)dx = \int_{1}^2 \frac{1}{8}x dx = \left [ \frac{x^2}{1
 y también a través de la función de distribución:
 
 
-$$P[1<X<2]=F(2)-F(1)=\frac{4}{16}-\frac{1}{16} = \frac{3}{16}.$$
-\EndKnitrBlock{rmdejemplo}
+$$P[1<X<2]=F(2)-F(1)=\frac{4}{16}-\frac{1}{16} = \frac{3}{16}.$$</div>\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}
-
+\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">
 **MAXIMA**
 
 La probabilidad pedida se calcularía simplemente:
@@ -862,8 +786,7 @@ La probabilidad pedida se calcularía simplemente:
 **R**
   
 El código a continuación calcula la probabilidad pedida.
-
-\EndKnitrBlock{rmdpractica}
+</div>\EndKnitrBlock{rmdpractica}
 
 
 
@@ -877,8 +800,7 @@ integrate(f = function(x) { (1/8)*x },
 
 
 
-\BeginKnitrBlock{rmdejemplo}
-El tiempo de duración (en minutos) de la visita de un potencial usuario de un servicio tras seguir el link de una oferta es una variable aleatoria $X$ que sigue una distribución de probabilidad según la siguiente función de densidad:
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">El tiempo de duración (en minutos) de la visita de un potencial usuario de un servicio tras seguir el link de una oferta es una variable aleatoria $X$ que sigue una distribución de probabilidad según la siguiente función de densidad:
 
 $$f(x) = 
 \begin{cases}
@@ -911,14 +833,12 @@ $$P[X<10/60] = F(10/60) = 1-e^{-2\cdot 10/60}= 0.2835.$$
 Como la pregunta se hace en términos de porcentaje, la respuesta sería
 aproximadamente un 28.35% de los visitantes.
 
-
-\EndKnitrBlock{rmdejemplo}
-
+</div>\EndKnitrBlock{rmdejemplo}
 
 
 
-\BeginKnitrBlock{rmdpractica}
-**MAXIMA**
+
+\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**MAXIMA**
   
 Las siguientes expresiones obtienen en Maxima los resultados del ejemplo.
 
@@ -931,8 +851,7 @@ Las siguientes expresiones obtienen en Maxima los resultados del ejemplo.
 **R**
   
 En el siguiente código de R se realizan los cálculos explicados en el ejemplo.
-
-\EndKnitrBlock{rmdpractica}
+</div>\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -945,22 +864,14 @@ integrate(function(x) 2*exp(-2*x), 0, 10/60)
 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/densejilu-1} 
-
-}
-
-\caption{Representación de la función de densidad del ejemplo ilustrativo}(\#fig:densejilu)
-\end{figure}
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/distejilu-1} 
-
-}
-
-\caption{Representación de la función de distribución del ejemplo ilustrativo}(\#fig:distejilu)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/densejilu-1.png" alt="Representación de la función de densidad del ejemplo ilustrativo" width="70%" />
+<p class="caption">(\#fig:densejilu)Representación de la función de densidad del ejemplo ilustrativo</p>
+</div>
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/distejilu-1.png" alt="Representación de la función de distribución del ejemplo ilustrativo" width="70%" />
+<p class="caption">(\#fig:distejilu)Representación de la función de distribución del ejemplo ilustrativo</p>
+</div>
 
 
 
@@ -1003,12 +914,12 @@ de ella) multiplicado por sus probabilidades. El resultado va a ser el _valor es
 que se corresponde con la media de la distribución, su valor central.
 
 
-\begin{rmdcafe}
-El uso de la palabra esperanza en este ámbito tiene su origen, cómo no,
-en los juegos de azar. Así, se hablaba de la esperanza de ganar en el
-juego (y la ganancia que se esperaba tener era el resultado), y también
-del \emph{temor}, cuando la esperanza era negativa.
-\end{rmdcafe}
+<div class="rmdcafe">
+<p>El uso de la palabra esperanza en este ámbito tiene su origen, cómo
+no, en los juegos de azar. Así, se hablaba de la esperanza de ganar en
+el juego (y la ganancia que se esperaba tener era el resultado), y
+también del <em>temor</em>, cuando la esperanza era negativa.</p>
+</div>
 
 
 La esperanza se define como hemos visto sobre una función cualquiera de la variable
@@ -1123,7 +1034,7 @@ $$\mu = \boxed{E[X] = \int_{-\infty}^\infty x f(x) dx},$$
 La **mediana** es otra medida de centralización, y es el valor de la variable aleatoria que _divide_ la probabilidad del espacio muestral en dos **mitades**. Por tanto, será el primer 
 valor de la variable aleatoria para el cual la función de distribución vale $0.5$:
 
-$$\mathit{Me}=\inf x : F(x)\leq 0.5.$$
+$$\mathit{Me}=\inf x : F(x)\geq 0.5.$$
 
 En variables discretas a menudo la mediana se puede obtener simplemente de
 la tabla de valores de $F(x)$. Un método más general consiste en obtener la
@@ -1136,14 +1047,10 @@ numéricos para obtener la inversa de la función de distribución.
 La figura \@ref(fig:inversaF) muestra gráficamente la mediana
 como inversa de la función de distribución en $F(x) = 0.5$.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/inversaF-1} 
-
-}
-
-\caption{La mediana a portir de la inversa de la función de distribución}(\#fig:inversaF)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/inversaF-1.png" alt="La mediana a portir de la inversa de la función de distribución" width="70%" />
+<p class="caption">(\#fig:inversaF)La mediana a portir de la inversa de la función de distribución</p>
+</div>
 
 
 Por último, la **moda** de una variable aleatoria es el valor donde la función de probabilidad o la función de densidad tienen su máximo. La moda puede no ser única, y en particular para variables continuas se suele hablar de distribuciones _bimodales_ o 
@@ -1154,19 +1061,14 @@ asimétrica, como es la que se representa, la media se desplaza hacia la cola
 más larga.
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/vacentra-1} 
-
-}
-
-\caption{Medidas de centralización de una variable aleatoria}(\#fig:vacentra)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/vacentra-1.png" alt="Medidas de centralización de una variable aleatoria" width="70%" />
+<p class="caption">(\#fig:vacentra)Medidas de centralización de una variable aleatoria</p>
+</div>
 
 
 
-\BeginKnitrBlock{rmdejemplo}
-
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
 La media de la variable aleatoria _número de caras_ del experimento 
 descrito más arriba y consistente en lanzar una moneda tres veces, es la siguiente:
 
@@ -1177,11 +1079,9 @@ el primer valor para el que $F(x)\ge 0.5$, y entonces la mediana es 1.
 La moda es el valor más frecuente, mirando en la función de probabilidad vemos
 que los valores 1 y 2 tienen la frecuencia más alta. Como vemos, la moda puede
 no ser única (sí lo son siempre la media y la mediana.)
+</div>\EndKnitrBlock{rmdejemplo}
 
-\EndKnitrBlock{rmdejemplo}
-
-\BeginKnitrBlock{rmdpractica}
-**HOJA DE CÁLCULO**
+\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO**
 
 Disponemos los posibles valores de la variable $x_i$ en la primera columna,
 las probabilidades en la segunda columna. En la tercera columna calculamos $x_i\cdot p_i$,
@@ -1190,8 +1090,7 @@ y sumamos los valores.
 **R**
 
 Podemos guardar los valores y sus probabilidades en sendos vectores y calcular la
-esperanza calculando la suma del producto de ambos vectores, como se muestra en el siguiente código.
-\EndKnitrBlock{rmdpractica}
+esperanza calculando la suma del producto de ambos vectores, como se muestra en el siguiente código.</div>\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -1203,8 +1102,7 @@ Ex
 ```
 
 
-\BeginKnitrBlock{rmdejemplo}
-
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
 La media de la variable aleatoria definida por la función de densidad:
 
 $$f(x)=
@@ -1230,12 +1128,10 @@ $$F^{-1}(0.5) = +\sqrt{16\cdot 0.5} = 2\sqrt{2} \approx 2.8284.$$
 
 En cuanto a la moda sería 4, ya que es el valor donde la función de densidad 
 es máximo, al ser una recta de pendiente positiva entre 0 y 4 (véase la figura \@ref(fig:ejfdensidad)).
+</div>\EndKnitrBlock{rmdejemplo}
 
-\EndKnitrBlock{rmdejemplo}
 
-
-\BeginKnitrBlock{rmdpractica}
-**MAXIMA**
+\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**MAXIMA**
 
 La siguiente expresión devuelve el valor la integral definida con el resultado de la esperanza:
   
@@ -1244,8 +1140,7 @@ La siguiente expresión devuelve el valor la integral definida con el resultado 
 **R**
 
 El código a continuación obtiene la esperanza de la variable aleatoria.
-
-\EndKnitrBlock{rmdpractica}
+</div>\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -1255,29 +1150,26 @@ integrate(function(x) x*(1/8)*x, 0, 4)
 
 
 
-\begin{rmdejemplo}
-Vamos a calcular las medias de las variables aleatorias de los ejemplos
-de sujetos en estudio. Para la variable aleatoria discreta:
+<div class="rmdejemplo">
+<p>Vamos a calcular las medias de las variables aleatorias de los
+ejemplos de sujetos en estudio. Para la variable aleatoria discreta:</p>
+<p><span class="math inline">\(X:\)</span> Número de mensajes remitidas
+por correo electrónico en un año a los sujetos,</p>
+<p>la media sería:</p>
+<p><span class="math display">\[\mu=E[X]=\sum\limits_{i=1}^3 x_i p_i =
+20\cdot \frac{36}{52} + 36 \cdot \frac{12}{52} +
+60\cdot\frac{4}{52}\simeq26.7692.\]</span> Para la variable aleatoria
+continua:</p>
+<p><span class="math inline">\(X:\)</span> Tiempo de duración de la
+visita a la web de un sujeto,</p>
+<p>la media sería:</p>
+<p><span class="math display">\[\mu=E[X]=\int_{-\infty}^\infty x f(x) dx
+= \int_{0}^\infty x \cdot 2 e^{-2x}dx = 0.5,\]</span></p>
+<p>resolviendo la integral por partes y aplicando la regla de
+Barrow.</p>
+</div>
 
-\(X:\) Número de mensajes remitidas por correo electrónico en un año a
-los sujetos,
-
-la media sería:
-
-\[\mu=E[X]=\sum\limits_{i=1}^3 x_i p_i = 20\cdot \frac{36}{52} + 36 \cdot \frac{12}{52} + 60\cdot\frac{4}{52}\simeq26.7692.\]
-Para la variable aleatoria continua:
-
-\(X:\) Tiempo de duración de la visita a la web de un sujeto,
-
-la media sería:
-
-\[\mu=E[X]=\int_{-\infty}^\infty x f(x) dx = \int_{0}^\infty x \cdot 2 e^{-2x}dx = 0.5,\]
-
-resolviendo la integral por partes y aplicando la regla de Barrow.
-\end{rmdejemplo}
-
-\BeginKnitrBlock{rmdpractica}
-**HOJA DE CÁLCULO** (variable discreta)
+\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO** (variable discreta)
 
 Disponemos los posibles valores de la variable $x_i$ en la primera columna,
 las probabilidades en la segunda columna. En la tercera columna calculamos $x_i\cdot p_i$,
@@ -1293,8 +1185,7 @@ expresión:
 **R**
 
 Para la variable discreta, podemos guardar los valores y sus probabilidades en sendos vectores y calcular la
-esperanza calculando la suma del producto de ambos vectores, como se muestra en el siguiente código. Para la variable continua, utilizamos la función `integrate` para calcular la integral. Nótese que se pueden usar límites infinitos.
-\EndKnitrBlock{rmdpractica}
+esperanza calculando la suma del producto de ambos vectores, como se muestra en el siguiente código. Para la variable continua, utilizamos la función `integrate` para calcular la integral. Nótese que se pueden usar límites infinitos.</div>\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -1370,12 +1261,11 @@ La **desviación típica** de la variable aleatoria es la raíz cuadrada positiv
 
 $$\sigma = +\sqrt{V[X]}.$$
 
-Una caracteristica adimensional de la variabilidad es el **coeficiente de variación**, que es el cociente entre la desviación típica y la media de la variable aleatoria. Si la media fuera negativa, se suele expresar en valor absoluto:
+Una característica adimensional de la variabilidad es el **coeficiente de variación**, que es el cociente entre la desviación típica y la media de la variable aleatoria. Si la media fuera negativa, se suele expresar en valor absoluto:
 
 $$\mathit{CV}= \frac{\sigma}{\mu}.$$
 
-\BeginKnitrBlock{rmdejemplo}
-
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
 Para calcular la varianza de la variable aleatoria _número de caras_ del experimento consistente en lanzar una moneda tres veces, primero calculamos el momento de orden 2 respecto del origen:
 
 $$\alpha_2=E[X^2] = 0^2\cdot \frac{1}{8}+1^2\cdot \frac{3}{8}+2^2\cdot \frac{3}{8}+3^2\cdot \frac{1}{8}=3.$$
@@ -1406,11 +1296,9 @@ Como la media era $\mu=\frac{8}{3}$, la varianza es:
 $$\sigma^2=\alpha_2 -  \mu^2=8-\left(\frac{8}{3}\right )^2=\frac{8}{9}\simeq 0.8889.$$
   
 La desviación típica y el coeficiente de variación serán:
-$$\sigma = \sqrt{8/9} \simeq 0.9428;\; CV = \frac{\sigma}{\mu} \simeq 0.3536 $$
-\EndKnitrBlock{rmdejemplo}
+$$\sigma = \sqrt{8/9} \simeq 0.9428;\; CV = \frac{\sigma}{\mu} \simeq 0.3536 $$</div>\EndKnitrBlock{rmdejemplo}
 
-\BeginKnitrBlock{rmdpractica}
-**HOJA DE CÁLCULO (variable discreta)**
+\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO (variable discreta)**
 
 Si tenemos dispuestos los valores y probabilidades como se indicó más arriba,
 podemos añadir dos columnas con el cálculo de $x_i^2$ y $x_i^2 \cdot p_i$ en cada fila, sumar esta última para obtener $\alpha_2$ y a continuación restarle
@@ -1425,8 +1313,7 @@ y después podemos hacer operaciones para calcular todas las características:
 
 **R**
 
-El siguiente código realiza todos los cálculos para obtener los distintos parámetros de dispersión.  
-\EndKnitrBlock{rmdpractica}
+El siguiente código realiza todos los cálculos para obtener los distintos parámetros de dispersión.  </div>\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -1444,36 +1331,30 @@ cv <- desv.tip/alpha_1; cv
 
 
 
-\begin{rmdejemplo}
-Vamos a calcular las varianzas de las variables aleatorias de los
-ejemplos de sujetos en estudio. Para la variable aleatoria discreta:
+<div class="rmdejemplo">
+<p>Vamos a calcular las varianzas de las variables aleatorias de los
+ejemplos de sujetos en estudio. Para la variable aleatoria discreta:</p>
+<p><span class="math inline">\(X:\)</span> Número de mensajes remitidos
+por correo electrónico en un año a los sujetos,</p>
+<p>el momento de orden dos con respecto al origen sería:</p>
+<p><span class="math display">\[\alpha_2=E[X^2]=\sum\limits_{i=1}^3
+x_i^2 p_i = 20^2\cdot \frac{36}{52} + 36^2 \cdot \frac{12}{52} +
+60^2\cdot\frac{4}{52}\simeq 852.9231.\]</span></p>
+<p>Y entonces, la varianza es:</p>
+<p><span class="math display">\[\sigma^2=\alpha_2
+-  \mu^2=852.9231-(26.7692)^2=136.333.\]</span></p>
+<p>Para la variable aleatoria continua:</p>
+<p><span class="math inline">\(X:\)</span> Tiempo de duración de la
+visita a la web de un sujeto,</p>
+<p>el momento de orden dos sería:</p>
+<p><span class="math display">\[\alpha_2=E[X^2]=\int_{-\infty}^\infty
+x^2 f(x) dx = \int_{0}^\infty x^2 \cdot 2 e^{-2x}dx = 0.5,\]</span></p>
+<p>y entonces la varianza es:</p>
+<p><span class="math display">\[\sigma^2=\alpha_2
+-  \mu^2=0.5-(0.5)^2=0.25.\]</span></p>
+</div>
 
-\(X:\) Número de mensajes remitidos por correo electrónico en un año a
-los sujetos,
-
-el momento de orden dos con respecto al origen sería:
-
-\[\alpha_2=E[X^2]=\sum\limits_{i=1}^3 x_i^2 p_i = 20^2\cdot \frac{36}{52} + 36^2 \cdot \frac{12}{52} + 60^2\cdot\frac{4}{52}\simeq 852.9231.\]
-
-Y entonces, la varianza es:
-
-\[\sigma^2=\alpha_2 -  \mu^2=852.9231-(26.7692)^2=136.333.\]
-
-Para la variable aleatoria continua:
-
-\(X:\) Tiempo de duración de la visita a la web de un sujeto,
-
-el momento de orden dos sería:
-
-\[\alpha_2=E[X^2]=\int_{-\infty}^\infty x^2 f(x) dx = \int_{0}^\infty x^2 \cdot 2 e^{-2x}dx = 0.5,\]
-
-y entonces la varianza es:
-
-\[\sigma^2=\alpha_2 -  \mu^2=0.5-(0.5)^2=0.25.\]
-\end{rmdejemplo}
-
-\BeginKnitrBlock{rmdpractica}
-**HOJA DE CÁLCULO (discreta)**
+\BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**HOJA DE CÁLCULO (discreta)**
 
 Procederíamos igual que en el ejemplo anterior, calculando en columnas,
 sumando totales y finalmente aplicando la fórmula.
@@ -1489,8 +1370,7 @@ aplican las fórmulas para obtener los distintos parámetros.
 
 El código a continuación calcula la varianza de la variable 
 aleatoria de forma análoga
-al ejemplo anterior.
-\EndKnitrBlock{rmdpractica}
+al ejemplo anterior.</div>\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -1502,8 +1382,7 @@ varianza <- alpha_2 - alpha_1^2; varianza
 
 
 
-\BeginKnitrBlock{rmdejemplo}
-A partir de la variable aleatoria anterior:
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">A partir de la variable aleatoria anterior:
   
 $X:$ Tiempo de duración de la visita a la web de un sujeto,
 
@@ -1524,8 +1403,7 @@ Así:
   
 $$E[Y] = 10 + 60 \cdot E[X] = 10 + 60 \cdot 0.5 = 40,$$
 $$V[Y] =60^2 \cdot V[X] = 60^2 \cdot 0.5 = 1800.$$
-
-\EndKnitrBlock{rmdejemplo}
+</div>\EndKnitrBlock{rmdejemplo}
 
 
 
@@ -1565,14 +1443,10 @@ en relación con una determinada función de densidad.
 
 También se pueden calcular a partir de los momentos otros parámetros como los coeficientes de asimetría y de curtosis de una variable aleatoria, que no se tratan en este texto.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/cuartil-1} 
-
-}
-
-\caption{Cuantiles de una variable aleatoria}(\#fig:cuartil)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/cuartil-1.png" alt="Cuantiles de una variable aleatoria" width="70%" />
+<p class="caption">(\#fig:cuartil)Cuantiles de una variable aleatoria</p>
+</div>
 
 
 
@@ -1600,27 +1474,18 @@ De la desigualdad de Chebyshev se deduce que, por ejemplo, para cualquier variab
 $$P[\mu-2\sigma < X < \mu+2\sigma] \geq 1- \frac{1}{2^2}=0.75.$$
 También podemos determinar mediante esta desigualdad, entre qué valores estará, al menos, una determinada probabilidad. 
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/cheby-1.png" alt="Cota superior externa Desigualdad de Chebyshev" width="70%" />
+<p class="caption">(\#fig:cheby)Cota superior externa Desigualdad de Chebyshev</p>
+</div>
 
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/cheby-1} 
-
-}
-
-\caption{Cota superior externa Desigualdad de Chebyshev}(\#fig:cheby)
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.7\linewidth]{05-vauni_files/figure-latex/cheby2-1} 
-
-}
-
-\caption{Cota inferior interna Desigualdad de Chebyshev}(\#fig:cheby2)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="05-vauni_files/figure-html/cheby2-1.png" alt="Cota inferior interna Desigualdad de Chebyshev" width="70%" />
+<p class="caption">(\#fig:cheby2)Cota inferior interna Desigualdad de Chebyshev</p>
+</div>
 
 
-\BeginKnitrBlock{rmdejemplo}
-
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">
 
 Se sabe que la media de una variable aleatoria es 9 y su varianza 4. ¿Entre qué dos valores tendremos, al menos, una probabilidad de 0.75?
 
@@ -1653,6 +1518,5 @@ Nótese que esto significa que:
   
 $$P[X \le 3] + P[X \ge 15] \le 0.1111,$$
 
-y por tanto si la suma de dos números es menor que 0.1111, entonces cada uno de ellos será como mucho ese valor, y podemos asegurar que la probabilidad de que esta variable aleatoria con media 9 y varianza 4 tome valores de 15 es menor de 0.1111.
-\EndKnitrBlock{rmdejemplo}
+y por tanto si la suma de dos números es menor que 0.1111, entonces cada uno de ellos será como mucho ese valor, y podemos asegurar que la probabilidad de que esta variable aleatoria con media 9 y varianza 4 tome valores de 15 es menor de 0.1111.</div>\EndKnitrBlock{rmdejemplo}
 

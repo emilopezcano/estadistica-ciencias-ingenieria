@@ -644,17 +644,19 @@ es decir <span class="math inline">\(F(z)=P[Z\leq z].\)</span>.</p>
 </div>
 <div id="resumen-modelos-de-distribución-de-probabilidad" class="section level2" number="18.2">
 <h2><span class="header-section-number">C.2</span> Resumen modelos de distribución de probabilidad</h2>
+<div id="distribuciones-discretas-más-importantes" class="section level3" number="18.2.1">
+<h3><span class="header-section-number">C.2.1</span> Distribuciones discretas más importantes</h3>
 <table>
 <colgroup>
-<col width="23%" />
-<col width="64%" />
-<col width="6%" />
-<col width="5%" />
+<col width="19%" />
+<col width="46%" />
+<col width="11%" />
+<col width="22%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Distribución</th>
-<th align="left">Probabilidad/Densidad/Distribución</th>
+<th align="left">Masa de probabilidad</th>
 <th align="left">Esperanza</th>
 <th align="left">Varianza</th>
 </tr>
@@ -666,8 +668,79 @@ es decir <span class="math inline">\(F(z)=P[Z\leq z].\)</span>.</p>
 <td align="left"><span class="math inline">\(p\)</span></td>
 <td align="left"><span class="math inline">\(p(1-p)\)</span></td>
 </tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\text{Binomial}\\ \mathit{Bin}(n;p)\)</span></td>
+<td align="left"><span class="math inline">\(P[X = x] = \binom{n}{x}\cdot p^x \cdot (1-p)^{(n-x)};\\ x = 0, 1, \ldots, n\)</span></td>
+<td align="left"><span class="math inline">\(n\cdot p\)</span></td>
+<td align="left"><span class="math inline">\(n \cdot p\cdot (1-p)\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\text{Geométrica}\\ \mathit{Ge}(p)\)</span></td>
+<td align="left"><span class="math inline">\(P[X = x] = p \cdot (1-p)^{x};\\ x = 0, 1, \ldots, \infty\)</span></td>
+<td align="left"><span class="math inline">\(\frac 1 p\)</span></td>
+<td align="left"><span class="math inline">\(\frac{1-p}{p^2}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\text{Binomial negativa}\\ \mathit{BN}(r;p)\)</span></td>
+<td align="left"><span class="math inline">\(P[X = x] =\binom{x+c-1}{x}\cdot p^c \cdot (1-p)^{x};\\ x = 0, 1, 2, \ldots, \infty\)</span></td>
+<td align="left"><span class="math inline">\(\frac{r \cdot (1-p)}{ p}\)</span></td>
+<td align="left"><span class="math inline">\(\frac{r\cdot(1-p)}{p^2}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\text{Poisson}\\ \mathit{Poiss}(\lambda)\)</span></td>
+<td align="left"><span class="math inline">\(P[X = x] = \frac{e^{-\lambda}\lambda^x}{x!};\\ x = 0, 1, \ldots \infty\)</span></td>
+<td align="left"><span class="math inline">\(\lambda\)</span></td>
+<td align="left"><span class="math inline">\(\lambda\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\text{Hipergeométrica}\\ \mathit{HG}(N; M; N)\)</span></td>
+<td align="left"><span class="math inline">\(P[X = x] = \frac{\binom{N-M}{n-x}\cdot \binom{M}{x}}{\binom{N}{n}};\\ \max{(0, n+M-N)} \leq x \leq \min{(M,n)}\)</span></td>
+<td align="left"><span class="math inline">\(M\cdot \frac{n}{N}\)</span></td>
+<td align="left"><span class="math inline">\(\frac{M\cdot(N-M)\cdot n\cdot (N-n)}{N^2\cdot(N-1)}\)</span></td>
+</tr>
 </tbody>
 </table>
+</div>
+<div id="distribuciones-continuas-más-importantes" class="section level3" number="18.2.2">
+<h3><span class="header-section-number">C.2.2</span> Distribuciones continuas más importantes</h3>
+<table>
+<colgroup>
+<col width="23%" />
+<col width="56%" />
+<col width="8%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Distribución</th>
+<th align="left">Densidad/Distribución</th>
+<th align="left">Esperanza</th>
+<th align="left">Varianza</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\text{Uniforme}\\ \mathit{U}(a;b)\)</span></td>
+<td align="left"><span class="math inline">\(f(x) = \begin{cases} \frac{1}{b-a} &amp; \text{si } a \leq x \leq b\
+0 &amp; \\text{resto} \end{cases} \\ a&lt;x&lt;b\)</span></td>
+<td align="left"><span class="math inline">\(\frac{a+b}{2}\)</span></td>
+<td align="left"><span class="math inline">\(\frac{(b-a)^2}{12}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\text{Exponencial}\\ \mathit{Exp}(\beta)\)</span></td>
+<td align="left"><span class="math inline">\(f(x) = \beta e^{-\beta x},\; x &gt; 0\\F(x)=\int_{-\infty}^xf(t)dt=1-e^{-\beta x}, \; x &gt; 0\)</span></td>
+<td align="left"><span class="math inline">\(\frac 1 \beta\)</span></td>
+<td align="left"><span class="math inline">\(\frac{1}{\beta^2}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\text{Normal}\\ \mathit{N}(\mu; \sigma)\)</span></td>
+<td align="left"><span class="math inline">\(f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}},\;-\infty &lt; x &lt; \infty\)</span></td>
+<td align="left"><span class="math inline">\(\mu\)</span></td>
+<td align="left"><span class="math inline">\(\sigma^2\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
   </main>
@@ -693,7 +766,7 @@ es decir <span class="math inline">\(F(z)=P[Z\leq z].\)</span>.</p>
   <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-06.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
