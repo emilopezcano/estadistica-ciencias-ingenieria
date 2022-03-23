@@ -320,7 +320,9 @@ $$\boxed{P(A_i|B)=\frac{P(B|A_i)\cdot P(A_i)}{\sum\limits_{i=1}^{n} P(B/A_i)\cdo
 * Tipificación de variables aleatorias: 
 
 $$Z=\frac{X-\mu}{\sigma}\implies \mu_Z=0;\; \sigma_Z=1$$
+* Probabilidad condicionada en variables aleatorias:
 
+$$P[X\in A | X \in B] = \frac{P[(X\in A) \cap (X \in B)]}{P[X \in B]}$$
   
 ## Modelos de distribución de probabilidad
 
@@ -344,7 +346,7 @@ $$Z=\frac{X-\mu}{\sigma}\implies \mu_Z=0;\; \sigma_Z=1$$
   * Media: $\mu=E[X] = \frac{1-p}{p}$
   * Varianza: $\sigma^2=\mathit{V}[X] = \frac{1-p}{p^2}$
   
-* Binomial negativa
+* Binomial negativa:
   * Media: 
   * Varianza: 
   

@@ -145,18 +145,6 @@ ordenaciones posibles es $\binom{n}{x}$, por eso multiplicamos.
 La figura \@ref(fig:plotbinom) muestra gráficamente la distribución
 de probabilidad para varios valores de $n$ y $p$.
 
-
-```
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
-```
-
 <div class="figure" style="text-align: center">
 <img src="07-modelos_files/figure-html/plotbinom-1.png" alt="Representación de la función de probabilidad del modelo binomial" width="70%" />
 <p class="caption">(\#fig:plotbinom)Representación de la función de probabilidad del modelo binomial</p>
@@ -236,11 +224,17 @@ vendrá el nombre (o abreviatura) del modelo de probabilidad, por ejemplo para
 la binomial `binom`. Entonces la función `dbinom` devuelve la probabilidad
 para un valor de la variable aleatoria. A las funciones hay que pasarle
 también los parámetros del modelo de distribución. En el caso de la binomial,
-el parámetro `p` y el parámetro `n`. A continución se muestran las expresiones
-que calculan las probabiidades del ejemplo. Véase cómo la segunda probabilidad
+el parámetro `p` y el parámetro `n`. A continuación se muestran las expresiones
+que calculan las probabliidades del ejemplo. Véase cómo la segunda probabilidad
 se puede calcular de varias formas, utilizando el complementario como en la hoja
 de cálculo, el argumento `lower.tail` de la función `dbinom`, o sumando las
-probabilidades para los valores que cumplen la condición.</div>\EndKnitrBlock{rmdpractica}
+probabilidades para los valores que cumplen la condición.
+
+Para cada modelo de distribución de probabilidad tenemos otras dos funciones, una
+que empieza por `q`, que calcula el cuantil dada una probabilidad acumulada (es decir,
+es la función inversa de la función de distribución) y otra que empieza por `r`, con
+la que podemos obtener valores aleatorios (_random_) o simulaciones de una
+variable aleatoria.</div>\EndKnitrBlock{rmdpractica}
 
 
 ```r
@@ -800,6 +794,10 @@ La siguiente expresión calcula la probabilidad del ejemplo.
 </div>\EndKnitrBlock{rmdpractica}
 
 
+```r
+dhyper(x = 1, m = 30, n = 20, k = 5)
+#> [1] 0.06860145
+```
 
 
 
@@ -1376,8 +1374,8 @@ $X:$ _Peso de los paquetes_, $X\sim N(1.8, 0.5)$.
 Entonces:
 
 $$P[1 \leq X \leq 2] = P \left [\frac{1-1.8}{0.5} \leq \frac{X-\mu}{\sigma} \leq \frac{2-1.8}{0.5} \right ]  = $$
-$$=P[-1.6 \leq Z \leq 0.4] =P[Z\leq 4]-P[Z\leq -1.6]=$$
-$$P[Z\leq4]-(1-P[Z\leq 1.6])=0.6554+0.9452-1=\boxed{0.6006}.$$
+$$=P[-1.6 \leq Z \leq 0.4] =P[Z\leq 0.4]-P[Z\leq -1.6]=$$
+$$P[Z\leq 0.4]-(1-P[Z\leq 1.6])=0.6554+0.9452-1=\boxed{0.6006}.$$
 
 ¿Por debajo de qué peso estarán probablemente
 al menos el 95% de los paquetes? 
@@ -1554,7 +1552,7 @@ $$P(A|D) = \frac{P(D|A)P(A)}{P(d)}= \frac{0.0183\cdot 0.25}{0.1393} \simeq \boxe
 
 Ahora no estamos mezclando poblaciones, sino sumando variables aleatorias. En 
 concreto, las ventas totales recaudadas por la empresa será una variable aleatoria
-que resulta de operar con las variables aleatorias $V_A$, $V_B$ y $V_C):
+que resulta de operar con las variables aleatorias $V_A$, $V_B$ y $V_C$):
   
 $$Y = 25 + V_A + V_B + 0.5\cdot V_C.$$
 

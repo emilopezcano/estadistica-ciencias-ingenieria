@@ -378,10 +378,10 @@ $$\boxed{P(A_i|B)=\frac{P(B|A_i)\cdot P(A_i)}{\sum\limits_{i=1}^{n} P(B/A_i)\cdo
     * VA continua: $\mu = E[X] = \int_{-\infty}^\infty x f(x) dx$
     * Propiedad: $E[a + bX] = a + bE[X]$
     
-  * Varianza: $\sigma^2 = E[(X-\mu)^2] = E[X^2]-(E[X])^2$
+  * Varianza: $V[X] = \sigma^2 = E[(X-\mu)^2] = E[X^2]-(E[X])^2$
     * VA discreta: $\alpha_2=E[X^2]= \sum\limits_{i} x_i^2 p(x_i)$
     * VA continua: $\alpha_2=E[X^2]= \int_{-\infty}^\infty x^2 f(x) dx$
-    * Propiedad: $a, b \;\;\text{constantes} \implies \boxed{V[a + bX] = b^2 V[X]}$
+    * Propiedad: $V[a + bX] = b^2 V[X]$
     
   * Desviación típica: $\sigma = +\sqrt{\sigma^2}$
   
@@ -390,7 +390,9 @@ $$\boxed{P(A_i|B)=\frac{P(B|A_i)\cdot P(A_i)}{\sum\limits_{i=1}^{n} P(B/A_i)\cdo
 * Tipificación de variables aleatorias: 
 
 $$Z=\frac{X-\mu}{\sigma}\implies \mu_Z=0;\; \sigma_Z=1$$
+* Probabilidad condicionada en variables aleatorias:
 
+$$P[X\in A | X \in B] = \frac{P[(X\in A) \cap (X \in B)]}{P[X \in B]}$$
   
 * Modelos de distribución de probabilidad
   

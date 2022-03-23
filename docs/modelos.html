@@ -193,14 +193,6 @@ suma de probabilidades. Estas probabilidades son todas iguales, y el número de
 ordenaciones posibles es <span class="math inline">\(\binom{n}{x}\)</span>, por eso multiplicamos.</p>
 <p>La figura <a href="modelos.html#fig:plotbinom">7.1</a> muestra gráficamente la distribución
 de probabilidad para varios valores de <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span>.</p>
-<pre><code>#&gt; 
-#&gt; Attaching package: 'dplyr'
-#&gt; The following objects are masked from 'package:stats':
-#&gt; 
-#&gt;     filter, lag
-#&gt; The following objects are masked from 'package:base':
-#&gt; 
-#&gt;     intersect, setdiff, setequal, union</code></pre>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:plotbinom"></span>
 <img src="07-modelos_files/figure-html/plotbinom-1.png" alt="Representación de la función de probabilidad del modelo binomial" width="70%"><p class="caption">
@@ -254,7 +246,7 @@ del ejemplo así:</p>
 <p><code>=DISTR.BINOM.N(0;5;0,4;)</code></p>
 <p><code>=1-DISTR.BINOM.N(1;5;0,4;VERDADERO)</code></p>
 <p><strong>R</strong></p>
-En R, para cada modelo de distribución de probabilidad tenemos una función que
+<p>En R, para cada modelo de distribución de probabilidad tenemos una función que
 empieza por <code>d</code> y devuelve la “densidad” (probabilidad en el caso de discretas)
 y otra que empieza por <code>p</code> y devuelve la “probabilidad (acumulada)”, es decir,
 la función de distribución (o su complementario). Después de la <code>d</code> o la <code>p</code>
@@ -262,13 +254,18 @@ vendrá el nombre (o abreviatura) del modelo de probabilidad, por ejemplo para
 la binomial <code>binom</code>. Entonces la función <code>dbinom</code> devuelve la probabilidad
 para un valor de la variable aleatoria. A las funciones hay que pasarle
 también los parámetros del modelo de distribución. En el caso de la binomial,
-el parámetro <code>p</code> y el parámetro <code>n</code>. A continución se muestran las expresiones
-que calculan las probabiidades del ejemplo. Véase cómo la segunda probabilidad
+el parámetro <code>p</code> y el parámetro <code>n</code>. A continuación se muestran las expresiones
+que calculan las probabliidades del ejemplo. Véase cómo la segunda probabilidad
 se puede calcular de varias formas, utilizando el complementario como en la hoja
 de cálculo, el argumento <code>lower.tail</code> de la función <code>dbinom</code>, o sumando las
-probabilidades para los valores que cumplen la condición.
+probabilidades para los valores que cumplen la condición.</p>
+Para cada modelo de distribución de probabilidad tenemos otras dos funciones, una
+que empieza por <code>q</code>, que calcula el cuantil dada una probabilidad acumulada (es decir,
+es la función inversa de la función de distribución) y otra que empieza por <code>r</code>, con
+la que podemos obtener valores aleatorios (<em>random</em>) o simulaciones de una
+variable aleatoria.
 </div>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">5</span>, prob <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.07776</span>
 <span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">5</span>, prob <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span>
@@ -297,7 +294,7 @@ probabilidades para los valores que cumplen la condición.
 La siguiente expresión calcula la probabilidad buscada. El lector puede probar otros caminos
 para llegar a la misma probabilidad, como en el ejemplo anterior.
 </div>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">0</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.25</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.9436865</span></code></pre></div>
 <p>Hay tres consideraciones muy importantes a la hora de resolver ejercicios en variables
@@ -368,7 +365,7 @@ y entonces lo que queremos saber es:</p>
 La siguiente expresión calcula la probabilidad pedida. Nótese que ahora se
 utiliza <code>pois</code> en el nombre de la función.
 </div>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">dpois</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, lambda <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.01831564</span></code></pre></div>
 
@@ -400,7 +397,7 @@ Entonces aplicamos la propiedad aditiva de la distribución de Poisson, y defini
 Las siguientes expresiones obtienen las probabilidades pedidas a través de la función
 de distribución y de probabilidad.
 </div>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">ppois</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">2</span>, lambda <span class="op">=</span> <span class="fl">8</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.01375397</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">dpois</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">30</span>, lambda <span class="op">=</span> <span class="fl">32</span><span class="op">)</span>
@@ -441,7 +438,7 @@ Poisson, y entonces:</p>
 Utilizando software, podemos hacer los cálculos exactos. Vemos
 que, en este caso concreto, nos estaremos equivocanto en el tercer decimal.
 </div>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">100</span>, <span class="fl">0.01</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.9206268</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">ppois</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>
@@ -532,7 +529,7 @@ fórmula.</p>
 <p><strong>R</strong></p>
 <p>La siguiente expresión obtiene la probabilidad pedida.</p>
 </div>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">dnbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">4</span>, prob <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.20736</span></code></pre></div>
 
@@ -560,10 +557,10 @@ sumar y restarlo de 1.</p>
 Con la siguiente expresión calculamos la probabilidad a través del complementario de la
 función de distribución.
 </div>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">pnbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">6</span>, size <span class="op">=</span> <span class="fl">4</span>, prob <span class="op">=</span> <span class="fl">0.5</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.171875</span></code></pre></div>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">pnbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">6</span>, size <span class="op">=</span> <span class="fl">4</span>, prob <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.171875</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">qnbinom</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.95</span>, size <span class="op">=</span> <span class="fl">4</span>, prob <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span>
@@ -606,7 +603,7 @@ la de la binomial negativa con parámetro <span class="math inline">\(c=1\)</spa
 <p><strong>R</strong></p>
 La siguiente expresión obtiene la probabilidad pedida.
 </div>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Geometric.html">pgeom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">3</span>, prob <span class="op">=</span> <span class="fl">4</span><span class="op">/</span><span class="fl">52</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.273975</span></code></pre></div>
 </div>
@@ -675,6 +672,9 @@ en problemas de urnas, de forma que los argumentos de la función son:</p>
 </ul>
 <p>La siguiente expresión calcula la probabilidad del ejemplo.</p>
 </div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Hypergeometric.html">dhyper</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span>, m <span class="op">=</span> <span class="fl">30</span>, n <span class="op">=</span> <span class="fl">20</span>, k <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.06860145</span></code></pre></div>
 
 <div class="rmdejemplo">
 <p>Se asignan 10 premios a potenciales usuarios del servicio, pero no se pueden repetir ganadores. ¿Cuál es la probabilidad de que exactamente un directivo sea premiado?</p>
@@ -1090,8 +1090,8 @@ probabilidad de que un paquete esté entre 1 y 2 kilos?</p>
 <p><span class="math inline">\(X:\)</span> <em>Peso de los paquetes</em>, <span class="math inline">\(X\sim N(1.8, 0.5)\)</span>.</p>
 <p>Entonces:</p>
 <p><span class="math display">\[P[1 \leq X \leq 2] = P \left [\frac{1-1.8}{0.5} \leq \frac{X-\mu}{\sigma} \leq \frac{2-1.8}{0.5} \right ]  = \]</span>
-<span class="math display">\[=P[-1.6 \leq Z \leq 0.4] =P[Z\leq 4]-P[Z\leq -1.6]=\]</span>
-<span class="math display">\[P[Z\leq4]-(1-P[Z\leq 1.6])=0.6554+0.9452-1=\boxed{0.6006}.\]</span></p>
+<span class="math display">\[=P[-1.6 \leq Z \leq 0.4] =P[Z\leq 0.4]-P[Z\leq -1.6]=\]</span>
+<span class="math display">\[P[Z\leq 0.4]-(1-P[Z\leq 1.6])=0.6554+0.9452-1=\boxed{0.6006}.\]</span></p>
 <p>¿Por debajo de qué peso estarán probablemente
 al menos el 95% de los paquetes?</p>
 <p>Buscamos el valor de <span class="math inline">\(x\)</span> que cumpla:</p>
@@ -1223,7 +1223,7 @@ fórmula de Bayes, donde el denominador ya lo hemos calculado:</p>
 <p><strong>Cuestión 2.a)</strong></p>
 <p>Ahora no estamos mezclando poblaciones, sino sumando variables aleatorias. En
 concreto, las ventas totales recaudadas por la empresa será una variable aleatoria
-que resulta de operar con las variables aleatorias <span class="math inline">\(V_A\)</span>, <span class="math inline">\(V_B\)</span> y $V_C):</p>
+que resulta de operar con las variables aleatorias <span class="math inline">\(V_A\)</span>, <span class="math inline">\(V_B\)</span> y <span class="math inline">\(V_C\)</span>):</p>
 <p><span class="math display">\[Y = 25 + V_A + V_B + 0.5\cdot V_C.\]</span></p>
 <p>Por la propiedad aditiva de la distribución normal, al ser variables independientes,
 esta variable sigue una distribución normal de parámetros:</p>
@@ -1342,7 +1342,7 @@ características.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-22.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
