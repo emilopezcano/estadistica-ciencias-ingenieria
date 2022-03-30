@@ -84,15 +84,15 @@
 <h1>
 <span class="header-section-number">Capítulo 11</span> Diseño de experimentos<a class="anchor" aria-label="anchor" href="#doe"><i class="fas fa-link"></i></a>
 </h1>
-<div id="introducción-3" class="section level2" number="11.1">
+<div id="introducción-4" class="section level2" number="11.1">
 <h2>
-<span class="header-section-number">11.1</span> Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.1</span> Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n-4"><i class="fas fa-link"></i></a>
 </h2>
 <p>El Diseño y Análisis de Experimentos (que abreviaremos como DoE), como cualquier
 otra técnica estadística, se basa en el estudio de la variabilidad. DoE es la
 herramienta más potente para la mejora, lo que ha llevado a algunos autores a
 llamarlo “the jewel of quality engineering” (Ver por ejemplo
-<span class="citation">Theodore T. Allen<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Introduction to Engineering Statistics and Lean Six Sigma - Statistical Quality Control and Design of Experiments and Systems&lt;/em&gt; (Springer, 2010).&lt;/p&gt;"><sup>85</sup></a></span>).</p>
+<span class="citation">Theodore T. Allen<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Introduction to Engineering Statistics and Lean Six Sigma - Statistical Quality Control and Design of Experiments and Systems&lt;/em&gt; (Springer, 2010).&lt;/p&gt;"><sup>86</sup></a></span>).</p>
 <p>En apartados anteriores del libro hemos aprendido las herramientas básicas
 para <strong>analizar la variabilidad</strong> de los datos. En este apartado vamos a revisar
 las técnicas de Diseño de Experimentos y
@@ -119,7 +119,7 @@ el menor uso de recursos posible.
 Así, podremos tomar decisiones respaldadas por los datos.</p>
 <p>El objetivo del diseño de experimentos es encontrar los niveles de
 ciertos factores que optimizan una determinada característica medible.
-Esto se consigue con un método sistemático<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En realidad, el método científico.&lt;/p&gt;"><sup>86</sup></a> que evita salidas en falso y respuestas
+Esto se consigue con un método sistemático<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En realidad, el método científico.&lt;/p&gt;"><sup>87</sup></a> que evita salidas en falso y respuestas
 incompletas. Mediante la reducción del error experimental se consigue evitar la confusión de los efectos y anular los efectos sin interés para el estudio.</p>
 <p>Para empezar, lo primero que necesitamos es definir los datos del problema
 objeto de estudio y disponer de una forma de obtenerlos adecuadamente, en particular:</p>
@@ -177,7 +177,7 @@ R.A. Fisher</p>
 </blockquote>
 <blockquote>
 <p>As we know from Murphy’s Law, if anything can go wrong it will, and analysis of
-data can never compensate for botched experiments<br><span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>87</sup></a></span></p>
+data can never compensate for botched experiments<br><span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>88</sup></a></span></p>
 </blockquote>
 </div>
 <p>El análisis de la varianza sin diseño de experimentos tiene algunas
@@ -217,7 +217,7 @@ cambios que resulten en mejoras. Sin embargo, es
 necesario otro tipo de conocimiento (<em>profound knowledge</em>), en el que se
 incluye la Estadística. Combinar ambos conocimientos, lleva a una
 mayor capacidad de mejora.
-Estas ideas, originarias de Deming, se recogen en <span class="citation">R. Moen, T. Nolan, and L. Provost<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Quality Improvement Through Planned Experimentation 3/e&lt;/em&gt; (McGraw-Hill Education, 2012).&lt;/p&gt;"><sup>88</sup></a></span>.
+Estas ideas, originarias de Deming, se recogen en <span class="citation">R. Moen, T. Nolan, and L. Provost<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Quality Improvement Through Planned Experimentation 3/e&lt;/em&gt; (McGraw-Hill Education, 2012).&lt;/p&gt;"><sup>89</sup></a></span>.
 Algunas capacidades necesarias fruto de esta combinación son:</p>
 <ul>
 <li>Entender las interdependencias entre los sistemas donde se lleva a cabo
@@ -246,7 +246,7 @@ en un proceso iterativo de aprendizaje como se muestra en la figura <a href="doe
 Figura 11.3: Método iterativo de aprendizaje
 </p>
 </div>
-<p>En <span class="citation">Moen, Nolan, and Provost<a href="#fn89" class="footnote-ref" id="fnref89"><sup>89</sup></a></span> se propone el ciclo PDSA (<em>Plan-Do-Study-Act</em>) para la mejora que se muestra en la figura <a href="doe.html#fig:ciclo">11.4</a>. Básicamente consiste en:</p>
+<p>En <span class="citation">Moen, Nolan, and Provost<a href="#fn90" class="footnote-ref" id="fnref90"><sup>90</sup></a></span> se propone el ciclo PDSA (<em>Plan-Do-Study-Act</em>) para la mejora que se muestra en la figura <a href="doe.html#fig:ciclo">11.4</a>. Básicamente consiste en:</p>
 <ol style="list-style-type: decimal">
 <li>Planifica un cambio o prueba, dirigido a la <strong>mejora</strong>
 </li>
@@ -351,7 +351,7 @@ experimentales (por ejemplo, días diferentes), se deben organizar en bloques.</
 <li><p><strong>Réplicas</strong>. Para poder estimar el error experimental y hacer contrastes de
 hipótesis, es necesario tener más de una <em>corrida</em> de cada combinación de tratamientos.</p></li>
 </ul>
-<p><span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>90</sup></a></span> propone la siguiente <em>checklist</em> a la hora de planificar
+<p><span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>91</sup></a></span> propone la siguiente <em>checklist</em> a la hora de planificar
 experimentos:</p>
 <ol style="list-style-type: decimal">
 <li>Definir objetivos</li>
@@ -714,7 +714,7 @@ El número de experimentos necesarios aumenta exponencialmente, y se suelen pref
     <nav id="toc" data-toggle="toc" aria-label="Índice capítulo"><h2>Índice capítulo</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#doe"><span class="header-section-number">11</span> Diseño de experimentos</a></li>
-<li><a class="nav-link" href="#introducci%C3%B3n-3"><span class="header-section-number">11.1</span> Introducción</a></li>
+<li><a class="nav-link" href="#introducci%C3%B3n-4"><span class="header-section-number">11.1</span> Introducción</a></li>
 <li><a class="nav-link" href="#bases-del-doe-origen-importancia-objetivos-y-requerimientos"><span class="header-section-number">11.2</span> Bases del DoE: origen, importancia, objetivos y requerimientos</a></li>
 <li><a class="nav-link" href="#importancia-del-dise%C3%B1o"><span class="header-section-number">11.3</span> Importancia del diseño</a></li>
 <li><a class="nav-link" href="#planificaci%C3%B3n-de-la-experimentaci%C3%B3n"><span class="header-section-number">11.4</span> Planificación de la experimentación</a></li>
@@ -744,7 +744,7 @@ El número de experimentos necesarios aumenta exponencialmente, y se suelen pref
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-23.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-30.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -464,7 +464,7 @@ distris <- data.frame(
                    "$P[X = x] = \\frac{\\binom{N-M}{n-x}\\cdot \\binom{M}{x}}{\\binom{N}{n}};\\\\ \\max{(0, n+M-N)} \\leq x \\leq \\min{(M,n)}$"),
   Esperanza = c("$p$",
                 "$n\\cdot p$",
-                "$\\frac 1 p$",
+                "$\\frac{1-p}{p}$",
                 "$\\frac{r \\cdot (1-p)}{ p}$",
                 "$\\lambda$",
                 "$M\\cdot \\frac{n}{N}$"),

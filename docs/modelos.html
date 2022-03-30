@@ -1257,11 +1257,6 @@ aplican a problemas específicos.
 Para finalizar este capítulo, se proporciona una breve descripción
 de las que aparecen en la norma ISO 3534-1.</p>
 <ul>
-<li><p><strong>Distribución multinomial</strong>. Es el equivalente multivariante a la
-distribución binomial, donde no solamente hay dos resultados posibles
-sino más de dos. Entonces tenemos un vector aleatorio con tantas
-componentes como clases posibles (resultados del experimento). Cada componente
-del vector aleatorio sigue una distribución binomial.</p></li>
 <li><p><strong>Distribución lognormal</strong>. Una variable lognormal, al transformarla
 mediante el logaritmo será una normal.</p></li>
 <li><p><strong>La distribución Gamma</strong>. Ya se ha comentado que es una generalización de la
@@ -1274,7 +1269,12 @@ extremos (tipo III). La norma incluye otras dos distribuciones de valores extrem
 Tipo I (Gumbel) y Tipo II (Fréchet).</p></li>
 <li><p><strong>La distribución normal multivariante</strong>. Se aplica a vectores aleatorios
 donde todas sus componentes son variables aleatorias normales.</p></li>
-<li><p><strong>La distribución multinomial</strong>. Se aplica a características cualitativas multiclase.</p></li>
+<li><p><strong>La distribución multinomial</strong>. Se aplica a características cualitativas multiclase.
+Es el equivalente multivariante a la
+distribución binomial, donde no solamente hay dos resultados posibles
+sino más de dos. Entonces tenemos un vector aleatorio con tantas
+componentes como clases posibles (resultados del experimento). Cada componente
+del vector aleatorio sigue una distribución binomial.</p></li>
 </ul>
 <p>En el apéndice <a href="tablas.html#tablas">C</a> se puede encontrar un resumen de todas
 las distribuciones de probabilidad y sus principales
@@ -1284,6 +1284,154 @@ características.</p>
 <h2>
 <span class="header-section-number">7.5</span> Convergencia de variables aleatorias<a class="anchor" aria-label="anchor" href="#convergencia"><i class="fas fa-link"></i></a>
 </h2>
+<div id="introducción-2" class="section level3" number="7.5.1">
+<h3>
+<span class="header-section-number">7.5.1</span> Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>En este apartado vamos a tratar brevemente la convergencia de variables aleatorias
+y su aplicación al cálculo de probabilidades. La convergencia tiene también
+importantes aplicaciones en inferencia estadística que no se tratarán en este libro.
+Por convergencia se entiende que una determinada familia de distribuciones de
+probabilidad que dependen de un parámetro <span class="math inline">\(n \in \mathbb{N}\)</span>, a medida que
+aumenta <span class="math inline">\(n\)</span> la distribución se asemeja o tiende a otra determinada distribución
+de probabilidad <span class="math inline">\(X\)</span><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Que puede degenerar en una constante &lt;span class="math inline"&gt;\(K\)&lt;/span&gt;.&lt;/p&gt;'><sup>71</sup></a>.</p>
+<p>Una <strong>sucesión</strong> de variables aleatorias es un
+conjunto de variables aleatorias:</p>
+<p><span class="math display">\[\{ X_n \}: \{X_1, X_2, \ldots, X_n, \ldots \},\]</span>
+definidas para todo <span class="math inline">\(n \in \mathbb{N}\)</span> sobre el mismo espacio de
+probabilidad <span class="math inline">\((\Omega, \aleph, \wp)\)</span>. Asociadas a la
+sucesión de variables aleatorias tenemos también la sucesión de la imagen
+del espacio muestral <span class="math inline">\(\{X_n(\omega)\}\)</span> y la sucesión de las probabilidades del espacio muestral
+<span class="math inline">\(\{P_{X_n}(\omega)\}\)</span>.</p>
+<p>Vamos a considerar tres tipos de convergencia: convergencia en probabilidad,
+convergencia casi segura y convergencia en ley o en distribución. Una sucesión
+de variables aleatorias <span class="math inline">\(\{ X_n \}\)</span> converge en probabilidad a <span class="math inline">\(X\)</span> y lo representamos
+por:</p>
+<p><span class="math display">\[\{ X_n \} \mathop{\longrightarrow}^{p}X\]</span></p>
+<p>si:</p>
+<p><span class="math display">\[\forall \; \epsilon&gt;0, \lim_{n \to \infty} P[|X_n-X|&lt;\epsilon] =1.\]</span>
+La convergencia casi segura, representada por:</p>
+<p><span class="math display">\[\{ X_n \} \mathop{\longrightarrow}^{c.s.}X,\]</span>
+implica que:</p>
+<p><span class="math display">\[\forall \; \epsilon&gt;0, \lim_{n \to \infty} P[\omega \in \Omega : |X_n(\omega)-X(\omega)|&lt;\epsilon] =1.\]</span>
+Por último, la convergencia en distribución:</p>
+<p><span class="math display">\[\{ X_n \} \mathop{\longrightarrow}^d X,\]</span>
+implica que:</p>
+<p><span class="math display">\[\lim_{n \to \infty} F_{X_n}  = F_X.\]</span>
+La relación entre los tres tipos de convergencia es la siguiente:</p>
+<p><span class="math display">\[\text{casi segura } \implies \text{ en probabilidad } \implies \text{ en distribución},\]</span></p>
+<p>pero lo contrario no se cumple siempre.</p>
+<p>Nótese que podemos interpretar la convergencia casi segura en el ámbito de los
+sucesos, la convergencia en probabilidad en el ámbito de las variables aleatorias
+(imagen de los sucesos en los números reales, independientemente de cuáles sean
+estos) y la convergencia en distribución en el ámbito de las funciones
+(independientemente de cuáles sean las variables y los sucesos).</p>
+</div>
+<div id="leyes-de-los-grandes-números" class="section level3" number="7.5.2">
+<h3>
+<span class="header-section-number">7.5.2</span> Leyes de los grandes números<a class="anchor" aria-label="anchor" href="#leyes-de-los-grandes-n%C3%BAmeros"><i class="fas fa-link"></i></a>
+</h3>
+<p>En este apartado veremos dos resultados importantes como consecuencia de la
+convergencia de variables aleatorias. Para ello vamos a considerar la sucesión
+<span class="math inline">\(\eta_n\)</span> como la media de las <span class="math inline">\(n\)</span> variables aleatorias de la sucesión <span class="math inline">\(\{X_n\}\)</span>:</p>
+<p><span class="math display">\[\eta_n=\frac{X_1 + X_2 + \ldots, X_n}{n}.\]</span></p>
+<div id="ley-débil-de-los-grandes-números" class="section level4" number="7.5.2.1">
+<h4>
+<span class="header-section-number">7.5.2.1</span> Ley débil de los grandes números<a class="anchor" aria-label="anchor" href="#ley-d%C3%A9bil-de-los-grandes-n%C3%BAmeros"><i class="fas fa-link"></i></a>
+</h4>
+<p>Una sucesión <span class="math inline">\(\{X_n\}\)</span> de variables aleatorias cumple la Ley débil de los
+grandes números si la sucesión:</p>
+<p><span class="math display">\[\eta_n=\frac{\sum\limits_{i=1}^n (X_i - E[X_i])}{n}\]</span>
+converge en probabilidad a cero:</p>
+<p><span class="math display">\[\eta_n \mathop{\longrightarrow}^p 0.\]</span></p>
+<p>Esto implica que tomando sucesivas muestras, podré acercarme al valor verdadero
+de la media tanto como quiera aumentando <span class="math inline">\(n\)</span>.</p>
+</div>
+<div id="ley-fuerte-de-los-grandes-números" class="section level4" number="7.5.2.2">
+<h4>
+<span class="header-section-number">7.5.2.2</span> Ley fuerte de los grandes números<a class="anchor" aria-label="anchor" href="#ley-fuerte-de-los-grandes-n%C3%BAmeros"><i class="fas fa-link"></i></a>
+</h4>
+<p>Una sucesión <span class="math inline">\(\{X_n\}\)</span> de variables aleatorias cumple la Ley fuerte de los
+grandes números si la sucesión:</p>
+<p><span class="math display">\[\eta_n=\frac{\sum\limits_{i=1}^n (X_i - E[X_i])}{n}\]</span></p>
+<p>converge casi seguro a cero:</p>
+<p><span class="math display">\[\eta_n \mathop{\longrightarrow}^{c.s.} 0.\]</span>
+Esto implica que, en el límite, la media de sucesivas variables aleatorias es
+el valor real de la media.</p>
+</div>
+</div>
+<div id="teorema-central-del-límite" class="section level3" number="7.5.3">
+<h3>
+<span class="header-section-number">7.5.3</span> Teorema central del límite<a class="anchor" aria-label="anchor" href="#teorema-central-del-l%C3%ADmite"><i class="fas fa-link"></i></a>
+</h3>
+<p>Consideremos una sucesión de variables aleatorias <span class="math inline">\(\{X_n\}, n \in \mathbb{N}\)</span>, entonces
+diremos que esa sucesión cumple el teorema central del límite si y
+solamente si la suma de las variables menos sus esperanzas, dividida por
+la raíz cuadrada de la suma de sus varianzas, converge en distribución a una distribución
+normal estandarizada:</p>
+<p><span class="math display">\[\eta_n = \frac{\sum\limits_{i=1}^n (X_i - E[X_i])}{\sqrt{\sum\limits_{i=1}^nV[X_i]}} \mathop{\longrightarrow}^d N(0; 1).\]</span></p>
+<p>Es condición suficiente para que <span class="math inline">\(\{X_n\}\)</span> cumpla el teorema central del límite
+que las variables de la sucesión sean <strong>independientes e idénticamente distribuidas</strong>
+con media <span class="math inline">\(\mu=E[X_n]\)</span> y varianza <span class="math inline">\(\sigma^2=V[X_n]\)</span>:</p>
+<p><span class="math display">\[\eta_n = \frac{S_n - n\mu}{\sigma\sqrt{n}} \mathop{\longrightarrow}^d N(0; 1),\]</span></p>
+<p>siendo <span class="math inline">\(S_n\)</span> la serie de variables aleatorias <span class="math inline">\(S_n=\sum\limits_{i=1}^n X_i\)</span>.</p>
+</div>
+<div id="aproximación-de-distribuciones" class="section level3" number="7.5.4">
+<h3>
+<span class="header-section-number">7.5.4</span> Aproximación de distribuciones<a class="anchor" aria-label="anchor" href="#aproximaci%C3%B3n-de-distribuciones"><i class="fas fa-link"></i></a>
+</h3>
+<p>El teorema central del límite se aplica directamente a cualquier sucesión de variables aleatorias
+independientes e idénticamente distribuidas. Un caso particular es la aplicación
+a la distribución <strong>binomial</strong>. Efectivamente, la distribución binomial
+es una suma de distribuciones independientes de Bernoulli con parámetro <span class="math inline">\(p\)</span>,
+y entonces <span class="math inline">\(S_n \equiv Bin(n;p)\)</span>:</p>
+<p><span class="math display">\[\frac{S_n - np}{\sqrt{npq}}\mathop{\longrightarrow}^d N(0;1),\]</span>
+con <span class="math inline">\(q=1-p\)</span>. La figura <a href="modelos.html#fig:tclbinom">7.14</a> muestra las funciones de probabilidad de variables
+aleatorias que se distribuye según un modelo binomial, para distintos valores
+del parámetro <span class="math inline">\(n\)</span>. Podemos ver cómo a medida que aumenta <span class="math inline">\(n\)</span>, la distribución
+se aproxima más a la forma de la distribución normal.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:tclbinom"></span>
+<img src="07-modelos_files/figure-html/tclbinom-1.png" alt="El teorema central del límite y la distribución binomial" width="70%"><p class="caption">
+Figura 7.14: El teorema central del límite y la distribución binomial
+</p>
+</div>
+<p>En la práctica, el teorema central del límite lo vamos a utilizar para aproximar
+la distribución binomial a la distribución normal para valores grandes
+de <span class="math inline">\(n\)</span>, en general valores mayores de 100. Tal y como vimos en el capítulo
+<a href="#ch:modelosdisc"><strong>??</strong></a>, también la podíamos aproximar mediante la distribución
+de Poisson, con lo que el esquema de aproximaciones quedaría así:</p>
+<p><span class="math display">\[\boxed{B(n;p)
+\begin{cases}
+\mathop{\longrightarrow}\limits^{p&lt;0.05, np \text{ estable }} \leadsto Pois(np)\\
+\mathop{\longrightarrow}\limits^{n\geq 100} \leadsto N(np; \sqrt{npq})
+\end{cases}}\]</span></p>
+<p>Del mismo modo, una suma de <span class="math inline">\(n\)</span> distribuciones de Poisson de parámetro <span class="math inline">\(\lambda\)</span>
+se puede aproximar por una
+distribución normal:</p>
+<p><span class="math display">\[\boxed{\sum\limits_{i=1}^n Pois(\lambda)\mathop{\longrightarrow}\limits^{n\geq 100}
+\leadsto N(n\lambda; \sqrt{n\lambda})}\]</span></p>
+<p>En general, cualquier
+suma de variables aleatorias independientes e idénticamente distribuidas se podrá
+aproximar por la distribución normal estandarizada si <span class="math inline">\(n\)</span> es suficientemente grande.</p>
+<div class="rmdejemplo">
+<p>Una fábrica de medicamentos realiza pruebas clínicas con
+300 nuevos fármacos potenciales. Cerca del 20% de las
+sustancias que alcanzan esta etapa reciben finalmente la
+aprobación para su venta. ¿Cuál es la probabilidad de que se
+aprueben al menos 45 de los 300
+medicamentos?</p>
+<p>Definimos <span class="math inline">\(X:\)</span> número de medicamentos aprobados, en una serie de
+300 experimentos de Bernoulli con probabilidad <span class="math inline">\(p=0.2\)</span>. Entonces:</p>
+<p><span class="math display">\[X\sim \mathit{Bin}(300; 0.2).\]</span></p>
+<p>No podemos utilizar la aproximación de Poisson ya que <span class="math inline">\(p&gt;0.05\)</span>, pero sí la
+de la normal porque <span class="math inline">\(n\geq100\)</span>. Así:</p>
+<p><span class="math display">\[X \leadsto N(300\cdot 0.2; \sqrt{300\cdot 0.2 \cdot 0.8}\equiv N(60, \sqrt{48}).\]</span>
+Ahora tipificamos y calculamos probabilidades de la normal estandarizada:</p>
+<p><span class="math display">\[P[X &gt; 45 ]= P\left[\frac{X-60}{\sqrt{48}} &gt;\frac{45-60}{\sqrt{48}}\right]=P[Z&gt;-2.16]=\\
+=1-P[Z&gt;2.16]= 1-0.0154=0.9846.\]</span></p>
+</div>
+</div>
 </div>
 <div id="distribuciones-relacionadas-con-la-normal" class="section level2" number="7.6">
 <h2>
@@ -1323,7 +1471,14 @@ características.</p>
 </ul>
 </li>
 <li><a class="nav-link" href="#otros-modelos-de-distribuci%C3%B3n-de-probabilidad"><span class="header-section-number">7.4</span> Otros modelos de distribución de probabilidad</a></li>
-<li><a class="nav-link" href="#convergencia"><span class="header-section-number">7.5</span> Convergencia de variables aleatorias</a></li>
+<li>
+<a class="nav-link" href="#convergencia"><span class="header-section-number">7.5</span> Convergencia de variables aleatorias</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introducci%C3%B3n-2"><span class="header-section-number">7.5.1</span> Introducción</a></li>
+<li><a class="nav-link" href="#leyes-de-los-grandes-n%C3%BAmeros"><span class="header-section-number">7.5.2</span> Leyes de los grandes números</a></li>
+<li><a class="nav-link" href="#teorema-central-del-l%C3%ADmite"><span class="header-section-number">7.5.3</span> Teorema central del límite</a></li>
+<li><a class="nav-link" href="#aproximaci%C3%B3n-de-distribuciones"><span class="header-section-number">7.5.4</span> Aproximación de distribuciones</a></li>
+</ul>
+</li>
 <li><a class="nav-link" href="#distribuciones-relacionadas-con-la-normal"><span class="header-section-number">7.6</span> Distribuciones relacionadas con la normal</a></li>
 </ul>
 
@@ -1342,7 +1497,7 @@ características.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-23.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-30.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -98,6 +98,7 @@ fig:dnormal
 fig:dnormal2
 fig:probnor
 fig:ejnorp
+fig:tclbinom
 eq:modelogeneral
 tab:anovaplanta
 fig:plantaspuntos
@@ -232,11 +233,17 @@ distribución-normal
 mezcla-de-poblaciones-y-adición-de-variables-aleatorias
 otros-modelos-de-distribución-de-probabilidad
 convergencia
+introducción-2
+leyes-de-los-grandes-números
+ley-débil-de-los-grandes-números
+ley-fuerte-de-los-grandes-números
+teorema-central-del-límite
+aproximación-de-distribuciones
 distribuciones-relacionadas-con-la-normal
 muestreo
 comparacion2
 anova
-introducción-2
+introducción-3
 sec:anova1
 modelo
 estimación-de-los-parámetros
@@ -246,7 +253,7 @@ sec:anova2
 introducción-a-los-modelos-mixtos-efectos-fijos-y-efectos-aleatorios
 análisis-multivariante-de-la-varianza
 doe
-introducción-3
+introducción-4
 bases-del-doe-origen-importancia-objetivos-y-requerimientos
 importancia-del-diseño
 planificación-de-la-experimentación

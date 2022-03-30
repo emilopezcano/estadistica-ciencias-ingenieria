@@ -446,12 +446,12 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
 
 
 ```{=html}
-<div id="nkkqcvzhpa" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="kuoxeyquhs" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#nkkqcvzhpa .gt_table {
+#kuoxeyquhs .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -476,7 +476,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-left-color: #D3D3D3;
 }
 
-#nkkqcvzhpa .gt_heading {
+#kuoxeyquhs .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -488,7 +488,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-right-color: #D3D3D3;
 }
 
-#nkkqcvzhpa .gt_title {
+#kuoxeyquhs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -500,7 +500,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-bottom-width: 0;
 }
 
-#nkkqcvzhpa .gt_subtitle {
+#kuoxeyquhs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -512,13 +512,13 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-top-width: 0;
 }
 
-#nkkqcvzhpa .gt_bottom_border {
+#kuoxeyquhs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nkkqcvzhpa .gt_col_headings {
+#kuoxeyquhs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -533,7 +533,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-right-color: #D3D3D3;
 }
 
-#nkkqcvzhpa .gt_col_heading {
+#kuoxeyquhs .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -553,7 +553,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   overflow-x: hidden;
 }
 
-#nkkqcvzhpa .gt_column_spanner_outer {
+#kuoxeyquhs .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -565,15 +565,15 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   padding-right: 4px;
 }
 
-#nkkqcvzhpa .gt_column_spanner_outer:first-child {
+#kuoxeyquhs .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nkkqcvzhpa .gt_column_spanner_outer:last-child {
+#kuoxeyquhs .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nkkqcvzhpa .gt_column_spanner {
+#kuoxeyquhs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -585,7 +585,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   width: 100%;
 }
 
-#nkkqcvzhpa .gt_group_heading {
+#kuoxeyquhs .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -610,7 +610,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   vertical-align: middle;
 }
 
-#nkkqcvzhpa .gt_empty_group_heading {
+#kuoxeyquhs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -625,15 +625,15 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   vertical-align: middle;
 }
 
-#nkkqcvzhpa .gt_from_md > :first-child {
+#kuoxeyquhs .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nkkqcvzhpa .gt_from_md > :last-child {
+#kuoxeyquhs .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nkkqcvzhpa .gt_row {
+#kuoxeyquhs .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -652,7 +652,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   overflow-x: hidden;
 }
 
-#nkkqcvzhpa .gt_stub {
+#kuoxeyquhs .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -665,7 +665,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   padding-right: 5px;
 }
 
-#nkkqcvzhpa .gt_stub_row_group {
+#kuoxeyquhs .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -679,11 +679,11 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   vertical-align: top;
 }
 
-#nkkqcvzhpa .gt_row_group_first td {
+#kuoxeyquhs .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nkkqcvzhpa .gt_summary_row {
+#kuoxeyquhs .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -693,16 +693,16 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   padding-right: 5px;
 }
 
-#nkkqcvzhpa .gt_first_summary_row {
+#kuoxeyquhs .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nkkqcvzhpa .gt_first_summary_row.thick {
+#kuoxeyquhs .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nkkqcvzhpa .gt_last_summary_row {
+#kuoxeyquhs .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -712,7 +712,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-bottom-color: #D3D3D3;
 }
 
-#nkkqcvzhpa .gt_grand_summary_row {
+#kuoxeyquhs .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -722,7 +722,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   padding-right: 5px;
 }
 
-#nkkqcvzhpa .gt_first_grand_summary_row {
+#kuoxeyquhs .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -732,11 +732,11 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-top-color: #D3D3D3;
 }
 
-#nkkqcvzhpa .gt_striped {
+#kuoxeyquhs .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nkkqcvzhpa .gt_table_body {
+#kuoxeyquhs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -745,7 +745,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-bottom-color: #D3D3D3;
 }
 
-#nkkqcvzhpa .gt_footnotes {
+#kuoxeyquhs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -759,7 +759,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-right-color: #D3D3D3;
 }
 
-#nkkqcvzhpa .gt_footnote {
+#kuoxeyquhs .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -768,7 +768,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   padding-right: 5px;
 }
 
-#nkkqcvzhpa .gt_sourcenotes {
+#kuoxeyquhs .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -782,7 +782,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-right-color: #D3D3D3;
 }
 
-#nkkqcvzhpa .gt_sourcenote {
+#kuoxeyquhs .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -790,60 +790,60 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   padding-right: 5px;
 }
 
-#nkkqcvzhpa .gt_left {
+#kuoxeyquhs .gt_left {
   text-align: left;
 }
 
-#nkkqcvzhpa .gt_center {
+#kuoxeyquhs .gt_center {
   text-align: center;
 }
 
-#nkkqcvzhpa .gt_right {
+#kuoxeyquhs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nkkqcvzhpa .gt_font_normal {
+#kuoxeyquhs .gt_font_normal {
   font-weight: normal;
 }
 
-#nkkqcvzhpa .gt_font_bold {
+#kuoxeyquhs .gt_font_bold {
   font-weight: bold;
 }
 
-#nkkqcvzhpa .gt_font_italic {
+#kuoxeyquhs .gt_font_italic {
   font-style: italic;
 }
 
-#nkkqcvzhpa .gt_super {
+#kuoxeyquhs .gt_super {
   font-size: 65%;
 }
 
-#nkkqcvzhpa .gt_footnote_marks {
+#kuoxeyquhs .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#nkkqcvzhpa .gt_asterisk {
+#kuoxeyquhs .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nkkqcvzhpa .gt_slash_mark {
+#kuoxeyquhs .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#nkkqcvzhpa .gt_fraction_numerator {
+#kuoxeyquhs .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#nkkqcvzhpa .gt_fraction_denominator {
+#kuoxeyquhs .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -998,12 +998,12 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
 
 
 ```{=html}
-<div id="tpjzbtmsyv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xpjlocvelz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#tpjzbtmsyv .gt_table {
+#xpjlocvelz .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1028,7 +1028,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-left-color: #D3D3D3;
 }
 
-#tpjzbtmsyv .gt_heading {
+#xpjlocvelz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1040,7 +1040,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-right-color: #D3D3D3;
 }
 
-#tpjzbtmsyv .gt_title {
+#xpjlocvelz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1052,7 +1052,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-bottom-width: 0;
 }
 
-#tpjzbtmsyv .gt_subtitle {
+#xpjlocvelz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1064,13 +1064,13 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-top-width: 0;
 }
 
-#tpjzbtmsyv .gt_bottom_border {
+#xpjlocvelz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tpjzbtmsyv .gt_col_headings {
+#xpjlocvelz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1085,7 +1085,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-right-color: #D3D3D3;
 }
 
-#tpjzbtmsyv .gt_col_heading {
+#xpjlocvelz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1105,7 +1105,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   overflow-x: hidden;
 }
 
-#tpjzbtmsyv .gt_column_spanner_outer {
+#xpjlocvelz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1117,15 +1117,15 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   padding-right: 4px;
 }
 
-#tpjzbtmsyv .gt_column_spanner_outer:first-child {
+#xpjlocvelz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tpjzbtmsyv .gt_column_spanner_outer:last-child {
+#xpjlocvelz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tpjzbtmsyv .gt_column_spanner {
+#xpjlocvelz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1137,7 +1137,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   width: 100%;
 }
 
-#tpjzbtmsyv .gt_group_heading {
+#xpjlocvelz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1162,7 +1162,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   vertical-align: middle;
 }
 
-#tpjzbtmsyv .gt_empty_group_heading {
+#xpjlocvelz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1177,15 +1177,15 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   vertical-align: middle;
 }
 
-#tpjzbtmsyv .gt_from_md > :first-child {
+#xpjlocvelz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tpjzbtmsyv .gt_from_md > :last-child {
+#xpjlocvelz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tpjzbtmsyv .gt_row {
+#xpjlocvelz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1204,7 +1204,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   overflow-x: hidden;
 }
 
-#tpjzbtmsyv .gt_stub {
+#xpjlocvelz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1217,7 +1217,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   padding-right: 5px;
 }
 
-#tpjzbtmsyv .gt_stub_row_group {
+#xpjlocvelz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1231,11 +1231,11 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   vertical-align: top;
 }
 
-#tpjzbtmsyv .gt_row_group_first td {
+#xpjlocvelz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#tpjzbtmsyv .gt_summary_row {
+#xpjlocvelz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1245,16 +1245,16 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   padding-right: 5px;
 }
 
-#tpjzbtmsyv .gt_first_summary_row {
+#xpjlocvelz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tpjzbtmsyv .gt_first_summary_row.thick {
+#xpjlocvelz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tpjzbtmsyv .gt_last_summary_row {
+#xpjlocvelz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1264,7 +1264,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-bottom-color: #D3D3D3;
 }
 
-#tpjzbtmsyv .gt_grand_summary_row {
+#xpjlocvelz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1274,7 +1274,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   padding-right: 5px;
 }
 
-#tpjzbtmsyv .gt_first_grand_summary_row {
+#xpjlocvelz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1284,11 +1284,11 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-top-color: #D3D3D3;
 }
 
-#tpjzbtmsyv .gt_striped {
+#xpjlocvelz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#tpjzbtmsyv .gt_table_body {
+#xpjlocvelz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1297,7 +1297,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-bottom-color: #D3D3D3;
 }
 
-#tpjzbtmsyv .gt_footnotes {
+#xpjlocvelz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1311,7 +1311,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-right-color: #D3D3D3;
 }
 
-#tpjzbtmsyv .gt_footnote {
+#xpjlocvelz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1320,7 +1320,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   padding-right: 5px;
 }
 
-#tpjzbtmsyv .gt_sourcenotes {
+#xpjlocvelz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1334,7 +1334,7 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   border-right-color: #D3D3D3;
 }
 
-#tpjzbtmsyv .gt_sourcenote {
+#xpjlocvelz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1342,60 +1342,60 @@ La columna `tipo` toma tres valores: A, B y C. La tabla \@ref(tab:labfreq) muest
   padding-right: 5px;
 }
 
-#tpjzbtmsyv .gt_left {
+#xpjlocvelz .gt_left {
   text-align: left;
 }
 
-#tpjzbtmsyv .gt_center {
+#xpjlocvelz .gt_center {
   text-align: center;
 }
 
-#tpjzbtmsyv .gt_right {
+#xpjlocvelz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tpjzbtmsyv .gt_font_normal {
+#xpjlocvelz .gt_font_normal {
   font-weight: normal;
 }
 
-#tpjzbtmsyv .gt_font_bold {
+#xpjlocvelz .gt_font_bold {
   font-weight: bold;
 }
 
-#tpjzbtmsyv .gt_font_italic {
+#xpjlocvelz .gt_font_italic {
   font-style: italic;
 }
 
-#tpjzbtmsyv .gt_super {
+#xpjlocvelz .gt_super {
   font-size: 65%;
 }
 
-#tpjzbtmsyv .gt_footnote_marks {
+#xpjlocvelz .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#tpjzbtmsyv .gt_asterisk {
+#xpjlocvelz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tpjzbtmsyv .gt_slash_mark {
+#xpjlocvelz .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#tpjzbtmsyv .gt_fraction_numerator {
+#xpjlocvelz .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#tpjzbtmsyv .gt_fraction_denominator {
+#xpjlocvelz .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -1548,12 +1548,12 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
 :::
 
 ```{=html}
-<div id="qesalhuhns" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="vwfyqazupd" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#qesalhuhns .gt_table {
+#vwfyqazupd .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1578,7 +1578,7 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   border-left-color: #D3D3D3;
 }
 
-#qesalhuhns .gt_heading {
+#vwfyqazupd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1590,7 +1590,7 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   border-right-color: #D3D3D3;
 }
 
-#qesalhuhns .gt_title {
+#vwfyqazupd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1602,7 +1602,7 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   border-bottom-width: 0;
 }
 
-#qesalhuhns .gt_subtitle {
+#vwfyqazupd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1614,13 +1614,13 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   border-top-width: 0;
 }
 
-#qesalhuhns .gt_bottom_border {
+#vwfyqazupd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qesalhuhns .gt_col_headings {
+#vwfyqazupd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1635,7 +1635,7 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   border-right-color: #D3D3D3;
 }
 
-#qesalhuhns .gt_col_heading {
+#vwfyqazupd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1655,7 +1655,7 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   overflow-x: hidden;
 }
 
-#qesalhuhns .gt_column_spanner_outer {
+#vwfyqazupd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1667,15 +1667,15 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   padding-right: 4px;
 }
 
-#qesalhuhns .gt_column_spanner_outer:first-child {
+#vwfyqazupd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qesalhuhns .gt_column_spanner_outer:last-child {
+#vwfyqazupd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qesalhuhns .gt_column_spanner {
+#vwfyqazupd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1687,7 +1687,7 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   width: 100%;
 }
 
-#qesalhuhns .gt_group_heading {
+#vwfyqazupd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1712,7 +1712,7 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   vertical-align: middle;
 }
 
-#qesalhuhns .gt_empty_group_heading {
+#vwfyqazupd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1727,15 +1727,15 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   vertical-align: middle;
 }
 
-#qesalhuhns .gt_from_md > :first-child {
+#vwfyqazupd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qesalhuhns .gt_from_md > :last-child {
+#vwfyqazupd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qesalhuhns .gt_row {
+#vwfyqazupd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1754,7 +1754,7 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   overflow-x: hidden;
 }
 
-#qesalhuhns .gt_stub {
+#vwfyqazupd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1767,7 +1767,7 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   padding-right: 5px;
 }
 
-#qesalhuhns .gt_stub_row_group {
+#vwfyqazupd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1781,11 +1781,11 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   vertical-align: top;
 }
 
-#qesalhuhns .gt_row_group_first td {
+#vwfyqazupd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qesalhuhns .gt_summary_row {
+#vwfyqazupd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1795,16 +1795,16 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   padding-right: 5px;
 }
 
-#qesalhuhns .gt_first_summary_row {
+#vwfyqazupd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qesalhuhns .gt_first_summary_row.thick {
+#vwfyqazupd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qesalhuhns .gt_last_summary_row {
+#vwfyqazupd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1814,7 +1814,7 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   border-bottom-color: #D3D3D3;
 }
 
-#qesalhuhns .gt_grand_summary_row {
+#vwfyqazupd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1824,7 +1824,7 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   padding-right: 5px;
 }
 
-#qesalhuhns .gt_first_grand_summary_row {
+#vwfyqazupd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1834,11 +1834,11 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   border-top-color: #D3D3D3;
 }
 
-#qesalhuhns .gt_striped {
+#vwfyqazupd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qesalhuhns .gt_table_body {
+#vwfyqazupd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1847,7 +1847,7 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   border-bottom-color: #D3D3D3;
 }
 
-#qesalhuhns .gt_footnotes {
+#vwfyqazupd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1861,7 +1861,7 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   border-right-color: #D3D3D3;
 }
 
-#qesalhuhns .gt_footnote {
+#vwfyqazupd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1870,7 +1870,7 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   padding-right: 5px;
 }
 
-#qesalhuhns .gt_sourcenotes {
+#vwfyqazupd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1884,7 +1884,7 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   border-right-color: #D3D3D3;
 }
 
-#qesalhuhns .gt_sourcenote {
+#vwfyqazupd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1892,60 +1892,60 @@ La variable `imperfecciones` es un recuento de defectos en una inspección visua
   padding-right: 5px;
 }
 
-#qesalhuhns .gt_left {
+#vwfyqazupd .gt_left {
   text-align: left;
 }
 
-#qesalhuhns .gt_center {
+#vwfyqazupd .gt_center {
   text-align: center;
 }
 
-#qesalhuhns .gt_right {
+#vwfyqazupd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qesalhuhns .gt_font_normal {
+#vwfyqazupd .gt_font_normal {
   font-weight: normal;
 }
 
-#qesalhuhns .gt_font_bold {
+#vwfyqazupd .gt_font_bold {
   font-weight: bold;
 }
 
-#qesalhuhns .gt_font_italic {
+#vwfyqazupd .gt_font_italic {
   font-style: italic;
 }
 
-#qesalhuhns .gt_super {
+#vwfyqazupd .gt_super {
   font-size: 65%;
 }
 
-#qesalhuhns .gt_footnote_marks {
+#vwfyqazupd .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#qesalhuhns .gt_asterisk {
+#vwfyqazupd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qesalhuhns .gt_slash_mark {
+#vwfyqazupd .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#qesalhuhns .gt_fraction_numerator {
+#vwfyqazupd .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#qesalhuhns .gt_fraction_denominator {
+#vwfyqazupd .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -2040,12 +2040,12 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
 
 
 ```{=html}
-<div id="eoirmgczmi" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ugujynlsqf" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#eoirmgczmi .gt_table {
+#ugujynlsqf .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2070,7 +2070,7 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   border-left-color: #D3D3D3;
 }
 
-#eoirmgczmi .gt_heading {
+#ugujynlsqf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2082,7 +2082,7 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   border-right-color: #D3D3D3;
 }
 
-#eoirmgczmi .gt_title {
+#ugujynlsqf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2094,7 +2094,7 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   border-bottom-width: 0;
 }
 
-#eoirmgczmi .gt_subtitle {
+#ugujynlsqf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2106,13 +2106,13 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   border-top-width: 0;
 }
 
-#eoirmgczmi .gt_bottom_border {
+#ugujynlsqf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#eoirmgczmi .gt_col_headings {
+#ugujynlsqf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2127,7 +2127,7 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   border-right-color: #D3D3D3;
 }
 
-#eoirmgczmi .gt_col_heading {
+#ugujynlsqf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2147,7 +2147,7 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   overflow-x: hidden;
 }
 
-#eoirmgczmi .gt_column_spanner_outer {
+#ugujynlsqf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2159,15 +2159,15 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   padding-right: 4px;
 }
 
-#eoirmgczmi .gt_column_spanner_outer:first-child {
+#ugujynlsqf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#eoirmgczmi .gt_column_spanner_outer:last-child {
+#ugujynlsqf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#eoirmgczmi .gt_column_spanner {
+#ugujynlsqf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2179,7 +2179,7 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   width: 100%;
 }
 
-#eoirmgczmi .gt_group_heading {
+#ugujynlsqf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2204,7 +2204,7 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   vertical-align: middle;
 }
 
-#eoirmgczmi .gt_empty_group_heading {
+#ugujynlsqf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2219,15 +2219,15 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   vertical-align: middle;
 }
 
-#eoirmgczmi .gt_from_md > :first-child {
+#ugujynlsqf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#eoirmgczmi .gt_from_md > :last-child {
+#ugujynlsqf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#eoirmgczmi .gt_row {
+#ugujynlsqf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2246,7 +2246,7 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   overflow-x: hidden;
 }
 
-#eoirmgczmi .gt_stub {
+#ugujynlsqf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2259,7 +2259,7 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   padding-right: 5px;
 }
 
-#eoirmgczmi .gt_stub_row_group {
+#ugujynlsqf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2273,11 +2273,11 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   vertical-align: top;
 }
 
-#eoirmgczmi .gt_row_group_first td {
+#ugujynlsqf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#eoirmgczmi .gt_summary_row {
+#ugujynlsqf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2287,16 +2287,16 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   padding-right: 5px;
 }
 
-#eoirmgczmi .gt_first_summary_row {
+#ugujynlsqf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#eoirmgczmi .gt_first_summary_row.thick {
+#ugujynlsqf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#eoirmgczmi .gt_last_summary_row {
+#ugujynlsqf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2306,7 +2306,7 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   border-bottom-color: #D3D3D3;
 }
 
-#eoirmgczmi .gt_grand_summary_row {
+#ugujynlsqf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2316,7 +2316,7 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   padding-right: 5px;
 }
 
-#eoirmgczmi .gt_first_grand_summary_row {
+#ugujynlsqf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2326,11 +2326,11 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   border-top-color: #D3D3D3;
 }
 
-#eoirmgczmi .gt_striped {
+#ugujynlsqf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#eoirmgczmi .gt_table_body {
+#ugujynlsqf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2339,7 +2339,7 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   border-bottom-color: #D3D3D3;
 }
 
-#eoirmgczmi .gt_footnotes {
+#ugujynlsqf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2353,7 +2353,7 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   border-right-color: #D3D3D3;
 }
 
-#eoirmgczmi .gt_footnote {
+#ugujynlsqf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2362,7 +2362,7 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   padding-right: 5px;
 }
 
-#eoirmgczmi .gt_sourcenotes {
+#ugujynlsqf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2376,7 +2376,7 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   border-right-color: #D3D3D3;
 }
 
-#eoirmgczmi .gt_sourcenote {
+#ugujynlsqf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2384,60 +2384,60 @@ La tabla \@ref(tab:tablacont) muestra una tabla de frecuencias de la variable `p
   padding-right: 5px;
 }
 
-#eoirmgczmi .gt_left {
+#ugujynlsqf .gt_left {
   text-align: left;
 }
 
-#eoirmgczmi .gt_center {
+#ugujynlsqf .gt_center {
   text-align: center;
 }
 
-#eoirmgczmi .gt_right {
+#ugujynlsqf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#eoirmgczmi .gt_font_normal {
+#ugujynlsqf .gt_font_normal {
   font-weight: normal;
 }
 
-#eoirmgczmi .gt_font_bold {
+#ugujynlsqf .gt_font_bold {
   font-weight: bold;
 }
 
-#eoirmgczmi .gt_font_italic {
+#ugujynlsqf .gt_font_italic {
   font-style: italic;
 }
 
-#eoirmgczmi .gt_super {
+#ugujynlsqf .gt_super {
   font-size: 65%;
 }
 
-#eoirmgczmi .gt_footnote_marks {
+#ugujynlsqf .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#eoirmgczmi .gt_asterisk {
+#ugujynlsqf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#eoirmgczmi .gt_slash_mark {
+#ugujynlsqf .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#eoirmgczmi .gt_fraction_numerator {
+#ugujynlsqf .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#eoirmgczmi .gt_fraction_denominator {
+#ugujynlsqf .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
