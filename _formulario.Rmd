@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 
 
 # Formulario {#formulario}
@@ -235,6 +240,7 @@ $$P \left (\bigcup\limits_{i=1}^{\infty} A_i \right ) = \sum\limits_{i=1}^{\inft
 * Dados $n$ sucesos disjuntos dos a dos $A_1, \ldots, A_n: A_i \cap A_j = \emptyset \; \forall i \neq j$:
 
 $$P \left (\bigcup\limits_{i=1}^{n} A_i \right ) = \sum\limits_{i=1}^{n} P(A_i).$$
+
 * $P(A^c)=1-P(A)$.
 
 * $P(\emptyset) = 0$.
@@ -320,6 +326,7 @@ $$\boxed{P(A_i|B)=\frac{P(B|A_i)\cdot P(A_i)}{\sum\limits_{i=1}^{n} P(B/A_i)\cdo
 * Tipificación de variables aleatorias: 
 
 $$Z=\frac{X-\mu}{\sigma}\implies \mu_Z=0;\; \sigma_Z=1$$
+
 * Probabilidad condicionada en variables aleatorias:
 
 $$P[X\in A | X \in B] = \frac{P[(X\in A) \cap (X \in B)]}{P[X \in B]}$$
@@ -334,32 +341,40 @@ $$P[X\in A | X \in B] = \frac{P[(X\in A) \cap (X \in B)]}{P[X \in B]}$$
   * Media: $\mu=E[X] = p$.
   * Varianza: $\sigma^2=\mathit{V}[X] = p \cdot (1-p)$.
 
-* Binomial: $X \sim \mathit{Bin}(n;\;p);\; n> 0,\;0<p<1$
+* Binomial: $X \sim \mathit{Bin}(n;\;p);\; n> 0,\;0<p<1\; x = 0, 1, \ldots, n$
 
   * $P[X = x] = \binom{n}{x}\cdot p^x \cdot (1-p)^{(n-x)}$
   * Media: $\mu=E[X] = n\cdot p.$
   * Varianza: $\sigma^2=\mathit{V}[X] = n\cdot p\cdot (1-p).$
   * Aditiva: $Y=\sum\limits_{j=1}^m {X_j},\, X_j \sim \mathit{Bin}(n_j;\;p) \implies Y \sim \mathit{Bin}\left ( \sum\limits_{j=1}^m n_j;\; p \right )$
 
+* Poisson $X \sim \mathit{Poiss}(\lambda);\; \lambda >0;\; x = 0, 1, \ldots\ \infty$
+  * $P[X = x] = \frac{e^{-\lambda}\lambda^x}{x!}$
+  * Media: $\mu=E[X] = \lambda$
+  * Varianza: $\sigma^2=\mathit{V}[X] = \lambda$
+  * Propiedad: $Y=\sum\limits_{j=1}^m {X_j},\; X_j \sim \mathit{Poiss}(\lambda_j) \implies Y \sim \mathit{Poiss}\left ( \sum\limits_{j=1}^m \lambda_j \right )$
+  
+* Binomial negativa: $X \sim \mathit{BN}(c;\; p);\; c>0;\; 0<p<1;\; x = 0, 1, 2, \ldots, \infty$
+  * $P[X = x] =\binom{x+c-1}{x}\cdot p^c \cdot (1-p)^{x}$
+  * Media: $E[X] = \frac{c\cdot (1-p)}{p}$
+  * Varianza: $\mathit{V}[X] = \frac{c\cdot (1-p)}{p^2}$
+  * Propiedad: $Y=\sum\limits_{j=1}^m {X_j},\; X_j \sim \mathit{BN}(c_j;\; p) \implies Y \sim \mathit{BN}\left ( \sum\limits_{j=1}^m c_j;\; p \right )$
+  
 * Geométrica: $X \sim \mathit{Ge}(p); \; 0<p<1$
-  * $P[X = x] = p \cdot (1-p)^{x};\; x = 0, 1, \ldots, \infty $
+  * $P[X = x] = p \cdot (1-p)^{x};\; x = 0, 1, \ldots, \infty$
   * Media: $\mu=E[X] = \frac{1-p}{p}$
   * Varianza: $\sigma^2=\mathit{V}[X] = \frac{1-p}{p^2}$
+  * Propiedad: $\mathit{Ge}(p) \equiv \mathit{BN}(1;\; p)$
   
-* Binomial negativa:
+
+* Hipergeométrica: $X \sim \mathit{HG}(N;\; M;\; n); \\max{(0, n+M-N)} \leq x \leq \min{(M,n)}$
+  * $P[X = x] = \frac{\binom{N-M}{n-x}\cdot \binom{M}{x}}{\binom{N}{n}}$
   * Media: 
-  * Varianza: 
+  * Varianza: $E[X] = M\cdot \frac{n}{N}$
+  * Aditiva: $\mathit{Var}[X] = \frac{M\cdot(N-M)\cdot n\cdot (N-n)}{N^2\cdot(N-1)}$
+  * Propiedad: si $\frac{n}{N}<0,1 \implies X \rightsquigarrow \mathit{Bin}\left (n;\; p = \frac{M}{N}\right)$
   
-* Poisson
-  * Media: 
-  * Varianza: 
-  * Aditiva:
-* Hipergeométrica
-  * Media: 
-  * Varianza: 
-  * Aditiva:
-  
-### Distribuciones discretas más importantes
+### Distribuciones continuas más importantes
 
 * Uniforme
   * Media: 
@@ -441,4 +456,37 @@ knitr::kable(distris, escape = TRUE,
 ```
 
 
+\newpage
+## Tabla distribución normal estándar
 
+```{r, echo=FALSE}
+# library(xtable)
+
+# newm <- xtable(m, digits = 4, align = "|c|cccccccccc|")
+```
+La siguiente tabla contiene la probabilidad de la cola inferior de la distribución normal estándar $Z\sim N(0;1)$, 
+es decir $F(z)=P[Z\leq z].$. 
+
+```{r, echo=FALSE, out.width="70%"}
+curve(dnorm, -4, 4, axes = FALSE, ylab = "f(z)~N(0,1)", xlab = "z")
+axis(1, pos=0)
+cord.x <- seq(-4, 1.28, by = 0.01)
+cord.y <- dnorm(cord.x)
+polygon(c(cord.x, 1.28, 4), c(cord.y, rep(0, 2)), col='skyblue')
+text(0.2, 0.015, expression(P(Z<=z)), pos = 4, cex = 0.8)
+```
+
+```{r, echo=FALSE, results='asis'}
+options(digits = 4)
+u <- seq(0, 3.99, by = 0.01)
+p <- pnorm(u, lower.tail = TRUE)
+m <- matrix(p, ncol = 10, byrow = TRUE)
+dimnames(m) <- list(z = formatC(seq(0, 3.9, by = 0.1), digits = 1, format = "f"),
+                    zz =formatC(seq(0, 0.09, by = 0.01), digits = 2, format = "f"))
+# library(pander)
+# pandoc.table(m)
+
+tm <- cbind(as.numeric(rownames(m)), m)
+colnames(tm)[1] <- "z"
+knitr::kable(tm, row.names = FALSE)
+```

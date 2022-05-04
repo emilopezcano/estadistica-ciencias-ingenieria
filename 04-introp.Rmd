@@ -241,7 +241,7 @@ según un criterio determinado. Tendremos los siguientes sucesos:
 - 1 de cada seis hombres $(H)$ responderá al tratamiento $(S)$, el doble si es mujer
 
 
-````
+```
 
 ¿Con qué juegos de azar relacionarías cada uno de los sucesos anteriores? 
 Piensa algunos ejemplos de sucesos en el entorno empresarial con datos similares.

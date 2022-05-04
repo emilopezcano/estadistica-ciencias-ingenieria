@@ -6,18 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Capítulo 14 Control Estadístico de Procesos | Estadística Aplicada a las Ciencias y la Ingeniería</title>
 <meta name="author" content="Emilio L. Cano">
-<meta name="description" content="En preparación. Intro SPC Gráficos de control Capacidad y rendimiento">
-<meta name="generator" content="bookdown 0.24.3 with bs4_book()">
+<meta name="description" content="14.1 Gráficos de control  14.1.1 Introducción El objetivo de los gráficos de control es identificar cuándo el proceso está fuera de control estadístico. A partir de ahí, los métodos de SPC nos...">
+<meta name="generator" content="bookdown 0.26 with bs4_book()">
 <meta property="og:title" content="Capítulo 14 Control Estadístico de Procesos | Estadística Aplicada a las Ciencias y la Ingeniería">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/spc.html">
 <meta property="og:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
-<meta property="og:description" content="En preparación. Intro SPC Gráficos de control Capacidad y rendimiento">
+<meta property="og:description" content="14.1 Gráficos de control  14.1.1 Introducción El objetivo de los gráficos de control es identificar cuándo el proceso está fuera de control estadístico. A partir de ahí, los métodos de SPC nos...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Capítulo 14 Control Estadístico de Procesos | Estadística Aplicada a las Ciencias y la Ingeniería">
-<meta name="twitter:description" content="En preparación. Intro SPC Gráficos de control Capacidad y rendimiento">
+<meta name="twitter:description" content="14.1 Gráficos de control  14.1.1 Introducción El objetivo de los gráficos de control es identificar cuándo el proceso está fuera de control estadístico. A partir de ahí, los métodos de SPC nos...">
 <meta name="twitter:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
@@ -84,18 +84,1602 @@
 <h1>
 <span class="header-section-number">Capítulo 14</span> Control Estadístico de Procesos<a class="anchor" aria-label="anchor" href="#spc"><i class="fas fa-link"></i></a>
 </h1>
-<p>En preparación.</p>
-<p>Intro SPC</p>
-<p>Gráficos de control</p>
-<p>Capacidad y rendimiento</p>
+<div id="ch_spc" class="section level2" number="14.1">
+<h2>
+<span class="header-section-number">14.1</span> Gráficos de control<a class="anchor" aria-label="anchor" href="#ch_spc"><i class="fas fa-link"></i></a>
+</h2>
+<div id="introducción-5" class="section level3" number="14.1.1">
+<h3>
+<span class="header-section-number">14.1.1</span> Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n-5"><i class="fas fa-link"></i></a>
+</h3>
+<p>El objetivo de los gráficos de control es identificar cuándo el proceso está
+fuera de control estadístico. A partir de ahí, los métodos de SPC nos permitirán mejorar el proceso,
+por medio de la eliminación de las causas asignables de variación.</p>
+<div class="rmdquote">
+<blockquote>
+<p>
+Assignable causes of variation may be found and eliminated
+</p>
+<p>
+Walter A. Shewhart
+</p>
+</blockquote>
+</div>
+<p>Recordemos de la introducción que los procesos se mueven de forma
+natural dentro de unos límites de referencia. En los gráficos de
+control, lo que haremos será tomar muestras de los procesos y medir
+alguna característica (variable o atributo). Los valores de las muestras los resumiremos con algún estadístico, como la media
+o la desviación típica. Esta medida resumen la representaremos
+gráficamente junto con unos <strong>límites de control</strong>, que abarcan esa franja de
+variación natural de esa medida resumen. Mientras los valores de la muestra estén dentro de los
+límites de control, el proceso se puede considerar <strong>bajo control estadístico</strong>.
+En los siguientes apartados describiremos con detalle aspectos generales
+de los gráficos de control, así como gráficos de control específicos.</p>
+<div id="elementos-del-gráfico-de-control" class="section level4" number="14.1.1.1">
+<h4>
+<span class="header-section-number">14.1.1.1</span> Elementos del gráfico de control<a class="anchor" aria-label="anchor" href="#elementos-del-gr%C3%A1fico-de-control"><i class="fas fa-link"></i></a>
+</h4>
+<p>El gráfico de control es un gráfico en dos dimensiones, donde el eje vertical
+representa una medida resumen de la característica media en las muestras obtenidas del proceso. Dicha
+medida resumen se refiere a la medición de una característica de interés en los
+elementos de cada muestra. Sobre ese eje, se representan
+tres líneas: la línea central (LC, Línea central) y los límites de control superior (LCS)
+e inferior (LCI)<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En algunas aplicaciones encontraremos los acronimos sin
+traducir CL (Center Line), UCL (Upper Control Limit) y LCL (Lower
+Control Limit) para la línea central y los límites de control superior e
+inferior respectivamente.&lt;/p&gt;"><sup>92</sup></a>.
+La <strong>línea central</strong> representa alguna medida de centralización de la medida
+resumen que se está representado, por
+ejemplo la media. Los <strong>límites de control</strong> superior e inferior representan los límites de
+variación natural de dicha medida resumen, que generalmente se fijan en
+tres desviaciones típicas<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Nótese que aquí nos estamos refiriendo a la
+desviación típica de la &lt;em&gt;medida resumen&lt;/em&gt;, no de la característica que
+estamos midiendo.&lt;/p&gt;"><sup>93</sup></a> a ambos lados del valor central. Estos límites
+aseguran que, con el proceso bajo control, es muy improbable que un punto
+se salga de los límites. Por tanto, tendremos mucha seguridad de que el
+proceso ha dejado de estar bajo control estadśitico. Por ejemplo, para el gráfico
+de la media, que sigue una distribución normal, la probabilidad de que la media de una
+muestra se salga de los límites estando el proceso bajo control, es de 0.0027.
+Es decir, solo el 0.27% de los puntos que se salgan serán una falsa alarma.
+Una vez representados los límites, situamos los <strong>puntos</strong> según el valor de la
+medida resumen de la muestra en el eje
+vertical, y por orden secuencial según el eje horizontal. Finalmente se unen los
+puntos con <strong>líneas</strong>. La figura <a href="spc.html#fig:cc4">14.1</a> muestra todos los elementos
+del gráfico de control descritos.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:cc4"></span>
+<img src="13-spc_files/figure-html/cc4-1.png" alt="Elementos del gráfico de control" width="70%"><p class="caption">
+Figura 14.1: Elementos del gráfico de control
+</p>
+</div>
+</div>
+<div id="subsec_diseniogc" class="section level4" number="14.1.1.2">
+<h4>
+<span class="header-section-number">14.1.1.2</span> Diseño del gráfico de control<a class="anchor" aria-label="anchor" href="#subsec_diseniogc"><i class="fas fa-link"></i></a>
+</h4>
+<p>Una vez determinada la característica de interés, hay dos partes fundamentales del diseño
+del gráfico de control: la determinación de los límites de control, y la
+determinación de la estrategia de muestreo.
+Básicamente, la implementación del gráfico de control
+se realiza en dos fases:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Fase I</strong>. Se fijan unos límites de control con el proceso bajo control
+estadístico.</p></li>
+<li><p><strong>Fase II</strong>. Una vez fijados los límites de control, los siguientes valores
+que produzca el proceso se monitorizan con los límites fijados.</p></li>
+</ol>
+<p>La fase I es la más delicada, y hay varias formas de afrontarla.
+La más sencilla, es partir de unos valores pre-especificados basados en la
+media y la desviación típica del proceso. Cuando el proceso es estable, podemos
+confirmar mediante contrastes de hipótesis que efectivamente esos valores
+pre-especificados pueden ser los del proceso con una cierta <em>confianza</em>.
+Cuando no podemos confiar en unos valores pre-especificados, entonces tenemos
+que estimarlos, fijando así unos límites provisionales utilizando un conjunto de
+datos preliminar. En general, entre 25 y 30 muestras con entorno a 5 unidadades
+cada una suele ser suficiente para estimar los límites de control.
+Si el proceso muestra control estadístico, podemos utilizar esos límites
+como límites del proceso. Si el proceso no está bajo control estadístico, se eliminan las
+causas especiales de variación<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Esta tarea depende de cada proceso y organización.
+Si no se encuentra ningna causa que corregir, se pueden calcular los límites
+de nuevo sin ese dato, hasta conseguir un proceso bajo control estadístico.&lt;/p&gt;"><sup>94</sup></a>
+y se vuelven a calcular los límites. Esta operación se repite hasta que el proceso
+esté bajo control estadístico.
+Otro aspecto importante de la Fase I es que se debe controlar primero la
+variabilidad del proceso y, una vez esta variabilidad está bajo control estadístico,
+comprobar que la media del proceso está también bajo control.</p>
+<p>En la
+Fase II se identifican las causas especiales de variación, que no solo vienen
+dadas por puntos fuera de los límites, sino también por otros patrones
+altamente improbables que indiquen que la variación no es debida solamente al azar.
+Además, en la
+Fase II se debe vigilar que los límites de control siguen siendo válidos
+para nuestro proceso, y cuando el proceso cambie, los límites de control
+se deben revisar y actualizar. De otro modo, el gráfico de control
+perdería utilidad.</p>
+<p>Un error muy común que hay que evitar, es fijar los límites de control
+con cada nueva muestra de datos. Esto implica que si se producen cambios en el
+proceso, podemos no detectarlos porque esos datos <em>malos</em> están siendo
+utilizados para calcular los límites del proceso supuestamente bajo control.</p>
+<p>Es importante diferenciar entre <strong>control del proceso</strong> y
+<strong>especificación del proceso</strong>. Es un error muy común no hacerlo, lo que
+lleva a un uso inadecuado del control estadístico de procesos.
+El proceso puede no estar controlado pero cumplir las especificaciones,
+y viceversa. El control estadístico de procesos nos sirve para anticipar futuros
+problemas que hagan al proceso dejar de cumplir las especificaciones, y poder
+corregir los problemas antes de que lleguen al producto (y al cliente). Por
+tanto los límites de control del proceso (fijados por la variación natural del
+proceso) y los límites de especificación del proceso (fijados por el cliente, ya
+sea interno o externo), no están relacionados entre sí, son cosas distintas cuya
+comparación nos permitirá medir la capacidad del proceso, como veremos en el
+capítulo <a href="spc.html#ch:capacidad">14.2</a>.</p>
+<p>En cuanto a la estrategia de muestreo, hay varios aspectos básicos que debemos tener
+en cuenta. El primero, es que la muestra debe ser representativa de la producción.
+Para ello, se deben realizar <strong>muestreos aleatorios</strong>. No siempre es posible hacer
+un muestreo completamente aleatorio, por sorteo, pero sí se deben evitar el tomar
+muestras que no sean representativas (por ejemplo, tomar siempre las primeras o
+las últimas del día porque es más cómodo). Por otro lado, se debe realizar
+una adecuada estratificación. Es decir, debemos tomar las muestras
+de grupos homogéneos, y no mezclar muestras de partes del proceso diferentes
+(por ejemplo diferentes máquinas, diferentes turnos, etc.).
+Por último, hay tres decisiones importantes: cuántas muestras analizar cada
+vez, de qué tamaño, y cada cuánto tiempo.</p>
+<p>Ya hemos dicho que para la determinación de los límites de control se
+deben utilizar entre 25 y 30 muestras. En general, este es un número adecuado de muestras para
+representar en cualquier gráfico de control para una fácil lectura
+e interpretación. No obstante, se puede examinar el gráfico de control con cada
+nueva observación, junto, por ejemplo, con las 24 anteriores. Las decisiones sobre el tamaño y la
+frecuencia de la muestra suelen estar muy relacionadas. Para los gráficos que
+vamos a estudiar en este capítulo, muestras de entre 4 y 8 unidades suelen dar un
+buen resultado. La frecuencia dependerá de cuánto tiempo estamos dispuestos a esperar
+hasta detectar un cambio en el proceso. En el apartado <a href="spc.html#sec:gcv">14.1.2</a> se proporcionan
+algunas herramientas para determinar el tamaño de la muestra y el error cometido para
+el gráfico de control de la media, que se puede utilizar para el diseño de un plan de control.</p>
+</div>
+<div id="funcionamiento-del-gráfico-de-control" class="section level4" number="14.1.1.3">
+<h4>
+<span class="header-section-number">14.1.1.3</span> Funcionamiento del gráfico de control<a class="anchor" aria-label="anchor" href="#funcionamiento-del-gr%C3%A1fico-de-control"><i class="fas fa-link"></i></a>
+</h4>
+<p>Lo que estamos haciendo al controlar los procesos mediante gráficos de control
+es realmente un contraste continuado de hipótesis para comprobar si el proceso
+está bajo control. El proceso está bajo control si la variación que se observa
+no se puede achacar más que al azar. El contraste se aplica a muestras recogidas
+periódicamente. Si la hipótesis es cierta, la media y la desviación típica de la
+muestra estarán dentro de sus límites naturales, asumiendo por defecto que estos
+límites son entre tres desviaciones por encima y por debajo de la media (<span class="math inline">\(\theta_0 \pm 3\sigma\)</span>)<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span class="math inline"&gt;\(\theta_0\)&lt;/span&gt; representa el valor central del gráfico, que
+puede ser la media, el rango medio, la desviación típica media, etc.&lt;/p&gt;'><sup>95</sup></a>.
+Además de los puntos fuera de los límites, hay otras
+situaciones altamente improbables que también indican que el proceso no está bajo control.
+Así, los pasos a seguir son los siguientes.</p>
+<ol style="list-style-type: decimal">
+<li>Fijar límites con el proceso bajo control</li>
+<li>Obtener muestras homogéneas (grupos racionales)</li>
+<li>Calcular medias y desviaciones típicas (o rangos)</li>
+<li>Representar datos</li>
+<li>Identificar las situaciones fuera de control</li>
+<li>Eliminar las causas de variación asignables</li>
+</ol>
+<p>Una vez tenemos un adecuado plan de control, debemos fijar los límites del
+proceso bajo control. A partir de aquí, obtener los gráficos de control con la
+regularidad establecida en el plan. El plan debe incluir una revisión
+periódica de los límites de control, y ajustarlos cuando nuestro proceso cambie
+(en media o en variabilidad). El objetivo de los gráficos de control es detectar
+causas especiales de variación, y eliminar estas causas. El método descansa en
+la base de que cualquiera de las situaciones en las que el proceso se clasifica
+como fuera de control, es tan improbable que suceda, que no podemos aceptar que
+se deba exclusivamente al azar, es decir, a la variación natural del proceso
+(causas naturales), y por tanto debe haber otros motivos (causas especiales) que
+debemos identificar. Por ejemplo, un punto fuera de los límites sólo se
+producirá de forma natural 27 veces de cada 10.000.</p>
+<p>En relación a los efectos producidos por un proceso fuera de control, hay que
+tener en cuenta que pueden ser diversos. El más intuitivo es que puede provocar
+una disminución en la capacidad del proceso y por tanto aumentar la proporción
+de no conformidades a largo plazo. En otros casos puede suceder lo contrario,
+que se produzca una mejora en el proceso. Si esta mejora no es apreciada por
+el cliente podemos estar incurriendo en un sobrecoste. Si la mejora es
+apreciada por el cliente, es una oportunidad para hacer sostenible en el
+tiempo esa mejora. Por ejemplo, en un proceso donde se mejora la resistencia de
+un material en un día determinado, si la causa asignable es que se ha añadido
+más cantidad de la necesaria de un componente determinado, la situación
+fuera de control supuso un sobrecoste. Si la causa asignable fue un cambio en el
+procedimiento, se puede implementar el cambio para mejorar el proceso de forma
+sostenible.</p>
+<p>Las siguientes señales nos pueden estar indicando que el proceso deja de estar
+bajo control. Básicamente, el hecho de que alguno de los siguientes hechos
+suceda es altamente improbable, por lo que muy posiblemente no se deba al azar,
+sino a alguna causa especial:</p>
+<ul>
+<li>Puntos fuera de los límites</li>
+<li>Siete puntos seguidos al mismo lado de la línea</li>
+<li>Seis puntos seguidos creciendo o decreciendo</li>
+<li>Catorce puntos seguidos alternando arriba y abajo</li>
+<li>Cualquier otro patrón inusual</li>
+</ul>
+<p>Además de estos patrones, se puede mirar dentro de los límites para anticipar
+posibles problemas. Definimos tres zonas y miramos qué pasa en ellas:</p>
+<ol style="list-style-type: decimal">
+<li>Zona C: entre la línea central y una desviación típica</li>
+<li>Zona B: Entre una y dos desviaciones típicas desde la línea central</li>
+<li>Zona A: Entre dos y tres desviaciones típicas de la línea central</li>
+</ol>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:cc5"></span>
+<img src="13-spc_files/figure-html/cc5-1.png" alt="Zonas del gráfico de control" width="70%"><p class="caption">
+Figura 14.2: Zonas del gráfico de control
+</p>
+</div>
+<p>Las situaciones que, por ser altamente improbables, se deberían
+investigar en busca de causas asignables, son las siguientes:</p>
+<ul>
+<li>Dos de tres puntos seguidos en la zona A o más allá</li>
+<li>Cuatro de cinco puntos seguidos en la zona B o más allá</li>
+<li>Quince puntos seguidos en la zona C</li>
+</ul>
+<p>El tercer caso es una <strong>oportunidad</strong> de mejora, ya que se ha conseguido
+reducir la variabilidad del proceso.</p>
+</div>
+</div>
+<div id="sec:gcv" class="section level3" number="14.1.2">
+<h3>
+<span class="header-section-number">14.1.2</span> Gráficos de control por variables<a class="anchor" aria-label="anchor" href="#sec:gcv"><i class="fas fa-link"></i></a>
+</h3>
+<p>Cuando la característica que estamos midiendo es una variable numérica continua,
+utilizamos gráficos de control por variables. En el control por variables,
+debemos controlar tanto los valores centrales de la variable como su
+variabilidad, por lo que los gráficos de control se utilizan habitualmente en
+parejas: un gráfico para los valores medios (o los valores individuales si no
+tenemos grupos) y otro para la variabilidad.</p>
+<p>Para el cálculo de los límites, debemos tener en cuenta que, si no disponemos
+de valores preespecificados fiables de la media y la desviación típica, debemos
+<em>estimarlos</em> a partir de muestras del proceso (subgrupos de tamaño <span class="math inline">\(n\)</span>).
+No entraremos
+en este libro en los detalles teóricos de esta estimación, simplemente destacar que
+algunos gráficos de Shewhart utilizan la distribución de los
+rangos de muestras normales.
+A partir de esta distribución, se determinan unas constantes que dependen solo
+del tamaño de los grupos <span class="math inline">\(n\)</span>. El cálculo de los límites se realiza entonces
+mediante fórmulas en las que aparecen estas constantes.
+Tanto la tabla como las fórmulas se encuentran en el apéndice <a href="#ap:tablas"><strong>??</strong></a>, y
+se pueden utilizar para construir los gráficos de control con Excel. No obstante,
+el software estadístico realiza estos cálculos automáticamente.</p>
+<p>Como se vio en el apartado <a href="#subsec:diseniogc"><strong>??</strong></a>, para calcular los límites
+de control en Fase I podemos partir de valores pre-especificados de la media y la desviación
+típica, o bien estimar estos parámetros. En este punto es importante señalar
+que, si bien la media muestral <span class="math inline">\(\overline{x}\)</span> es un buen estimador de la
+media poblacional <span class="math inline">\(\mu\)</span>, la desviación típica muestral <span class="math inline">\(s\)</span> no es el mejor
+estimador de la desviación típica poblacional <span class="math inline">\(\sigma\)</span>.
+En su lugar, se utilizan los siguientes estimadores de la desviación típica:</p>
+<p><span class="math display">\[\hat{\sigma}=\frac{s}{c_4};\qquad \hat{\sigma}=\frac{R}{d_2},\]</span></p>
+<p>donde <span class="math inline">\(c_4\)</span> y <span class="math inline">\(d_2\)</span> son constantes que solo dependen del tamaño de
+la muestra <span class="math inline">\(n\)</span> y <span class="math inline">\(R\)</span> es el rango de la muestra. Las constantes
+están tabuladas y se pueden utilizar para realizar gráficos “a mano” o
+con Excel, aunque es muy costoso (el software estadístico lo hace
+automáticamente).</p>
+
+<div class="rmdpractica">
+<p><strong>R</strong></p>
+<p>Para obtener gráficos de control con R utilizaremos básicamente el paquete
+<code>qcc</code>, y su función del mismo nombre. Esta función requiere siempre
+el tipo de gráfico a representar (uno de xbar, R, S, xbar.one, p, np, c, u,
+g) y los datos del proceso (de forma distinta según el tipo de gráfico).
+Las fases I y II se manejan pasando conjuntos de datos distintos (uno se usa
+para el cálculo
+de los límites, el otro no), o bien introduciendo los valores preespecificados
+de los parámetros.
+Existen
+más opciones disponibles, consulta la documentación del paquete. También se
+pueden añadir elementos y anotaciones al gráfico en la forma estándar.</p>
+<p>Podemos guardar el resultado de la función <code>qcc</code> en un objeto de R. Por
+defecto, al guardar este objeto se muestra el gráfico en el dispositivo gráfico
+activo, esto se puede desactivar con el argumento <code>plot</code>. Este objeto lo podemos
+usar después para acceder a los datos del gráfico, generar el gráfico con la
+función plot, u obtener un resumen con la función summary. Si no se asigna la
+expresión a ningún objeto, se muestra en la salida de texto un resumen del
+objeto que se hubiera creado.</p>
+</div>
+
+<div class="rmdpractica">
+<p><strong>Excel</strong></p>
+Realizar gráficos de control con Excel o cualquier otra hoja de cálculo
+es como hacerlo a mano. Debemos calcular los límites con las fórmulas
+en alguna celda, y después representarlos como una serie constante en
+un gráfico de dispersión. Los datos de cada subgrupo se pueden disponer por
+filas para calcular las medidas resumen en la siguiente columna a la última,
+y representar estas series como puntos y líneas en el gráfico de dispersión.
+</div>
+
+<div class="rmdpractica">
+<p><strong>Minitab</strong></p>
+En Minitab, los gráficos de control se encuentran en el menú Estadísticas/Herramientas
+de calidad. Están organizados por variables y atributos, aunque los cuadros
+de diálogo son muy similares. Podemos introducir los valores preespecificados
+de los parámetros en fase II.
+</div>
+<div id="gráficos-de-la-media-y-el-rango" class="section level4" number="14.1.2.1">
+<h4>
+<span class="header-section-number">14.1.2.1</span> Gráficos de la media y el rango<a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos-de-la-media-y-el-rango"><i class="fas fa-link"></i></a>
+</h4>
+<p>La pareja más <em>famosa</em> de gráficos de control son los de la media y el
+rango.
+Para realizar este tipo de gráficos debemos disponer de <strong>subgrupos racionales</strong>,
+idealmente del mismo tamaño. Para cada subgrupo se calculan la media y el rango,
+que serán los puntos a representar en ambos gráficos.
+El motivo de usar el rango como medida de la variabilidad cuando trabajamos con
+muestras pequeñas es que el rango es una medida más estable y fácil de calcular.
+Sin embargo, pierde efectividad a medida que aumenta el tamaño de muestra,
+siendo desaconsejable su uso para tamaños de muestra mayores de 10.</p>
+<p>En el <strong>gráfico de la media</strong>, los puntos representan la media de cada subgrupo.
+Para fijar los límites, debemos considerar la distribución de probabilidad de
+dichas medias. Se cumple que las medias de muestras de tamaño <span class="math inline">\(n\)</span> que provienen
+de una población cuya distribución es normal con media <span class="math inline">\(\mu\)</span> y desviación típica
+<span class="math inline">\(\sigma\)</span>, siguen una distribución también normal con la misma media y desviación
+típica <span class="math inline">\(\frac{\sigma}{\sqrt{n}}\)</span>.</p>
+<p>En el caso de que dispongamos de valores preestablecidos de la media y la
+desviación típica del proceso, <span class="math inline">\(\mu_0\)</span> y <span class="math inline">\(\sigma_0\)</span> respectivamente, las líneas
+del gráfico serán las siguientes:</p>
+<p><span class="math display" id="eq:gcmcvp">\[\begin{align}
+LC &amp;=&amp; \mu_0,\\
+LCI &amp;=&amp; \mu_0 - 3\frac{\sigma_0}{\sqrt{n}},\\
+LCS &amp;=&amp; \mu_0 + 3\frac{\sigma_0}{\sqrt{n}}.
+\tag{14.1}
+\end{align}\]</span></p>
+<p>En estas fórmulas podemos observar dos hechos importantes:</p>
+<ol style="list-style-type: decimal">
+<li>Si tenemos subgrupos de distintos tamaños, los límites de control no serán constantes, sino escalonados.</li>
+<li>Se pueden simplificar los cálculos haciendo <span class="math inline">\(A = 3/\sqrt{n}\)</span>, siendo <span class="math inline">\(A\)</span> una constante
+que solo depende del tamaño de subgrupo <span class="math inline">\(n\)</span> y que se encuentra tabulada. Así, los límites
+de control quedarían: <span class="math inline">\(\mu_0 \pm A \sigma_0\)</span>.</li>
+</ol>
+<p>Otro aspecto importante del gráfico de la media es que, aunque la distribución
+original de la variable no sea normal, el diseño del gráfico sigue siendo válido
+ya que las medias de cualquier distribución de probabilidad <em>tienden</em> a una distribución
+normal a medida que aumenta el tamaño de la muestra. Para distribuciones muy asimétricas,
+puede ser recomendable aumentar el tamaño de los subgrupos.</p>
+<p>Si no tenemos unos valores pre-especificados de la media y la desviación típica,
+debemos estimarlos para calcular los límites. La media total la estimamos con
+la media de las medias de todos los subgrupos, <span class="math inline">\(\overline{\overline{X}}\)</span>, que será
+la línea central.
+Para estimar la desviación típica, y por tanto los límites de control, utilizamos
+el estimador que utiliza los rangos:</p>
+<p><span class="math display">\[\frac{\overline{R}}{d_2 \sqrt{n}},\]</span>
+donde <span class="math inline">\(\overline{R}=\frac{\sum\limits_{i=1}^n R_i}{n}\)</span> es el rango medio
+de todas las muestras. Por tanto la línea central y los límites de control del gráfico de la media son los siguientes<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;De nuevo, existe una fórmula abreviada.&lt;/p&gt;"><sup>96</sup></a>:</p>
+<p><span class="math display" id="eq:gcmsvp">\[\begin{align}
+LC &amp;= \overline{\overline{X}},\\
+LCI &amp;= \overline{\overline{X}} - \overline{R} \times \frac{3}{d_2 \sqrt{n}} = \overline{\overline{X}} - A_2 \overline{R},\\
+LCS &amp;= \overline{\overline{X}} + \overline{R} \times \frac{3}{d_2 \sqrt{n}} = \overline{\overline{X}} + A_2 \overline{R}.\\
+\tag{14.2}
+\end{align}\]</span></p>
+
+<div class="rmdejemplo">
+Una fábrica produce placas metálicas cuyo espesor (<em>thickness</em>) es una característica crítica para
+la calidad. La fabricación se realiza en dos turnos cada día, y se toman seis muestras en cada turno.
+La tabla <a href="spc.html#tab:thickness">14.1</a> muestra los 84 datos correspondientes a las muestras de una semana completa.
+</div>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:thickness">Tabla 14.1: </span>Datos del espesor de placas metálicas</caption>
+<thead><tr class="header">
+<th align="left">day</th>
+<th align="left">shift</th>
+<th align="right">p1</th>
+<th align="right">p2</th>
+<th align="right">p3</th>
+<th align="right">p4</th>
+<th align="right">p5</th>
+<th align="right">p6</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="right">0.713</td>
+<td align="right">0.776</td>
+<td align="right">0.743</td>
+<td align="right">0.713</td>
+<td align="right">0.747</td>
+<td align="right">0.753</td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="left">2</td>
+<td align="right">0.749</td>
+<td align="right">0.726</td>
+<td align="right">0.774</td>
+<td align="right">0.744</td>
+<td align="right">0.718</td>
+<td align="right">0.677</td>
+</tr>
+<tr class="odd">
+<td align="left">2</td>
+<td align="left">1</td>
+<td align="right">0.778</td>
+<td align="right">0.802</td>
+<td align="right">0.798</td>
+<td align="right">0.793</td>
+<td align="right">0.801</td>
+<td align="right">0.798</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">2</td>
+<td align="right">0.780</td>
+<td align="right">0.729</td>
+<td align="right">0.793</td>
+<td align="right">0.777</td>
+<td align="right">0.774</td>
+<td align="right">0.742</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="left">1</td>
+<td align="right">0.775</td>
+<td align="right">0.735</td>
+<td align="right">0.749</td>
+<td align="right">0.737</td>
+<td align="right">0.701</td>
+<td align="right">0.727</td>
+</tr>
+<tr class="even">
+<td align="left">3</td>
+<td align="left">2</td>
+<td align="right">0.727</td>
+<td align="right">0.736</td>
+<td align="right">0.768</td>
+<td align="right">0.759</td>
+<td align="right">0.734</td>
+<td align="right">0.731</td>
+</tr>
+<tr class="odd">
+<td align="left">4</td>
+<td align="left">1</td>
+<td align="right">0.748</td>
+<td align="right">0.748</td>
+<td align="right">0.778</td>
+<td align="right">0.789</td>
+<td align="right">0.764</td>
+<td align="right">0.792</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left">2</td>
+<td align="right">0.778</td>
+<td align="right">0.750</td>
+<td align="right">0.777</td>
+<td align="right">0.736</td>
+<td align="right">0.807</td>
+<td align="right">0.822</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left">1</td>
+<td align="right">0.752</td>
+<td align="right">0.738</td>
+<td align="right">0.788</td>
+<td align="right">0.740</td>
+<td align="right">0.754</td>
+<td align="right">0.741</td>
+</tr>
+<tr class="even">
+<td align="left">5</td>
+<td align="left">2</td>
+<td align="right">0.726</td>
+<td align="right">0.745</td>
+<td align="right">0.705</td>
+<td align="right">0.770</td>
+<td align="right">0.744</td>
+<td align="right">0.784</td>
+</tr>
+<tr class="odd">
+<td align="left">6</td>
+<td align="left">1</td>
+<td align="right">0.775</td>
+<td align="right">0.742</td>
+<td align="right">0.735</td>
+<td align="right">0.768</td>
+<td align="right">0.752</td>
+<td align="right">0.762</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="left">2</td>
+<td align="right">0.763</td>
+<td align="right">0.749</td>
+<td align="right">0.750</td>
+<td align="right">0.759</td>
+<td align="right">0.787</td>
+<td align="right">0.729</td>
+</tr>
+<tr class="odd">
+<td align="left">7</td>
+<td align="left">1</td>
+<td align="right">0.793</td>
+<td align="right">0.757</td>
+<td align="right">0.775</td>
+<td align="right">0.772</td>
+<td align="right">0.750</td>
+<td align="right">0.797</td>
+</tr>
+<tr class="even">
+<td align="left">7</td>
+<td align="left">2</td>
+<td align="right">0.796</td>
+<td align="right">0.784</td>
+<td align="right">0.807</td>
+<td align="right">0.780</td>
+<td align="right">0.731</td>
+<td align="right">0.750</td>
+</tr>
+</tbody>
+</table></div>
+<div class="rmdpractica">
+<p><strong>R</strong></p>
+<p>Los datos se encuentran en el conjunto de datos <code>ss.data.thickness2</code> del paquete
+<code>SixSigma</code>. A continuación se muestra el código que produce el gráfico de control
+de la figura <a href="spc.html#fig:gcm">14.3</a>.</p>
+<p>Se utiliza el paquete <code>qcc</code>. La función <code>qccGroups</code>
+organiza los datos en una matriz donde cada fila tiene los datos de un subgrupo.
+Esta función requiere dos argumentos: el vector de datos (data) y el vector que contiene
+el identificador del subgrupo (sample), en este caso las columnas <code>thickness</code> y <code>ushift</code>
+del conjunto de datos <code>ss.data.thickness2</code>.</p>
+<p>La función <code>qcc</code> crea el gráfico propiamente dicho. El gráfico más sencillo
+solo requiere la matriz de datos, y el tipo de gráfico. Se calculan así los
+límites con los datos de los 14 subgrupos (fase I sin valores preespecificados).
+Vemos que hay un punto fuera de los límites, aunque por poco. Habría que
+investigar y eliminar la causa asignable (o dejarlo, que es lo que hacemos aquí,
+porque no se encuentra una razón objetiva para eliminar el subgrupo).</p>
+<p>Consulta la ayuda de las funciones correspondientes
+en RStudio para ver más opciones.</p>
+<p><strong>IMPORTANTE</strong>: En este material se utiliza la versión 3.0 del paquete <code>qcc</code>, que
+es posible no esté en CRAN en el momento de usar este material. Si es así, se puede
+instalar desde GitHub usando el paquete <code>remotes</code> de la siguiente forma:</p>
+<p><code>remotes::install_github("luca-scr/qcc")</code></p>
+</div>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://luca-scr.github.io/qcc/">qcc</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">samples.thick</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qccGroups.html">qccGroups</a></span><span class="op">(</span>
+  data <span class="op">=</span> <span class="va">ss.data.thickness2</span>,
+  x <span class="op">=</span> <span class="va">thickness</span>,
+  sample <span class="op">=</span> <span class="va">ushift</span><span class="op">)</span>
+<span class="va">gd_media</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">samples.thick</span>, 
+                type <span class="op">=</span> <span class="st">"xbar"</span><span class="op">)</span>  
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">gd_media</span><span class="op">)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:gcm"></span>
+<img src="13-spc_files/figure-html/gcm-1.png" alt="Gráfico de control de la media para el ejemplo del grosor de las placas metálicas" width="70%"><p class="caption">
+Figura 14.3: Gráfico de control de la media para el ejemplo del grosor de las placas metálicas
+</p>
+</div>
+
+<div class="rmdpractica">
+<p><strong>Excel</strong></p>
+<p>Para hacer el gráfico en Excel, debemos disponer los datos
+como en la tabla <a href="spc.html#tab:thickness">14.1</a>. Después, calcular las
+medias y rangos para cada subgrupo, la media global y el rango
+medio. A continuación crear series constantes para los límites de control y la línea
+central usando las fórmulas <a href="spc.html#eq:gcmsvp">(14.2)</a>. Finalmente,
+representar gráficamente las cuatro series (líneas y datos) en un gráfico
+de dispersión, dando el formato adecuado a cada serie. Como se puede ver,
+mucho más laborioso. En el siguiente enlace se puede descargar un archivo
+Excel con este proceso realizado:</p>
+<a href="http://emilio.lcano.com/b/epac/datos/ejemplos_espesor2.xlsx" class="uri">http://emilio.lcano.com/b/epac/datos/ejemplos_espesor2.xlsx</a>
+</div>
+
+<div class="rmdpractica">
+<p><strong>Minitab</strong></p>
+Vamos al menú “Estadísticas &gt; Gráficas de control &gt; Gráficas de variables para subgrupos &gt; Xbarra”. Debemos tener antes los datos en la hoja de trabajo,
+que se pueden importar desde Excel entre otros formatos. Indicar las columnas que tienen los datos, o el tamaño de los subgrupos, o la
+columna identifidadora (los datos pueden estar dispuestos apilados o extendidos).
+</div>
+<p>En el <strong>gráfico del rango</strong>, los puntos representan el rango de cada
+subgrupo. Para calcular las líneas, partimos del estimador de la deviación típica:</p>
+<p><span class="math display">\[\hat{\sigma}=\frac{R}{d_2} \implies R=d_2 \hat{\sigma},\]</span>
+Nótese que el rango en este caso depende del tamaño del subgrupo a través
+de la constante <span class="math inline">\(d_2\)</span>. Por tanto, si tenemos distintos tamaños de subgrupos,
+la línea central del gráfico del rango será escalonada.</p>
+<p>La desviación típica de los rangos viene dada por <span class="math inline">\(\sigma_R = d_3 \frac{R}{d_2}\)</span>
+Si tenemos un valor pre-especificado <span class="math inline">\(\sigma_0\)</span>, los límites serían los
+siguientes:</p>
+<p><span class="math display">\[LC = d_2 \sigma_0,\]</span>
+<span class="math display">\[LCI = d_2\sigma_0 - 3 d_3 \frac{d_2 \sigma_0}{d_2} = \sigma_0 (d_2 - 3d_3) = D_1 \sigma_0,\]</span>
+<span class="math display">\[LCS = d_2\sigma_0 + 3 d_3 \frac{d_2 \sigma_0}{d_2} = \sigma_0 (d_2 + 3d_3) = D_2 \sigma_0,\]</span></p>
+<p>Cuando no disponemos de un valor pre-especificado <span class="math inline">\(\sigma_0\)</span>, utilizamos el estimador
+de la desviación típica <span class="math inline">\(\hat{\sigma}=\frac{R}{d_2}\)</span>, resultando en las siguientes
+líneas de control:</p>
+<p><span class="math display">\[LC = \overline{R},\]</span>
+<span class="math display">\[LCI = \overline{R} - 3 d_3 \frac{\overline{R}}{d_2} = \overline{R} \left (1 - \frac{3d_3}{d_2}\right ) = D_3 \overline{R},\]</span>
+<span class="math display">\[LCS = \overline{R} + 3 d_3 \frac{\overline{R}}{d_2} = \overline{R} \left (1 + \frac{3d_3}{d_2}\right ) = D_4 \overline{R}.\]</span>
+Recordemos que, para este gráfico, si tenemos tamaños de subgrupo distintos,
+el rango medio <span class="math inline">\(\overline{R}\)</span> ha de calcularse para cada uno de los tamaños.</p>
+
+<div class="rmdpractica">
+Para realizar el gráfico del rango de los datos de espesor procedemos de la
+misma forma en cualquiera de los tres programas, pero con la opción adecuada.
+En <strong>R</strong>, basta con cambiar el tipo de gráfico como se muestra a continuación,
+resultando en la figura <a href="spc.html#fig:grango2">14.4</a>. En <strong>Excel</strong>, de nuevo tendríamos
+que calcular las líneas de control y representar la serie de los rangos junto
+a ellas. En <strong>Minitab</strong>, seleccionaríamos en el menú el gráfico R.
+</div>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">r.thick</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">samples.thick</span>, type <span class="op">=</span> <span class="st">"R"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">r.thick</span><span class="op">)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:grango2"></span>
+<img src="13-spc_files/figure-html/grango2-1.png" alt="Gráfico del rango para el ejemplo del espesor" width="672"><p class="caption">
+Figura 14.4: Gráfico del rango para el ejemplo del espesor
+</p>
+</div>
+<p>Un hecho importante a tener en cuenta es que al calcular los límites de control
+inferior en los gráficos de la variabilidad, las fórmulas pueden resultar en
+valores negativos. La variabilidad por definición siempre es positiva, por lo
+que en los casos en los que esto suceda, tomaremos el límite inferior igual a cero.</p>
+<p>En este apartado hemos presentado primero el gráfico de la media y después el
+de los rangos por razones didácticas. Pero hay que tener en cuenta que
+antes de decidir si el proceso está bajo control con el gráfico de las medias,
+se debe comprobar que la variación también está controlada. Habitualmente,
+ambos gráficos se presentan conjuntamente, como veremos en el siguiente apartado.</p>
+</div>
+<div id="gráficos-de-la-media-y-la-desviación-típica" class="section level4" number="14.1.2.2">
+<h4>
+<span class="header-section-number">14.1.2.2</span> Gráficos de la media y la desviación típica<a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos-de-la-media-y-la-desviaci%C3%B3n-t%C3%ADpica"><i class="fas fa-link"></i></a>
+</h4>
+<p>Cuando el tamaño de los grupos es mayor de 10, no debemos utilizar el gráfico
+de los rangos, sino el de la desviación típica para controlar la variabilidad.
+En el gráfico de la desviación típica, los puntos representados son las
+desviaciones típicas muestrales <span class="math inline">\(s_i\)</span> de cada subgrupo. Para estos gráficos
+utilizamos el estimador de la desviación típica del proceso que usa la
+desviación típica de las muestras en vez del rango:</p>
+<p><span class="math display">\[\hat{\sigma} = \frac{\overline{s}}{c_4} \implies \overline{s}=c_4\hat{\sigma},\]</span>
+donde <span class="math inline">\(c_4\)</span> es una constante que solo depende del tamaño de subgrupo <span class="math inline">\(n\)</span> y
+<span class="math inline">\(\overline{s}\)</span> es el promedio de las desviaciones típicas de los <span class="math inline">\(k\)</span> grupos.
+Necesitamos además estimar la desviación típica de las desviaciones típicas
+de los subgrupos, que es la siguiente:</p>
+<p><span class="math display">\[\hat{\sigma_s} = \overline{s}\frac{\sqrt{1-c_4^2}}{c_4}.\]</span></p>
+<p>Al igual que en el caso del rango, la desviación típica media debe calcularse
+para todos los tamaños de subgrupos existentes, pudiendo resultar en líneas de
+control escalonadas.</p>
+<p>En el caso de que tengamos valores pre-especificados de la media y la
+desviación típica, <span class="math inline">\(\mu_0\)</span> y <span class="math inline">\(\sigma_0\)</span>, el gráfico de control de la media
+se construye exactamente igual que se ha expuesto para los gráficos de la
+media y el rango. En este caso, las líneas de control del
+gráfico de las desviaciones típicas se calculan así:</p>
+<p><span class="math display">\[LC = c_4\sigma_0,\]</span></p>
+<p><span class="math display">\[LCI = c_4\sigma_0 - 3 c_4\sigma_0\frac{\sqrt{1-c_4^2}}{c_4}  = \sigma_0 \left(c_4 - 3\sqrt{1-c_4^2} \right) = B_5\sigma_0,\]</span>
+<span class="math display">\[LCS = c_4\sigma_0 + 3 c_4\sigma_0\frac{\sqrt{1-c_4^2}}{c_4}  = \sigma_0 \left(c_4 + 3\sqrt{1-c_4^2} \right) = B_6\sigma_0.\]</span></p>
+<p>Si no tenemos valores preestablecidos, el cálculo de los límites del gráfico
+de la media lo realizamos estimando la desviación típica del proceso a partir de
+las desviaciones típicas de los subgrupos, de manera que las líneas de control
+del gráfico de control de la media quedan:</p>
+<p><span class="math display">\[LC = \overline{\overline{X}},\]</span>
+<span class="math display">\[LCI = \overline{\overline{X}} - 3 \times \frac{\overline{s}}{c_4 \sqrt{n}} = \overline{\overline{X}} - A_3 \overline{s},\]</span>
+<span class="math display">\[LCS = \overline{\overline{X}} + 3 \times \frac{\overline{s}}{c_4 \sqrt{n}} = \overline{\overline{X}} + A_3 \overline{s}.\]</span></p>
+<p>Las líneas de control del gráfico de las desviaciones típicas cuando no
+tenemos un valor preestablecido <span class="math inline">\(\sigma_0\)</span> quedan así.</p>
+<p><span class="math display">\[LC = \overline{s},\]</span></p>
+<p><span class="math display">\[LCI = \overline{s} - 3 \overline{s}\frac{\sqrt{1-c_4^2}}{c_4}  = \overline{s} \left(1 - \frac{3\sqrt{1-c_4^2}}{c_4} \right) = B_3\overline{s},\]</span>
+<span class="math display">\[LCS = \overline{s} + 3 \overline{s}\frac{\sqrt{1-c_4^2}}{c_4}  = \overline{s} \left(1 + \frac{3\sqrt{1-c_4^2}}{c_4} \right) = B_4\overline{s}.\]</span></p>
+
+<div class="rmdpractica">
+<p>Vamos a completar el ejemplo anterior ilustrando las fases I y II. Hagamos dos
+salvedades. Por una parte, en este conjunto de datos tenemos 14 subgrupos, pero lo ideal
+sería tener entre 25 y 30. Por otra parte, podríamos seguir utilizando el gráfico
+del rango ya que el tamaño de los subgrupos es menor de 10.</p>
+<p>Supongamos que del estudio anterior se ha llegado a la conclusión de que se
+pueden tomar como valores preespecificados una media <span class="math inline">\(\mu_0=0.76\)</span> y una
+desviación típica <span class="math inline">\(\sigma_0=0.025\)</span>. Entonces podemos fijar los límites
+tomando estos valores (ya sea en las fórmulas a mano, o en el software).
+Además, se han tomado datos de un nuevo subgrupo, resultando en las siguientes
+mediciones: <span class="math inline">\(0.719, 0.759, 0.708, 0.83, 0.766, 0.709\)</span>. Entonces
+representamos las medidas resumen de esta nueva muestra frente
+a los límites fijados en fase I.</p>
+<p>El siguiente código produce el gráfico de la figura <a href="spc.html#fig:gms">14.5</a> con <strong>R</strong>.
+Nótese cómo añadimos a las funciones los argumentos para los valores
+preespecificados y los nuevos datos. En <strong>Excel</strong>, podemos ir añadiendo
+los nuevos datos a la hoja de cálculo y extendiendo las series, pero
+hay que tener mucho cuidado con la definición de las fórmulas.
+En <strong>Minitab</strong>, en el cuadro de diálogo de los gráficos vamos a las opciones
+del gráfico y los introducimos en la pestaña “Parámetros”.</p>
+<p>En este caso vemos que, aunque el valor medio de la muestra está dentro de los
+límites, la desviación típica no, y tendríamos que buscar la causa asignable
+de esta situación fuera de control.</p>
+</div>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">new.sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.719</span>, <span class="fl">0.759</span>, <span class="fl">0.708</span>, <span class="fl">0.83</span>, <span class="fl">0.766</span>, <span class="fl">0.709</span><span class="op">)</span>,
+                     ncol <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>
+<span class="va">ccxbar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">samples.thick</span>, type <span class="op">=</span> <span class="st">"xbar"</span>,
+              center <span class="op">=</span> <span class="fl">0.76</span>,  std.dev <span class="op">=</span> <span class="fl">0.025</span>,
+              newdata <span class="op">=</span> <span class="va">new.sample</span>, newlabels <span class="op">=</span> <span class="st">"8.1"</span>,
+              plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+
+<span class="va">ccs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">samples.thick</span>, type <span class="op">=</span> <span class="st">"S"</span>,
+           newdata <span class="op">=</span> <span class="va">new.sample</span>, newlabels <span class="op">=</span> <span class="st">"8.1"</span>,
+           plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/GuangchuangYu/ggplotify">ggplotify</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gridExtra</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ccxbar</span>, restore.par <span class="op">=</span> <span class="cn">FALSE</span>, add.stats <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ccs</span>, add.stats <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:gms"></span>
+<img src="13-spc_files/figure-html/gms-1.png" alt="Gráfico de la media y la desviación típica monitorizando nuevos datos" width="672"><p class="caption">
+Figura 14.5: Gráfico de la media y la desviación típica monitorizando nuevos datos
+</p>
+</div>
+</div>
+<div id="gráficos-de-valores-individuales-y-rangos-móviles" class="section level4" number="14.1.2.3">
+<h4>
+<span class="header-section-number">14.1.2.3</span> Gráficos de valores individuales y rangos móviles<a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos-de-valores-individuales-y-rangos-m%C3%B3viles"><i class="fas fa-link"></i></a>
+</h4>
+<p>Cuando no podemos crear grupos racionales, podemos analizar los
+datos individualmente. En realidad lo que estamos haciendo es partir de la base
+de que cada dos observaciones son un grupo, y así tenemos un rango móvil que es la
+diferencia entre cada dos valores consecutivos.
+De esta forma se pueden aplicar los principios de Shewhart para
+tamaños de muestra <span class="math inline">\(n=2\)</span>.
+La desviación típica a tener en cuenta no va a ser la de valores medios, sino
+la propia del proceso. Así, cuando tenemos valores preestablecidos <span class="math inline">\(\mu_0\)</span> y
+<span class="math inline">\(\sigma_0\)</span>, las líneas de control del <strong>gráfico de valores individuales</strong> son
+las siguientes:</p>
+<p><span class="math display">\[LC=\mu_0,\]</span>
+<span class="math display">\[LCI=\mu_0 - 3\sigma_0,\]</span>
+<span class="math display">\[LCS=\mu_0 + 3\sigma_0.\]</span>
+Si no disponemos de valores pre-especificados, entonces estimamos la desviación
+típica a partir del rango móvil como:</p>
+<p><span class="math display">\[\hat{\sigma} = \frac{\overline{R}_m}{d_2},\]</span>
+donde <span class="math inline">\(d_2\)</span> se toma para <span class="math inline">\(n=2\)</span>, es decir, <span class="math inline">\(1.228\)</span>, y <span class="math inline">\(\overline{R}_m\)</span> es el
+promedio de los rangos móviles:</p>
+<p><span class="math display">\[\overline{R_m}=\frac{\sum_{i=1}^{k-1} R_{m_i}}{k-1}; \; R_{m_i}=|X_{i+1}-X_i|.\]</span>
+Entonces las líneas de control del gráfico de los valores individuales quedaría:</p>
+<p><span class="math display">\[LC=\overline{X},\]</span>
+<span class="math display">\[LCI=\overline{X} - 3\frac{\overline{R}_m}{d_2}= \overline{X} - 2.660 \overline{R}_m,\]</span>
+<span class="math display">\[LCI=\overline{X} + 3\frac{\overline{R}_m}{d_2}= \overline{X} + 2.660 \overline{R}_m.\]</span></p>
+<p>Previamente a controlar los valores individuales, debemos controlar la variabilidad.
+Para ello utilizamos el <strong>gráfico de los rangos móviles</strong>, utilizando las fórmulas
+para subgrupos de tamaño <span class="math inline">\(n=2\)</span>. Si tenemos un valor preestablecido de la desviación
+típica, las líneas de control serán las siguientes:</p>
+<p><span class="math display">\[LC = d_2 \sigma_0 = 1.128 \sigma_0,\]</span>
+<span class="math display">\[LCI = d_2\sigma_0 - 3 d_3 \frac{d_2 \sigma_0}{d_2} = \sigma_0 (d_2 - 3d_3) \leadsto 0,\]</span>
+<span class="math display">\[LCS = d_2\sigma_0 + 3 d_3 \frac{d_2 \sigma_0}{d_2} = \sigma_0 (d_2 + 3d_3) = D_2 \sigma_0 = 3.686\sigma_0.\]</span></p>
+<p>Si no tenemos un valor pre-especificado de la desviación típica, las líneas de control del gráfico de los rangos móviles son las siguientes:</p>
+<p><span class="math display">\[LC = \overline{R}_m,\]</span>
+<span class="math display">\[LCI = \overline{R}_m - 3 d_3 \frac{\overline{R}_m}{d_2} = \overline{R}_m \left (1 - \frac{3d_3}{d_2}\right ) \leadsto 0,\]</span>
+<span class="math display">\[LCS = \overline{R}_m + 3 d_3 \frac{\overline{R}_m}{d_2} = \overline{R}_m \left (1 + \frac{3d_3}{d_2}\right ) = D_4 \overline{R}_m = 3.267 \overline{R}_m.\]</span></p>
+
+<div class="rmdpractica">
+<p>A modo ilustrativo, tomamos las primeras 24 observaciones de los datos
+del ejemplo anterior (tabla <a href="spc.html#tab:thickness">14.1</a>). Para crear el gráfico de
+las medias móviles
+en <strong>R</strong>, tenemos que “simular” las muestras de tamaño 2. El siguiente código
+crea los gráficos de la figura <a href="spc.html#fig:gimm">14.6</a>.</p>
+<p>En <strong>Minitab</strong>,
+seleccionamos los gráficos para datos no agrupados. En <strong>Excel</strong> tendríamos
+que crear las series de rangos móviles, calcular los límites y representar las
+series como en el apartado anterior.</p>
+</div>
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">thickness2days</span> <span class="op">&lt;-</span> <span class="va">ss.data.thickness2</span><span class="op">$</span><span class="va">thickness</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">24</span><span class="op">]</span>
+<span class="va">mov.samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">thickness2days</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">23</span><span class="op">]</span>, 
+    <span class="va">thickness2days</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">24</span><span class="op">]</span><span class="op">)</span>
+<span class="va">cci</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span><span class="va">thickness2days</span>, type <span class="op">=</span> <span class="st">"xbar.one"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="va">ccmr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span><span class="va">mov.samples</span>, type <span class="op">=</span> <span class="st">"R"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">cci</span>, add.stats <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ccmr</span>, add.stats <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:gimm"></span>
+<img src="13-spc_files/figure-html/gimm-1.png" alt="Gráficos de valores individuales y media móvil" width="672"><p class="caption">
+Figura 14.6: Gráficos de valores individuales y media móvil
+</p>
+</div>
+</div>
+<div id="tamaño-de-la-muestra" class="section level4" number="14.1.2.4">
+<h4>
+<span class="header-section-number">14.1.2.4</span> Tamaño de la muestra<a class="anchor" aria-label="anchor" href="#tama%C3%B1o-de-la-muestra"><i class="fas fa-link"></i></a>
+</h4>
+<p>Como se explica en el capítulo <a href="#ch:incertid"><strong>??</strong></a>, utilizamos muestras para hacer
+inferencia sobre nuestra población. Por ejemplo, la medición del proceso en un
+día determinado (muestra), para sacar conclusiones sobre el desempeño del proceso a largo
+plazo (población). Sin entrar en los detalles teóricos ni de formulación, se
+proporcionan aquí algunos conceptos referentes al muestreo que pueden aparecer al aplicar
+el Control Estadístico de Procesos.</p>
+<p>Al utilizar gráficos de control, lo que estamos haciendo son sucesivos
+contrastes de hipótesis para comprobar si el proceso está fuera de control.
+Así, para cada punto que representamos, realizamos el siguiente contraste:</p>
+<p>H<span class="math inline">\(_0\)</span>: El proceso está bajo control</p>
+<p>H<span class="math inline">\(_1\)</span>: El proceso está fuera de control</p>
+<p>donde <span class="math inline">\(H_0\)</span> es lo que llamamos la hipótesis nula, y <span class="math inline">\(H_1\)</span> es la hipótesis alternativa,
+que es lo que nos interesa demostrar, porque requerirá una acción.</p>
+<p>Al fijar los límites de control en tres desviaciones típicas más allá de la
+media, estamos fijando el nivel de significación <span class="math inline">\(\alpha\)</span> para estos contrastes
+de hipótesis en 0.0027. Cuando un punto está fuera de los límites, entonces
+rechazamos la hipótesis de que el proceso está bajo control, y decimos que el
+proceso está fuera de control (de hecho con una confianza superior al
+99.73%). El tamaño de la muestra <span class="math inline">\(n\)</span> está directamente relacionado con:</p>
+<ul>
+<li>El nivel de significación <span class="math inline">\(\alpha\)</span>, que es la probabilidad de que la muestra
+caiga fuera de los límites estando el proceso bajo control (error tipo I).</li>
+<li>La potencia del contraste <span class="math inline">\(1-\beta\)</span>, siendo <span class="math inline">\(\beta\)</span> la probabilidad de que la muestra caiga dentro de los límites, estando el proceso fuera de control (error tipo II).</li>
+<li>El máximo error cometido al estimar el parámetro, <span class="math inline">\(\delta\)</span>.</li>
+</ul>
+<p>La desviación con respecto al verdadero valor del parámetro a estimar, en
+este caso la media, se puede dar en valor absoluto (<span class="math inline">\(\delta\)</span>), en cuyo caso
+necesitamos conocer la desviación típica de los datos para calcular el
+tamaño de la muestra, o como <em>número de desviaciones típicas</em>, es decir,
+<span class="math inline">\(\delta=k\sigma\)</span>. En este caso, los cuatro valores anteriores
+están relacionados de forma que conociendo tres de ellos, el otro queda determinado.
+Por tanto, si fijamos el nivel de significación,
+potencia del test, y tamaño de la muestra, podemos saber cuál es
+la desviación que vamos a detectar en nuestro proceso <span class="math inline">\(\delta\)</span>.
+O bien, podemos fijar el máximo error que estamos dispuestos a cometer
+y obtener el tamaño de muestra que necesitamos, y así sucesivamente.</p>
+<p>A la hora de decidir el tamaño de los subgrupos,
+no existe una regla de oro que sirva para todos los procesos. Esta decisión se
+tomará en base a las características del proceso y de la empresa. En algunos
+casos el número de muestras que podemos tomar está limitado por un
+determinado presupuesto. Entonces, para el mismo tamaño total de muestra se
+puede decidir entre tomar muchas muestras de tamaño pequeño, o menos muestras de
+tamaño más grande. En general se prefieren muestras más frecuentes de tamaño
+menor para detectar el cambio más rápido, pero esto depende de las
+características del proceso.</p>
+<p>En la elección final de tamaño de los subgrupos, se tendrá en cuenta, además del
+coste de muestreo, la potencia del test que deseamos, y el cambio mínimo que
+queremos detectar.</p>
+<p>El diseño final del gráfico de control y su plan de muestreo, se basará en la
+magnitud del cambio que queremos detectar.
+Vamos a estudiar el tamaño de los subgrupos para el gráfico de la media.
+Un desplazamiento en la media del proceso, producirá un efecto en el gráfico
+de control como se muestra en la figura <a href="spc.html#fig:despmedia">14.7</a>.
+Vemos una
+situación típica en la que un proceso está bajo control (azul) y a partir de
+un determinado momento, se produce un desplazamiento en la media, que producirá
+puntos fuera de los límites, en este ejemplo en el segundo punto. Los demás
+estarían dentro de los límites de control (error de tipo II).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:despmedia"></span>
+<img src="13-spc_files/figure-html/despmedia-1.png" alt="Efecto del desplazamiento de la media en el gráfico de control" width="90%"><p class="caption">
+Figura 14.7: Efecto del desplazamiento de la media en el gráfico de control
+</p>
+</div>
+<p>Dada la distribución de las medias de tamaño <span class="math inline">\(n\)</span>, la probabilidad de
+no detectar un desplazamiento de <span class="math inline">\(k\)</span>
+desviaciones típicas desde la media, es decir:</p>
+<p><span class="math display">\[\beta = P\{ \mathit{LCI} \leq \bar{x} \leq \mathit{LCS} \, |\,  \mu = \mu_0 + k\sigma \},\]</span>
+la podemos calcular de la siguiente forma:<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;strong&gt;montgomery2004?&lt;/strong&gt;&lt;/p&gt;"><sup>97</sup></a></span></p>
+<p><span class="math display">\[\beta = Z(3-k\sqrt{n}) - Z(-3-k\sqrt{n}),\]</span>
+donde <span class="math inline">\(Z\)</span> es la función de distribución normal estándar (<span class="math inline">\(\mu=0,\, \sigma = 1\)</span>). Por ejemplo, en el anterior gráfico de control, la media a partir
+de cierto momento (puntos rojos) se ha desplazado dos desviaciones típicas por encima de la
+media bajo control (puntos azules). ¿Cuál es la probabilidad de no detectar este
+cambio, es decir, <span class="math inline">\(\beta\)</span>? Supongamos que cada punto representa la media de un
+grupo de tamaño <span class="math inline">\(n=5\)</span>. Entonces:</p>
+<p><span class="math display">\[\beta = Z(3-2\cdot\sqrt{5}) - Z(-3-2\cdot\sqrt{5}) = Z(-1.47) - Z(-7.47)=0.07\]</span>
+Por tanto podemos calcular el valor <span class="math inline">\(\beta\)</span> para distintos valores de <span class="math inline">\(n\)</span> y <span class="math inline">\(k\)</span>,
+y representar estos valores gráficamente como veremos a continuación.</p>
+<p>Una herramienta gráfica muy útil para decidir tamaños de muestra
+son las <strong>curvas características de operación</strong> (<em>OC Curves</em>). Estas curvas representan,
+para varios
+tamaños de muestra determinados (típicamente entre 1 y 25), la desviación que se
+detectará, que puede estar expresada en términos absolutos, <span class="math inline">\(\delta = k \sigma\)</span>,
+o en número de desviaciones típicas, <span class="math inline">\(\sigma\)</span>
+frente a la probabilidad de error de tipo II <span class="math inline">\(\beta\)</span>, es
+decir, probabilidad de que el proceso esté fuera de control pero dentro de los
+límites, fijado un error de tipo I <span class="math inline">\(\alpha\)</span>, es decir, probabilidad de que el
+proceso esté bajo control pero se salga de los límites. El error tipo I viene determinado
+por las 3 desviaciones típicas desde la media que marcan los límites de control,
+es decir 0.0027.</p>
+<p>El error tipo II, <span class="math inline">\(\beta\)</span>, se interpreta también de la siguiente forma: En el
+caso de que la media del proceso se desplace <span class="math inline">\(k\)</span> desviaciones típicas, <span class="math inline">\(\beta\)</span>
+es la probabilidad de no detectar dicho cambio. Podemos
+ver en la figura <a href="spc.html#fig:occ">14.8</a> que el gráfico de control de la media es muy potente para detectar cambios importantes,
+pero no tanto para detectar cambios más pequeños.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:occ"></span>
+<img src="13-spc_files/figure-html/occ-1.png" alt="curva de operación característica para el gráfico de la media y varios valores de $n$" width="70%"><p class="caption">
+Figura 14.8: curva de operación característica para el gráfico de la media y varios valores de <span class="math inline">\(n\)</span>
+</p>
+</div>
+<p>Otro dato a tener en cuenta para determinar el tamaño y la frecuencia del
+muestreo es la <strong>longitud media de racha</strong> (<em>Average Run Length</em>, ARL). El ARL es el
+número de muestras, en promedio, que se tomarán antes de detectar un cambio en
+la muestra. Esta variable aleatoria se corresponde con una distribución
+Geométrica de parámetro <span class="math inline">\(p\)</span>, cuya esperanza es <span class="math inline">\(1/p\)</span>. Por tanto, el tamaño medio
+de racha se calcula como el inverso de la probabilidad de que una muestra esté
+fuera de los límites.
+En el caso de los gráficos de control cuyos límites se fijan en 3 desviaciones
+típicas, incluso cuando el proceso está bajo control en promedio tendremos
+valores fuera de los límites aproximadamente cada 370 muestras:</p>
+<p><span class="math display">\[\mathit{ARL}=\frac{1}{p}= \frac{1}{0.0027}=370.37.\]</span></p>
+<p>Ahora bien, lo que nos interesa es saber detectaremos un cambio en
+la media como el descrito en la curva OC. El valor de <span class="math inline">\(\beta\)</span> nos indica la
+probabilidad de no detectar este cambio en la primera muestra. La probabilidad
+de detectar el cambio en la primera muestra será <span class="math inline">\(1-\beta\)</span>, también conocido como
+<em>potencia</em> del gráfico. En general, para un
+plan de muestreo con un <span class="math inline">\(\beta\)</span> determinado, el número de muestras necesarias
+para detectar el cambio será:</p>
+<p><span class="math display">\[\mathit{ARL} = \frac{1}{1-\beta}.\]</span></p>
+<p>Por ejemplo, para <span class="math inline">\(k=1\)</span> y <span class="math inline">\(n=5\)</span>, <span class="math inline">\(\beta=0.25\)</span>. Entonces:</p>
+<p><span class="math display">\[\mathit{ARL} = \frac{1}{1-0.25}=4,\]</span></p>
+<p>lo que quiere decir que necesitaremos 4 muestras en promedio para
+detectar el cambio.
+Dependiendo del número de unidades producidas, se puede fijar la frecuencia del
+muestreo en función del tiempo que estamos dispuestos a esperar hasta detectar
+una desviación en el proceso. Es decir, si queremos detectar un cambio en la
+media de una magnitud determinada, por ejemplo en el mismo día que se produce,
+analizamos la producción diaria y buscamos el ARL que nos interesa. En el
+ejemplo anterior, si tomamos muestras cada hora, entonces en promedio estaríamos
+detectando un cambio en la media en una desviación típica cada cuatro horas.
+Otro ejemplo: si nuestra producción es de 1000 lotes y tomamos muestras de
+los lotes, entonces tendríamos que muestrear 4 lotes cada día si queremos
+detectar el cambio (en promedio) en el mismo día, es decir, uno de cada 250. Si
+tenemos turnos de 24 horas, tendríamos que tomar una muestra cada 6 horas.</p>
+<p>Las fórmulas vistas en esta sección se refieren al gráfico de control de la
+media. Existen también métodos para el resto de gráficos, aunque no son tan
+claros y efectivos con los vistos aquí, consulta la bibliografía. Algunas
+aplicaciones permiten la generación de curvas OC para distintos gráficos de
+control.</p>
+</div>
+</div>
+<div id="gráficos-de-control-por-atributos" class="section level3" number="14.1.3">
+<h3>
+<span class="header-section-number">14.1.3</span> Gráficos de control por atributos<a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos-de-control-por-atributos"><i class="fas fa-link"></i></a>
+</h3>
+<p>No siempre podemos medir las características de calidad numéricamente. Sin
+embargo, es sencillo hacer comprobaciones sobre ciertos atributos, por ejemplo
+conforme/no conforme. Podemos realizar control de procesos sobre estos datos
+mediante los gráficos de control por atributos. Al igual que con los gráficos
+por variables, en este tipo de gráficos se detectan situaciones altamente
+improbables según la distribución de probabilidad subyacente en el proceso. En
+este caso, en vez de utilizar la distribución normal se utilizan distribuciones
+de probabilidad discretas como la binomial y la de Poisson.
+Estas distribuciones quedan determinadas por un único parámetro para
+calcular la media y la desviación típica, por lo que solamente se utiliza
+un gráfico para controlar el proceso.
+Salvo por esta dferencia, la mecánica de los gráficos de control por atributos es idéntica a la de los
+gráficos de control por variables. Los límites de control se deben fijar en
+una primera fase, bien porque tenemos unos valores estándar dados de los
+parámetros, o porque los estimamos con una muestra
+preliminar. Después, en la fase II se controlan los nuevos valores con estos
+límites en busca de causas de variación asignables.</p>
+<div id="gráficos-p-y-np" class="section level4" number="14.1.3.1">
+<h4>
+<span class="header-section-number">14.1.3.1</span> Gráficos <span class="math inline">\(p\)</span> y <span class="math inline">\(np\)</span><a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos-p-y-np"><i class="fas fa-link"></i></a>
+</h4>
+<p>El gráfico <span class="math inline">\(p\)</span> Se utiliza para controlar <strong>proporciones</strong> dentro de subgrupos
+<strong>con un tamaño determinado</strong>,
+por ejemplo lotes, pedidos en un día, etc.
+Así, los puntos representados en el gráfico para cada subgrupo
+son las proporciones de elementos
+que tienen un determinado <strong>atributo</strong>. Así, si un subgrupo tiene tamaño
+<span class="math inline">\(n_j\)</span> y hay <span class="math inline">\(D_j\)</span> elementos que presentan el atributo, el punto a representar
+es:</p>
+<p><span class="math display">\[p_j = \frac{D_j}{n_j}.\]</span>
+Si disponemos de un valor estándar para la proporción de elementos
+de nuestro proceso que tienen el atributo, <span class="math inline">\(p_0\)</span>, entonces las líneas de control
+del gráfico <span class="math inline">\(p\)</span> son las siguientes:</p>
+<p><span class="math display">\[LC = p_0.\]</span>
+<span class="math display">\[LCI = p_0 - 3 \sqrt{p_0(1-p_0)/n},\]</span>
+<span class="math display">\[LCS = p_0 + 3 \sqrt{p_0(1-p_0)/n},\]</span></p>
+<p>Si por el contrario no disponemos de un valor estándar de <span class="math inline">\(p\)</span>, tenemos que
+estimarlo con una muestra perliminar mediante el porcentaje global <span class="math inline">\(\overline{p}\)</span>:</p>
+<p><span class="math display">\[\bar{p}=\frac{\sum_{j=1}^m D_j}{\sum_{j=1}^m n_j}.\]</span></p>
+<p>El gráfico de control <span class="math inline">\(np\)</span> se utiliza para controlar el número de
+elementos con la característica a controlar, no la proporción, pero para el
+mismo tipo de datos, es decir, cuando tenemos grupos con un determinado tamaño.
+Además, este tamaño debe ser el mismo en todos los grupos.
+En este caso el valor a representar es <span class="math inline">\(D_j\)</span>, y los límites de control son los siguientes:</p>
+<p><span class="math display">\[LC = n\bar{p},\]</span></p>
+<p><span class="math display">\[LCS = n\bar{p} + 3 \sqrt{n\bar{p}(1-\bar{p})},\]</span></p>
+<p><span class="math display">\[LCI = n\bar{p} - 3 \sqrt{n\bar{p}(1-\bar{p})},\]</span></p>
+<p>sustituyendo <span class="math inline">\(\overline{p}\)</span> por <span class="math inline">\(p_0\)</span> cuando disponemos de este valor estándar.</p>
+
+<div class="rmdpractica">
+<p>Para representar gráficos de control por atributos con <strong>R</strong>, además del vector con
+los datos del proceso, por ejemplo número de defectuosos, o número de defectos,
+es necesario proporcionarle los tamaños de los grupos o las muestras mediante el
+argumento <code>sizes</code> (excepto para el gráfico <span class="math inline">\(c\)</span>).</p>
+<p>Supongamos que queremos monitorizar la proporción de piezas cuyo grosor
+excede <span class="math inline">\(0.775\)</span> en cada turno. El siguiente código crealos datos adecuados
+y crea el gráfico <span class="math inline">\(p\)</span> de la figura <a href="spc.html#fig:gp">14.9</a>. El gráfico <span class="math inline">\(np\)</span> para
+estos mismos datos se obtendría simplemente cambiado el tipo de gráfico.</p>
+<p>En <strong>Excel</strong> tendríamos que calcular las proporciones de cada muestra
+y representar esta serie frente a los límites de control calculados
+con los datos o con un valor preespecificado de <span class="math inline">\(p\)</span>. Cuando los
+tamaños de muestra son siempre iguales es sencillo, pero si tenemos
+distintos tamaños de muestra, hacer un gráfico con límites escalonados
+en Excel se complica.</p>
+En <strong>Minitab</strong>, seleccinamos los gráficos de control por atributos
+y proporcionamos la información de qué columnas contienen los recuentos
+y los tamaños de muestra (o un número si es fijo).
+</div>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">thick.attribute</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">thickness</span> <span class="op">~</span> <span class="va">ushift</span>, 
+    data <span class="op">=</span> <span class="va">ss.data.thickness2</span>,
+    FUN <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span>
+      <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">&gt;</span><span class="fl">0.775</span><span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span>
+<span class="va">thick.p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">thick.attribute</span><span class="op">$</span><span class="va">thickness</span>,
+    type <span class="op">=</span> <span class="st">"p"</span>,
+    sizes <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">thick.p</span><span class="op">)</span></code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:gp"></span>
+<img src="13-spc_files/figure-html/gp-1.png" alt="Gráfico p de proporción piezas espesor mayor de 0.775" width="672"><p class="caption">
+Figura 14.9: Gráfico p de proporción piezas espesor mayor de 0.775
+</p>
+</div>
+</div>
+<div id="gráficos-c-y-u" class="section level4" number="14.1.3.2">
+<h4>
+<span class="header-section-number">14.1.3.2</span> Gráficos <span class="math inline">\(c\)</span> y <span class="math inline">\(u\)</span><a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos-c-y-u"><i class="fas fa-link"></i></a>
+</h4>
+<p>El gráfico de control <span class="math inline">\(c\)</span> se utiliza para controlar el número total de eventos
+en un determinado proceso en soporte continuo, es decir, errores por unidad, que
+siguen una distribución de Poisson teóricamente con infinitos valores posibles,
+es decir, no hay un tamaño de grupo para calcular proporciones como en el caso
+anterior. El uso más habitual es para monitorizar el número total de no
+conformidades medidas en una serie de <span class="math inline">\(m\)</span> muestras del mismo tamaño, bien sean
+intervalos temporales o espaciales. Por ejemplo, el número de llamadas no
+atendidas por hora, número de no conformidades por día, número de manchas
+por <span class="math inline">\(m^2\)</span>, etc. Así, los puntos representados en el gráfico de control será
+el recuento <span class="math inline">\(c_j\)</span> de esos eventos.</p>
+<p>La distribución de Poisson solamente depende de un parámetro que es el número
+medio de eventos por unidad. Por tanto, si tenemos un valor estándar para
+este número medio de eventos por unidad <span class="math inline">\(c_0\)</span>, las líneas de control serán:</p>
+<p><span class="math display">\[LC = c_0,\]</span></p>
+<p><span class="math display">\[LCI = c_0 - 3 \sqrt{c_0},\]</span></p>
+<p><span class="math display">\[LCS = c_0 + 3 \sqrt{c_0},\]</span></p>
+<p>Cuando no disponemos de un valor estándar para el promedio de eventos, lo
+estimamos con <span class="math inline">\(m\)</span> muestras preliminares como:</p>
+<p><span class="math display">\[\overline{c} = \frac{\sum\limits_{j=1}^{m}{c_j}}{m},\]</span></p>
+<p>donde <span class="math inline">\(c_j\)</span> es el número total de defectos en la muestra j-ésima y <span class="math inline">\(m\)</span>
+es el número de muestras (horas, <span class="math inline">\(m^2\)</span>, etc.).</p>
+
+<div class="rmdpractica">
+<p>En el conjunto de datos que venimos utilizando, se inspeccionan aleatoriamente
+algunas placas (1, 2, o 3) y se cuenta el número de defectos en cada pieza.
+El gráfico <span class="math inline">\(c\)</span> representaría esos recuentos en cada pieza. El siguiente código
+de <strong>R</strong> produce la figura <a href="spc.html#fig:graficoc">14.10</a>.</p>
+<p>En <strong>Excel</strong> bastaría con representar la serie de recuentos frente a los límites
+calculados con las fórmulas.</p>
+En <strong>Minitab</strong>, seleccionamos el gráfico <span class="math inline">\(c\)</span>
+dentro de los gráficos de control por atributos e indicamos qué columna
+de la hoja de trabajo contiene los recuentos.
+</div>
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">flaws</span> <span class="op">&lt;-</span> <span class="va">ss.data.thickness2</span><span class="op">$</span><span class="va">flaws</span><span class="op">[</span>
+    <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ss.data.thickness2</span><span class="op">$</span><span class="va">flaws</span><span class="op">)</span><span class="op">]</span>
+<span class="va">thick.c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">flaws</span>, type <span class="op">=</span> <span class="st">"c"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">thick.c</span><span class="op">)</span></code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:graficoc"></span>
+<img src="13-spc_files/figure-html/graficoc-1.png" alt="Gráfico c de los defectos" width="672"><p class="caption">
+Figura 14.10: Gráfico c de los defectos
+</p>
+</div>
+<p>En ocasiones, los recuentos se realizan en una serie de muestras de tamaño
+<span class="math inline">\(n_j\)</span> contabilizando el número total de eventos. Entonces nos puede interesar
+monitorizar el número medio de eventos por unidad:</p>
+<p><span class="math display">\[u_j = \frac{c_j}{n_j},\]</span>
+y lo hacemos mediante el gráfico <span class="math inline">\(u\)</span>, cuyas líneas de control son las siguientes
+cuando no tenemos un valor estándar <span class="math inline">\(u_0\)</span>:</p>
+<p><span class="math display">\[LC = \bar{u} = \frac{\sum\limits_{j=1}^m u_j}{\sum\limits_{j=1}^mn_j},\]</span></p>
+<p><span class="math display">\[LCI_i = \bar{u} - 3 \sqrt{\frac{\bar{u}}{n_j}},\]</span>
+<span class="math display">\[LCS_i = \bar{u} + 3 \sqrt{\frac{\bar{u}}{n_j}}.\]</span></p>
+<p>Si disponemos de un valor estándar del número de defectos por unidad <span class="math inline">\(u_0\)</span> lo
+utilizamos en las fórmulas en vez de <span class="math inline">\(\overline{u}\)</span>.</p>
+
+<div class="rmdpractica">
+<p>El siguiente código de <strong>R</strong> produce el gráfico de la figura <a href="spc.html#fig:graficou">14.11</a>.
+Nótese que primero transformamos los datos, pero si ya tenemos un conjunto de
+datos con las columnas de número de inspeccionadas y número de defectos total,
+no haría falta nada más.</p>
+<p>En <strong>Excel</strong>, si el número de piezas inspeccionadas es constante el gráfico
+es fácil de construir. Pero si los tamaños no son constantes como en este caso,
+el gráfico puede ser confuso.</p>
+<p>En <strong>Minitab</strong>, elegimos el gráfico <span class="math inline">\(u\)</span> en el menú de gráficos de control para
+atributos.</p>
+</div>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">shift.flaws</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">flaws</span> <span class="op">~</span> <span class="va">ushift</span>,
+    data <span class="op">=</span> <span class="va">ss.data.thickness2</span>, 
+    <span class="va">sum</span>, 
+    na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>
+<span class="va">shift.inspected</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">flaws</span> <span class="op">~</span> <span class="va">ushift</span>,
+    data <span class="op">=</span> <span class="va">ss.data.thickness2</span>, 
+    <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+      <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>
+    <span class="op">}</span><span class="op">)</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>
+<span class="va">thick.u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">shift.flaws</span>,
+    type <span class="op">=</span> <span class="st">"u"</span>,
+    sizes <span class="op">=</span> <span class="va">shift.inspected</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">thick.u</span><span class="op">)</span></code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:graficou"></span>
+<img src="13-spc_files/figure-html/graficou-1.png" alt="Gráfico u de los defectos por unidad" width="672"><p class="caption">
+Figura 14.11: Gráfico u de los defectos por unidad
+</p>
+</div>
+</div>
+</div>
+<div id="estrategia-spc-con-gráficos-de-control" class="section level3" number="14.1.4">
+<h3>
+<span class="header-section-number">14.1.4</span> Estrategia SPC con gráficos de control<a class="anchor" aria-label="anchor" href="#estrategia-spc-con-gr%C3%A1ficos-de-control"><i class="fas fa-link"></i></a>
+</h3>
+<p>A medida que aumenta nuestro conocimiento del proceso
+y la práctica con los datos, es fácil discernir qué gráfico es el
+adecuado para el proceso a controlar. La figura <a href="spc.html#fig:tiposg">14.12</a>
+muestra un esquema para la selección del gráfico.</p>
+<div class="figure">
+<span style="display:block;" id="fig:tiposg"></span>
+<img src="images/seleccion.png" alt="Selección del gráfico de control" width="100%"><p class="caption">
+Figura 14.12: Selección del gráfico de control
+</p>
+</div>
+<p>La figura <a href="spc.html#fig:estrategia">14.13</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;adaptado de ISO 7870-2&lt;/p&gt;"><sup>98</sup></a> sintetiza el
+modo de proceder para una estrategia de SPC basada en gráficos de control.</p>
+<div class="figure">
+<span style="display:block;" id="fig:estrategia"></span>
+<img src="images/estrategia.png" alt="Estrategia SPC" width="100%"><p class="caption">
+Figura 14.13: Estrategia SPC
+</p>
+</div>
+</div>
+</div>
+<div id="ch:capacidad" class="section level2" number="14.2">
+<h2>
+<span class="header-section-number">14.2</span> Capacidad y rendimiento de procesos<a class="anchor" aria-label="anchor" href="#ch:capacidad"><i class="fas fa-link"></i></a>
+</h2>
+<div id="control-vs-especificación" class="section level3" number="14.2.1">
+<h3>
+<span class="header-section-number">14.2.1</span> Control vs Especificación<a class="anchor" aria-label="anchor" href="#control-vs-especificaci%C3%B3n"><i class="fas fa-link"></i></a>
+</h3>
+<div id="la-voz-del-cliente" class="section level4" number="14.2.1.1">
+<h4>
+<span class="header-section-number">14.2.1.1</span> La voz del cliente<a class="anchor" aria-label="anchor" href="#la-voz-del-cliente"><i class="fas fa-link"></i></a>
+</h4>
+<p>En el capítulo <a href="#ch:gc"><strong>??</strong></a> insistíamos en la necesidad de distinguir entre límites
+de control y límites de especificación. Los límites de especificación son la voz
+del cliente (VoC, <em>Voice of the Customer</em>). Ya sabemos que un proceso
+bajo control puede no cumplir con las especificaciones adecuadamente, y sin
+embargo un proceso que no está bajo control puede ser perfectamente capaz de
+cumplir con las especificaciones. En el primer caso, se deben realizar proyectos
+de mejora específicos para reducir la variabiliad del proceso. En el segundo,
+hay que detectar y eliminar las causas especiales de variación ya que si no a
+la larga es posible que no se cumplan las especificaciones.</p>
+<p>La definición de los límites de especificación no suele ser una tarea fácil. En
+un extremo tendremos casos en los que estos límites estarán establecidos por
+contrato. En el otro extremo no tendremos información a priori sobre lo
+que el cliente espera y se tendrán que establecer los límites mediante técnicas
+de investigación de mercado. Además podemos tener límites de especificación
+determinados por la legislación o las normas aplicables. Por otra parte,
+podemos tener especificaciones en requisitos del producto final
+(las <span class="math inline">\(Y\)</span> del proceso) o en variables críticas (las <span class="math inline">\(X\)</span> del proceso).</p>
+<p>La determinación de los límites de especificación de un proceso queda fuera de
+los contenidos de este curso, por lo que a continuación asumimos que tenemos
+bien definidos estos límites de especificación. Como referencia, el diseño
+robusto de Taguchi es uno de los métodos más ampliamente utilizados.
+Véase, por ejemplo, la norma ISO 16336:2014 Applications of statistical and related methods to new technology and product development process – Robust parameter design (RPD)<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;El subcomité ISO/TC 69/SC 8 – Application of
+statistical and related methodology for new technology and product development
+está dedicado al desarrollo de nuevos productos y tecnologías:
+&lt;a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_tc_browse.htm?commid=585031" class="uri"&gt;http://www.iso.org/iso/home/store/catalogue_tc/catalogue_tc_browse.htm?commid=585031&lt;/a&gt;&lt;/p&gt;'><sup>99</sup></a>, o un método más sencillo
+en <span class="citation">Cano, Moguerza, and Corcoba<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Quality Control with r. An ISO Standards Approach&lt;/em&gt;.&lt;/p&gt;"><sup>100</sup></a></span>.</p>
+<p>En general, tendremos un objetivo para la característica crítica para la
+calidad (CTQ) de interés. Cuanto más se acerque nuestro proceso a ese objetivo
+(T, <em>Target</em>) o valor ideal, mejor estaremos cumpliendo las especificaciones del
+cliente. Por otra parte, sabemos que los procesos están sujetos a variabilidad,
+y por lo tanto no siempre será posible obtener un valor igual al
+objetivo<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En realidad, &lt;em&gt;nunca&lt;/em&gt; obtendremos un valor específico
+para variables cualitativas continuas, pero esto es otra historia que tiene
+que ver con Probabilidad. Por el momento, tengamos claro que estos valores están
+limitados por el aparato de medida utilizado&lt;/p&gt;"><sup>101</sup></a>. Igual que nuestro proceso varía,
+también los requisitos tienen una cierta <em>tolerancia</em>. En general tenemos
+tres tipos de procesos en función de esta tolerancia:</p>
+<ul>
+<li>Valor ideal. En este caso tendremos límites superior (<span class="math inline">\(U\)</span>)
+e inferior (<span class="math inline">\(L\)</span>)
+de especificación.
+Por ejemplo, contenido en sal.</li>
+<li>Cuanto más bajo mejor. En este caso tendremos sólo límite superior de
+especificación. Por ejemplo, tiempo de servicio.</li>
+<li>Cuanto más alto mejor. Al contrario que en el caso anterior, sólo
+tendremos un límite de especificación inferior. Por ejemplo, la resistencia a
+la tensión de un envase de plástico.</li>
+</ul>
+<p>En lo sucesivo nos referiremos por simplicidad a procesos con límites superior e
+inferior de especificación, véase la figura <a href="spc.html#fig:voc">14.14</a>. El razonamiento para procesos con un sólo límite de
+especificación es análogo, si bien los cálculos pueden diferir según el caso.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:voc"></span>
+<img src="13-spc_files/figure-html/voc-1.png" alt="Límites de especificación de una característica (VoC)" width="70%"><p class="caption">
+Figura 14.14: Límites de especificación de una característica (VoC)
+</p>
+</div>
+</div>
+<div id="la-voz-del-proceso" class="section level4" number="14.2.1.2">
+<h4>
+<span class="header-section-number">14.2.1.2</span> La voz del proceso<a class="anchor" aria-label="anchor" href="#la-voz-del-proceso"><i class="fas fa-link"></i></a>
+</h4>
+<p>La voz del cliente queda determinada por los límites de especificación. La voz
+del proceso queda determinada por el modelo que siguen los datos de nuestro
+proceso. Es importante señalar que lo que interesa en Control Estadístico de
+Procesos es el desempeño del proceso a largo plazo. Los datos concretos de un
+día, un lote, etc. son una <em>muestra</em> de nuestro proceso que nos puede
+estar dando un resultado satisfactorio, pero de la que tenemos que saber obtener
+el modelo de nuestro proceso para tomar decisiones.
+El modelo quedará determinado por unos pocos parámetros y una familia
+de distribuciones de probabilidad, por ejemplo la distribución normal
+con una media y desviación típica determinadas.</p>
+<p>Por ejemplo, considérese un proceso que tiene la forma de la figura <a href="spc.html#fig:his">14.15</a>.
+Dado que lo que tenemos en cada conjunto de datos es una muestra de nuestro
+proceso, con valores concretos, podremos comprobar cada uno de estos valores y
+ver si está dentro de los límites de especificación. Así,
+podemos contabilizar el número de unidades fuera de
+especificación y calcular cuál ha sido el coste contable de esa muestra.
+Sin embargo, lo que nos interesa es saber cuál es el número esperado de no
+conformidades a largo plazo, dada esa distribución de probabilidad y, posiblemente,
+cuál es la pérdida del proceso bajo el enfoque de Taguchi, véase la figura
+<a href="spc.html#fig:taguchi2">14.16</a> y la justificación en el capítulo <a href="#ch:intro"><strong>??</strong></a>.</p>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">666</span><span class="op">)</span>
+<span class="va">merma1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">5</span>, <span class="fl">0.5</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>
+<span class="va">merma2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">rgamma</a></span><span class="op">(</span><span class="fl">50</span>, shape <span class="op">=</span> <span class="fl">25</span>, rate <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>
+<span class="va">merma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">merma1</span>, <span class="va">merma2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">2017</span><span class="op">)</span>
+<span class="va">varlongterml</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span><span class="op">{</span>
+          <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>grupo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span>, valor<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">90</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+        <span class="op">}</span><span class="op">)</span>
+<span class="va">varlongterm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="va">varlongterml</span><span class="op">)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:his"></span>
+<img src="13-spc_files/figure-html/his-1.png" alt="La voz del proceso (VoP)" width="70%"><p class="caption">
+Figura 14.15: La voz del proceso (VoP)
+</p>
+</div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:taguchi2"></span>
+<img src="13-spc_files/figure-html/taguchi2-1.png" alt="Función de pérdida de Taguchi" width="70%"><p class="caption">
+Figura 14.16: Función de pérdida de Taguchi
+</p>
+</div>
+<p>Veamos algunas formas de medir el <strong>rendimiento</strong> del proceso a través de los
+datos concretos de una muestra frente a la especificación. La forma más sencilla
+de medir el rendimiento de un proceso es mediante la proporción de productos conformes.
+Ahora bien, para reflejar el desempeño del proceso en su conjunto, y no sólo en su resultado final,
+debemos reflejar también como defectos aquellas unidades que hemos tenido que
+reprocesar o desechar en pasos intermedios del proceso (rendimiento a la primera).
+Por otra parte, cuando un proceso está compuesto de varios subprocesos, el
+rendimiento del proceso global será el producto de los rendimientos a lo largo
+de la <em>cadena</em> de <span class="math inline">\(n\)</span> subprocesos (rendimiento encadenado)<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Y =
+Yield, rendimiento; FTY = First Time Yield, rendimiento a la primera; RTY = Rolled Throughput
+Yield, rendimiento de la producción encadenada.&lt;/p&gt;"><sup>102</sup></a>.</p>
+<p><span class="math display">\[Y=\frac{\text{total}-\text{defectos}}{\text{total}}\]</span></p>
+<p><span class="math display">\[FTY=\frac{\text{total}-\text{reprocesos}-\text{defectos}}{\text{total}}\]</span>
+<span class="math display">\[RTY=\prod_{i=1}^n FTY_i = FTY_1 \times FTY_2 \times \cdots \times
+FTY_{n-1} \times FTY_n\]</span></p>
+<p>Muchas veces en vez de medir el rendimiento de un proceso, interesa centrarse en
+lo contrario: la proporción de defectos, a la que podemos llamar defectos por
+unidad. Esta medida tiene un problema a la hora de comparar productos y
+servicios heterogéneos, por ejemplo por estar formados por un diferente número
+de componentes. Para solucionar este problema se utiliza la proporción de
+defectos por el número de oportunidades de que se produzca el defecto. Y más
+concretamente, el número de defectos por millón de oportunidades, simplemente
+multiplicando por 10<span class="math inline">\(^6\)</span>.</p>
+<p><span class="math display">\[DPU=1-FTY=\frac{defectos}{total}\]</span></p>
+<p><span class="math display">\[DPO=\frac{\text{número de defectos}}{\text{Número de oportunidades}}\]</span></p>
+<p><span class="math display">\[DPMO=DPO \times 10^6\]</span></p>
+<p>Estos datos los podemos calcular exactamente para una muestra concreta del proceso. Para
+sacar conclusiones y tomar decisiones respecto del proceso a largo plazo,
+necesitamos estudiar la variabilidad del proceso, y así podremos calcular estas
+métricas (proporción de defectos, número de defectos, etc.) esperadas <strong>a largo
+plazo</strong>.</p>
+</div>
+<div id="capacidad-y-rendimiento" class="section level4" number="14.2.1.3">
+<h4>
+<span class="header-section-number">14.2.1.3</span> Capacidad y rendimiento<a class="anchor" aria-label="anchor" href="#capacidad-y-rendimiento"><i class="fas fa-link"></i></a>
+</h4>
+<p>Mediremos el rendimiento y la capacidad del proceso comparando la voz del cliente con la voz del
+proceso mediante el cálculo de ciertos índices. La capacidad del proceso
+deberíamos medirla solamente cuando el proceso esté bajo control estadístico,
+tal y como hemos visto en el capítulo <a href="#ch:gc"><strong>??</strong></a>. Así, distinguimos entre
+capacidad y rendimiento como:</p>
+<ul>
+<li><p>Condiciones de <strong>Rendimiento</strong> (<em>performance</em>): Índices <span class="math inline">\(P_{xx}\)</span>. Se utiliza la
+variabilidad a largo plazo (LT). No hace falta que el proceso esté bajo control.</p></li>
+<li><p>Condiciones de <strong>Capacidad</strong> (<em>capability</em>): Índices <span class="math inline">\(C_{xx}\)</span>. Se utiliza la
+variabilidad a corto plazo (ST). Es necesario que el proceso esté bajo control, y tomar
+subgrupos racionales.</p></li>
+</ul>
+<p>Las fórmulas de los dos tipos de índices van a ser básicamente las mismas.
+La diferencia va a residir en la forma de estimar la desviación típica.
+Para los índices de rendimiento utilizamos la desviación típica total, sin
+tener en cuenta grupos.</p>
+<p><span class="math display">\[\hat{\sigma}_{LT}=s=\frac{\sum (x_i - \overline{x})^2}{n-1}.\]</span></p>
+<p>Para los índices de capacidad, necesitamos tener subgrupos, calcular la desviación
+típica <strong>dentro</strong> de cada subgrupo, <span class="math inline">\(s_i\)</span> y después estimar la desviación típica a
+corto plazo con alguno de los siguientes métodos:</p>
+<p><span class="math display">\[\hat{\sigma}_{ST}=\sqrt\frac{\sum s_i^2 }{m} \qquad \text{o bien} \quad \frac{\overline{R}}{d_2}, \frac{\overline{s}}{c_4}\]</span></p>
+
+<div class="rmdejemplo">
+<p>En la figura <a href="#fig:nubelt"><strong>??</strong></a> del capítulo <a href="#ch:intro"><strong>??</strong></a> se mostraba un ejemplo
+de variación a corto y a largo plazo. La variación a largo plazo, de todos
+los datos, resultaba ser <span class="math inline">\(2.75\)</span>, mayor que cualquiera de la de los subgrupos.
+La variación a corto plazo del proceso es un resumen de la variación de todos
+los subgrupos, por ejemplo:</p>
+<p><span class="math inline">\(\sigma_{ST} = \sqrt\frac{2.1^2 + 2.32^2 + 2.08^2 + 2.51^2 + 1.71^2 + 1.66^2 + 1.78^2 + 1.57^2 + 1.67^2 + 1.09^2}{10}=1.85\)</span></p>
+<p>que siempre va a ser menor que la variación a largo plazo. Cuanto más se parezcan
+estos dos valores, más estable es el proceso.</p>
+</div>
+</div>
+</div>
+<div id="índices-de-capacidad-y-rendimiento" class="section level3" number="14.2.2">
+<h3>
+<span class="header-section-number">14.2.2</span> Índices de capacidad y rendimiento<a class="anchor" aria-label="anchor" href="#%C3%ADndices-de-capacidad-y-rendimiento"><i class="fas fa-link"></i></a>
+</h3>
+<p>Los índices de capacidad y rendimiento sin ajustar <span class="math inline">\(C_p\)</span> y <span class="math inline">\(P_p\)</span>
+se calculan dividiendo la amplitud de
+los límites de especificación entre
+la amplitud de los límites de referencia del proceso. Por simplicidad en la exposición,
+vamos a considerar que la característica en estudio sigue una distribución
+normal, y entonces esta amplitud es precisamente
+seis veces la desviación típica del proceso, véase la figura <a href="spc.html#fig:natlim">14.17</a>. Para distribuciones no normales,
+esta amplitud se calculará como <span class="math inline">\(X_{99.865\%} - X_{0.135\%}\)</span>, es decir, la direrencia
+entre el percentil <span class="math inline">\(99.865\)</span> y el percentil <span class="math inline">\(0.135\)</span>. Entonces:</p>
+<p><span class="math display">\[C_p = \frac{U-L}{6\sigma_{ST}},\]</span>
+<span class="math display">\[P_p = \frac{U-L}{6\sigma_{LT}}.\]</span></p>
+<p>Es
+decir, el índice nos dice cuántas veces caben seis desviaciones típicas dentro
+de las especificaciones. En un proceso cuya
+distribución (modelo) es normal, un índice igual a 1 implica que la proporción
+de defectos es del 0.27%.</p>
+<p>Los índices sin ajustar no permite comprobar si el proceso está centrado en el
+objetivo, lo cual es deseable en procesos con límites simétricos. Para
+solucionarlo se utilizan los índices ajustados <span class="math inline">\(C_{pk}\)</span> y <span class="math inline">\(P_{pk}\)</span> cuya interpretación es
+similar, pero donde tenemos en cuenta sólo el lado hacia el que el proceso es
+menos capaz. Es decir, calculamos primero los índices superior e inferior:</p>
+<p><span class="math display">\[C_{pU} = \frac{U-\mu}{3\sigma_{ST}},\quad C_{pL} = \frac{\mu - L}{3\sigma_{ST}},\]</span>
+<span class="math display">\[P_{pU} = \frac{U-\mu}{3\sigma_{LT}},\quad P_{pL} = \frac{\mu - L}{3\sigma_{LT}},\]</span>
+y entonces el índice de capacidad ajustado es el mínimo de los dos:</p>
+<p><span class="math display">\[C_{pk} = \min\{C_{pU}, C_{pL}\},\]</span>
+<span class="math display">\[P_{pk} = \min\{P_{pU}, P_{pL}\}.\]</span></p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:natlim"></span>
+<img src="13-spc_files/figure-html/natlim-1.png" alt="Límites de referencia del proceso" width="70%"><p class="caption">
+Figura 14.17: Límites de referencia del proceso
+</p>
+</div>
+<p>Para el cálculo de los índices podemos utilizar valores pre-especificados de
+la media (<span class="math inline">\(\mu_0\)</span>) y la desviación típica (<span class="math inline">\(\sigma_0\)</span>), o estimarlos mediante
+la media muestral <span class="math inline">\(\overline{X}\)</span> y la desviación típica a corto y a largo
+plazo como se ha indicado arriba.</p>
+<p>Los índices anteriores asumen que el objetivo es el centro de los límites de
+especificación. En algunas situaciones, el objetivo es otro valor distinto
+(véase la figura <a href="spc.html#fig:voct">14.18</a>) y
+entonces utilizamos el índice <span class="math inline">\(C_{pm}\)</span>, también conocido como índice de
+capacidad de Taguchi, y que se puede obtener a partir de los índices anteriores, por
+ejemplo para los índices de capacidad:</p>
+<p><span class="math display">\[C_{pm}=\frac{C_p}{\sqrt{1+\left (\frac{\mu-T}{\sigma} \right )^2}},\]</span></p>
+<span class="math display">\[C_{pkm}=\frac{C_{pk}}{\sqrt{1+\left (\frac{\mu-T}{\sigma} \right )^2}}.\]</span>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:voct"></span>
+<img src="13-spc_files/figure-html/voct-1.png" alt="Objetivo de la característica no centrado en el punto central de la especificación" width="70%"><p class="caption">
+Figura 14.18: Objetivo de la característica no centrado en el punto central de la especificación
+</p>
+</div>
+<div id="interpretación-de-los-índices" class="section level4" number="14.2.2.1">
+<h4>
+<span class="header-section-number">14.2.2.1</span> Interpretación de los índices<a class="anchor" aria-label="anchor" href="#interpretaci%C3%B3n-de-los-%C3%ADndices"><i class="fas fa-link"></i></a>
+</h4>
+<p>Normalmente se calculan todos los índices que sean apropiados para el proceso,
+y se analizan conjuntamente:</p>
+<ol style="list-style-type: decimal">
+<li>Los índices de rendimiento, que se pueden calcular siempre.</li>
+<li>Los índices de capacidad, solo cuando el proceso está bajo control estadístico.</li>
+<li>Los índices de Taguchi, cuando el objetivo no está en el centro de la especificación.</li>
+</ol>
+<p>A partir de los índices, se pueden realizar las siguientes comparaciones importantes:</p>
+<ul>
+<li>Comparar índices de rendimiento e índices de capacidad. Los primeros indican
+el rendimiento <strong>real</strong> del proceso, mientras que los segundos indican el rendimiento
+<strong>potencial</strong> que podríamos alcanzar si la variabilidad a largo plazo fuese igual
+a la variabilidad a corto plazo.</li>
+<li>Compara índices corregidos con índices sin corregir. Cuanto más se parezcan, más
+centrado estará nuestro proceso en la especificación, lo que siempre es deseable.</li>
+</ul>
+<p>Además, la interpretación numérica del índice nos indicará cuánto es de capaz
+nuestro proceso, según los valores que tome:</p>
+<ul>
+<li>El índice es aproximadamente igual a 1. La variación natural del proceso
+producirá una proporción de no conformidades equivalente a la probabilidad de
+estar fuera de los límites de control</li>
+<li>El índice es mayor que 1. El proceso es capaz de cumplir las
+especificaciones más allá de los límites naturales de variación</li>
+<li>El índice es menor que 1. El proceso no es capaz de cumplir las
+especificaciones y se producirán muchas no conformidades por la simple
+variación natural del proceso</li>
+</ul>
+<p>El valor ideal para los índices de control depende de la naturaleza del proceso.
+Un valor de referencia generalmente aceptado como bueno es 1.33, siendo 1.64 un
+valor muy bueno.
+Lo vemos gráficamente en la figura <a href="spc.html#fig:indices">14.19</a>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:indices"></span>
+<img src="13-spc_files/figure-html/indices-1.png" alt="Interpretación de los índices de capacidad" width="100%"><p class="caption">
+Figura 14.19: Interpretación de los índices de capacidad
+</p>
+</div>
+<p>Es importante tener en cuenta que los valores obtenidos de los índices de
+capacidd son estimaciones obtenidas a partir de muestras. Por tanto, están
+sujetos a error, y antes de tomar decisiones es aconsejable mirar los
+intervalos de confianza para estas estimaciones. Por ejemplo, podemos
+tener un índice <span class="math inline">\(C_{pk} = 1.1\)</span> y tomar la decisión de dejar la
+inspección 100%. Pero si el intervalo de confianza fuera, por ejemplo,
+<span class="math inline">\([0.9, 1.2]\)</span>, significaría que el índice podría ser menor que 1 para cierto
+nivel de confianza en futuras muestras, por lo que incurrimos en riesgos altos
+si asumimos que el proceso es capaz.</p>
+</div>
+<div id="la-sigma-del-proceso" class="section level4" number="14.2.2.2">
+<h4>
+<span class="header-section-number">14.2.2.2</span> La sigma del proceso<a class="anchor" aria-label="anchor" href="#la-sigma-del-proceso"><i class="fas fa-link"></i></a>
+</h4>
+<p>Una medida muy utilizada en mejora de procesos es la <em>sigma</em> del proceso,
+o <em>Z-score</em>,
+que se calcula de forma similar al índice de capacidad:</p>
+<p><span class="math display">\[Z=\min \left \{ \frac{(USL-\mu)}{\sigma},\quad
+\frac{(\mu-LSL)}{\sigma}  \right \}.\]</span></p>
+<p>En este caso, el valor
+obtenido es el número de desviaciones típicas que caben entre los límites de
+especificación. Así, una sigma igual a 3 tiene la misma interpretación que el
+el índice <span class="math inline">\(C_{pk}\)</span> igual a 1. Habitualmente se asume<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Esta es una de
+las grandes controversias de la metodología Seis Sigma.&lt;/p&gt;"><sup>103</sup></a> que hay que restar 1.5
+unidades a la sigma calculada con la variabilidad a corto plazo para reflejar la variabilidad del proceso a
+largo plazo (<span class="math inline">\(Z_{LT}=Z_{ST} - 1.5\)</span>. Un proceso cuya sigma es igual a 6
+estará produciendo sólo 3.4 DPMO (defectos por millón de oportunidades).</p>
+</div>
+<div id="estudio-de-capacidad" class="section level4" number="14.2.2.3">
+<h4>
+<span class="header-section-number">14.2.2.3</span> Estudio de capacidad<a class="anchor" aria-label="anchor" href="#estudio-de-capacidad"><i class="fas fa-link"></i></a>
+</h4>
+<p>En un estudio de capacidad se debe incluir un análisis sobre la distribución de
+los datos, ya que se debería verificar la normalidad de los datos. La
+representación de los límites de especificación en el histograma suele ser muy
+útil visualmente. Los estudios de capacidad habitualmente utilizan los mismos
+datos que se han utilizado para crear los gráficos de control e identificar
+si el proceso está en condiciones de rendimiento o de capacidad. Se obtienen
+los índices para su interpretación y se calculan las métricas de rendimiento
+tanto reales como esperadas según la variabilidad de los datos.</p>
+
+<div class="rmdpractica">
+<p><strong>R</strong></p>
+<p>Vamos a realizar el estudio de capacidad de los datos utilizados en los ejemplos
+del capítulo <a href="#ch:gc"><strong>??</strong></a> y que se encuentran en la tabla <a href="spc.html#tab:thickness">14.1</a>.
+En el código a continuación se realiza primero un análisis exploratorio
+representando todas las mediciones, apreciándose la variabilidad a corto y
+a largo plazo (figura <a href="spc.html#fig:capexplo">14.20</a>).</p>
+<p>A continuación, se guardan los datos en un objeto <code>qcc</code> para poder
+utilizarlos en la función <code>process.capability</code> del paquete <code>qcc</code>,
+donde introducimos además los límites de especificación. La función
+devuelve los índices de capacidad, incluido intervalo de confianza,
+y otras medidas. También se muestran en la salida gráfica como muestra
+la figura <a href="spc.html#fig:capespesor">14.21</a>. Este ejemplo concreto muestra un
+proceso con muchos errores (reales 27%, esperados 20.4%), y
+unos índices muy por debajo del 1, que requiere inspección 100%.</p>
+</div>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://lattice.r-forge.r-project.org/">lattice</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/lattice/man/xyplot.html">dotplot</a></span><span class="op">(</span><span class="va">thickness</span> <span class="op">~</span> <span class="va">shift</span> <span class="op">|</span> <span class="va">day</span>, 
+    data <span class="op">=</span> <span class="va">ss.data.thickness2</span>,
+    layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">7</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>   </code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:capexplo"></span>
+<img src="13-spc_files/figure-html/capexplo-1.png" alt="Variabilidad a corto y a largo plazo" width="90%"><p class="caption">
+Figura 14.20: Variabilidad a corto y a largo plazo
+</p>
+</div>
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://luca-scr.github.io/qcc/">qcc</a></span><span class="op">)</span>
+<span class="va">groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qccGroups.html">qccGroups</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ss.data.thickness2</span>, 
+                    x <span class="op">=</span> <span class="va">thickness</span>, 
+                    sample <span class="op">=</span> <span class="va">ushift</span><span class="op">)</span>
+<span class="va">myqcc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">groups</span>, type <span class="op">=</span> <span class="st">"xbar"</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+
+<span class="va">cap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/processCapability.html">processCapability</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">myqcc</span>, 
+    spec.limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.718</span>, <span class="fl">0.782</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">cap</span><span class="op">)</span>
+<span class="co">#&gt; ── Process Capability Analysis ─────────────────── </span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Number of obs = 84           Target = 0.75    </span>
+<span class="co">#&gt; Center        = 0.7585238    LSL    = 0.718   </span>
+<span class="co">#&gt; StdDev        = 0.02376254   USL    = 0.782   </span>
+<span class="co">#&gt;                   </span>
+<span class="co">#&gt; Capability indices  Value   2.5%  97.5%</span>
+<span class="co">#&gt;               Cp    0.449  0.381  0.517</span>
+<span class="co">#&gt;               Cp_l  0.568  0.474  0.663</span>
+<span class="co">#&gt;               Cp_u  0.329  0.256  0.402</span>
+<span class="co">#&gt;               Cp_k  0.329  0.242  0.416</span>
+<span class="co">#&gt;               Cpm   0.423  0.355  0.490</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Exp&lt;LSL 0.044%    Obs&lt;LSL 0.06%</span>
+<span class="co">#&gt; Exp&gt;USL 0.16%     Obs&gt;USL 0.21%</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">cap</span><span class="op">)</span></code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:capespesor"></span>
+<img src="13-spc_files/figure-html/capespesor-1.png" alt="Estudio de capacidad para los datos del espesor" width="672"><p class="caption">
+Figura 14.21: Estudio de capacidad para los datos del espesor
+</p>
+</div>
+
+<div class="rmdpractica">
+<p><strong>Excel</strong></p>
+<p>Para hacer un estudio de capacidad en Excel podemos realizar todos los cálculos
+aplicando las fórmulas proporcionadas. Nunca se insistirá lo suficiente en la
+necesidad de revisar las fórmulas en Excel para asegurarse de que están referenciando
+bien las celdas.</p>
+<p>En el siguiente archivo se puede encontrar un ejemplo del estudio de capacidad
+de los datos del espesor de placas de acero con Excel:</p>
+<a href="http://emilio.lcano.com/b/epac/datos/ejemplos_espesor2.xlsx" class="uri">http://emilio.lcano.com/b/epac/datos/ejemplos_espesor2.xlsx</a>
+</div>
+
+<div class="rmdpractica">
+<p><strong>Minitab</strong></p>
+<p>En Minitab hay varias opciones en el menú Herramientas de Calidad para realizar
+análisis de capacidad. El más directo es seleccionar Estadísticas &gt; Herramientas de calidad &gt; Análisis de capacidad &gt; Normal. Ahí introducir la columna que contiene
+los datos, los tamaños de subgrupos y las especificaciones. Más opciones están
+disponibles, véase la ayuda.</p>
+<p>Véase otro ejemplo reproducible aquí:</p>
+<a href="https://support.minitab.com/es-mx/minitab/18/help-and-how-to/quality-and-process-improvement/capability-analysis/how-to/capability-analysis/normal-capability-analysis/before-you-start/example/" class="uri">https://support.minitab.com/es-mx/minitab/18/help-and-how-to/quality-and-process-improvement/capability-analysis/how-to/capability-analysis/normal-capability-analysis/before-you-start/example/</a>
+</div>
+
+<div class="rmdpractica">
+<p><strong>R</strong></p>
+Un estudio alternativo de capacidad es el que proporciona la función
+<code>ss.study.ca</code> del paquete <code>SixSigma</code>, más enfocado a esta medodología,
+en el que se pueden introducir dos conjuntos de datos (a corto y a largo)
+para calcular la sigma del proceso y otras métricas al estilo Seis Sigma.
+El siguiente código realiza
+un análisis de capacidad de los datos de embotellado de una bodega.
+</div>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.sixsigmawithr.com">SixSigma</a></span><span class="op">)</span>
+<span class="fu"><a href="http://emilopezcano.github.io/SixSigma/reference/ss.study.ca.html">ss.study.ca</a></span><span class="op">(</span><span class="va">ss.data.ca</span><span class="op">$</span><span class="va">Volume</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">753</span>, <span class="fl">3</span><span class="op">)</span>, 
+        LSL <span class="op">=</span> <span class="fl">740</span>, USL <span class="op">=</span> <span class="fl">760</span>, T <span class="op">=</span> <span class="fl">750</span>, alpha <span class="op">=</span> <span class="fl">0.05</span>, 
+             f.sub <span class="op">=</span> <span class="st">"Winery Project"</span><span class="op">)</span></code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:capss"></span>
+<img src="13-spc_files/figure-html/capss-1.png" alt="Estudio de capacidad para los datos de una bodega" width="672"><p class="caption">
+Figura 14.22: Estudio de capacidad para los datos de una bodega
+</p>
+</div>
+<p>Finalmente, véase la relación del análisis de capacidad con los gráficos
+de control y la inspección por muestreo, reflejadas en la figura
+<a href="spc.html#fig:estrategia">14.13</a> del capítulos <a href="#ch:gc"><strong>??</strong></a>.</p>
 
 </div>
+</div>
+</div>
+</div>
+
   <div class="chapter-nav">
 <div class="prev"><a href="introc.html"><span class="header-section-number">13</span> Introducción</a></div>
 <div class="next"><a href="aceptacion.html"><span class="header-section-number">15</span> Inspección por muestreo</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="Índice capítulo"><h2>Índice capítulo</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#spc"><span class="header-section-number">14</span> Control Estadístico de Procesos</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#spc"><span class="header-section-number">14</span> Control Estadístico de Procesos</a></li>
+<li>
+<a class="nav-link" href="#ch_spc"><span class="header-section-number">14.1</span> Gráficos de control</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introducci%C3%B3n-5"><span class="header-section-number">14.1.1</span> Introducción</a></li>
+<li><a class="nav-link" href="#sec:gcv"><span class="header-section-number">14.1.2</span> Gráficos de control por variables</a></li>
+<li><a class="nav-link" href="#gr%C3%A1ficos-de-control-por-atributos"><span class="header-section-number">14.1.3</span> Gráficos de control por atributos</a></li>
+<li><a class="nav-link" href="#estrategia-spc-con-gr%C3%A1ficos-de-control"><span class="header-section-number">14.1.4</span> Estrategia SPC con gráficos de control</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ch:capacidad"><span class="header-section-number">14.2</span> Capacidad y rendimiento de procesos</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#control-vs-especificaci%C3%B3n"><span class="header-section-number">14.2.1</span> Control vs Especificación</a></li>
+<li><a class="nav-link" href="#%C3%ADndices-de-capacidad-y-rendimiento"><span class="header-section-number">14.2.2</span> Índices de capacidad y rendimiento</a></li>
+</ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -112,7 +1696,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-30.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-05-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

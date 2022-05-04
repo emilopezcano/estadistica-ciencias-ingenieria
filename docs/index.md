@@ -1,7 +1,7 @@
 --- 
 title: "Estadística Aplicada a las Ciencias y la Ingeniería"
 author: "Emilio L. Cano"
-date: "2022-03-30"
+date: "2022-05-04"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -112,15 +112,15 @@ sessionInfo()
 #> [1] fontawesome_0.2.2
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] bookdown_0.24.3 digest_0.6.29   R6_2.5.1       
-#>  [4] jsonlite_1.8.0  magrittr_2.0.2  evaluate_0.15  
-#>  [7] stringi_1.7.6   cachem_1.0.6    rlang_1.0.1    
+#>  [1] bookdown_0.26   digest_0.6.29   R6_2.5.1       
+#>  [4] jsonlite_1.8.0  magrittr_2.0.3  evaluate_0.15  
+#>  [7] stringi_1.7.6   cachem_1.0.6    rlang_1.0.2    
 #> [10] cli_3.2.0       fs_1.5.2        rstudioapi_0.13
 #> [13] jquerylib_0.1.4 xml2_1.3.3      bslib_0.3.1    
-#> [16] rmarkdown_2.11  tools_4.1.2     stringr_1.4.0  
-#> [19] xfun_0.29       yaml_2.3.5      fastmap_1.1.0  
+#> [16] rmarkdown_2.14  tools_4.1.2     stringr_1.4.0  
+#> [19] xfun_0.30       yaml_2.3.5      fastmap_1.1.0  
 #> [22] compiler_4.1.2  memoise_2.0.1   htmltools_0.5.2
-#> [25] downlit_0.4.0   knitr_1.37      sass_0.4.0
+#> [25] downlit_0.4.0   knitr_1.38      sass_0.4.1
 ```
 
 Normalmente, la descripción o enunciado de los ejemplos se incluyen en bloques 

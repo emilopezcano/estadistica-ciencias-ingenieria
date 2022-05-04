@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2021.11.22)  22 MAR 2022 19:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2021.11.22)  29 MAR 2022 14:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -317,6 +317,69 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layouthoffset=\dimen161
 \Gm@layoutvoffset=\dimen162
 \Gm@dimlist=\toks25
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
+\LTleft=\skip54
+\LTright=\skip55
+\LTpre=\skip56
+\LTpost=\skip57
+\LTchunksize=\count286
+\LTcapwidth=\dimen163
+\LT@head=\box53
+\LT@firsthead=\box54
+\LT@foot=\box55
+\LT@lastfoot=\box56
+\LT@gbox=\box57
+\LT@cols=\count287
+\LT@rows=\count288
+\c@LT@tables=\count289
+\c@LT@chunks=\count290
+\LT@p@ftn=\toks26
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen164
+\lightrulewidth=\dimen165
+\cmidrulewidth=\dimen166
+\belowrulesep=\dimen167
+\belowbottomsep=\dimen168
+\aboverulesep=\dimen169
+\abovetopsep=\dimen170
+\cmidrulesep=\dimen171
+\cmidrulekern=\dimen172
+\defaultaddspace=\dimen173
+\@cmidla=\count291
+\@cmidlb=\count292
+\@aboverulesep=\dimen174
+\@belowrulesep=\dimen175
+\@thisruleclass=\count293
+\@lastruleclass=\count294
+\@thisrulewidth=\dimen176
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/array.sty
+Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen177
+\ar@mcellbox=\box58
+\extrarowheight=\dimen178
+\NC@list=\toks27
+\extratabsurround=\skip58
+\backup@length=\skip59
+\ar@cellbox=\box59
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count295
+\calc@Bcount=\count296
+\calc@Adimen=\dimen179
+\calc@Bdimen=\dimen180
+\calc@Askip=\skip60
+\calc@Bskip=\skip61
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count297
+\calc@Cskip=\skip62
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/footnotehyper/footnotehyper.sty
+Package: footnotehyper 2021/08/13 v1.1e hyperref aware footnote.sty (JFB)
+\FNH@notes=\box60
+\FNH@width=\dimen181
+\FNH@toks=\toks28
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphics.sty
@@ -328,45 +391,45 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\Gin@req@height=\dimen163
-\Gin@req@width=\dimen164
+\Gin@req@height=\dimen182
+\Gin@req@width=\dimen183
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count286
-\l__pdf_internal_box=\box53
+\l__color_backend_stack_int=\count298
+\l__pdf_internal_box=\box61
 ) (./_formulario.aux)
 \openout1 = `_formulario.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Info: Redefining \microtypecontext on input line 67.
-Package microtype Info: Applying patch `item' on input line 67.
-Package microtype Info: Applying patch `toc' on input line 67.
-Package microtype Info: Applying patch `eqnum' on input line 67.
-Package microtype Info: Applying patch `footnote' on input line 67.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Info: Redefining \microtypecontext on input line 77.
+Package microtype Info: Applying patch `item' on input line 77.
+Package microtype Info: Applying patch `toc' on input line 77.
+Package microtype Info: Applying patch `eqnum' on input line 77.
+Package microtype Info: Applying patch `footnote' on input line 77.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 67.
+LaTeX Info: Redefining \showhyphens on input line 77.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -375,17 +438,17 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 ) (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count287
-\scratchdimen=\dimen165
-\scratchbox=\box54
-\nofMPsegments=\count288
-\nofMParguments=\count289
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count290
-\MPscratchDim=\dimen166
-\MPnumerator=\count291
-\makeMPintoPDFobject=\count292
-\everyMPtoPDFconversion=\toks27
+\scratchcounter=\count299
+\scratchdimen=\dimen184
+\scratchbox=\box62
+\nofMPsegments=\count300
+\nofMParguments=\count301
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count302
+\MPscratchDim=\dimen185
+\MPnumerator=\count303
+\makeMPintoPDFobject=\count304
+\everyMPtoPDFconversion=\toks30
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -394,7 +457,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 67.
+Package hyperref Info: Link coloring OFF on input line 77.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 (/usr/local/texlive/2021/texmf-dist/tex/latex/refcount/refcount.sty
@@ -404,11 +467,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count293
+\c@section@level=\count305
 )
-LaTeX Info: Redefining \ref on input line 67.
-LaTeX Info: Redefining \pageref on input line 67.
-LaTeX Info: Redefining \nameref on input line 67.
+LaTeX Info: Redefining \ref on input line 77.
+LaTeX Info: Redefining \pageref on input line 77.
+LaTeX Info: Redefining \nameref on input line 77.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -443,45 +506,45 @@ LaTeX Info: Redefining \nameref on input line 67.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 8
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 9
 1.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 8
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 9
 1.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 9
 1.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-81.
+91.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-81.
+91.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 81.
+(Font)              <10> on input line 91.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 81.
+(Font)              <7> on input line 91.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 81.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
+(Font)              <5> on input line 91.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 91.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 91.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -491,51 +554,62 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 
-LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 2
-98.
-
-
-LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 2
-98.
+LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 3
+08.
 
 
 LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 3
-00.
+08.
 
 
 LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 3
-00.
+10.
 
-[3] [4] [5] [6] [7] (./_formulario.aux) ) 
+
+LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 3
+10.
+
+[3] [4] [5] [6] [7] [8]
+<_formulario_files/figure-latex/unnamed-chunk-4-1.pdf, id=107, 424.58624pt x 24
+1.90375pt>
+File: _formulario_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type p
+df)
+<use _formulario_files/figure-latex/unnamed-chunk-4-1.pdf>
+Package pdftex.def Info: _formulario_files/figure-latex/unnamed-chunk-4-1.pdf  
+used on input line 867.
+(pdftex.def)             Requested size: 328.84361pt x 187.35535pt.
+[9 <./_formulario_files/figure-latex/unnamed-chunk-4-1.pdf>] [10] (./_formulari
+o.aux) ) 
 Here is how much of TeX's memory you used:
- 13261 strings out of 478371
- 210337 string characters out of 5848512
- 557396 words of memory out of 5000000
- 31028 multiletter control sequences out of 15000+600000
+ 13715 strings out of 478371
+ 218686 string characters out of 5848512
+ 626724 words of memory out of 5000000
+ 31458 multiletter control sequences out of 15000+600000
  469471 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,8n,77p,1008b,438s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fo
-nts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/
-lm/lm-rm.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.e
-nc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/l
-ocal/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texli
-ve/2021/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/local/texlive/2021/texmf
--dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2021/texmf-dist/font
-s/type1/public/lm/lmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/pu
-blic/lm/lmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lm
-mi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></
-usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/t
-exlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2021
-/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2021/texmf-dist/
-fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/
-public/lm/lmri10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/
-lmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy5.pfb>
-</usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
-Output written on _formulario.pdf (7 pages, 228039 bytes).
+ 74i,8n,77p,1008b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/
+local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/
+2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2021/texmf
+-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2021/texmf-dist/font
+s/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvip
+s/lm/lm-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx1
+0.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></us
+r/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/te
+xlive/2021/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2021
+/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2021/texmf-dist
+/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type
+1/public/lm/lmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm
+/lmr5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb></
+usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/
+texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/20
+21/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2021/texmf-di
+st/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/ty
+pe1/public/amsfonts/symbols/msam10.pfb>
+Output written on _formulario.pdf (10 pages, 252420 bytes).
 PDF statistics:
- 265 PDF objects out of 1000 (max. 8388607)
- 222 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
- 39113 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 298 PDF objects out of 1000 (max. 8388607)
+ 247 compressed objects within 3 object streams
+ 64 named destinations out of 1000 (max. 500000)
+ 39126 words of extra memory for PDF output out of 42996 (max. 10000000)
 

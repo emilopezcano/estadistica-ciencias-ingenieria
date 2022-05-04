@@ -6,18 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Capítulo 15 Inspección por muestreo | Estadística Aplicada a las Ciencias y la Ingeniería</title>
 <meta name="author" content="Emilio L. Cano">
-<meta name="description" content="En preparación. Intro Planes para atributos Planes para variables">
-<meta name="generator" content="bookdown 0.24.3 with bs4_book()">
+<meta name="description" content="15.1 Introducción La norma ISO 9000104 define la calidad como el “grado en el que un conjunto de características inherentes de un objeto cumple con los requisitos”105. Así pues, cualquiera que sea...">
+<meta name="generator" content="bookdown 0.26 with bs4_book()">
 <meta property="og:title" content="Capítulo 15 Inspección por muestreo | Estadística Aplicada a las Ciencias y la Ingeniería">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/aceptacion.html">
 <meta property="og:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
-<meta property="og:description" content="En preparación. Intro Planes para atributos Planes para variables">
+<meta property="og:description" content="15.1 Introducción La norma ISO 9000104 define la calidad como el “grado en el que un conjunto de características inherentes de un objeto cumple con los requisitos”105. Así pues, cualquiera que sea...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Capítulo 15 Inspección por muestreo | Estadística Aplicada a las Ciencias y la Ingeniería">
-<meta name="twitter:description" content="En preparación. Intro Planes para atributos Planes para variables">
+<meta name="twitter:description" content="15.1 Introducción La norma ISO 9000104 define la calidad como el “grado en el que un conjunto de características inherentes de un objeto cumple con los requisitos”105. Así pues, cualquiera que sea...">
 <meta name="twitter:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
@@ -84,12 +84,570 @@
 <h1>
 <span class="header-section-number">Capítulo 15</span> Inspección por muestreo<a class="anchor" aria-label="anchor" href="#aceptacion"><i class="fas fa-link"></i></a>
 </h1>
-<p>En preparación.</p>
-<p>Intro</p>
-<p>Planes para atributos</p>
-<p>Planes para variables</p>
+<div id="introducción-6" class="section level2" number="15.1">
+<h2>
+<span class="header-section-number">15.1</span> Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n-6"><i class="fas fa-link"></i></a>
+</h2>
+<p>La norma ISO 9000<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;strong&gt;Une:iso:9000?&lt;/strong&gt;&lt;/p&gt;"><sup>104</sup></a></span> define la calidad como el “grado en el que un
+conjunto de <strong>características</strong> inherentes de un <strong>objeto</strong> cumple con los
+<strong>requisitos</strong>”<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Los términos en negrita están a su vez definidos en la propia
+norma.&lt;/p&gt;"><sup>105</sup></a>. Así pues, cualquiera que sea el objeto de una empresa u organización,
+el aseguramiento de la calidad ha de ser una de sus principales preocupaciones.
+El <strong>aseguramiento de la calidad</strong> es la “parte de la <strong>gestión de la calidad</strong>
+orientada a proporcionar confianza en que se cumplirán los <strong>requisitos de la
+calidad</strong>”.</p>
+<p>La forma en que se proporciona esta confianza en el cumplimiento de los requisitos
+es el objeto de este capítulo. Una forma de proporcionar esta confianza es medidante
+la inspección. La <strong>inspección</strong> se define como la “determinación de la
+conformidad con los requisitos especificados”.
+Así, el procedimiento más seguro de proporcionar
+esta confianza es realizar una inspección 100% de los productos que se
+envían a los clientes, rechazando los que no cumplen los requisitos.</p>
+<p>Pero la inspección 100% no asegura por sí sola que todos los productos
+que llegan a los clientes sean conformes, ya que la propia inspección está sujeta a
+errores, ya sea la inspección automática o manual. La fatiga humana, el
+estrés y otras circunstancias pueden llevar a que la inspección 100%
+sea incluso menos efectiva que la inspección por muestreo. Además,
+la inspección 100% tiene otros inconvenientes, como:</p>
+<ul>
+<li><p>La formidable tarea que supone a menos que se lleve a cabo con equipos
+de verificación automáticos o con lotes muy pequeños.</p></li>
+<li><p>Es muy costosa.</p></li>
+<li><p>Es inviable cuando dicha inspección es destructiva, es
+decir, la misma prueba de verificación hace el elemento no conforme.</p></li>
+</ul>
+<p>La alternativa a la inspección 100% es la inspección por muestreo, en la que,
+a grandes rasgos, se selecciona un subconjunto de elementos del grupo considerado.
+La selección de estas muestras y las decisiones a tomar tras la inspección se
+debe realizar con criterios estadísticos, basándose en la experiencia con el
+producto y los niveles de calidad requeridos. Así, asumiendo que se realiza
+el muestreo aleatorio y unas reglas para variar el tamaño de la muestra y la
+frecuencia del muestreo, se puede evaluar estadísticamente el proceso.</p>
+<p>Se deben evitar por todos los medios el realizar muestreos “ad-hoc”, como
+muestras de conveniencia o porcentajes arbitrarios sin ningún criterio.
+Por contra, utilizando los procedimientos descritos aquí se pueden
+especificar planes de muestreo que incluyan reglas de cambio como se
+verá en el siguiente apartado. Ahora bien, ¿cuándo podemos pasar de la
+inspección 100% a la inspección por muestreo? La figura <a href="aceptacion.html#fig:metodos">15.1</a>
+muestra la relación entre el muestreo de aceptación y otras técnicas
+estadísticas para la calidad. En primer lugar, partimos de la base de
+que tenemos un sistema de medición fiable. Para ello podemos realizar
+un análisis del sistema de medición (MSA, <em>Measurement System Analysis</em>)
+por ejemplo mediante un estudio de repetibilidad y reproducibilidad (R&amp;R).
+Una vez estamos seguros de que el sistem de medición es adecuado, podemos
+empezar a hacer SPC. En primer lugar, tenemos que asegurar la estabilidad
+del proceso. Para ello utilizamos los gráficos de control. Si el proceso
+está bajo control estadístico (tanto en su localización como en su
+dispersión, ver capítulo <a href="#ch:gc"><strong>??</strong></a>), entonces podemos medir la capacidad
+del proceso. Hasta que el proceso esté bajo control, podemos medir el
+rendimiento del proceso, pero no su capacidad (ver capítulo <a href="spc.html#ch:capacidad">14.2</a>).
+Una vez el proceso está bajo control y podemos calcular su capacidad,
+entonces podemos decidir pasar de la inspección 100% a la inspección
+por muestreo. Esto lo haremnos cuando el proceso cumpla el requisito de
+capacidad. Un criterio puede ser que el
+índice de capacidad <span class="math inline">\(C_{pk}\)</span> sea mayor que uno, aunque en productos
+que requieran una alta fiabilidad se preferirá esperar a tener un
+índice <span class="math inline">\(C_{pk}\)</span> de al menos <span class="math inline">\(1.33\)</span>.</p>
+<div class="figure">
+<span style="display:block;" id="fig:metodos"></span>
+<img src="images/metodos.png" alt="Relación entre los métodos estadísticos para el control de la calidad y los procesos" width="100%"><p class="caption">
+Figura 15.1: Relación entre los métodos estadísticos para el control de la calidad y los procesos
+</p>
+</div>
+</div>
+<div id="planes-de-muestreo-de-aceptación" class="section level2" number="15.2">
+<h2>
+<span class="header-section-number">15.2</span> Planes de muestreo de aceptación<a class="anchor" aria-label="anchor" href="#planes-de-muestreo-de-aceptaci%C3%B3n"><i class="fas fa-link"></i></a>
+</h2>
+<p>Ya vimos que la inspección 100% en la práctica no garantiza que todos los
+objetos lleguen conformes al cliente. Sin embargo, en un mundo ideal,
+teóricamente esto sería posible. En cambio, al realizar la inspección
+por muestreo estamos incurriendo irremediablemente, como en cualquier
+método estadístico, en errores por el propio
+muestreo. No obstante, al utilizar métodos estadístidos solventes,
+estos errores los vamos a poder medir, delimitando así los riesgos.</p>
+<p>Los planes de muestreo se van a basar en los riesgos que están dispuestos
+a asumir el productor y el consumidor. Para calcular estos riesgos, ambos
+deben acordar cuál es el <strong>Nivel de Calidad de Aceptación</strong> (<strong>NCA</strong>, <em>AQL Acceptance
+Quality Level</em>), que representa el promedio de la proporción de
+elementos defectuosos en una serie de lotes (generalmente muy bajo, pero mayor de cero).
+Así, los planes de muestreo de aceptación se diseñan de tal forma que
+la probabilidad de rechazar un lote que tenga una proporción de defectuosos
+menor que el LCA (riesgo del productor) sea muy baja. Por otra parte,
+el cliente querrá tener una probabilidad muy alta de rechazar un lote que
+tenga una gran proporción de defectos, a la que llamaremos
+<strong>Calidad Límite</strong> (<strong>CL</strong>, <em>LQ Limiting Quality</em>), y por tanto que
+la probabilidad de aceptar un lote que tenga una proporción de defectos mayor
+que la CL (riesgo del consumidor) sea también baja.</p>
+<p>Un <strong>plan de muestreo</strong> es “la combinación del <strong>tamaño de la muestra</strong> a
+emplear y los criterios de aceptación del lote asociados” (UNE-ISO 2859-1, 3.1.17).<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;strong&gt;Une:iso:2859-1?&lt;/strong&gt;&lt;/p&gt;"><sup>106</sup></a></span>
+En la versión más sencilla de un plan de muestreo para la aceptación, obtendríamos
+un número <span class="math inline">\(n\)</span> de elementos a extraer del lote, en los que comprobaríamos el valor
+de un atributo o de una variable. Con los valores obtenidos de la muestra
+calculamos un estadístico (por ejemplo número de defectos <span class="math inline">\(d\)</span> si comprobamos un
+atributo, o media de la muestra <span class="math inline">\(\overline{x}\)</span> si medimos una variable), y
+lo comparamos con los criterios de aceptación, llegando así a la decisión
+de aceptar o rechazar el lote.</p>
+<p>En la práctica, combinamos varios planes de muestreo en un <strong>esquema de muestreo</strong>
+[UNE-ISO 2859-1, 3.1.18] que incluye reglas para cambiar de un plan a otro.
+Por ejemplo, del cálculo anterior puede resultar la decisión de aceptar el lote,
+rechazarlo, o tomar un nueva muestra (es decir, pasar a otro plan de muestreo).</p>
+<p>Por otra parte, los planes y esquemas de muestreo se pueden agrupar en <strong>sistemas
+de muestreo</strong> [UNE-ISO 2859-1, 3.1.18], con sus propias reglas de cambio de
+unos a otros. Por ejemplo, sistemas basados en el límite de calidad de aceptación
+o sistemas de lotes salteados.</p>
+<p>Diferenciamos además tres intensidades de inspecciones por muestreo, que se usarán en los
+distintos esquemas de muestreo:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Inspección normal</strong>: “utilización de un plan de muestreo con un criterio de
+aceptación que ha sido ideado para asegurar al fabricante una alta probabilidad
+de aceptación cuando la <strong>media del proceso</strong> del lote es mejor que el <strong>NCA</strong>” [UNE-ISO 2859-1, 3.1.20].</p></li>
+<li><p><strong>Inspección rigurosa</strong>: Criterio de aceptación más riguroso que en la inspección normal.</p></li>
+<li><p><strong>Inspección reducida</strong>: Tamaño de muestra más pequeño que en la inspección normal,
+y criterio de aceptación comparable a esta.</p></li>
+</ol>
+<p>Los parámetros de los distintos planes, esquemas y sistemas de muestreo
+los van a determinar las distribuciones de probabilidad subyacentes a los
+procesos, partir los riesgos del productor y del
+consumidor. En la práctica, se buscan estos valores en las tablas de la
+norma adecuada para el plan de muestreo, o bien se utiliza software para
+obtenerlos.</p>
+<p>En los siguientes apartados vamos a explicar los diferentes planes de
+muestreo aplicando las normas UNE-ISO. La tabla <a href="aceptacion.html#tab:isomuestreo">15.1</a>
+muestra las normas de las dos series más importanes sobre muestreo
+de aceptación que emanan del subcomité ISO TC 69/SC5 Acceptance Sampling.
+La serie de normas ISO 2589 consta de 6 partes sobre “Procedimientos de
+muestreo para la inspección por atributos”, todas ellas traducidad
+y adoptadas como normas UNE-ISO.
+La serie ISO 3951 trata los Procedimientos de muestreo para la inspección
+por variables. Consta de 5 partes de las que solo están traducidas
+las dos primeras</p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:isomuestreo">Tabla 15.1: </span>Estándares ISO o UNE-ISO para SPC</caption>
+<colgroup>
+<col width="8%">
+<col width="91%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Código</th>
+<th align="left">Título</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">UNE-ISO 2859-1:2012</td>
+<td align="left">Planes de muestreo para las inspecciones lote por lote, tabulados según el límite de calidad de aceptación (LCA)</td>
+</tr>
+<tr class="even">
+<td align="left">UNE-ISO 2859-2:2012</td>
+<td align="left">Planes de muestreo para las inspecciones de lotes independientes, tabulados según la calidad límite (CL)</td>
+</tr>
+<tr class="odd">
+<td align="left">UNE-ISO 2859-3:2014</td>
+<td align="left">Procedimientos de muestreo con lotes no inspeccionados.</td>
+</tr>
+<tr class="even">
+<td align="left">UNE-ISO 2859-4:2013</td>
+<td align="left">Procedimientos para la evaluación de los niveles de calidad declarados</td>
+</tr>
+<tr class="odd">
+<td align="left">UNE-ISO 2859-5:2014</td>
+<td align="left">Sistema de planes de muestreo secuencial para la inspección lote por lote tabulados según el límite de calidad de aceptación (LCA)</td>
+</tr>
+<tr class="even">
+<td align="left">UNE-ISO 2859-10:2013</td>
+<td align="left">Introducción a la serie de normas ISO 2859 sobre el muestreo para la inspección por atributos</td>
+</tr>
+<tr class="odd">
+<td align="left">UNE-ISO 3951-1:2012</td>
+<td align="left">Especificaciones para los planes de muestreo simples tabulados según el nivel de calidad aceptable (NCA) para la inspección lote por lote para una característica de calidad única y un nivel de calidad aceptable (NCA) único.</td>
+</tr>
+<tr class="even">
+<td align="left">UNE-ISO 3951-2:2012</td>
+<td align="left">Especificación general para los planes de muestreo simples tabulados según el nivel de calidad aceptable (NCA) para la inspección lote por lote de características de calidad independientes.</td>
+</tr>
+<tr class="odd">
+<td align="left">ISO 3951-3:2007</td>
+<td align="left">Double sampling schemes indexed by acceptance quality limit (AQL) for lot-by-lot inspection</td>
+</tr>
+<tr class="even">
+<td align="left">ISO 3951-4:2011</td>
+<td align="left">Procedures for assessment of declared quality levels</td>
+</tr>
+<tr class="odd">
+<td align="left">ISO 3951-5:2006</td>
+<td align="left">Sequential sampling plans indexed by acceptance quality limit (AQL) for inspection by variables (known standard deviation)</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="planes-de-muestreo-por-atributos" class="section level2" number="15.3">
+<h2>
+<span class="header-section-number">15.3</span> Planes de muestreo por atributos<a class="anchor" aria-label="anchor" href="#planes-de-muestreo-por-atributos"><i class="fas fa-link"></i></a>
+</h2>
+<div id="la-serie-de-normas-iso-2859" class="section level3" number="15.3.1">
+<h3>
+<span class="header-section-number">15.3.1</span> La serie de normas ISO 2859<a class="anchor" aria-label="anchor" href="#la-serie-de-normas-iso-2859"><i class="fas fa-link"></i></a>
+</h3>
+<p>Se dan aquí algunas pinceladas de los usos de cada una de las normas
+de la serie, véase la norma UNE-ISO 2859-10<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;strong&gt;Une:iso:2859-10?&lt;/strong&gt;&lt;/p&gt;"><sup>107</sup></a></span> para una
+introducción más completa.</p>
+
+<div class="rmdcafe">
+Las normas internacionales
+que se utilizan actualmente tienen su origen en las <em>Military Standards</em>
+(MIL-STD)
+desarrolladas por el ejército en USA el siglo pasado y ampliamente
+aceptadas en todo el mundo.
+</div>
+<ul>
+<li><p>UNE-ISO 2859-10, Introducción a la serie de normas ISO 2859 sobre el muestreo para la inspección por atributos.
+Esta norma proporciona información y ejemplos básicos sobre cada una del resto de partes
+de la serie, además de una introducción general al muestreo.</p></li>
+<li><p>UNE-ISO 2859-1, Planes de muestreo para las inspecciones lote por lote, tabulados según
+el límite de calidad de aceptación (LCA).
+Se aplica a la inspección para la aceptación de lotes que se producen de forma continua.</p></li>
+<li><p>UNE-ISO 2859-2, Planes de muestreo para las inspecciones de lotes independientes, tabulados según la calidad límite (CL).
+Se aplica a la inspección para la aceptación de lotes aislados. La principal diferencia con la anterior es
+que no se tiene en cuenta el LCA. En ocasiones, los lotes son considerados continuos para el suministrador
+y aislados para el consumidor.</p></li>
+<li><p>UNE-ISO 2859-3, Procedimientos de muestreo con lotes no inspeccionados<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;skip-lot sampling&lt;/em&gt;, traducido a veces como
+lotes salteados o lotes discontinuos&lt;/p&gt;"><sup>108</sup></a>.
+Solo es aplicable a series continuas de lotes y no lotes aislados. Permite reducir la inspección saltándose
+algunos lotes. Solo se recomienda si el proceso ha alcanzado cierto nivel de excelencia.</p></li>
+<li><p>UNE-ISO 2589-4, Procedimientos para la evaluación de los niveles de calidad declarados.
+Estos procedimientos son adecuados para inspecciones formales o autitorías, para verificar
+un nivel de calidad declarado (NCD). No se debe utilizar para muestreos de aceptación, sino más bien
+para estimar el número o proporción de defectos.</p></li>
+<li><p>UNE-ISO 2859-5, Sistema de planes de muestreo secuencial para la inspección lote por lote tabulados según el límite de calidad de aceptación (LCA).
+Esta parte suplementa a la 2859-1, proporcionando esquemas de muestreo secuencial. El muestreo secuencial
+puede reducir el tamaño de la muestra en cada lote, pero introduce complejidad en la aplicación de las
+regals y complica también la organización. Se requiere una serie suficientemente grande de lotes y no es adecuada
+para lotes individuales.</p></li>
+</ul>
+</div>
+<div id="planes-de-muestreo-en-la-norma-iso-2859-1" class="section level3" number="15.3.2">
+<h3>
+<span class="header-section-number">15.3.2</span> Planes de muestreo en la norma ISO 2859-1<a class="anchor" aria-label="anchor" href="#planes-de-muestreo-en-la-norma-iso-2859-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Estos planes de muestreo son apropiados para series de lotes fabricados
+de forma continua, basados en el Límite de calidad de aceptación (LCA).
+Se recomienda clasificar los tipos de no conformidades
+en categorías, ya que normalmente se inspecciona más de una característica.</p>
+<p>El LCA es uno de los parámetros básicos del plan de muestreo, junto
+con la letra código. Se establece por contrato o por convención,
+pero no implica que el proveedor tenga derecho
+a enviar productos no conformes de forma consciente.
+Se puede expresar como porcentaje de elementos no conformes
+o como número de no conformidades en 100 unidades, y no
+debería ser mayor del 10% o 1000 no conformidades por
+100 unidades respectivamente.
+La media del proceso debería mantenerse muy por debajo
+del LCA para evitar excesivos rechazos de lotes.
+Existen una serie de valores de LCA recomendados,
+que son los que se usan en las tablas de las normas.
+Estos valores pueden ser <span class="math inline">\(0.010\)</span>, <span class="math inline">\(0.015\)</span>,
+<span class="math inline">\(0.025\)</span>, <span class="math inline">\(0.040\)</span>, <span class="math inline">\(0.65\)</span>, <span class="math inline">\(1.0\)</span>, <span class="math inline">\(1.5\)</span>, <span class="math inline">\(2.5\)</span>, <span class="math inline">\(4.0\)</span>,
+<span class="math inline">\(6.5\)</span> y <span class="math inline">\(10\)</span>% cuando se mide la proporción de
+elementos no conformes. Cuando se miden el
+número de no conformidades por 100 unidades
+(porque un elemento pueda tener más de una),
+lo LCA recomendados son los anteriores y además:
+15, 25, 40, 65, 100, 150, 250, 400, 650, 1000.</p>
+<p>Los planes de muestreo determinarán la
+<strong>aceptabilidad</strong> de un lote. Se prefiere hablar
+de aceptación o no aceptación (evitando el término
+“rechazo”). La “autoridad responsable”<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;La norma utiliza
+este término para mantener la neutralidad entre las partes
+interesadas&lt;/p&gt;"><sup>109</sup></a> debe decidir sobre la <strong>disposición</strong> de los
+lotes no aceptados: desechar, clasificar, reprocesar,
+reevaluar, retener, etc. Igualmente, se debe decidir
+qué hacer con las unidades no conformes encontradas en
+un lote aceptado. Como se ha indicado antes, cuando
+la conformidad dependa de varias características se
+pueden categorizar para determinar un conjunto de
+planes de muestreo, que normalmente tendrán el mismo
+tamaño de muestra pero distintos números de aceptación
+y rechazo. Por otra parte, se puede decidir sobre
+categorías críticas de forma que el muestreo solo
+afecta a las categorías no críticas, pero las críticas
+se inspeccionan al 100%. Un lote no aceptado se puede
+presentar para reinspección después de corregir o reemplazar las unidades no
+conformes, posiblemente cambiando el plan.</p>
+<p>Con respecto a la extracción de muestras, es importante resaltar que
+las decisiones tomadas a partir del resultado de los muestreos son solo
+válidos si se cumplen las hipótesis estadísticas. Una de estas hipótesis
+es la aleatoriedad de la muestra. Para realizar el muestreo estadístico,
+cada unidad del lote debe poder ser identificada con un número entre 1 y <span class="math inline">\(N\)</span>
+(tamaño del lote). Entonces se seleccionan aleatoriamente <span class="math inline">\(n\)</span> identificadores,
+y esas serán las piezas a inspeccionar. Existen varios métodos de muestreo,
+siendo los más importantes:</p>
+<ul>
+<li><p>En el muestreo aleatorio simple: todas las unidades tienen la misma
+probabilidad de ser elegidas.</p></li>
+<li><p>Muestreo estratificado: tenemos varios grupos y todos deben estar
+representados con al menos un elemento. Tomamos una muestra dentro
+de cada estrato. Dentro de los estratos,
+normalmente muestreo aleatorio simple.</p></li>
+<li><p>Muestreo por conglomerados: tenemos varios grupos tomamos una
+muestra de los grupos e inspeccionamos todos los elementos de
+los grupos seleccionados.</p></li>
+<li><p>Muestreo en varias etapas: se pueden mezclar los anteriores,
+las sucesivas muestras se extraen de la muestra anterior.</p></li>
+</ul>
+<p>La norma ISO 24153, <em>Random sampling and randomization procedures</em>,<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;strong&gt;Iso:24153?&lt;/strong&gt;&lt;/p&gt;"><sup>110</sup></a></span>
+proporciona indicaciones y métodos para obtener muestras aleatorias.
+En general, los algoritmos de generación de números aleatorios
+que incorporan las aplicaciones informáticas son válidos para este
+cometido<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Es aconsejable utilizar software estadístico especializado,
+ya que son muy superiores a los que ofrecen las hojas de cálculo como
+Excel.&lt;/p&gt;"><sup>111</sup></a>.</p>
+<p>Si no existe una necesidad contractual de realizar
+un muestreo probabilístico, o este es muy costoso de realizar
+(económica u organizativamente) es práctica común realizar
+muestreos sistemáticos. El muestreo sistemático se desarrolla
+según un plan metódico, y puede ser periódico o localizado.</p>
+
+<div class="rmddef">
+<blockquote>
+<p><strong>Muestreo sistemático periódico</strong></p>
+<p>Muestreo sistemático en el que las unidades muestrales de una
+población están dispuestos en orden, y numerados de 1 a <span class="math inline">\(N\)</span>
+en la muestra, formada por tanto por las unidades muestrales
+numeradas:</p>
+<p><span class="math display">\[h, h+k, h+2k, h + (n-1)k,\]</span></p>
+<p>donde <span class="math inline">\(h\)</span> y <span class="math inline">\(k\)</span> son enteros positivos que satisfacen las
+relaciones:
+<span class="math display">\[nk &lt; N &lt; n(k+1);\;h&lt;k;\]</span></p>
+<p><span class="math inline">\(h\)</span> generalmente se toma al azar entre los <span class="math inline">\(k\)</span> primeros números enteros, y <span class="math inline">\(n\)</span> es el número de unidades muestrales.</p>
+<p>UNE-ISO 3534-2:2013 Estadística. Vocabulario y símbolos – Parte 2: Estadística Aplicada</p>
+</blockquote>
+</div>
+<p>En todo caso, hay que tomar ciertas reservas y precauciones al realizar
+muestreos no aleatorios. En primer lugar, la muestra debe ser
+representativa del lote, por lo que para que el muestreo sistemático
+tenga validez la producción debe ser independiente de la base sistemática
+(por ejemplo, que no haya variación diferente en los puntos de muestreo)</p>
+<p>Se establacen tres intensidades de ^<strong>inspección: normal, rigurosa o reducida</strong>.
+A menos que se establezca otro criterio por la autoridad competente,
+al comienzo de la inspección se utiliza la inspección normal,
+cambiando cuando sea necesario a rigurosa, reducida o volver a normal según las
+reglas establecidas y que se esquematizan en la figura <a href="aceptacion.html#fig:reglascambio">15.2</a>.
+Pasamos de inspección normal a rigurosa si dos de cinco o menos lotes
+seguidos no son aceptados, y volvemos a la inspección normal
+cuando son aceptados cinco lotes seguidos. Pasamos de inspección
+normal a reducida cuando se obtiene una puntuación de cambio
+de al menos 30 o se han aceptado 10 lotes en inspección normal, siempre que la producción sea uniforme y el
+cambio esté aceptado por la autoridad responsable. Volvemos a inspección
+normal cuando un lote no sea aceptado o la producción se vuelva irregular.</p>
+<div class="figure">
+<span style="display:block;" id="fig:reglascambio"></span>
+<img src="images/reglascambio.png" alt="Reglas de cambio entre inspección normal, rigurosa y reducida" width="100%"><p class="caption">
+Figura 15.2: Reglas de cambio entre inspección normal, rigurosa y reducida
+</p>
+</div>
+<p>Si estando en inspección reducida durante cierto tiempo y se dan las
+condiciones para aplicar el muestreo con lotes no inspeccionados,
+podríamos pasar a aplicar la norma UNE-ISO 2859-3. Si estando
+en inspección rigurosa y no aceptamos 5 lotes consecutivos deberíamos
+suspender la inspección por muestreo.</p>
+<p>La puntuación de cambio se inicializa en cero al empezar la inspección normal.
+Después, con cada lote inspeccionado se actualiza:</p>
+<ol style="list-style-type: decimal">
+<li>En muestreo simple:</li>
+</ol>
+<ul>
+<li>Se suma 3 si el número de aceptación es mayor o igual a 2 y se acepta el lote.</li>
+<li>Se suma 2 si el número de aceptación es 0 o 1 y se acepta el lote.</li>
+<li>En otro caso, se restablece a cero.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>En muestreo doble:</li>
+</ol>
+<ul>
+<li>Se suma 3 si se acepta después de la primera muestra. Si no, se restablece a cero.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>En muestreo múltiple:</li>
+</ol>
+<ul>
+<li>Se suma 3 si se acepta en la tercera muestra. Si no, se restablece a cero.</li>
+</ul>
+<p>Para elegir el <strong>Plan de muestreo</strong> se establecen tres niveles de
+inspección general: I, II, y III, y cuatro niveles especiales S-1, S-2, S-3
+y S-4. Estos últimos son adecuados para pruebas destructivas, ya que
+requieren tamaños de muestra mucho menores. En general, se emplea el nivel II
+a menos que se requiera una menor (I) o mayor (II) discriminación. El nivel
+de inspección debe mantenerse al cambiar entre inspección normal, rigurosa y
+reducida.</p>
+<p>El tamaño de la muestra se determina por la “letra código”, tabulada
+en la tabla 1 de la norma, en función del tamaño del lote y del nivel
+de inspección.</p>
+
+<div class="rmdejemplo">
+Para lotes de tamaño <span class="math inline">\(N=10.000\)</span> y nivel de inspección II, la letra código
+es la <span class="math inline">\(N\)</span>.
+</div>
+<p>El <strong>plan de muestreo</strong> se obtiene de las tablas 2, 3, 4 y 11 de la norma.
+Cada una de las tablas está disponible para la inspección normal, reducida y
+rigurosa. Además, tenemos tablas para tres tipos de muestreos:</p>
+<ol style="list-style-type: decimal">
+<li><p>Simple: un único número de aceptación y rechazo. Si el número de defectuosos
+es menor o igual que el número de aceptación, se acepta el lote. Si es mayor
+o igual que el número de rechazo, se rechaza.</p></li>
+<li><p>Doble: primera muestra se miran números aceptación y rechazo.
+Si el número de defectuosos (o defectos) es menor o igual que el número de
+aceptación, se acepta. Si es mayor o igual que el número de rechazo, se
+rechaza. Si está entre estos dos números, se extrae una segunda muestra y
+se comprueban los números de aceptación y rechazo.
+El número de defectuosos se acumula.</p></li>
+<li><p>Múltiple: igual que el anterior, con hasta 5 posibles muestras obtenidas.</p></li>
+</ol>
+<p>El muestreo simple generalmente implica menos complicaciones administrativas
+y es más sencillo de manejar. Los muestreos doble y múltiple resultan
+en tamaños de muestra menores para un mismo riesgo.</p>
+<p>Si no hay un plan de muestreo para la letra código obtenida, la tabla
+direcciona con una flecah a otra letra código, que es la que hay que usar.</p>
+
+<div class="rmdejemplo">
+Para la letra código <span class="math inline">\(N\)</span>, y LCA = <span class="math inline">\(0.1\)</span>% y tipo de muestreo simple,
+correspondería un tamaña
+de muestra <span class="math inline">\(n = 500\)</span>. El número de aceptación es 1 y el de rechazo 2.
+Si se encuentra 1 o ningún elemento defectuoso, se acepta el lote. Si
+se encuetran 2 o más, se rechaza.
+</div>
+<p>Otras consideraciones de la norma:</p>
+<ul>
+<li><p>Curvas características de operación (OC): representan para varios tamaños
+de muestra la relación entre el porcentaje real de defectos y la probabilidad
+de ser aceptados en un determinado plan.</p></li>
+<li><p>Tablas para el límite de la calidad media de salida.</p></li>
+<li><p>Curvas para comparar tamaños medios de muestra</p></li>
+<li><p>Tablas de riesgos del consumidor y riesgos del fabricante</p></li>
+<li><p>Planes con número de aceptación fraccionario</p></li>
+</ul>
+</div>
+<div id="planes-de-muestreo-en-la-norma-iso-2859-2" class="section level3" number="15.3.3">
+<h3>
+<span class="header-section-number">15.3.3</span> Planes de muestreo en la norma ISO 2859-2<a class="anchor" aria-label="anchor" href="#planes-de-muestreo-en-la-norma-iso-2859-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Esta norma incluye el punto de vista del consumidor mediante la Calidad Límite (CL).
+Presenta planes de muestreo para una combinación de LCA con probabilidad de aceptación
+de <span class="math inline">\(0.95\)</span> y cl.</p>
+<p>Se deben elegir uno de estos dos procedimientos:</p>
+<ul>
+<li><p><strong>Procedimiento A</strong>: suminstrador y cliente consideran los lotes como independientes.</p></li>
+<li><p><strong>Procedimiento B</strong>: El suministrador considera los lotes continuos y el cliente aislado.</p></li>
+</ul>
+<p>En el procedimiento A, a partir del tamaño del lote y la calidad límite se obtiene
+el tamaño de muestra <span class="math inline">\(n\)</span> y el número de aceptación (Tabla A de la norma). Información
+adicional para el productor se puede encontrar en las tablas D1 y D2.</p>
+<p>En el procedimiento B, a partir del tamaño del lote, la calidad límite y el nivel de inspección
+(ver apartado anterior), se obtiene
+el tamaño de muestra <span class="math inline">\(n\)</span> y el número de aceptación.
+Existen varias tablas B para distintos valores de CL. Dentro de cada tabla el tamaño
+del lote y nivel de inspección determinan e <span class="math inline">\(n\)</span> y <span class="math inline">\(Ac\)</span>, además de proporcionar
+el LCA equivalente.</p>
+<p>Se pueden combinar las tablas para muestreos dobles y múltiples
+de la parte 1 para aplicarlos a este tipo de muestreos.</p>
+</div>
+<div id="planes-de-muestreo-en-la-norma-iso-2859-3" class="section level3" number="15.3.4">
+<h3>
+<span class="header-section-number">15.3.4</span> Planes de muestreo en la norma ISO 2859-3<a class="anchor" aria-label="anchor" href="#planes-de-muestreo-en-la-norma-iso-2859-3"><i class="fas fa-link"></i></a>
+</h3>
+<p>Solo es aplicable a series continuas de lotes y no lotes aislados. Permite reducir la inspección saltándose algunos lotes. Solo se recomienda si el proceso ha alcanzado cierto nivel de excelencia.</p>
+</div>
+<div id="planes-de-muestreo-en-la-norma-iso-2859-4" class="section level3" number="15.3.5">
+<h3>
+<span class="header-section-number">15.3.5</span> Planes de muestreo en la norma ISO 2859-4<a class="anchor" aria-label="anchor" href="#planes-de-muestreo-en-la-norma-iso-2859-4"><i class="fas fa-link"></i></a>
+</h3>
+<p>Adecuados para inspecciones formales o autitorías, para verificar un nivel de calidad declarado (NCD). No se debe utilizar para muestreos de aceptción, sino más bien para estimar el número o proporción de defectos.</p>
+</div>
+<div id="planes-de-muestreo-en-la-norma-iso-2859-5" class="section level3" number="15.3.6">
+<h3>
+<span class="header-section-number">15.3.6</span> Planes de muestreo en la norma ISO 2859-5<a class="anchor" aria-label="anchor" href="#planes-de-muestreo-en-la-norma-iso-2859-5"><i class="fas fa-link"></i></a>
+</h3>
+<p>El muestreo secuencial puede reducir el tamaño de la muestra en cada lote, pero introduce complejidad en la aplicación de las regals y complica también la organización. Se requiere una serie suficientemente grande de lotes y no es adecuada para lotes individuales.</p>
+</div>
+</div>
+<div id="planes-de-muestreo-por-variables" class="section level2" number="15.4">
+<h2>
+<span class="header-section-number">15.4</span> Planes de muestreo por variables<a class="anchor" aria-label="anchor" href="#planes-de-muestreo-por-variables"><i class="fas fa-link"></i></a>
+</h2>
+<p>En los muestreos de aceptación por variables,
+básicamente se estima el porcentaje de defectos basados en muestras
+en las que se mide una característica.</p>
+<div id="planes-de-muestreo-en-la-norma-iso-3951-1" class="section level3" number="15.4.1">
+<h3>
+<span class="header-section-number">15.4.1</span> Planes de muestreo en la norma ISO 3951-1<a class="anchor" aria-label="anchor" href="#planes-de-muestreo-en-la-norma-iso-3951-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Los planes de muestreo obtenidos con esta norma son aplicables cuando
+se aplica a lotes continuos, en los que se considera una sola
+característica de calidad, la fabricación es estable y está bajo control estadístico,
+la característica es aproximadamente normal, y se acuerdan límites de especificación
+superior, inferior, o ambos.</p>
+<p>La mayoría de las definiciones y conceptos de la norma ISO 2859-1 aplican aquí,
+ya que comparten la misma filosofía. No obstante hay algunas diferencias.</p>
+<p>Antes de obtener los planes de muestreo se debe decidir si hacerlo por
+variables o por atributos. Por variables los tamaños de muestra serán menores,
+pero los planes más complejos sobre todo de entender.</p>
+<p>Después hay que elegir uno de los dos métodos:el método <span class="math inline">\(s\)</span> y el método <span class="math inline">\(\sigma\)</span>.
+A continuación el LCA y el nivel de inspección (normalmente, el II).</p>
+<p>Aplicamos el método <span class="math inline">\(s\)</span> cuando no podemos dar por conocido el verdadero
+valor d <span class="math inline">\(\sigma\)</span> (desviación típica de la población). Procedemos como sigue:</p>
+<ol style="list-style-type: decimal">
+<li><p>Con el nivel de inspección y tamaño de lote, obtener letra código.</p></li>
+<li><p>Buscar tamaño de lote y constante de aceptabilidad <span class="math inline">\(k\)</span> en las tablas,
+según tipo de límites, letra código y LCA.</p></li>
+<li><p>Tomar muestra aleatoria de tamaño <span class="math inline">\(n\)</span>, calcular <span class="math inline">\(\bar{x}\)</span> y <span class="math inline">\(s\)</span></p></li>
+<li><p>Si <span class="math inline">\(\bar{x}\)</span> está fuera de los límites se rechaza el lote directamente</p></li>
+<li><p>Si no, se calcula el estadístico de calidad:</p></li>
+</ol>
+<p><span class="math display">\[Q_U=\frac{U-\bar{x}}{s}, \; o\;  Q_L = \frac{\bar{x}-L}{s}\]</span></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Se compara con la constante <span class="math inline">\(k\)</span>. Si es mayor, se acepta, si es menor, no se acepta.</li>
+</ol>
+<p>Para límites de especificación dobles la norma proporciona métodos gráficos.</p>
+<p>Para el método <span class="math inline">\(\sigma\)</span> se sigue el mismo procedimiento que en el método
+<span class="math inline">\(s\)</span>, sustituyendo <span class="math inline">\(\sigma\)</span> por <span class="math inline">\(s\)</span>, que se tiene que calcular para ir
+verificando que <span class="math inline">\(\sigma\)</span> es constante. La constante <span class="math inline">\(k\)</span> se busca en las tablas adecuadas.</p>
+<p>El muestreo de aceptación por variables puede combinarse con el uso de
+gráficos de control dada la imnportancia de mantener la estabilidad del
+proceso y su normalidad. Se puede decidir cambiar entre un método y otro
+en función de la seguridad que tengamos de la estabilidad de <span class="math inline">\(\sigma\)</span>.
+Asimismo, se aplican los criterios para cambiar entre inspección normal, rigurosa y
+reducida.</p>
+</div>
+<div id="planes-de-muestreo-en-la-norma-iso-3951-2" class="section level3" number="15.4.2">
+<h3>
+<span class="header-section-number">15.4.2</span> Planes de muestreo en la norma ISO 3951-2<a class="anchor" aria-label="anchor" href="#planes-de-muestreo-en-la-norma-iso-3951-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Esta parte de la norma proporciona un procedimiento más general
+del que aparece en la parte 1, por lo que es complementaria
+a esta. Incorpora el criterio de aceptabilidad <span class="math inline">\(p*\)</span> además
+del <span class="math inline">\(k\)</span>. Este métdodo permite usar características
+multivariantes. Esta norma requiere un procedimiento más
+profundo de métodos estadísticos y distribuciones de probabilidad para
+su correcta aplicación.</p>
+</div>
+</div>
+<div id="esquema-de-selección-de-planes-de-muestreo" class="section level2" number="15.5">
+<h2>
+<span class="header-section-number">15.5</span> Esquema de selección de planes de muestreo<a class="anchor" aria-label="anchor" href="#esquema-de-selecci%C3%B3n-de-planes-de-muestreo"><i class="fas fa-link"></i></a>
+</h2>
+<p>La figura <a href="aceptacion.html#fig:seleccionplanes">15.3</a> proporciona un esquema
+de selección de planes de muestreo de entre los explicados en
+este capítulo.</p>
+<div class="figure">
+<span style="display:block;" id="fig:seleccionplanes"></span>
+<img src="images/esquemaplanes.png" alt="Esquema de selección de planes de muestreo" width="100%"><p class="caption">
+Figura 15.3: Esquema de selección de planes de muestreo
+</p>
+</div>
 
 </div>
+</div>
+
 
 
 
@@ -98,7 +656,28 @@
 <div class="next"><a href="s%C3%ADmbolos-abreviaturas-y-acr%C3%B3nimos.html"><span class="header-section-number">A</span> Símbolos, abreviaturas y acrónimos</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="Índice capítulo"><h2>Índice capítulo</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#aceptacion"><span class="header-section-number">15</span> Inspección por muestreo</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#aceptacion"><span class="header-section-number">15</span> Inspección por muestreo</a></li>
+<li><a class="nav-link" href="#introducci%C3%B3n-6"><span class="header-section-number">15.1</span> Introducción</a></li>
+<li><a class="nav-link" href="#planes-de-muestreo-de-aceptaci%C3%B3n"><span class="header-section-number">15.2</span> Planes de muestreo de aceptación</a></li>
+<li>
+<a class="nav-link" href="#planes-de-muestreo-por-atributos"><span class="header-section-number">15.3</span> Planes de muestreo por atributos</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#la-serie-de-normas-iso-2859"><span class="header-section-number">15.3.1</span> La serie de normas ISO 2859</a></li>
+<li><a class="nav-link" href="#planes-de-muestreo-en-la-norma-iso-2859-1"><span class="header-section-number">15.3.2</span> Planes de muestreo en la norma ISO 2859-1</a></li>
+<li><a class="nav-link" href="#planes-de-muestreo-en-la-norma-iso-2859-2"><span class="header-section-number">15.3.3</span> Planes de muestreo en la norma ISO 2859-2</a></li>
+<li><a class="nav-link" href="#planes-de-muestreo-en-la-norma-iso-2859-3"><span class="header-section-number">15.3.4</span> Planes de muestreo en la norma ISO 2859-3</a></li>
+<li><a class="nav-link" href="#planes-de-muestreo-en-la-norma-iso-2859-4"><span class="header-section-number">15.3.5</span> Planes de muestreo en la norma ISO 2859-4</a></li>
+<li><a class="nav-link" href="#planes-de-muestreo-en-la-norma-iso-2859-5"><span class="header-section-number">15.3.6</span> Planes de muestreo en la norma ISO 2859-5</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#planes-de-muestreo-por-variables"><span class="header-section-number">15.4</span> Planes de muestreo por variables</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#planes-de-muestreo-en-la-norma-iso-3951-1"><span class="header-section-number">15.4.1</span> Planes de muestreo en la norma ISO 3951-1</a></li>
+<li><a class="nav-link" href="#planes-de-muestreo-en-la-norma-iso-3951-2"><span class="header-section-number">15.4.2</span> Planes de muestreo en la norma ISO 3951-2</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#esquema-de-selecci%C3%B3n-de-planes-de-muestreo"><span class="header-section-number">15.5</span> Esquema de selección de planes de muestreo</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -115,7 +694,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-03-30.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-05-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
