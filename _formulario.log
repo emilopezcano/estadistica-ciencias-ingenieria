@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2021.11.22)  29 MAR 2022 14:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2021.11.22)  7 MAY 2022 20:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -569,47 +569,71 @@ LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 3
 LaTeX Warning: Command \textperiodcentered invalid in math mode on input line 3
 10.
 
-[3] [4] [5] [6] [7] [8]
-<_formulario_files/figure-latex/unnamed-chunk-4-1.pdf, id=107, 424.58624pt x 24
+[3] [4] [5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 831--834
+
+ []
+
+[7]
+Overfull \hbox (11.2279pt too wide) in paragraph at lines 874--878
+[]\T1/lmr/m/n/10 (-20) Aditiva: Si $\OML/lmm/m/it/10 X[] \OMS/lmsy/m/n/10 ^^X \
+OML/lmm/m/it/10 N\OT1/lmr/m/n/10 (-20) (\OML/lmm/m/it/10 ^^V[]\OT1/lmr/m/n/10 (
+-20) ; \OML/lmm/m/it/10 ^^[[]\OT1/lmr/m/n/10 (-20) ) \OMS/lmsy/m/n/10 8 \OML/lm
+m/m/it/10 j \OT1/lmr/m/n/10 (-20) = 1\OML/lmm/m/it/10 ; [] ; n  \OT1/lmr/m/n/10
+ (-20) =[]\OMS/lmsy/m/n/10 ) $ $\OML/lmm/m/it/10 Y \OT1/lmr/m/n/10 (-20) = \OML
+/lmm/m/it/10 a \OT1/lmr/m/n/10 (-20) + [] \OML/lmm/m/it/10 b[]X[] \OMS/lmsy/m/n
+/10 ^^X \OML/lmm/m/it/10 N []$ 
+ []
+
+<_formulario_files/figure-latex/cprocont-1.pdf, id=104, 450.68375pt x 299.1175p
+t>
+File: _formulario_files/figure-latex/cprocont-1.pdf Graphic file (type pdf)
+<use _formulario_files/figure-latex/cprocont-1.pdf>
+Package pdftex.def Info: _formulario_files/figure-latex/cprocont-1.pdf  used on
+ input line 917.
+(pdftex.def)             Requested size: 281.86919pt x 187.07576pt.
+[8 <./_formulario_files/figure-latex/cprocont-1.pdf>]
+<_formulario_files/figure-latex/unnamed-chunk-5-1.pdf, id=118, 424.58624pt x 24
 1.90375pt>
-File: _formulario_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type p
+File: _formulario_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type p
 df)
-<use _formulario_files/figure-latex/unnamed-chunk-4-1.pdf>
-Package pdftex.def Info: _formulario_files/figure-latex/unnamed-chunk-4-1.pdf  
-used on input line 867.
-(pdftex.def)             Requested size: 328.84361pt x 187.35535pt.
-[9 <./_formulario_files/figure-latex/unnamed-chunk-4-1.pdf>] [10] (./_formulari
-o.aux) ) 
+<use _formulario_files/figure-latex/unnamed-chunk-5-1.pdf>
+Package pdftex.def Info: _formulario_files/figure-latex/unnamed-chunk-5-1.pdf  
+used on input line 930.
+(pdftex.def)             Requested size: 140.93019pt x 80.29356pt.
+[9 <./_formulario_files/figure-latex/unnamed-chunk-5-1.pdf>] [10] [11] (./_form
+ulario.aux) ) 
 Here is how much of TeX's memory you used:
- 13715 strings out of 478371
- 218686 string characters out of 5848512
- 626724 words of memory out of 5000000
- 31458 multiletter control sequences out of 15000+600000
- 469471 words of font info for 99 fonts, out of 8000000 for 9000
+ 13767 strings out of 478371
+ 219975 string characters out of 5848512
+ 630242 words of memory out of 5000000
+ 31484 multiletter control sequences out of 15000+600000
+ 469720 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,8n,77p,1008b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/
-local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/
-2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2021/texmf
--dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2021/texmf-dist/font
-s/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvip
-s/lm/lm-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx1
-0.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></us
-r/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/te
-xlive/2021/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2021
-/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2021/texmf-dist
-/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type
-1/public/lm/lmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm
-/lmr5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb></
-usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/
-texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/20
-21/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2021/texmf-di
-st/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/ty
-pe1/public/amsfonts/symbols/msam10.pfb>
-Output written on _formulario.pdf (10 pages, 252420 bytes).
+ 74i,14n,77p,1008b,472s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{
+/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/tex
+live/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2021/
+texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2021/texmf-dist
+/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc
+/dvips/lm/lm-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/
+lmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
+></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/loc
+al/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive
+/2021/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2021/texmf
+-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2021/texmf-dist/fonts
+/type1/public/lm/lmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/publ
+ic/lm/lmr5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.p
+fb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/l
+ocal/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texli
+ve/2021/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2021/tex
+mf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2021/texmf-dist/fon
+ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2021/texmf-dist
+/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on _formulario.pdf (11 pages, 287786 bytes).
 PDF statistics:
- 298 PDF objects out of 1000 (max. 8388607)
- 247 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 500000)
- 39126 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 367 PDF objects out of 1000 (max. 8388607)
+ 309 compressed objects within 4 object streams
+ 83 named destinations out of 1000 (max. 500000)
+ 39203 words of extra memory for PDF output out of 42996 (max. 10000000)
 

@@ -1041,7 +1041,7 @@ aleatoria que sigue una distribución continua exponencial.
 La media y la varianza de una variable aleatoria que sigue el modelo exponencial son:
 
 - Media: $\mu=E[X] = \frac{1}{\beta}$.
-- Varianza: $\mathit{V}[X] = \frac{1}{\beta^2}$
+- Varianza: $\mathit{V}[X] = \frac{1}{\beta^2}.$
 
 Se dice que la exponencial es una variable aleatoria _sin memoria_, en el sentido de
 que el tiempo que haya tardado en ocurrir un evento, es independiente de cuándo

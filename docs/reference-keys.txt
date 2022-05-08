@@ -270,6 +270,9 @@ teorema-central-del-límite
 aproximación-de-distribuciones
 distribuciones-relacionadas-con-la-normal
 muestreo
+muestreo-estadístico
+muestreo-probabilístico
+parámetros-y-estimadores
 comparacion2
 anova
 introducción-3

@@ -1,9 +1,12 @@
 ---
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
+```{r, include = FALSE}
+# rmarkdown::render("_formulario.Rmd", output_format = "pdf_document")
+```
 
 # Formulario {#formulario}
 
@@ -266,13 +269,11 @@ $$P\left( \bigcap\limits_{i=1}^{n} A_i \right) = P(A_1)\cdot P(A_2|A_1)\cdot P(A
   
 ### Probabilidad total y fórmula de Bayes
 
-* Probabilidad total:
+* Probabilidad total: $\boxed{P(B)=\sum\limits_{i=1}^{n} P(B/A_i)\cdot P(A_i)}$
 
-$$\boxed{P(B)=\sum\limits_{i=1}^{n} P(B/A_i)\cdot P(A_i)}$$
+* Fórmula de Bayes: $\boxed{P(A_i|B)=\frac{P(B|A_i)\cdot P(A_i)}{\sum\limits_{i=1}^{n} P(B/A_i)\cdot P(A_i)}}$
 
-* Fórmula de Bayes:
-
-$$\boxed{P(A_i|B)=\frac{P(B|A_i)\cdot P(A_i)}{\sum\limits_{i=1}^{n} P(B/A_i)\cdot P(A_i)}}$$
+\pagebreak
 
 ## Variable aleatoria
 
@@ -367,7 +368,7 @@ $$P[X\in A | X \in B] = \frac{P[(X\in A) \cap (X \in B)]}{P[X \in B]}$$
   * Propiedad: $\mathit{Ge}(p) \equiv \mathit{BN}(1;\; p)$
   
 
-* Hipergeométrica: $X \sim \mathit{HG}(N;\; M;\; n); \\max{(0, n+M-N)} \leq x \leq \min{(M,n)}$
+* Hipergeométrica: $X \sim \mathit{HG}(N;\; M;\; n); \max{(0, n+M-N)} \leq x \leq \min{(M,n)}$
   * $P[X = x] = \frac{\binom{N-M}{n-x}\cdot \binom{M}{x}}{\binom{N}{n}}$
   * Media: 
   * Varianza: $E[X] = M\cdot \frac{n}{N}$
@@ -376,19 +377,200 @@ $$P[X\in A | X \in B] = \frac{P[(X\in A) \cap (X \in B)]}{P[X \in B]}$$
   
 ### Distribuciones continuas más importantes
 
-* Uniforme
-  * Media: 
-  * Varianza: 
-  
-* Exponencial
-  * Media: 
-  * Varianza: 
-  
-* Normal
-  * Media: 
-  * Varianza: 
+* Uniforme: $X \sim \mathit{U}(a;\; b);\; a < b;\; a, b \in \mathbb{R}$
+  * Media: $\mu=E[X] = \frac{a+b}{2}$
+  * Varianza: $\sigma^2=\mathit{V}[X] = \frac{(b-a)^2}{12}.$
+  * Función de densidad: $f(x) = 
+\begin{cases}
+\frac{1}{b-a} & \text{si } a \leq x \leq b\\
+0 & \text{resto}
+\end{cases}$  
+  * Función de distribución: $F(x) = 
+\begin{cases}
+0 & \text{si } x < a \\
+\frac{x-a}{b-a} & \text{si } a \leq x < b\\
+1 & \text{si } x \geq b
+\end{cases}$  
 
-```{r, echo=FALSE, eval=FALSE}
+
+* Exponencial: $X \sim \mathit{Exp}(\beta),\; \beta>0$
+  * Media: $\mu=E[X] = \frac{1}{\beta}$
+  * Varianza: $\mathit{V}[X] = \frac{1}{\beta^2}$
+  * Función de densidad:
+$f(x) = 
+\begin{cases}
+\beta e^{-\beta x} & \text{si } x > 0\\
+0 & \text{si } x\leq 0
+\end{cases}$
+  * Función de Distribución:
+$F(x)=\int_{-\infty}^xf(t)dt=1-e^{-\beta x}, \; x > 0$
+  
+* Normal: $X \sim \mathit{N}(\mu;\; \sigma);\; \mu \in \mathbb{R}, \sigma > 0$
+  * Media: $\mu$
+  * Varianza: $\sigma$ 
+  * Función de densidad:
+$f(x) = 
+\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}},\;-\infty < x < \infty$
+  * Propiedades:
+    - Simétrica: $P[X\le \mu] = P[X>\mu]=0{,}5$
+    - Aditiva: Si $X_j \sim N(\mu_j; \sigma_j) \; \forall\; j=1, \ldots, n\implies$ $Y=a+\sum\limits_{j=1}^n b_j X_j \sim N\left(a+\sum\limits_{j=1}^n b_j \mu_j; \sqrt{\sum\limits_{j=1}^n b_j^2 \sigma_j^2} \right )$
+    - Normal tipificada: $X \sim \mathit{N}(\mu;\; \sigma) \implies Z = \frac{X-\mu}{\sigma} \sim N(0;1)$
+    
+  * Uso de la tabla $N(0; 1$
+    - En la tabla tenemos $P[Z \leq b]$ o $P[Z \leq a]$.
+    - $P[Z > a] = P[Z \leq -a] = 1- P[Z \leq a]$.
+    - $P[Z > -a] = P[Z \leq a]$.
+    - $P[-b \leq Z\leq -a]$ = $P[a \leq Z \leq b]= P[Z \leq b] - P[Z \leq a]$.
+    - $P[-a \leq Z\leq b]$ = $P[Z \leq b] + P[Z \leq a] - 1$.
+
+* Teorema Central del Límite
+  - $n$ variables i.i.d. $\implies \eta_n = \frac{S_n - n\mu}{\sigma\sqrt{n}} \mathop{\longrightarrow}^d N(0; 1)$
+  
+  
+* Aproximaciones de distribuciones
+
+$$\boxed{B(n;p)\begin{cases}
+\mathop{\longrightarrow}\limits^{p<0.05, np \text{ estable }} \leadsto Pois(np)\\
+\mathop{\longrightarrow}\limits^{n\geq 100} \leadsto N(np; \sqrt{npq})\end{cases}}\quad\boxed{\sum\limits_{i=1}^n Pois(\lambda)\mathop{\longrightarrow}\limits^{n\geq 100} \leadsto N(n\lambda; 
+\sqrt{n\lambda})}$$    
+
+    
+```{r cprocont, echo=FALSE, fig.align='center', out.width="0.6\\textwidth"}
+par(mfrow=c(2,3))
+
+
+## distribution 
+curve(pnorm(x, mean = 3),
+      xlim = c(-0.5, 6),
+      ylab = "",
+      col = "steelblue",
+      lwd = 2,
+      axes = FALSE,
+      xlab = "")
+axis(1, col = gray(0.5), pos = 0, at = c(-1, 3, 10),
+     labels = c("", "a", ""))
+axis(2, las = 2, pos = 0, col = gray(0.5),
+     at = pnorm(c(-1, 3, 10), mean=3),
+     labels = c("", "F(a)", ""))
+mtext(expression(bold(F(x))), side = 2, at = 0.75, las = 2)
+mtext(expression(F(a)), side = 1, line =4)
+lines(c(3, 3), c(0, pnorm(3, mean=3)), lty = 2)
+lines(c(0, 3), c(pnorm(c(3,3), mean=3)), lty = 2)
+mtext(expression(P*"["*X<=a*"]"), 3, cex = 1.2, padj = 0)
+
+## distribution 
+curve(pnorm(x, mean = 3),
+      xlim = c(-0.5, 6),
+      ylab = "",
+      col = "steelblue",
+      lwd = 2,
+      axes = FALSE,
+      xlab = "")
+axis(1, col = gray(0.5), pos = 0, at = c(-1, 3, 4, 10),
+     labels = c("", "a", "b", ""))
+axis(2, las = 2, pos = 0, col = gray(0.5),
+     at = pnorm(c(-1, 3, 4, 10), mean=3),
+     labels = c("", "F(a)", "F(b)", ""))
+mtext(expression(F(b)-F(a)), side = 1, line =4)
+lines(c(3, 3), c(0, pnorm(3, mean=3)), lty = 2)
+lines(c(4, 4), c(0, pnorm(4, mean=3)), lty = 2)
+lines(c(0, 3), c(pnorm(c(3,3), mean=3)), lty = 2)
+lines(c(0, 4), c(pnorm(c(4,4), mean=3)), lty = 2)
+arrows(0.25, pnorm(3, 3), 0.25, pnorm(4, 3), length = 0.1,
+       code = 3, lwd=2, col = gray(0.25))
+mtext(expression(P*"[a<X"<=b*"]"), cex = 1.2, padj = 0)
+
+curve(pnorm(x, mean = 3),
+      xlim = c(-0.5, 6),
+      ylab = "",
+      col = "steelblue",
+      lwd = 2,
+      axes = FALSE,
+      xlab = "")
+axis(1, col = gray(0.5), pos = 0, at = c(-1, 3, 10),
+     labels = c("", "a", ""))
+axis(2, las = 2, pos = 0, col = gray(0.5),
+     at = pnorm(c(-1, 3, 10), mean=3),
+     labels = c("", "F(a)", "1"))
+mtext(expression(bold(F(x))), side = 2, at = 0.75, las = 2)
+mtext(expression(1-F(a)), side = 1, line =4)
+lines(c(3, 3), c(0, pnorm(3, mean=3)), lty = 2)
+lines(c(0, 3), c(pnorm(c(3,3), mean=3)), lty = 2)
+arrows(0.25, pnorm(3, 3), 0.25, pnorm(10, 3), length = 0.1,
+       code = 3, lwd=2, col = gray(0.25))
+mtext(expression(bold(X)), side = 4, at = 0, las = 2, adj = -1)
+mtext(expression(P*"["*X>a*"]"), 3, cex = 1.2, padj = 0)
+
+curve(dnorm(x, mean = 3),
+      xlim = c(-0.5, 6),
+      ylab = "",
+      col = "steelblue",
+      lwd = 2,
+      axes = FALSE,
+      xlab = "")
+axis(1, col = gray(0.5), pos = 0, at = c(-1, 2, 10),
+     labels = c("", "a", ""), padj = -1.5)
+axis(2, las = 2, pos = 0, col = gray(0.5),
+     at = c(dnorm(c(-1), mean = 3), 10),
+     labels = c("", ""))
+text(1.5, 0.66,
+     expression(P*"[a<X"<=b*"] = "*F(b)-F(a)))
+mtext(expression(bold(f(x))), side = 2, at = 0.2, las = 2)
+mtext(expression(integral(f(x)*dx, -infinity, a)), 1, 4)
+
+xx <- c(seq(-1, 2, length.out = 100))
+polygon(x = c(-1, xx, 2, rev(xx)),
+        y = c(0, dnorm(xx, mean = 3), rep(0, 101)), col = gray(0.75),
+        lty = 3)
+
+## Density a<x<b
+curve(dnorm(x, mean = 3),
+      xlim = c(-0.5, 6),
+      ylab = "",
+      col = "steelblue",
+      lwd = 2,
+      axes = FALSE,
+      xlab = "")
+axis(1, col = gray(0.5), pos = 0, at = c(-1, 2, 3.5, 10),
+     labels = c("", "a", "b", ""), padj = -1.5)
+axis(2, las = 2, pos = 0, col = gray(0.5),
+     at = c(dnorm(c(-1), mean = 3), 10),
+     labels = c("", ""))
+
+mtext(expression(integral(f(x)*dx, a, b)), 1, 4)
+xx <- c(seq(2, 3.5, length.out = 100))
+polygon(x = c(xx, 3.5, rev(xx), 2),
+        y = c(0, dnorm(xx, mean = 3), rep(0, 101)), col = gray(0.75),
+        lty = 3)
+
+## Density x>a
+curve(dnorm(x, mean = 3),
+      xlim = c(-0.5, 6),
+      ylab = "",
+      col = "steelblue",
+      lwd = 2,
+      axes = FALSE,
+      xlab = "")
+axis(1, col = gray(0.5), pos = 0, at = c(-1, 2, 10),
+     labels = c("", "a", ""), padj = -1.5)
+axis(2, las = 2, pos = 0, col = gray(0.5),
+     at = c(dnorm(c(-1), mean = 3), 10),
+     labels = c("", ""))
+# text(1.5, 0.66,
+#      expression(P*"[a<X"<=b*"]")) # = "*F(b)-F(a)))
+# lines(c(2, 2), c(0, dnorm(2, mean=3)), lty = 2)
+# lines(c(0, 2), c(dnorm(c(2,2), mean=3)), lty = 2)
+mtext(expression(bold(X)), side = 4, at = 0, las = 2, adj = -1)
+# mtext(expression(bold(f(x))), side = 2, at = 0.2, las = 2)
+
+mtext(expression(integral(f(x)*dx, a, infinity)), 1, 4)
+xx <- c(seq(2, 6, length.out = 100))
+polygon(x = c(xx, 6, rev(xx), 2),
+        y = c(0, dnorm(xx, mean = 3), rep(0, 101)), col = gray(0.75),
+        lty = 3)
+```
+
+```{r, echo=FALSE, eval=FALSE, out.width="25%"}
 distris <- data.frame(
   Distribución = c("$\\text{Bernoulli}\n\n \\mathit{Ber}(p)$",
                    "$\\text{Binomial}\n\n \\mathit{Bin}(n;p)$",
@@ -456,7 +638,8 @@ knitr::kable(distris, escape = TRUE,
 ```
 
 
-\newpage
+\pagebreak\newpage
+
 ## Tabla distribución normal estándar
 
 ```{r, echo=FALSE}
@@ -465,9 +648,10 @@ knitr::kable(distris, escape = TRUE,
 # newm <- xtable(m, digits = 4, align = "|c|cccccccccc|")
 ```
 La siguiente tabla contiene la probabilidad de la cola inferior de la distribución normal estándar $Z\sim N(0;1)$, 
-es decir $F(z)=P[Z\leq z].$. 
+es decir $F(z)=P[Z\leq z]$, para $z>0$. Recuerda que por simetría $P[Z\le -z] = 1- P[Z \le z]$. 
 
-```{r, echo=FALSE, out.width="70%"}
+
+```{r, echo=FALSE, out.width="30%"}
 curve(dnorm, -4, 4, axes = FALSE, ylab = "f(z)~N(0,1)", xlab = "z")
 axis(1, pos=0)
 cord.x <- seq(-4, 1.28, by = 0.01)
@@ -475,6 +659,7 @@ cord.y <- dnorm(cord.x)
 polygon(c(cord.x, 1.28, 4), c(cord.y, rep(0, 2)), col='skyblue')
 text(0.2, 0.015, expression(P(Z<=z)), pos = 4, cex = 0.8)
 ```
+
 
 ```{r, echo=FALSE, results='asis'}
 options(digits = 4)
@@ -490,3 +675,91 @@ tm <- cbind(as.numeric(rownames(m)), m)
 colnames(tm)[1] <- "z"
 knitr::kable(tm, row.names = FALSE)
 ```
+
+\pagebreak
+
+## Inferencia
+
+### Distribución en el muestreo
+
+* De la media: $\overline X_{\{n\}}$: V.A. "media de la característica $X$ en muestras de tamaño $n$"
+  * $E[\overline X_{\{n\}}]$ = $\mu$
+  * $V[\overline X_{\{n\}}] = \frac{\sigma^2}{n}$
+  * $\overline X_{\{n\}} \sim N\left(\mu; \frac{\sigma}{\sqrt{n}} \right)$
+
+* De la desviación típica $S_{\{n\}}$: V.A. "desviación típica muestral de la característica $X$ en muestras de tamaño $n$"
+  * $E[S_{\{n\}}]= \sigma^2$
+  * $V[S_{\{n\}}] = \frac{2\sigma^4}{n-1}$
+  * $\frac{(n-1)S^2}{\sigma^2}\sim \chi^2_{n-1}$
+  
+* De la proporción: 
+  * $X$:  V.A. "número de elementos que son de la clase $C$ en muestras de tamaño $n$"
+  * $\pi$: V.A. "proporción de elementos que son de la clase $C$ en muestras de tamaño $n$ = $\frac {X}{n}$"
+  * $p=\frac{x}{n} \sim \mathit{Bin( n; \pi)}$
+  * Aproximación normal:
+    - $p = \frac{X}{n}\approx N\left(\pi, \sqrt{\frac{\pi(1-\pi)}{n}}\right)$
+    - $X=np \sim N(n\pi, \sqrt{n\pi(1-\pi))}$
+    
+### Tamaño de muestra: para estimación de la media
+
+* $z_{\frac{\alpha}{2}}$ es el cuantil de la distribución normal estandarizada para una probabilidad de $1-\frac{\alpha}{2}$ (omitimos en el símbolo "$1-$" por comodidad al ser simétriocos: $z_\frac \alpha 2= - z_{1-\frac \alpha 2}$)
+* Expresión general, varianza conocida y población grande: $n = \frac{z_{\frac{\alpha}{2}}^2 \sigma^2}{e^2}$
+* Población pequeña: $n = \frac{N\cdot z_{\frac{\alpha}{2}}^2 \cdot \sigma^2}{e^2\cdot (N-1)+ z_{\frac{\alpha}{2}}^2 \cdot \sigma^2}$
+* Varianza $\sigma$ desconocida: Sustituimos $\sigma$ por $s$. Si no tenemos $s$, se calcula o estima el caso más desfavorable.
+
+
+### Tamaño de muestra: para estimación de la proporción
+
+* Población grande: $n = \frac{z_{\frac{\alpha}{2}}^2 \cdot \pi\cdot(1-\pi)}{e^2}$
+* Población pequeña $N$: $n = \frac{N\cdot z_{\frac{\alpha}{2}}^2\cdot \pi\cdot(1-\pi)}{e^2\cdot (N-1)+ z_{\frac{\alpha}{2}}^2 \cdot \pi\cdot(1-\pi)}$
+* Varianza desconocida: Si no hay información sobre $\pi$, se toma el caso más desfavorable: $\pi = (1-\pi) = 0.5$
+
+### Intervalos de confianza, estadísticos de contraste y regiones de rechazo
+
+* Ver tablas aparte
+
+\pagebreak
+
+## Calidad
+
+### Gráfico de la media
+
+* Valores pre-especificados de $\mu$ y $\sigma$:
+  * $LC = \mu_0$
+  * $LCI = \mu_0 - A \sigma_0$
+  * $LCS = \mu_0 + A \sigma_0$
+  
+* Valores estimados: 
+  * $LC = \overline{\overline{X}}$
+  * $LCI = \overline{\overline{X}} - A_2 \overline{R}$
+  * $LCS = \overline{\overline{X}} + A_2 \overline{R}$
+  
+### Gráfico del rango
+
+* Valores pre-especificados
+  * $LC = d_2 \sigma_0$
+  * $LCI = D_1 \sigma_0$
+  * $LCS = D_2 \sigma_0$
+
+* Valores estimados:
+  * $LC = \overline{R}$
+  * $LCI = D_3 \overline{R}$
+  * $LCS = D_4 \overline{R}$
+  
+### Capacidad y Rendimiento del proceso
+
+* Desviación típica a largo plazo: $\hat{\sigma}_{LT}=s=\sqrt{\frac{\sum (x_i - \overline{x})^2}{n-1}}$
+* Desviación típica a corto plazo: $\hat{\sigma}_{ST}=\sqrt\frac{\sum s_i^2 }{m}$ 
+
+* Índices (sustituir $\mu$ y $\sigma$ por estimaciones o valores preespecificados):
+  * $C_p = \frac{U-L}{6\sigma_{ST}}$
+  * $P_p = \frac{U-L}{6\sigma_{LT}}$
+  * $C_{pU} = \frac{U-\mu}{3\sigma_{ST}},\quad C_{pL} = \frac{\mu - L}{3\sigma_{ST}}$
+  * $P_{pU} = \frac{U-\mu}{3\sigma_{LT}},\quad P_{pL} = \frac{\mu - L}{3\sigma_{LT}}$
+  * $C_{pk} = \min\{C_{pU}, C_{pL}\}$
+  * $P_{pk} = \min\{P_{pU}, P_{pL}\}$
+
+
+
+
+
