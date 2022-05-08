@@ -99,6 +99,7 @@ fig:dnormal2
 fig:probnor
 fig:ejnorp
 fig:tclbinom
+eq:n1
 eq:modelogeneral
 tab:anovaplanta
 fig:plantaspuntos
@@ -273,6 +274,17 @@ muestreo
 muestreo-estadístico
 muestreo-probabilístico
 parámetros-y-estimadores
+distribución-en-el-muestreo-de-los-principales-estadísticos
+media-muestral
+teorema-central-del-límite-1
+varianza-muestral
+proporción-muestral
+tamaño-muestral-para-estimar-la-media
+tamaño-muestral-para-estimar-la-proporción
+estimación-puntual
+estimación-por-intervalos
+estimación-no-paramétrica
+inferencia-bayesiana
 comparacion2
 anova
 introducción-3

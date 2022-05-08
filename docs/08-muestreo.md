@@ -138,16 +138,227 @@ distribución en el muestreo. Las siguientes son propiedades deseables de los es
 * **Consistente**: Que tenga menor variabilidad a mayor tamaño de muestra.
 
 
+## Distribución en el muestreo de los principales estadísticos
 
-Estimación y contrastes
+### Media muestral
+
+Sea la variable aleatoria $X$ con $E[X] = \mu$ y $V[X] = \sigma^2$. Obtenemos muestras de tamaño $n$: $x_1, \ldots, x_i, \ldots, x_n$. Usamos la media muestral como estimador de la media poblacional:
+
+$$\hat  \mu = \bar x = \frac 1 n \sum\limits_1^n x_i.$$
+
+Entonces $\overline X_{\{n\}}$ es la variable aleatoria "media de la característica $X$ en muestras de tamaño $n$", y por
+las propieadades de la esperanza y la varianza:
+
+* $E[\overline X_{\{n\}}]$ = $\mu$,
+
+* $V[\overline X_{\{n\}}] = \frac{\sigma^2}{n}$.
+
+
+### Teorema Central del Límite
+
+
+Sean $X_1, \ldots, X_n$ variables aleatorias independientes e idénticamente distribuidas, con
+media $\mu$ y varianza $\sigma^2$. Y sea $\overline X$ el promedio de esas variables aleatorias:
+
+$$\overline X = \frac 1 n \sum\limits_{i=1}^n X_i$$
+
+Entonces, para $n$ suficientemente grande, la variable aleatoria $\overline X_{\{n\}}$ sigue una distribución normal de media $\mu$ y varianza $\frac{\sigma^2}{n}$:
+
+$$\overline X_{\{n\}} \sim N\left(\mu; \frac{\sigma}{\sqrt{n}} \right)$$
+
+El Teorema Central del Límite nos va a permitir hacer inferencia de cualquier variable aleatoria $X$ utilizando las propiedades de la distribución normal.
+
+
+### Varianza muestral
+
+La varianza poblacional, calculada con $n$ en el denominador, es un estimador **sesgado**:
+
+$$E\left[\frac 1 n \sum (x_i-\bar x)^2 \right] = \frac{n}{n-1}\sigma^2.$$
+
+Por eso usamos la "cuasivarianza" o varianza muestral:
+
+$$\hat \sigma^2 = s^2 = \frac{ 1}{ n-1} \sum (x_i-\bar x)^2$$
+Se cumple que:
+
+* $E[s^2] = \sigma^2$
+* $V[s^2] = \frac{2\sigma^4}{n-1}$
+
+Para determinar la distribución en el muestreo de la varianza muestral, primero tenemos
+que definir la distribución $\chi^2$, que tiene un único parámetro, los grados de libertad $n$.
+Se define como la suma de $n$ variables aleatorias normales independientes estandarizadas al cuadrado:
+
+$$\chi^2_n = Z_1^2 + \ldots + Z_n^2;\quad E[\chi^2_{n}]=n; \quad V[\chi^2_{n}]=2n$$
+
+Se cumple, independientemente de la distribución de $X$, que:
+
+$$\frac{(n-1)s^2}{\sigma^2}\sim \chi^2_{n-1},$$
+que es la distribución que usaremos para hacer inferencia sobre la varianza de la población.
+
+### Proporción muestral
+
+Sea la variable aleatoria $X:$ Número de elementos de la muestra de tamaño $n$ que presentan la característica en estudio.
+Entonces al extraer la muestra, se obtienen valores $x \in \{1, \ldots, n\}$, y el estadístico proporción muestral será $p = \frac x n$. Entonces, la probabilidad de que el parámetro $\pi$ tome un valor determinado $p=\frac x n$, es equivalente a la probabilidad de que la variable $X$ tome el valor $x$:
+
+$$P[\pi = p] = P\left [\pi = \frac x n\right] = P[X = x]$$
+
+Por tanto, la distribución exacta en el muestreo de $\hat \pi = p$ es una Binomial de parámetros $n$ y $\pi$.
+
+Como la binomial es una suma de distribuciones de Bernoulli, entonces $p$ es una media: $p=\frac X n = \frac{\sum X_i}{n}$, y por el Teorema Central del Límite: 
+
+$$P = \frac{X}{n}\approx N\left(\pi, \sqrt{\frac{\pi(1-\pi)}{n}}\right).$$
+También se puede definir la distribución en el muestreo del número de elementos de la muestra con la característica, $X$:
+
+$$X=np \sim N(n\pi, \sqrt{n\pi(1-\pi))}.$$
+
+## Tamaño muestral para estimar la media
+
+Recordemos que no conocemos los parámetros de la población, por tanto necesitamos una forma de estimar el error que estamos cometiendo. Definimos entonces el error estándar de la media (_Standard Error_, SE) como: 
+
+$$SE=\frac{s}{\sqrt{n}}$$
+
+como medida de dispersión del promedio muestral. A veces se usa error típico como sinónimo. 
+
+
+:::{.rmdinfo data-latex=""}
+
+A mayor tamaño muestral, menor variabilidad, y menor error en las estimaciones.
+
+:::
+
+
+
+El error depende del tamaño muestral, y también podemos determinar cuál debe ser 
+el tamaño de la muestra $n$ para cometer, como máximo, un determinado error $e$.
+Y esto lo haremos con una cierta **confianza**. 
+En los métodos paramétricos, este nivel de confianza tiene que ver con el **muestreo**.
+Indica la proporción de veces que cometo un error inferior a $e$ si repito el muestreo 
+un número grande de veces. Se suele expresar como porcentaje, por ejemplo 95%, 99%, etc.
+
+
+Definimos el **nivel de significación** $\alpha$ como el complementario del nivel de confianza. Por ejemplo, 
+para un nivel de confianza del 95% tendríamos un nivel de significación de 0.05. Entonces, para la media de una variable aleatoria $X$ que sigue una distribución normal, si tipificamos:
+
+$$\frac{\overline X- \mu}{\frac{\sigma}{\sqrt{n}}}\sim N(0; 1).$$
+
+Entonces para cumplir la confianza indicada anteriormente, se debe dar la siguiente condición:
+
+\begin{equation} 
+  P\left[-z_{\frac{\alpha}{2}}<\frac{\overline x- \mu}{\frac{\sigma}{\sqrt{n}}}<z_{\frac{\alpha}{2}}\right] = 1-\alpha,
+  (\#eq:n1)
+\end{equation} 
+
+donde $z_{\frac{\alpha}{2}}$ es el cuantil de la distribución normal estandarizada para una probabilidad de $1-\frac{\alpha}{2}$.
+
+
+:::{.rmdinfo data-latex=""}
+Normalmente se omite en $z_{\frac{\alpha}{2}}$ el símbolo "$1-$" por comodidad al ser simétricos: $z_\frac \alpha 2= - z_{1-\frac \alpha 2}$.
+
+:::
+
+
+```r
+mu <- 0
+sig <- 1
+a <- -1.96
+b <- -5
+curve(dnorm(x, mean = mu),
+      xlim = c(mu-4*sig, mu+4*sig),
+      ylab = "",
+      col = "steelblue",
+      lwd = 2,
+      axes = FALSE,
+      xlab = "")
+axis(1, col = gray(0.5), pos = 0, 
+     at = c(   -10,   b,    a,   0,  -a, -b,  10),
+     labels = c(" ", "-b", expression(-z[alpha/2]), "0", 
+                expression(z[alpha/2]), "b", " "), 
+     padj = 1)
+axis(2, las = 2, pos = 0, col = gray(0.9),
+     at = c(dnorm(c(-1), mean = 3), 10),
+     labels = c("", ""))
+
+xx <- c(seq(a, b, length.out = 100))
+polygon(x = c(xx, b, rev(xx), a),
+        y = c(0, dnorm(xx, mean = mu), rep(0, 101)), col = gray(0.75),
+        lty = 3)
+
+xx <- c(seq(-a, -b, length.out = 100))
+polygon(x = c(xx, -b, rev(xx), -a),
+        y = c(0, dnorm(xx, mean = mu), rep(0, 101)), col = gray(0.75),
+        lty = 3)
+
+text(0, 0.1, expression(1-alpha),cex=2)
+```
+
+<img src="08-muestreo_files/figure-html/unnamed-chunk-1-1.png" width="60%" style="display: block; margin: auto;" />
+
+
+:::{.rmdejemplo data-latex=""}
+
+Para un nivel de significación $\alpha = 0.05$, $z_{\frac{\alpha}{2}} \simeq 1.96$. Podemos encontrar este valor en las tablas o con más precisión usando la siguiente expresión de R:
+
+````
+qnorm(0.95)
+````
+
+:::
+
+Despejando $\mu$ en la ecuación \@ref(eq:n1):
+
+$$P\left[\overline x-z_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}< \mu < \overline x+z_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}\right] = 1-\alpha.$$
+
+De aquí, el error que estoy cometiendo un $100 \times (1-\alpha)$% de las veces al estimar la media $\mu$ con la media muestral $\bar x$ y muestras de tamaño $n$ es:
+
+$$e=z_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}},$$
+
+de donde despejando $n$, tenemos una expresión general para calcular el tamaño de muestra:
+
+$$n = \frac{z_{\frac{\alpha}{2}}^2 \sigma^2}{e^2}.$$
+
+Esta expresión nos sirve tal cual para calcular el tamaño de muestra para estimar la
+media poblacional de una variable aleatoria normal con **varianza conocida** $\sigma^2$,
+y tamaño poblacional grande. Si el tamaño de la población es pequeño y conocido, $N$, entonces
+el tamaño de la muestra se calcula con esta otra fórmula:
+
+$$n = \frac{N\cdot z_{\frac{\alpha}{2}}^2 \cdot \sigma^2}{e^2\cdot (N-1)+ z_{\frac{\alpha}{2}}^2 \cdot \sigma^2},$$
+
+Si la varianza es desconocida, sustituimos $\sigma$ por $s$. Si no tenemos $s$, se estima el caso más desfavorable.
+
+
+:::{.rmdejemplo data-latex=""}
+Queremos estimar la valoración que hacen los clientes de un determinado servicio energético en una puntuación de 0 a 10. El caso más desfavorable (para el tamaño de la varianza) sería que la mitad de los clientes contestaran un 0 y la otra mitad un 10. O, equivalentemente, que contestara un cliente con un cero y otro con un 10. Entonces, la varianza $s^2$ sería 50. Y el tamaño de muestra mínimo para estimar la puntuación media en una población grande y no equivocarnos en más de $e = 1$ punto sería de $n =136$ clientes.
+:::
+
+
+```r
+var(c(0,10))
+#> [1] 50
+(qnorm(0.95)^2*50)/(1^2)
+#> [1] 135.2772
+```
+
+## Tamaño muestral para estimar la proporción
+
+Asumimos que serán muestras grandes, y aplicando la aproximación de la distribución binomial por la normal, tenemos que para poblaciones grandes:
+
+$$n = \frac{z_{\frac{\alpha}{2}}^2 \cdot \pi\cdot(1-\pi)}{e^2},$$
+y para poblaciones pequeñas de tamaño $N$:
+
+$$n = \frac{N\cdot z_{\frac{\alpha}{2}}^2\cdot \pi\cdot(1-\pi)}{e^2\cdot (N-1)+ z_{\frac{\alpha}{2}}^2 \cdot \pi\cdot(1-\pi)}.$$
+
+Si no hay información sobre el parámetro $\pi$, se toma el caso más desfavorable, que siempre es: $\pi = (1-\pi) = 0{,}5.$
+
+
+## Estimación puntual
 
 
 Estimadores puntuales (medias, proporciones, varianzas)
 
-Estimación por intervalos
+## Estimación por intervalos
 
-Estimación no paramétrica
 
-Inferencia Bayesiana*
+## Estimación no paramétrica
+
+## Inferencia Bayesiana*
 
 

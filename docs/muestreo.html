@@ -185,11 +185,186 @@ distribución en el muestreo. Las siguientes son propiedades deseables de los es
 <li><p><strong>Eficiente</strong>: Que tenga la mínima varianza posible.</p></li>
 <li><p><strong>Consistente</strong>: Que tenga menor variabilidad a mayor tamaño de muestra.</p></li>
 </ul>
-<p>Estimación y contrastes</p>
+</div>
+<div id="distribución-en-el-muestreo-de-los-principales-estadísticos" class="section level2" number="8.4">
+<h2>
+<span class="header-section-number">8.4</span> Distribución en el muestreo de los principales estadísticos<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-en-el-muestreo-de-los-principales-estad%C3%ADsticos"><i class="fas fa-link"></i></a>
+</h2>
+<div id="media-muestral" class="section level3" number="8.4.1">
+<h3>
+<span class="header-section-number">8.4.1</span> Media muestral<a class="anchor" aria-label="anchor" href="#media-muestral"><i class="fas fa-link"></i></a>
+</h3>
+<p>Sea la variable aleatoria <span class="math inline">\(X\)</span> con <span class="math inline">\(E[X] = \mu\)</span> y <span class="math inline">\(V[X] = \sigma^2\)</span>. Obtenemos muestras de tamaño <span class="math inline">\(n\)</span>: <span class="math inline">\(x_1, \ldots, x_i, \ldots, x_n\)</span>. Usamos la media muestral como estimador de la media poblacional:</p>
+<p><span class="math display">\[\hat  \mu = \bar x = \frac 1 n \sum\limits_1^n x_i.\]</span></p>
+<p>Entonces <span class="math inline">\(\overline X_{\{n\}}\)</span> es la variable aleatoria “media de la característica <span class="math inline">\(X\)</span> en muestras de tamaño <span class="math inline">\(n\)</span>”, y por
+las propieadades de la esperanza y la varianza:</p>
+<ul>
+<li><p><span class="math inline">\(E[\overline X_{\{n\}}]\)</span> = <span class="math inline">\(\mu\)</span>,</p></li>
+<li><p><span class="math inline">\(V[\overline X_{\{n\}}] = \frac{\sigma^2}{n}\)</span>.</p></li>
+</ul>
+</div>
+<div id="teorema-central-del-límite-1" class="section level3" number="8.4.2">
+<h3>
+<span class="header-section-number">8.4.2</span> Teorema Central del Límite<a class="anchor" aria-label="anchor" href="#teorema-central-del-l%C3%ADmite-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Sean <span class="math inline">\(X_1, \ldots, X_n\)</span> variables aleatorias independientes e idénticamente distribuidas, con
+media <span class="math inline">\(\mu\)</span> y varianza <span class="math inline">\(\sigma^2\)</span>. Y sea <span class="math inline">\(\overline X\)</span> el promedio de esas variables aleatorias:</p>
+<p><span class="math display">\[\overline X = \frac 1 n \sum\limits_{i=1}^n X_i\]</span></p>
+<p>Entonces, para <span class="math inline">\(n\)</span> suficientemente grande, la variable aleatoria <span class="math inline">\(\overline X_{\{n\}}\)</span> sigue una distribución normal de media <span class="math inline">\(\mu\)</span> y varianza <span class="math inline">\(\frac{\sigma^2}{n}\)</span>:</p>
+<p><span class="math display">\[\overline X_{\{n\}} \sim N\left(\mu; \frac{\sigma}{\sqrt{n}} \right)\]</span></p>
+<p>El Teorema Central del Límite nos va a permitir hacer inferencia de cualquier variable aleatoria <span class="math inline">\(X\)</span> utilizando las propiedades de la distribución normal.</p>
+</div>
+<div id="varianza-muestral" class="section level3" number="8.4.3">
+<h3>
+<span class="header-section-number">8.4.3</span> Varianza muestral<a class="anchor" aria-label="anchor" href="#varianza-muestral"><i class="fas fa-link"></i></a>
+</h3>
+<p>La varianza poblacional, calculada con <span class="math inline">\(n\)</span> en el denominador, es un estimador <strong>sesgado</strong>:</p>
+<p><span class="math display">\[E\left[\frac 1 n \sum (x_i-\bar x)^2 \right] = \frac{n}{n-1}\sigma^2.\]</span></p>
+<p>Por eso usamos la “cuasivarianza” o varianza muestral:</p>
+<p><span class="math display">\[\hat \sigma^2 = s^2 = \frac{ 1}{ n-1} \sum (x_i-\bar x)^2\]</span>
+Se cumple que:</p>
+<ul>
+<li><span class="math inline">\(E[s^2] = \sigma^2\)</span></li>
+<li><span class="math inline">\(V[s^2] = \frac{2\sigma^4}{n-1}\)</span></li>
+</ul>
+<p>Para determinar la distribución en el muestreo de la varianza muestral, primero tenemos
+que definir la distribución <span class="math inline">\(\chi^2\)</span>, que tiene un único parámetro, los grados de libertad <span class="math inline">\(n\)</span>.
+Se define como la suma de <span class="math inline">\(n\)</span> variables aleatorias normales independientes estandarizadas al cuadrado:</p>
+<p><span class="math display">\[\chi^2_n = Z_1^2 + \ldots + Z_n^2;\quad E[\chi^2_{n}]=n; \quad V[\chi^2_{n}]=2n\]</span></p>
+<p>Se cumple, independientemente de la distribución de <span class="math inline">\(X\)</span>, que:</p>
+<p><span class="math display">\[\frac{(n-1)s^2}{\sigma^2}\sim \chi^2_{n-1},\]</span>
+que es la distribución que usaremos para hacer inferencia sobre la varianza de la población.</p>
+</div>
+<div id="proporción-muestral" class="section level3" number="8.4.4">
+<h3>
+<span class="header-section-number">8.4.4</span> Proporción muestral<a class="anchor" aria-label="anchor" href="#proporci%C3%B3n-muestral"><i class="fas fa-link"></i></a>
+</h3>
+<p>Sea la variable aleatoria <span class="math inline">\(X:\)</span> Número de elementos de la muestra de tamaño <span class="math inline">\(n\)</span> que presentan la característica en estudio.
+Entonces al extraer la muestra, se obtienen valores <span class="math inline">\(x \in \{1, \ldots, n\}\)</span>, y el estadístico proporción muestral será <span class="math inline">\(p = \frac x n\)</span>. Entonces, la probabilidad de que el parámetro <span class="math inline">\(\pi\)</span> tome un valor determinado <span class="math inline">\(p=\frac x n\)</span>, es equivalente a la probabilidad de que la variable <span class="math inline">\(X\)</span> tome el valor <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[P[\pi = p] = P\left [\pi = \frac x n\right] = P[X = x]\]</span></p>
+<p>Por tanto, la distribución exacta en el muestreo de <span class="math inline">\(\hat \pi = p\)</span> es una Binomial de parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(\pi\)</span>.</p>
+<p>Como la binomial es una suma de distribuciones de Bernoulli, entonces <span class="math inline">\(p\)</span> es una media: <span class="math inline">\(p=\frac X n = \frac{\sum X_i}{n}\)</span>, y por el Teorema Central del Límite:</p>
+<p><span class="math display">\[P = \frac{X}{n}\approx N\left(\pi, \sqrt{\frac{\pi(1-\pi)}{n}}\right).\]</span>
+También se puede definir la distribución en el muestreo del número de elementos de la muestra con la característica, <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[X=np \sim N(n\pi, \sqrt{n\pi(1-\pi))}.\]</span></p>
+</div>
+</div>
+<div id="tamaño-muestral-para-estimar-la-media" class="section level2" number="8.5">
+<h2>
+<span class="header-section-number">8.5</span> Tamaño muestral para estimar la media<a class="anchor" aria-label="anchor" href="#tama%C3%B1o-muestral-para-estimar-la-media"><i class="fas fa-link"></i></a>
+</h2>
+<p>Recordemos que no conocemos los parámetros de la población, por tanto necesitamos una forma de estimar el error que estamos cometiendo. Definimos entonces el error estándar de la media (<em>Standard Error</em>, SE) como:</p>
+<p><span class="math display">\[SE=\frac{s}{\sqrt{n}}\]</span></p>
+<p>como medida de dispersión del promedio muestral. A veces se usa error típico como sinónimo.</p>
+<div class="rmdinfo">
+<p>A mayor tamaño muestral, menor variabilidad, y menor error en las estimaciones.</p>
+</div>
+<p>El error depende del tamaño muestral, y también podemos determinar cuál debe ser
+el tamaño de la muestra <span class="math inline">\(n\)</span> para cometer, como máximo, un determinado error <span class="math inline">\(e\)</span>.
+Y esto lo haremos con una cierta <strong>confianza</strong>.
+En los métodos paramétricos, este nivel de confianza tiene que ver con el <strong>muestreo</strong>.
+Indica la proporción de veces que cometo un error inferior a <span class="math inline">\(e\)</span> si repito el muestreo
+un número grande de veces. Se suele expresar como porcentaje, por ejemplo 95%, 99%, etc.</p>
+<p>Definimos el <strong>nivel de significación</strong> <span class="math inline">\(\alpha\)</span> como el complementario del nivel de confianza. Por ejemplo,
+para un nivel de confianza del 95% tendríamos un nivel de significación de 0.05. Entonces, para la media de una variable aleatoria <span class="math inline">\(X\)</span> que sigue una distribución normal, si tipificamos:</p>
+<p><span class="math display">\[\frac{\overline X- \mu}{\frac{\sigma}{\sqrt{n}}}\sim N(0; 1).\]</span></p>
+<p>Entonces para cumplir la confianza indicada anteriormente, se debe dar la siguiente condición:</p>
+<p><span class="math display" id="eq:n1">\[\begin{equation}
+  P\left[-z_{\frac{\alpha}{2}}&lt;\frac{\overline x- \mu}{\frac{\sigma}{\sqrt{n}}}&lt;z_{\frac{\alpha}{2}}\right] = 1-\alpha,
+  \tag{8.1}
+\end{equation}\]</span></p>
+<p>donde <span class="math inline">\(z_{\frac{\alpha}{2}}\)</span> es el cuantil de la distribución normal estandarizada para una probabilidad de <span class="math inline">\(1-\frac{\alpha}{2}\)</span>.</p>
+<div class="rmdinfo">
+<p>Normalmente se omite en <span class="math inline">\(z_{\frac{\alpha}{2}}\)</span> el símbolo “<span class="math inline">\(1-\)</span>” por comodidad al ser simétricos: <span class="math inline">\(z_\frac \alpha 2= - z_{1-\frac \alpha 2}\)</span>.</p>
+</div>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fl">0</span>
+<span class="va">sig</span> <span class="op">&lt;-</span> <span class="fl">1</span>
+<span class="va">a</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fl">1.96</span>
+<span class="va">b</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fl">5</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">x</span>, mean <span class="op">=</span> <span class="va">mu</span><span class="op">)</span>,
+      xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">mu</span><span class="op">-</span><span class="fl">4</span><span class="op">*</span><span class="va">sig</span>, <span class="va">mu</span><span class="op">+</span><span class="fl">4</span><span class="op">*</span><span class="va">sig</span><span class="op">)</span>,
+      ylab <span class="op">=</span> <span class="st">""</span>,
+      col <span class="op">=</span> <span class="st">"steelblue"</span>,
+      lwd <span class="op">=</span> <span class="fl">2</span>,
+      axes <span class="op">=</span> <span class="cn">FALSE</span>,
+      xlab <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/axis.html">axis</a></span><span class="op">(</span><span class="fl">1</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html">gray</a></span><span class="op">(</span><span class="fl">0.5</span><span class="op">)</span>, pos <span class="op">=</span> <span class="fl">0</span>, 
+     at <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>   <span class="op">-</span><span class="fl">10</span>,   <span class="va">b</span>,    <span class="va">a</span>,   <span class="fl">0</span>,  <span class="op">-</span><span class="va">a</span>, <span class="op">-</span><span class="va">b</span>,  <span class="fl">10</span><span class="op">)</span>,
+     labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">" "</span>, <span class="st">"-b"</span>, <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="op">-</span><span class="va">z</span><span class="op">[</span><span class="va">alpha</span><span class="op">/</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span>, <span class="st">"0"</span>, 
+                <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">z</span><span class="op">[</span><span class="va">alpha</span><span class="op">/</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span>, <span class="st">"b"</span>, <span class="st">" "</span><span class="op">)</span>, 
+     padj <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/axis.html">axis</a></span><span class="op">(</span><span class="fl">2</span>, las <span class="op">=</span> <span class="fl">2</span>, pos <span class="op">=</span> <span class="fl">0</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html">gray</a></span><span class="op">(</span><span class="fl">0.9</span><span class="op">)</span>,
+     at <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>, mean <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>, <span class="fl">10</span><span class="op">)</span>,
+     labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">""</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">xx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/polygon.html">polygon</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">xx</span>, <span class="va">b</span>, <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="va">xx</span><span class="op">)</span>, <span class="va">a</span><span class="op">)</span>,
+        y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">xx</span>, mean <span class="op">=</span> <span class="va">mu</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">101</span><span class="op">)</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html">gray</a></span><span class="op">(</span><span class="fl">0.75</span><span class="op">)</span>,
+        lty <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
+
+<span class="va">xx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="va">a</span>, <span class="op">-</span><span class="va">b</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/polygon.html">polygon</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">xx</span>, <span class="op">-</span><span class="va">b</span>, <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="va">xx</span><span class="op">)</span>, <span class="op">-</span><span class="va">a</span><span class="op">)</span>,
+        y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">xx</span>, mean <span class="op">=</span> <span class="va">mu</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">101</span><span class="op">)</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html">gray</a></span><span class="op">(</span><span class="fl">0.75</span><span class="op">)</span>,
+        lty <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span>, <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">alpha</span><span class="op">)</span>,cex<span class="op">=</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="08-muestreo_files/figure-html/unnamed-chunk-1-1.png" width="60%" style="display: block; margin: auto;"></div>
+<div class="rmdejemplo">
+<p>Para un nivel de significación <span class="math inline">\(\alpha = 0.05\)</span>, <span class="math inline">\(z_{\frac{\alpha}{2}} \simeq 1.96\)</span>. Podemos encontrar este valor en las tablas o con más precisión usando la siguiente expresión de R:</p>
+<pre><code>qnorm(0.95)</code></pre>
+</div>
+<p>Despejando <span class="math inline">\(\mu\)</span> en la ecuación <a href="muestreo.html#eq:n1">(8.1)</a>:</p>
+<p><span class="math display">\[P\left[\overline x-z_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}&lt; \mu &lt; \overline x+z_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}\right] = 1-\alpha.\]</span></p>
+<p>De aquí, el error que estoy cometiendo un <span class="math inline">\(100 \times (1-\alpha)\)</span>% de las veces al estimar la media <span class="math inline">\(\mu\)</span> con la media muestral <span class="math inline">\(\bar x\)</span> y muestras de tamaño <span class="math inline">\(n\)</span> es:</p>
+<p><span class="math display">\[e=z_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}},\]</span></p>
+<p>de donde despejando <span class="math inline">\(n\)</span>, tenemos una expresión general para calcular el tamaño de muestra:</p>
+<p><span class="math display">\[n = \frac{z_{\frac{\alpha}{2}}^2 \sigma^2}{e^2}.\]</span></p>
+<p>Esta expresión nos sirve tal cual para calcular el tamaño de muestra para estimar la
+media poblacional de una variable aleatoria normal con <strong>varianza conocida</strong> <span class="math inline">\(\sigma^2\)</span>,
+y tamaño poblacional grande. Si el tamaño de la población es pequeño y conocido, <span class="math inline">\(N\)</span>, entonces
+el tamaño de la muestra se calcula con esta otra fórmula:</p>
+<p><span class="math display">\[n = \frac{N\cdot z_{\frac{\alpha}{2}}^2 \cdot \sigma^2}{e^2\cdot (N-1)+ z_{\frac{\alpha}{2}}^2 \cdot \sigma^2},\]</span></p>
+<p>Si la varianza es desconocida, sustituimos <span class="math inline">\(\sigma\)</span> por <span class="math inline">\(s\)</span>. Si no tenemos <span class="math inline">\(s\)</span>, se estima el caso más desfavorable.</p>
+<div class="rmdejemplo">
+<p>Queremos estimar la valoración que hacen los clientes de un determinado servicio energético en una puntuación de 0 a 10. El caso más desfavorable (para el tamaño de la varianza) sería que la mitad de los clientes contestaran un 0 y la otra mitad un 10. O, equivalentemente, que contestara un cliente con un cero y otro con un 10. Entonces, la varianza <span class="math inline">\(s^2\)</span> sería 50. Y el tamaño de muestra mínimo para estimar la puntuación media en una población grande y no equivocarnos en más de <span class="math inline">\(e = 1\)</span> punto sería de <span class="math inline">\(n =136\)</span> clientes.</p>
+</div>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">10</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] 50</span>
+<span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.95</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">*</span><span class="fl">50</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span>
+<span class="co">#&gt; [1] 135.2772</span></code></pre></div>
+</div>
+<div id="tamaño-muestral-para-estimar-la-proporción" class="section level2" number="8.6">
+<h2>
+<span class="header-section-number">8.6</span> Tamaño muestral para estimar la proporción<a class="anchor" aria-label="anchor" href="#tama%C3%B1o-muestral-para-estimar-la-proporci%C3%B3n"><i class="fas fa-link"></i></a>
+</h2>
+<p>Asumimos que serán muestras grandes, y aplicando la aproximación de la distribución binomial por la normal, tenemos que para poblaciones grandes:</p>
+<p><span class="math display">\[n = \frac{z_{\frac{\alpha}{2}}^2 \cdot \pi\cdot(1-\pi)}{e^2},\]</span>
+y para poblaciones pequeñas de tamaño <span class="math inline">\(N\)</span>:</p>
+<p><span class="math display">\[n = \frac{N\cdot z_{\frac{\alpha}{2}}^2\cdot \pi\cdot(1-\pi)}{e^2\cdot (N-1)+ z_{\frac{\alpha}{2}}^2 \cdot \pi\cdot(1-\pi)}.\]</span></p>
+<p>Si no hay información sobre el parámetro <span class="math inline">\(\pi\)</span>, se toma el caso más desfavorable, que siempre es: <span class="math inline">\(\pi = (1-\pi) = 0{,}5.\)</span></p>
+</div>
+<div id="estimación-puntual" class="section level2" number="8.7">
+<h2>
+<span class="header-section-number">8.7</span> Estimación puntual<a class="anchor" aria-label="anchor" href="#estimaci%C3%B3n-puntual"><i class="fas fa-link"></i></a>
+</h2>
 <p>Estimadores puntuales (medias, proporciones, varianzas)</p>
-<p>Estimación por intervalos</p>
-<p>Estimación no paramétrica</p>
-<p>Inferencia Bayesiana*</p>
+</div>
+<div id="estimación-por-intervalos" class="section level2" number="8.8">
+<h2>
+<span class="header-section-number">8.8</span> Estimación por intervalos<a class="anchor" aria-label="anchor" href="#estimaci%C3%B3n-por-intervalos"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="estimación-no-paramétrica" class="section level2" number="8.9">
+<h2>
+<span class="header-section-number">8.9</span> Estimación no paramétrica<a class="anchor" aria-label="anchor" href="#estimaci%C3%B3n-no-param%C3%A9trica"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="inferencia-bayesiana" class="section level2" number="8.10">
+<h2>
+<span class="header-section-number">8.10</span> Inferencia Bayesiana*<a class="anchor" aria-label="anchor" href="#inferencia-bayesiana"><i class="fas fa-link"></i></a>
+</h2>
 
 </div>
 </div>
@@ -203,6 +378,20 @@ distribución en el muestreo. Las siguientes son propiedades deseables de los es
 <li><a class="nav-link" href="#muestreo-estad%C3%ADstico"><span class="header-section-number">8.1</span> Muestreo Estadístico</a></li>
 <li><a class="nav-link" href="#muestreo-probabil%C3%ADstico"><span class="header-section-number">8.2</span> Muestreo probabilístico</a></li>
 <li><a class="nav-link" href="#par%C3%A1metros-y-estimadores"><span class="header-section-number">8.3</span> Parámetros y estimadores</a></li>
+<li>
+<a class="nav-link" href="#distribuci%C3%B3n-en-el-muestreo-de-los-principales-estad%C3%ADsticos"><span class="header-section-number">8.4</span> Distribución en el muestreo de los principales estadísticos</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#media-muestral"><span class="header-section-number">8.4.1</span> Media muestral</a></li>
+<li><a class="nav-link" href="#teorema-central-del-l%C3%ADmite-1"><span class="header-section-number">8.4.2</span> Teorema Central del Límite</a></li>
+<li><a class="nav-link" href="#varianza-muestral"><span class="header-section-number">8.4.3</span> Varianza muestral</a></li>
+<li><a class="nav-link" href="#proporci%C3%B3n-muestral"><span class="header-section-number">8.4.4</span> Proporción muestral</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#tama%C3%B1o-muestral-para-estimar-la-media"><span class="header-section-number">8.5</span> Tamaño muestral para estimar la media</a></li>
+<li><a class="nav-link" href="#tama%C3%B1o-muestral-para-estimar-la-proporci%C3%B3n"><span class="header-section-number">8.6</span> Tamaño muestral para estimar la proporción</a></li>
+<li><a class="nav-link" href="#estimaci%C3%B3n-puntual"><span class="header-section-number">8.7</span> Estimación puntual</a></li>
+<li><a class="nav-link" href="#estimaci%C3%B3n-por-intervalos"><span class="header-section-number">8.8</span> Estimación por intervalos</a></li>
+<li><a class="nav-link" href="#estimaci%C3%B3n-no-param%C3%A9trica"><span class="header-section-number">8.9</span> Estimación no paramétrica</a></li>
+<li><a class="nav-link" href="#inferencia-bayesiana"><span class="header-section-number">8.10</span> Inferencia Bayesiana*</a></li>
 </ul>
 
       <div class="book-extra">
@@ -220,7 +409,7 @@ distribución en el muestreo. Las siguientes son propiedades deseables de los es
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-05-08.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-05-09.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
