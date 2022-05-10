@@ -138,6 +138,15 @@ realidad sería:
 
 $$\emptyset = \Omega^c$$
 
+
+```
+#> 
+#> Attaching package: 'VennDiagram'
+#> The following object is masked from 'package:flextable':
+#> 
+#>     rotate
+```
+
 <div class="figure" style="text-align: center">
 <img src="04-introp_files/figure-html/venn1-1.png" alt="Representación del espacio muestral, un suceso cualquiera y su complementario" width="70%" />
 <p class="caption">(\#fig:venn1)Representación del espacio muestral, un suceso cualquiera y su complementario</p>

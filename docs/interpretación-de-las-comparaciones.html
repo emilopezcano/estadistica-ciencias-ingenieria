@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Capítulo 6 Variable aleatoria bivariante | Estadística Aplicada a las Ciencias y la Ingeniería</title>
+<title>Capítulo 18 Interpretación de las comparaciones | Estadística Aplicada a las Ciencias y la Ingeniería</title>
 <meta name="author" content="Emilio L. Cano">
-<meta name="description" content="En preparación. Distribución conjunta Correlación y regresión">
+<meta name="description" content="Si el intervalo de confianza de la diferencia de medias contiene el cero, no podremos asegurar que haya diferencias entre las medias de las dos poblaciones (en general, nos interesará confirmar...">
 <meta name="generator" content="bookdown 0.26 with bs4_book()">
-<meta property="og:title" content="Capítulo 6 Variable aleatoria bivariante | Estadística Aplicada a las Ciencias y la Ingeniería">
+<meta property="og:title" content="Capítulo 18 Interpretación de las comparaciones | Estadística Aplicada a las Ciencias y la Ingeniería">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/vabi.html">
+<meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/interpretación-de-las-comparaciones.html">
 <meta property="og:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
-<meta property="og:description" content="En preparación. Distribución conjunta Correlación y regresión">
+<meta property="og:description" content="Si el intervalo de confianza de la diferencia de medias contiene el cero, no podremos asegurar que haya diferencias entre las medias de las dos poblaciones (en general, nos interesará confirmar...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Capítulo 6 Variable aleatoria bivariante | Estadística Aplicada a las Ciencias y la Ingeniería">
-<meta name="twitter:description" content="En preparación. Distribución conjunta Correlación y regresión">
+<meta name="twitter:title" content="Capítulo 18 Interpretación de las comparaciones | Estadística Aplicada a las Ciencias y la Ingeniería">
+<meta name="twitter:description" content="Si el intervalo de confianza de la diferencia de medias contiene el cero, no podremos asegurar que haya diferencias entre las medias de las dos poblaciones (en general, nos interesará confirmar...">
 <meta name="twitter:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -53,18 +53,28 @@
 <li class="book-part">Probabilidad</li>
 <li><a class="" href="introp.html"><span class="header-section-number">4</span> Introducción a la Probabilidad</a></li>
 <li><a class="" href="vauni.html"><span class="header-section-number">5</span> Variable aleatoria univariante</a></li>
-<li><a class="active" href="vabi.html"><span class="header-section-number">6</span> Variable aleatoria bivariante</a></li>
+<li><a class="" href="vabi.html"><span class="header-section-number">6</span> Variable aleatoria bivariante</a></li>
 <li><a class="" href="modelos.html"><span class="header-section-number">7</span> Modelos de distribución de probabilidad</a></li>
 <li class="book-part">Inferencia estadística</li>
 <li><a class="" href="muestreo.html"><span class="header-section-number">8</span> Muestreo y estimación</a></li>
-<li><a class="" href="comparacion2.html"><span class="header-section-number">9</span> Comparación de dos grupos</a></li>
-<li><a class="" href="anova.html"><span class="header-section-number">10</span> Análisis de la Varianza</a></li>
-<li><a class="" href="doe.html"><span class="header-section-number">11</span> Diseño de experimentos</a></li>
-<li><a class="" href="regresion.html"><span class="header-section-number">12</span> Modelos de regresión</a></li>
+<li><a class="" href="intervalo-de-confianza-para-mu-sigma2-desconocida.html"><span class="header-section-number">9</span> Intervalo de confianza para \(\mu\): \(\sigma^2\) desconocida</a></li>
+<li><a class="" href="distribuci%C3%B3n-t-de-student-con-n-grados-de-libertad.html"><span class="header-section-number">10</span> Distribución \(t\) de Student con \(n\) grados de libertad</a></li>
+<li><a class="" href="intervalo-de-confianza-para-la-proporci%C3%B3n.html"><span class="header-section-number">11</span> Intervalo de confianza para la proporción</a></li>
+<li><a class="" href="intervalo-de-confianza-para-la-varianza.html"><span class="header-section-number">12</span> Intervalo de confianza para la varianza</a></li>
+<li><a class="" href="intervalos-de-confianza-para-comparaciones.html"><span class="header-section-number">13</span> Intervalos de confianza para comparaciones</a></li>
+<li><a class="" href="ic-diferencia-medias-mu_1---mu_2-sigma_1.-sigma_2-conocidas.html"><span class="header-section-number">14</span> IC diferencia medias: \(\mu_1 - \mu_2\), \(\sigma_1. \sigma_2\) conocidas</a></li>
+<li><a class="" href="ic-diferencia-medias-mu_1---mu_2-sigma_1-sigma_2-desconocidas.html"><span class="header-section-number">15</span> IC diferencia medias: \(\mu_1 - \mu_2\), \(\sigma_1, \sigma_2\) desconocidas</a></li>
+<li><a class="" href="ic-raz%C3%B3n-de-varianzas-sigma_1sigma_2.html"><span class="header-section-number">16</span> IC razón de varianzas \(\sigma_1/\sigma_2\)</a></li>
+<li><a class="" href="distribuci%C3%B3n-f-de-snedecor.html"><span class="header-section-number">17</span> Distribución F de Snedecor</a></li>
+<li><a class="active" href="interpretaci%C3%B3n-de-las-comparaciones.html"><span class="header-section-number">18</span> Interpretación de las comparaciones</a></li>
+<li><a class="" href="comparacion2.html"><span class="header-section-number">19</span> Comparación de dos grupos</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">20</span> Análisis de la Varianza</a></li>
+<li><a class="" href="doe.html"><span class="header-section-number">21</span> Diseño de experimentos</a></li>
+<li><a class="" href="regresion.html"><span class="header-section-number">22</span> Modelos de regresión</a></li>
 <li class="book-part">Control estadístico de la calidad</li>
-<li><a class="" href="introc.html"><span class="header-section-number">13</span> Introducción</a></li>
-<li><a class="" href="spc.html"><span class="header-section-number">14</span> Control Estadístico de Procesos</a></li>
-<li><a class="" href="aceptacion.html"><span class="header-section-number">15</span> Inspección por muestreo</a></li>
+<li><a class="" href="introc.html"><span class="header-section-number">23</span> Introducción</a></li>
+<li><a class="" href="spc.html"><span class="header-section-number">24</span> Control Estadístico de Procesos</a></li>
+<li><a class="" href="aceptacion.html"><span class="header-section-number">25</span> Inspección por muestreo</a></li>
 <li class="book-part">Apéndices</li>
 <li><a class="" href="s%C3%ADmbolos-abreviaturas-y-acr%C3%B3nimos.html"><span class="header-section-number">A</span> Símbolos, abreviaturas y acrónimos</a></li>
 <li><a class="" href="formulario.html"><span class="header-section-number">B</span> Formulario</a></li>
@@ -81,26 +91,43 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="vabi" class="section level1" number="6">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="interpretación-de-las-comparaciones" class="section level1" number="18">
 <h1>
-<span class="header-section-number">Capítulo 6</span> Variable aleatoria bivariante<a class="anchor" aria-label="anchor" href="#vabi"><i class="fas fa-link"></i></a>
+<span class="header-section-number">Capítulo 18</span> Interpretación de las comparaciones<a class="anchor" aria-label="anchor" href="#interpretaci%C3%B3n-de-las-comparaciones"><i class="fas fa-link"></i></a>
 </h1>
-<p>En preparación.</p>
-<p>Distribución conjunta</p>
-<p>Correlación y regresión</p>
+<ul>
+<li><p>Si el intervalo de confianza de la diferencia de medias contiene el cero, no podremos asegurar que haya diferencias entre las medias de las dos <strong>poblaciones</strong> (en general, nos interesará confirmar que sí hay diferencias)</p></li>
+<li><p>Si el intervalo de confianza de la razón de varianzas contiene el 1, no podremos asegurar que haya diferencias entre las varianzas (en general, nos interesará comprobar que no hay diferencias)</p></li>
+</ul>
+<p>💡 O lo que es lo mismo, las diferencias observadas en las <strong>muestras</strong> son debidas al azar, y no a una diferencia real entre los parámetros poblacionales.</p>
+<p>Esto lo hacemos también con contrastes de hipótesis (siguiente apartado)</p>
+<div id="estimación-no-paramétrica" class="section level2" number="18.1">
+<h2>
+<span class="header-section-number">18.1</span> Estimación no paramétrica<a class="anchor" aria-label="anchor" href="#estimaci%C3%B3n-no-param%C3%A9trica"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="inferencia-bayesiana" class="section level2" number="18.2">
+<h2>
+<span class="header-section-number">18.2</span> Inferencia Bayesiana*<a class="anchor" aria-label="anchor" href="#inferencia-bayesiana"><i class="fas fa-link"></i></a>
+</h2>
 
 </div>
+</div>
   <div class="chapter-nav">
-<div class="prev"><a href="vauni.html"><span class="header-section-number">5</span> Variable aleatoria univariante</a></div>
-<div class="next"><a href="modelos.html"><span class="header-section-number">7</span> Modelos de distribución de probabilidad</a></div>
+<div class="prev"><a href="distribuci%C3%B3n-f-de-snedecor.html"><span class="header-section-number">17</span> Distribución F de Snedecor</a></div>
+<div class="next"><a href="comparacion2.html"><span class="header-section-number">19</span> Comparación de dos grupos</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="Índice capítulo"><h2>Índice capítulo</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#vabi"><span class="header-section-number">6</span> Variable aleatoria bivariante</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#interpretaci%C3%B3n-de-las-comparaciones"><span class="header-section-number">18</span> Interpretación de las comparaciones</a></li>
+<li><a class="nav-link" href="#estimaci%C3%B3n-no-param%C3%A9trica"><span class="header-section-number">18.1</span> Estimación no paramétrica</a></li>
+<li><a class="nav-link" href="#inferencia-bayesiana"><span class="header-section-number">18.2</span> Inferencia Bayesiana*</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/blob/master/06-vabi.Rmd">Ver fuente <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/edit/master/06-vabi.Rmd">Editar esta página <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/blob/master/08-muestreo.Rmd">Ver fuente <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/edit/master/08-muestreo.Rmd">Editar esta página <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -112,7 +139,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-05-11.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-05-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

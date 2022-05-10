@@ -1,3 +1,6 @@
+library(fontawesome)
+library(flextable)
+
 # R options
 options(width = 60)
 

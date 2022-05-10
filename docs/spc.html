@@ -20,7 +20,8 @@
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 <link rel="stylesheet" href="bs4_book.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -127,14 +128,14 @@ tres líneas: la línea central (LC, Línea central) y los límites de control s
 e inferior (LCI)<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En algunas aplicaciones encontraremos los acronimos sin
 traducir CL (Center Line), UCL (Upper Control Limit) y LCL (Lower
 Control Limit) para la línea central y los límites de control superior e
-inferior respectivamente.&lt;/p&gt;"><sup>92</sup></a>.
+inferior respectivamente.&lt;/p&gt;"><sup>94</sup></a>.
 La <strong>línea central</strong> representa alguna medida de centralización de la medida
 resumen que se está representado, por
 ejemplo la media. Los <strong>límites de control</strong> superior e inferior representan los límites de
 variación natural de dicha medida resumen, que generalmente se fijan en
 tres desviaciones típicas<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Nótese que aquí nos estamos refiriendo a la
 desviación típica de la &lt;em&gt;medida resumen&lt;/em&gt;, no de la característica que
-estamos midiendo.&lt;/p&gt;"><sup>93</sup></a> a ambos lados del valor central. Estos límites
+estamos midiendo.&lt;/p&gt;"><sup>95</sup></a> a ambos lados del valor central. Estos límites
 aseguran que, con el proceso bajo control, es muy improbable que un punto
 se salga de los límites. Por tanto, tendremos mucha seguridad de que el
 proceso ha dejado de estar bajo control estadśitico. Por ejemplo, para el gráfico
@@ -181,7 +182,7 @@ Si el proceso muestra control estadístico, podemos utilizar esos límites
 como límites del proceso. Si el proceso no está bajo control estadístico, se eliminan las
 causas especiales de variación<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Esta tarea depende de cada proceso y organización.
 Si no se encuentra ningna causa que corregir, se pueden calcular los límites
-de nuevo sin ese dato, hasta conseguir un proceso bajo control estadístico.&lt;/p&gt;"><sup>94</sup></a>
+de nuevo sin ese dato, hasta conseguir un proceso bajo control estadístico.&lt;/p&gt;"><sup>96</sup></a>
 y se vuelven a calcular los límites. Esta operación se repite hasta que el proceso
 esté bajo control estadístico.
 Otro aspecto importante de la Fase I es que se debe controlar primero la
@@ -246,7 +247,7 @@ no se puede achacar más que al azar. El contraste se aplica a muestras recogida
 periódicamente. Si la hipótesis es cierta, la media y la desviación típica de la
 muestra estarán dentro de sus límites naturales, asumiendo por defecto que estos
 límites son entre tres desviaciones por encima y por debajo de la media (<span class="math inline">\(\theta_0 \pm 3\sigma\)</span>)<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span class="math inline"&gt;\(\theta_0\)&lt;/span&gt; representa el valor central del gráfico, que
-puede ser la media, el rango medio, la desviación típica media, etc.&lt;/p&gt;'><sup>95</sup></a>.
+puede ser la media, el rango medio, la desviación típica media, etc.&lt;/p&gt;'><sup>97</sup></a>.
 Además de los puntos fuera de los límites, hay otras
 situaciones altamente improbables que también indican que el proceso no está bajo control.
 Así, los pasos a seguir son los siguientes.</p>
@@ -442,7 +443,7 @@ Para estimar la desviación típica, y por tanto los límites de control, utiliz
 el estimador que utiliza los rangos:</p>
 <p><span class="math display">\[\frac{\overline{R}}{d_2 \sqrt{n}},\]</span>
 donde <span class="math inline">\(\overline{R}=\frac{\sum\limits_{i=1}^n R_i}{n}\)</span> es el rango medio
-de todas las muestras. Por tanto la línea central y los límites de control del gráfico de la media son los siguientes<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;De nuevo, existe una fórmula abreviada.&lt;/p&gt;"><sup>96</sup></a>:</p>
+de todas las muestras. Por tanto la línea central y los límites de control del gráfico de la media son los siguientes<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;De nuevo, existe una fórmula abreviada.&lt;/p&gt;"><sup>98</sup></a>:</p>
 <p><span class="math display" id="eq:gcmsvp">\[\begin{align}
 LC &amp;= \overline{\overline{X}},\\
 LCI &amp;= \overline{\overline{X}} - \overline{R} \times \frac{3}{d_2 \sqrt{n}} = \overline{\overline{X}} - A_2 \overline{R},\\
@@ -634,7 +635,7 @@ es posible no esté en CRAN en el momento de usar este material. Si es así, se 
 instalar desde GitHub usando el paquete <code>remotes</code> de la siguiente forma:</p>
 <p><code>remotes::install_github("luca-scr/qcc")</code></p>
 </div>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://luca-scr.github.io/qcc/">qcc</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">samples.thick</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qccGroups.html">qccGroups</a></span><span class="op">(</span>
   data <span class="op">=</span> <span class="va">ss.data.thickness2</span>,
@@ -699,7 +700,7 @@ resultando en la figura <a href="spc.html#fig:grango2">14.4</a>. En <strong>Exce
 que calcular las líneas de control y representar la serie de los rangos junto
 a ellas. En <strong>Minitab</strong>, seleccionaríamos en el menú el gráfico R.
 </div>
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r.thick</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">samples.thick</span>, type <span class="op">=</span> <span class="st">"R"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">r.thick</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -782,7 +783,7 @@ del gráfico y los introducimos en la pestaña “Parámetros”.</p>
 límites, la desviación típica no, y tendríamos que buscar la causa asignable
 de esta situación fuera de control.</p>
 </div>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">new.sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.719</span>, <span class="fl">0.759</span>, <span class="fl">0.708</span>, <span class="fl">0.83</span>, <span class="fl">0.766</span>, <span class="fl">0.709</span><span class="op">)</span>,
                      ncol <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>
 <span class="va">ccxbar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">samples.thick</span>, type <span class="op">=</span> <span class="st">"xbar"</span>,
@@ -856,7 +857,7 @@ seleccionamos los gráficos para datos no agrupados. En <strong>Excel</strong> t
 que crear las series de rangos móviles, calcular los límites y representar las
 series como en el apartado anterior.</p>
 </div>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">thickness2days</span> <span class="op">&lt;-</span> <span class="va">ss.data.thickness2</span><span class="op">$</span><span class="va">thickness</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">24</span><span class="op">]</span>
 <span class="va">mov.samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">thickness2days</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">23</span><span class="op">]</span>, 
     <span class="va">thickness2days</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">24</span><span class="op">]</span><span class="op">)</span>
@@ -945,7 +946,7 @@ Figura 14.7: Efecto del desplazamiento de la media en el gráfico de control
 no detectar un desplazamiento de <span class="math inline">\(k\)</span>
 desviaciones típicas desde la media, es decir:</p>
 <p><span class="math display">\[\beta = P\{ \mathit{LCI} \leq \bar{x} \leq \mathit{LCS} \, |\,  \mu = \mu_0 + k\sigma \},\]</span>
-la podemos calcular de la siguiente forma:<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;strong&gt;montgomery2004?&lt;/strong&gt;&lt;/p&gt;"><sup>97</sup></a></span></p>
+la podemos calcular de la siguiente forma:<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;strong&gt;montgomery2004?&lt;/strong&gt;&lt;/p&gt;"><sup>99</sup></a></span></p>
 <p><span class="math display">\[\beta = Z(3-k\sqrt{n}) - Z(-3-k\sqrt{n}),\]</span>
 donde <span class="math inline">\(Z\)</span> es la función de distribución normal estándar (<span class="math inline">\(\mu=0,\, \sigma = 1\)</span>). Por ejemplo, en el anterior gráfico de control, la media a partir
 de cierto momento (puntos rojos) se ha desplazado dos desviaciones típicas por encima de la
@@ -1091,7 +1092,7 @@ En <strong>Minitab</strong>, seleccinamos los gráficos de control por atributos
 y proporcionamos la información de qué columnas contienen los recuentos
 y los tamaños de muestra (o un número si es fijo).
 </div>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">thick.attribute</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">thickness</span> <span class="op">~</span> <span class="va">ushift</span>, 
     data <span class="op">=</span> <span class="va">ss.data.thickness2</span>,
     FUN <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span>
@@ -1145,7 +1146,7 @@ En <strong>Minitab</strong>, seleccionamos el gráfico <span class="math inline"
 dentro de los gráficos de control por atributos e indicamos qué columna
 de la hoja de trabajo contiene los recuentos.
 </div>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">flaws</span> <span class="op">&lt;-</span> <span class="va">ss.data.thickness2</span><span class="op">$</span><span class="va">flaws</span><span class="op">[</span>
     <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ss.data.thickness2</span><span class="op">$</span><span class="va">flaws</span><span class="op">)</span><span class="op">]</span>
 <span class="va">thick.c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">flaws</span>, type <span class="op">=</span> <span class="st">"c"</span><span class="op">)</span>
@@ -1179,7 +1180,7 @@ el gráfico puede ser confuso.</p>
 <p>En <strong>Minitab</strong>, elegimos el gráfico <span class="math inline">\(u\)</span> en el menú de gráficos de control para
 atributos.</p>
 </div>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">shift.flaws</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">flaws</span> <span class="op">~</span> <span class="va">ushift</span>,
     data <span class="op">=</span> <span class="va">ss.data.thickness2</span>, 
     <span class="va">sum</span>, 
@@ -1215,7 +1216,7 @@ muestra un esquema para la selección del gráfico.</p>
 Figura 14.12: Selección del gráfico de control
 </p>
 </div>
-<p>La figura <a href="spc.html#fig:estrategia">14.13</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;adaptado de ISO 7870-2&lt;/p&gt;"><sup>98</sup></a> sintetiza el
+<p>La figura <a href="spc.html#fig:estrategia">14.13</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;adaptado de ISO 7870-2&lt;/p&gt;"><sup>100</sup></a> sintetiza el
 modo de proceder para una estrategia de SPC basada en gráficos de control.</p>
 <div class="figure">
 <span style="display:block;" id="fig:estrategia"></span>
@@ -1261,8 +1262,8 @@ robusto de Taguchi es uno de los métodos más ampliamente utilizados.
 Véase, por ejemplo, la norma ISO 16336:2014 Applications of statistical and related methods to new technology and product development process – Robust parameter design (RPD)<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;El subcomité ISO/TC 69/SC 8 – Application of
 statistical and related methodology for new technology and product development
 está dedicado al desarrollo de nuevos productos y tecnologías:
-&lt;a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_tc_browse.htm?commid=585031" class="uri"&gt;http://www.iso.org/iso/home/store/catalogue_tc/catalogue_tc_browse.htm?commid=585031&lt;/a&gt;&lt;/p&gt;'><sup>99</sup></a>, o un método más sencillo
-en <span class="citation">Cano, Moguerza, and Corcoba<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Quality Control with r. An ISO Standards Approach&lt;/em&gt;.&lt;/p&gt;"><sup>100</sup></a></span>.</p>
+&lt;a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_tc_browse.htm?commid=585031" class="uri"&gt;http://www.iso.org/iso/home/store/catalogue_tc/catalogue_tc_browse.htm?commid=585031&lt;/a&gt;&lt;/p&gt;'><sup>101</sup></a>, o un método más sencillo
+en <span class="citation">Cano, Moguerza, and Corcoba<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Quality Control with r. An ISO Standards Approach&lt;/em&gt;.&lt;/p&gt;"><sup>102</sup></a></span>.</p>
 <p>En general, tendremos un objetivo para la característica crítica para la
 calidad (CTQ) de interés. Cuanto más se acerque nuestro proceso a ese objetivo
 (T, <em>Target</em>) o valor ideal, mejor estaremos cumpliendo las especificaciones del
@@ -1271,7 +1272,7 @@ y por lo tanto no siempre será posible obtener un valor igual al
 objetivo<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En realidad, &lt;em&gt;nunca&lt;/em&gt; obtendremos un valor específico
 para variables cualitativas continuas, pero esto es otra historia que tiene
 que ver con Probabilidad. Por el momento, tengamos claro que estos valores están
-limitados por el aparato de medida utilizado&lt;/p&gt;"><sup>101</sup></a>. Igual que nuestro proceso varía,
+limitados por el aparato de medida utilizado&lt;/p&gt;"><sup>103</sup></a>. Igual que nuestro proceso varía,
 también los requisitos tienen una cierta <em>tolerancia</em>. En general tenemos
 tres tipos de procesos en función de esta tolerancia:</p>
 <ul>
@@ -1319,7 +1320,7 @@ Sin embargo, lo que nos interesa es saber cuál es el número esperado de no
 conformidades a largo plazo, dada esa distribución de probabilidad y, posiblemente,
 cuál es la pérdida del proceso bajo el enfoque de Taguchi, véase la figura
 <a href="spc.html#fig:taguchi2">14.16</a> y la justificación en el capítulo <a href="#ch:intro"><strong>??</strong></a>.</p>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">666</span><span class="op">)</span>
 <span class="va">merma1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">5</span>, <span class="fl">0.5</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>
 <span class="va">merma2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">rgamma</a></span><span class="op">(</span><span class="fl">50</span>, shape <span class="op">=</span> <span class="fl">25</span>, rate <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>
@@ -1351,7 +1352,7 @@ Por otra parte, cuando un proceso está compuesto de varios subprocesos, el
 rendimiento del proceso global será el producto de los rendimientos a lo largo
 de la <em>cadena</em> de <span class="math inline">\(n\)</span> subprocesos (rendimiento encadenado)<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Y =
 Yield, rendimiento; FTY = First Time Yield, rendimiento a la primera; RTY = Rolled Throughput
-Yield, rendimiento de la producción encadenada.&lt;/p&gt;"><sup>102</sup></a>.</p>
+Yield, rendimiento de la producción encadenada.&lt;/p&gt;"><sup>104</sup></a>.</p>
 <p><span class="math display">\[Y=\frac{\text{total}-\text{defectos}}{\text{total}}\]</span></p>
 <p><span class="math display">\[FTY=\frac{\text{total}-\text{reprocesos}-\text{defectos}}{\text{total}}\]</span>
 <span class="math display">\[RTY=\prod_{i=1}^n FTY_i = FTY_1 \times FTY_2 \times \cdots \times
@@ -1530,7 +1531,7 @@ que se calcula de forma similar al índice de capacidad:</p>
 obtenido es el número de desviaciones típicas que caben entre los límites de
 especificación. Así, una sigma igual a 3 tiene la misma interpretación que el
 el índice <span class="math inline">\(C_{pk}\)</span> igual a 1. Habitualmente se asume<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Esta es una de
-las grandes controversias de la metodología Seis Sigma.&lt;/p&gt;"><sup>103</sup></a> que hay que restar 1.5
+las grandes controversias de la metodología Seis Sigma.&lt;/p&gt;"><sup>105</sup></a> que hay que restar 1.5
 unidades a la sigma calculada con la variabilidad a corto plazo para reflejar la variabilidad del proceso a
 largo plazo (<span class="math inline">\(Z_{LT}=Z_{ST} - 1.5\)</span>. Un proceso cuya sigma es igual a 6
 estará produciendo sólo 3.4 DPMO (defectos por millón de oportunidades).</p>
@@ -1564,7 +1565,7 @@ la figura <a href="spc.html#fig:capespesor">14.21</a>. Este ejemplo concreto mue
 proceso con muchos errores (reales 27%, esperados 20.4%), y
 unos índices muy por debajo del 1, que requiere inspección 100%.</p>
 </div>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://lattice.r-forge.r-project.org/">lattice</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/xyplot.html">dotplot</a></span><span class="op">(</span><span class="va">thickness</span> <span class="op">~</span> <span class="va">shift</span> <span class="op">|</span> <span class="va">day</span>, 
     data <span class="op">=</span> <span class="va">ss.data.thickness2</span>,
@@ -1575,7 +1576,7 @@ unos índices muy por debajo del 1, que requiere inspección 100%.</p>
 Figura 14.20: Variabilidad a corto y a largo plazo
 </p>
 </div>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://luca-scr.github.io/qcc/">qcc</a></span><span class="op">)</span>
 <span class="va">groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qccGroups.html">qccGroups</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ss.data.thickness2</span>, 
                     x <span class="op">=</span> <span class="va">thickness</span>, 
@@ -1638,7 +1639,7 @@ para calcular la sigma del proceso y otras métricas al estilo Seis Sigma.
 El siguiente código realiza
 un análisis de capacidad de los datos de embotellado de una bodega.
 </div>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.sixsigmawithr.com">SixSigma</a></span><span class="op">)</span>
 <span class="fu"><a href="http://emilopezcano.github.io/SixSigma/reference/ss.study.ca.html">ss.study.ca</a></span><span class="op">(</span><span class="va">ss.data.ca</span><span class="op">$</span><span class="va">Volume</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">753</span>, <span class="fl">3</span><span class="op">)</span>, 
         LSL <span class="op">=</span> <span class="fl">740</span>, USL <span class="op">=</span> <span class="fl">760</span>, T <span class="op">=</span> <span class="fl">750</span>, alpha <span class="op">=</span> <span class="fl">0.05</span>, 
@@ -1696,7 +1697,7 @@ de control y la inspección por muestreo, reflejadas en la figura
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-05-09.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-05-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

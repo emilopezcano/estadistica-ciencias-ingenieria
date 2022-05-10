@@ -124,7 +124,7 @@ Representamos con $\hat \mu = \bar x$ que la media muestral $\bar x$ es un estim
 :::{.rmdejemplo data-latex=""}
 * Proporción: $\hat \pi = p$
 * Media: $\hat \mu = \bar x$ 
-* Varianza: $\hat \sigma^2 = s^2 = \frac{1}{n-1}\sum x_i^2 - \bar x^2$
+* Varianza: $\hat \sigma^2 = s^2 = \frac{1}{n-1}\left( \sum x_i^2 - n \bar x^2 \right )$
 :::
 
 
@@ -236,7 +236,7 @@ un número grande de veces. Se suele expresar como porcentaje, por ejemplo 95%, 
 
 
 Definimos el **nivel de significación** $\alpha$ como el complementario del nivel de confianza. Por ejemplo, 
-para un nivel de confianza del 95% tendríamos un nivel de significación de 0.05. Entonces, para la media de una variable aleatoria $X$ que sigue una distribución normal, si tipificamos:
+para un nivel de confianza del 95% tendríamos un nivel de significación de 0,05. Entonces, para la media de una variable aleatoria $X$ que sigue una distribución normal, si tipificamos:
 
 $$\frac{\overline X- \mu}{\frac{\sigma}{\sqrt{n}}}\sim N(0; 1).$$
 
@@ -255,47 +255,12 @@ Normalmente se omite en $z_{\frac{\alpha}{2}}$ el símbolo "$1-$" por comodidad 
 
 :::
 
-
-```r
-mu <- 0
-sig <- 1
-a <- -1.96
-b <- -5
-curve(dnorm(x, mean = mu),
-      xlim = c(mu-4*sig, mu+4*sig),
-      ylab = "",
-      col = "steelblue",
-      lwd = 2,
-      axes = FALSE,
-      xlab = "")
-axis(1, col = gray(0.5), pos = 0, 
-     at = c(   -10,   b,    a,   0,  -a, -b,  10),
-     labels = c(" ", "-b", expression(-z[alpha/2]), "0", 
-                expression(z[alpha/2]), "b", " "), 
-     padj = 1)
-axis(2, las = 2, pos = 0, col = gray(0.9),
-     at = c(dnorm(c(-1), mean = 3), 10),
-     labels = c("", ""))
-
-xx <- c(seq(a, b, length.out = 100))
-polygon(x = c(xx, b, rev(xx), a),
-        y = c(0, dnorm(xx, mean = mu), rep(0, 101)), col = gray(0.75),
-        lty = 3)
-
-xx <- c(seq(-a, -b, length.out = 100))
-polygon(x = c(xx, -b, rev(xx), -a),
-        y = c(0, dnorm(xx, mean = mu), rep(0, 101)), col = gray(0.75),
-        lty = 3)
-
-text(0, 0.1, expression(1-alpha),cex=2)
-```
-
 <img src="08-muestreo_files/figure-html/unnamed-chunk-1-1.png" width="60%" style="display: block; margin: auto;" />
 
 
 :::{.rmdejemplo data-latex=""}
 
-Para un nivel de significación $\alpha = 0.05$, $z_{\frac{\alpha}{2}} \simeq 1.96$. Podemos encontrar este valor en las tablas o con más precisión usando la siguiente expresión de R:
+Para un nivel de significación $\alpha = 0{,}05$, $z_{\frac{\alpha}{2}} \simeq 1{,}96$. Podemos encontrar este valor en las tablas o con más precisión usando la siguiente expresión de R:
 
 ````
 qnorm(0.95)
@@ -351,10 +316,391 @@ Si no hay información sobre el parámetro $\pi$, se toma el caso más desfavora
 
 ## Estimación puntual
 
+Uno de los objetivos de la inferencia estadística es la estimación de los parámetros de la
+población, a partir de los datos de la muestra. Mediante la estimación puntual daremos
+un valor único como estimación del parámetro, mediante un estimador (función aplicada a los datos de
+la muestra). Así, para los parámetros más importantes tenemos los siguientes estimadores:
 
-Estimadores puntuales (medias, proporciones, varianzas)
+* Proporción: $\hat \pi = p = \frac x n$.
+* Media: $\hat \mu = \bar x = \frac{\sum x_i}{n}$. 
+* Varianza: $\hat \sigma^2 = s^2 = \frac{1}{n-1}\left( \sum x_i^2 - n \bar x^2 \right )$.
+
+Se pueden determinar los mejores estimadores para cualquier parámetro de cualquier
+distribución de probabilidad, que cumplan las características de insesgadez, eficiencia y consistencia. 
+Para ello se pueden utilizar diversos métodos, como el método de los momentos o el de máxima verosimilitud,
+que no se tratan en este texto aplicado.
+
+
+:::{.rmdejemplo data-latex=""}
+`<svg aria-hidden="true" role="img" viewBox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M378.31 378.49L298.42 288h30.63c9.01 0 16.98-5 20.78-13.06 3.8-8.04 2.55-17.26-3.28-24.05L268.42 160h28.89c9.1 0 17.3-5.35 20.86-13.61 3.52-8.13 1.86-17.59-4.24-24.08L203.66 4.83c-6.03-6.45-17.28-6.45-23.32 0L70.06 122.31c-6.1 6.49-7.75 15.95-4.24 24.08C69.38 154.65 77.59 160 86.69 160h28.89l-78.14 90.91c-5.81 6.78-7.06 15.99-3.27 24.04C37.97 283 45.93 288 54.95 288h30.63L5.69 378.49c-6 6.79-7.36 16.09-3.56 24.26 3.75 8.05 12 13.25 21.01 13.25H160v24.45l-30.29 48.4c-5.32 10.64 2.42 23.16 14.31 23.16h95.96c11.89 0 19.63-12.52 14.31-23.16L224 440.45V416h136.86c9.01 0 17.26-5.2 21.01-13.25 3.8-8.17 2.44-17.47-3.56-24.26z"/></svg>`{=html} La normativa de calidad del agua^[https://www.boe.es/buscar/act.php?id=BOE-A-2003-3596] determina que el parámetro pH debe estar 
+entre 6.5 y 9.5 unidades de pH. Se obtienen 30 muestras aleatorias en hogares y se mide el pH, registrando también si el edificio tiene depósito de agua y la cantidad de antimonio en $\mu$g/l. Los datos se
+muestran en la tabla \@ref(tab:ph1). Podríamos estimar con estos datos la media de pH en la población, la varianza, y la proporción de edificios con depósito de agua, utilizando los estimadores indicados anteriormente. 
+:::
+
+
+
+
+
+
+
+:::{.rmdpractica data-latex=""}
+`<svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:steelblue;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>`{=html} El siguiente código calcula la media muestral del pH, la varianza muestral del pH, y la
+proporción muestral de edificios con depósito de agua (y por tanto también si depósito de agua). Los datos se importan directamente
+de una url.
+:::
+
+
+```r
+ph1 <- readr::read_rds("https://lcano.com/data/eaci/ph1.rds")
+mean(ph1$pH)
+#> [1] 8.041267
+var(ph1$pH)
+#> [1] 0.2134909
+prop.table(table(ph1$deposito))
+#> 
+#>        No        Sí 
+#> 0.6333333 0.3666667
+```
+
 
 ## Estimación por intervalos
+
+Al hacer la estimación puntual de cualquier parámetro, digamos genéricamente $\theta$, estamos cometiendo un error $e$. Este error se puede cuantificar gracias a la distribución en el muestreo del estadístico que estemos usando como estimador. Y entonces podemos construir **intervalos de confianza** (IC) para el parámetro que estamos estimando.
+
+El intervalo puede ser bilateral, con dos límites inferior y superior, $\theta \in[\mathit{LI}, \mathit{LS}]$
+de manera que:
+
+$$P[\mathit{LI} < \theta < \mathit{LS}]=1-\alpha.$$
+Esta expresión indica que la probabilidad de que el verdadero valor del parámetro $\theta$ esté dentro del intervalo es $1-\alpha$. Dicho de otro modo, si repitiéramos el proceso de muestreo indefinidamente, el 95% de las veces el valor estimado del parámetro $\theta$ estaría dentro del intervalo de confianza. 
+Nótese que la probabilidad de que el parámetro sea mayor que el límite
+superior o menor que el límite inferior será $\frac \alpha 2$. Aquí, $1-\alpha$ es el nivel de confianza (se expresa a menudo como porcentaje), y $\alpha$ es el nivel de significación. 
+
+Los intervalos de confianza también pueden ser unilaterales, cuando solamente nos interesa saber un umbral mínimo o máximo del verdadero valor del parámetro. Estos intervalos tienen un único límite inferior o superior, y se pueden expresar como:
+
+* $[LI, \infty)$: $P[\theta > LI] = 1-\alpha$.
+* $(-\infty, LS]$: $P\theta < LS] = 1-\alpha$.
+
+La diferencia principal es que, con la misma confianza, queremos asegurarnos de que el verdadero valor del parámetro no es mayor que el límite superior o no es menor que el límite inferior (pero el lado opuesto nos da igual).
+
+:::{.rmdejemplo data-latex=""}
+`<svg aria-hidden="true" role="img" viewBox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M378.31 378.49L298.42 288h30.63c9.01 0 16.98-5 20.78-13.06 3.8-8.04 2.55-17.26-3.28-24.05L268.42 160h28.89c9.1 0 17.3-5.35 20.86-13.61 3.52-8.13 1.86-17.59-4.24-24.08L203.66 4.83c-6.03-6.45-17.28-6.45-23.32 0L70.06 122.31c-6.1 6.49-7.75 15.95-4.24 24.08C69.38 154.65 77.59 160 86.69 160h28.89l-78.14 90.91c-5.81 6.78-7.06 15.99-3.27 24.04C37.97 283 45.93 288 54.95 288h30.63L5.69 378.49c-6 6.79-7.36 16.09-3.56 24.26 3.75 8.05 12 13.25 21.01 13.25H160v24.45l-30.29 48.4c-5.32 10.64 2.42 23.16 14.31 23.16h95.96c11.89 0 19.63-12.52 14.31-23.16L224 440.45V416h136.86c9.01 0 17.26-5.2 21.01-13.25 3.8-8.17 2.44-17.47-3.56-24.26z"/></svg>`{=html} La normativa de calidad del agua mencionada en el 
+ejemplo del pH, determina un valor paramétrico de 5 $\mu$g/l de antimonio como
+límite máximo. En este caso, el intervalo de confianza que nos interesará es
+un intervalo unilateral con un único límite superior, ya que la característica en 
+estudio es "cuanto menor, mejor".
+:::
+
+
+Para determinar los intervalos de confianza, nos basamos en la distribución
+en el muestreo de cada estimador $\hat \theta$. A continuación deduciremos
+las fórmulas para los intervalos de confianza de la media, la varianza y
+la proporción.
+
+### Intervalo de confianza para $\mu$: $\sigma^2$ conocida
+
+
+La media muestral de tamaño $n$ sigue una distribución Normal con media $\mu$ y
+varianza $\frac{\sigma^2}{n}$. Por tanto, tipificando, tenemos la siguiente distribución en
+el muestreo:
+
+\begin{equation}
+\frac{\overline X- \mu}{\frac{\sigma}{\sqrt{n}}}\sim N(0; 1).
+  (\#eq:dmz)
+\end{equation} 
+
+Par un nivel de confianza $1-\alpha$ determinado, si buscamos un **intervalo bilateral** tenemos que:
+
+$$P\left[-z_{\frac{\alpha}{2}}<\frac{\overline x- \mu}{\frac{\sigma}{\sqrt{n}}}<z_{\frac{\alpha}{2}}\right] = 1-\alpha.$$
+
+Y despejando $\mu$ tendremos que, con una confianza de $1-\alpha$, el verdadero valor del parámetro $\mu$ estará en el 
+intervalo: 
+
+$$\mu \in \left [\bar x - z_{\frac{\alpha}{2}}\cdot \frac{\sigma}{\sqrt{n}};\; \bar x + z_{\frac{\alpha}{2}}\cdot \frac{\sigma}{\sqrt{n}}\right].$$
+
+
+O, de forma más compacta:
+
+\begin{equation}
+\boxed{\bar x \pm z_{\frac{\alpha}{2}}\cdot \frac{\sigma}{\sqrt{n}}}
+  (\#eq:icz)
+\end{equation} 
+
+:::{.rmdpractica data-latex=""}
+`<svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:steelblue;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>`{=html} La estimación puntual de la media del pH en las
+30 viviendas muestreadas en el ejemplo anterior, está sujeta a un cierto error. Vamos a 
+dar la estimación como un intervalo de confianza al 95%. Supongamos que la varianza
+es conocida e igual a $\sigma^2 = 0{,}25$. Para varianza conocida
+no hay una función específica que nos dé el intervalo de confianza, pero es
+muy fácil obtenerlo con la siguiente expresión, donde `c(-1,1)*` nos permite
+obtener dos números, uno sumando y otro restando aquello a lo que multiplica,
+y `qnorm(0.975)` nos da el valor de $z_{\frac \alpha 2}$, dado que si 
+$1-\alpha=0{,}95 \implies \frac \alpha 2 = \frac{ 0{,}05}{ 2} = 0{,}025$. 
+:::
+
+
+```r
+mean(ph1$pH) + c(-1, 1)*qnorm(0.975)*sqrt(0.25)/sqrt(30)
+#> [1] 7.862347 8.220186
+```
+
+
+:::{.rmdinfo data-latex=""}
+Recordemos que por simplicidad escribimos $z_{\frac{\alpha}{2}}$ pero tomamos
+el cuantil de la distribución normal en $1-\frac \alpha 2$, es decir, 0,975.
+En la práctica, en este caso daría igual, porque $z_{\frac \alpha 2} = - z_{1- \frac \alpha 2}$
+y al aplicar la fórmula con $\pm$ el resultado serían los mismos límites. 
+Sin embargo, en los intervalos bilaterales tenemos que poner cuidado con los cálculos.
+:::
+
+Los **intervalos unilaterales** se deducen análogamente, pero acotando el valor
+de la distribución normal
+solo en una de las colas. Por ejemplo, para un intervalo unilateral por la derecha:
+
+$$P\left[\frac{\overline x- \mu}{\frac{\sigma}{\sqrt{n}}}<z_{\alpha}\right] = 1-\alpha.$$
+Y el intervalo de confianza ahora será:
+
+$$\boxed{\mu < \bar x + z_{\alpha}\cdot \frac{\sigma}{\sqrt{n}}}.$$
+Análogamente, para un intervalo por la izquierda, el intervalo de
+confianza será:
+
+$$\boxed{\mu > \bar x - z_{\alpha}\cdot \frac{\sigma}{\sqrt{n}}}.$$
+
+Nótese que en los intervalos unilaterales utilizamos $z_\alpha$ en vez de $z_{\frac \alpha 2}$.
+Esto es porque concentramos toda la probabilidad de error en una de las colas,
+lo que además reduce el error en la estimación. Por eso, cuando solo estemos interesados
+en uno de los límites, el superior o el inferior, siempre es preferible obtener
+intervalos unilaterales. La figura \@ref(fig:zalpha) muestra una representación
+de las tres situaciones.
+
+<div class="figure">
+<img src="08-muestreo_files/figure-html/zalpha-1.png" alt="$z_{\frac \alpha 2}$ o $z_\alpha$, esa es la cuestión" width="672" />
+<p class="caption">(\#fig:zalpha)$z_{\frac \alpha 2}$ o $z_\alpha$, esa es la cuestión</p>
+</div>
+
+
+:::{.rmdpractica data-latex=""}
+`<svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:steelblue;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>`{=html} En el ejemplo del antimonio, queremos obtener 
+un intervalo de confianza al 99%
+para dar cuenta de la incertidumbre en la estimación puntual, pero
+con mucha confianza. Además, para
+aumentar la precisión de nuestra estimación por intervalos, solo
+nos interesa el límite superior, que es donde podemos tener el riesgo
+para la salud. Supongamos que la varianza es conocida, $\sigma^2 = 0{,}0064$.
+Entonces el límite superior sería el calculado con la siguiente
+expresión. Esto quiere decir que, con una confianza del 99%, la media del
+antimonio en el agua potable es menor de 1,05 $\mu$g/l, muy lejos del límite
+marcado por la legislación (téngase en cuenta que hacemos estimaciones sobre la media, no
+sobre posibles valores individuales).
+:::
+
+
+```r
+mean(ph1$antimonio) + qnorm(0.99)*sqrt(0.0064)/sqrt(30)
+#> [1] 1.048645
+```
+
+
+### Intervalo de confianza para $\mu$: $\sigma^2$ desconocida
+
+En la ecuación \@ref(eq:icz) asumimos que la varianza de la población $\sigma^2$
+es conocida. Pero esto rara vez lo podemos dar por hecho, y en su lugar
+lo que tenemos es una estimación a través de una muestra y el estadístico $s^2$.
+Si sustituimos en la ecuación \@ref(eq:dmz), la distribución en el muestreo ya no 
+es una distribución normal sino una $t$ de Student.
+
+$$\frac{\overline X- \mu}{\frac{s}{\sqrt{n}}}\sim t_{n-1},$$
+
+Par un nivel de confianza $1-\alpha$ determinado, si buscamos un **intervalo bilateral** tenemos que:
+
+$$P\left[-t_{n-1,\frac{\alpha}{2}}<\frac{\overline x- \mu}{\frac{s}{\sqrt{n}}}<t_{n-1,\frac{\alpha}{2}}\right] = 1-\alpha.$$
+
+Y despejando $\mu$ tendremos que, con una confianza de $1-\alpha$, el verdadero valor del parámetro $\mu$ estará en el 
+intervalo: 
+
+$$\boxed{IC_\mu=\bar x \pm t_{n-1, \frac{\alpha}{2}}\cdot \frac{s}{\sqrt{n}}}$$
+
+
+La distribución $t$ de Student tiene un único parámetro $n$, que son los grados de libertad.
+Sean las variables aleatorias $X, X_1, X_n \sim N(0;1)$. Entonces, la variable aleatoria
+definida por: 
+
+$$T = \frac{X}{\frac{1}{n}\sum X_i^2}\sim t_{n},$$
+sigue una distribución $t$ de Student con $n$ grados de libertad, y que tiene
+las siguientes características:
+
+* $E[T]=0$
+
+* $V[T]=\frac{n}{n-2}$
+
+* $n>30 \implies t_n \sim N(0;1)$
+
+En la práctica, obtendremos los valores $t_{n-1; \frac\alpha 2}$ en tablas o con
+software, y sustituiremos los valores en la fórmula. O bien obtendremos directamente los
+intervalos con el software.
+
+
+:::{.rmdcafe data-latex=""}
+¿Por qué este nombre tan raro de la distribución? Realmente Student es el seudónimo
+que utilizó el estadístico inglés William Sealy Gosset para publicar el trabajo
+en el que la definió, ya que la empresa en la que trabajaba no permitía a sus empleados
+publicar con su nombre para no desvelar secretos industriales.
+A much@s estadístic@s nos gusta la historia, y el producto que fabricaba la empresa
+en la que trabajaba el bueno de Gosset^[https://es.wikipedia.org/wiki/Prueba_t_de_Student].
+:::
+
+
+
+:::{.rmdinfo data-latex=""}
+Lo explicado en el apartado anterior sobre los intervalos unilaterales aplica exactamente
+igual a este caso, por lo que no lo repetiremos. La distribución $t$ 
+es también simétrica como la normal estándar, y prácticamente igual para $n > 30$. La figura
+\@ref(fig:t) muestra la distribución normal estándar y la distribución $t$ para varios valores de $n$.
+:::
+
+<div class="figure">
+<img src="08-muestreo_files/figure-html/t-1.png" alt="Distribución $t$ vs la normal" width="672" />
+<p class="caption">(\#fig:t)Distribución $t$ vs la normal</p>
+</div>
+
+
+
+:::{.rmdpractica data-latex=""}
+`<svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:steelblue;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>`{=html}
+Vamos a obtener los intervalos de confianza para el pH (bilateral) y para el
+antimonio (unilateral) de los ejemplos anteriores, pero en este caso
+asumiendo que la varianza es desconocida. 
+
+En este caso sí tenemos una función que nos proporciona el intervalo de confianza,
+y es la función `t.test()`. En realidad calcula más cosas, pero obtenemos solo
+el elemento `conf.int` que tiene el intervalo de confianza. El código a 
+continuación obtiene los intervalos de confianza pedidos. El argumento `alternative`
+controla que sea bilateral (por defecto, _two-sided_) o unilateral (solo límite superior, _less_, o 
+solo límite inferior, _greater_). El argumento `conf.level` controla el
+nivel de confianza (_confidence level_).
+
+Nótese cómo, para la misma confianza, los intervalos obtenidos son más amplios
+al no conocer la varianza (tenemos menos información, y por tanto el error que
+cometemos es mayor).
+
+
+Se deja como ejercicio comprobar que aplicando la fórmula como en los casos
+anteriores, se tiene el mismo intervalo. El cuantil de la distribución $t$
+lo obtendríamos con la función `qt()`, por ejemplo para el intervalo unilateral
+al 95% de confianza:
+
+    qt(0.975, 29)
+
+:::
+
+
+```r
+t.test(ph1$pH)$conf.int
+#> [1] 7.868734 8.213799
+#> attr(,"conf.level")
+#> [1] 0.95
+t.test(ph1$antimonio, alternative = "less", conf.level = 0.99 )$conf.int
+#> [1]     -Inf 1.051616
+#> attr(,"conf.level")
+#> [1] 0.99
+```
+
+
+### Intervalo de confianza para la proporción
+
+Por el teorema central del límite, si $n>30$
+
+$$\boxed{IC_\pi=p\pm z_{\frac{\alpha}{2}}\cdot \sqrt{\frac{p\cdot (1-p)}{n}}}$$
+
+
+### Intervalo de confianza para la varianza
+
+
+#### Distribución en el muestreo
+
+$$\frac{(n-1)s^2}{\sigma^2}\sim \chi^2_{n-1}$$
+
+#### Nivel de confianza
+
+$$P\left[\chi^2_{n-1,\frac{\alpha}{2}}<\frac{s^2\cdot(n-1)}{\sigma^2}<\chi^2_{n-1,1-\frac{\alpha}{2}}\right] = 1-\alpha$$
+
+#### Intervalo de confianza 
+
+$$\boxed{IC_\sigma=\left[ \frac{s^2\cdot(n-1)}{\chi^2_{n-1,\frac{\alpha}{2}}}; \frac{s^2\cdot(n-1)}{\chi^2_{n-1,1-\frac{\alpha}{2}}}\right]}$$
+
+## Intervalos de confianza para comparaciones
+
+* Tenemos dos muestras, $x_1, x_2$
+
+* Posiblemente relacionadas
+
+* Posiblemente con varianza conocida
+
+* Posiblemente con varianzas iguales
+
+* Posiblemente con tamaños distintos $n_1, n_2$
+
+* El interés está en comprobar si las muestras son "iguales" o no
+
+
+💡 Dependiendo de la combinación, se utiliza una fórmula u otra
+
+
+### IC diferencia medias: $\mu_1 - \mu_2$, $\sigma_1. \sigma_2$ conocidas
+
+
+Varianza agrupada, o conjunta (_pooled_): $s_p^2= \frac{(n_1 -1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}$
+
+#### $\sigma_1, \sigma_2$ conocidas
+
+$$IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm z_{\frac \alpha 2}\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}$$
+
+### IC diferencia medias: $\mu_1 - \mu_2$, $\sigma_1, \sigma_2$ desconocidas
+
+
+#### $\sigma_1, \sigma_2$ desconocidas pero iguales $(\sigma_1 = \sigma_2)$
+$$IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm t_{n_1+n_2-2, \frac \alpha 2}s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$$
+
+#### $\sigma_1, \sigma_2$ desconocidas y distintas $(\sigma_1 \ne \sigma_2)$
+
+$$IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm t_{f, \frac \alpha 2}\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}$$
+
+$$f=\left[ \frac{\left (\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}\right )^2}{\frac{\left(\frac{s_1^2}{n_1}\right)^2}{n_1-1}+\frac{\left(\frac{s_2^2}{n_2}\right)^2}{n_2-1}}\right]$$
+
+💡 Aproximación de Welch
+
+
+### IC razón de varianzas $\sigma_1/\sigma_2$
+
+* Las varianzas son positivas, la diferencia nunca va a ser cero
+* Serán iguales cuando el cociente sea igual a 1
+
+$$IC_{\frac{\sigma_1}{\sigma_2}} = \left[\frac{\frac{s_1^2}{s_2^2}}{F_{n_1-1, n_2-1, \frac{\alpha}{2}}};\frac{s_1^2}{s_2^2}\cdot F_{n_2-1, n_1-1, \frac{\alpha}{2}} \right]$$
+
+
+
+### Distribución F de Snedecor
+
+$X_1, \ldots, X_{n_1}$; $Y_1, \ldots, Y_{n_2}$ v.a.i.i.d $\sim N(0;1)$:
+
+$$F = \frac{\frac{ 1}{ n_1}\sum\limits_{i=1}^{n_1} X_i^2}{\frac{ 1}{ n_2}\sum\limits_{i=1}^{n_2} Y_i^2}\sim F_{n_1,n_2}$$
+* $E[F] = \frac{n}{n-2}, \; n>2$
+
+* $V[F] = \frac{2n^2(m+n-2)}{m(n-2)^2(n-4)}, \; n>4$
+
+
+
+### Interpretación de las comparaciones
+
+* Si el intervalo de confianza de la diferencia de medias contiene el cero, no podremos asegurar que haya diferencias entre las medias de las dos **poblaciones** (en general, nos interesará confirmar que sí hay diferencias)
+
+* Si el intervalo de confianza de la razón de varianzas contiene el 1, no podremos asegurar que haya diferencias entre las varianzas (en general, nos interesará comprobar que no hay diferencias)
+
+💡 O lo que es lo mismo, las diferencias observadas en las **muestras** son debidas al azar, y no a una diferencia real entre los parámetros poblacionales.
+
+
+Esto lo hacemos también con contrastes de hipótesis (siguiente apartado)
+
+
 
 
 ## Estimación no paramétrica

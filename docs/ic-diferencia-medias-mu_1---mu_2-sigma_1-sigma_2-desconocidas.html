@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 15 IC diferencia medias: \(\mu_1 - \mu_2\), \(\sigma_1, \sigma_2\) desconocidas | Estadística Aplicada a las Ciencias y la Ingeniería</title>
+<meta name="author" content="Emilio L. Cano">
+<meta name="description" content="15.1 \(\sigma_1, \sigma_2\) desconocidas pero iguales \((\sigma_1 = \sigma_2)\) \[IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm t_{n_1+n_2-2, \frac \alpha 2}s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\] ...">
+<meta name="generator" content="bookdown 0.26 with bs4_book()">
+<meta property="og:title" content="Capítulo 15 IC diferencia medias: \(\mu_1 - \mu_2\), \(\sigma_1, \sigma_2\) desconocidas | Estadística Aplicada a las Ciencias y la Ingeniería">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/ic-diferencia-medias-mu_1---mu_2-sigma_1-sigma_2-desconocidas.html">
+<meta property="og:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
+<meta property="og:description" content="15.1 \(\sigma_1, \sigma_2\) desconocidas pero iguales \((\sigma_1 = \sigma_2)\) \[IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm t_{n_1+n_2-2, \frac \alpha 2}s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\] ...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 15 IC diferencia medias: \(\mu_1 - \mu_2\), \(\sigma_1, \sigma_2\) desconocidas | Estadística Aplicada a las Ciencias y la Ingeniería">
+<meta name="twitter:description" content="15.1 \(\sigma_1, \sigma_2\) desconocidas pero iguales \((\sigma_1 = \sigma_2)\) \[IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm t_{n_1+n_2-2, \frac \alpha 2}s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\] ...">
+<meta name="twitter:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<link rel="stylesheet" href="bs4_book.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Estadística Aplicada a las Ciencias y la Ingeniería</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
+</form>
+
+      <nav aria-label="Contenido"><h2>Contenido</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Bienvenida</a></li>
+<li class="book-part">Estadística descriptiva</li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introducción</a></li>
+<li><a class="" href="aed-uni.html"><span class="header-section-number">2</span> Análisis exploratorio univariante</a></li>
+<li><a class="" href="aed-bi.html"><span class="header-section-number">3</span> Análisis exploratorio bivariante</a></li>
+<li class="book-part">Probabilidad</li>
+<li><a class="" href="introp.html"><span class="header-section-number">4</span> Introducción a la Probabilidad</a></li>
+<li><a class="" href="vauni.html"><span class="header-section-number">5</span> Variable aleatoria univariante</a></li>
+<li><a class="" href="vabi.html"><span class="header-section-number">6</span> Variable aleatoria bivariante</a></li>
+<li><a class="" href="modelos.html"><span class="header-section-number">7</span> Modelos de distribución de probabilidad</a></li>
+<li class="book-part">Inferencia estadística</li>
+<li><a class="" href="muestreo.html"><span class="header-section-number">8</span> Muestreo y estimación</a></li>
+<li><a class="" href="intervalo-de-confianza-para-mu-sigma2-desconocida.html"><span class="header-section-number">9</span> Intervalo de confianza para \(\mu\): \(\sigma^2\) desconocida</a></li>
+<li><a class="" href="distribuci%C3%B3n-t-de-student-con-n-grados-de-libertad.html"><span class="header-section-number">10</span> Distribución \(t\) de Student con \(n\) grados de libertad</a></li>
+<li><a class="" href="intervalo-de-confianza-para-la-proporci%C3%B3n.html"><span class="header-section-number">11</span> Intervalo de confianza para la proporción</a></li>
+<li><a class="" href="intervalo-de-confianza-para-la-varianza.html"><span class="header-section-number">12</span> Intervalo de confianza para la varianza</a></li>
+<li><a class="" href="intervalos-de-confianza-para-comparaciones.html"><span class="header-section-number">13</span> Intervalos de confianza para comparaciones</a></li>
+<li><a class="" href="ic-diferencia-medias-mu_1---mu_2-sigma_1.-sigma_2-conocidas.html"><span class="header-section-number">14</span> IC diferencia medias: \(\mu_1 - \mu_2\), \(\sigma_1. \sigma_2\) conocidas</a></li>
+<li><a class="active" href="ic-diferencia-medias-mu_1---mu_2-sigma_1-sigma_2-desconocidas.html"><span class="header-section-number">15</span> IC diferencia medias: \(\mu_1 - \mu_2\), \(\sigma_1, \sigma_2\) desconocidas</a></li>
+<li><a class="" href="ic-raz%C3%B3n-de-varianzas-sigma_1sigma_2.html"><span class="header-section-number">16</span> IC razón de varianzas \(\sigma_1/\sigma_2\)</a></li>
+<li><a class="" href="distribuci%C3%B3n-f-de-snedecor.html"><span class="header-section-number">17</span> Distribución F de Snedecor</a></li>
+<li><a class="" href="interpretaci%C3%B3n-de-las-comparaciones.html"><span class="header-section-number">18</span> Interpretación de las comparaciones</a></li>
+<li><a class="" href="comparacion2.html"><span class="header-section-number">19</span> Comparación de dos grupos</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">20</span> Análisis de la Varianza</a></li>
+<li><a class="" href="doe.html"><span class="header-section-number">21</span> Diseño de experimentos</a></li>
+<li><a class="" href="regresion.html"><span class="header-section-number">22</span> Modelos de regresión</a></li>
+<li class="book-part">Control estadístico de la calidad</li>
+<li><a class="" href="introc.html"><span class="header-section-number">23</span> Introducción</a></li>
+<li><a class="" href="spc.html"><span class="header-section-number">24</span> Control Estadístico de Procesos</a></li>
+<li><a class="" href="aceptacion.html"><span class="header-section-number">25</span> Inspección por muestreo</a></li>
+<li class="book-part">Apéndices</li>
+<li><a class="" href="s%C3%ADmbolos-abreviaturas-y-acr%C3%B3nimos.html"><span class="header-section-number">A</span> Símbolos, abreviaturas y acrónimos</a></li>
+<li><a class="" href="formulario.html"><span class="header-section-number">B</span> Formulario</a></li>
+<li><a class="" href="tablas.html"><span class="header-section-number">C</span> Tablas estadísticas</a></li>
+<li><a class="" href="repaso.html"><span class="header-section-number">D</span> Repaso</a></li>
+<li><a class="" href="ampliaci%C3%B3n.html"><span class="header-section-number">E</span> Ampliación</a></li>
+<li><a class="" href="demostraciones.html"><span class="header-section-number">F</span> Demostraciones</a></li>
+<li><a class="" href="creditos.html"><span class="header-section-number">G</span> Créditos</a></li>
+<li><a class="" href="referencias.html">Referencias</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria">Ver repositorio <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="ic-diferencia-medias-mu_1---mu_2-sigma_1-sigma_2-desconocidas" class="section level1" number="15">
+<h1>
+<span class="header-section-number">Capítulo 15</span> IC diferencia medias: <span class="math inline">\(\mu_1 - \mu_2\)</span>, <span class="math inline">\(\sigma_1, \sigma_2\)</span> desconocidas<a class="anchor" aria-label="anchor" href="#ic-diferencia-medias-mu_1---mu_2-sigma_1-sigma_2-desconocidas"><i class="fas fa-link"></i></a>
+</h1>
+<div id="sigma_1-sigma_2-desconocidas-pero-iguales-sigma_1-sigma_2" class="section level2" number="15.1">
+<h2>
+<span class="header-section-number">15.1</span> <span class="math inline">\(\sigma_1, \sigma_2\)</span> desconocidas pero iguales <span class="math inline">\((\sigma_1 = \sigma_2)\)</span><a class="anchor" aria-label="anchor" href="#sigma_1-sigma_2-desconocidas-pero-iguales-sigma_1-sigma_2"><i class="fas fa-link"></i></a>
+</h2>
+<p><span class="math display">\[IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm t_{n_1+n_2-2, \frac \alpha 2}s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\]</span></p>
+</div>
+<div id="sigma_1-sigma_2-desconocidas-y-distintas-sigma_1-ne-sigma_2" class="section level2" number="15.2">
+<h2>
+<span class="header-section-number">15.2</span> <span class="math inline">\(\sigma_1, \sigma_2\)</span> desconocidas y distintas <span class="math inline">\((\sigma_1 \ne \sigma_2)\)</span><a class="anchor" aria-label="anchor" href="#sigma_1-sigma_2-desconocidas-y-distintas-sigma_1-ne-sigma_2"><i class="fas fa-link"></i></a>
+</h2>
+<p><span class="math display">\[IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm t_{f, \frac \alpha 2}\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}\]</span></p>
+<p><span class="math display">\[f=\left[ \frac{\left (\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}\right )^2}{\frac{\left(\frac{s_1^2}{n_1}\right)^2}{n_1-1}+\frac{\left(\frac{s_2^2}{n_2}\right)^2}{n_2-1}}\right]\]</span></p>
+<p>💡 Aproximación de Welch</p>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="ic-diferencia-medias-mu_1---mu_2-sigma_1.-sigma_2-conocidas.html"><span class="header-section-number">14</span> IC diferencia medias: \(\mu_1 - \mu_2\), \(\sigma_1. \sigma_2\) conocidas</a></div>
+<div class="next"><a href="ic-raz%C3%B3n-de-varianzas-sigma_1sigma_2.html"><span class="header-section-number">16</span> IC razón de varianzas \(\sigma_1/\sigma_2\)</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="Índice capítulo"><h2>Índice capítulo</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ic-diferencia-medias-mu_1---mu_2-sigma_1-sigma_2-desconocidas"><span class="header-section-number">15</span> IC diferencia medias: \(\mu_1 - \mu_2\), \(\sigma_1, \sigma_2\) desconocidas</a></li>
+<li><a class="nav-link" href="#sigma_1-sigma_2-desconocidas-pero-iguales-sigma_1-sigma_2"><span class="header-section-number">15.1</span> \(\sigma_1, \sigma_2\) desconocidas pero iguales \((\sigma_1 = \sigma_2)\)</a></li>
+<li><a class="nav-link" href="#sigma_1-sigma_2-desconocidas-y-distintas-sigma_1-ne-sigma_2"><span class="header-section-number">15.2</span> \(\sigma_1, \sigma_2\) desconocidas y distintas \((\sigma_1 \ne \sigma_2)\)</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/blob/master/08-muestreo.Rmd">Ver fuente <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/emilopezcano/estadistica-ciencias-ingenieria/edit/master/08-muestreo.Rmd">Editar esta página <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-05-10.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>Este libro ha sido generado con el paquete de R <a class="text-light" href="https://bookdown.org">bookdown</a>.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
