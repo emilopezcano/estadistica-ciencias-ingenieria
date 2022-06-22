@@ -7,7 +7,7 @@
 <title>Capítulo 4 Introducción a la Probabilidad | Estadística Aplicada a las Ciencias y la Ingeniería</title>
 <meta name="author" content="Emilio L. Cano">
 <meta name="description" content="4.1 Introducción En los capítulos anteriores, hemos visto cómo mediante la Estadística Descriptiva estudiamos variables estadísticas describiéndolas y representándolas. Mediante la Estadística...">
-<meta name="generator" content="bookdown 0.26 with bs4_book()">
+<meta name="generator" content="bookdown 0.27 with bs4_book()">
 <meta property="og:title" content="Capítulo 4 Introducción a la Probabilidad | Estadística Aplicada a las Ciencias y la Ingeniería">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/introp.html">
@@ -21,6 +21,7 @@
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
+<link href="libs/tabwid-1.0.0/scrool.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 <link rel="stylesheet" href="bs4_book.css">
 <link rel="stylesheet" href="style.css">
@@ -272,7 +273,7 @@ En este caso, <span class="math inline">\(C_{5, 2} = \binom{5}{2} = 10\)</span>.
 <p><strong>R</strong></p>
 La función <code>choose</code> obtiene el número de combinaciones como se ilustra a continuación.
 </div>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt; [1] 10</span></code></pre></div>
 </div>
@@ -759,7 +760,7 @@ la probabilidad pedida:</p>
 <p>El siguiente código realiza los cálculos paso a paso y devuelve la probabilidad pedida. Cambiando el valor <code>30</code> por otro número de personas cualquiera, se
 puede ver cómo aumenta la probabilidad.</p>
 </div>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ncumple</span> <span class="op">&lt;-</span> <span class="fl">30</span>
 <span class="va">cposibles</span> <span class="op">&lt;-</span> <span class="fl">365</span><span class="op">^</span><span class="va">ncumple</span>
 <span class="va">cfavorables</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/prod.html">prod</a></span><span class="op">(</span><span class="fl">365</span><span class="op">:</span><span class="op">(</span><span class="fl">365</span> <span class="op">-</span> <span class="va">ncumple</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
@@ -1161,7 +1162,7 @@ probabilidad de ganar el coche.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-05-11.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-06-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
