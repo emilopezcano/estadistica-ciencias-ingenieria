@@ -258,10 +258,10 @@ este conjunto de datos.</p>
 <p>Son 11 filas de 8 variables numéricas, aunque las tres primeras son idénticas. Ya sabemos
 resumir los datos con la media de cada variable:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="va">anscombe</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span>.fns <span class="op">=</span> <span class="va">mean</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt;   x1 x2 x3 x4       y1       y2  y3       y4</span>
-<span class="co">#&gt; 1  9  9  9  9 7.500909 7.500909 7.5 7.500909</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="va">anscombe</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span>.fns <span class="op">=</span> <span class="va">mean</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   x1 x2 x3 x4       y1       y2  y3       y4</span></span>
+<span><span class="co">#&gt; 1  9  9  9  9 7.500909 7.500909 7.5 7.500909</span></span></code></pre></div>
 <p>Vemos que la media de las cuatro primeras variables es idéntica, 9. Pero los datos
 son muy distintos en la cuarta variable. Las cuatro últimas variables también tienen una media
 prácticamente idéntica. Sin embargo los datos también son muy distintos. La figura
@@ -572,11 +572,11 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
 <div class="rmdpractica">
 <p>Los datos que se utilizarán en este capítulo para ilustrar los ejemplos se pueden descargar e importar con el siguiente código.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span><span class="st">"https://lcano.com/data/eaci/lab.xlsx"</span>,
-              destfile <span class="op">=</span> <span class="st">"lab.xlsx"</span><span class="op">)</span>
-<span class="va">lab</span> <span class="op">&lt;-</span> <span class="fu">readxl</span><span class="fu">::</span><span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"lab.xlsx"</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>fecha <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">fecha</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span><span class="st">"https://lcano.com/data/eaci/lab.xlsx"</span>,</span>
+<span>              destfile <span class="op">=</span> <span class="st">"lab.xlsx"</span><span class="op">)</span></span>
+<span><span class="va">lab</span> <span class="op">&lt;-</span> <span class="fu">readxl</span><span class="fu">::</span><span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"lab.xlsx"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>fecha <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">fecha</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="rmdejemplo">
 <p><svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:gold;overflow:visible;position:relative;"><path d="M0 288v160a32 32 0 0 0 32 32h448a32 32 0 0 0 32-32V288zM299.83 32a32 32 0 0 0-21.13 7L0 256h512c0-119.89-94-217.8-212.17-224z"></path></svg> El laboratorio de una fábrica de quesos recoge datos de los análisis realizados a muestras de quesos de su producción. Se dispone de un conjunto de datos con 1171 filas y
@@ -585,12 +585,12 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
 </div>
 <pre><code>#&gt; Warning: The `fmt_missing()` function is deprecated and will soon be removed
 #&gt; * Use the `sub_missing()` function instead</code></pre>
-<div id="svbgyklelr" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="swqeenlqzi" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#svbgyklelr .gt_table {
+#swqeenlqzi .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -615,7 +615,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-left-color: #D3D3D3;
 }
 
-#svbgyklelr .gt_heading {
+#swqeenlqzi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -627,7 +627,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#svbgyklelr .gt_title {
+#swqeenlqzi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -639,7 +639,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-width: 0;
 }
 
-#svbgyklelr .gt_subtitle {
+#swqeenlqzi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -651,13 +651,13 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-top-width: 0;
 }
 
-#svbgyklelr .gt_bottom_border {
+#swqeenlqzi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#svbgyklelr .gt_col_headings {
+#swqeenlqzi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -672,7 +672,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#svbgyklelr .gt_col_heading {
+#swqeenlqzi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -692,7 +692,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   overflow-x: hidden;
 }
 
-#svbgyklelr .gt_column_spanner_outer {
+#swqeenlqzi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -704,15 +704,15 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 4px;
 }
 
-#svbgyklelr .gt_column_spanner_outer:first-child {
+#swqeenlqzi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#svbgyklelr .gt_column_spanner_outer:last-child {
+#swqeenlqzi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#svbgyklelr .gt_column_spanner {
+#swqeenlqzi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -724,7 +724,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   width: 100%;
 }
 
-#svbgyklelr .gt_group_heading {
+#swqeenlqzi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -749,7 +749,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   vertical-align: middle;
 }
 
-#svbgyklelr .gt_empty_group_heading {
+#swqeenlqzi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -764,15 +764,15 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   vertical-align: middle;
 }
 
-#svbgyklelr .gt_from_md > :first-child {
+#swqeenlqzi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#svbgyklelr .gt_from_md > :last-child {
+#swqeenlqzi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#svbgyklelr .gt_row {
+#swqeenlqzi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -791,7 +791,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   overflow-x: hidden;
 }
 
-#svbgyklelr .gt_stub {
+#swqeenlqzi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -804,7 +804,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#svbgyklelr .gt_stub_row_group {
+#swqeenlqzi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -818,11 +818,11 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   vertical-align: top;
 }
 
-#svbgyklelr .gt_row_group_first td {
+#swqeenlqzi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#svbgyklelr .gt_summary_row {
+#swqeenlqzi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -832,16 +832,16 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#svbgyklelr .gt_first_summary_row {
+#swqeenlqzi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#svbgyklelr .gt_first_summary_row.thick {
+#swqeenlqzi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#svbgyklelr .gt_last_summary_row {
+#swqeenlqzi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -851,7 +851,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-color: #D3D3D3;
 }
 
-#svbgyklelr .gt_grand_summary_row {
+#swqeenlqzi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -861,7 +861,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#svbgyklelr .gt_first_grand_summary_row {
+#swqeenlqzi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -871,11 +871,11 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-top-color: #D3D3D3;
 }
 
-#svbgyklelr .gt_striped {
+#swqeenlqzi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#svbgyklelr .gt_table_body {
+#swqeenlqzi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -884,7 +884,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-color: #D3D3D3;
 }
 
-#svbgyklelr .gt_footnotes {
+#swqeenlqzi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -898,7 +898,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#svbgyklelr .gt_footnote {
+#swqeenlqzi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -907,7 +907,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#svbgyklelr .gt_sourcenotes {
+#swqeenlqzi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -921,7 +921,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#svbgyklelr .gt_sourcenote {
+#swqeenlqzi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -929,36 +929,36 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#svbgyklelr .gt_left {
+#swqeenlqzi .gt_left {
   text-align: left;
 }
 
-#svbgyklelr .gt_center {
+#swqeenlqzi .gt_center {
   text-align: center;
 }
 
-#svbgyklelr .gt_right {
+#swqeenlqzi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#svbgyklelr .gt_font_normal {
+#swqeenlqzi .gt_font_normal {
   font-weight: normal;
 }
 
-#svbgyklelr .gt_font_bold {
+#swqeenlqzi .gt_font_bold {
   font-weight: bold;
 }
 
-#svbgyklelr .gt_font_italic {
+#swqeenlqzi .gt_font_italic {
   font-style: italic;
 }
 
-#svbgyklelr .gt_super {
+#swqeenlqzi .gt_super {
   font-size: 65%;
 }
 
-#svbgyklelr .gt_two_val_uncert {
+#swqeenlqzi .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -967,31 +967,31 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   margin-left: 0.1em;
 }
 
-#svbgyklelr .gt_footnote_marks {
+#swqeenlqzi .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#svbgyklelr .gt_asterisk {
+#swqeenlqzi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#svbgyklelr .gt_slash_mark {
+#swqeenlqzi .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#svbgyklelr .gt_fraction_numerator {
+#swqeenlqzi .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#svbgyklelr .gt_fraction_denominator {
+#swqeenlqzi .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -1159,12 +1159,12 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
 </tbody>
 </table></div>
 </div>
-<div id="pnsuawfzxl" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ydjzicbedu" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#pnsuawfzxl .gt_table {
+#ydjzicbedu .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1189,7 +1189,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-left-color: #D3D3D3;
 }
 
-#pnsuawfzxl .gt_heading {
+#ydjzicbedu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1201,7 +1201,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#pnsuawfzxl .gt_title {
+#ydjzicbedu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1213,7 +1213,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-width: 0;
 }
 
-#pnsuawfzxl .gt_subtitle {
+#ydjzicbedu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1225,13 +1225,13 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-top-width: 0;
 }
 
-#pnsuawfzxl .gt_bottom_border {
+#ydjzicbedu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pnsuawfzxl .gt_col_headings {
+#ydjzicbedu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1246,7 +1246,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#pnsuawfzxl .gt_col_heading {
+#ydjzicbedu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1266,7 +1266,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   overflow-x: hidden;
 }
 
-#pnsuawfzxl .gt_column_spanner_outer {
+#ydjzicbedu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1278,15 +1278,15 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 4px;
 }
 
-#pnsuawfzxl .gt_column_spanner_outer:first-child {
+#ydjzicbedu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pnsuawfzxl .gt_column_spanner_outer:last-child {
+#ydjzicbedu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pnsuawfzxl .gt_column_spanner {
+#ydjzicbedu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1298,7 +1298,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   width: 100%;
 }
 
-#pnsuawfzxl .gt_group_heading {
+#ydjzicbedu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1323,7 +1323,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   vertical-align: middle;
 }
 
-#pnsuawfzxl .gt_empty_group_heading {
+#ydjzicbedu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1338,15 +1338,15 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   vertical-align: middle;
 }
 
-#pnsuawfzxl .gt_from_md > :first-child {
+#ydjzicbedu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pnsuawfzxl .gt_from_md > :last-child {
+#ydjzicbedu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pnsuawfzxl .gt_row {
+#ydjzicbedu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1365,7 +1365,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   overflow-x: hidden;
 }
 
-#pnsuawfzxl .gt_stub {
+#ydjzicbedu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1378,7 +1378,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#pnsuawfzxl .gt_stub_row_group {
+#ydjzicbedu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1392,11 +1392,11 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   vertical-align: top;
 }
 
-#pnsuawfzxl .gt_row_group_first td {
+#ydjzicbedu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pnsuawfzxl .gt_summary_row {
+#ydjzicbedu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1406,16 +1406,16 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#pnsuawfzxl .gt_first_summary_row {
+#ydjzicbedu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pnsuawfzxl .gt_first_summary_row.thick {
+#ydjzicbedu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pnsuawfzxl .gt_last_summary_row {
+#ydjzicbedu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1425,7 +1425,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-color: #D3D3D3;
 }
 
-#pnsuawfzxl .gt_grand_summary_row {
+#ydjzicbedu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1435,7 +1435,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#pnsuawfzxl .gt_first_grand_summary_row {
+#ydjzicbedu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1445,11 +1445,11 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-top-color: #D3D3D3;
 }
 
-#pnsuawfzxl .gt_striped {
+#ydjzicbedu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pnsuawfzxl .gt_table_body {
+#ydjzicbedu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1458,7 +1458,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-color: #D3D3D3;
 }
 
-#pnsuawfzxl .gt_footnotes {
+#ydjzicbedu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1472,7 +1472,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#pnsuawfzxl .gt_footnote {
+#ydjzicbedu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1481,7 +1481,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#pnsuawfzxl .gt_sourcenotes {
+#ydjzicbedu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1495,7 +1495,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#pnsuawfzxl .gt_sourcenote {
+#ydjzicbedu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1503,36 +1503,36 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#pnsuawfzxl .gt_left {
+#ydjzicbedu .gt_left {
   text-align: left;
 }
 
-#pnsuawfzxl .gt_center {
+#ydjzicbedu .gt_center {
   text-align: center;
 }
 
-#pnsuawfzxl .gt_right {
+#ydjzicbedu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pnsuawfzxl .gt_font_normal {
+#ydjzicbedu .gt_font_normal {
   font-weight: normal;
 }
 
-#pnsuawfzxl .gt_font_bold {
+#ydjzicbedu .gt_font_bold {
   font-weight: bold;
 }
 
-#pnsuawfzxl .gt_font_italic {
+#ydjzicbedu .gt_font_italic {
   font-style: italic;
 }
 
-#pnsuawfzxl .gt_super {
+#ydjzicbedu .gt_super {
   font-size: 65%;
 }
 
-#pnsuawfzxl .gt_two_val_uncert {
+#ydjzicbedu .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -1541,31 +1541,31 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   margin-left: 0.1em;
 }
 
-#pnsuawfzxl .gt_footnote_marks {
+#ydjzicbedu .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#pnsuawfzxl .gt_asterisk {
+#ydjzicbedu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pnsuawfzxl .gt_slash_mark {
+#ydjzicbedu .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#pnsuawfzxl .gt_fraction_numerator {
+#ydjzicbedu .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#pnsuawfzxl .gt_fraction_denominator {
+#ydjzicbedu .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -1616,21 +1616,21 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
          F = cumsum(f))</code></pre>
 </div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">tipo</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;   A   B   C </span>
-<span class="co">#&gt; 175 148 848</span>
-<span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">tipo</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;         A         B         C </span>
-<span class="co">#&gt; 0.1494449 0.1263877 0.7241674</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/addmargins.html">addmargins</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">tipo</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;    A    B    C  Sum </span>
-<span class="co">#&gt;  175  148  848 1171</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">tipo</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt;    A    B    C </span>
-<span class="co">#&gt;  175  323 1171</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">tipo</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   A   B   C </span></span>
+<span><span class="co">#&gt; 175 148 848</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">tipo</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;         A         B         C </span></span>
+<span><span class="co">#&gt; 0.1494449 0.1263877 0.7241674</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/addmargins.html">addmargins</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">tipo</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;    A    B    C  Sum </span></span>
+<span><span class="co">#&gt;  175  148  848 1171</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">lab</span><span class="op">$</span><span class="va">tipo</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    A    B    C </span></span>
+<span><span class="co">#&gt;  175  323 1171</span></span></code></pre></div>
 <p>La representación gráfica adecuada para variables cualitativas es el <strong>gráfico de barras</strong>. En este gráfico, representamos las categorías en el eje horizontal (X) y las frecuencias en el eje vertical (Y), y representamos barras cuya altura representa la frecuencia. Se pueden representar frecuencias absolutas o relativas. Los gráficos de sectores también pueden representar variables cualitativas, aunque no se recomiendan porque el ojo humano no es tan bueno distinguiendo ángulos como alturas. En todo caso, si se usa se deberían incluir los valores (frecuencias o porcentajes). El gráfico de barras se puede representar también invirtiendo los ejes (a veces mejora la visualización de las etiquetas), representando líneas en vez de barras, u ordenando las barras según la frecuencia (por defecto este orden es arbitrario, muy a menudo alfabético según las etiquetas).</p>
 <p>Un aspecto importante de los gráficos de barras es que debe haber un espacio entre las barras, puesto que son variables cualitativas en las que no tiene sentido representar la continuidad que expresarían las barras adyacentes.</p>
 <div class="rmdpractica">
@@ -1639,14 +1639,14 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
 <p>El segundo fragmento de código produce la figura <a href="aed-uni.html#fig:tarta">2.5</a>, que representa un gráfico de sectores con etiquetas realizado con el paquete {ggstatsplot}.</p>
 </div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="va">lab</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">tipo</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"#CB0017"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Tipos de queso"</span>, 
-       x <span class="op">=</span> <span class="st">"Tipo"</span>,
-       y <span class="op">=</span> <span class="st">"Frecuencia absoluta"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="va">lab</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">tipo</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"#CB0017"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Tipos de queso"</span>, </span>
+<span>       x <span class="op">=</span> <span class="st">"Tipo"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Frecuencia absoluta"</span><span class="op">)</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:barras1"></span>
 <img src="02-aed-uni_files/figure-html/barras1-1.png" alt="Ejemplo gráfico de barras variable cualitativa" width="672"><p class="caption">
@@ -1654,11 +1654,11 @@ Figura 2.4: Ejemplo gráfico de barras variable cualitativa
 </p>
 </div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a></span><span class="op">)</span>
-<span class="va">lab</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://indrajeetpatil.github.io/ggstatsplot/reference/ggpiestats.html">ggpiestats</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">tipo</span>, title <span class="op">=</span> <span class="st">"Fabricación de quesos"</span>,
-                  legend.title <span class="op">=</span> <span class="st">"Tipo de queso"</span>, 
-                  bf.message <span class="op">=</span> <span class="cn">FALSE</span>,
-                  results.subtitle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a></span><span class="op">)</span></span>
+<span><span class="va">lab</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://indrajeetpatil.github.io/ggstatsplot/reference/ggpiestats.html">ggpiestats</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">tipo</span>, title <span class="op">=</span> <span class="st">"Fabricación de quesos"</span>,</span>
+<span>                  legend.title <span class="op">=</span> <span class="st">"Tipo de queso"</span>, </span>
+<span>                  bf.message <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                  results.subtitle <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:tarta"></span>
 <img src="02-aed-uni_files/figure-html/tarta-1.png" alt="Gráfico de sectores con etiquetas" width="672"><p class="caption">
@@ -1693,12 +1693,12 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
 <div class="rmdejemplo">
 <p>La variable <code>imperfecciones</code> es un recuento de defectos en una inspección visual. Vemos en la tabla de frecuencias <a href="aed-uni.html#tab:freqdisc">2.4</a> que tenemos 10 valores posibles: desde cero imperfecciones hasta 9 imperfecciones. La moda es el 2, ya que es el valor que más se repite. Además, es única. Vemos además que el 94,9% de los quesos tienen 4 o menos imperfecciones. O lo que es lo mismo, el 5,1% de los quesos tiene más de 4 imperfecciones. La figura <a href="aed-uni.html#fig:bardisc">2.6</a> es la representación gráfica de esta tabla de frecuencias, en este caso representada en horizontal.</p>
 </div>
-<div id="hvjycuzokx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="cgepnmdkji" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#hvjycuzokx .gt_table {
+#cgepnmdkji .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1723,7 +1723,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-left-color: #D3D3D3;
 }
 
-#hvjycuzokx .gt_heading {
+#cgepnmdkji .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1735,7 +1735,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-right-color: #D3D3D3;
 }
 
-#hvjycuzokx .gt_title {
+#cgepnmdkji .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1747,7 +1747,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-bottom-width: 0;
 }
 
-#hvjycuzokx .gt_subtitle {
+#cgepnmdkji .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1759,13 +1759,13 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-top-width: 0;
 }
 
-#hvjycuzokx .gt_bottom_border {
+#cgepnmdkji .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hvjycuzokx .gt_col_headings {
+#cgepnmdkji .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1780,7 +1780,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-right-color: #D3D3D3;
 }
 
-#hvjycuzokx .gt_col_heading {
+#cgepnmdkji .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1800,7 +1800,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   overflow-x: hidden;
 }
 
-#hvjycuzokx .gt_column_spanner_outer {
+#cgepnmdkji .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1812,15 +1812,15 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-right: 4px;
 }
 
-#hvjycuzokx .gt_column_spanner_outer:first-child {
+#cgepnmdkji .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hvjycuzokx .gt_column_spanner_outer:last-child {
+#cgepnmdkji .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hvjycuzokx .gt_column_spanner {
+#cgepnmdkji .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1832,7 +1832,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   width: 100%;
 }
 
-#hvjycuzokx .gt_group_heading {
+#cgepnmdkji .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1857,7 +1857,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   vertical-align: middle;
 }
 
-#hvjycuzokx .gt_empty_group_heading {
+#cgepnmdkji .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1872,15 +1872,15 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   vertical-align: middle;
 }
 
-#hvjycuzokx .gt_from_md > :first-child {
+#cgepnmdkji .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hvjycuzokx .gt_from_md > :last-child {
+#cgepnmdkji .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hvjycuzokx .gt_row {
+#cgepnmdkji .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1899,7 +1899,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   overflow-x: hidden;
 }
 
-#hvjycuzokx .gt_stub {
+#cgepnmdkji .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1912,7 +1912,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-right: 5px;
 }
 
-#hvjycuzokx .gt_stub_row_group {
+#cgepnmdkji .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1926,11 +1926,11 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   vertical-align: top;
 }
 
-#hvjycuzokx .gt_row_group_first td {
+#cgepnmdkji .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hvjycuzokx .gt_summary_row {
+#cgepnmdkji .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1940,16 +1940,16 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-right: 5px;
 }
 
-#hvjycuzokx .gt_first_summary_row {
+#cgepnmdkji .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hvjycuzokx .gt_first_summary_row.thick {
+#cgepnmdkji .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hvjycuzokx .gt_last_summary_row {
+#cgepnmdkji .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1959,7 +1959,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-bottom-color: #D3D3D3;
 }
 
-#hvjycuzokx .gt_grand_summary_row {
+#cgepnmdkji .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1969,7 +1969,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-right: 5px;
 }
 
-#hvjycuzokx .gt_first_grand_summary_row {
+#cgepnmdkji .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1979,11 +1979,11 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-top-color: #D3D3D3;
 }
 
-#hvjycuzokx .gt_striped {
+#cgepnmdkji .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hvjycuzokx .gt_table_body {
+#cgepnmdkji .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1992,7 +1992,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-bottom-color: #D3D3D3;
 }
 
-#hvjycuzokx .gt_footnotes {
+#cgepnmdkji .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2006,7 +2006,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-right-color: #D3D3D3;
 }
 
-#hvjycuzokx .gt_footnote {
+#cgepnmdkji .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2015,7 +2015,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-right: 5px;
 }
 
-#hvjycuzokx .gt_sourcenotes {
+#cgepnmdkji .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2029,7 +2029,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-right-color: #D3D3D3;
 }
 
-#hvjycuzokx .gt_sourcenote {
+#cgepnmdkji .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2037,36 +2037,36 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-right: 5px;
 }
 
-#hvjycuzokx .gt_left {
+#cgepnmdkji .gt_left {
   text-align: left;
 }
 
-#hvjycuzokx .gt_center {
+#cgepnmdkji .gt_center {
   text-align: center;
 }
 
-#hvjycuzokx .gt_right {
+#cgepnmdkji .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hvjycuzokx .gt_font_normal {
+#cgepnmdkji .gt_font_normal {
   font-weight: normal;
 }
 
-#hvjycuzokx .gt_font_bold {
+#cgepnmdkji .gt_font_bold {
   font-weight: bold;
 }
 
-#hvjycuzokx .gt_font_italic {
+#cgepnmdkji .gt_font_italic {
   font-style: italic;
 }
 
-#hvjycuzokx .gt_super {
+#cgepnmdkji .gt_super {
   font-size: 65%;
 }
 
-#hvjycuzokx .gt_two_val_uncert {
+#cgepnmdkji .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -2075,31 +2075,31 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   margin-left: 0.1em;
 }
 
-#hvjycuzokx .gt_footnote_marks {
+#cgepnmdkji .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#hvjycuzokx .gt_asterisk {
+#cgepnmdkji .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hvjycuzokx .gt_slash_mark {
+#cgepnmdkji .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#hvjycuzokx .gt_fraction_numerator {
+#cgepnmdkji .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#hvjycuzokx .gt_fraction_denominator {
+#cgepnmdkji .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -2205,12 +2205,12 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
 <div class="rmdejemplo">
 <p>La tabla <a href="aed-uni.html#tab:tablacont">2.5</a> muestra una tabla de frecuencias de la variable <code>ph</code> del conjunto de datos de ejemplo de la producción de quesos. Vemos que es aproximadamente simétrico, donde los valores centrales son los más frecuentes, y a menudo que nos alejamos de estos valores centrales disminuye la frecuencia. Parece que puede haber un valor extremo por la izquierda. Un dato importante es que aproximadamente la mitad de las observaciones están por debajo de la clase más frecuente.</p>
 </div>
-<div id="xmxkytrvnv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="izuinronuq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#xmxkytrvnv .gt_table {
+#izuinronuq .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2235,7 +2235,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-left-color: #D3D3D3;
 }
 
-#xmxkytrvnv .gt_heading {
+#izuinronuq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2247,7 +2247,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-right-color: #D3D3D3;
 }
 
-#xmxkytrvnv .gt_title {
+#izuinronuq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2259,7 +2259,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-bottom-width: 0;
 }
 
-#xmxkytrvnv .gt_subtitle {
+#izuinronuq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2271,13 +2271,13 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-top-width: 0;
 }
 
-#xmxkytrvnv .gt_bottom_border {
+#izuinronuq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xmxkytrvnv .gt_col_headings {
+#izuinronuq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2292,7 +2292,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-right-color: #D3D3D3;
 }
 
-#xmxkytrvnv .gt_col_heading {
+#izuinronuq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2312,7 +2312,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   overflow-x: hidden;
 }
 
-#xmxkytrvnv .gt_column_spanner_outer {
+#izuinronuq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2324,15 +2324,15 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-right: 4px;
 }
 
-#xmxkytrvnv .gt_column_spanner_outer:first-child {
+#izuinronuq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xmxkytrvnv .gt_column_spanner_outer:last-child {
+#izuinronuq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xmxkytrvnv .gt_column_spanner {
+#izuinronuq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2344,7 +2344,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   width: 100%;
 }
 
-#xmxkytrvnv .gt_group_heading {
+#izuinronuq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2369,7 +2369,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   vertical-align: middle;
 }
 
-#xmxkytrvnv .gt_empty_group_heading {
+#izuinronuq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2384,15 +2384,15 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   vertical-align: middle;
 }
 
-#xmxkytrvnv .gt_from_md > :first-child {
+#izuinronuq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xmxkytrvnv .gt_from_md > :last-child {
+#izuinronuq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xmxkytrvnv .gt_row {
+#izuinronuq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2411,7 +2411,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   overflow-x: hidden;
 }
 
-#xmxkytrvnv .gt_stub {
+#izuinronuq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2424,7 +2424,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-right: 5px;
 }
 
-#xmxkytrvnv .gt_stub_row_group {
+#izuinronuq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2438,11 +2438,11 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   vertical-align: top;
 }
 
-#xmxkytrvnv .gt_row_group_first td {
+#izuinronuq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xmxkytrvnv .gt_summary_row {
+#izuinronuq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2452,16 +2452,16 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-right: 5px;
 }
 
-#xmxkytrvnv .gt_first_summary_row {
+#izuinronuq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xmxkytrvnv .gt_first_summary_row.thick {
+#izuinronuq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xmxkytrvnv .gt_last_summary_row {
+#izuinronuq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2471,7 +2471,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-bottom-color: #D3D3D3;
 }
 
-#xmxkytrvnv .gt_grand_summary_row {
+#izuinronuq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2481,7 +2481,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-right: 5px;
 }
 
-#xmxkytrvnv .gt_first_grand_summary_row {
+#izuinronuq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2491,11 +2491,11 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-top-color: #D3D3D3;
 }
 
-#xmxkytrvnv .gt_striped {
+#izuinronuq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xmxkytrvnv .gt_table_body {
+#izuinronuq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2504,7 +2504,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-bottom-color: #D3D3D3;
 }
 
-#xmxkytrvnv .gt_footnotes {
+#izuinronuq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2518,7 +2518,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-right-color: #D3D3D3;
 }
 
-#xmxkytrvnv .gt_footnote {
+#izuinronuq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2527,7 +2527,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-right: 5px;
 }
 
-#xmxkytrvnv .gt_sourcenotes {
+#izuinronuq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2541,7 +2541,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-right-color: #D3D3D3;
 }
 
-#xmxkytrvnv .gt_sourcenote {
+#izuinronuq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2549,36 +2549,36 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-right: 5px;
 }
 
-#xmxkytrvnv .gt_left {
+#izuinronuq .gt_left {
   text-align: left;
 }
 
-#xmxkytrvnv .gt_center {
+#izuinronuq .gt_center {
   text-align: center;
 }
 
-#xmxkytrvnv .gt_right {
+#izuinronuq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xmxkytrvnv .gt_font_normal {
+#izuinronuq .gt_font_normal {
   font-weight: normal;
 }
 
-#xmxkytrvnv .gt_font_bold {
+#izuinronuq .gt_font_bold {
   font-weight: bold;
 }
 
-#xmxkytrvnv .gt_font_italic {
+#izuinronuq .gt_font_italic {
   font-style: italic;
 }
 
-#xmxkytrvnv .gt_super {
+#izuinronuq .gt_super {
   font-size: 65%;
 }
 
-#xmxkytrvnv .gt_two_val_uncert {
+#izuinronuq .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -2587,31 +2587,31 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   margin-left: 0.1em;
 }
 
-#xmxkytrvnv .gt_footnote_marks {
+#izuinronuq .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#xmxkytrvnv .gt_asterisk {
+#izuinronuq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xmxkytrvnv .gt_slash_mark {
+#izuinronuq .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#xmxkytrvnv .gt_fraction_numerator {
+#izuinronuq .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#xmxkytrvnv .gt_fraction_denominator {
+#izuinronuq .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -5823,27 +5823,27 @@ Figura 2.18: Gráfico de serie temporal
 </div>
 
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>echo <span class="op">=</span> <span class="cn">TRUE</span>, message <span class="op">=</span> <span class="cn">FALSE</span>, warning <span class="op">=</span> <span class="cn">FALSE</span>, comment <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="co">#&gt; ── Attaching packages ─────────────────── tidyverse 1.3.1 ──</span>
-<span class="co">#&gt; ✔ ggplot2 3.3.6     ✔ purrr   0.3.4</span>
-<span class="co">#&gt; ✔ tibble  3.1.7     ✔ dplyr   1.0.9</span>
-<span class="co">#&gt; ✔ tidyr   1.2.0     ✔ stringr 1.4.0</span>
-<span class="co">#&gt; ✔ readr   2.1.2     ✔ forcats 0.5.1</span>
-<span class="co">#&gt; ── Conflicts ────────────────────── tidyverse_conflicts() ──</span>
-<span class="co">#&gt; ✖ purrr::compose() masks flextable::compose()</span>
-<span class="co">#&gt; ✖ dplyr::filter()  masks stats::filter()</span>
-<span class="co">#&gt; ✖ dplyr::lag()     masks stats::lag()</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/">knitr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ardata-fr.github.io/flextable-book/">flextable</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com/">gt</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gridExtra</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'gridExtra'</span>
-<span class="co">#&gt; The following object is masked from 'package:dplyr':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     combine</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/datalorax/equatiomatic">equatiomatic</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>echo <span class="op">=</span> <span class="cn">TRUE</span>, message <span class="op">=</span> <span class="cn">FALSE</span>, warning <span class="op">=</span> <span class="cn">FALSE</span>, comment <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; ── Attaching packages ─────────────────── tidyverse 1.3.1 ──</span></span>
+<span><span class="co">#&gt; ✔ ggplot2 3.3.6     ✔ purrr   0.3.4</span></span>
+<span><span class="co">#&gt; ✔ tibble  3.1.7     ✔ dplyr   1.0.9</span></span>
+<span><span class="co">#&gt; ✔ tidyr   1.2.0     ✔ stringr 1.4.0</span></span>
+<span><span class="co">#&gt; ✔ readr   2.1.2     ✔ forcats 0.5.1</span></span>
+<span><span class="co">#&gt; ── Conflicts ────────────────────── tidyverse_conflicts() ──</span></span>
+<span><span class="co">#&gt; ✖ purrr::compose() masks flextable::compose()</span></span>
+<span><span class="co">#&gt; ✖ dplyr::filter()  masks stats::filter()</span></span>
+<span><span class="co">#&gt; ✖ dplyr::lag()     masks stats::lag()</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/">knitr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ardata-fr.github.io/flextable-book/">flextable</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com/">gt</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gridExtra</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'gridExtra'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:dplyr':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     combine</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/datalorax/equatiomatic">equatiomatic</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -5899,7 +5899,7 @@ Figura 2.18: Gráfico de serie temporal
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-06-22.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-07-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

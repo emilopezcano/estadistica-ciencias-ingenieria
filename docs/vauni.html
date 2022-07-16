@@ -556,14 +556,14 @@ obtenemos directamente el área bajo la curva de una función. En el ejemplo:</p
 muestra la expresión para calcular la integral buscada y el valor de <span class="math inline">\(k\)</span>.</p>
 </div>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">integral</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span>f <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="fl">25</span> <span class="op">-</span> <span class="va">x</span> <span class="op">}</span>, 
-                      lower <span class="op">=</span> <span class="fl">5</span>, 
-                      upper <span class="op">=</span> <span class="fl">25</span><span class="op">)</span>
-<span class="va">integral</span>
-<span class="co">#&gt; 200 with absolute error &lt; 2.2e-12</span>
-<span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">/</span><span class="va">integral</span><span class="op">$</span><span class="va">value</span>
-<span class="va">k</span>
-<span class="co">#&gt; [1] 0.005</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">integral</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span>f <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="fl">25</span> <span class="op">-</span> <span class="va">x</span> <span class="op">}</span>, </span>
+<span>                      lower <span class="op">=</span> <span class="fl">5</span>, </span>
+<span>                      upper <span class="op">=</span> <span class="fl">25</span><span class="op">)</span></span>
+<span><span class="va">integral</span></span>
+<span><span class="co">#&gt; 200 with absolute error &lt; 2.2e-12</span></span>
+<span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">/</span><span class="va">integral</span><span class="op">$</span><span class="va">value</span></span>
+<span><span class="va">k</span></span>
+<span><span class="co">#&gt; [1] 0.005</span></span></code></pre></div>
 
 <div class="rmdejemplo">
 <p>Sea la variable aleatoria <span class="math inline">\(X\)</span> con función de densidad:</p>
@@ -626,17 +626,17 @@ se puede crear una función que obtenga valores de la función de distribución 
 posteriormente, o representarla gráficamente.</p>
 </div>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span>f <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span> <span class="op">}</span>, 
-                      lower <span class="op">=</span> <span class="fl">0</span>, 
-                      upper <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
-<span class="co">#&gt; 1 with absolute error &lt; 1.1e-14</span>
-<span class="va">Fx</span> <span class="op">&lt;-</span>  <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span>f <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">t</span><span class="op">)</span> <span class="op">{</span> <span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">t</span> <span class="op">}</span>, 
-                      lower <span class="op">=</span> <span class="fl">0</span>, 
-                      upper <span class="op">=</span> <span class="va">x</span><span class="op">)</span>
-<span class="op">}</span>
-<span class="fu">Fx</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>
-<span class="co">#&gt; 0.25 with absolute error &lt; 2.8e-15</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span>f <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span> <span class="op">}</span>, </span>
+<span>                      lower <span class="op">=</span> <span class="fl">0</span>, </span>
+<span>                      upper <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 1 with absolute error &lt; 1.1e-14</span></span>
+<span><span class="va">Fx</span> <span class="op">&lt;-</span>  <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span>f <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">t</span><span class="op">)</span> <span class="op">{</span> <span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">t</span> <span class="op">}</span>, </span>
+<span>                      lower <span class="op">=</span> <span class="fl">0</span>, </span>
+<span>                      upper <span class="op">=</span> <span class="va">x</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu">Fx</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 0.25 with absolute error &lt; 2.8e-15</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:ejfdensidad"></span>
 <img src="05-vauni_files/figure-html/ejfdensidad-1.png" alt="Representación de la función de densidad del ejemplo" width="70%"><p class="caption">
@@ -741,10 +741,10 @@ F(x)=
 <p>El código a continuación calcula la probabilidad pedida.</p>
 </div>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span>f <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span> <span class="op">}</span>, 
-                      lower <span class="op">=</span> <span class="fl">1</span>, 
-                      upper <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="co">#&gt; 0.1875 with absolute error &lt; 2.1e-15</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span>f <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span> <span class="op">}</span>, </span>
+<span>                      lower <span class="op">=</span> <span class="fl">1</span>, </span>
+<span>                      upper <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 0.1875 with absolute error &lt; 2.1e-15</span></span></code></pre></div>
 
 <div class="rmdejemplo">
 <p>El tiempo de duración (en minutos) de la visita de un potencial usuario de un servicio tras seguir el link de una oferta es una variable aleatoria <span class="math inline">\(X\)</span> que sigue una distribución de probabilidad según la siguiente función de densidad:</p>
@@ -781,10 +781,10 @@ aproximadamente un 28.35% de los visitantes.</p>
 <p>En el siguiente código de R se realizan los cálculos explicados en el ejemplo.</p>
 </div>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span>
-<span class="co">#&gt; 1 with absolute error &lt; 5e-07</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="fl">10</span><span class="op">/</span><span class="fl">60</span><span class="op">)</span>
-<span class="co">#&gt; 0.2834687 with absolute error &lt; 3.1e-15</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 1 with absolute error &lt; 5e-07</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="fl">10</span><span class="op">/</span><span class="fl">60</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 0.2834687 with absolute error &lt; 3.1e-15</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:densejilu"></span>
 <img src="05-vauni_files/figure-html/densejilu-1.png" alt="Representación de la función de densidad del ejemplo ilustrativo" width="70%"><p class="caption">
@@ -971,11 +971,11 @@ Podemos guardar los valores y sus probabilidades en sendos vectores y calcular l
 esperanza calculando la suma del producto de ambos vectores, como se muestra en el siguiente código.
 </div>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x_i</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span>
-<span class="va">p_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span>, <span class="fl">3</span><span class="op">/</span><span class="fl">8</span>, <span class="fl">3</span><span class="op">/</span><span class="fl">8</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span>
-<span class="va">Ex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x_i</span><span class="op">*</span><span class="va">p_i</span><span class="op">)</span>
-<span class="va">Ex</span>
-<span class="co">#&gt; [1] 1.5</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x_i</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span></span>
+<span><span class="va">p_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span>, <span class="fl">3</span><span class="op">/</span><span class="fl">8</span>, <span class="fl">3</span><span class="op">/</span><span class="fl">8</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span></span>
+<span><span class="va">Ex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x_i</span><span class="op">*</span><span class="va">p_i</span><span class="op">)</span></span>
+<span><span class="va">Ex</span></span>
+<span><span class="co">#&gt; [1] 1.5</span></span></code></pre></div>
 
 <div class="rmdejemplo">
 <p>La media de la variable aleatoria definida por la función de densidad:</p>
@@ -1006,8 +1006,8 @@ es máximo, al ser una recta de pendiente positiva entre 0 y 4 (véase la figura
 <p>El código a continuación obtiene la esperanza de la variable aleatoria.</p>
 </div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span>, <span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span>
-<span class="co">#&gt; 2.666667 with absolute error &lt; 3e-14</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span>, <span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 2.666667 with absolute error &lt; 3e-14</span></span></code></pre></div>
 <div class="rmdejemplo">
 <p>
 Vamos a calcular las medias de las variables aleatorias de los
@@ -1057,14 +1057,14 @@ Para la variable discreta, podemos guardar los valores y sus probabilidades en s
 esperanza calculando la suma del producto de ambos vectores, como se muestra en el siguiente código. Para la variable continua, utilizamos la función <code>integrate</code> para calcular la integral. Nótese que se pueden usar límites infinitos.
 </div>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">36</span>, <span class="fl">60</span><span class="op">)</span>
-<span class="va">p_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">36</span><span class="op">/</span><span class="fl">52</span>, <span class="fl">12</span><span class="op">/</span><span class="fl">52</span>, <span class="fl">4</span><span class="op">/</span><span class="fl">52</span><span class="op">)</span>
-<span class="va">Ex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x_i</span><span class="op">*</span><span class="va">p_i</span><span class="op">)</span>
-<span class="va">Ex</span>
-<span class="co">#&gt; [1] 26.76923</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">36</span>, <span class="fl">60</span><span class="op">)</span></span>
+<span><span class="va">p_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">36</span><span class="op">/</span><span class="fl">52</span>, <span class="fl">12</span><span class="op">/</span><span class="fl">52</span>, <span class="fl">4</span><span class="op">/</span><span class="fl">52</span><span class="op">)</span></span>
+<span><span class="va">Ex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x_i</span><span class="op">*</span><span class="va">p_i</span><span class="op">)</span></span>
+<span><span class="va">Ex</span></span>
+<span><span class="co">#&gt; [1] 26.76923</span></span></code></pre></div>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span>
-<span class="co">#&gt; 0.5 with absolute error &lt; 8.6e-06</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 0.5 with absolute error &lt; 8.6e-06</span></span></code></pre></div>
 </div>
 <div id="medidas-de-dispersión-de-una-variable-aleatoria" class="section level3" number="5.5.4">
 <h3>
@@ -1140,14 +1140,14 @@ y después podemos hacer operaciones para calcular todas las características:</
 El siguiente código realiza todos los cálculos para obtener los distintos parámetros de dispersión.
 </div>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">alpha_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span>, <span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span><span class="op">$</span><span class="va">value</span>
-<span class="va">alpha_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span>, <span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span><span class="op">$</span><span class="va">value</span>
-<span class="va">varianza</span> <span class="op">&lt;-</span> <span class="va">alpha_2</span> <span class="op">-</span> <span class="va">alpha_1</span><span class="op">^</span><span class="fl">2</span>; <span class="va">varianza</span>
-<span class="co">#&gt; [1] 0.8888889</span>
-<span class="va">desv.tip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">varianza</span><span class="op">)</span>; <span class="va">desv.tip</span>
-<span class="co">#&gt; [1] 0.942809</span>
-<span class="va">cv</span> <span class="op">&lt;-</span> <span class="va">desv.tip</span><span class="op">/</span><span class="va">alpha_1</span>; <span class="va">cv</span>
-<span class="co">#&gt; [1] 0.3535534</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">alpha_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span>, <span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span><span class="op">$</span><span class="va">value</span></span>
+<span><span class="va">alpha_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span><span class="op">*</span><span class="va">x</span>, <span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span><span class="op">$</span><span class="va">value</span></span>
+<span><span class="va">varianza</span> <span class="op">&lt;-</span> <span class="va">alpha_2</span> <span class="op">-</span> <span class="va">alpha_1</span><span class="op">^</span><span class="fl">2</span>; <span class="va">varianza</span></span>
+<span><span class="co">#&gt; [1] 0.8888889</span></span>
+<span><span class="va">desv.tip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">varianza</span><span class="op">)</span>; <span class="va">desv.tip</span></span>
+<span><span class="co">#&gt; [1] 0.942809</span></span>
+<span><span class="va">cv</span> <span class="op">&lt;-</span> <span class="va">desv.tip</span><span class="op">/</span><span class="va">alpha_1</span>; <span class="va">cv</span></span>
+<span><span class="co">#&gt; [1] 0.3535534</span></span></code></pre></div>
 <div class="rmdejemplo">
 <p>
 Vamos a calcular las varianzas de las variables aleatorias de los
@@ -1209,10 +1209,10 @@ aleatoria de forma análoga
 al ejemplo anterior.
 </div>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">alpha_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">*</span><span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">$</span><span class="va">value</span>
-<span class="va">alpha_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">$</span><span class="va">value</span>
-<span class="va">varianza</span> <span class="op">&lt;-</span> <span class="va">alpha_2</span> <span class="op">-</span> <span class="va">alpha_1</span><span class="op">^</span><span class="fl">2</span>; <span class="va">varianza</span>
-<span class="co">#&gt; [1] 0.25</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">alpha_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">*</span><span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">$</span><span class="va">value</span></span>
+<span><span class="va">alpha_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">*</span><span class="fl">2</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">)</span>, <span class="fl">0</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">$</span><span class="va">value</span></span>
+<span><span class="va">varianza</span> <span class="op">&lt;-</span> <span class="va">alpha_2</span> <span class="op">-</span> <span class="va">alpha_1</span><span class="op">^</span><span class="fl">2</span>; <span class="va">varianza</span></span>
+<span><span class="co">#&gt; [1] 0.25</span></span></code></pre></div>
 
 <div class="rmdejemplo">
 <p>A partir de la variable aleatoria anterior:</p>
@@ -1373,7 +1373,7 @@ y por tanto si la suma de dos números es menor que 0.1111, entonces cada uno de
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-06-22.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-07-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

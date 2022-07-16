@@ -64,7 +64,7 @@ replicación.
 
 
 
-## Importancia del diseño
+## Importancia del diseño {#doe.importancia}
 
 Con la experimentación básicamente controlamos los niveles a los que operan
 ciertos factores controlables, a la vez que se asignan dichos niveles

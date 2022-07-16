@@ -111,6 +111,7 @@ eq:modanova1
 eq:modanova2
 eq:anovamat
 fig:efectotipo
+fig:plantaspuntosmedias
 tab:anova0
 fig:tukeytipo
 fig:anovadiag
@@ -319,7 +320,7 @@ análisis-multivariante-de-la-varianza
 doe
 introducción-4
 bases-del-doe-origen-importancia-objetivos-y-requerimientos
-importancia-del-diseño
+doe.importancia
 planificación-de-la-experimentación
 tipos-de-diseños-de-experimentos
 experimentos-con-un-factor

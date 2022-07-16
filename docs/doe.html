@@ -94,7 +94,7 @@
 otra técnica estadística, se basa en el estudio de la variabilidad. DoE es la
 herramienta más potente para la mejora, lo que ha llevado a algunos autores a
 llamarlo “the jewel of quality engineering” (Ver por ejemplo
-<span class="citation">Theodore T. Allen<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Introduction to Engineering Statistics and Lean Six Sigma - Statistical Quality Control and Design of Experiments and Systems&lt;/em&gt; (Springer, 2010).&lt;/p&gt;"><sup>88</sup></a></span>).</p>
+<span class="citation">Theodore T. Allen<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Introduction to Engineering Statistics and Lean Six Sigma - Statistical Quality Control and Design of Experiments and Systems&lt;/em&gt; (Springer, 2010).&lt;/p&gt;"><sup>90</sup></a></span>).</p>
 <p>En apartados anteriores del libro hemos aprendido las herramientas básicas
 para <strong>analizar la variabilidad</strong> de los datos. En este apartado vamos a revisar
 las técnicas de Diseño de Experimentos y
@@ -121,7 +121,7 @@ el menor uso de recursos posible.
 Así, podremos tomar decisiones respaldadas por los datos.</p>
 <p>El objetivo del diseño de experimentos es encontrar los niveles de
 ciertos factores que optimizan una determinada característica medible.
-Esto se consigue con un método sistemático<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En realidad, el método científico.&lt;/p&gt;"><sup>89</sup></a> que evita salidas en falso y respuestas
+Esto se consigue con un método sistemático<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En realidad, el método científico.&lt;/p&gt;"><sup>91</sup></a> que evita salidas en falso y respuestas
 incompletas. Mediante la reducción del error experimental se consigue evitar la confusión de los efectos y anular los efectos sin interés para el estudio.</p>
 <p>Para empezar, lo primero que necesitamos es definir los datos del problema
 objeto de estudio y disponer de una forma de obtenerlos adecuadamente, en particular:</p>
@@ -134,9 +134,9 @@ objeto de estudio y disponer de una forma de obtenerlos adecuadamente, en partic
 teniendo en cuenta los tres pilares del DoE: aleatorización, bloqueo y
 replicación.</p>
 </div>
-<div id="importancia-del-diseño" class="section level2" number="11.3">
+<div id="doe.importancia" class="section level2" number="11.3">
 <h2>
-<span class="header-section-number">11.3</span> Importancia del diseño<a class="anchor" aria-label="anchor" href="#importancia-del-dise%C3%B1o"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.3</span> Importancia del diseño<a class="anchor" aria-label="anchor" href="#doe.importancia"><i class="fas fa-link"></i></a>
 </h2>
 <p>Con la experimentación básicamente controlamos los niveles a los que operan
 ciertos factores controlables, a la vez que se asignan dichos niveles
@@ -179,7 +179,7 @@ R.A. Fisher</p>
 </blockquote>
 <blockquote>
 <p>As we know from Murphy’s Law, if anything can go wrong it will, and analysis of
-data can never compensate for botched experiments<br><span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>90</sup></a></span></p>
+data can never compensate for botched experiments<br><span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>92</sup></a></span></p>
 </blockquote>
 </div>
 <p>El análisis de la varianza sin diseño de experimentos tiene algunas
@@ -219,7 +219,7 @@ cambios que resulten en mejoras. Sin embargo, es
 necesario otro tipo de conocimiento (<em>profound knowledge</em>), en el que se
 incluye la Estadística. Combinar ambos conocimientos, lleva a una
 mayor capacidad de mejora.
-Estas ideas, originarias de Deming, se recogen en <span class="citation">R. Moen, T. Nolan, and L. Provost<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Quality Improvement Through Planned Experimentation 3/e&lt;/em&gt; (McGraw-Hill Education, 2012).&lt;/p&gt;"><sup>91</sup></a></span>.
+Estas ideas, originarias de Deming, se recogen en <span class="citation">R. Moen, T. Nolan, and L. Provost<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Quality Improvement Through Planned Experimentation 3/e&lt;/em&gt; (McGraw-Hill Education, 2012).&lt;/p&gt;"><sup>93</sup></a></span>.
 Algunas capacidades necesarias fruto de esta combinación son:</p>
 <ul>
 <li>Entender las interdependencias entre los sistemas donde se lleva a cabo
@@ -248,7 +248,7 @@ en un proceso iterativo de aprendizaje como se muestra en la figura <a href="doe
 Figura 11.3: Método iterativo de aprendizaje
 </p>
 </div>
-<p>En <span class="citation">Moen, Nolan, and Provost<a href="#fn92" class="footnote-ref" id="fnref92"><sup>92</sup></a></span> se propone el ciclo PDSA (<em>Plan-Do-Study-Act</em>) para la mejora que se muestra en la figura <a href="doe.html#fig:ciclo">11.4</a>. Básicamente consiste en:</p>
+<p>En <span class="citation">Moen, Nolan, and Provost<a href="#fn94" class="footnote-ref" id="fnref94"><sup>94</sup></a></span> se propone el ciclo PDSA (<em>Plan-Do-Study-Act</em>) para la mejora que se muestra en la figura <a href="doe.html#fig:ciclo">11.4</a>. Básicamente consiste en:</p>
 <ol style="list-style-type: decimal">
 <li>Planifica un cambio o prueba, dirigido a la <strong>mejora</strong>
 </li>
@@ -353,7 +353,7 @@ experimentales (por ejemplo, días diferentes), se deben organizar en bloques.</
 <li><p><strong>Réplicas</strong>. Para poder estimar el error experimental y hacer contrastes de
 hipótesis, es necesario tener más de una <em>corrida</em> de cada combinación de tratamientos.</p></li>
 </ul>
-<p><span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>93</sup></a></span> propone la siguiente <em>checklist</em> a la hora de planificar
+<p><span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>95</sup></a></span> propone la siguiente <em>checklist</em> a la hora de planificar
 experimentos:</p>
 <ol style="list-style-type: decimal">
 <li>Definir objetivos</li>
@@ -438,31 +438,31 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <p>En el siguiente código se analiza un experimento con dos factores A y B a dos niveles, <code>+</code> y + <code>-</code>. Se muestran los gráficos de los efectos.</p>
 </div>
 <div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://xtable.r-forge.r-project.org/">xtable</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://prof.bht-berlin.de/groemping/DoE/">DoE.base</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.r-project.org">effects</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/reshape">reshape2</a></span><span class="op">)</span>
-<span class="va">datosf22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/scan.html">scan</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"
--   -   28
--   -   25  
--   -   27
-+   -   36
-+   -   32
-+   -   32
--   +   18
--   +   19
--   +   23
-+   +   31
-+   +   30
-+   +   29  
-"</span>, 
-    what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,
-    sep <span class="op">=</span> <span class="st">"\t"</span><span class="op">)</span> 
-<span class="va">datosf22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">datosf22</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">datosf22</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"respuesta"</span><span class="op">)</span>
-<span class="va">datosf22</span><span class="op">$</span><span class="va">replica</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/">knitr</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/reshape2/man/cast.html">dcast</a></span><span class="op">(</span><span class="va">datosf22</span>, <span class="va">A</span> <span class="op">+</span> <span class="va">B</span> <span class="op">~</span> <span class="va">replica</span>, value.var <span class="op">=</span> <span class="st">"respuesta"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://xtable.r-forge.r-project.org/">xtable</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://prof.bht-berlin.de/groemping/DoE/">DoE.base</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.r-project.org">effects</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/reshape">reshape2</a></span><span class="op">)</span></span>
+<span><span class="va">datosf22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/scan.html">scan</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"</span></span>
+<span><span class="st">-   -   28</span></span>
+<span><span class="st">-   -   25  </span></span>
+<span><span class="st">-   -   27</span></span>
+<span><span class="st">+   -   36</span></span>
+<span><span class="st">+   -   32</span></span>
+<span><span class="st">+   -   32</span></span>
+<span><span class="st">-   +   18</span></span>
+<span><span class="st">-   +   19</span></span>
+<span><span class="st">-   +   23</span></span>
+<span><span class="st">+   +   31</span></span>
+<span><span class="st">+   +   30</span></span>
+<span><span class="st">+   +   29  </span></span>
+<span><span class="st">"</span>, </span>
+<span>    what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    sep <span class="op">=</span> <span class="st">"\t"</span><span class="op">)</span> </span>
+<span><span class="va">datosf22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">datosf22</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">datosf22</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"respuesta"</span><span class="op">)</span></span>
+<span><span class="va">datosf22</span><span class="op">$</span><span class="va">replica</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/">knitr</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/reshape2/man/cast.html">dcast</a></span><span class="op">(</span><span class="va">datosf22</span>, <span class="va">A</span> <span class="op">+</span> <span class="va">B</span> <span class="op">~</span> <span class="va">replica</span>, value.var <span class="op">=</span> <span class="st">"respuesta"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="left">A</th>
@@ -503,54 +503,54 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 </tbody>
 </table></div>
 <div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">modelof22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/DoE.base/man/lm.design.html">lm</a></span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">A</span> <span class="op">+</span> <span class="va">B</span> <span class="op">+</span> <span class="va">A</span><span class="op">*</span><span class="va">B</span>, data <span class="op">=</span> <span class="va">datosf22</span><span class="op">)</span>
-<span class="co"># kable(anova(modelof22))</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof22</span><span class="op">)</span>
-<span class="co">#&gt; Analysis of Variance Table</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Response: respuesta</span>
-<span class="co">#&gt;           Df  Sum Sq Mean Sq F value    Pr(&gt;F)    </span>
-<span class="co">#&gt; A          1 208.333 208.333 53.1915 8.444e-05 ***</span>
-<span class="co">#&gt; B          1  75.000  75.000 19.1489  0.002362 ** </span>
-<span class="co">#&gt; A:B        1   8.333   8.333  2.1277  0.182776    </span>
-<span class="co">#&gt; Residuals  8  31.333   3.917                      </span>
-<span class="co">#&gt; ---</span>
-<span class="co">#&gt; Signif. codes:  </span>
-<span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">modelof22</span> <span class="op">&lt;-</span> <span class="fu">lm</span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">A</span> <span class="op">+</span> <span class="va">B</span> <span class="op">+</span> <span class="va">A</span><span class="op">*</span><span class="va">B</span>, data <span class="op">=</span> <span class="va">datosf22</span><span class="op">)</span></span>
+<span><span class="co"># kable(anova(modelof22))</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof22</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Analysis of Variance Table</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Response: respuesta</span></span>
+<span><span class="co">#&gt;           Df  Sum Sq Mean Sq F value    Pr(&gt;F)    </span></span>
+<span><span class="co">#&gt; A          1 208.333 208.333 53.1915 8.444e-05 ***</span></span>
+<span><span class="co">#&gt; B          1  75.000  75.000 19.1489  0.002362 ** </span></span>
+<span><span class="co">#&gt; A:B        1   8.333   8.333  2.1277  0.182776    </span></span>
+<span><span class="co">#&gt; Residuals  8  31.333   3.917                      </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
 <div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://lattice.r-forge.r-project.org/">lattice</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/lattice/man/trellis.par.get.html">trellis.par.set</a></span><span class="op">(</span>background <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; NOTE: A is not a high-order term in the model</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://lattice.r-forge.r-project.org/">lattice</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/trellis.par.get.html">trellis.par.set</a></span><span class="op">(</span>background <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; NOTE: A is not a high-order term in the model</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
 <div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; NOTE: B is not a high-order term in the model</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; NOTE: B is not a high-order term in the model</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
 <div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A:B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A:B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
 <div class="rmdejemplo">
 <p>Vemos que los dos efectos principales son significativos, pero no lo es la interacción. Podemos eliminar ese término del modelo para así ganar grados de libertad y tener una mejor estimación del error.</p>
 </div>
 <div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">modelof22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/DoE.base/man/lm.design.html">lm</a></span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">A</span> <span class="op">+</span> <span class="va">B</span>, data <span class="op">=</span> <span class="va">datosf22</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof22</span><span class="op">)</span>
-<span class="co">#&gt; Analysis of Variance Table</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Response: respuesta</span>
-<span class="co">#&gt;           Df  Sum Sq Mean Sq F value    Pr(&gt;F)    </span>
-<span class="co">#&gt; A          1 208.333 208.333  47.269 7.265e-05 ***</span>
-<span class="co">#&gt; B          1  75.000  75.000  17.017  0.002578 ** </span>
-<span class="co">#&gt; Residuals  9  39.667   4.407                      </span>
-<span class="co">#&gt; ---</span>
-<span class="co">#&gt; Signif. codes:  </span>
-<span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">modelof22</span> <span class="op">&lt;-</span> <span class="fu">lm</span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">A</span> <span class="op">+</span> <span class="va">B</span>, data <span class="op">=</span> <span class="va">datosf22</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof22</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Analysis of Variance Table</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Response: respuesta</span></span>
+<span><span class="co">#&gt;           Df  Sum Sq Mean Sq F value    Pr(&gt;F)    </span></span>
+<span><span class="co">#&gt; A          1 208.333 208.333  47.269 7.265e-05 ***</span></span>
+<span><span class="co">#&gt; B          1  75.000  75.000  17.017  0.002578 ** </span></span>
+<span><span class="co">#&gt; Residuals  9  39.667   4.407                      </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
 <div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
 <div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
 <p><strong>Diseño factorial <span class="math inline">\(2^3\)</span></strong></p>
 <p>Modelo:</p>
@@ -570,21 +570,21 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <p>En el siguiente ejemplo, analizamos tres factores, pero omitimos la interacción de orden 3. Después, podríamos eliminar las interacciones menos significativas para quedarnos con el modelo más sencillo.</p>
 </div>
 <div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">datosf23</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/scan.html">scan</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"
--   -   -   60
-+   -   -   72  
--   +   -   54
-+   +   -   68
--   -   +   52
-+   -   +   83
--   +   +   45
-+   +   +   80
-"</span>, 
-    what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,
-    sep <span class="op">=</span> <span class="st">"\t"</span><span class="op">)</span> 
-<span class="va">datosf23</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">datosf23</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">datosf23</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"K"</span>, <span class="st">"rendimiento"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/reshape2/man/cast.html">dcast</a></span><span class="op">(</span><span class="va">datosf23</span>, <span class="cn">T</span> <span class="op">+</span> <span class="va">C</span> <span class="op">+</span> <span class="va">K</span> <span class="op">~</span> <span class="va">.</span>, value.var <span class="op">=</span> <span class="st">"rendimiento"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">datosf23</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/scan.html">scan</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"</span></span>
+<span><span class="st">-   -   -   60</span></span>
+<span><span class="st">+   -   -   72  </span></span>
+<span><span class="st">-   +   -   54</span></span>
+<span><span class="st">+   +   -   68</span></span>
+<span><span class="st">-   -   +   52</span></span>
+<span><span class="st">+   -   +   83</span></span>
+<span><span class="st">-   +   +   45</span></span>
+<span><span class="st">+   +   +   80</span></span>
+<span><span class="st">"</span>, </span>
+<span>    what <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    sep <span class="op">=</span> <span class="st">"\t"</span><span class="op">)</span> </span>
+<span><span class="va">datosf23</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">datosf23</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">datosf23</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"K"</span>, <span class="st">"rendimiento"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/reshape2/man/cast.html">dcast</a></span><span class="op">(</span><span class="va">datosf23</span>, <span class="cn">T</span> <span class="op">+</span> <span class="va">C</span> <span class="op">+</span> <span class="va">K</span> <span class="op">~</span> <span class="va">.</span>, value.var <span class="op">=</span> <span class="st">"rendimiento"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="left">T</th>
@@ -644,43 +644,43 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 </tbody>
 </table></div>
 <div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">modelof23</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/DoE.base/man/lm.design.html">lm</a></span><span class="op">(</span><span class="va">rendimiento</span> <span class="op">~</span> <span class="cn">T</span> <span class="op">+</span> <span class="va">C</span> <span class="op">+</span> <span class="va">K</span> <span class="op">+</span> <span class="cn">T</span><span class="op">*</span><span class="va">C</span> <span class="op">+</span> <span class="cn">T</span><span class="op">*</span><span class="va">K</span> <span class="op">+</span> <span class="va">C</span><span class="op">*</span><span class="va">K</span>, data <span class="op">=</span> <span class="va">datosf23</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof23</span><span class="op">)</span>
-<span class="co">#&gt; Analysis of Variance Table</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Response: rendimiento</span>
-<span class="co">#&gt;           Df Sum Sq Mean Sq F value  Pr(&gt;F)  </span>
-<span class="co">#&gt; T          1 1058.0  1058.0    2116 0.01384 *</span>
-<span class="co">#&gt; C          1   50.0    50.0     100 0.06345 .</span>
-<span class="co">#&gt; K          1    4.5     4.5       9 0.20483  </span>
-<span class="co">#&gt; T:C        1    4.5     4.5       9 0.20483  </span>
-<span class="co">#&gt; T:K        1  200.0   200.0     400 0.03180 *</span>
-<span class="co">#&gt; C:K        1    0.0     0.0       0 1.00000  </span>
-<span class="co">#&gt; Residuals  1    0.5     0.5                  </span>
-<span class="co">#&gt; ---</span>
-<span class="co">#&gt; Signif. codes:  </span>
-<span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">modelof23</span> <span class="op">&lt;-</span> <span class="fu">lm</span><span class="op">(</span><span class="va">rendimiento</span> <span class="op">~</span> <span class="cn">T</span> <span class="op">+</span> <span class="va">C</span> <span class="op">+</span> <span class="va">K</span> <span class="op">+</span> <span class="cn">T</span><span class="op">*</span><span class="va">C</span> <span class="op">+</span> <span class="cn">T</span><span class="op">*</span><span class="va">K</span> <span class="op">+</span> <span class="va">C</span><span class="op">*</span><span class="va">K</span>, data <span class="op">=</span> <span class="va">datosf23</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof23</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Analysis of Variance Table</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Response: rendimiento</span></span>
+<span><span class="co">#&gt;           Df Sum Sq Mean Sq F value  Pr(&gt;F)  </span></span>
+<span><span class="co">#&gt; T          1 1058.0  1058.0    2116 0.01384 *</span></span>
+<span><span class="co">#&gt; C          1   50.0    50.0     100 0.06345 .</span></span>
+<span><span class="co">#&gt; K          1    4.5     4.5       9 0.20483  </span></span>
+<span><span class="co">#&gt; T:C        1    4.5     4.5       9 0.20483  </span></span>
+<span><span class="co">#&gt; T:K        1  200.0   200.0     400 0.03180 *</span></span>
+<span><span class="co">#&gt; C:K        1    0.0     0.0       0 1.00000  </span></span>
+<span><span class="co">#&gt; Residuals  1    0.5     0.5                  </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
 <div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; NOTE: T is not a high-order term in the model</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; NOTE: T is not a high-order term in the model</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
 <div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"C"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; NOTE: C is not a high-order term in the model</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"C"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; NOTE: C is not a high-order term in the model</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-2.png" width="672"></div>
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; NOTE: K is not a high-order term in the model</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; NOTE: K is not a high-order term in the model</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-3.png" width="672"></div>
 <div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T:C"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T:C"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-4.png" width="672"></div>
 <div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T:K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T:K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-5.png" width="672"></div>
 <div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"C:K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"C:K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-6.png" width="672"></div>
 <p><strong>Diseño factorial <span class="math inline">\(2^k\)</span></strong></p>
 <p>Siguiendo la misma estructura que los dos anteriores, con más efectos principales y más interacciones, pero más allá de 3 es muy difícil que se produzcan, y más difícil de interpretar.
@@ -718,7 +718,7 @@ El número de experimentos necesarios aumenta exponencialmente, y se suelen pref
 <li><a class="nav-link" href="#doe"><span class="header-section-number">11</span> Diseño de experimentos</a></li>
 <li><a class="nav-link" href="#introducci%C3%B3n-4"><span class="header-section-number">11.1</span> Introducción</a></li>
 <li><a class="nav-link" href="#bases-del-doe-origen-importancia-objetivos-y-requerimientos"><span class="header-section-number">11.2</span> Bases del DoE: origen, importancia, objetivos y requerimientos</a></li>
-<li><a class="nav-link" href="#importancia-del-dise%C3%B1o"><span class="header-section-number">11.3</span> Importancia del diseño</a></li>
+<li><a class="nav-link" href="#doe.importancia"><span class="header-section-number">11.3</span> Importancia del diseño</a></li>
 <li><a class="nav-link" href="#planificaci%C3%B3n-de-la-experimentaci%C3%B3n"><span class="header-section-number">11.4</span> Planificación de la experimentación</a></li>
 <li>
 <a class="nav-link" href="#tipos-de-dise%C3%B1os-de-experimentos"><span class="header-section-number">11.5</span> Tipos de diseños de experimentos</a><ul class="nav navbar-nav">
@@ -746,7 +746,7 @@ El número de experimentos necesarios aumenta exponencialmente, y se suelen pref
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-06-22.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-07-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

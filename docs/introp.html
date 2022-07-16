@@ -274,8 +274,8 @@ En este caso, <span class="math inline">\(C_{5, 2} = \binom{5}{2} = 10\)</span>.
 La función <code>choose</code> obtiene el número de combinaciones como se ilustra a continuación.
 </div>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">2</span><span class="op">)</span>
-<span class="co">#&gt; [1] 10</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 10</span></span></code></pre></div>
 </div>
 <div id="operaciones-con-sucesos" class="section level3" number="4.2.2">
 <h3>
@@ -761,13 +761,13 @@ la probabilidad pedida:</p>
 puede ver cómo aumenta la probabilidad.</p>
 </div>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ncumple</span> <span class="op">&lt;-</span> <span class="fl">30</span>
-<span class="va">cposibles</span> <span class="op">&lt;-</span> <span class="fl">365</span><span class="op">^</span><span class="va">ncumple</span>
-<span class="va">cfavorables</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/prod.html">prod</a></span><span class="op">(</span><span class="fl">365</span><span class="op">:</span><span class="op">(</span><span class="fl">365</span> <span class="op">-</span> <span class="va">ncumple</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
-<span class="va">prob_ninguno</span> <span class="op">&lt;-</span> <span class="va">cfavorables</span><span class="op">/</span><span class="va">cposibles</span>
-<span class="va">prob_alguno</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="va">cfavorables</span><span class="op">/</span><span class="va">cposibles</span>
-<span class="va">prob_alguno</span>
-<span class="co">#&gt; [1] 0.7063162</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">ncumple</span> <span class="op">&lt;-</span> <span class="fl">30</span></span>
+<span><span class="va">cposibles</span> <span class="op">&lt;-</span> <span class="fl">365</span><span class="op">^</span><span class="va">ncumple</span></span>
+<span><span class="va">cfavorables</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/prod.html">prod</a></span><span class="op">(</span><span class="fl">365</span><span class="op">:</span><span class="op">(</span><span class="fl">365</span> <span class="op">-</span> <span class="va">ncumple</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">prob_ninguno</span> <span class="op">&lt;-</span> <span class="va">cfavorables</span><span class="op">/</span><span class="va">cposibles</span></span>
+<span><span class="va">prob_alguno</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="va">cfavorables</span><span class="op">/</span><span class="va">cposibles</span></span>
+<span><span class="va">prob_alguno</span></span>
+<span><span class="co">#&gt; [1] 0.7063162</span></span></code></pre></div>
 <p>Una vez definida la medida de probabilidad <span class="math inline">\(\wp\)</span> con los axiomas y propiedades
 anteriores, llamamos <strong>espacio de probabilidad</strong> a la terna:</p>
 <p><span class="math display">\[(\Omega, \aleph, \wp).\]</span></p>
@@ -1162,7 +1162,7 @@ probabilidad de ganar el coche.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-06-22.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2022-07-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -1,7 +1,7 @@
 --- 
 title: "Estadística Aplicada a las Ciencias y la Ingeniería"
 author: "Emilio L. Cano"
-date: "2022-06-22"
+date: "2022-07-17"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib, iso.bib]
@@ -93,9 +93,9 @@ Obsérvese que los resultados se muestran precedidos de los símbolos
 
 ```r
 sessionInfo()
-#> R version 4.2.0 (2022-04-22)
+#> R version 4.2.1 (2022-06-23)
 #> Platform: x86_64-apple-darwin17.0 (64-bit)
-#> Running under: macOS Big Sur/Monterey 10.16
+#> Running under: macOS Big Sur ... 10.16
 #> 
 #> Matrix products: default
 #> BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib
@@ -112,18 +112,18 @@ sessionInfo()
 #> [1] flextable_0.7.2   fontawesome_0.2.2
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] Rcpp_1.0.8.3      rstudioapi_0.13   magrittr_2.0.3   
-#>  [4] knitr_1.39        xml2_1.3.3        downlit_0.4.0    
-#>  [7] uuid_1.1-0        R6_2.5.1          rlang_1.0.2      
-#> [10] fastmap_1.1.0     stringr_1.4.0     tools_4.2.0      
+#>  [1] Rcpp_1.0.9        rstudioapi_0.13   magrittr_2.0.3   
+#>  [4] knitr_1.39        xml2_1.3.3        downlit_0.4.2    
+#>  [7] uuid_1.1-0        R6_2.5.1          rlang_1.0.3      
+#> [10] fastmap_1.1.0     stringr_1.4.0     tools_4.2.1      
 #> [13] data.table_1.14.2 xfun_0.31         cli_3.3.0        
-#> [16] jquerylib_0.1.4   htmltools_0.5.2   systemfonts_1.0.4
-#> [19] yaml_2.3.5        digest_0.6.29     bookdown_0.27    
-#> [22] zip_2.2.0         officer_0.4.3     fs_1.5.2         
-#> [25] sass_0.4.1        base64enc_0.1-3   memoise_2.0.1    
-#> [28] cachem_1.0.6      evaluate_0.15     rmarkdown_2.14   
-#> [31] stringi_1.7.6     compiler_4.2.0    bslib_0.3.1      
-#> [34] gdtools_0.2.4     jsonlite_1.8.0
+#> [16] withr_2.5.0       jquerylib_0.1.4   htmltools_0.5.2  
+#> [19] systemfonts_1.0.4 yaml_2.3.5        digest_0.6.29    
+#> [22] bookdown_0.27     zip_2.2.0         officer_0.4.3    
+#> [25] fs_1.5.2          sass_0.4.1        base64enc_0.1-3  
+#> [28] memoise_2.0.1     cachem_1.0.6      evaluate_0.15    
+#> [31] rmarkdown_2.14    stringi_1.7.6     compiler_4.2.1   
+#> [34] bslib_0.3.1       gdtools_0.2.4     jsonlite_1.8.0
 ```
 
 Normalmente, la descripción o enunciado de los ejemplos se incluyen en bloques 

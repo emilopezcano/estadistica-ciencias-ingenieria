@@ -24,7 +24,7 @@ todo modelo estadístico, está sujeto a un error $\varepsilon$.
 En realidad el análisis de la varianza incluye un conjunto amplio de 
 técnicas cuyo análisis varía ligeramente según la naturaleza y el número de variables
 en los vectores aleatorios $\pmb{Y}$ y $\pmb{X}$. En los apartados siguientes
-se irán detallando los distintos modelos desde el más sencillo al más complejo.
+se irán detallando los modelos esenciales desde el más sencillo al más complejo.
 A medida que se avance en los modelos, se presentan más ejemplos y menos teoría,
 ya que el fundamento es muy similar y se puede consultar en la 
 bibliografía citada.
@@ -33,9 +33,11 @@ La técnica del análisis de la varianza se puede abordar desde dos perspectivas
 explicativa y predictiva. Desde una perspectiva explicativa, se puede aplicar
 la técnica para realizar estudios observacionales a datos ya existentes. 
 Estos estudios observacionales confirmarán la **relación** entre las variables.
-Desde el punto de vista predictivo, se pueden diseñar experimentos antes
+Desde el punto de vista predictivo, se pueden diseñar experimentos (DoE) antes
 de la recogida de datos. Estos estudios predictivos permiten confirmar la
-**relación de causa-efecto** entre las variables.
+**relación de causa-efecto** entre las variables. En el capítulo \@ref(doe)
+se desarrollan los principios del DoE para aplicar el ANOVA en ese contexto, 
+así como algunos modelos más específicos.
 
 
 ## Análisis de la varianza de un factor {#sec:anova1}
@@ -65,7 +67,7 @@ grupo, vamos a obtener un resumen numérico y a representarlos todos con un grá
 
 A la vista de las medias parece que el peso medio con el fertilizante C es menor.
 Por otra parte parece que hay menos variabilidad
-con también con el fertilizante C. Una vez ajustado el modelo lo comprobaremos numéricamente.
+también con el fertilizante C. Una vez ajustado el modelo lo comprobaremos numéricamente.
 :::
 
 
@@ -124,10 +126,10 @@ danova |>
 ### Modelo
 
 Tenemos una variable $Y$ que toma valores reales y una variable cualitativa o factor
-$X$ con niveles $1, 2, \ldots, i, \ldots, k$. La variable $Y$ toma valores $y_{ij}$, $j = 1, \ldots, n_i$
+$X$ con $k$ niveles $1, 2, \ldots, i, \ldots, k$. La variable $Y$ toma valores $y_{ij}$, $j = 1, \ldots, n_i$
 en el nivel $i$ del factor $X$, siendo $n_i$ el número de observaciones en el nivel $i$ del factor $X$.
 Cuando todos los niveles tienen el mismo número de observaciones, $n_i=n_{i^\prime}\; \forall i,i^\prime$, decimos
-que el diseño está balanceado o equilibrado.
+que el diseño está balanceado o **equilibrado**.
 El modelo puede escribirse de dos formas:
 
 \begin{equation}
@@ -141,8 +143,9 @@ y_{ij} = \mu_i + \varepsilon_{ij},
 \end{equation}
 
 En la ecuación \@ref(eq:modanova1), $\mu$ es la media de la variable $Y$,
-mientras que $\alpha_i$ es el **efecto** en la media del nivel $i$, es decir, cuánto
-aumenta o disminuye la media de $Y$ por pertenecer a la categoría $i$. En la ecuación
+mientras que $\alpha_i$ es el **efecto** del en la media de la variable respuesta $Y$ 
+del nivel $i$ del factor $X$. Es decir, cuánto
+aumenta o disminuye la media de $Y$ por pertenecer la observación a la categoría $i$. En la ecuación
 \@ref(eq:modanova2), $\mu_i$ es la media de la variable $Y$ para el nivel $i$ 
 del factor $X$, de donde tenemos que el efecto es:
 
@@ -185,7 +188,7 @@ los estimadores obtenidos tanto por el método de mínimos cuadradados como por
 el método de máxima verosimilitud (véase por ejemplo @lawson2015) son los siguientes:
 
 $$\hat{\mu_i} = \overline{y}_{i\cdot}= \frac{\sum\limits_{j=1}^{n_i}{y_{ij}}}{n_i},$$
-$$\hat{\mu} = \overline{y}_{\cdot\cdot}= \frac{\sum\limits_{i=1}^{k}{y_{i\cdot}}}{k}=\frac{\sum\limits_{i=1}^k\sum\limits_{j=1}^{n_i}{y_{ij}}}{n},$$
+$$\hat{\mu} = \overline{y}_{\cdot\cdot}= \frac{\sum\limits_{i=1}^{k}{\overline{y}_{i\cdot}}}{k}=\frac{\sum\limits_{i=1}^k\sum\limits_{j=1}^{n_i}{y_{ij}}}{n},$$
 
 
 $$\hat{\alpha}_i=\hat{\mu}_i-\hat{\mu},$$
@@ -198,10 +201,10 @@ estimación de valores de $Y$ vendrá dada por:
 $$\hat{y}_{ij}=\hat{\mu_i} = \hat{\mu}+ \hat{\alpha_i},$$
 y por tanto los residuos del modelo son:
 
-$$e_{ij}=y_{ij} - \hat{y}_{ij}$$
+$$\hat{\varepsilon}_{ij}=y_{ij} - \hat{y}_{ij}$$
 
 
-Nótese que, si tenemos $k$ niveles solo tenemos que estimar $k-1$, ya que:
+Nótese que, si tenemos $k$ niveles solo tenemos que estimar $k-1$ efectos, ya que:
 
 $$\sum_i \alpha_i = 0.$$
 
@@ -263,11 +266,11 @@ y_{kn_k}
 
 
 Debido a la singularidad de la 
-matriz $\pmb{X}^T \pmb{X}$ (véase por ejemplo @lawson2015),
+matriz $\pmb{X}^T \pmb{X}$ (véase por ejemplo @lawson2015 para una explicación más completa),
 lo que se hace es fijar
-uno de los niveles del factor como nivel "base", y estimar
-la media del nivel base y los efectos de los otros niveles con respecto a la media del nivel
-base, es decir:
+uno de los niveles del factor como nivel "base" o de referencia, y estimar
+la media de la variable respuesta en el nivel de referencia y los efectos de los otros niveles con respecto a la media en el nivel
+de referencia, es decir:
 
 $$\hat\beta = 
 \left(
@@ -278,12 +281,14 @@ $$\hat\beta =
 \end{array}
 \right)$$
 
+Teniendo en cuenta que $\hat\mu = \bar{\bar{y}}_{\cdot\cdot}$, a partir de estos
+estimadores se pueden obtener fácilmente los estimadores de los efectos de cada nivel.
 
-
-
-
+::: {.rmdinfo data-latex=""}
 El nivel base que se toma en R de un factor no ordenado es el primero en orden alfabético,
 y se puede cambiar con la función `relevel`.
+:::
+
 
 ::: {.rmdpractica data-latex=""}
 Sobre el objeto `modelo.aov` que guardamos antes, podemos aplicar funciones genéricas
@@ -330,7 +335,6 @@ danova |>
 #> 1 A              143.  17.2  
 #> 2 B              125.  -0.783
 #> 3 C              110. -16.4
-# aggregate(Peso ~ Fertilizante, danova, mean)$Peso - mean(danova$Peso)
 ## Intervalo de confianza
 confint(modelo.aov, alpha = 0.99)
 #>                   2.5 %     97.5 %
@@ -368,7 +372,7 @@ pero eso no significa que todos los niveles sean diferentes. Es decir, si
 rechazamos la hipótesis nula, al menos dos grupos serán distintos. Y por tanto tenemos evidencia para aceptar la
 alternativa:
 
-$$H_1: \alpha_i \neq 0 \text{ para algún } i,$$
+$$H_1: \alpha_i \neq 0 \text{ para algún } i.$$
 
 
 
@@ -377,10 +381,22 @@ entre la variabilidad que existe "dentro" de los grupos y la variabilidad
 que existe "entre" los grupos. Esta variabilidad la representamos por las
 sumas de cuadrados, de manera que la suma de cuadrados total ($SCT$)
 la podemos descomponer en la suma de cuadrados entre grupos ($SCE$) más la suma de cuadrados
-dentro de grupos ($SCD$):
+dentro de grupos ($SCD$)^[En inglés se hace referencia a _within sums of squares (SS)_,
+_Residual SS_ y _Error SS_, o también _within SS_ y _between SS_, por lo que hay que entender bien los conceptos más que aprenderse los acrónimos, que pueden cambiar también en la literatura en español]:
 
 $$\sum\limits_{ij} (y_{ij} - \overline{y}_{\cdot\cdot})^2 = \sum\limits_{i}n_i(\overline{y}_{i\cdot}-\overline{y}_{\cdot\cdot})^2 + \sum\limits_{ij}(y_{ij}-\bar y_{i\cdot})^2,$$
 $$SCT = SCE + SCD.$$
+
+
+:::{.rmdejemplo data-latex=""}
+En la figura \@ref(fig:plantaspuntosmedias), la variabilidad total se calcularía de todos los puntos con respecto a la media total (línea horizontal dorada). La variabilidad "dentro", serían las desviaciones de cada punto con la media del fertilizante (rombo color rojizo). Y la variabilidad "entre" sería la variación de las medias de los fertilizantes con respecto a la media total (ponderadas por los tamaños de cada grupo). 
+:::
+
+<div class="figure" style="text-align: center">
+<img src="09b-anova_files/figure-html/plantaspuntosmedias-1.png" alt="Variación total, dentro y entre como distancia a las medias." width="672" />
+<p class="caption">(\#fig:plantaspuntosmedias)Variación total, dentro y entre como distancia a las medias.</p>
+</div>
+
 
 
 Los grados de libertad de la suma de datos total es $n-1$, que se descomponen también en $k-1$ grados de libertad
@@ -405,10 +421,10 @@ las sumas de cuadrados, cuadrados medios, estadístico F y el p-valor.
 
 Table: (\#tab:anova0)Contenido de la tabla ANOVA
 
-|         |GL    |SC  |CM  |F  |p-valor |
-|:--------|:-----|:---|:---|:--|:-------|
-|factor   |$k-1$ |SCE |CME |F  |p       |
-|residuos |$n-k$ |SCD |CMD |   |        |
+|                  |GL    |SC  |CM  |F  |p-valor |
+|:-----------------|:-----|:---|:---|:--|:-------|
+|factor (entre)    |$k-1$ |SCE |CME |F  |p       |
+|residuos (dentro) |$n-k$ |SCD |CMD |   |        |
 
 
 
@@ -479,7 +495,7 @@ plot(TukeyHSD(modelo.aov))
 Recordemos que en un estudio observacional si se rechaza la hipótesis nula estamos confirmando
 que existe **relación** entre el factor y la variable. Para confirmar la relación causa-efecto del factor sobre la variable,
 el ANOVA de un factor debe realizarse a partir de un experimento diseñado correctamente, 
-véase \@ref(sec:anova:doe).
+véase el apartado \@ref(doe.importancia).
 
 ### Validación del modelo y alternativas
 
@@ -516,7 +532,7 @@ donde tampoco se aprecian varianzas distintas.
 El gráfico superior derecho es un gráfico cuantil-cuantil para comprobar
 la normalidad de los residuos, en este caso se ajusta bastante bien. 
 El gráfico inferior derecho sirve para detectar observaciones con gran influencia
-en el modelo. En este caso no se etiqueta ninguna.
+en el modelo. En este caso no se detecta ninguna especialmente estrema.
 :::
 
 
@@ -552,13 +568,17 @@ autoplot(modelo.aov)
 En caso de no cumplimiento de las hipótesis, podemos realizar contrastes
 no paramétricos. Para el contraste de hipótesis de igualdad entre los niveles del factor,
 utilizamos el contraste de Kruskal-Wallis, que también dispone de un método
-para realizar comparaciones múltiples, como veremos en los ejemplos. Es
-importante tener en cuenta que la función `kruskal.test()` de R requiere
-que la variable cualitativa sea de tipo factor y no carácter.
-
+para realizar comparaciones múltiples, como veremos en los ejemplos. 
 Otra alternativa es transformar los datos originales para conseguir normalidad
 y/o homogeneidad de varianzas
 y realizar el análisis con los datos transformados.
+
+:::{.rmdinfo data-latex=""}
+Es
+importante tener en cuenta que la función `kruskal.test()` de R requiere
+que la variable cualitativa sea de tipo factor y no carácter.
+:::
+
 
 
 ::: {.rmdpractica data-latex=""}
@@ -652,7 +672,7 @@ Table: (\#tab:anovatemp)Peso de las plantas y origen de la tierra
 
 La principal diferencia con el análisis de la varianza de un factor es que,
 además de los efectos principales de cada uno de los factores, es decir,
-cuánto varía la media según los niveles del factor, se puede estudiar el 
+cuánto varía la media de la variable respuesta $Y$ según los niveles de cada factor $X$, se puede estudiar el 
 efecto de las interacciones entre factores. Intuitivamente, la interacción
 entre factores es similar a la que podemos observar en la vida diaria, por ejemplo un tranquilizante tiene un efecto positivo sobre el bienestar de una persona.
 Una copa de vino en determinadas circunstancias también. Pero utilizados conjuntamente, producen 
@@ -678,12 +698,16 @@ utilizamos mejor el test de Levene que permite incluir el término de la interac
 En el ajuste del modelo y estimación de efectos, se toma como base 
 el primer nivel de todos los factores.
 
+
+:::{.rmdinfo data-latex=""}
+
 Para especificar modelos con más de un factor e interacción en R, ampliamos
 el lado derecho de la fórmula del modelo. Los nuevos efectos se añaden
 "sumando". La interacción se expresa separando los factores con dos puntos.
 Si utilizamos el símbolo asterisco, entonces el modelo incluye todos los efectos 
 principales y las interacciones. Por ejemplo, para dos factores `a` y `b`, 
 el modelo completo se puede expresar como `a*b` o como `a + b + a:b`.
+:::
 
 
 ::: {.rmdejemplo data-latex=""}
@@ -692,7 +716,7 @@ Fertilizante y Tierra. Pero deberíamos analizarlos en un modelo multifactorial.
 :::
 
 ::: {.rmdpractica data-latex=""}
-Las siguientes expresiones crean el modelo multifactorial, realizan los contrastes, calcula los efectos y representa las interacciones.
+Las siguientes expresiones crean el modelo multifactorial, realizan los contrastes, calculan los efectos y representan las interacciones.
 :::
 
 
@@ -788,7 +812,7 @@ Kruskal-Wallis para los efectos principales. Para la interacción también hay
 métodos paramétricos, aunque no están tan extendidos, véase una revisión 
 en @feys2016nonparametric. En muchas ocasiones una transformación de 
 Box-Cox en la variable respuesta es suficiente para ajustar un modelo
-válido, véase \@ref(sec:aed:boxcox).
+válido^[https://bookdown.org/max/FES/numeric-one-to-one.html].
 
 
 
@@ -903,7 +927,7 @@ revisión más completa se recomienda consultar el libro de @faraway2016.
 
 Hasta ahora hemos analizado el efecto que uno o varios
 factores tienen sobre una única variable $Y$. 
-En ocasiones, tenemos en el lado izquierdo de la formula
+En ocasiones, tenemos en el lado izquierdo de la fórmula
 un vector aleatorio $\pmb{Y}$ con $p$ variables respuesta
 $Y_i, \ldots, Y_p$ con cierta estructura de correlación
 y queremos determinar si esta variable multivariante
