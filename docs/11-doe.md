@@ -1,4 +1,6 @@
 
+
+
 # Diseño de experimentos {#doe}
 
 ## Introducción
@@ -9,16 +11,25 @@ herramienta más potente para la mejora, lo que ha llevado a algunos autores a
 llamarlo "the jewel of quality engineering" (Ver por ejemplo
 @allen2010).
 
-En apartados anteriores del libro hemos aprendido las herramientas básicas 
-para **analizar la variabilidad** de los datos. En este apartado vamos a revisar 
+En capítulos anteriores del libro hemos aprendido las herramientas básicas 
+para **analizar la variabilidad** de los datos. En este capítulo vamos a revisar 
 las técnicas de Diseño de Experimentos y
 su posterior análisis. Demasiado a menudo los esfuerzos se centran en intentar
 analizar un experimento sin diseño, lo que provoca frustración en los equipos
 involucrados en el análisis de datos. Vamos a mostrar la
 importancia de la fase de diseño, así como su planificación y correcta
 ejecución. No obstante la parte de análisis es igualmente importante, sobre todo en
-lo que concierne a la correcta interpretación de los resultados.
+lo que concierne a la correcta interpretación de los resultados y la toma de decisiones informada.
 
+
+
+:::{.rmdcafe data-latex=""}
+En su discurso presidencial ante el Primer Congreso Estadístico de la India, Sir Ronald Fisher (1890-1962) dijo:
+
+>_"To consult the statistician after an experiment is finished is often merely to ask him to conduct a post mortem examination. He can perhaps say what the experiment died of"_. 
+
+O, dicho en otras palabras, cuando analizamos los datos del experimento sin haber participado en el diseño, lo más que podemos hacerle es la autopsia.
+:::
 
 
 ## Bases del DoE: origen, importancia, objetivos y requerimientos
@@ -53,13 +64,13 @@ incompletas. Mediante la reducción del error experimental se consigue evitar la
 Para empezar, lo primero que necesitamos es definir los datos del problema
 objeto de estudio y disponer de una forma de obtenerlos adecuadamente, en particular:
 
-- Una variable respuesta en escala métrica
-- Factores controlables
-- Posiblemente, otros factores aleatorios
+- Una variable respuesta en escala métrica.
+- Factores controlables.
+- Posiblemente, otros factores aleatorios.
 
 Esta recogida de datos se debe realizar de forma sistemática y 
-teniendo en cuenta los tres pilares del DoE: aleatorización, bloqueo y
-replicación.
+teniendo en cuenta los tres pilares del DoE: **aleatorización**, **bloqueo** y
+**replicación**.
 
 
 
@@ -73,19 +84,19 @@ permite, unido a las apropiadas estrategias de aleatorización, bloqueo y
 replicación, realizar predicciones acerca del desempeño de un determinado
 proceso. Estas predicciones así establecidas serán el resultado de la
 identificación de una relación causa-efecto, que no se puede conseguir
-simplemente analizando datos recogidos sin diseño. En los estudios observacionales:
+simplemente analizando datos recogidos sin diseño. En los **estudios observacionales**:
 
-  - Recogemos información
-  - No controlamos factores
-  - Análisis descriptivos
-  - Descubrir _relaciones_
+  - Recogemos información (o simplemente "está ahí").
+  - No controlamos factores.
+  - Se realizan análisis descriptivos.
+  - Se descubren **relaciones** mediante inferencia.
 
-Mientras que con experimentos diseñados:
+Mientras que con **experimentos diseñados**:
 
-  - Se controlan los factores
-  - Se analizan efectos
-  - Incluidas las interacciones
-  - Se verifica la relación _causa-efecto_
+  - Se controlan los factores y su asignación a los elementos en estudio (sujetos, cosas, plantas, ...)
+  - Se analizan los efectos en la variable respuesta.
+  - Se analizan las interacciones de los factores.
+  - Se verifica la relación **causa-efecto**.
 
 
 
@@ -93,9 +104,11 @@ Mientras que con experimentos diseñados:
 Si la experimentación se lleva a cabo variando una vez cada factor, buscando el
 valor óptimo para la respuesta para cada factor individualmente dejando fijos
 el resto arbitrariamente, estaremos obviando un aspecto
-fundamental: el efecto de las interacciones. La interacción es el efecto que tiene un factor a distintos niveles de otros factores. Por otra parte, el número de 
+fundamental: el efecto de las interacciones. La interacción es el efecto que tiene un factor a distintos niveles de otros factores. 
+
+Por otra parte, el número de 
 experimentos necesarios para llegar a conclusiones válidas es mucho mayor
-(y por tanto el experimento más costoso). Con diseño de Experimentos obtenemos el mayor número de combinaciones posibles para estimar interacciones, con el mínimo número de experimentos.
+(y por tanto el experimento más costoso). Mediante un experimento diseñado obtenemos el mayor número de combinaciones posibles para estimar interacciones, con el mínimo número de experimentos.
 
 
 ::: {.rmdcafe data-latex=""}
@@ -103,20 +116,13 @@ experimentos necesarios para llegar a conclusiones válidas es mucho mayor
 El análisis de datos, por muy sofisticado que sea, no puede nunca
 _arreglar_ un experimento mal diseñado (chapucero, según Lawson)
 
-
->  Sometimes the only thing you
-  can do with a poorly designed
-  experiment is to try to find out
-  what it died of  
-    R.A. Fisher
-
 >  As we know from Murphy's Law, if anything can go wrong it will, and analysis of
   data can never compensate for botched experiments  
     @lawson2015
 :::
 
 
-El análisis de la varianza sin diseño de experimentos tiene algunas
+El análisis de la varianza (ver capítulo \@ref(anova)) sin diseño de experimentos tiene algunas
 limitaciones importantes. Sin Diseño de Experimentos, los datos pueden ser inconsistentes o incompletos, al no incluir factores de ruido o Factores latentes.
 Si tenemos variables correlacionadas, y alguna de ellas no se
 mide, su efecto puede quedar enmascarado por las otras, como en el ejemplo de la figura \@ref(fig:c1), donde si miramos solo la relación de la variable respuesta
@@ -127,21 +133,22 @@ En el gráfico de la derecha vemos que la variable respuesta crece en el mismo s
 
 
 <div class="figure" style="text-align: center">
-<img src="11-doe_files/figure-html/c1-1.png" alt="Efecto de no medir un factor" width="672" />
+<img src="11-doe_files/figure-html/c1-1.png" alt="Efecto de no medir un factor" width="100%" />
 <p class="caption">(\#fig:c1)Efecto de no medir un factor</p>
 </div>
 
 
 Por otra parte, el rango de valores de la variable respuesta está limitado por su
 rango normal de operación, que puede ocultar relaciones más amplias. En la figura
-\@ref(fig:valuesrange1), el gráfico de la derecha se corresponde con el rango de 
+\@ref(fig:valuesrange1), el gráfico de la izquierda se corresponde con el rango de 
 variación normal de
-los factores de un proceso. En el de la izquierda, ampliamos el rango de
-posibles valores de la variable, y vemos una relación más clara, que queda
-oculta en el otro caso.
+los factores de un proceso. En el de la derecha, ampliamos el rango de
+posibles valores de la variable, y vemos algunos patrones que quedan
+ocultos en el otro caso. Por ejemplo, en los valores inferiores la pendiente es más pronunciada, mientras que en los valores superiores parece que
+se empieza a invertir la tendencia.
 
 <div class="figure" style="text-align: center">
-<img src="11-doe_files/figure-html/valuesrange1-1.png" alt="Efecto de la limitación del rango de valores" width="672" />
+<img src="11-doe_files/figure-html/valuesrange1-1.png" alt="Efecto de la limitación del rango de valores" width="100%" />
 <p class="caption">(\#fig:valuesrange1)Efecto de la limitación del rango de valores</p>
 </div>
 
@@ -150,7 +157,7 @@ oculta en el otro caso.
 
 ## Planificación de la experimentación
 
-El conocimiento de la materia (_subject matter knowledge_) en cuestión es fundamental para desarrollar
+El conocimiento de la materia en cuestión (_subject matter knowledge_) es fundamental para desarrollar
 cambios que resulten en mejoras. Sin embargo, es
 necesario otro tipo de conocimiento (_profound knowledge_), en el que se
 incluye la Estadística. Combinar ambos conocimientos, lleva a una
@@ -159,27 +166,32 @@ Estas ideas, originarias de Deming, se recogen en @moen2012.
 Algunas capacidades necesarias fruto de esta combinación son:
 
   - Entender las interdependencias entre los sistemas donde se lleva a cabo
-  la experimentación;
+  la experimentación.
   - Entender la relación entre las predicciones y el conocimiento del
-  sistema que se quiere cambiar;
-  - Entender el efecto temporal de los cambios;
-  - Entender la importancia de la estabilidad del proceso;
+  sistema que se quiere cambiar.
+  - Entender el efecto temporal de los cambios.
+  - Entender la importancia de la estabilidad del proceso.
   - Entender la extrapolación de los resultados de las pruebas para mejorar
   el sistema.
 
 
 
 En general, se pueden seguir tres estrategias de planificación para el diseño de
-experimentos. Sin planificación se pueden ir cambiando niveles de factores cada
-vez y haciendo pruebas (ensayo-error), definitivamente poco efectivo. Una
-planificación completa desde el inicio puede llevar a no explorar alternativas
-surgidas durante la experimentación, y por tanto a no cumplir los objetivos. La
-estrategia óptima la secuencia, es decir, llevar a cabo un número de experimentos al inicio, cuyas
+experimentos:
+
+1. Sin planificación. Se pueden ir cambiando niveles de factores cada
+vez y haciendo pruebas (ensayo-error). Esto es definitivamente poco efectivo. 
+2. Planificación completa desde el inicio. Si es muy rígida, nos puede llevar a no explorar alternativas
+que puedan suregir durante la experimentación. Y por tanto a no cumplir los objetivos. 
+3. Planificación **secuancial**. Esta es la
+estrategia óptima. Se llevan a cabo un número de experimentos al inicio, cuyas
 conclusiones supondrán la planificación de una segunda fase donde centrarnos en
 los factores realmente relevantes y hacer análisis más detallados y precisos. En las
 primeras fases se suelen realizar diseños de _screening_ para descartar
-factores no significativos. En realidad, es la aplicación del método científico,
-en un proceso iterativo de aprendizaje como se muestra en la figura \@ref(fig:metodo).
+factores no significativos. En las siguientes fases, se amplían los experimentos solo con los factores significativos. 
+
+En realidad, esta estrategia secuancial es la aplicación del método científico,
+en un proceso iterativo de aprendizaje como se muestra en la figura \@ref(fig:metodo). El experimento partirá de un objetivo que planteará ciertas hipótesis. Por deducción, se diseña el experimento y se obtienen datos. Estos datos confirman o no las hipótesis mediante la inducción, y nos hace plantearnos nuevas hipótesis. Así, hasta llegar a la conclusión y/o decisión final.
 
 
 
@@ -191,15 +203,15 @@ en un proceso iterativo de aprendizaje como se muestra en la figura \@ref(fig:me
 
 En @moen2012 se propone el ciclo PDSA (_Plan-Do-Study-Act_) para la mejora que se muestra en la figura \@ref(fig:ciclo). Básicamente consiste en:
 
-1. Planifica un cambio o prueba, dirigido a la **mejora**
-2. Lleva a cabo el cambio o prueba (corto alcance)
+1. Planifica un cambio o prueba, dirigido a la **mejora**.
+2. Lleva a cabo el cambio o prueba, preferiblemente de corto alcance.
 3. Estudia el resultado: ¿qué has aprendido? ¿qué ha ido mal?
 4. Actúa:
-    - Adopta el cambio
-    - Abandónalo
-    - Empieza el ciclo de nuevo
+    - Adopta el cambio.
+    - Abandónalo.
+    - Empieza el ciclo de nuevo.
   
-**¡Documenta todas las acciones de mejora!**
+Una cuestión fundamental es la necesidad de **documentar** todas las acciones de mejora, así como las lecciones aprendidas durante el proceso.
 
 
 <div class="figure" style="text-align: center">
@@ -210,8 +222,8 @@ En @moen2012 se propone el ciclo PDSA (_Plan-Do-Study-Act_) para la mejora que s
 
 
 Una buena forma de empezar el ciclo es a partir de un análisis de causa y
-efecto, por ejemplo con un diagrama de Ishikawa como el que aparece en la
-figura \@ref(fig:cefecto).
+efecto, por ejemplo con un diagrama de Ishikawa o de espina de pescado (_fishbone_) como el que aparece en la
+figura \@ref(fig:cefecto). Con esta técnica se identifica cuál es la variable respuesta que queremos investigar (efecto, cabeza del pescado) y cuáles son los posibles factores que pueden estar relacionados, y de los que en última instancia queremos averiguar si son la causa del efecto (espinas).
 
 <div class="figure" style="text-align: center">
 <img src="11-doe_files/figure-html/cefecto-1.png" alt="Ejemplo diagrama de causa-efecto" width="672" />
@@ -227,55 +239,53 @@ realísticamente.
 Hasta ahora, hemos ido mencionando algunos conceptos básicos del diseño de
 experimentos. Ahora vamos a definirlos un poco más formalmente.
 
-- **variable respuesta**:  La variable de interés que pretendemos
-  mejorar. Será una cuantificación de alguna característica de
+- **Variable respuesta**:  La variable de interés que pretendemos
+  optimizar o determinar sus causas. En el ámbito industrial, será una cuantificación de alguna característica de
   calidad, en sentido amplio.
-- **factor**: Variable independiente que puede ser causa de la respuesta.
+- **Factor**: Variable independiente que puede ser causa de la respuesta.
   La inferencia que haremos con DoE será confirmar o rechazar esta
-  hipótesis.
-- **variable de bloque**: Variable que no tiene interés en la investigación,
+  hipótesis, así como la cuantificación de este efecto.
+- **Variable de bloque**: Variable que no tiene interés en la investigación,
   pero puede influir en la respuesta. Mediante la formación de bloques
-  confundimos su efecto con los factores que realmente nos interesan.
-- **variable ruido**: Variable que puede influir en la respuesta, pero de la
+  alatorios confundimos su efecto con los factores que realmente nos interesan.
+- **Variable ruido**: Variable que puede influir en la respuesta, pero de la
   que no tenemos control.
-- **nivel**: Valor que fijamos de un factor. En variables
-  cualitativas, una categoría. En variables cuantitativas, un valor numérico
+- **Nivel**: Valor que fijamos de un factor. En variables
+  cualitativas, es una categoría. En variables cuantitativas, un valor numérico
   determinado fijado con antelación.
-  A menudo se le llama también tratamiento.
-- **unidad experimental**: La división más pequeña posible de unidades de un
+  A menudo se le llama también tratamiento, aunque cuando se estudia más de un factor sería más apropiado hablar de tratamiento como combinación de los niveles de los factores.
+- **Unidad experimental**: La división más pequeña posible de unidades de un
   experimento tal que a dos cualesquiera se les pueden aplicar distintas
   combinaciones de factores y niveles.
-- **unidad observable**: Cada uno de los elementos que forman la unidad
+- **Unidad observable**: Cada uno de los elementos que forman la unidad
   experimental. A veces, un tratamiento no se puede aplicar a un solo
   elemento, sino a varios a la vez.
-- **bloque**: Grupos de unidades experimentales que son tratados de forma
+- **Bloque**: Grupos de unidades experimentales que son tratados de forma
   similar en el experimento.
-- **efecto**: El principal resultado de interés del experimento: qué pasa con
-  la variable respuesta.
-- **réplica**: Repetición de un experimento sobre una misma combinación de
-  factores y niveles, a diferentes unidades experimentales.
-- **repetición**: Repetición de la medición de la respuesta con las mismas
-  condiciones experimentales, a la misma unidad experimental.
-- **aleatorización**: Asignación de niveles y bloques a unidades
-  experimentales de forma aleatoria
+- **Efecto**: El principal resultado de interés del experimento: qué pasa con
+  la variable respuesta para cada nivel de un factor o combinación de factores.
+- **Réplica**: Repetición de un experimento sobre una misma combinación de
+  factores y niveles, a **diferentes** unidades experimentales.
+- **Repetición**: Repetición de la medición de la respuesta con las mismas
+  condiciones experimentales, a **la misma** unidad experimental.
+- **Aleatorización**: Asignación de niveles y bloques a unidades
+  experimentales de forma aleatoria.
 
 
 
 
-Al utilizar un modelo para simplificar una realidad, estamos cometiendo un
+Al utilizar un modelo para simplificar la realidad, estamos cometiendo un
 error. El **error experimental** es aquel que se debe exclusivamente a las réplicas
 de las mismas condiciones experimentales. En cada diseño el error experimental
 se calcula de una forma distinta, de forma que se separa de la variabilidad total
-para ver cuánta variaación se debe al modelo y poder así tomar decisiones. Así, en el modelo:
+para ver cuánta variación se debe al modelo y poder así tomar decisiones. Así, en el modelo general:
 
-$$Y = f(X) + \varepsilon$$
+$$Y = f(\mathbf{X}) + \varepsilon,$$
 
-- Y es la variable respuesta
-- X es el conjunto de variables predictivas
-- $f$ función lineal, exponencial, etc.
-- $\varepsilon$ es una variable aleatoria
-
-Se separa el error de la variabilidad total.
+- $Y$ es la variable respuesta.
+- $\mathbf{X}$ es el conjunto de variables predictivas.
+- $f$ es una función (lineal, exponencial, etc.)
+- $\varepsilon$ es una variable aleatoria que recoge todo lo que no explica la función $f$ de la variable respuesta $Y$.
 
 
 Los siguientes principios son cruciales a la hora de diseñar el experimento.
@@ -293,42 +303,53 @@ hipótesis, es necesario tener más de una _corrida_ de cada combinación de tra
 
 
 
-
 @lawson2015 propone la siguiente _checklist_ a la hora de planificar
 experimentos:
 
-1. Definir objetivos
-2. Identificar unidades experimentales
-3. Definir variable respuesta medible y con sentido
-4. Identificar los factores controlables y latentes
-5. Ejecutar pruebas piloto
-6. Hacer diagrama de flujo para cada experimento
-7. Elegir el diseño experimental
-8. Determinar el número de réplicas necesarias
-9. Aleatorizar las condiciones experimentales a las unidades experimentales
-10. Definir método de análisis de datos
-11. Calendario y presupuesto para la ejecución
+1. Definir objetivos.
+2. Identificar unidades experimentales.
+3. Definir variable respuesta medible y con sentido.
+4. Identificar los factores controlables y latentes.
+5. Ejecutar pruebas piloto.
+6. Hacer diagrama de flujo para cada experimento.
+7. Elegir el **diseño experimental**. Esta parte es crucial.
+8. Determinar el número de réplicas necesarias.
+9. Aleatorizar las condiciones experimentales a las unidades experimentales.
+10. Definir método de análisis de datos.
+11. Calendario y presupuesto para la ejecución.
+
+Es aconsejable recoger toda esta información en un formulario estandarizado que forme parte de la documentación del experimento o proyecto de mejora.
 
 
 
 
 ## Tipos de diseños de experimentos
 
+Existen una enorme cantidad de posibles tipos de diseños experimentales. La decisión sobre cuál utilizar en cada situación concreta depende principalmente de los objetivos de la investigación y de las características de las unidades experimentales (de ahí la importancia de caracterizarlas de forma precisa durante el diseño). La figura \@ref(fig:tiposdisenos) muestra la categorización que hace @lawson2015. A continuación se enumeran estos  diseños con una breve explicación de cada uno.
 
-### Experimentos con un factor
+<div class="figure" style="text-align: center">
+
+```{=html}
+<div id="htmlwidget-29e925102d01db730e25" style="width:100%;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-29e925102d01db730e25">{"x":{"diagram":"\ndigraph one_factor{\n  graph [layout=dot, rankdir = TB, compound = true, fontsize = 10, color = crimson]\n  node [shape = box]\n  \"Propósito\ndel diseño\"; \"RSE\"; LSD;RCD  \"RCB\";  \"GCB\"; \"PBIB,PTIB\"; \"BIB\"; \"Tamaño de bloque\" ;\"FRSE\nNSE\nSNSE\"; \"CRFD\nCRFF\nPB,OA\"; CRRS; \"SLD\nSCD\nEVD\"; RCBF; RBSP; \"CRSP\nSPFF\"; \"RSSP\nEESPRS\"; SPMPV; BRS; PCBF; CCBF\n  \n  node [shape = diamond]\n  \"Unidades experimentales\"\n  \"Factores de bloque\"\n  \n  \n  \"Unidades experimentales\" -> \"Factores de bloque\" [label = \"Heterogéneos\"] \n  \"Unidades experimentales\" -> \"CRD\" [label = \"Homogéneos\"] \n  \"Factores de bloque\" -> \"Tamaño de bloque\" [label = \"Uno\"] \n  \"Factores de bloque\" -> \"LSD\" [label = \"Dos\"] \n  LSD -> RCD\n  \"Tamaño de bloque\" -> \"RCB\" [label = \"Grande\"] \n  \"Tamaño de bloque\" -> \"PBIB,PTIB\" [label = \"Pequeño\"] \n  \"Propósito\ndel diseño\" -> RSE [label = \"Estudiar varianzas\"] \n  RCB -> GCB\n  \n    \"Propósito\ndel diseño\" -> \"Unidades experimentales\" [label = \"Estimar efectos\nde los factores\"] \n\n  \n  \n  subgraph cluster0{\n    label = \"Un factor\";\n    RSE\n    CRD\n    LSD\n    RCD\n    RCB\n    GCB\n    \"PBIB,PTIB\"\n    \"BIB\"\n  }\n  RSE -> \"FRSE\nNSE\nSNSE\"\n  \n  subgraph cluster1{\n  label = \"Varios factores\";\n    \"FRSE\nNSE\nSNSE\"\n        CRD -> \"Tipo factor\"\n    \"Tipo factor\" -> \"CRFD\nCRFF\nPB,OA\" [label = \"Categórico\"]\n    \"Tipo factor\" -> CRRS [label = \"Continuo\"]\n    \"Tipo factor\" -> \"SLD\nSCD\nEVD\" [label = \"Mezcla\"]\n    GCB -> RCBF\n    \"PBIB,PTIB\" -> \"BIB\"\n    BIB -> Factores\n    Factores -> BRS [label = \"Continuos\"]\n    Factores -> PCBF [label = \"Categóricos\"]\n    PCBF -> CCBF\n  } \n  subgraph cluster2{\n  label = \"Varios factores (algunos difícil de variar)\";\n    RCBF -> RBSP\n    \"CRFD\nCRFF\nPB,OA\" -> \"CRSP\nSPFF\"\n    \"CRRS\" -> \"RSSP\nEESPRS\"\n    \"SLD\nSCD\nEVD\" -> SPMPV\n    \n  } \n}  \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+```
+
+<p class="caption">(\#fig:tiposdisenos)Esquema de diseños experimentales en Lawson (2015)</p>
+</div>
+
+
+
+* **CRD**, _Completely Randomized Design_: **Diseño completamente aleatorizado**. Este diseño se debería utilizar cuando solo hay un factor en estudio y las unidades experimentales son homogéneas. El análisis se corresponde con el ANOVA estudiado en el capítulo \@ref(anova).
+
+* **CRFD**, _Completely Randomized Factorial Design_: **Diseño factorial completamente aleatorizado**. Este diseño se utiliza cuando se estudia más de un factor a la vez. Permite estudiar las interacciones entre los factores. El análisis se corresponde también con el ANOVA estudiado en el capítulo \@ref(anova). Un caso particular son los diseños a dos niveles o $2^k$, que veremos en detalle más adelante.
+
+
+## Experimentos con un factor (CRD)
 
 Podemos comparar una variable a distintos niveles de un solo
 factor. El contraste de la $t$ de Student es la técnica
 utilizada para dos niveles. Para más niveles, utilizamos
-el análisis de la varianza de un factor (véase sec:anova1).
-Cuando hay algún factor más que no es de interés,
-pero puede afectar a la variable resupesta, se debe introducir
-como variable de bloque. Los diseños de cuadrados latinos
-y cuadrados greco-latinos se utilizan para introducir dos o tres
-factores de bloque respectivamente.
-
-
-
+el análisis de la varianza de un factor (véase el capítulo \@ref(anova).
 
 
 El diseño experimental para el ANOVA de un factor sigue las siguientes pautas:
@@ -354,7 +375,7 @@ factores controlables que puedan influir.
 
 9. Se estiman los parámetros.
 
-10. Se comprueba las hipótesis principal.
+10. Se comprueba la hipótesis principal.
 
 11. Si hay diferencias, se realizan comparaciones por pares.
 
@@ -363,26 +384,220 @@ decisiones.
 
 
 
-### Diseños multifactoriales
 
-Cuando analizamos más de un factor a varios niveles, aplicamos
-lo explicado en el apartado \@ref(sec:anova2). Recordemos que en
+
+
+
+
+
+
+
+
+
+## Diseños factoriales (CRFD)
+
+Cuando analizamos más de un factor a varios niveles, 
+el número total de unidades experimentales necesarias para tener una ejecución completa del experimento será $n_1\times n_2, \cdots, n_k$,
+donde $n_i$ es el número de niveles del factor $i$, y el número total de factores es $k$. Para tener dos réplicas completas del experimento necesitaremos el doble, y así sucesivamente.
+
+Para el análisis de diseños equilibrados, aplicamos
+lo explicado en el apartado \@ref(sec:anova2) para el ANOVA de dos factores con interacción. Recordemos que en
 estos diseños es de vital importancia estudiar las interacciones.
+El modelo se extiende inmediatamente a más de dos factores, en los
+que las interacciones pueden ser dos a dos, tres a tres, etc. No obstante,
+las interacciones de orden superior a 3 rara vez son significativas y se suelen descartar casi siempre.
+
+A veces no es posible tener diseños equilibrados, es decir, con el mismo
+número de réplicas en cada "celda" o cruce de niveles de factores. En estos casos, para hacer los contrastes correctos debemos utilizar la función `Anova()` del paquete {car} [@R-car], que calcula las sumas de cuadrados tipo II y tipo III, y los contrastes correctos. Las sumas de cuadrados del diseño equilibrado se suele llamar tipo I. Véase @lawson2015 para una explicación más detallada, o la entrada "Diferentes sumas de cuadrados en ANOVA" de "El blog de los herreros"^[https://erre-que-erre-paco.blogspot.com/2016/12/diferentes-sumas-de-cuadrados-en-anova.html].
 
 
-### Diseños factoriales a dos niveles $2^k$
+:::{.rmdejemplo data-latex=""}
+A modo ilustrativo, el siguiente código genera aleatoriamente datos de un supuesto experimento con tres factores: A (con niveles A1, A2 y A3), B (con niveles B1, B2 y B3) y C (con niveles C1 y C2). Las tablas ANOVA del diseño equilibrado son idénticas para los dos métodos. Pero si quitamos uno de los datos (puede ser una situación realista en un experimento tener un valor perdido), entonces las sumas de cuadrados con los distintos métodos no son iguales, y podrían llevar a decisiones distintas.
+:::
 
 
 
+```r
+library(car)
+#> Loading required package: carData
+#> 
+#> Attaching package: 'car'
+#> The following object is masked from 'package:dplyr':
+#> 
+#>     recode
+set.seed(666)
+A <-  paste0("A", 1:3)
+B <-  paste0("B", 1:3)
+C <-  paste0("C", 1:2)
+noeq <- data.frame(
+  expand.grid(list(A = A, B = B, C = C)),
+  respuesta = rnorm(3*18, 100, 10)
+) |> 
+  mutate(respuesta = round(if_else(C == "C2", 
+                                   respuesta+rnorm(54, 8, 1), 
+                                   respuesta), 1))
 
-Un tipo especial de diseño multifactorial es aquél en el que
-todos los factores tienen solamente dos niveles. El número
+noeq |> aov(respuesta ~ ., data = _) |> summary()
+#>             Df Sum Sq Mean Sq F value Pr(>F)  
+#> A            2    148    73.8   0.576 0.5658  
+#> B            2    314   157.1   1.227 0.3023  
+#> C            1    791   791.2   6.175 0.0165 *
+#> Residuals   48   6150   128.1                 
+#> ---
+#> Signif. codes:  
+#> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+noeq |> aov(respuesta ~ ., data = _) |> Anova()
+#> Anova Table (Type II tests)
+#> 
+#> Response: respuesta
+#>           Sum Sq Df F value  Pr(>F)  
+#> A          147.7  2  0.5762 0.56585  
+#> B          314.3  2  1.2265 0.30233  
+#> C          791.2  1  6.1755 0.01649 *
+#> Residuals 6149.8 48                  
+#> ---
+#> Signif. codes:  
+#> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+noeq$respuesta[54] <- NA
+library(car)
+noeq |> aov(respuesta ~ ., data = _) |> summary()
+#>             Df Sum Sq Mean Sq F value Pr(>F)  
+#> A            2    149    74.3   0.568 0.5704  
+#> B            2    322   160.8   1.229 0.3018  
+#> C            1    783   783.2   5.986 0.0182 *
+#> Residuals   47   6149   130.8                 
+#> ---
+#> Signif. codes:  
+#> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 1 observation deleted due to missingness
+noeq |> aov(respuesta ~ ., data = _) |> Anova()
+#> Anova Table (Type II tests)
+#> 
+#> Response: respuesta
+#>           Sum Sq Df F value  Pr(>F)  
+#> A          137.8  2  0.5267 0.59398  
+#> B          308.5  2  1.1791 0.31648  
+#> C          783.2  1  5.9863 0.01821 *
+#> Residuals 6148.7 47                  
+#> ---
+#> Signif. codes:  
+#> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+
+A medida que aumenta el número de factores a estudiar, el número de unidades experimentales a utilizar puede hacerse enorme, sobre todo si tenemos más de dos niveles. Para poder analizar un número grande de factores a modo de _screening_ o cribado, se utiliza a menudo un tipo especial de diseños factoriales con solo dos niveles por cada factor, que veremos a continuación por separado dada su importancia.
+
+
+## Diseños factoriales a dos niveles $2^k$
+
+Un tipo especial de diseño factorial es aquél en el que
+todos los factores tienen solamente dos niveles. Es válido tanto para factores puramente categóricos como para factores de tipo continuo. En este último caso, se fijan un valor "bajo" y otro "alto" para el factor, que normalente se representan como `-` y `+` respectivamente. 
+Con posterioridad a la etapa de cribado se pueden añadir más puntos al diseño para afinar en la estimación.
+En el caso de atributos, estos niveles alto y bajo serán arbitrarios, pero
+en cualquiera de los dos casos, se deberían fijar de acuerdo al conocimiento en la materia para que haya una diferencia potencial entre los niveles.
+
+El número
 de experimentos necesarios para probar todas las combinaciones
-de niveles para $k$ factores es $2^k$, de ahi su nombre.
+de niveles para $k$ factores es $2^k$, de ahi su nombre. Por ejemplo,
+en un experimento en el que quisiéramos analizar 5 factores con 4 niveles cada uno, necesitaríamos $4\times 4\times 4\times 4\times  4=4^5= 1024$ unidades experimentales, para cada réplica, mientras que en un experimento
+$2^5$ serán suficientes 32.
 
-**Diseño factorial $2^2$**
+La popularidad de los diseños $2^p$ se debe, entre otras, a las siguientes
+causas:
 
-Modelo:
+* Como acabamos de ver, con pocas observaciones se pueden analizar muchos factores. Esto nos será muy útil en las fases iniciales para descartar factores que no tienen ningún efecto en la respuesta.
+* Son fáciles de utilizar y el análisis se puede realizar con métodos gráficos.
+* Estos diseños han demostrado funcionar muy bien con sistemas complejos e incluso no lineales a través del estudio de las interacciones.
+* Se pueden analizar incluso más factores utilizando diseños fraccionales.
+
+Los datos de los experimentos factoriales $2^k$ se pueden representar de forma exhaustiva con la llamada "matriz de diseño" o en forma de tablas. La forma estándar de la matriz de diseño contiene en la primera columna signos alternos `-` y `+`. En la siguiente columna se alternarán dos signos `-` y dos signos `+`, y así sucesivamente hasta la última columna con el último factor, que tendrá la primera mitad de signos `-` y la otra mitad de signos `+`. En la matriz de diseño se identifica el orden estándar, pero las observaciones **nunca** se recogerán en el orden de la matriz de diseño. A cada unidad experimental se le asignará una de las combinaciones **aleatoriamente**. Esto se puede hacer con medios mecánicos o con generación de números pseudoaleatorios con el ordenador. En la propia tabla se puede incorporar un identificador de unidad experimental convenientemente aleatorizado. Una vez recogidos los datos, estos se pueden añadir a la tabla, bien cada uno de los datos de las réplicas, o resumidos con la media.
+
+La tabla \@ref(tab:matrizest) muestra una tabla con todos los datos de un hipotético experimento con tres factores sin réplicas, creado con el siguiente código. Se fija la semilla aleatoria para garantizar la reproducibilidad.
+
+
+```r
+set.seed(1)
+A <- B <- C <- c("-", "+")
+dm <- expand.grid(list(A = A, B = B, C = C)) |> 
+  mutate(`Unidad experimental (aleatoria)` = sample(1:8),
+         `Respuesta simulación` = round(rnorm(8, 10, 2), 1)) |> 
+  rownames_to_column("Orden estándar") 
+dm |>
+  flextable() |> 
+  set_caption("Ejemplo de matriz de diseño y datos sin réplicas")
+```
+
+```{=html}
+<template id="a0ef3166-bd53-4515-971d-1696ba34e05e"><style>
+.tabwid table{
+  border-spacing:0px !important;
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style><div class="tabwid"><style>.cl-8f357ae0{}.cl-8f3005e2{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8f301b54{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8f301b5e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8f3054b6{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f3054b7{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f3054c0{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f3054ca{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f3054cb{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f3054cc{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-8f357ae0'>
+```
+<caption class="Table Caption">
+
+(\#tab:matrizest)Ejemplo de matriz de diseño y datos sin réplicas
+
+</caption>
+```{=html}
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-8f3054cb"><p class="cl-8f301b54"><span class="cl-8f3005e2">Orden estándar</span></p></td><td class="cl-8f3054cb"><p class="cl-8f301b54"><span class="cl-8f3005e2">A</span></p></td><td class="cl-8f3054cb"><p class="cl-8f301b54"><span class="cl-8f3005e2">B</span></p></td><td class="cl-8f3054cb"><p class="cl-8f301b54"><span class="cl-8f3005e2">C</span></p></td><td class="cl-8f3054cc"><p class="cl-8f301b5e"><span class="cl-8f3005e2">Unidad experimental (aleatoria)</span></p></td><td class="cl-8f3054cc"><p class="cl-8f301b5e"><span class="cl-8f3005e2">Respuesta simulación</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">1</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">1</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">6.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">2</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">4</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">8.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">3</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">8</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">9.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">4</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">2</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">10.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">5</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">6</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">14.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">6</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">3</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">11.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">7</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">7</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">8.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f3054c0"><p class="cl-8f301b54"><span class="cl-8f3005e2">8</span></p></td><td class="cl-8f3054c0"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054c0"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054c0"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054ca"><p class="cl-8f301b5e"><span class="cl-8f3005e2">5</span></p></td><td class="cl-8f3054ca"><p class="cl-8f301b5e"><span class="cl-8f3005e2">7.7</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="497fc57e-9fa3-4889-a7fa-c20934e9fc43"></div>
+<script>
+var dest = document.getElementById("497fc57e-9fa3-4889-a7fa-c20934e9fc43");
+var template = document.getElementById("a0ef3166-bd53-4515-971d-1696ba34e05e");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
+
+```
+
+La información de la tabla completa se puede compactar poniendo los factores en filas y columnas y los datos en las celdas con los cruces. También se es habitual encontrar la representación geométrica en forma de cuadrados (2 factores), cubos (3 factores) o hipercubos (más de 3 factores). Se pueden ver algunos ejemplos en @lawson2015 y @moen2012.
+
+
+### Diseño factorial $2^2$
+
+Es el diseño más sencillo que podemos hacer, y solo necesitamos $2^2=4$ unidades experimentales para cada réplica del experimento.
+
+El modelo matemático sería el siguiente:
 
 $$y_{ijk} = \alpha_i + \beta_j + \alpha\beta_{ij} + \varepsilon_{ijk}$$
 
@@ -465,7 +680,7 @@ plot(effect(term = "A", mod = modelof22))
 #> NOTE: A is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 
 ```r
@@ -473,14 +688,14 @@ plot(effect(term = "B", mod = modelof22))
 #> NOTE: B is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 
 ```r
 plot(effect(term = "A:B", mod = modelof22))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 
 ::: {.rmdejemplo data-latex=""}
@@ -508,14 +723,14 @@ anova(modelof22)
 plot(effect(term = "A", mod = modelof22))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 
 ```r
 plot(effect(term = "B", mod = modelof22))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 **Diseño factorial $2^3$**
 
@@ -598,7 +813,7 @@ plot(effect(term = "T", mod = modelof23))
 #> NOTE: T is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 ```r
 
@@ -606,32 +821,32 @@ plot(effect(term = "C", mod = modelof23))
 #> NOTE: C is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-9-2.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-11-2.png" width="672" />
 
 ```r
 plot(effect(term = "K", mod = modelof23))
 #> NOTE: K is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-9-3.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-11-3.png" width="672" />
 
 ```r
 plot(effect(term = "T:C", mod = modelof23))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-9-4.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-11-4.png" width="672" />
 
 ```r
 plot(effect(term = "T:K", mod = modelof23))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-9-5.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-11-5.png" width="672" />
 
 ```r
 plot(effect(term = "C:K", mod = modelof23))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-9-6.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-11-6.png" width="672" />
 
 **Diseño factorial $2^k$**
 
@@ -639,6 +854,16 @@ Siguiendo la misma estructura que los dos anteriores, con más efectos principal
 El número de experimentos necesarios aumenta exponencialmente, y se suelen preferir experimentos fraccionados. Cuando no hay grados de libertad suficientes para realizar contrastes se utilizan herramientas gráficas para seleccionar efectos significativos (Pareto y gráfico normal)
 
 Para la Formación de bloques, se confunden con efectos de interacciones de orden superior, multiplicando los signos y dividiendo en dos bloques
+
+
+## Diseño con bloques
+
+Cuando hay algún factor más que no es de interés,
+pero puede afectar a la variable resupesta, se debe introducir
+como variable de bloque. Los diseños de cuadrados latinos
+y cuadrados greco-latinos se utilizan para introducir dos o tres
+factores de bloque respectivamente.
+
 
 ### Diseños fraccionales
 

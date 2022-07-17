@@ -668,7 +668,7 @@ Table: (\#tab:anovatemp)Peso de las plantas y origen de la tierra
 
 
 
-## Análisis de la varianza de varios factores {#sec:anova2}
+## Análisis de la varianza de dos factores {#sec:anova2}
 
 La principal diferencia con el análisis de la varianza de un factor es que,
 además de los efectos principales de cada uno de los factores, es decir,
@@ -799,6 +799,36 @@ el peso de las plantas.
 :::
 
 
+:::{.rmdpractica data-latex=""}
+La función `model.table` nos devuelve las medias de todas las combinaciones
+de los factores de forma compacta.
+:::
+
+
+```r
+model.tables(modelo.aov3)
+#> Tables of effects
+#> 
+#>  Fertilizante 
+#>         A       B      C
+#>     17.17 -0.7833 -16.38
+#> rep  6.00  6.0000   6.00
+#> 
+#>  Tierra 
+#>        Z1     Z2     Z3
+#>     1.233 0.2889 -3.333
+#> rep 6.000 9.0000  3.000
+#> 
+#>  Fertilizante:Tierra 
+#>             Tierra
+#> Fertilizante Z1      Z2      Z3     
+#>          A   -17.800  20.644 -26.333
+#>          rep   2.000   3.000   1.000
+#>          B    22.350 -16.772   5.617
+#>          rep   2.000   3.000   1.000
+#>          C    -4.550  -3.872  20.717
+#>          rep   2.000   3.000   1.000
+```
 
 
 El caso de dos factores con interacción se extiende fácilmente a más de dos factores 

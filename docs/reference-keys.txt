@@ -122,6 +122,8 @@ fig:valuesrange1
 fig:metodo
 fig:ciclo
 fig:cefecto
+fig:tiposdisenos
+tab:matrizest
 fig:cc4
 fig:cc5
 eq:gcmcvp
@@ -323,9 +325,11 @@ bases-del-doe-origen-importancia-objetivos-y-requerimientos
 doe.importancia
 planificación-de-la-experimentación
 tipos-de-diseños-de-experimentos
-experimentos-con-un-factor
-diseños-multifactoriales
+experimentos-con-un-factor-crd
+diseños-factoriales-crfd
 diseños-factoriales-a-dos-niveles-2k
+diseño-factorial-22
+diseño-con-bloques
 diseños-fraccionales
 diseños-avanzados
 regresion

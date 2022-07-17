@@ -22,7 +22,8 @@
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
 <link href="libs/tabwid-1.0.0/scrool.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.9/grViz.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 <link rel="stylesheet" href="bs4_book.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -142,7 +143,7 @@ el número total de resultados posibles es:</p>
 <p><strong>Ejemplo</strong>: Resultados posibles si tomamos al azar un individuo
 y observamos su grupo de edad y si contratará o no el servicio.</p>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">3</span><span class="op">*</span><span class="fl">2</span></span>
 <span><span class="co">#&gt; [1] 6</span></span></code></pre></div>
 </div>
@@ -156,7 +157,7 @@ conjunto de <span class="math inline">\(n\)</span> elementos sin repetirlos.</p>
 <p><strong>Ejemplo</strong>: De cuántas formas podemos ordenar un conjunto de
 tres individuos, uno de cada categoría laboral.</p>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 6</span></span></code></pre></div>
 </div>
@@ -172,7 +173,7 @@ repitan. Una ordenación distinta, es una posibilidad distinta.</p>
 de 5 individuos en nuestro conjunto de 52 sin que se repitan (por
 ejemplo para asignar un ranking)</p>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">52</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">52</span><span class="op">-</span><span class="fl">5</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 311875200</span></span></code></pre></div>
 </div>
@@ -188,7 +189,7 @@ repetir. Una ordenación distinta, es una posibilidad distinta.
 de 5 individuos en nuestro conjunto de 52 pudiéndose repetir (por
 ejemplo para asignar premios consecutivamente)</p>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">52</span><span class="op">^</span><span class="fl">5</span></span>
 <span><span class="co">#&gt; [1] 380204032</span></span></code></pre></div>
 </div>
@@ -212,7 +213,7 @@ Por otra parte, por convenio se tiene que:</p>
 de 5 individuos en nuestro conjunto de 52 sin importar el orden (por
 ejemplo para asignar premios de una sola vez)</p>
 <p><strong>Código</strong></p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="fl">52</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 2598960</span></span></code></pre></div>
 </div>

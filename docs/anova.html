@@ -22,7 +22,8 @@
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
 <link href="libs/tabwid-1.0.0/scrool.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.9/grViz.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 <link rel="stylesheet" href="bs4_book.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -787,7 +788,7 @@ diferencias significativas.</p>
 </div>
 <div id="sec:anova2" class="section level2" number="10.3">
 <h2>
-<span class="header-section-number">10.3</span> Análisis de la varianza de varios factores<a class="anchor" aria-label="anchor" href="#sec:anova2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.3</span> Análisis de la varianza de dos factores<a class="anchor" aria-label="anchor" href="#sec:anova2"><i class="fas fa-link"></i></a>
 </h2>
 <p>La principal diferencia con el análisis de la varianza de un factor es que,
 además de los efectos principales de cada uno de los factores, es decir,
@@ -898,6 +899,33 @@ de utilizar para las plantas fertilizante A y tierra de la zona Z3,
 lo que sería una pésima decisión ya que esta interacción baja drásticamente
 el peso de las plantas.</p>
 </div>
+<div class="rmdpractica">
+<p>La función <code>model.table</code> nos devuelve las medias de todas las combinaciones
+de los factores de forma compacta.</p>
+</div>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/model.tables.html">model.tables</a></span><span class="op">(</span><span class="va">modelo.aov3</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Tables of effects</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Fertilizante </span></span>
+<span><span class="co">#&gt;         A       B      C</span></span>
+<span><span class="co">#&gt;     17.17 -0.7833 -16.38</span></span>
+<span><span class="co">#&gt; rep  6.00  6.0000   6.00</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Tierra </span></span>
+<span><span class="co">#&gt;        Z1     Z2     Z3</span></span>
+<span><span class="co">#&gt;     1.233 0.2889 -3.333</span></span>
+<span><span class="co">#&gt; rep 6.000 9.0000  3.000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Fertilizante:Tierra </span></span>
+<span><span class="co">#&gt;             Tierra</span></span>
+<span><span class="co">#&gt; Fertilizante Z1      Z2      Z3     </span></span>
+<span><span class="co">#&gt;          A   -17.800  20.644 -26.333</span></span>
+<span><span class="co">#&gt;          rep   2.000   3.000   1.000</span></span>
+<span><span class="co">#&gt;          B    22.350 -16.772   5.617</span></span>
+<span><span class="co">#&gt;          rep   2.000   3.000   1.000</span></span>
+<span><span class="co">#&gt;          C    -4.550  -3.872  20.717</span></span>
+<span><span class="co">#&gt;          rep   2.000   3.000   1.000</span></span></code></pre></div>
 <p>El caso de dos factores con interacción se extiende fácilmente a más de dos factores
 añadiendo términos a la fórmula. No obstante, las interacciones de más de dos
 factores se suele despreciar. En el modelo resultante final se deberían eliminar
@@ -940,7 +968,7 @@ respuesta, ya que la varianza es prácticamente nula<a class="footnote-ref" tabi
 es debido al redondeo.&lt;/p&gt;"><sup>86</sup></a>. Podemos obtener una estimación de los efectos
 con la función <code>ranef</code> del paquete <code>lme4</code>.</p>
 </div>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lme4/lme4/">lme4</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: Matrix</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -1030,7 +1058,7 @@ al obtenido en el ejemplo univariante. En ocasiones puede suceder que
 los contrastes univariantes no son significativos pero sí lo es el contraste
 multivariante.</p>
 </div>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">danova</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Peso"</span>, <span class="st">"Pureza"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">modelo.manova</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">Y</span> <span class="op">~</span> <span class="va">Fertilizante</span><span class="op">*</span><span class="va">Tierra</span>, data <span class="op">=</span> <span class="va">danova</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/summary.manova.html">summary.manova</a></span><span class="op">(</span><span class="va">modelo.manova</span><span class="op">)</span></span>
@@ -1087,7 +1115,7 @@ multivariante.</p>
 <li><a class="nav-link" href="#validaci%C3%B3n-del-modelo-y-alternativas"><span class="header-section-number">10.2.4</span> Validación del modelo y alternativas</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#sec:anova2"><span class="header-section-number">10.3</span> Análisis de la varianza de varios factores</a></li>
+<li><a class="nav-link" href="#sec:anova2"><span class="header-section-number">10.3</span> Análisis de la varianza de dos factores</a></li>
 <li><a class="nav-link" href="#introducci%C3%B3n-a-los-modelos-mixtos-efectos-fijos-y-efectos-aleatorios"><span class="header-section-number">10.4</span> Introducción a los modelos mixtos: efectos fijos y efectos aleatorios</a></li>
 <li><a class="nav-link" href="#an%C3%A1lisis-multivariante-de-la-varianza"><span class="header-section-number">10.5</span> Análisis multivariante de la varianza</a></li>
 </ul>

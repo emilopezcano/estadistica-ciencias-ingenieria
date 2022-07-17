@@ -22,7 +22,8 @@
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet">
 <link href="libs/tabwid-1.0.0/scrool.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.9/grViz.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 <link rel="stylesheet" href="bs4_book.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -95,15 +96,22 @@ otra técnica estadística, se basa en el estudio de la variabilidad. DoE es la
 herramienta más potente para la mejora, lo que ha llevado a algunos autores a
 llamarlo “the jewel of quality engineering” (Ver por ejemplo
 <span class="citation">Theodore T. Allen<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Introduction to Engineering Statistics and Lean Six Sigma - Statistical Quality Control and Design of Experiments and Systems&lt;/em&gt; (Springer, 2010).&lt;/p&gt;"><sup>90</sup></a></span>).</p>
-<p>En apartados anteriores del libro hemos aprendido las herramientas básicas
-para <strong>analizar la variabilidad</strong> de los datos. En este apartado vamos a revisar
+<p>En capítulos anteriores del libro hemos aprendido las herramientas básicas
+para <strong>analizar la variabilidad</strong> de los datos. En este capítulo vamos a revisar
 las técnicas de Diseño de Experimentos y
 su posterior análisis. Demasiado a menudo los esfuerzos se centran en intentar
 analizar un experimento sin diseño, lo que provoca frustración en los equipos
 involucrados en el análisis de datos. Vamos a mostrar la
 importancia de la fase de diseño, así como su planificación y correcta
 ejecución. No obstante la parte de análisis es igualmente importante, sobre todo en
-lo que concierne a la correcta interpretación de los resultados.</p>
+lo que concierne a la correcta interpretación de los resultados y la toma de decisiones informada.</p>
+<div class="rmdcafe">
+<p>En su discurso presidencial ante el Primer Congreso Estadístico de la India, Sir Ronald Fisher (1890-1962) dijo:</p>
+<blockquote>
+<p><em>“To consult the statistician after an experiment is finished is often merely to ask him to conduct a post mortem examination. He can perhaps say what the experiment died of”</em>.</p>
+</blockquote>
+<p>O, dicho en otras palabras, cuando analizamos los datos del experimento sin haber participado en el diseño, lo más que podemos hacerle es la autopsia.</p>
+</div>
 </div>
 <div id="bases-del-doe-origen-importancia-objetivos-y-requerimientos" class="section level2" number="11.2">
 <h2>
@@ -126,13 +134,13 @@ incompletas. Mediante la reducción del error experimental se consigue evitar la
 <p>Para empezar, lo primero que necesitamos es definir los datos del problema
 objeto de estudio y disponer de una forma de obtenerlos adecuadamente, en particular:</p>
 <ul>
-<li>Una variable respuesta en escala métrica</li>
-<li>Factores controlables</li>
-<li>Posiblemente, otros factores aleatorios</li>
+<li>Una variable respuesta en escala métrica.</li>
+<li>Factores controlables.</li>
+<li>Posiblemente, otros factores aleatorios.</li>
 </ul>
 <p>Esta recogida de datos se debe realizar de forma sistemática y
-teniendo en cuenta los tres pilares del DoE: aleatorización, bloqueo y
-replicación.</p>
+teniendo en cuenta los tres pilares del DoE: <strong>aleatorización</strong>, <strong>bloqueo</strong> y
+<strong>replicación</strong>.</p>
 </div>
 <div id="doe.importancia" class="section level2" number="11.3">
 <h2>
@@ -145,44 +153,36 @@ permite, unido a las apropiadas estrategias de aleatorización, bloqueo y
 replicación, realizar predicciones acerca del desempeño de un determinado
 proceso. Estas predicciones así establecidas serán el resultado de la
 identificación de una relación causa-efecto, que no se puede conseguir
-simplemente analizando datos recogidos sin diseño. En los estudios observacionales:</p>
+simplemente analizando datos recogidos sin diseño. En los <strong>estudios observacionales</strong>:</p>
 <ul>
-<li>Recogemos información</li>
-<li>No controlamos factores</li>
-<li>Análisis descriptivos</li>
-<li>Descubrir <em>relaciones</em>
-</li>
+<li>Recogemos información (o simplemente “está ahí”).</li>
+<li>No controlamos factores.</li>
+<li>Se realizan análisis descriptivos.</li>
+<li>Se descubren <strong>relaciones</strong> mediante inferencia.</li>
 </ul>
-<p>Mientras que con experimentos diseñados:</p>
+<p>Mientras que con <strong>experimentos diseñados</strong>:</p>
 <ul>
-<li>Se controlan los factores</li>
-<li>Se analizan efectos</li>
-<li>Incluidas las interacciones</li>
-<li>Se verifica la relación <em>causa-efecto</em>
-</li>
+<li>Se controlan los factores y su asignación a los elementos en estudio (sujetos, cosas, plantas, …)</li>
+<li>Se analizan los efectos en la variable respuesta.</li>
+<li>Se analizan las interacciones de los factores.</li>
+<li>Se verifica la relación <strong>causa-efecto</strong>.</li>
 </ul>
 <p>Si la experimentación se lleva a cabo variando una vez cada factor, buscando el
 valor óptimo para la respuesta para cada factor individualmente dejando fijos
 el resto arbitrariamente, estaremos obviando un aspecto
-fundamental: el efecto de las interacciones. La interacción es el efecto que tiene un factor a distintos niveles de otros factores. Por otra parte, el número de
+fundamental: el efecto de las interacciones. La interacción es el efecto que tiene un factor a distintos niveles de otros factores.</p>
+<p>Por otra parte, el número de
 experimentos necesarios para llegar a conclusiones válidas es mucho mayor
-(y por tanto el experimento más costoso). Con diseño de Experimentos obtenemos el mayor número de combinaciones posibles para estimar interacciones, con el mínimo número de experimentos.</p>
+(y por tanto el experimento más costoso). Mediante un experimento diseñado obtenemos el mayor número de combinaciones posibles para estimar interacciones, con el mínimo número de experimentos.</p>
 <div class="rmdcafe">
 <p>El análisis de datos, por muy sofisticado que sea, no puede nunca
 <em>arreglar</em> un experimento mal diseñado (chapucero, según Lawson)</p>
-<blockquote>
-<p>Sometimes the only thing you
-can do with a poorly designed
-experiment is to try to find out
-what it died of<br>
-R.A. Fisher</p>
-</blockquote>
 <blockquote>
 <p>As we know from Murphy’s Law, if anything can go wrong it will, and analysis of
 data can never compensate for botched experiments<br><span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>92</sup></a></span></p>
 </blockquote>
 </div>
-<p>El análisis de la varianza sin diseño de experimentos tiene algunas
+<p>El análisis de la varianza (ver capítulo <a href="anova.html#anova">10</a>) sin diseño de experimentos tiene algunas
 limitaciones importantes. Sin Diseño de Experimentos, los datos pueden ser inconsistentes o incompletos, al no incluir factores de ruido o Factores latentes.
 Si tenemos variables correlacionadas, y alguna de ellas no se
 mide, su efecto puede quedar enmascarado por las otras, como en el ejemplo de la figura <a href="doe.html#fig:c1">11.1</a>, donde si miramos solo la relación de la variable respuesta
@@ -192,20 +192,21 @@ sea el factor 2, que no ha sido medido y está muy correlacionado con el factor 
 En el gráfico de la derecha vemos que la variable respuesta crece en el mismo sentido que los factores 1 y 2, pero podría ser que el factor 2, no medido al principio, sea la causa, y no el que realmente se ha medido.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:c1"></span>
-<img src="11-doe_files/figure-html/c1-1.png" alt="Efecto de no medir un factor" width="672"><p class="caption">
+<img src="11-doe_files/figure-html/c1-1.png" alt="Efecto de no medir un factor" width="100%"><p class="caption">
 Figura 11.1: Efecto de no medir un factor
 </p>
 </div>
 <p>Por otra parte, el rango de valores de la variable respuesta está limitado por su
 rango normal de operación, que puede ocultar relaciones más amplias. En la figura
-<a href="doe.html#fig:valuesrange1">11.2</a>, el gráfico de la derecha se corresponde con el rango de
+<a href="doe.html#fig:valuesrange1">11.2</a>, el gráfico de la izquierda se corresponde con el rango de
 variación normal de
-los factores de un proceso. En el de la izquierda, ampliamos el rango de
-posibles valores de la variable, y vemos una relación más clara, que queda
-oculta en el otro caso.</p>
+los factores de un proceso. En el de la derecha, ampliamos el rango de
+posibles valores de la variable, y vemos algunos patrones que quedan
+ocultos en el otro caso. Por ejemplo, en los valores inferiores la pendiente es más pronunciada, mientras que en los valores superiores parece que
+se empieza a invertir la tendencia.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:valuesrange1"></span>
-<img src="11-doe_files/figure-html/valuesrange1-1.png" alt="Efecto de la limitación del rango de valores" width="672"><p class="caption">
+<img src="11-doe_files/figure-html/valuesrange1-1.png" alt="Efecto de la limitación del rango de valores" width="100%"><p class="caption">
 Figura 11.2: Efecto de la limitación del rango de valores
 </p>
 </div>
@@ -214,7 +215,7 @@ Figura 11.2: Efecto de la limitación del rango de valores
 <h2>
 <span class="header-section-number">11.4</span> Planificación de la experimentación<a class="anchor" aria-label="anchor" href="#planificaci%C3%B3n-de-la-experimentaci%C3%B3n"><i class="fas fa-link"></i></a>
 </h2>
-<p>El conocimiento de la materia (<em>subject matter knowledge</em>) en cuestión es fundamental para desarrollar
+<p>El conocimiento de la materia en cuestión (<em>subject matter knowledge</em>) es fundamental para desarrollar
 cambios que resulten en mejoras. Sin embargo, es
 necesario otro tipo de conocimiento (<em>profound knowledge</em>), en el que se
 incluye la Estadística. Combinar ambos conocimientos, lleva a una
@@ -223,25 +224,30 @@ Estas ideas, originarias de Deming, se recogen en <span class="citation">R. Moen
 Algunas capacidades necesarias fruto de esta combinación son:</p>
 <ul>
 <li>Entender las interdependencias entre los sistemas donde se lleva a cabo
-la experimentación;</li>
+la experimentación.</li>
 <li>Entender la relación entre las predicciones y el conocimiento del
-sistema que se quiere cambiar;</li>
-<li>Entender el efecto temporal de los cambios;</li>
-<li>Entender la importancia de la estabilidad del proceso;</li>
+sistema que se quiere cambiar.</li>
+<li>Entender el efecto temporal de los cambios.</li>
+<li>Entender la importancia de la estabilidad del proceso.</li>
 <li>Entender la extrapolación de los resultados de las pruebas para mejorar
 el sistema.</li>
 </ul>
 <p>En general, se pueden seguir tres estrategias de planificación para el diseño de
-experimentos. Sin planificación se pueden ir cambiando niveles de factores cada
-vez y haciendo pruebas (ensayo-error), definitivamente poco efectivo. Una
-planificación completa desde el inicio puede llevar a no explorar alternativas
-surgidas durante la experimentación, y por tanto a no cumplir los objetivos. La
-estrategia óptima la secuencia, es decir, llevar a cabo un número de experimentos al inicio, cuyas
+experimentos:</p>
+<ol style="list-style-type: decimal">
+<li>Sin planificación. Se pueden ir cambiando niveles de factores cada
+vez y haciendo pruebas (ensayo-error). Esto es definitivamente poco efectivo.</li>
+<li>Planificación completa desde el inicio. Si es muy rígida, nos puede llevar a no explorar alternativas
+que puedan suregir durante la experimentación. Y por tanto a no cumplir los objetivos.</li>
+<li>Planificación <strong>secuancial</strong>. Esta es la
+estrategia óptima. Se llevan a cabo un número de experimentos al inicio, cuyas
 conclusiones supondrán la planificación de una segunda fase donde centrarnos en
 los factores realmente relevantes y hacer análisis más detallados y precisos. En las
 primeras fases se suelen realizar diseños de <em>screening</em> para descartar
-factores no significativos. En realidad, es la aplicación del método científico,
-en un proceso iterativo de aprendizaje como se muestra en la figura <a href="doe.html#fig:metodo">11.3</a>.</p>
+factores no significativos. En las siguientes fases, se amplían los experimentos solo con los factores significativos.</li>
+</ol>
+<p>En realidad, esta estrategia secuancial es la aplicación del método científico,
+en un proceso iterativo de aprendizaje como se muestra en la figura <a href="doe.html#fig:metodo">11.3</a>. El experimento partirá de un objetivo que planteará ciertas hipótesis. Por deducción, se diseña el experimento y se obtienen datos. Estos datos confirman o no las hipótesis mediante la inducción, y nos hace plantearnos nuevas hipótesis. Así, hasta llegar a la conclusión y/o decisión final.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:metodo"></span>
 <img src="11-doe_files/figure-html/metodo-1.png" alt="Método iterativo de aprendizaje" width="672"><p class="caption">
@@ -250,19 +256,18 @@ Figura 11.3: Método iterativo de aprendizaje
 </div>
 <p>En <span class="citation">Moen, Nolan, and Provost<a href="#fn94" class="footnote-ref" id="fnref94"><sup>94</sup></a></span> se propone el ciclo PDSA (<em>Plan-Do-Study-Act</em>) para la mejora que se muestra en la figura <a href="doe.html#fig:ciclo">11.4</a>. Básicamente consiste en:</p>
 <ol style="list-style-type: decimal">
-<li>Planifica un cambio o prueba, dirigido a la <strong>mejora</strong>
-</li>
-<li>Lleva a cabo el cambio o prueba (corto alcance)</li>
+<li>Planifica un cambio o prueba, dirigido a la <strong>mejora</strong>.</li>
+<li>Lleva a cabo el cambio o prueba, preferiblemente de corto alcance.</li>
 <li>Estudia el resultado: ¿qué has aprendido? ¿qué ha ido mal?</li>
 <li>Actúa:
 <ul>
-<li>Adopta el cambio</li>
-<li>Abandónalo</li>
-<li>Empieza el ciclo de nuevo</li>
+<li>Adopta el cambio.</li>
+<li>Abandónalo.</li>
+<li>Empieza el ciclo de nuevo.</li>
 </ul>
 </li>
 </ol>
-<p><strong>¡Documenta todas las acciones de mejora!</strong></p>
+<p>Una cuestión fundamental es la necesidad de <strong>documentar</strong> todas las acciones de mejora, así como las lecciones aprendidas durante el proceso.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:ciclo"></span>
 <img src="11-doe_files/figure-html/ciclo-1.png" alt="Ciclo PDSA para la mejora" width="672"><p class="caption">
@@ -270,8 +275,8 @@ Figura 11.4: Ciclo PDSA para la mejora
 </p>
 </div>
 <p>Una buena forma de empezar el ciclo es a partir de un análisis de causa y
-efecto, por ejemplo con un diagrama de Ishikawa como el que aparece en la
-figura <a href="doe.html#fig:cefecto">11.5</a>.</p>
+efecto, por ejemplo con un diagrama de Ishikawa o de espina de pescado (<em>fishbone</em>) como el que aparece en la
+figura <a href="doe.html#fig:cefecto">11.5</a>. Con esta técnica se identifica cuál es la variable respuesta que queremos investigar (efecto, cabeza del pescado) y cuáles son los posibles factores que pueden estar relacionados, y de los que en última instancia queremos averiguar si son la causa del efecto (espinas).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:cefecto"></span>
 <img src="11-doe_files/figure-html/cefecto-1.png" alt="Ejemplo diagrama de causa-efecto" width="672"><p class="caption">
@@ -285,64 +290,65 @@ realísticamente.</p>
 experimentos. Ahora vamos a definirlos un poco más formalmente.</p>
 <ul>
 <li>
-<strong>variable respuesta</strong>: La variable de interés que pretendemos
-mejorar. Será una cuantificación de alguna característica de
+<strong>Variable respuesta</strong>: La variable de interés que pretendemos
+optimizar o determinar sus causas. En el ámbito industrial, será una cuantificación de alguna característica de
 calidad, en sentido amplio.</li>
 <li>
-<strong>factor</strong>: Variable independiente que puede ser causa de la respuesta.
+<strong>Factor</strong>: Variable independiente que puede ser causa de la respuesta.
 La inferencia que haremos con DoE será confirmar o rechazar esta
-hipótesis.</li>
+hipótesis, así como la cuantificación de este efecto.</li>
 <li>
-<strong>variable de bloque</strong>: Variable que no tiene interés en la investigación,
+<strong>Variable de bloque</strong>: Variable que no tiene interés en la investigación,
 pero puede influir en la respuesta. Mediante la formación de bloques
-confundimos su efecto con los factores que realmente nos interesan.</li>
+alatorios confundimos su efecto con los factores que realmente nos interesan.</li>
 <li>
-<strong>variable ruido</strong>: Variable que puede influir en la respuesta, pero de la
+<strong>Variable ruido</strong>: Variable que puede influir en la respuesta, pero de la
 que no tenemos control.</li>
 <li>
-<strong>nivel</strong>: Valor que fijamos de un factor. En variables
-cualitativas, una categoría. En variables cuantitativas, un valor numérico
+<strong>Nivel</strong>: Valor que fijamos de un factor. En variables
+cualitativas, es una categoría. En variables cuantitativas, un valor numérico
 determinado fijado con antelación.
-A menudo se le llama también tratamiento.</li>
+A menudo se le llama también tratamiento, aunque cuando se estudia más de un factor sería más apropiado hablar de tratamiento como combinación de los niveles de los factores.</li>
 <li>
-<strong>unidad experimental</strong>: La división más pequeña posible de unidades de un
+<strong>Unidad experimental</strong>: La división más pequeña posible de unidades de un
 experimento tal que a dos cualesquiera se les pueden aplicar distintas
 combinaciones de factores y niveles.</li>
 <li>
-<strong>unidad observable</strong>: Cada uno de los elementos que forman la unidad
+<strong>Unidad observable</strong>: Cada uno de los elementos que forman la unidad
 experimental. A veces, un tratamiento no se puede aplicar a un solo
 elemento, sino a varios a la vez.</li>
 <li>
-<strong>bloque</strong>: Grupos de unidades experimentales que son tratados de forma
+<strong>Bloque</strong>: Grupos de unidades experimentales que son tratados de forma
 similar en el experimento.</li>
 <li>
-<strong>efecto</strong>: El principal resultado de interés del experimento: qué pasa con
-la variable respuesta.</li>
+<strong>Efecto</strong>: El principal resultado de interés del experimento: qué pasa con
+la variable respuesta para cada nivel de un factor o combinación de factores.</li>
 <li>
-<strong>réplica</strong>: Repetición de un experimento sobre una misma combinación de
-factores y niveles, a diferentes unidades experimentales.</li>
+<strong>Réplica</strong>: Repetición de un experimento sobre una misma combinación de
+factores y niveles, a <strong>diferentes</strong> unidades experimentales.</li>
 <li>
-<strong>repetición</strong>: Repetición de la medición de la respuesta con las mismas
-condiciones experimentales, a la misma unidad experimental.</li>
+<strong>Repetición</strong>: Repetición de la medición de la respuesta con las mismas
+condiciones experimentales, a <strong>la misma</strong> unidad experimental.</li>
 <li>
-<strong>aleatorización</strong>: Asignación de niveles y bloques a unidades
-experimentales de forma aleatoria</li>
+<strong>Aleatorización</strong>: Asignación de niveles y bloques a unidades
+experimentales de forma aleatoria.</li>
 </ul>
-<p>Al utilizar un modelo para simplificar una realidad, estamos cometiendo un
+<p>Al utilizar un modelo para simplificar la realidad, estamos cometiendo un
 error. El <strong>error experimental</strong> es aquel que se debe exclusivamente a las réplicas
 de las mismas condiciones experimentales. En cada diseño el error experimental
 se calcula de una forma distinta, de forma que se separa de la variabilidad total
-para ver cuánta variaación se debe al modelo y poder así tomar decisiones. Así, en el modelo:</p>
-<p><span class="math display">\[Y = f(X) + \varepsilon\]</span></p>
+para ver cuánta variación se debe al modelo y poder así tomar decisiones. Así, en el modelo general:</p>
+<p><span class="math display">\[Y = f(\mathbf{X}) + \varepsilon,\]</span></p>
 <ul>
-<li>Y es la variable respuesta</li>
-<li>X es el conjunto de variables predictivas</li>
 <li>
-<span class="math inline">\(f\)</span> función lineal, exponencial, etc.</li>
+<span class="math inline">\(Y\)</span> es la variable respuesta.</li>
 <li>
-<span class="math inline">\(\varepsilon\)</span> es una variable aleatoria</li>
+<span class="math inline">\(\mathbf{X}\)</span> es el conjunto de variables predictivas.</li>
+<li>
+<span class="math inline">\(f\)</span> es una función (lineal, exponencial, etc.)</li>
+<li>
+<span class="math inline">\(\varepsilon\)</span> es una variable aleatoria que recoge todo lo que no explica la función <span class="math inline">\(f\)</span> de la variable respuesta <span class="math inline">\(Y\)</span>.</li>
 </ul>
-<p>Se separa el error de la variabilidad total.</p>
 <p>Los siguientes principios son cruciales a la hora de diseñar el experimento.</p>
 <ul>
 <li><p><strong>Aleatorización</strong>. Los tratamientos deben ser asignados de forma aleatoria a las
@@ -356,36 +362,45 @@ hipótesis, es necesario tener más de una <em>corrida</em> de cada combinación
 <p><span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>95</sup></a></span> propone la siguiente <em>checklist</em> a la hora de planificar
 experimentos:</p>
 <ol style="list-style-type: decimal">
-<li>Definir objetivos</li>
-<li>Identificar unidades experimentales</li>
-<li>Definir variable respuesta medible y con sentido</li>
-<li>Identificar los factores controlables y latentes</li>
-<li>Ejecutar pruebas piloto</li>
-<li>Hacer diagrama de flujo para cada experimento</li>
-<li>Elegir el diseño experimental</li>
-<li>Determinar el número de réplicas necesarias</li>
-<li>Aleatorizar las condiciones experimentales a las unidades experimentales</li>
-<li>Definir método de análisis de datos</li>
-<li>Calendario y presupuesto para la ejecución</li>
+<li>Definir objetivos.</li>
+<li>Identificar unidades experimentales.</li>
+<li>Definir variable respuesta medible y con sentido.</li>
+<li>Identificar los factores controlables y latentes.</li>
+<li>Ejecutar pruebas piloto.</li>
+<li>Hacer diagrama de flujo para cada experimento.</li>
+<li>Elegir el <strong>diseño experimental</strong>. Esta parte es crucial.</li>
+<li>Determinar el número de réplicas necesarias.</li>
+<li>Aleatorizar las condiciones experimentales a las unidades experimentales.</li>
+<li>Definir método de análisis de datos.</li>
+<li>Calendario y presupuesto para la ejecución.</li>
 </ol>
+<p>Es aconsejable recoger toda esta información en un formulario estandarizado que forme parte de la documentación del experimento o proyecto de mejora.</p>
 </div>
 <div id="tipos-de-diseños-de-experimentos" class="section level2" number="11.5">
 <h2>
 <span class="header-section-number">11.5</span> Tipos de diseños de experimentos<a class="anchor" aria-label="anchor" href="#tipos-de-dise%C3%B1os-de-experimentos"><i class="fas fa-link"></i></a>
 </h2>
-<div id="experimentos-con-un-factor" class="section level3" number="11.5.1">
-<h3>
-<span class="header-section-number">11.5.1</span> Experimentos con un factor<a class="anchor" aria-label="anchor" href="#experimentos-con-un-factor"><i class="fas fa-link"></i></a>
-</h3>
+<p>Existen una enorme cantidad de posibles tipos de diseños experimentales. La decisión sobre cuál utilizar en cada situación concreta depende principalmente de los objetivos de la investigación y de las características de las unidades experimentales (de ahí la importancia de caracterizarlas de forma precisa durante el diseño). La figura <a href="doe.html#fig:tiposdisenos">11.6</a> muestra la categorización que hace <span class="citation">Lawson<a href="#fn96" class="footnote-ref" id="fnref96"><sup>96</sup></a></span>. A continuación se enumeran estos diseños con una breve explicación de cada uno.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:tiposdisenos"></span>
+<div id="htmlwidget-29e925102d01db730e25" style="width:100%;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-29e925102d01db730e25">{"x":{"diagram":"\ndigraph one_factor{\n  graph [layout=dot, rankdir = TB, compound = true, fontsize = 10, color = crimson]\n  node [shape = box]\n  \"Propósito\ndel diseño\"; \"RSE\"; LSD;RCD  \"RCB\";  \"GCB\"; \"PBIB,PTIB\"; \"BIB\"; \"Tamaño de bloque\" ;\"FRSE\nNSE\nSNSE\"; \"CRFD\nCRFF\nPB,OA\"; CRRS; \"SLD\nSCD\nEVD\"; RCBF; RBSP; \"CRSP\nSPFF\"; \"RSSP\nEESPRS\"; SPMPV; BRS; PCBF; CCBF\n  \n  node [shape = diamond]\n  \"Unidades experimentales\"\n  \"Factores de bloque\"\n  \n  \n  \"Unidades experimentales\" -> \"Factores de bloque\" [label = \"Heterogéneos\"] \n  \"Unidades experimentales\" -> \"CRD\" [label = \"Homogéneos\"] \n  \"Factores de bloque\" -> \"Tamaño de bloque\" [label = \"Uno\"] \n  \"Factores de bloque\" -> \"LSD\" [label = \"Dos\"] \n  LSD -> RCD\n  \"Tamaño de bloque\" -> \"RCB\" [label = \"Grande\"] \n  \"Tamaño de bloque\" -> \"PBIB,PTIB\" [label = \"Pequeño\"] \n  \"Propósito\ndel diseño\" -> RSE [label = \"Estudiar varianzas\"] \n  RCB -> GCB\n  \n    \"Propósito\ndel diseño\" -> \"Unidades experimentales\" [label = \"Estimar efectos\nde los factores\"] \n\n  \n  \n  subgraph cluster0{\n    label = \"Un factor\";\n    RSE\n    CRD\n    LSD\n    RCD\n    RCB\n    GCB\n    \"PBIB,PTIB\"\n    \"BIB\"\n  }\n  RSE -> \"FRSE\nNSE\nSNSE\"\n  \n  subgraph cluster1{\n  label = \"Varios factores\";\n    \"FRSE\nNSE\nSNSE\"\n        CRD -> \"Tipo factor\"\n    \"Tipo factor\" -> \"CRFD\nCRFF\nPB,OA\" [label = \"Categórico\"]\n    \"Tipo factor\" -> CRRS [label = \"Continuo\"]\n    \"Tipo factor\" -> \"SLD\nSCD\nEVD\" [label = \"Mezcla\"]\n    GCB -> RCBF\n    \"PBIB,PTIB\" -> \"BIB\"\n    BIB -> Factores\n    Factores -> BRS [label = \"Continuos\"]\n    Factores -> PCBF [label = \"Categóricos\"]\n    PCBF -> CCBF\n  } \n  subgraph cluster2{\n  label = \"Varios factores (algunos difícil de variar)\";\n    RCBF -> RBSP\n    \"CRFD\nCRFF\nPB,OA\" -> \"CRSP\nSPFF\"\n    \"CRRS\" -> \"RSSP\nEESPRS\"\n    \"SLD\nSCD\nEVD\" -> SPMPV\n    \n  } \n}  \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p class="caption">
+Figura 11.6: Esquema de diseños experimentales en Lawson (2015)
+</p>
+</div>
+<ul>
+<li><p><strong>CRD</strong>, <em>Completely Randomized Design</em>: <strong>Diseño completamente aleatorizado</strong>. Este diseño se debería utilizar cuando solo hay un factor en estudio y las unidades experimentales son homogéneas. El análisis se corresponde con el ANOVA estudiado en el capítulo <a href="anova.html#anova">10</a>.</p></li>
+<li><p><strong>CRFD</strong>, <em>Completely Randomized Factorial Design</em>: <strong>Diseño factorial completamente aleatorizado</strong>. Este diseño se utiliza cuando se estudia más de un factor a la vez. Permite estudiar las interacciones entre los factores. El análisis se corresponde también con el ANOVA estudiado en el capítulo <a href="anova.html#anova">10</a>. Un caso particular son los diseños a dos niveles o <span class="math inline">\(2^k\)</span>, que veremos en detalle más adelante.</p></li>
+</ul>
+</div>
+<div id="experimentos-con-un-factor-crd" class="section level2" number="11.6">
+<h2>
+<span class="header-section-number">11.6</span> Experimentos con un factor (CRD)<a class="anchor" aria-label="anchor" href="#experimentos-con-un-factor-crd"><i class="fas fa-link"></i></a>
+</h2>
 <p>Podemos comparar una variable a distintos niveles de un solo
 factor. El contraste de la <span class="math inline">\(t\)</span> de Student es la técnica
 utilizada para dos niveles. Para más niveles, utilizamos
-el análisis de la varianza de un factor (véase sec:anova1).
-Cuando hay algún factor más que no es de interés,
-pero puede afectar a la variable resupesta, se debe introducir
-como variable de bloque. Los diseños de cuadrados latinos
-y cuadrados greco-latinos se utilizan para introducir dos o tres
-factores de bloque respectivamente.</p>
+el análisis de la varianza de un factor (véase el capítulo <a href="anova.html#anova">10</a>.</p>
 <p>El diseño experimental para el ANOVA de un factor sigue las siguientes pautas:</p>
 <ol style="list-style-type: decimal">
 <li><p>Se quiere estudiar el efecto de un solo factor sobre una población. No hay otros
@@ -399,30 +414,269 @@ factores controlables que puedan influir.</p></li>
 <li><p>Se ajusta el modelo.</p></li>
 <li><p>Se comprueba la validez del modelo. Si no es válido, se busca modelo alternativo de análisis.</p></li>
 <li><p>Se estiman los parámetros.</p></li>
-<li><p>Se comprueba las hipótesis principal.</p></li>
+<li><p>Se comprueba la hipótesis principal.</p></li>
 <li><p>Si hay diferencias, se realizan comparaciones por pares.</p></li>
 <li><p>Se comprueba la significación práctica y se obtienen conclusiones o se toman
 decisiones.</p></li>
 </ol>
 </div>
-<div id="diseños-multifactoriales" class="section level3" number="11.5.2">
-<h3>
-<span class="header-section-number">11.5.2</span> Diseños multifactoriales<a class="anchor" aria-label="anchor" href="#dise%C3%B1os-multifactoriales"><i class="fas fa-link"></i></a>
-</h3>
-<p>Cuando analizamos más de un factor a varios niveles, aplicamos
-lo explicado en el apartado <a href="anova.html#sec:anova2">10.3</a>. Recordemos que en
-estos diseños es de vital importancia estudiar las interacciones.</p>
+<div id="diseños-factoriales-crfd" class="section level2" number="11.7">
+<h2>
+<span class="header-section-number">11.7</span> Diseños factoriales (CRFD)<a class="anchor" aria-label="anchor" href="#dise%C3%B1os-factoriales-crfd"><i class="fas fa-link"></i></a>
+</h2>
+<p>Cuando analizamos más de un factor a varios niveles,
+el número total de unidades experimentales necesarias para tener una ejecución completa del experimento será <span class="math inline">\(n_1\times n_2, \cdots, n_k\)</span>,
+donde <span class="math inline">\(n_i\)</span> es el número de niveles del factor <span class="math inline">\(i\)</span>, y el número total de factores es <span class="math inline">\(k\)</span>. Para tener dos réplicas completas del experimento necesitaremos el doble, y así sucesivamente.</p>
+<p>Para el análisis de diseños equilibrados, aplicamos
+lo explicado en el apartado <a href="anova.html#sec:anova2">10.3</a> para el ANOVA de dos factores con interacción. Recordemos que en
+estos diseños es de vital importancia estudiar las interacciones.
+El modelo se extiende inmediatamente a más de dos factores, en los
+que las interacciones pueden ser dos a dos, tres a tres, etc. No obstante,
+las interacciones de orden superior a 3 rara vez son significativas y se suelen descartar casi siempre.</p>
+<p>A veces no es posible tener diseños equilibrados, es decir, con el mismo
+número de réplicas en cada “celda” o cruce de niveles de factores. En estos casos, para hacer los contrastes correctos debemos utilizar la función <code><a href="https://rdrr.io/pkg/car/man/Anova.html">Anova()</a></code> del paquete {car},<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;John Fox, Sanford Weisberg, and Brad Price, &lt;em&gt;Car: Companion to Applied Regression&lt;/em&gt;, 2022, &lt;a href="https://CRAN.R-project.org/package=car" role="doc-biblioref"&gt;https://CRAN.R-project.org/package=car&lt;/a&gt;.&lt;/p&gt;'><sup>97</sup></a></span> que calcula las sumas de cuadrados tipo II y tipo III, y los contrastes correctos. Las sumas de cuadrados del diseño equilibrado se suele llamar tipo I. Véase <span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>98</sup></a></span> para una explicación más detallada, o la entrada “Diferentes sumas de cuadrados en ANOVA” de “El blog de los herreros”<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://erre-que-erre-paco.blogspot.com/2016/12/diferentes-sumas-de-cuadrados-en-anova.html" class="uri"&gt;https://erre-que-erre-paco.blogspot.com/2016/12/diferentes-sumas-de-cuadrados-en-anova.html&lt;/a&gt;&lt;/p&gt;'><sup>99</sup></a>.</p>
+<div class="rmdejemplo">
+<p>A modo ilustrativo, el siguiente código genera aleatoriamente datos de un supuesto experimento con tres factores: A (con niveles A1, A2 y A3), B (con niveles B1, B2 y B3) y C (con niveles C1 y C2). Las tablas ANOVA del diseño equilibrado son idénticas para los dos métodos. Pero si quitamos uno de los datos (puede ser una situación realista en un experimento tener un valor perdido), entonces las sumas de cuadrados con los distintos métodos no son iguales, y podrían llevar a decisiones distintas.</p>
 </div>
-<div id="diseños-factoriales-a-dos-niveles-2k" class="section level3" number="11.5.3">
-<h3>
-<span class="header-section-number">11.5.3</span> Diseños factoriales a dos niveles <span class="math inline">\(2^k\)</span><a class="anchor" aria-label="anchor" href="#dise%C3%B1os-factoriales-a-dos-niveles-2k"><i class="fas fa-link"></i></a>
-</h3>
-<p>Un tipo especial de diseño multifactorial es aquél en el que
-todos los factores tienen solamente dos niveles. El número
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Loading required package: carData</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'car'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:dplyr':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     recode</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">666</span><span class="op">)</span></span>
+<span><span class="va">A</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">B</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"B"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">C</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">noeq</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html">expand.grid</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>A <span class="op">=</span> <span class="va">A</span>, B <span class="op">=</span> <span class="va">B</span>, C <span class="op">=</span> <span class="va">C</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  respuesta <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">3</span><span class="op">*</span><span class="fl">18</span>, <span class="fl">100</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>respuesta <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">C</span> <span class="op">==</span> <span class="st">"C2"</span>, </span>
+<span>                                   <span class="va">respuesta</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">54</span>, <span class="fl">8</span>, <span class="fl">1</span><span class="op">)</span>, </span>
+<span>                                   <span class="va">respuesta</span><span class="op">)</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">noeq</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">_</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;             Df Sum Sq Mean Sq F value Pr(&gt;F)  </span></span>
+<span><span class="co">#&gt; A            2    148    73.8   0.576 0.5658  </span></span>
+<span><span class="co">#&gt; B            2    314   157.1   1.227 0.3023  </span></span>
+<span><span class="co">#&gt; C            1    791   791.2   6.175 0.0165 *</span></span>
+<span><span class="co">#&gt; Residuals   48   6150   128.1                 </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="va">noeq</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">_</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/pkg/car/man/Anova.html">Anova</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Anova Table (Type II tests)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Response: respuesta</span></span>
+<span><span class="co">#&gt;           Sum Sq Df F value  Pr(&gt;F)  </span></span>
+<span><span class="co">#&gt; A          147.7  2  0.5762 0.56585  </span></span>
+<span><span class="co">#&gt; B          314.3  2  1.2265 0.30233  </span></span>
+<span><span class="co">#&gt; C          791.2  1  6.1755 0.01649 *</span></span>
+<span><span class="co">#&gt; Residuals 6149.8 48                  </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span></span>
+<span><span class="va">noeq</span><span class="op">$</span><span class="va">respuesta</span><span class="op">[</span><span class="fl">54</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span>
+<span><span class="va">noeq</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">_</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;             Df Sum Sq Mean Sq F value Pr(&gt;F)  </span></span>
+<span><span class="co">#&gt; A            2    149    74.3   0.568 0.5704  </span></span>
+<span><span class="co">#&gt; B            2    322   160.8   1.229 0.3018  </span></span>
+<span><span class="co">#&gt; C            1    783   783.2   5.986 0.0182 *</span></span>
+<span><span class="co">#&gt; Residuals   47   6149   130.8                 </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; 1 observation deleted due to missingness</span></span>
+<span><span class="va">noeq</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">_</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/pkg/car/man/Anova.html">Anova</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Anova Table (Type II tests)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Response: respuesta</span></span>
+<span><span class="co">#&gt;           Sum Sq Df F value  Pr(&gt;F)  </span></span>
+<span><span class="co">#&gt; A          137.8  2  0.5267 0.59398  </span></span>
+<span><span class="co">#&gt; B          308.5  2  1.1791 0.31648  </span></span>
+<span><span class="co">#&gt; C          783.2  1  5.9863 0.01821 *</span></span>
+<span><span class="co">#&gt; Residuals 6148.7 47                  </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
+<p>A medida que aumenta el número de factores a estudiar, el número de unidades experimentales a utilizar puede hacerse enorme, sobre todo si tenemos más de dos niveles. Para poder analizar un número grande de factores a modo de <em>screening</em> o cribado, se utiliza a menudo un tipo especial de diseños factoriales con solo dos niveles por cada factor, que veremos a continuación por separado dada su importancia.</p>
+</div>
+<div id="diseños-factoriales-a-dos-niveles-2k" class="section level2" number="11.8">
+<h2>
+<span class="header-section-number">11.8</span> Diseños factoriales a dos niveles <span class="math inline">\(2^k\)</span><a class="anchor" aria-label="anchor" href="#dise%C3%B1os-factoriales-a-dos-niveles-2k"><i class="fas fa-link"></i></a>
+</h2>
+<p>Un tipo especial de diseño factorial es aquél en el que
+todos los factores tienen solamente dos niveles. Es válido tanto para factores puramente categóricos como para factores de tipo continuo. En este último caso, se fijan un valor “bajo” y otro “alto” para el factor, que normalente se representan como <code>-</code> y <code>+</code> respectivamente.
+Con posterioridad a la etapa de cribado se pueden añadir más puntos al diseño para afinar en la estimación.
+En el caso de atributos, estos niveles alto y bajo serán arbitrarios, pero
+en cualquiera de los dos casos, se deberían fijar de acuerdo al conocimiento en la materia para que haya una diferencia potencial entre los niveles.</p>
+<p>El número
 de experimentos necesarios para probar todas las combinaciones
-de niveles para <span class="math inline">\(k\)</span> factores es <span class="math inline">\(2^k\)</span>, de ahi su nombre.</p>
-<p><strong>Diseño factorial <span class="math inline">\(2^2\)</span></strong></p>
-<p>Modelo:</p>
+de niveles para <span class="math inline">\(k\)</span> factores es <span class="math inline">\(2^k\)</span>, de ahi su nombre. Por ejemplo,
+en un experimento en el que quisiéramos analizar 5 factores con 4 niveles cada uno, necesitaríamos <span class="math inline">\(4\times 4\times 4\times 4\times 4=4^5= 1024\)</span> unidades experimentales, para cada réplica, mientras que en un experimento
+<span class="math inline">\(2^5\)</span> serán suficientes 32.</p>
+<p>La popularidad de los diseños <span class="math inline">\(2^p\)</span> se debe, entre otras, a las siguientes
+causas:</p>
+<ul>
+<li>Como acabamos de ver, con pocas observaciones se pueden analizar muchos factores. Esto nos será muy útil en las fases iniciales para descartar factores que no tienen ningún efecto en la respuesta.</li>
+<li>Son fáciles de utilizar y el análisis se puede realizar con métodos gráficos.</li>
+<li>Estos diseños han demostrado funcionar muy bien con sistemas complejos e incluso no lineales a través del estudio de las interacciones.</li>
+<li>Se pueden analizar incluso más factores utilizando diseños fraccionales.</li>
+</ul>
+<p>Los datos de los experimentos factoriales <span class="math inline">\(2^k\)</span> se pueden representar de forma exhaustiva con la llamada “matriz de diseño” o en forma de tablas. La forma estándar de la matriz de diseño contiene en la primera columna signos alternos <code>-</code> y <code>+</code>. En la siguiente columna se alternarán dos signos <code>-</code> y dos signos <code>+</code>, y así sucesivamente hasta la última columna con el último factor, que tendrá la primera mitad de signos <code>-</code> y la otra mitad de signos <code>+</code>. En la matriz de diseño se identifica el orden estándar, pero las observaciones <strong>nunca</strong> se recogerán en el orden de la matriz de diseño. A cada unidad experimental se le asignará una de las combinaciones <strong>aleatoriamente</strong>. Esto se puede hacer con medios mecánicos o con generación de números pseudoaleatorios con el ordenador. En la propia tabla se puede incorporar un identificador de unidad experimental convenientemente aleatorizado. Una vez recogidos los datos, estos se pueden añadir a la tabla, bien cada uno de los datos de las réplicas, o resumidos con la media.</p>
+<p>La tabla <a href="doe.html#tab:matrizest">11.1</a> muestra una tabla con todos los datos de un hipotético experimento con tres factores sin réplicas, creado con el siguiente código. Se fija la semilla aleatoria para garantizar la reproducibilidad.</p>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">A</span> <span class="op">&lt;-</span> <span class="va">B</span> <span class="op">&lt;-</span> <span class="va">C</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"-"</span>, <span class="st">"+"</span><span class="op">)</span></span>
+<span><span class="va">dm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html">expand.grid</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>A <span class="op">=</span> <span class="va">A</span>, B <span class="op">=</span> <span class="va">B</span>, C <span class="op">=</span> <span class="va">C</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>`Unidad experimental (aleatoria)` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span>,</span>
+<span>         `Respuesta simulación` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames_to_column</a></span><span class="op">(</span><span class="st">"Orden estándar"</span><span class="op">)</span> </span>
+<span><span class="va">dm</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/flextable.html">flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/set_caption.html">set_caption</a></span><span class="op">(</span><span class="st">"Ejemplo de matriz de diseño y datos sin réplicas"</span><span class="op">)</span></span></code></pre></div>
+<template id="a0ef3166-bd53-4515-971d-1696ba34e05e"><style>
+.tabwid table{
+  border-spacing:0px !important;
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style>
+<div class="tabwid">
+<style>.cl-8f357ae0{}.cl-8f3005e2{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8f301b54{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8f301b5e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8f3054b6{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f3054b7{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f3054c0{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f3054ca{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f3054cb{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f3054cc{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<div class="inline-table"><table class="cl-8f357ae0">
+<caption class="Table Caption">
+<p><span id="tab:matrizest">Tabla 11.1: </span>Ejemplo de matriz de diseño y datos sin réplicas</p>
+</caption>
+<thead><tr style="overflow-wrap:break-word;">
+<td class="cl-8f3054cb"><p class="cl-8f301b54"><span class="cl-8f3005e2">Orden estándar</span></p></td>
+<td class="cl-8f3054cb"><p class="cl-8f301b54"><span class="cl-8f3005e2">A</span></p></td>
+<td class="cl-8f3054cb"><p class="cl-8f301b54"><span class="cl-8f3005e2">B</span></p></td>
+<td class="cl-8f3054cb"><p class="cl-8f301b54"><span class="cl-8f3005e2">C</span></p></td>
+<td class="cl-8f3054cc"><p class="cl-8f301b5e"><span class="cl-8f3005e2">Unidad experimental (aleatoria)</span></p></td>
+<td class="cl-8f3054cc"><p class="cl-8f301b5e"><span class="cl-8f3005e2">Respuesta simulación</span></p></td>
+</tr></thead>
+<tbody>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">1</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td>
+<td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">1</span></p></td>
+<td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">6.9</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">2</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td>
+<td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">4</span></p></td>
+<td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">8.1</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">3</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td>
+<td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">8</span></p></td>
+<td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">9.4</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">4</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td>
+<td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">2</span></p></td>
+<td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">10.0</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">5</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td>
+<td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">6</span></p></td>
+<td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">14.8</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">6</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td>
+<td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">3</span></p></td>
+<td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">11.5</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">7</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td>
+<td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td>
+<td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">7</span></p></td>
+<td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">8.4</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-8f3054c0"><p class="cl-8f301b54"><span class="cl-8f3005e2">8</span></p></td>
+<td class="cl-8f3054c0"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td>
+<td class="cl-8f3054c0"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td>
+<td class="cl-8f3054c0"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td>
+<td class="cl-8f3054ca"><p class="cl-8f301b5e"><span class="cl-8f3005e2">5</span></p></td>
+<td class="cl-8f3054ca"><p class="cl-8f301b5e"><span class="cl-8f3005e2">7.7</span></p></td>
+</tr>
+</tbody>
+</table></div>
+</div></template><div class="flextable-shadow-host" id="497fc57e-9fa3-4889-a7fa-c20934e9fc43"></div>
+<script>
+var dest = document.getElementById("497fc57e-9fa3-4889-a7fa-c20934e9fc43");
+var template = document.getElementById("a0ef3166-bd53-4515-971d-1696ba34e05e");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script><p>La información de la tabla completa se puede compactar poniendo los factores en filas y columnas y los datos en las celdas con los cruces. También se es habitual encontrar la representación geométrica en forma de cuadrados (2 factores), cubos (3 factores) o hipercubos (más de 3 factores). Se pueden ver algunos ejemplos en <span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>100</sup></a></span> y <span class="citation">Moen, Nolan, and Provost<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Quality Improvement Through Planned Experimentation 3/e&lt;/em&gt;.&lt;/p&gt;"><sup>101</sup></a></span>.</p>
+<div id="diseño-factorial-22" class="section level3" number="11.8.1">
+<h3>
+<span class="header-section-number">11.8.1</span> Diseño factorial <span class="math inline">\(2^2\)</span><a class="anchor" aria-label="anchor" href="#dise%C3%B1o-factorial-22"><i class="fas fa-link"></i></a>
+</h3>
+<p>Es el diseño más sencillo que podemos hacer, y solo necesitamos <span class="math inline">\(2^2=4\)</span> unidades experimentales para cada réplica del experimento.</p>
+<p>El modelo matemático sería el siguiente:</p>
 <p><span class="math display">\[y_{ijk} = \alpha_i + \beta_j + \alpha\beta_{ij} + \varepsilon_{ijk}\]</span></p>
 <p>Datos:</p>
 <ul>
@@ -437,7 +691,7 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <div class="rmdpractica">
 <p>En el siguiente código se analiza un experimento con dos factores A y B a dos niveles, <code>+</code> y + <code>-</code>. Se muestran los gráficos de los efectos.</p>
 </div>
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://xtable.r-forge.r-project.org/">xtable</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://prof.bht-berlin.de/groemping/DoE/">DoE.base</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.r-project.org">effects</a></span><span class="op">)</span></span>
@@ -502,7 +756,7 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 </tr>
 </tbody>
 </table></div>
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelof22</span> <span class="op">&lt;-</span> <span class="fu">lm</span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">A</span> <span class="op">+</span> <span class="va">B</span> <span class="op">+</span> <span class="va">A</span><span class="op">*</span><span class="va">B</span>, data <span class="op">=</span> <span class="va">datosf22</span><span class="op">)</span></span>
 <span><span class="co"># kable(anova(modelof22))</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof22</span><span class="op">)</span></span>
@@ -517,23 +771,23 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  </span></span>
 <span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://lattice.r-forge.r-project.org/">lattice</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/trellis.par.get.html">trellis.par.set</a></span><span class="op">(</span>background <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; NOTE: A is not a high-order term in the model</span></span></code></pre></div>
-<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; NOTE: B is not a high-order term in the model</span></span></code></pre></div>
-<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A:B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
+<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
 <div class="rmdejemplo">
 <p>Vemos que los dos efectos principales son significativos, pero no lo es la interacción. Podemos eliminar ese término del modelo para así ganar grados de libertad y tener una mejor estimación del error.</p>
 </div>
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelof22</span> <span class="op">&lt;-</span> <span class="fu">lm</span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">A</span> <span class="op">+</span> <span class="va">B</span>, data <span class="op">=</span> <span class="va">datosf22</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof22</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Analysis of Variance Table</span></span>
@@ -546,12 +800,12 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  </span></span>
 <span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
+<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
 <p><strong>Diseño factorial <span class="math inline">\(2^3\)</span></strong></p>
 <p>Modelo:</p>
 <p><span class="math display">\[y_{ijkl} = \alpha_i + \beta_j + \gamma_k + \alpha\beta_{ij}
@@ -569,7 +823,7 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <div class="rmdejemplo">
 <p>En el siguiente ejemplo, analizamos tres factores, pero omitimos la interacción de orden 3. Después, podríamos eliminar las interacciones menos significativas para quedarnos con el modelo más sencillo.</p>
 </div>
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datosf23</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/scan.html">scan</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"</span></span>
 <span><span class="st">-   -   -   60</span></span>
 <span><span class="st">+   -   -   72  </span></span>
@@ -643,7 +897,7 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 </tr>
 </tbody>
 </table></div>
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelof23</span> <span class="op">&lt;-</span> <span class="fu">lm</span><span class="op">(</span><span class="va">rendimiento</span> <span class="op">~</span> <span class="cn">T</span> <span class="op">+</span> <span class="va">C</span> <span class="op">+</span> <span class="va">K</span> <span class="op">+</span> <span class="cn">T</span><span class="op">*</span><span class="va">C</span> <span class="op">+</span> <span class="cn">T</span><span class="op">*</span><span class="va">K</span> <span class="op">+</span> <span class="va">C</span><span class="op">*</span><span class="va">K</span>, data <span class="op">=</span> <span class="va">datosf23</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof23</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Analysis of Variance Table</span></span>
@@ -660,42 +914,52 @@ de niveles para <span class="math inline">\(k\)</span> factores es <span class="
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  </span></span>
 <span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; NOTE: T is not a high-order term in the model</span></span></code></pre></div>
-<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"C"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; NOTE: C is not a high-order term in the model</span></span></code></pre></div>
-<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-2.png" width="672"></div>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-11-2.png" width="672"></div>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; NOTE: K is not a high-order term in the model</span></span></code></pre></div>
-<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-3.png" width="672"></div>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-11-3.png" width="672"></div>
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T:C"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-4.png" width="672"></div>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-11-4.png" width="672"></div>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T:K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-5.png" width="672"></div>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-11-5.png" width="672"></div>
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"C:K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-6.png" width="672"></div>
+<div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-11-6.png" width="672"></div>
 <p><strong>Diseño factorial <span class="math inline">\(2^k\)</span></strong></p>
 <p>Siguiendo la misma estructura que los dos anteriores, con más efectos principales y más interacciones, pero más allá de 3 es muy difícil que se produzcan, y más difícil de interpretar.
 El número de experimentos necesarios aumenta exponencialmente, y se suelen preferir experimentos fraccionados. Cuando no hay grados de libertad suficientes para realizar contrastes se utilizan herramientas gráficas para seleccionar efectos significativos (Pareto y gráfico normal)</p>
 <p>Para la Formación de bloques, se confunden con efectos de interacciones de orden superior, multiplicando los signos y dividiendo en dos bloques</p>
 </div>
-<div id="diseños-fraccionales" class="section level3" number="11.5.4">
+</div>
+<div id="diseño-con-bloques" class="section level2" number="11.9">
+<h2>
+<span class="header-section-number">11.9</span> Diseño con bloques<a class="anchor" aria-label="anchor" href="#dise%C3%B1o-con-bloques"><i class="fas fa-link"></i></a>
+</h2>
+<p>Cuando hay algún factor más que no es de interés,
+pero puede afectar a la variable resupesta, se debe introducir
+como variable de bloque. Los diseños de cuadrados latinos
+y cuadrados greco-latinos se utilizan para introducir dos o tres
+factores de bloque respectivamente.</p>
+<div id="diseños-fraccionales" class="section level3" number="11.9.1">
 <h3>
-<span class="header-section-number">11.5.4</span> Diseños fraccionales<a class="anchor" aria-label="anchor" href="#dise%C3%B1os-fraccionales"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.9.1</span> Diseños fraccionales<a class="anchor" aria-label="anchor" href="#dise%C3%B1os-fraccionales"><i class="fas fa-link"></i></a>
 </h3>
 <p>Los diseños factoriales fraccionales <span class="math inline">\(2^{k-p}\)</span> utilizan solo una fracción de su equivalente factorial. En estos diseños se confunden los efectos principales con las interacciones de mayor orden. De esta forma, se puede realizar <em>screening</em> de muchos factores con pocos experimentos, y una vez eliminados del modelo los efectos no significativos se estima mejor el error.</p>
 </div>
-<div id="diseños-avanzados" class="section level3" number="11.5.5">
+<div id="diseños-avanzados" class="section level3" number="11.9.2">
 <h3>
-<span class="header-section-number">11.5.5</span> Diseños avanzados<a class="anchor" aria-label="anchor" href="#dise%C3%B1os-avanzados"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.9.2</span> Diseños avanzados<a class="anchor" aria-label="anchor" href="#dise%C3%B1os-avanzados"><i class="fas fa-link"></i></a>
 </h3>
 <p>Existen otros diseños avanzados que no se tratan en este texto, como son:</p>
 <ul>
@@ -720,13 +984,16 @@ El número de experimentos necesarios aumenta exponencialmente, y se suelen pref
 <li><a class="nav-link" href="#bases-del-doe-origen-importancia-objetivos-y-requerimientos"><span class="header-section-number">11.2</span> Bases del DoE: origen, importancia, objetivos y requerimientos</a></li>
 <li><a class="nav-link" href="#doe.importancia"><span class="header-section-number">11.3</span> Importancia del diseño</a></li>
 <li><a class="nav-link" href="#planificaci%C3%B3n-de-la-experimentaci%C3%B3n"><span class="header-section-number">11.4</span> Planificación de la experimentación</a></li>
+<li><a class="nav-link" href="#tipos-de-dise%C3%B1os-de-experimentos"><span class="header-section-number">11.5</span> Tipos de diseños de experimentos</a></li>
+<li><a class="nav-link" href="#experimentos-con-un-factor-crd"><span class="header-section-number">11.6</span> Experimentos con un factor (CRD)</a></li>
+<li><a class="nav-link" href="#dise%C3%B1os-factoriales-crfd"><span class="header-section-number">11.7</span> Diseños factoriales (CRFD)</a></li>
 <li>
-<a class="nav-link" href="#tipos-de-dise%C3%B1os-de-experimentos"><span class="header-section-number">11.5</span> Tipos de diseños de experimentos</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#experimentos-con-un-factor"><span class="header-section-number">11.5.1</span> Experimentos con un factor</a></li>
-<li><a class="nav-link" href="#dise%C3%B1os-multifactoriales"><span class="header-section-number">11.5.2</span> Diseños multifactoriales</a></li>
-<li><a class="nav-link" href="#dise%C3%B1os-factoriales-a-dos-niveles-2k"><span class="header-section-number">11.5.3</span> Diseños factoriales a dos niveles \(2^k\)</a></li>
-<li><a class="nav-link" href="#dise%C3%B1os-fraccionales"><span class="header-section-number">11.5.4</span> Diseños fraccionales</a></li>
-<li><a class="nav-link" href="#dise%C3%B1os-avanzados"><span class="header-section-number">11.5.5</span> Diseños avanzados</a></li>
+<a class="nav-link" href="#dise%C3%B1os-factoriales-a-dos-niveles-2k"><span class="header-section-number">11.8</span> Diseños factoriales a dos niveles \(2^k\)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#dise%C3%B1o-factorial-22"><span class="header-section-number">11.8.1</span> Diseño factorial \(2^2\)</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#dise%C3%B1o-con-bloques"><span class="header-section-number">11.9</span> Diseño con bloques</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dise%C3%B1os-fraccionales"><span class="header-section-number">11.9.1</span> Diseños fraccionales</a></li>
+<li><a class="nav-link" href="#dise%C3%B1os-avanzados"><span class="header-section-number">11.9.2</span> Diseños avanzados</a></li>
 </ul>
 </li>
 </ul>
