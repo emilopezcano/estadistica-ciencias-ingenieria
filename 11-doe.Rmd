@@ -400,7 +400,74 @@ Es aconsejable recoger toda esta información en un formulario estandarizado que
 
 ## Tipos de diseños de experimentos
 
-Existen una enorme cantidad de posibles tipos de diseños experimentales. La decisión sobre cuál utilizar en cada situación concreta depende principalmente de los objetivos de la investigación y de las características de las unidades experimentales (de ahí la importancia de caracterizarlas de forma precisa durante el diseño).
+Existen una enorme cantidad de posibles tipos de diseños experimentales. La decisión sobre cuál utilizar en cada situación concreta depende principalmente de los objetivos de la investigación y de las características de las unidades experimentales (de ahí la importancia de caracterizarlas de forma precisa durante el diseño). La figura \@ref(fig:tiposdisenos) muestra la categorización que hace @lawson2015. A continuación se enumeran estos  diseños con una breve explicación de cada uno.
+
+```{r tiposdisenos, fig.align='center', echo = FALSE}
+library(DiagrammeR)
+grViz("
+digraph one_factor{
+  graph [layout=dot, rankdir = TB, compound = true, fontsize = 10, color = crimson]
+  node [shape = box]
+  'Propósito\ndel diseño'; 'RSE'; LSD;RCD  'RCB';  'GCB'; 'PBIB,PTIB'; 'BIB'; 'Tamaño de bloque' ;'FRSE\nNSE\nSNSE'; 'CRFD\nCRFF\nPB,OA'; CRSS; 'SLD\nSCD\nEVD'; RCBF; RBSP; 'CRSP\nSPFF'; 'RSSP\nEESPRS'; SPMPV; BRS; PCBF; CCBF
+  
+  node [shape = diamond]
+  'Unidades experimentales'
+  'Factores de bloque'
+  
+  
+  'Unidades experimentales' -> 'Factores de bloque' [label = 'Heterogéneos'] 
+  'Unidades experimentales' -> 'CRD' [label = 'Homogéneos'] 
+  'Factores de bloque' -> 'Tamaño de bloque' [label = 'Uno'] 
+  'Factores de bloque' -> 'LSD' [label = 'Dos'] 
+  LSD -> RCD
+  'Tamaño de bloque' -> 'RCB' [label = 'Grande'] 
+  'Tamaño de bloque' -> 'PBIB,PTIB' [label = 'Pequeño'] 
+  'Propósito\ndel diseño' -> RSE [label = 'Estudiar varianzas'] 
+  RCB -> GCB
+  
+    'Propósito\ndel diseño' -> 'Unidades experimentales' [label = 'Estimar efectos\nde los factores'] 
+
+  
+  
+  subgraph cluster0{
+    label = 'Un factor';
+    RSE
+    CRD
+    LSD
+    RCD
+    RCB
+    GCB
+    'PBIB,PTIB'
+    'BIB'
+  }
+  RSE -> 'FRSE\nNSE\nSNSE'
+  
+  subgraph cluster1{
+  label = 'Varios factores';
+    'FRSE\nNSE\nSNSE'
+        CRD -> 'Tipo factor'
+    'Tipo factor' -> 'CRFD\nCRFF\nPB,OA' [label = 'Categórico']
+    'Tipo factor' -> CRSS [label = 'Continuo']
+    'Tipo factor' -> 'SLD\nSCD\nEVD' [label = 'Mezcla']
+    GCB -> RCBF
+    'PBIB,PTIB' -> 'BIB'
+    BIB -> Factores
+    Factores -> BRS [label = 'Continuos']
+    Factores -> PCBF [label = 'Categóricos']
+    PCBF -> CCBF
+  } 
+  subgraph cluster2{
+  label = 'Varios factores (algunos difícil de variar)';
+    RCBF -> RBSP
+    'CRFD\nCRFF\nPB,OA' -> 'CRSP\nSPFF'
+    'CRSS' -> 'RSSP\nEESPRS'
+    'SLD\nSCD\nEVD' -> SPMPV
+    
+  } 
+}  
+")
+```
+
 
 
 ### Experimentos con un factor
