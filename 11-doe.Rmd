@@ -9,16 +9,25 @@ herramienta más potente para la mejora, lo que ha llevado a algunos autores a
 llamarlo "the jewel of quality engineering" (Ver por ejemplo
 @allen2010).
 
-En apartados anteriores del libro hemos aprendido las herramientas básicas 
-para **analizar la variabilidad** de los datos. En este apartado vamos a revisar 
+En capítulos anteriores del libro hemos aprendido las herramientas básicas 
+para **analizar la variabilidad** de los datos. En este capítulo vamos a revisar 
 las técnicas de Diseño de Experimentos y
 su posterior análisis. Demasiado a menudo los esfuerzos se centran en intentar
 analizar un experimento sin diseño, lo que provoca frustración en los equipos
 involucrados en el análisis de datos. Vamos a mostrar la
 importancia de la fase de diseño, así como su planificación y correcta
 ejecución. No obstante la parte de análisis es igualmente importante, sobre todo en
-lo que concierne a la correcta interpretación de los resultados.
+lo que concierne a la correcta interpretación de los resultados y la toma de decisiones informada.
 
+
+
+:::{.rmdcafe data-latex=""}
+En su discurso presidencial ante el Primer Congreso Estadístico de la India, Sir Ronald Fisher (1890-1962) dijo:
+
+>_"To consult the statistician after an experiment is finished is often merely to ask him to conduct a post mortem examination. He can perhaps say what the experiment died of"_. 
+
+O, dicho en otras palabras, cuando analizamos los datos del experimento sin haber participado en el diseño, lo más que podemos hacerle es la autopsia.
+:::
 
 
 ## Bases del DoE: origen, importancia, objetivos y requerimientos
@@ -53,13 +62,13 @@ incompletas. Mediante la reducción del error experimental se consigue evitar la
 Para empezar, lo primero que necesitamos es definir los datos del problema
 objeto de estudio y disponer de una forma de obtenerlos adecuadamente, en particular:
 
-- Una variable respuesta en escala métrica
-- Factores controlables
-- Posiblemente, otros factores aleatorios
+- Una variable respuesta en escala métrica.
+- Factores controlables.
+- Posiblemente, otros factores aleatorios.
 
 Esta recogida de datos se debe realizar de forma sistemática y 
-teniendo en cuenta los tres pilares del DoE: aleatorización, bloqueo y
-replicación.
+teniendo en cuenta los tres pilares del DoE: **aleatorización**, **bloqueo** y
+**replicación**.
 
 
 
@@ -73,19 +82,19 @@ permite, unido a las apropiadas estrategias de aleatorización, bloqueo y
 replicación, realizar predicciones acerca del desempeño de un determinado
 proceso. Estas predicciones así establecidas serán el resultado de la
 identificación de una relación causa-efecto, que no se puede conseguir
-simplemente analizando datos recogidos sin diseño. En los estudios observacionales:
+simplemente analizando datos recogidos sin diseño. En los **estudios observacionales**:
 
-  - Recogemos información
-  - No controlamos factores
-  - Análisis descriptivos
-  - Descubrir _relaciones_
+  - Recogemos información (o simplemente "está ahí").
+  - No controlamos factores.
+  - Se realizan análisis descriptivos.
+  - Se descubren **relaciones** mediante inferencia.
 
-Mientras que con experimentos diseñados:
+Mientras que con **experimentos diseñados**:
 
-  - Se controlan los factores
-  - Se analizan efectos
-  - Incluidas las interacciones
-  - Se verifica la relación _causa-efecto_
+  - Se controlan los factores y su asignación a los elementos en estudio (sujetos, cosas, plantas, ...)
+  - Se analizan los efectos en la variable respuesta.
+  - Se analizan las interacciones de los factores.
+  - Se verifica la relación **causa-efecto**.
 
 
 
@@ -93,9 +102,11 @@ Mientras que con experimentos diseñados:
 Si la experimentación se lleva a cabo variando una vez cada factor, buscando el
 valor óptimo para la respuesta para cada factor individualmente dejando fijos
 el resto arbitrariamente, estaremos obviando un aspecto
-fundamental: el efecto de las interacciones. La interacción es el efecto que tiene un factor a distintos niveles de otros factores. Por otra parte, el número de 
+fundamental: el efecto de las interacciones. La interacción es el efecto que tiene un factor a distintos niveles de otros factores. 
+
+Por otra parte, el número de 
 experimentos necesarios para llegar a conclusiones válidas es mucho mayor
-(y por tanto el experimento más costoso). Con diseño de Experimentos obtenemos el mayor número de combinaciones posibles para estimar interacciones, con el mínimo número de experimentos.
+(y por tanto el experimento más costoso). Mediante un experimento diseñado obtenemos el mayor número de combinaciones posibles para estimar interacciones, con el mínimo número de experimentos.
 
 
 ::: {.rmdcafe data-latex=""}
@@ -103,20 +114,13 @@ experimentos necesarios para llegar a conclusiones válidas es mucho mayor
 El análisis de datos, por muy sofisticado que sea, no puede nunca
 _arreglar_ un experimento mal diseñado (chapucero, según Lawson)
 
-
->  Sometimes the only thing you
-  can do with a poorly designed
-  experiment is to try to find out
-  what it died of  
-    R.A. Fisher
-
 >  As we know from Murphy's Law, if anything can go wrong it will, and analysis of
   data can never compensate for botched experiments  
     @lawson2015
 :::
 
 
-El análisis de la varianza sin diseño de experimentos tiene algunas
+El análisis de la varianza (ver capítulo \@ref(anova)) sin diseño de experimentos tiene algunas
 limitaciones importantes. Sin Diseño de Experimentos, los datos pueden ser inconsistentes o incompletos, al no incluir factores de ruido o Factores latentes.
 Si tenemos variables correlacionadas, y alguna de ellas no se
 mide, su efecto puede quedar enmascarado por las otras, como en el ejemplo de la figura \@ref(fig:c1), donde si miramos solo la relación de la variable respuesta
@@ -126,38 +130,64 @@ sea el factor 2, que no ha sido medido y está muy correlacionado con el factor 
 En el gráfico de la derecha vemos que la variable respuesta crece en el mismo sentido que los factores 1 y 2, pero podría ser que el factor 2, no medido al principio, sea la causa, y no el que realmente se ha medido.
 
 
-```{r c1, fig.height=4, fig.height=5, fig.cap="Efecto de no medir un factor", fig.align='center', echo=FALSE}
-par(bg="white")
+```{r c1, fig.height=4, fig.width=8, fig.cap="Efecto de no medir un factor", fig.align='center', echo=FALSE, out.width="100%"}
 library(ggplot2)
 set.seed(666)
 factor1 <- rnorm(20, 80)
 factor2 <- sapply(factor1/3, function(x){rnorm(1,x,0.5)})
 response <- sapply(factor1+2*factor2, function(x){rnorm(1,x,0.1)})
-qconf <- qplot(factor1, factor2, size = response)
-qhid <- qplot(factor1, response)
-# print(qhid)
-# print(qconf)
-gridExtra::grid.arrange(qhid, qconf, nrow = 1)
+qconf <- qplot(factor1, factor2, size = response) + 
+  theme_bw() +
+  labs(title = "Factor 1 frente a Factor 2",
+       x = "Factor 1",
+       y = "Factor 2",
+       size = "Respuesta")
+qhid <- qplot(factor1, response) + 
+  theme_bw() +
+  labs(title = "Variable respuesta frente a Factor 1",
+       x = "Factor 1",
+       y = "Respuesta")
+gridExtra::grid.arrange(qhid, qconf, nrow = 1, widths = c(0.45, 0.55))
 ```
 
 
 Por otra parte, el rango de valores de la variable respuesta está limitado por su
 rango normal de operación, que puede ocultar relaciones más amplias. En la figura
-\@ref(fig:valuesrange1), el gráfico de la derecha se corresponde con el rango de 
+\@ref(fig:valuesrange1), el gráfico de la izquierda se corresponde con el rango de 
 variación normal de
-los factores de un proceso. En el de la izquierda, ampliamos el rango de
-posibles valores de la variable, y vemos una relación más clara, que queda
-oculta en el otro caso.
+los factores de un proceso. En el de la derecha, ampliamos el rango de
+posibles valores de la variable, y vemos algunos patrones que quedan
+ocultos en el otro caso. Por ejemplo, en los valores inferiores la pendiente es más pronunciada, mientras que en los valores superiores parece que
+se empieza a invertir la tendencia.
 
-```{r valuesrange1, echo=FALSE, fig.height=4, fig.cap="Efecto de la limitación del rango de valores", fig.align='center'}
-par(bg="white", mfrow=c(1,2))
+```{r valuesrange1, echo=FALSE, fig.height=4, fig.cap="Efecto de la limitación del rango de valores", fig.align='center', message=FALSE, out.width="100%"}
 set.seed(66)
-x <- rnorm(100, 10)
-y <- sapply(x, function(x){rnorm(1,x)})
-plot(y ~ x, xlab = "X", ylab = "Y", main = "Rango ampliado")
-abline(v = 9)
-abline(v = 11)
-plot(y ~ x, xlim=c(9,11), ylim = c(7,13), main = "Rango normal de operación")
+x = rnorm(100, 10)
+rangoop <- data.frame(x,
+                      y = sapply(x, function(x){rnorm(1,x)})) |> 
+  dplyr::mutate(out = ifelse(x < 9 | x > 11, 1, 0))
+p1 <- rangoop |> 
+  dplyr::filter(x >= 9, x <= 11) |> 
+  ggplot(aes(x, y)) + 
+  geom_point() +
+  geom_smooth() +
+  labs(title = "Rango normal de operación") +
+  theme_bw()
+p2 <- rangoop |> 
+  ggplot(aes(x, y, col = out)) + 
+  geom_point() + 
+  # xlim(8, 12) +
+  geom_smooth() +
+  labs(title = "Rango ampliado por el experimento") +
+  theme_bw() +
+  theme(legend.position = "none")
+
+gridExtra::grid.arrange(p1, p2, nrow = 1)
+
+# plot(y ~ x, xlab = "X", ylab = "Y", main = "Rango ampliado")
+# abline(v = 9)
+# abline(v = 11)
+# plot(y ~ x, xlim=c(9,11), ylim = c(7,13), main = "Rango normal de operación")
 ```
 
 
@@ -165,7 +195,7 @@ plot(y ~ x, xlim=c(9,11), ylim = c(7,13), main = "Rango normal de operación")
 
 ## Planificación de la experimentación
 
-El conocimiento de la materia (_subject matter knowledge_) en cuestión es fundamental para desarrollar
+El conocimiento de la materia en cuestión (_subject matter knowledge_) es fundamental para desarrollar
 cambios que resulten en mejoras. Sin embargo, es
 necesario otro tipo de conocimiento (_profound knowledge_), en el que se
 incluye la Estadística. Combinar ambos conocimientos, lleva a una
@@ -174,27 +204,32 @@ Estas ideas, originarias de Deming, se recogen en @moen2012.
 Algunas capacidades necesarias fruto de esta combinación son:
 
   - Entender las interdependencias entre los sistemas donde se lleva a cabo
-  la experimentación;
+  la experimentación.
   - Entender la relación entre las predicciones y el conocimiento del
-  sistema que se quiere cambiar;
-  - Entender el efecto temporal de los cambios;
-  - Entender la importancia de la estabilidad del proceso;
+  sistema que se quiere cambiar.
+  - Entender el efecto temporal de los cambios.
+  - Entender la importancia de la estabilidad del proceso.
   - Entender la extrapolación de los resultados de las pruebas para mejorar
   el sistema.
 
 
 
 En general, se pueden seguir tres estrategias de planificación para el diseño de
-experimentos. Sin planificación se pueden ir cambiando niveles de factores cada
-vez y haciendo pruebas (ensayo-error), definitivamente poco efectivo. Una
-planificación completa desde el inicio puede llevar a no explorar alternativas
-surgidas durante la experimentación, y por tanto a no cumplir los objetivos. La
-estrategia óptima la secuencia, es decir, llevar a cabo un número de experimentos al inicio, cuyas
+experimentos:
+
+1. Sin planificación. Se pueden ir cambiando niveles de factores cada
+vez y haciendo pruebas (ensayo-error). Esto es definitivamente poco efectivo. 
+2. Planificación completa desde el inicio. Si es muy rígida, nos puede llevar a no explorar alternativas
+que puedan suregir durante la experimentación. Y por tanto a no cumplir los objetivos. 
+3. Planificación **secuancial**. Esta es la
+estrategia óptima. Se llevan a cabo un número de experimentos al inicio, cuyas
 conclusiones supondrán la planificación de una segunda fase donde centrarnos en
 los factores realmente relevantes y hacer análisis más detallados y precisos. En las
 primeras fases se suelen realizar diseños de _screening_ para descartar
-factores no significativos. En realidad, es la aplicación del método científico,
-en un proceso iterativo de aprendizaje como se muestra en la figura \@ref(fig:metodo).
+factores no significativos. En las siguientes fases, se amplían los experimentos solo con los factores significativos. 
+
+En realidad, esta estrategia secuancial es la aplicación del método científico,
+en un proceso iterativo de aprendizaje como se muestra en la figura \@ref(fig:metodo). El experimento partirá de un objetivo que planteará ciertas hipótesis. Por deducción, se diseña el experimento y se obtienen datos. Estos datos confirman o no las hipótesis mediante la inducción, y nos hace plantearnos nuevas hipótesis. Así, hasta llegar a la conclusión y/o decisión final.
 
 
 
@@ -227,15 +262,15 @@ arrows(8.5, 7.9, 10, 5)
 
 En @moen2012 se propone el ciclo PDSA (_Plan-Do-Study-Act_) para la mejora que se muestra en la figura \@ref(fig:ciclo). Básicamente consiste en:
 
-1. Planifica un cambio o prueba, dirigido a la **mejora**
-2. Lleva a cabo el cambio o prueba (corto alcance)
+1. Planifica un cambio o prueba, dirigido a la **mejora**.
+2. Lleva a cabo el cambio o prueba, preferiblemente de corto alcance.
 3. Estudia el resultado: ¿qué has aprendido? ¿qué ha ido mal?
 4. Actúa:
-    - Adopta el cambio
-    - Abandónalo
-    - Empieza el ciclo de nuevo
+    - Adopta el cambio.
+    - Abandónalo.
+    - Empieza el ciclo de nuevo.
   
-**¡Documenta todas las acciones de mejora!**
+Una cuestión fundamental es la necesidad de **documentar** todas las acciones de mejora, así como las lecciones aprendidas durante el proceso.
 
 
 ```{r ciclo, echo=FALSE, fig.cap="Ciclo PDSA para la mejora", fig.align='center'}
@@ -262,8 +297,8 @@ grid.lines(c(0.05, 0.95), c(0.5, 0.5))
 
 
 Una buena forma de empezar el ciclo es a partir de un análisis de causa y
-efecto, por ejemplo con un diagrama de Ishikawa como el que aparece en la
-figura \@ref(fig:cefecto).
+efecto, por ejemplo con un diagrama de Ishikawa o de espina de pescado (_fishbone_) como el que aparece en la
+figura \@ref(fig:cefecto). Con esta técnica se identifica cuál es la variable respuesta que queremos investigar (efecto, cabeza del pescado) y cuáles son los posibles factores que pueden estar relacionados, y de los que en última instancia queremos averiguar si son la causa del efecto (espinas).
 
 ```{r cefecto, echo=FALSE, fig.align="center", fig.cap="Ejemplo diagrama de causa-efecto", results='hide', fig.show='hold'}
 library(SixSigma)
@@ -279,55 +314,53 @@ realísticamente.
 Hasta ahora, hemos ido mencionando algunos conceptos básicos del diseño de
 experimentos. Ahora vamos a definirlos un poco más formalmente.
 
-- **variable respuesta**:  La variable de interés que pretendemos
-  mejorar. Será una cuantificación de alguna característica de
+- **Variable respuesta**:  La variable de interés que pretendemos
+  optimizar o determinar sus causas. En el ámbito industrial, será una cuantificación de alguna característica de
   calidad, en sentido amplio.
-- **factor**: Variable independiente que puede ser causa de la respuesta.
+- **Factor**: Variable independiente que puede ser causa de la respuesta.
   La inferencia que haremos con DoE será confirmar o rechazar esta
-  hipótesis.
-- **variable de bloque**: Variable que no tiene interés en la investigación,
+  hipótesis, así como la cuantificación de este efecto.
+- **Variable de bloque**: Variable que no tiene interés en la investigación,
   pero puede influir en la respuesta. Mediante la formación de bloques
-  confundimos su efecto con los factores que realmente nos interesan.
-- **variable ruido**: Variable que puede influir en la respuesta, pero de la
+  alatorios confundimos su efecto con los factores que realmente nos interesan.
+- **Variable ruido**: Variable que puede influir en la respuesta, pero de la
   que no tenemos control.
-- **nivel**: Valor que fijamos de un factor. En variables
-  cualitativas, una categoría. En variables cuantitativas, un valor numérico
+- **Nivel**: Valor que fijamos de un factor. En variables
+  cualitativas, es una categoría. En variables cuantitativas, un valor numérico
   determinado fijado con antelación.
-  A menudo se le llama también tratamiento.
-- **unidad experimental**: La división más pequeña posible de unidades de un
+  A menudo se le llama también tratamiento, aunque cuando se estudia más de un factor sería más apropiado hablar de tratamiento como combinación de los niveles de los factores.
+- **Unidad experimental**: La división más pequeña posible de unidades de un
   experimento tal que a dos cualesquiera se les pueden aplicar distintas
   combinaciones de factores y niveles.
-- **unidad observable**: Cada uno de los elementos que forman la unidad
+- **Unidad observable**: Cada uno de los elementos que forman la unidad
   experimental. A veces, un tratamiento no se puede aplicar a un solo
   elemento, sino a varios a la vez.
-- **bloque**: Grupos de unidades experimentales que son tratados de forma
+- **Bloque**: Grupos de unidades experimentales que son tratados de forma
   similar en el experimento.
-- **efecto**: El principal resultado de interés del experimento: qué pasa con
-  la variable respuesta.
-- **réplica**: Repetición de un experimento sobre una misma combinación de
-  factores y niveles, a diferentes unidades experimentales.
-- **repetición**: Repetición de la medición de la respuesta con las mismas
-  condiciones experimentales, a la misma unidad experimental.
-- **aleatorización**: Asignación de niveles y bloques a unidades
-  experimentales de forma aleatoria
+- **Efecto**: El principal resultado de interés del experimento: qué pasa con
+  la variable respuesta para cada nivel de un factor o combinación de factores.
+- **Réplica**: Repetición de un experimento sobre una misma combinación de
+  factores y niveles, a **diferentes** unidades experimentales.
+- **Repetición**: Repetición de la medición de la respuesta con las mismas
+  condiciones experimentales, a **la misma** unidad experimental.
+- **Aleatorización**: Asignación de niveles y bloques a unidades
+  experimentales de forma aleatoria.
 
 
 
 
-Al utilizar un modelo para simplificar una realidad, estamos cometiendo un
+Al utilizar un modelo para simplificar la realidad, estamos cometiendo un
 error. El **error experimental** es aquel que se debe exclusivamente a las réplicas
 de las mismas condiciones experimentales. En cada diseño el error experimental
 se calcula de una forma distinta, de forma que se separa de la variabilidad total
-para ver cuánta variaación se debe al modelo y poder así tomar decisiones. Así, en el modelo:
+para ver cuánta variación se debe al modelo y poder así tomar decisiones. Así, en el modelo general:
 
-$$Y = f(X) + \varepsilon$$
+$$Y = f(\mathbf{X}) + \varepsilon,$$
 
-- Y es la variable respuesta
-- X es el conjunto de variables predictivas
-- $f$ función lineal, exponencial, etc.
-- $\varepsilon$ es una variable aleatoria
-
-Se separa el error de la variabilidad total.
+- $Y$ es la variable respuesta.
+- $\mathbf{X}$ es el conjunto de variables predictivas.
+- $f$ es una función (lineal, exponencial, etc.)
+- $\varepsilon$ es una variable aleatoria que recoge todo lo que no explica la función $f$ de la variable respuesta $Y$.
 
 
 Los siguientes principios son cruciales a la hora de diseñar el experimento.
@@ -345,26 +378,29 @@ hipótesis, es necesario tener más de una _corrida_ de cada combinación de tra
 
 
 
-
 @lawson2015 propone la siguiente _checklist_ a la hora de planificar
 experimentos:
 
-1. Definir objetivos
-2. Identificar unidades experimentales
-3. Definir variable respuesta medible y con sentido
-4. Identificar los factores controlables y latentes
-5. Ejecutar pruebas piloto
-6. Hacer diagrama de flujo para cada experimento
-7. Elegir el diseño experimental
-8. Determinar el número de réplicas necesarias
-9. Aleatorizar las condiciones experimentales a las unidades experimentales
-10. Definir método de análisis de datos
-11. Calendario y presupuesto para la ejecución
+1. Definir objetivos.
+2. Identificar unidades experimentales.
+3. Definir variable respuesta medible y con sentido.
+4. Identificar los factores controlables y latentes.
+5. Ejecutar pruebas piloto.
+6. Hacer diagrama de flujo para cada experimento.
+7. Elegir el **diseño experimental**. Esta parte es crucial.
+8. Determinar el número de réplicas necesarias.
+9. Aleatorizar las condiciones experimentales a las unidades experimentales.
+10. Definir método de análisis de datos.
+11. Calendario y presupuesto para la ejecución.
+
+Es aconsejable recoger toda esta información en un formulario estandarizado que forme parte de la documentación del experimento o proyecto de mejora.
 
 
 
 
 ## Tipos de diseños de experimentos
+
+Existen una enorme cantidad de posibles tipos de diseños experimentales. La decisión sobre cuál utilizar en cada situación concreta depende principalmente de los objetivos de la investigación y de las características de las unidades experimentales (de ahí la importancia de caracterizarlas de forma precisa durante el diseño).
 
 
 ### Experimentos con un factor
