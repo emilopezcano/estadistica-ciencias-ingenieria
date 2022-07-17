@@ -533,7 +533,7 @@ knitr::kable(danova[, c(3, 2)], caption = "Peso de las plantas y origen de la ti
 
 
 
-## Análisis de la varianza de varios factores {#sec:anova2}
+## Análisis de la varianza de dos factores {#sec:anova2}
 
 La principal diferencia con el análisis de la varianza de un factor es que,
 además de los efectos principales de cada uno de los factores, es decir,
@@ -623,6 +623,14 @@ el peso de las plantas.
 :::
 
 
+:::{.rmdpractica data-latex=""}
+La función `model.table` nos devuelve las medias de todas las combinaciones
+de los factores de forma compacta.
+:::
+
+```{r}
+model.tables(modelo.aov3)
+```
 
 
 El caso de dos factores con interacción se extiende fácilmente a más de dos factores 
