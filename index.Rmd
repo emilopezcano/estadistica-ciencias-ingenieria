@@ -212,6 +212,7 @@ de [RStudio](https://www.rstudio.com).
 knitr::write_bib(c(
   .packages(), 
   'base',
+  'car',
   'bookdown', 'knitr', 'rmarkdown',
   'ggfortify', 'pgirmess'
 ), 'packages.bib')

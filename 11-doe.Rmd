@@ -1,4 +1,10 @@
 
+```{r, include=FALSE}
+library(dplyr)
+library(tibble)
+library(flextable)
+```
+
 # Diseño de experimentos {#doe}
 
 ## Introducción
@@ -402,13 +408,13 @@ Es aconsejable recoger toda esta información en un formulario estandarizado que
 
 Existen una enorme cantidad de posibles tipos de diseños experimentales. La decisión sobre cuál utilizar en cada situación concreta depende principalmente de los objetivos de la investigación y de las características de las unidades experimentales (de ahí la importancia de caracterizarlas de forma precisa durante el diseño). La figura \@ref(fig:tiposdisenos) muestra la categorización que hace @lawson2015. A continuación se enumeran estos  diseños con una breve explicación de cada uno.
 
-```{r tiposdisenos, fig.align='center', echo = FALSE}
+```{r tiposdisenos, fig.align='center', echo = FALSE, fig.cap="Esquema de diseños experimentales en Lawson (2015)", out.width="100%"}
 library(DiagrammeR)
 grViz("
 digraph one_factor{
   graph [layout=dot, rankdir = TB, compound = true, fontsize = 10, color = crimson]
   node [shape = box]
-  'Propósito\ndel diseño'; 'RSE'; LSD;RCD  'RCB';  'GCB'; 'PBIB,PTIB'; 'BIB'; 'Tamaño de bloque' ;'FRSE\nNSE\nSNSE'; 'CRFD\nCRFF\nPB,OA'; CRSS; 'SLD\nSCD\nEVD'; RCBF; RBSP; 'CRSP\nSPFF'; 'RSSP\nEESPRS'; SPMPV; BRS; PCBF; CCBF
+  'Propósito\ndel diseño'; 'RSE'; LSD;RCD  'RCB';  'GCB'; 'PBIB,PTIB'; 'BIB'; 'Tamaño de bloque' ;'FRSE\nNSE\nSNSE'; 'CRFD\nCRFF\nPB,OA'; CRRS; 'SLD\nSCD\nEVD'; RCBF; RBSP; 'CRSP\nSPFF'; 'RSSP\nEESPRS'; SPMPV; BRS; PCBF; CCBF
   
   node [shape = diamond]
   'Unidades experimentales'
@@ -447,7 +453,7 @@ digraph one_factor{
     'FRSE\nNSE\nSNSE'
         CRD -> 'Tipo factor'
     'Tipo factor' -> 'CRFD\nCRFF\nPB,OA' [label = 'Categórico']
-    'Tipo factor' -> CRSS [label = 'Continuo']
+    'Tipo factor' -> CRRS [label = 'Continuo']
     'Tipo factor' -> 'SLD\nSCD\nEVD' [label = 'Mezcla']
     GCB -> RCBF
     'PBIB,PTIB' -> 'BIB'
@@ -460,30 +466,30 @@ digraph one_factor{
   label = 'Varios factores (algunos difícil de variar)';
     RCBF -> RBSP
     'CRFD\nCRFF\nPB,OA' -> 'CRSP\nSPFF'
-    'CRSS' -> 'RSSP\nEESPRS'
+    'CRRS' -> 'RSSP\nEESPRS'
     'SLD\nSCD\nEVD' -> SPMPV
     
   } 
 }  
 ")
+# library(htmltools)
+# html_print(HTML(DiagrammeRsvg::export_svg(g)))
+# print(g)
 ```
 
 
 
-### Experimentos con un factor
+* **CRD**, _Completely Randomized Design_: **Diseño completamente aleatorizado**. Este diseño se debería utilizar cuando solo hay un factor en estudio y las unidades experimentales son homogéneas. El análisis se corresponde con el ANOVA estudiado en el capítulo \@ref(anova).
+
+* **CRFD**, _Completely Randomized Factorial Design_: **Diseño factorial completamente aleatorizado**. Este diseño se utiliza cuando se estudia más de un factor a la vez. Permite estudiar las interacciones entre los factores. El análisis se corresponde también con el ANOVA estudiado en el capítulo \@ref(anova). Un caso particular son los diseños a dos niveles o $2^k$, que veremos en detalle más adelante.
+
+
+## Experimentos con un factor (CRD)
 
 Podemos comparar una variable a distintos niveles de un solo
 factor. El contraste de la $t$ de Student es la técnica
 utilizada para dos niveles. Para más niveles, utilizamos
-el análisis de la varianza de un factor (véase sec:anova1).
-Cuando hay algún factor más que no es de interés,
-pero puede afectar a la variable resupesta, se debe introducir
-como variable de bloque. Los diseños de cuadrados latinos
-y cuadrados greco-latinos se utilizan para introducir dos o tres
-factores de bloque respectivamente.
-
-
-
+el análisis de la varianza de un factor (véase el capítulo \@ref(anova).
 
 
 El diseño experimental para el ANOVA de un factor sigue las siguientes pautas:
@@ -509,7 +515,7 @@ factores controlables que puedan influir.
 
 9. Se estiman los parámetros.
 
-10. Se comprueba las hipótesis principal.
+10. Se comprueba la hipótesis principal.
 
 11. Si hay diferencias, se realizan comparaciones por pares.
 
@@ -518,26 +524,111 @@ decisiones.
 
 
 
-### Diseños multifactoriales
 
-Cuando analizamos más de un factor a varios niveles, aplicamos
-lo explicado en el apartado \@ref(sec:anova2). Recordemos que en
+
+
+
+
+
+
+
+
+
+## Diseños factoriales (CRFD)
+
+Cuando analizamos más de un factor a varios niveles, 
+el número total de unidades experimentales necesarias para tener una ejecución completa del experimento será $n_1\times n_2, \cdots, n_k$,
+donde $n_i$ es el número de niveles del factor $i$, y el número total de factores es $k$. Para tener dos réplicas completas del experimento necesitaremos el doble, y así sucesivamente.
+
+Para el análisis de diseños equilibrados, aplicamos
+lo explicado en el apartado \@ref(sec:anova2) para el ANOVA de dos factores con interacción. Recordemos que en
 estos diseños es de vital importancia estudiar las interacciones.
+El modelo se extiende inmediatamente a más de dos factores, en los
+que las interacciones pueden ser dos a dos, tres a tres, etc. No obstante,
+las interacciones de orden superior a 3 rara vez son significativas y se suelen descartar casi siempre.
+
+A veces no es posible tener diseños equilibrados, es decir, con el mismo
+número de réplicas en cada "celda" o cruce de niveles de factores. En estos casos, para hacer los contrastes correctos debemos utilizar la función `Anova()` del paquete {car} [@R-car], que calcula las sumas de cuadrados tipo II y tipo III, y los contrastes correctos. Las sumas de cuadrados del diseño equilibrado se suele llamar tipo I. Véase @lawson2015 para una explicación más detallada, o la entrada "Diferentes sumas de cuadrados en ANOVA" de "El blog de los herreros"^[https://erre-que-erre-paco.blogspot.com/2016/12/diferentes-sumas-de-cuadrados-en-anova.html].
 
 
-### Diseños factoriales a dos niveles $2^k$
+:::{.rmdejemplo data-latex=""}
+A modo ilustrativo, el siguiente código genera aleatoriamente datos de un supuesto experimento con tres factores: A (con niveles A1, A2 y A3), B (con niveles B1, B2 y B3) y C (con niveles C1 y C2). Las tablas ANOVA del diseño equilibrado son idénticas para los dos métodos. Pero si quitamos uno de los datos (puede ser una situación realista en un experimento tener un valor perdido), entonces las sumas de cuadrados con los distintos métodos no son iguales, y podrían llevar a decisiones distintas.
+:::
 
 
+```{r}
+library(car)
+set.seed(666)
+A <-  paste0("A", 1:3)
+B <-  paste0("B", 1:3)
+C <-  paste0("C", 1:2)
+noeq <- data.frame(
+  expand.grid(list(A = A, B = B, C = C)),
+  respuesta = rnorm(3*18, 100, 10)
+) |> 
+  mutate(respuesta = round(if_else(C == "C2", 
+                                   respuesta+rnorm(54, 8, 1), 
+                                   respuesta), 1))
+
+noeq |> aov(respuesta ~ ., data = _) |> summary()
+noeq |> aov(respuesta ~ ., data = _) |> Anova()
+
+noeq$respuesta[54] <- NA
+library(car)
+noeq |> aov(respuesta ~ ., data = _) |> summary()
+noeq |> aov(respuesta ~ ., data = _) |> Anova()
+```
 
 
-Un tipo especial de diseño multifactorial es aquél en el que
-todos los factores tienen solamente dos niveles. El número
+A medida que aumenta el número de factores a estudiar, el número de unidades experimentales a utilizar puede hacerse enorme, sobre todo si tenemos más de dos niveles. Para poder analizar un número grande de factores a modo de _screening_ o cribado, se utiliza a menudo un tipo especial de diseños factoriales con solo dos niveles por cada factor, que veremos a continuación por separado dada su importancia.
+
+
+## Diseños factoriales a dos niveles $2^k$
+
+Un tipo especial de diseño factorial es aquél en el que
+todos los factores tienen solamente dos niveles. Es válido tanto para factores puramente categóricos como para factores de tipo continuo. En este último caso, se fijan un valor "bajo" y otro "alto" para el factor, que normalente se representan como `-` y `+` respectivamente. 
+Con posterioridad a la etapa de cribado se pueden añadir más puntos al diseño para afinar en la estimación.
+En el caso de atributos, estos niveles alto y bajo serán arbitrarios, pero
+en cualquiera de los dos casos, se deberían fijar de acuerdo al conocimiento en la materia para que haya una diferencia potencial entre los niveles.
+
+El número
 de experimentos necesarios para probar todas las combinaciones
-de niveles para $k$ factores es $2^k$, de ahi su nombre.
+de niveles para $k$ factores es $2^k$, de ahi su nombre. Por ejemplo,
+en un experimento en el que quisiéramos analizar 5 factores con 4 niveles cada uno, necesitaríamos $4\times 4\times 4\times 4\times  4=4^5= 1024$ unidades experimentales, para cada réplica, mientras que en un experimento
+$2^5$ serán suficientes 32.
 
-**Diseño factorial $2^2$**
+La popularidad de los diseños $2^p$ se debe, entre otras, a las siguientes
+causas:
 
-Modelo:
+* Como acabamos de ver, con pocas observaciones se pueden analizar muchos factores. Esto nos será muy útil en las fases iniciales para descartar factores que no tienen ningún efecto en la respuesta.
+* Son fáciles de utilizar y el análisis se puede realizar con métodos gráficos.
+* Estos diseños han demostrado funcionar muy bien con sistemas complejos e incluso no lineales a través del estudio de las interacciones.
+* Se pueden analizar incluso más factores utilizando diseños fraccionales.
+
+Los datos de los experimentos factoriales $2^k$ se pueden representar de forma exhaustiva con la llamada "matriz de diseño" o en forma de tablas. La forma estándar de la matriz de diseño contiene en la primera columna signos alternos `-` y `+`. En la siguiente columna se alternarán dos signos `-` y dos signos `+`, y así sucesivamente hasta la última columna con el último factor, que tendrá la primera mitad de signos `-` y la otra mitad de signos `+`. En la matriz de diseño se identifica el orden estándar, pero las observaciones **nunca** se recogerán en el orden de la matriz de diseño. A cada unidad experimental se le asignará una de las combinaciones **aleatoriamente**. Esto se puede hacer con medios mecánicos o con generación de números pseudoaleatorios con el ordenador. En la propia tabla se puede incorporar un identificador de unidad experimental convenientemente aleatorizado. Una vez recogidos los datos, estos se pueden añadir a la tabla, bien cada uno de los datos de las réplicas, o resumidos con la media.
+
+La tabla \@ref(tab:matrizest) muestra una tabla con todos los datos de un hipotético experimento con tres factores sin réplicas, creado con el siguiente código. Se fija la semilla aleatoria para garantizar la reproducibilidad.
+
+```{r matrizest}
+set.seed(1)
+A <- B <- C <- c("-", "+")
+dm <- expand.grid(list(A = A, B = B, C = C)) |> 
+  mutate(`Unidad experimental (aleatoria)` = sample(1:8),
+         `Respuesta simulación` = round(rnorm(8, 10, 2), 1)) |> 
+  rownames_to_column("Orden estándar") 
+dm |>
+  flextable() |> 
+  set_caption("Ejemplo de matriz de diseño y datos sin réplicas")
+```
+
+La información de la tabla completa se puede compactar poniendo los factores en filas y columnas y los datos en las celdas con los cruces. También se es habitual encontrar la representación geométrica en forma de cuadrados (2 factores), cubos (3 factores) o hipercubos (más de 3 factores). Se pueden ver algunos ejemplos en @lawson2015 y @moen2012.
+
+
+### Diseño factorial $2^2$
+
+Es el diseño más sencillo que podemos hacer, y solo necesitamos $2^2=4$ unidades experimentales para cada réplica del experimento.
+
+El modelo matemático sería el siguiente:
 
 $$y_{ijk} = \alpha_i + \beta_j + \alpha\beta_{ij} + \varepsilon_{ijk}$$
 
@@ -680,6 +771,16 @@ Siguiendo la misma estructura que los dos anteriores, con más efectos principal
 El número de experimentos necesarios aumenta exponencialmente, y se suelen preferir experimentos fraccionados. Cuando no hay grados de libertad suficientes para realizar contrastes se utilizan herramientas gráficas para seleccionar efectos significativos (Pareto y gráfico normal)
 
 Para la Formación de bloques, se confunden con efectos de interacciones de orden superior, multiplicando los signos y dividiendo en dos bloques
+
+
+## Diseño con bloques
+
+Cuando hay algún factor más que no es de interés,
+pero puede afectar a la variable resupesta, se debe introducir
+como variable de bloque. Los diseños de cuadrados latinos
+y cuadrados greco-latinos se utilizan para introducir dos o tres
+factores de bloque respectivamente.
+
 
 ### Diseños fraccionales
 
