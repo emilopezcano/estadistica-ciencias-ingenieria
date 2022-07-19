@@ -425,6 +425,9 @@ library(car)
 #> The following object is masked from 'package:dplyr':
 #> 
 #>     recode
+#> The following object is masked from 'package:purrr':
+#> 
+#>     some
 set.seed(666)
 A <-  paste0("A", 1:3)
 B <-  paste0("B", 1:3)
@@ -503,7 +506,7 @@ de niveles para $k$ factores es $2^k$, de ahi su nombre. Por ejemplo,
 en un experimento en el que quisiéramos analizar 5 factores con 4 niveles cada uno, necesitaríamos $4\times 4\times 4\times 4\times  4=4^5= 1024$ unidades experimentales, para cada réplica, mientras que en un experimento
 $2^5$ serán suficientes 32.
 
-La popularidad de los diseños $2^p$ se debe, entre otras, a las siguientes
+La popularidad de los diseños $2^k$ se debe, entre otras, a las siguientes
 causas:
 
 * Como acabamos de ver, con pocas observaciones se pueden analizar muchos factores. Esto nos será muy útil en las fases iniciales para descartar factores que no tienen ningún efecto en la respuesta.
@@ -521,7 +524,7 @@ set.seed(1)
 A <- B <- C <- c("-", "+")
 dm <- expand.grid(list(A = A, B = B, C = C)) |> 
   mutate(`Unidad experimental (aleatoria)` = sample(1:8),
-         `Respuesta simulación` = round(rnorm(8, 10, 2), 1)) |> 
+         `Respuesta (simulación)` = round(rnorm(8, 10, 2), 1)) |> 
   rownames_to_column("Orden estándar") 
 dm |>
   flextable() |> 
@@ -529,7 +532,7 @@ dm |>
 ```
 
 ```{=html}
-<template id="a0ef3166-bd53-4515-971d-1696ba34e05e"><style>
+<template id="99d83eb9-29af-41ec-94a3-3b06d0067eaa"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -563,7 +566,7 @@ dm |>
 .tabwid table tr {
 background-color: transparent;
 }
-</style><div class="tabwid"><style>.cl-8f357ae0{}.cl-8f3005e2{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8f301b54{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8f301b5e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8f3054b6{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f3054b7{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f3054c0{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f3054ca{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f3054cb{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f3054cc{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-8f357ae0'>
+</style><div class="tabwid"><style>.cl-a25f9884{}.cl-a258aefc{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a258c78e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a258c798{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a2591b4e{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a2591b58{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a2591b62{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a2591b63{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a2591b64{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a2591b6c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-a25f9884'>
 ```
 <caption class="Table Caption">
 
@@ -571,11 +574,11 @@ background-color: transparent;
 
 </caption>
 ```{=html}
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-8f3054cb"><p class="cl-8f301b54"><span class="cl-8f3005e2">Orden estándar</span></p></td><td class="cl-8f3054cb"><p class="cl-8f301b54"><span class="cl-8f3005e2">A</span></p></td><td class="cl-8f3054cb"><p class="cl-8f301b54"><span class="cl-8f3005e2">B</span></p></td><td class="cl-8f3054cb"><p class="cl-8f301b54"><span class="cl-8f3005e2">C</span></p></td><td class="cl-8f3054cc"><p class="cl-8f301b5e"><span class="cl-8f3005e2">Unidad experimental (aleatoria)</span></p></td><td class="cl-8f3054cc"><p class="cl-8f301b5e"><span class="cl-8f3005e2">Respuesta simulación</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">1</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">1</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">6.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">2</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">4</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">8.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">3</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">8</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">9.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">4</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">2</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">10.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">5</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">6</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">14.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">6</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">3</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">11.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">7</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">-</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b6"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">7</span></p></td><td class="cl-8f3054b7"><p class="cl-8f301b5e"><span class="cl-8f3005e2">8.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f3054c0"><p class="cl-8f301b54"><span class="cl-8f3005e2">8</span></p></td><td class="cl-8f3054c0"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054c0"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054c0"><p class="cl-8f301b54"><span class="cl-8f3005e2">+</span></p></td><td class="cl-8f3054ca"><p class="cl-8f301b5e"><span class="cl-8f3005e2">5</span></p></td><td class="cl-8f3054ca"><p class="cl-8f301b5e"><span class="cl-8f3005e2">7.7</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="497fc57e-9fa3-4889-a7fa-c20934e9fc43"></div>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-a2591b64"><p class="cl-a258c78e"><span class="cl-a258aefc">Orden estándar</span></p></td><td class="cl-a2591b64"><p class="cl-a258c78e"><span class="cl-a258aefc">A</span></p></td><td class="cl-a2591b64"><p class="cl-a258c78e"><span class="cl-a258aefc">B</span></p></td><td class="cl-a2591b64"><p class="cl-a258c78e"><span class="cl-a258aefc">C</span></p></td><td class="cl-a2591b6c"><p class="cl-a258c798"><span class="cl-a258aefc">Unidad experimental (aleatoria)</span></p></td><td class="cl-a2591b6c"><p class="cl-a258c798"><span class="cl-a258aefc">Respuesta (simulación)</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">1</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">1</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">6.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">2</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">4</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">8.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">3</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">8</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">9.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">4</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">2</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">10.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">5</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">6</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">14.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">6</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">3</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">11.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">7</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">7</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">8.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2591b62"><p class="cl-a258c78e"><span class="cl-a258aefc">8</span></p></td><td class="cl-a2591b62"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b62"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b62"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b63"><p class="cl-a258c798"><span class="cl-a258aefc">5</span></p></td><td class="cl-a2591b63"><p class="cl-a258c798"><span class="cl-a258aefc">7.7</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="4875abb5-54f1-4dc5-9926-76533ee3cb0d"></div>
 <script>
-var dest = document.getElementById("497fc57e-9fa3-4889-a7fa-c20934e9fc43");
-var template = document.getElementById("a0ef3166-bd53-4515-971d-1696ba34e05e");
+var dest = document.getElementById("4875abb5-54f1-4dc5-9926-76533ee3cb0d");
+var template = document.getElementById("99d83eb9-29af-41ec-94a3-3b06d0067eaa");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";
@@ -590,7 +593,11 @@ fantome.appendChild(templateContent);
 
 ```
 
-La información de la tabla completa se puede compactar poniendo los factores en filas y columnas y los datos en las celdas con los cruces. También se es habitual encontrar la representación geométrica en forma de cuadrados (2 factores), cubos (3 factores) o hipercubos (más de 3 factores). Se pueden ver algunos ejemplos en @lawson2015 y @moen2012.
+La información de la tabla completa se puede compactar poniendo los factores en filas y columnas y los datos en las celdas con los cruces. También es habitual encontrar la representación geométrica en forma de cuadrados (2 factores), cubos (3 factores) o hipercubos (más de 3 factores). Se pueden ver algunos ejemplos en @lawson2015 y @moen2012.
+
+Por la naturaleza dicotómica de los factores, la estimación de los factores es muy sencilla, resultando además que:
+
+$$\alpha_1 = -\alpha_2;\; \beta_1=-\beta_2.$$
 
 
 ### Diseño factorial $2^2$
@@ -599,17 +606,10 @@ Es el diseño más sencillo que podemos hacer, y solo necesitamos $2^2=4$ unidad
 
 El modelo matemático sería el siguiente:
 
-$$y_{ijk} = \alpha_i + \beta_j + \alpha\beta_{ij} + \varepsilon_{ijk}$$
+$$y_{ijk} = \mu + 
+\alpha_i + \beta_j + \alpha\beta_{ij} + \varepsilon_{ijk},$$
 
-Datos:
-
-- Aleatorizar tratamientos
-- Realizar $k$ réplicas
-- Número de experimentos: $k\times 2^2$
-
-Análisis:
-- Efectos principales
-- Interacción
+donde $i, j$ toman dos valores, $\{-, +\}$, y $k$ representa las réplicas del experimento, $k = 1, \ldots, n$. Así, el número total de unidades experimentales es $n\times 2^2$. Si solo tenemos una réplica $(n=1)$, entonces podremos estimar los efectos pero no podremos hacer contrastes de hipótesis sobre su significatividad.
 
 
 ::: {.rmdpractica data-latex=""}
@@ -618,10 +618,7 @@ En el siguiente código se analiza un experimento con dos factores A y B a dos n
 
 
 ```r
-library(xtable)
-library(DoE.base)
 library(effects)
-library(reshape2)
 datosf22 <- scan(text = "
 -	-	28
 -	-	25	
@@ -641,8 +638,10 @@ datosf22 <- scan(text = "
 datosf22 <- as.data.frame(datosf22)
 colnames(datosf22) <- c("A", "B", "respuesta")
 datosf22$replica <- rep(1:3, 4)
-library(knitr)
-kable(dcast(datosf22, A + B ~ replica, value.var = "respuesta"))
+datosf22 |> 
+  pivot_wider(id_cols = c("A", "B"), 
+              names_from = "replica", 
+              values_from = "respuesta") |> kable()
 ```
 
 
@@ -650,13 +649,12 @@ kable(dcast(datosf22, A + B ~ replica, value.var = "respuesta"))
 |A  |B  |  1|  2|  3|
 |:--|:--|--:|--:|--:|
 |-  |-  | 28| 25| 27|
-|-  |+  | 18| 19| 23|
 |+  |-  | 36| 32| 32|
+|-  |+  | 18| 19| 23|
 |+  |+  | 31| 30| 29|
 
 ```r
 modelof22 <- lm(respuesta ~ A + B + A*B, data = datosf22)
-# kable(anova(modelof22))
 anova(modelof22)
 #> Analysis of Variance Table
 #> 
@@ -698,6 +696,29 @@ plot(effect(term = "A:B", mod = modelof22))
 <img src="11-doe_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 
+
+```r
+model.tables(aov(modelof22))
+#> Tables of effects
+#> 
+#>  A 
+#> A
+#>      -      + 
+#> -4.167  4.167 
+#> 
+#>  B 
+#> B
+#>    -    + 
+#>  2.5 -2.5 
+#> 
+#>  A:B 
+#>    B
+#> A   -       +      
+#>   -  0.8333 -0.8333
+#>   + -0.8333  0.8333
+```
+
+
 ::: {.rmdejemplo data-latex=""}
 Vemos que los dos efectos principales son significativos, pero no lo es la interacción. Podemos eliminar ese término del modelo para así ganar grados de libertad y tener una mejor estimación del error.
 :::
@@ -723,32 +744,23 @@ anova(modelof22)
 plot(effect(term = "A", mod = modelof22))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 
 ```r
 plot(effect(term = "B", mod = modelof22))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
-**Diseño factorial $2^3$**
+### Diseño factorial $2^3$
 
 Modelo:
 
-$$y_{ijkl} = \alpha_i + \beta_j + \gamma_k + \alpha\beta_{ij} 
+$$y_{ijkl} = \mu + \alpha_i + \beta_j + \gamma_k + \alpha\beta_{ij} 
 + \alpha\gamma_{ik}+ \beta\gamma_{jk} + \alpha\beta\gamma_{ijk} + \varepsilon_{ijkl}$$
 
-Datos:
-- Aleatorizar tratamientos
-- $l$ réplicas (o no)
-- Número de experimentos: $l\times 2^3$
-
-Análisis:
-
-- Efectos principales
-- Interacciones (más de dos difícil de ver)
-- Eliminar no significativas para aumentar precisión
+De forma similar al diseño $2^2$, obtendríamos estimadores para los efectos principales y las interacciones. Si no tenemos réplicas, podemos omitir la interacción de orden 3 ya que rara vez es significativa, y así podremos estudiar los contrastes del resto de efectos.
 
 
 ::: {.rmdejemplo data-latex=""}
@@ -772,21 +784,21 @@ datosf23 <- scan(text = "
     sep = "\t") 
 datosf23 <- as.data.frame(datosf23)
 colnames(datosf23) <- c("T", "C", "K", "rendimiento")
-kable(dcast(datosf23, T + C + K ~ ., value.var = "rendimiento"))
+kable(datosf23)
 ```
 
 
 
-|T  |C  |K  |  .|
-|:--|:--|:--|--:|
-|-  |-  |-  | 60|
-|-  |-  |+  | 52|
-|-  |+  |-  | 54|
-|-  |+  |+  | 45|
-|+  |-  |-  | 72|
-|+  |-  |+  | 83|
-|+  |+  |-  | 68|
-|+  |+  |+  | 80|
+|T  |C  |K  | rendimiento|
+|:--|:--|:--|-----------:|
+|-  |-  |-  |          60|
+|+  |-  |-  |          72|
+|-  |+  |-  |          54|
+|+  |+  |-  |          68|
+|-  |-  |+  |          52|
+|+  |-  |+  |          83|
+|-  |+  |+  |          45|
+|+  |+  |+  |          80|
 
 ```r
 modelof23 <- lm(rendimiento ~ T + C + K + T*C + T*K + C*K, data = datosf23)
@@ -813,7 +825,7 @@ plot(effect(term = "T", mod = modelof23))
 #> NOTE: T is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 
 ```r
 
@@ -821,55 +833,275 @@ plot(effect(term = "C", mod = modelof23))
 #> NOTE: C is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-11-2.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-12-2.png" width="672" />
 
 ```r
 plot(effect(term = "K", mod = modelof23))
 #> NOTE: K is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-11-3.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-12-3.png" width="672" />
 
 ```r
 plot(effect(term = "T:C", mod = modelof23))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-11-4.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-12-4.png" width="672" />
 
 ```r
 plot(effect(term = "T:K", mod = modelof23))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-11-5.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-12-5.png" width="672" />
 
 ```r
 plot(effect(term = "C:K", mod = modelof23))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-11-6.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-12-6.png" width="672" />
 
-**Diseño factorial $2^k$**
+
+```r
+model.tables(aov(modelof23))
+#> Tables of effects
+#> 
+#>  T 
+#> T
+#>     -     + 
+#> -11.5  11.5 
+#> 
+#>  C 
+#> C
+#>    -    + 
+#>  2.5 -2.5 
+#> 
+#>  K 
+#> K
+#>     -     + 
+#> -0.75  0.75 
+#> 
+#>  T:C 
+#>    C
+#> T   -     +    
+#>   -  0.75 -0.75
+#>   + -0.75  0.75
+#> 
+#>  T:K 
+#>    K
+#> T   -  + 
+#>   -  5 -5
+#>   + -5  5
+#> 
+#>  C:K 
+#>    K
+#> C   -           +          
+#>   - -1.0991e-15  1.0991e-15
+#>   +  1.0991e-15 -1.0991e-15
+```
+
+
+### Diseño factorial $2^k$
 
 Siguiendo la misma estructura que los dos anteriores, con más efectos principales y más interacciones, pero más allá de 3 es muy difícil que se produzcan, y más difícil de interpretar.
-El número de experimentos necesarios aumenta exponencialmente, y se suelen preferir experimentos fraccionados. Cuando no hay grados de libertad suficientes para realizar contrastes se utilizan herramientas gráficas para seleccionar efectos significativos (Pareto y gráfico normal)
+El número de experimentos necesarios aumenta exponencialmente, y se suelen preferir experimentos fraccionados. Cuando no hay grados de libertad suficientes para realizar contrastes se utilizan herramientas gráficas para seleccionar efectos significativos, como el gráfico quantil-quantil de la distribución normal.
 
-Para la Formación de bloques, se confunden con efectos de interacciones de orden superior, multiplicando los signos y dividiendo en dos bloques
+
+:::{.rmdejemplo data-latex=""}
+El siguiente ejemplo aparece en @lawson2015. Se estudian 4 factores y no tenemos réplicas. Entonces, obtenemos estimadores pero no contrastes.
+:::
+
+
+
+```r
+library(daewr)
+#> Registered S3 method overwritten by 'DoE.base':
+#>   method           from       
+#>   factorize.factor conf.design
+modf <- lm(y~A*B*C*D, data = chem)
+summary(modf)
+#> 
+#> Call:
+#> lm(formula = y ~ A * B * C * D, data = chem)
+#> 
+#> Residuals:
+#> ALL 16 residuals are 0: no residual degrees of freedom!
+#> 
+#> Coefficients:
+#>             Estimate Std. Error t value Pr(>|t|)
+#> (Intercept)  62.3125        NaN     NaN      NaN
+#> A            -6.3125        NaN     NaN      NaN
+#> B            17.8125        NaN     NaN      NaN
+#> C             0.1875        NaN     NaN      NaN
+#> D             0.6875        NaN     NaN      NaN
+#> A:B          -5.3125        NaN     NaN      NaN
+#> A:C           0.8125        NaN     NaN      NaN
+#> B:C          -0.3125        NaN     NaN      NaN
+#> A:D           2.0625        NaN     NaN      NaN
+#> B:D          -0.0625        NaN     NaN      NaN
+#> C:D          -0.6875        NaN     NaN      NaN
+#> A:B:C        -0.1875        NaN     NaN      NaN
+#> A:B:D        -0.6875        NaN     NaN      NaN
+#> A:C:D         2.4375        NaN     NaN      NaN
+#> B:C:D        -0.4375        NaN     NaN      NaN
+#> A:B:C:D      -0.3125        NaN     NaN      NaN
+#> 
+#> Residual standard error: NaN on 0 degrees of freedom
+#> Multiple R-squared:      1,	Adjusted R-squared:    NaN 
+#> F-statistic:   NaN on 15 and 0 DF,  p-value: NA
+LGB(coef(modf)[-1])
+```
+
+<img src="11-doe_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+
+```
+#> Effect Report 
+#>    
+#> Label     Half Effect    Sig(.05) 
+#> A         -6.3125        yes        
+#> B         17.8125        yes        
+#> C          0.1875        no         
+#> D          0.6875        no         
+#> A:B       -5.3125        yes        
+#> A:C        0.8125        no         
+#> B:C       -0.3125        no         
+#> A:D        2.0625        no         
+#> B:D       -0.0625        no         
+#> C:D       -0.6875        no         
+#> A:B:C     -0.1875        no         
+#> A:B:D     -0.6875        no         
+#> A:C:D      2.4375        no         
+#> B:C:D     -0.4375        no         
+#> A:B:C:D   -0.3125        no         
+#>    
+#> Lawson, Grimshaw & Burt Rn Statistic =  3.006953 
+#> 95th percentile of Rn =  1.201
+```
+
+El método de Lenth se basa en un contraste de significación que puede encontrarse detallado en @conklin2022design. Se calcula un _margin of error_ (ME). Los efectos más allá de ese margen serían significativos. Como se realizan muchos tests, algunos pueden ser identificados como significativos sin serlo. El _simultaneous margin of error_ (SME) tiene en cuenta esta multiplicidad de contrastes.
+
+
+```r
+LenthPlot(modf)
+```
+
+<img src="11-doe_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+
+```
+#>    alpha      PSE       ME      SME 
+#> 0.050000 1.687500 4.337857 8.806474
+```
+
+
+:::{.rmdpractica data-latex=""}
+A continuación se muestran algunas visualizaciones diferentes con el paquete {emmeans}. Primero reducimos el modelo a los efectos significativos
+:::
+
+
+```r
+library(emmeans)
+modf2 <- lm(y~A*B, data = chem)
+medias <- emmeans(modf2, ~ A*B)
+plot(medias)
+```
+
+<img src="11-doe_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+
+```r
+emmip(modf2, A~B)
+```
+
+<img src="11-doe_files/figure-html/unnamed-chunk-16-2.png" width="672" />
+
+
+### Número de réplicas
+
+Wheeler (1974) estableción la siguiente fórmula aproximada para estimar el número total de unidades experimentales para consguir una potencia del 95% en el experimento:
+
+$$N = ((8\sigma)/\Delta)^2,$$
+
+donde $\sigma$ es la desviación típica del error experimental, y $\Delta$ es el tamaño del efecto que consideraríamos significativo en la práctica. $N$ sería el número total de unidades experimentales, entonces el número de réplicas será $N/2^k$.
+
+### Validación del modelo
+
+Los diseños factoriales son modelos lineales, y como tales deben cumplir:
+
+* Normalidad de los residuos
+* Varianza constante
+
+Utilizamos las funciones `shapiro.test()` y `car::leveneTest()` respectivamente para verificarlas. También podemos obtener los gráficos de los residuos con la función `plot()`.
+
+
+
+```r
+modf2 |> residuals() |> shapiro.test()
+#> 
+#> 	Shapiro-Wilk normality test
+#> 
+#> data:  residuals(modf2)
+#> W = 0.96544, p-value = 0.7604
+car::leveneTest(y~A*B, data = chem |> mutate(across(c("A", "B"), factor)))
+#> Levene's Test for Homogeneity of Variance (center = median)
+#>       Df F value Pr(>F)
+#> group  3  0.2814 0.8379
+#>       12
+```
 
 
 ## Diseño con bloques
 
+
 Cuando hay algún factor más que no es de interés,
-pero puede afectar a la variable resupesta, se debe introducir
+pero puede afectar a la variable respuesta, se debe introducir
 como variable de bloque. Los diseños de cuadrados latinos
 y cuadrados greco-latinos se utilizan para introducir dos o tres
-factores de bloque respectivamente.
+factores de bloque respectivamente en diseños factoriales de un factor.
+
+En los diseños factoriales $2^k$, lo que se hace es "confundir" el efecto de alguna interacción de orden superior con el efecto del bloque. 
+
+Tomemos el ejemplo simulado de la matriz de diseño al inicio de este apartado. Los niveles de las interacciones se asignan multiplicando los signos de los niveles de cada tratamiento.
 
 
-### Diseños fraccionales
+```r
+dm |> 
+  select(1:4) |> 
+  mutate(AB = if_else(as.numeric(paste0(A, "1"))*
+                        as.numeric(paste0(B, "1")) >0, 
+                      "+", "-"),
+         AC = if_else(as.numeric(paste0(A, "1"))*
+                        as.numeric(paste0(C, "1")) >0, 
+                      "+", "-"),
+         BC = if_else(as.numeric(paste0(C, "1"))*
+                        as.numeric(paste0(B, "1")) >0, 
+                      "+", "-"),
+         ABC = if_else(as.numeric(paste0(A, "1"))*
+                        as.numeric(paste0(B, "1"))*
+                        as.numeric(paste0(C, "1")) >0, 
+                      "+", "-")) |> 
+  kable()
+```
+
+
+
+|Orden estándar |A  |B  |C  |AB |AC |BC |ABC |
+|:--------------|:--|:--|:--|:--|:--|:--|:---|
+|1              |-  |-  |-  |+  |+  |+  |-   |
+|2              |+  |-  |-  |-  |-  |+  |+   |
+|3              |-  |+  |-  |-  |+  |-  |+   |
+|4              |+  |+  |-  |+  |-  |-  |-   |
+|5              |-  |-  |+  |+  |-  |-  |+   |
+|6              |+  |-  |+  |-  |+  |-  |-   |
+|7              |-  |+  |+  |-  |-  |+  |-   |
+|8              |+  |+  |+  |+  |+  |+  |+   |
+
+En este caso, podríamos dividir el experimento en dos bloques: uno con las unidades experimentales que se corresponden con los tratamientos 1, 4, 6 y 7 (signo menos de la interacción ABC) y otro con los otros cuatro. De esta forma, el efecto del bloque queda "bloqueado". El bloque puede ser cualquier circunstancia que pueda afectar a la respuesta pero que no nos interesa y normalmente no podemos controlar. Por ejemplo, si se trata de un proceso que requiere un horno, cada bandeja del horno puede dar resultados ligeramente distintos, pero lo que nos interesa es en cada bandeja cómo afectan los factores que sí controlamos.
+
+
+## Diseños fraccionales
 
 Los diseños factoriales fraccionales $2^{k-p}$ utilizan solo una fracción de su equivalente factorial. En estos diseños se confunden los efectos principales con las interacciones de mayor orden. De esta forma, se puede realizar _screening_ de muchos factores con pocos experimentos, y una vez eliminados del modelo los efectos no significativos se estima mejor el error.
 
-### Diseños avanzados
+
+## Otros diseños
 
 Existen otros diseños avanzados que no se tratan en este texto, como son:
 
@@ -877,8 +1109,20 @@ Existen otros diseños avanzados que no se tratan en este texto, como son:
   - Diseños anidados
   - Split-plot
   - Medidas repetidas
-  - Superficie respuesta
 
+## Diseños de superficie respuesta
+
+En los experimentos de superficie respuesta, los factores en estudio son variables continuas. Es evidente que no podemos estudiar todos los niveles posibles de este tipo de factores, puesto que son infinitos. Sería inviable también realizar los experimentos con un alto número de niveles posibles. Por eso, generalmente la metodología de superficie respuesta es realmente el último paso en un diseño experimental con factores continuos. Una secuenciación lógica para un experimento con muchos factores sería la siguiente:
+
+1. Si existen datos históricos, realizar un estudio descriptivo para identificar relaciones.
+2. Apoyarse también en la teoría para determinar posibles factores que afecten a la respuesta.
+3. En una primera fase de _screening_, analizar muchos factores con diseños factoriales fraccionales.
+4. Con lo aprendido de la fase de cribado, descartar los factores no significativos y estimar los efectos.
+5. Aplicar la metodología de superficie respuesta:
+  * Ampliar los niveles de los factores a estudiar
+  * Optimizar la ecuación del modelo lineal para obtener los valores óptimos de los parámetros
+  
+  
 
 
 

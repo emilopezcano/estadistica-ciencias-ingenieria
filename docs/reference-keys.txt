@@ -329,9 +329,14 @@ experimentos-con-un-factor-crd
 diseños-factoriales-crfd
 diseños-factoriales-a-dos-niveles-2k
 diseño-factorial-22
+diseño-factorial-23
+diseño-factorial-2k
+número-de-réplicas
+validación-del-modelo
 diseño-con-bloques
 diseños-fraccionales
-diseños-avanzados
+otros-diseños
+diseños-de-superficie-respuesta
 regresion
 introc
 spc
