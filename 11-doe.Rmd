@@ -1,8 +1,9 @@
 
 ```{r, include=FALSE}
-library(dplyr)
-library(tibble)
+library(tidyverse)
+library(broom)
 library(flextable)
+library(knitr)
 ```
 
 # Diseño de experimentos {#doe}
@@ -597,7 +598,7 @@ de niveles para $k$ factores es $2^k$, de ahi su nombre. Por ejemplo,
 en un experimento en el que quisiéramos analizar 5 factores con 4 niveles cada uno, necesitaríamos $4\times 4\times 4\times 4\times  4=4^5= 1024$ unidades experimentales, para cada réplica, mientras que en un experimento
 $2^5$ serán suficientes 32.
 
-La popularidad de los diseños $2^p$ se debe, entre otras, a las siguientes
+La popularidad de los diseños $2^k$ se debe, entre otras, a las siguientes
 causas:
 
 * Como acabamos de ver, con pocas observaciones se pueden analizar muchos factores. Esto nos será muy útil en las fases iniciales para descartar factores que no tienen ningún efecto en la respuesta.
@@ -614,14 +615,18 @@ set.seed(1)
 A <- B <- C <- c("-", "+")
 dm <- expand.grid(list(A = A, B = B, C = C)) |> 
   mutate(`Unidad experimental (aleatoria)` = sample(1:8),
-         `Respuesta simulación` = round(rnorm(8, 10, 2), 1)) |> 
+         `Respuesta (simulación)` = round(rnorm(8, 10, 2), 1)) |> 
   rownames_to_column("Orden estándar") 
 dm |>
   flextable() |> 
   set_caption("Ejemplo de matriz de diseño y datos sin réplicas")
 ```
 
-La información de la tabla completa se puede compactar poniendo los factores en filas y columnas y los datos en las celdas con los cruces. También se es habitual encontrar la representación geométrica en forma de cuadrados (2 factores), cubos (3 factores) o hipercubos (más de 3 factores). Se pueden ver algunos ejemplos en @lawson2015 y @moen2012.
+La información de la tabla completa se puede compactar poniendo los factores en filas y columnas y los datos en las celdas con los cruces. También es habitual encontrar la representación geométrica en forma de cuadrados (2 factores), cubos (3 factores) o hipercubos (más de 3 factores). Se pueden ver algunos ejemplos en @lawson2015 y @moen2012.
+
+Por la naturaleza dicotómica de los factores, la estimación de los factores es muy sencilla, resultando además que:
+
+$$\alpha_1 = -\alpha_2;\; \beta_1=-\beta_2.$$
 
 
 ### Diseño factorial $2^2$
@@ -630,17 +635,10 @@ Es el diseño más sencillo que podemos hacer, y solo necesitamos $2^2=4$ unidad
 
 El modelo matemático sería el siguiente:
 
-$$y_{ijk} = \alpha_i + \beta_j + \alpha\beta_{ij} + \varepsilon_{ijk}$$
+$$y_{ijk} = \mu + 
+\alpha_i + \beta_j + \alpha\beta_{ij} + \varepsilon_{ijk},$$
 
-Datos:
-
-- Aleatorizar tratamientos
-- Realizar $k$ réplicas
-- Número de experimentos: $k\times 2^2$
-
-Análisis:
-- Efectos principales
-- Interacción
+donde $i, j$ toman dos valores, $\{-, +\}$, y $k$ representa las réplicas del experimento, $k = 1, \ldots, n$. Así, el número total de unidades experimentales es $n\times 2^2$. Si solo tenemos una réplica $(n=1)$, entonces podremos estimar los efectos pero no podremos hacer contrastes de hipótesis sobre su significatividad.
 
 
 ::: {.rmdpractica data-latex=""}
@@ -648,10 +646,7 @@ En el siguiente código se analiza un experimento con dos factores A y B a dos n
 :::
 
 ```{r, message=FALSE}
-library(xtable)
-library(DoE.base)
 library(effects)
-library(reshape2)
 datosf22 <- scan(text = "
 -	-	28
 -	-	25	
@@ -671,10 +666,11 @@ datosf22 <- scan(text = "
 datosf22 <- as.data.frame(datosf22)
 colnames(datosf22) <- c("A", "B", "respuesta")
 datosf22$replica <- rep(1:3, 4)
-library(knitr)
-kable(dcast(datosf22, A + B ~ replica, value.var = "respuesta"))
+datosf22 |> 
+  pivot_wider(id_cols = c("A", "B"), 
+              names_from = "replica", 
+              values_from = "respuesta") |> kable()
 modelof22 <- lm(respuesta ~ A + B + A*B, data = datosf22)
-# kable(anova(modelof22))
 anova(modelof22)
 ```
 
@@ -691,6 +687,11 @@ plot(effect(term = "B", mod = modelof22))
 
 ```{r}
 plot(effect(term = "A:B", mod = modelof22))
+```
+
+
+```{r}
+model.tables(aov(modelof22))
 ```
 
 
@@ -711,23 +712,14 @@ plot(effect(term = "A", mod = modelof22))
 plot(effect(term = "B", mod = modelof22))
 ```
 
-**Diseño factorial $2^3$**
+### Diseño factorial $2^3$
 
 Modelo:
 
-$$y_{ijkl} = \alpha_i + \beta_j + \gamma_k + \alpha\beta_{ij} 
+$$y_{ijkl} = \mu + \alpha_i + \beta_j + \gamma_k + \alpha\beta_{ij} 
 + \alpha\gamma_{ik}+ \beta\gamma_{jk} + \alpha\beta\gamma_{ijk} + \varepsilon_{ijkl}$$
 
-Datos:
-- Aleatorizar tratamientos
-- $l$ réplicas (o no)
-- Número de experimentos: $l\times 2^3$
-
-Análisis:
-
-- Efectos principales
-- Interacciones (más de dos difícil de ver)
-- Eliminar no significativas para aumentar precisión
+De forma similar al diseño $2^2$, obtendríamos estimadores para los efectos principales y las interacciones. Si no tenemos réplicas, podemos omitir la interacción de orden 3 ya que rara vez es significativa, y así podremos estudiar los contrastes del resto de efectos.
 
 
 ::: {.rmdejemplo data-latex=""}
@@ -750,7 +742,7 @@ datosf23 <- scan(text = "
     sep = "\t") 
 datosf23 <- as.data.frame(datosf23)
 colnames(datosf23) <- c("T", "C", "K", "rendimiento")
-kable(dcast(datosf23, T + C + K ~ ., value.var = "rendimiento"))
+kable(datosf23)
 modelof23 <- lm(rendimiento ~ T + C + K + T*C + T*K + C*K, data = datosf23)
 anova(modelof23)
 ```
@@ -765,28 +757,114 @@ plot(effect(term = "T:K", mod = modelof23))
 plot(effect(term = "C:K", mod = modelof23))
 ```
 
-**Diseño factorial $2^k$**
+```{r}
+model.tables(aov(modelof23))
+```
+
+
+### Diseño factorial $2^k$
 
 Siguiendo la misma estructura que los dos anteriores, con más efectos principales y más interacciones, pero más allá de 3 es muy difícil que se produzcan, y más difícil de interpretar.
-El número de experimentos necesarios aumenta exponencialmente, y se suelen preferir experimentos fraccionados. Cuando no hay grados de libertad suficientes para realizar contrastes se utilizan herramientas gráficas para seleccionar efectos significativos (Pareto y gráfico normal)
+El número de experimentos necesarios aumenta exponencialmente, y se suelen preferir experimentos fraccionados. Cuando no hay grados de libertad suficientes para realizar contrastes se utilizan herramientas gráficas para seleccionar efectos significativos, como el gráfico quantil-quantil de la distribución normal.
 
-Para la Formación de bloques, se confunden con efectos de interacciones de orden superior, multiplicando los signos y dividiendo en dos bloques
+
+:::{.rmdejemplo data-latex=""}
+El siguiente ejemplo aparece en @lawson2015. Se estudian 4 factores y no tenemos réplicas. Entonces, obtenemos estimadores pero no contrastes.
+:::
+
+
+```{r}
+library(daewr)
+modf <- lm(y~A*B*C*D, data = chem)
+summary(modf)
+LGB(coef(modf)[-1])
+```
+
+El método de Lenth se basa en un contraste de significación que puede encontrarse detallado en @conklin2022design. Se calcula un _margin of error_ (ME). Los efectos más allá de ese margen serían significativos. Como se realizan muchos tests, algunos pueden ser identificados como significativos sin serlo. El _simultaneous margin of error_ (SME) tiene en cuenta esta multiplicidad de contrastes.
+
+```{r}
+LenthPlot(modf)
+```
+
+
+:::{.rmdpractica data-latex=""}
+A continuación se muestran algunas visualizaciones diferentes con el paquete {emmeans}. Primero reducimos el modelo a los efectos significativos
+:::
+
+```{r}
+library(emmeans)
+modf2 <- lm(y~A*B, data = chem)
+medias <- emmeans(modf2, ~ A*B)
+plot(medias)
+emmip(modf2, A~B)
+```
+
+
+### Número de réplicas
+
+Wheeler (1974) estableción la siguiente fórmula aproximada para estimar el número total de unidades experimentales para consguir una potencia del 95% en el experimento:
+
+$$N = ((8\sigma)/\Delta)^2,$$
+
+donde $\sigma$ es la desviación típica del error experimental, y $\Delta$ es el tamaño del efecto que consideraríamos significativo en la práctica. $N$ sería el número total de unidades experimentales, entonces el número de réplicas será $N/2^k$.
+
+### Validación del modelo
+
+Los diseños factoriales son modelos lineales, y como tales deben cumplir:
+
+* Normalidad de los residuos
+* Varianza constante
+
+Utilizamos las funciones `shapiro.test()` y `car::leveneTest()` respectivamente para verificarlas. También podemos obtener los gráficos de los residuos con la función `plot()`.
+
+
+```{r}
+modf2 |> residuals() |> shapiro.test()
+car::leveneTest(y~A*B, data = chem |> mutate(across(c("A", "B"), factor)))
+```
 
 
 ## Diseño con bloques
 
+
 Cuando hay algún factor más que no es de interés,
-pero puede afectar a la variable resupesta, se debe introducir
+pero puede afectar a la variable respuesta, se debe introducir
 como variable de bloque. Los diseños de cuadrados latinos
 y cuadrados greco-latinos se utilizan para introducir dos o tres
-factores de bloque respectivamente.
+factores de bloque respectivamente en diseños factoriales de un factor.
+
+En los diseños factoriales $2^k$, lo que se hace es "confundir" el efecto de alguna interacción de orden superior con el efecto del bloque. 
+
+Tomemos el ejemplo simulado de la matriz de diseño al inicio de este apartado. Los niveles de las interacciones se asignan multiplicando los signos de los niveles de cada tratamiento.
+
+```{r}
+dm |> 
+  select(1:4) |> 
+  mutate(AB = if_else(as.numeric(paste0(A, "1"))*
+                        as.numeric(paste0(B, "1")) >0, 
+                      "+", "-"),
+         AC = if_else(as.numeric(paste0(A, "1"))*
+                        as.numeric(paste0(C, "1")) >0, 
+                      "+", "-"),
+         BC = if_else(as.numeric(paste0(C, "1"))*
+                        as.numeric(paste0(B, "1")) >0, 
+                      "+", "-"),
+         ABC = if_else(as.numeric(paste0(A, "1"))*
+                        as.numeric(paste0(B, "1"))*
+                        as.numeric(paste0(C, "1")) >0, 
+                      "+", "-")) |> 
+  kable()
+```
+
+En este caso, podríamos dividir el experimento en dos bloques: uno con las unidades experimentales que se corresponden con los tratamientos 1, 4, 6 y 7 (signo menos de la interacción ABC) y otro con los otros cuatro. De esta forma, el efecto del bloque queda "bloqueado". El bloque puede ser cualquier circunstancia que pueda afectar a la respuesta pero que no nos interesa y normalmente no podemos controlar. Por ejemplo, si se trata de un proceso que requiere un horno, cada bandeja del horno puede dar resultados ligeramente distintos, pero lo que nos interesa es en cada bandeja cómo afectan los factores que sí controlamos.
 
 
-### Diseños fraccionales
+## Diseños fraccionales
 
 Los diseños factoriales fraccionales $2^{k-p}$ utilizan solo una fracción de su equivalente factorial. En estos diseños se confunden los efectos principales con las interacciones de mayor orden. De esta forma, se puede realizar _screening_ de muchos factores con pocos experimentos, y una vez eliminados del modelo los efectos no significativos se estima mejor el error.
 
-### Diseños avanzados
+
+## Otros diseños
 
 Existen otros diseños avanzados que no se tratan en este texto, como son:
 
@@ -794,8 +872,20 @@ Existen otros diseños avanzados que no se tratan en este texto, como son:
   - Diseños anidados
   - Split-plot
   - Medidas repetidas
-  - Superficie respuesta
 
+## Diseños de superficie respuesta
+
+En los experimentos de superficie respuesta, los factores en estudio son variables continuas. Es evidente que no podemos estudiar todos los niveles posibles de este tipo de factores, puesto que son infinitos. Sería inviable también realizar los experimentos con un alto número de niveles posibles. Por eso, generalmente la metodología de superficie respuesta es realmente el último paso en un diseño experimental con factores continuos. Una secuenciación lógica para un experimento con muchos factores sería la siguiente:
+
+1. Si existen datos históricos, realizar un estudio descriptivo para identificar relaciones.
+2. Apoyarse también en la teoría para determinar posibles factores que afecten a la respuesta.
+3. En una primera fase de _screening_, analizar muchos factores con diseños factoriales fraccionales.
+4. Con lo aprendido de la fase de cribado, descartar los factores no significativos y estimar los efectos.
+5. Aplicar la metodología de superficie respuesta:
+  * Ampliar los niveles de los factores a estudiar
+  * Optimizar la ecuación del modelo lineal para obtener los valores óptimos de los parámetros
+  
+  
 
 
 
