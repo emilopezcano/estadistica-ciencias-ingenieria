@@ -182,15 +182,15 @@ experimentos:
 1. Sin planificación. Se pueden ir cambiando niveles de factores cada
 vez y haciendo pruebas (ensayo-error). Esto es definitivamente poco efectivo. 
 2. Planificación completa desde el inicio. Si es muy rígida, nos puede llevar a no explorar alternativas
-que puedan suregir durante la experimentación. Y por tanto a no cumplir los objetivos. 
-3. Planificación **secuancial**. Esta es la
+que puedan surgir durante la experimentación. Y por tanto a no cumplir los objetivos. 
+3. Planificación **secuencial**. Esta es la
 estrategia óptima. Se llevan a cabo un número de experimentos al inicio, cuyas
 conclusiones supondrán la planificación de una segunda fase donde centrarnos en
 los factores realmente relevantes y hacer análisis más detallados y precisos. En las
 primeras fases se suelen realizar diseños de _screening_ para descartar
 factores no significativos. En las siguientes fases, se amplían los experimentos solo con los factores significativos. 
 
-En realidad, esta estrategia secuancial es la aplicación del método científico,
+En realidad, esta estrategia secuencial es la aplicación del método científico,
 en un proceso iterativo de aprendizaje como se muestra en la figura \@ref(fig:metodo). El experimento partirá de un objetivo que planteará ciertas hipótesis. Por deducción, se diseña el experimento y se obtienen datos. Estos datos confirman o no las hipótesis mediante la inducción, y nos hace plantearnos nuevas hipótesis. Así, hasta llegar a la conclusión y/o decisión final.
 
 
@@ -247,7 +247,7 @@ experimentos. Ahora vamos a definirlos un poco más formalmente.
   hipótesis, así como la cuantificación de este efecto.
 - **Variable de bloque**: Variable que no tiene interés en la investigación,
   pero puede influir en la respuesta. Mediante la formación de bloques
-  alatorios confundimos su efecto con los factores que realmente nos interesan.
+  aleatorios confundimos su efecto con los factores que realmente nos interesan.
 - **Variable ruido**: Variable que puede influir en la respuesta, pero de la
   que no tenemos control.
 - **Nivel**: Valor que fijamos de un factor. En variables
@@ -342,6 +342,8 @@ Existen una enorme cantidad de posibles tipos de diseños experimentales. La dec
 * **CRD**, _Completely Randomized Design_: **Diseño completamente aleatorizado**. Este diseño se debería utilizar cuando solo hay un factor en estudio y las unidades experimentales son homogéneas. El análisis se corresponde con el ANOVA estudiado en el capítulo \@ref(anova).
 
 * **CRFD**, _Completely Randomized Factorial Design_: **Diseño factorial completamente aleatorizado**. Este diseño se utiliza cuando se estudia más de un factor a la vez. Permite estudiar las interacciones entre los factores. El análisis se corresponde también con el ANOVA estudiado en el capítulo \@ref(anova). Un caso particular son los diseños a dos niveles o $2^k$, que veremos en detalle más adelante.
+
+* **CRRS**, _Completely Randomized Response Surface_: **Superficie respuesta completamente aleatorizado**. Este diseño se utiliza cuando se estudian dos o tres factores continuos en los que puede aparecer curvatura y por tanto los valores que optimizan la respuesta pueden no estar en el perímetro de la región de diseño. Se suelen aplicar en la fase de caracterización de un experimento, después de haber seleccionado en la fase de cribado los factores más significativos.
 
 
 ## Experimentos con un factor (CRD)
@@ -495,14 +497,14 @@ A medida que aumenta el número de factores a estudiar, el número de unidades e
 ## Diseños factoriales a dos niveles $2^k$
 
 Un tipo especial de diseño factorial es aquél en el que
-todos los factores tienen solamente dos niveles. Es válido tanto para factores puramente categóricos como para factores de tipo continuo. En este último caso, se fijan un valor "bajo" y otro "alto" para el factor, que normalente se representan como `-` y `+` respectivamente. 
+todos los factores tienen solamente dos niveles. Es válido tanto para factores puramente categóricos como para factores de tipo continuo. En este último caso, se fijan un valor "bajo" y otro "alto" para el factor, que normalmente se representan como `-` y `+` respectivamente. 
 Con posterioridad a la etapa de cribado se pueden añadir más puntos al diseño para afinar en la estimación.
 En el caso de atributos, estos niveles alto y bajo serán arbitrarios, pero
 en cualquiera de los dos casos, se deberían fijar de acuerdo al conocimiento en la materia para que haya una diferencia potencial entre los niveles.
 
 El número
 de experimentos necesarios para probar todas las combinaciones
-de niveles para $k$ factores es $2^k$, de ahi su nombre. Por ejemplo,
+de niveles para $k$ factores es $2^k$, de ahí su nombre. Por ejemplo,
 en un experimento en el que quisiéramos analizar 5 factores con 4 niveles cada uno, necesitaríamos $4\times 4\times 4\times 4\times  4=4^5= 1024$ unidades experimentales, para cada réplica, mientras que en un experimento
 $2^5$ serán suficientes 32.
 
@@ -532,7 +534,7 @@ dm |>
 ```
 
 ```{=html}
-<template id="99d83eb9-29af-41ec-94a3-3b06d0067eaa"><style>
+<template id="d49f86bf-387f-4d3c-8548-60b699b9b314"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -566,7 +568,7 @@ dm |>
 .tabwid table tr {
 background-color: transparent;
 }
-</style><div class="tabwid"><style>.cl-a25f9884{}.cl-a258aefc{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a258c78e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a258c798{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a2591b4e{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a2591b58{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a2591b62{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a2591b63{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a2591b64{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a2591b6c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-a25f9884'>
+</style><div class="tabwid"><style>.cl-34f624d4{}.cl-34f09ed8{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-34f0bab2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-34f0babc{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-34f0f89c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-34f0f8a6{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-34f0f8b0{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-34f0f8b1{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-34f0f8ba{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-34f0f8c4{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-34f624d4'>
 ```
 <caption class="Table Caption">
 
@@ -574,11 +576,11 @@ background-color: transparent;
 
 </caption>
 ```{=html}
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-a2591b64"><p class="cl-a258c78e"><span class="cl-a258aefc">Orden estándar</span></p></td><td class="cl-a2591b64"><p class="cl-a258c78e"><span class="cl-a258aefc">A</span></p></td><td class="cl-a2591b64"><p class="cl-a258c78e"><span class="cl-a258aefc">B</span></p></td><td class="cl-a2591b64"><p class="cl-a258c78e"><span class="cl-a258aefc">C</span></p></td><td class="cl-a2591b6c"><p class="cl-a258c798"><span class="cl-a258aefc">Unidad experimental (aleatoria)</span></p></td><td class="cl-a2591b6c"><p class="cl-a258c798"><span class="cl-a258aefc">Respuesta (simulación)</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">1</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">1</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">6.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">2</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">4</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">8.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">3</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">8</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">9.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">4</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">2</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">10.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">5</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">6</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">14.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">6</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">3</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">11.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">7</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">-</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b4e"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">7</span></p></td><td class="cl-a2591b58"><p class="cl-a258c798"><span class="cl-a258aefc">8.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a2591b62"><p class="cl-a258c78e"><span class="cl-a258aefc">8</span></p></td><td class="cl-a2591b62"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b62"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b62"><p class="cl-a258c78e"><span class="cl-a258aefc">+</span></p></td><td class="cl-a2591b63"><p class="cl-a258c798"><span class="cl-a258aefc">5</span></p></td><td class="cl-a2591b63"><p class="cl-a258c798"><span class="cl-a258aefc">7.7</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="4875abb5-54f1-4dc5-9926-76533ee3cb0d"></div>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-34f0f8ba"><p class="cl-34f0bab2"><span class="cl-34f09ed8">Orden estándar</span></p></td><td class="cl-34f0f8ba"><p class="cl-34f0bab2"><span class="cl-34f09ed8">A</span></p></td><td class="cl-34f0f8ba"><p class="cl-34f0bab2"><span class="cl-34f09ed8">B</span></p></td><td class="cl-34f0f8ba"><p class="cl-34f0bab2"><span class="cl-34f09ed8">C</span></p></td><td class="cl-34f0f8c4"><p class="cl-34f0babc"><span class="cl-34f09ed8">Unidad experimental (aleatoria)</span></p></td><td class="cl-34f0f8c4"><p class="cl-34f0babc"><span class="cl-34f09ed8">Respuesta (simulación)</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">1</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">-</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">-</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">-</span></p></td><td class="cl-34f0f8a6"><p class="cl-34f0babc"><span class="cl-34f09ed8">1</span></p></td><td class="cl-34f0f8a6"><p class="cl-34f0babc"><span class="cl-34f09ed8">6.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">2</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">+</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">-</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">-</span></p></td><td class="cl-34f0f8a6"><p class="cl-34f0babc"><span class="cl-34f09ed8">4</span></p></td><td class="cl-34f0f8a6"><p class="cl-34f0babc"><span class="cl-34f09ed8">8.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">3</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">-</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">+</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">-</span></p></td><td class="cl-34f0f8a6"><p class="cl-34f0babc"><span class="cl-34f09ed8">8</span></p></td><td class="cl-34f0f8a6"><p class="cl-34f0babc"><span class="cl-34f09ed8">9.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">4</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">+</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">+</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">-</span></p></td><td class="cl-34f0f8a6"><p class="cl-34f0babc"><span class="cl-34f09ed8">2</span></p></td><td class="cl-34f0f8a6"><p class="cl-34f0babc"><span class="cl-34f09ed8">10.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">5</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">-</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">-</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">+</span></p></td><td class="cl-34f0f8a6"><p class="cl-34f0babc"><span class="cl-34f09ed8">6</span></p></td><td class="cl-34f0f8a6"><p class="cl-34f0babc"><span class="cl-34f09ed8">14.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">6</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">+</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">-</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">+</span></p></td><td class="cl-34f0f8a6"><p class="cl-34f0babc"><span class="cl-34f09ed8">3</span></p></td><td class="cl-34f0f8a6"><p class="cl-34f0babc"><span class="cl-34f09ed8">11.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">7</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">-</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">+</span></p></td><td class="cl-34f0f89c"><p class="cl-34f0bab2"><span class="cl-34f09ed8">+</span></p></td><td class="cl-34f0f8a6"><p class="cl-34f0babc"><span class="cl-34f09ed8">7</span></p></td><td class="cl-34f0f8a6"><p class="cl-34f0babc"><span class="cl-34f09ed8">8.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-34f0f8b0"><p class="cl-34f0bab2"><span class="cl-34f09ed8">8</span></p></td><td class="cl-34f0f8b0"><p class="cl-34f0bab2"><span class="cl-34f09ed8">+</span></p></td><td class="cl-34f0f8b0"><p class="cl-34f0bab2"><span class="cl-34f09ed8">+</span></p></td><td class="cl-34f0f8b0"><p class="cl-34f0bab2"><span class="cl-34f09ed8">+</span></p></td><td class="cl-34f0f8b1"><p class="cl-34f0babc"><span class="cl-34f09ed8">5</span></p></td><td class="cl-34f0f8b1"><p class="cl-34f0babc"><span class="cl-34f09ed8">7.7</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="43c117ed-67f3-4661-a079-403a1d468bc5"></div>
 <script>
-var dest = document.getElementById("4875abb5-54f1-4dc5-9926-76533ee3cb0d");
-var template = document.getElementById("99d83eb9-29af-41ec-94a3-3b06d0067eaa");
+var dest = document.getElementById("43c117ed-67f3-4661-a079-403a1d468bc5");
+var template = document.getElementById("d49f86bf-387f-4d3c-8548-60b699b9b314");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";
@@ -654,7 +656,7 @@ datosf22 |>
 |+  |+  | 31| 30| 29|
 
 ```r
-modelof22 <- lm(respuesta ~ A + B + A*B, data = datosf22)
+modelof22 <- lm(respuesta ~ A + B + A:B, data = datosf22)
 anova(modelof22)
 #> Analysis of Variance Table
 #> 
@@ -801,7 +803,7 @@ kable(datosf23)
 |+  |+  |+  |          80|
 
 ```r
-modelof23 <- lm(rendimiento ~ T + C + K + T*C + T*K + C*K, data = datosf23)
+modelof23 <- lm(rendimiento ~ T + C + K + T:C + T:K + C:K, data = datosf23)
 anova(modelof23)
 #> Analysis of Variance Table
 #> 
@@ -1015,7 +1017,7 @@ emmip(modf2, A~B)
 
 ### Número de réplicas
 
-Wheeler (1974) estableción la siguiente fórmula aproximada para estimar el número total de unidades experimentales para consguir una potencia del 95% en el experimento:
+Wheeler (1974) estableció la siguiente fórmula aproximada para estimar el número total de unidades experimentales para conseguir una potencia del 95% en el experimento:
 
 $$N = ((8\sigma)/\Delta)^2,$$
 
@@ -1112,18 +1114,371 @@ Existen otros diseños avanzados que no se tratan en este texto, como son:
 
 ## Diseños de superficie respuesta
 
-En los experimentos de superficie respuesta, los factores en estudio son variables continuas. Es evidente que no podemos estudiar todos los niveles posibles de este tipo de factores, puesto que son infinitos. Sería inviable también realizar los experimentos con un alto número de niveles posibles. Por eso, generalmente la metodología de superficie respuesta es realmente el último paso en un diseño experimental con factores continuos. Una secuenciación lógica para un experimento con muchos factores sería la siguiente:
+En los experimentos de superficie respuesta, los factores en estudio son variables continuas. Es evidente que no podemos estudiar todos los niveles posibles de este tipo de factores, puesto que son infinitos. Sería inviable también realizar los experimentos con un alto número de niveles posibles desde el principio. Por eso, generalmente la metodología de superficie respuesta es realmente el último paso en un diseño experimental con factores continuos. Una secuenciación lógica para un experimento con muchos factores sería la siguiente:
 
 1. Si existen datos históricos, realizar un estudio descriptivo para identificar relaciones.
 2. Apoyarse también en la teoría para determinar posibles factores que afecten a la respuesta.
 3. En una primera fase de _screening_, analizar muchos factores con diseños factoriales fraccionales.
 4. Con lo aprendido de la fase de cribado, descartar los factores no significativos y estimar los efectos.
 5. Aplicar la metodología de superficie respuesta:
-  * Ampliar los niveles de los factores a estudiar
-  * Optimizar la ecuación del modelo lineal para obtener los valores óptimos de los parámetros
+  * Ampliar los niveles de los factores a estudiar.
+  * Ajustar un modelo cuadrático.
+  * Optimizar la ecuación del modelo cuadrático para obtener los valores óptimos de los parámetros.
   
-  
+Con los modelos a dos niveles, elegiremos como mejor combinación de factores los extremos utilizados como niveles `-` y `+` de cada factor, es decir, en el **perímetro** del experimento. Esto será correcto cuando la relación sea lineal. Pero si la relación es "curvilínea", entonces el óptimo puede estar fuera de los valores probados, que tendremos que buscar ajustando una función no lineal $f$. Para el caso más simple de dos factores $x_1$, $x_2$:
 
+$$y = f(x_1, x_2) + \varepsilon.$$
+
+Esta función se puede aproximar por series de Taylor entorno al centro de la región de diseño, de forma que, en general para $k$ factores:
+
+$$y = \beta_0+\sum\limits_{i=1}^k\beta_i X_i + \sum\limits_{i=1}^k\beta_{ii} X_i^2+\mathop{\sum^k\sum^k}_{i<j}\beta_{ij} X_iX_j+\varepsilon.$$
+
+En el diseño $2^k$, los niveles serán el valor mínimo y el valor máximo elegidos para el experimento (que serán dos valores numéricos. Aquí, las variables $X_i$ estarán "escaladas" a -1 y 1 de la siguiente forma:
+
+$$X_i = \frac{\text{Nivel factor}-\frac{\text{Nivel}_{+} + \text{Nivel}_{-}}{2}}{\frac{\text{Nivel}_{+} - \text{Nivel}_{-}}{2}}.$$
+
+
+:::{.rmdejemplo data-latex=""}
+Si tenemos un experimento con temperaturas fijadas en 10 y 20 grados centígrados:
+
+$$X_{10}=\frac{10-\frac{10+20}{2}}{\frac{20-10}{2}}= \frac{-5}{5}= -1$$
+$$X_{20}=\frac{20-\frac{10+20}{2}}{\frac{20-10}{2}}= \frac{5}{5}= +1$$
+:::
+
+Esta **forma cuadrática** puede recoger una gran variedad de situaciones no lineales en la región de diseño. Ahora bien, son necesarios al menos tres puntos para recoger la curvatura. Entonces, si partimos de un diseño de cribado $2^k$ o $2^{k-p}$, lo que haremos será ampliar el experimento tomando nuevos valores. Una técnica habitual es el diseño CCD (_Central Composite Design_). Para cada factor, se utilizan cinco niveles:
+
+1. Los dos utilizados en el diseño $2^k$.
+2. Un punto central en cada factor $(X_i=0)$.
+3. Dos puntos fuera de la región del diseño $2^k$, o puntos axiales. En general, se toma el punto $\alpha = \sqrt{k}$ y el $-\alpha$
+
+El número de unidades experimentales adicionales puede ser muy grande si se identifican más de 3 factores determinantes. Para 3 factores, un CCD necesitará 19 unidades experimentales. O lo que es lo mismo, $19-2^3 = 11$ experimentos adicionales.
+
+Antes de ampliar el experimento con nuevos puntos, se pueden hacer comprobaciones para ver si el modelo cuadrático es previsible que mejore el resultado. Si el modelo lineal es adecuado, los puntos axiales y centrales adicionales no serán necesarios. Esto se puede hacer con el paquete `rsm` de R.
+
+
+:::{.rmdejemplo data-latex=""}
+El conjunto de datos `cement` del paquete {daewr} contiene 20 mediciones de un experimento de superficie respuesta. 
+:::
+
+
+
+```r
+library(daewr)
+cement
+#>       Block        x1        x2        x3     y
+#> C1.1      1 -1.000000 -1.000000 -1.000000 109.5
+#> C1.2      1  1.000000 -1.000000 -1.000000 117.0
+#> C1.3      1 -1.000000  1.000000 -1.000000 110.5
+#> C1.4      1  1.000000  1.000000 -1.000000 121.0
+#> C1.5      1 -1.000000 -1.000000  1.000000 120.0
+#> C1.6      1  1.000000 -1.000000  1.000000 130.0
+#> C1.7      1 -1.000000  1.000000  1.000000 124.0
+#> C1.8      1  1.000000  1.000000  1.000000 132.0
+#> C1.9      1  0.000000  0.000000  0.000000 117.0
+#> C1.10     1  0.000000  0.000000  0.000000 117.0
+#> C1.11     1  0.000000  0.000000  0.000000 115.0
+#> S2.1      2 -1.681793  0.000000  0.000000 109.5
+#> S2.2      2  1.681793  0.000000  0.000000 132.0
+#> S2.3      2  0.000000 -1.681793  0.000000 120.0
+#> S2.4      2  0.000000  1.681793  0.000000 121.0
+#> S2.5      2  0.000000  0.000000 -1.681793 115.0
+#> S2.6      2  0.000000  0.000000  1.681793 127.0
+#> S2.7      2  0.000000  0.000000  0.000000 116.0
+#> S2.8      2  0.000000  0.000000  0.000000 117.0
+#> S2.9      2  0.000000  0.000000  0.000000 117.0
+```
+
+
+```r
+library(rsm)
+grout.lin <- rsm(y ~ SO(x1, x2, x3), data = cement, subset = Block == 1)
+#> Warning in rsm(y ~ SO(x1, x2, x3), data = cement, subset = Block == 1): Some coefficients are aliased - cannot use 'rsm' methods.
+#>   Returning an 'lm' object.
+anova(grout.lin)
+#> Analysis of Variance Table
+#> 
+#> Response: y
+#>                 Df Sum Sq Mean Sq F value   Pr(>F)   
+#> FO(x1, x2, x3)   3 465.13 155.042 80.3094 0.002307 **
+#> TWI(x1, x2, x3)  3   0.25   0.083  0.0432 0.985889   
+#> PQ(x1, x2, x3)   1  37.88  37.879 19.6207 0.021377 * 
+#> Residuals        3   5.79   1.931                    
+#> ---
+#> Signif. codes:  
+#> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+En esta salida, la variabilidad se descompone en tres partes:
+
+* FO: Los tres términos lineales simultáneamente
+* TWI: Los tres términos de interacción simultáneamente
+* PQ: Términos cuadráticos, es decir, si se aleja de la linealidad
+
+En el test F en el término PQ la hipótesis nula es que los datos se ajustan al modelo lineal. Como el p-valor es pequeño, se rechaza esta hipótesis y el modelo cuadrático es más adecuado. Entonces concluiríamos que es necesario completar el experimento con los puntos axiales.
+
+Una vez se ajusta un modelo de superficie respuesta con los datos de un experimento, querremos determinar los valores óptimos de los factores. La forma más sencilla es mediante gráficos de contorno (o curvas de nivel) para cada para de factores. Métodos más precisos de optimización nos darán valores numéricos.
+
+
+
+:::{.rmdejemplo data-latex=""}
+El conjunto de datos `Treb` del paquete {daewr} contiene datos experimentales de un fundíbulo (arma medieval de asedio) en el que se mide la distancia dependiendo de tres factores: longitud del brazo (A), contrapeso (B) y peso del proyectil (C). En este caso se ha realizado un diseño de Box-Behnken. El punto estacionario sería un candidato a ser el óptimo. No obstante hay que comprobar si está en la región de diseño (y si es un máximo o un mínimo). El método ridge buscará el máximo en un radio determinado (hasta cubrir la región de diseño).
+:::
+
+
+```r
+Treb
+#>    A  B   C   y
+#> 1  4 10 2.5  33
+#> 2  8 10 2.5  85
+#> 3  4 20 2.5  86
+#> 4  8 20 2.5 113
+#> 5  4 15 2.0  75
+#> 6  8 15 2.0 105
+#> 7  4 15 3.0  40
+#> 8  8 15 3.0  89
+#> 9  6 10 2.0  83
+#> 10 6 20 2.0 108
+#> 11 6 10 3.0  49
+#> 12 6 20 3.0 101
+#> 13 6 15 2.5  88
+#> 14 6 15 2.5  91
+#> 15 6 15 2.5  91
+#> 
+#> Data are stored in coded form using these coding formulas ...
+#> x1 ~ (A - 6)/2
+#> x2 ~ (B - 15)/5
+#> x3 ~ (C - 2.5)/0.5
+treb.quad <- rsm(y ~ SO(x1, x2, x3), data = Treb)
+summary(treb.quad)
+#> 
+#> Call:
+#> rsm(formula = y ~ SO(x1, x2, x3), data = Treb)
+#> 
+#>              Estimate Std. Error  t value  Pr(>|t|)    
+#> (Intercept)  90.00000    1.16905  76.9859 7.006e-09 ***
+#> x1           19.75000    0.71589  27.5880 1.171e-06 ***
+#> x2           19.75000    0.71589  27.5880 1.171e-06 ***
+#> x3          -11.50000    0.71589 -16.0639 1.703e-05 ***
+#> x1:x2        -6.25000    1.01242  -6.1733 0.0016247 ** 
+#> x1:x3         4.75000    1.01242   4.6917 0.0053768 ** 
+#> x2:x3         6.75000    1.01242   6.6672 0.0011461 ** 
+#> x1^2         -9.37500    1.05376  -8.8967 0.0002986 ***
+#> x2^2         -1.37500    1.05376  -1.3048 0.2487686    
+#> x3^2         -3.37500    1.05376  -3.2028 0.0239200 *  
+#> ---
+#> Signif. codes:  
+#> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Multiple R-squared:  0.9975,	Adjusted R-squared:  0.9929 
+#> F-statistic: 218.9 on 9 and 5 DF,  p-value: 5.964e-06
+#> 
+#> Analysis of Variance Table
+#> 
+#> Response: y
+#>                 Df Sum Sq Mean Sq  F value    Pr(>F)
+#> FO(x1, x2, x3)   3 7299.0 2433.00 593.4146 8.448e-07
+#> TWI(x1, x2, x3)  3  428.8  142.92  34.8577 0.0008912
+#> PQ(x1, x2, x3)   3  351.5  117.16  28.5759 0.0014236
+#> Residuals        5   20.5    4.10                   
+#> Lack of fit      3   14.5    4.83   1.6111 0.4051312
+#> Pure error       2    6.0    3.00                   
+#> 
+#> Stationary point of response surface:
+#>         x1         x2         x3 
+#>  0.9236846 -1.7161183 -2.7698217 
+#> 
+#> Stationary point in original units:
+#>        A        B        C 
+#> 7.847369 6.419409 1.115089 
+#> 
+#> Eigenanalysis:
+#> eigen() decomposition
+#> $values
+#> [1]   1.280298  -3.551452 -11.853845
+#> 
+#> $vectors
+#>          [,1]       [,2]       [,3]
+#> x1 -0.1236692  0.5238084  0.8428112
+#> x2  0.8323200 -0.4077092  0.3755217
+#> x3  0.5403233  0.7479291 -0.3855551
+```
+
+
+
+```r
+par(mfrow=c(2,2))
+contour(treb.quad, ~ x1+x2+x3)
+```
+
+<img src="11-doe_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+
+
+
+```r
+par(mfrow=c(2,2))
+contour(treb.quad, ~ x1+x2+x3, at = xs(treb.quad))
+```
+
+<img src="11-doe_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+
+
+
+```r
+par(mfrow=c(2,2))
+persp(treb.quad, ~x1+x2+x3, zlab = "Distancia")
+```
+
+<img src="11-doe_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+
+
+```r
+ridge <- steepest(treb.quad, dist = seq(0, 1.412, by=0.1), descent = FALSE)
+#> Path of steepest ascent from ridge analysis:
+ridge
+#>    dist    x1    x2     x3 |     A      B      C |    yhat
+#> 1   0.0 0.000 0.000  0.000 | 6.000 15.000 2.5000 |  90.000
+#> 2   0.1 0.064 0.067 -0.037 | 6.128 15.335 2.4815 |  92.909
+#> 3   0.2 0.124 0.139 -0.073 | 6.248 15.695 2.4635 |  95.626
+#> 4   0.3 0.180 0.215 -0.105 | 6.360 16.075 2.4475 |  98.120
+#> 5   0.4 0.232 0.297 -0.134 | 6.464 16.485 2.4330 | 100.455
+#> 6   0.5 0.277 0.385 -0.158 | 6.554 16.925 2.4210 | 102.599
+#> 7   0.6 0.315 0.480 -0.175 | 6.630 17.400 2.4125 | 104.590
+#> 8   0.7 0.345 0.580 -0.185 | 6.690 17.900 2.4075 | 106.424
+#> 9   0.8 0.368 0.686 -0.185 | 6.736 18.430 2.4075 | 108.154
+#> 10  0.9 0.384 0.795 -0.177 | 6.768 18.975 2.4115 | 109.783
+#> 11  1.0 0.393 0.905 -0.161 | 6.786 19.525 2.4195 | 111.318
+#> 12  1.1 0.397 1.017 -0.137 | 6.794 20.085 2.4315 | 112.817
+#> 13  1.2 0.398 1.127 -0.107 | 6.796 20.635 2.4465 | 114.259
+#> 14  1.3 0.395 1.236 -0.073 | 6.790 21.180 2.4635 | 115.673
+#> 15  1.4 0.390 1.344 -0.034 | 6.780 21.720 2.4830 | 117.077
+```
+
+Una última opción sería la optimización no lineal de la ecuación de regresión.
+
+
+Los diseños de superficie respuesta también se pueden plantear sin fase de screening, si se tienen muy claros los factores a estudiar.
+
+
+```r
+library(daewr)
+Design<-DefScreen(m=8,c=0)
+Design
+#>     A  B  C  D  E  F  G  H
+#> 1   0 -1  1  1 -1  1  1  1
+#> 2   0  1 -1 -1  1 -1 -1 -1
+#> 3  -1  0 -1  1  1  1  1 -1
+#> 4   1  0  1 -1 -1 -1 -1  1
+#> 5  -1 -1  0  1  1 -1 -1  1
+#> 6   1  1  0 -1 -1  1  1 -1
+#> 7   1 -1  1  0  1  1 -1 -1
+#> 8  -1  1 -1  0 -1 -1  1  1
+#> 9  -1 -1  1 -1  0 -1  1 -1
+#> 10  1  1 -1  1  0  1 -1  1
+#> 11  1 -1 -1 -1  1  0  1  1
+#> 12 -1  1  1  1 -1  0 -1 -1
+#> 13 -1  1  1 -1  1  1  0  1
+#> 14  1 -1 -1  1 -1 -1  0 -1
+#> 15  1  1  1  1  1 -1  1  0
+#> 16 -1 -1 -1 -1 -1  1 -1  0
+#> 17  0  0  0  0  0  0  0  0
+```
+
+
+
+```r
+library(daewr)
+design<-DefScreen(m=5,c=0,center=2,randomize=FALSE)
+design
+#>     A  B  C  D  E
+#> 1   0  1  1 -1 -1
+#> 2   0 -1 -1  1  1
+#> 3   1  0 -1 -1  1
+#> 4  -1  0  1  1 -1
+#> 5   1 -1  0  1 -1
+#> 6  -1  1  0 -1  1
+#> 7   1 -1  1  0  1
+#> 8  -1  1 -1  0 -1
+#> 9   1  1  1  1  0
+#> 10 -1 -1 -1 -1  0
+#> 11  0  0  0  0  0
+#> 12  0  0  0  0  0
+#> 13  0  0  0  0  0
+```
+
+
+```r
+library(daewr)
+Smeso<-c(241,295,260,338,320,265,275,248,92.5,383,313,305,304)
+FitDefSc(Smeso,design,alpha=.05)
+#> 
+#> Call:
+#> lm(formula = y ~ (.), data = ndesign)
+#> 
+#> Residuals:
+#>     Min      1Q  Median      3Q     Max 
+#> -13.667  -3.653   0.000   3.550  12.373 
+#> 
+#> Coefficients:
+#>             Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept)  304.000      5.012  60.656 1.35e-09 ***
+#> B            -76.030      4.362 -17.429 2.29e-06 ***
+#> D            -26.609      4.533  -5.870 0.001082 ** 
+#> B:D          -21.023      4.779  -4.399 0.004572 ** 
+#> I(B^2)       -44.318      6.500  -6.819 0.000488 ***
+#> A            -42.803      4.362  -9.812 6.45e-05 ***
+#> E            -21.459      4.533  -4.734 0.003213 ** 
+#> ---
+#> Signif. codes:  
+#> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 11.21 on 6 degrees of freedom
+#> Multiple R-squared:  0.9866,	Adjusted R-squared:  0.9733 
+#> F-statistic:  73.9 on 6 and 6 DF,  p-value: 2.333e-05
+#> 
+#>             Sums of Squares  df F-value P-value
+#> Lack of Fit       704.89318   4 7.24205 0.04059
+#> Pure Error         48.66667   2
+```
+
+
+```r
+library(daewr)
+FitDefSc(Smeso,design,alpha=.1)
+#> 
+#> Call:
+#> lm(formula = y ~ (.), data = ndesign)
+#> 
+#> Residuals:
+#>        1        2        3        4        5        6 
+#> -0.39670 -2.32094  0.46480  3.15873 -0.12433  1.03021 
+#>        7        8        9       10       11       12 
+#>  3.54358  0.07995 -0.71346 -1.09831  4.45882 -3.54118 
+#>       13 
+#> -4.54118 
+#> 
+#> Coefficients:
+#>             Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept)  308.541      2.386 129.329 2.14e-08 ***
+#> I(D^2)       -11.353      3.046  -3.727 0.020353 *  
+#> D            -26.609      1.855 -14.343 0.000137 ***
+#> B            -76.030      1.785 -42.589 1.82e-06 ***
+#> E            -21.459      1.855 -11.567 0.000319 ***
+#> B:E           11.344      2.125   5.338 0.005933 ** 
+#> B:D          -21.024      1.974 -10.649 0.000440 ***
+#> I(B^2)       -37.509      2.974 -12.611 0.000228 ***
+#> A            -42.803      1.785 -23.976 1.79e-05 ***
+#> ---
+#> Signif. codes:  
+#> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 4.586 on 4 degrees of freedom
+#> Multiple R-squared:  0.9985,	Adjusted R-squared:  0.9955 
+#> F-statistic: 334.9 on 8 and 4 DF,  p-value: 2.216e-05
+#> 
+#>             Sums of Squares  df F-value P-value
+#> Lack of Fit        35.46992   2 0.72883 0.57842
+#> Pure Error         48.66667   2
+```
 
 
 
