@@ -137,7 +137,7 @@ sea el factor 2, que no ha sido medido y está muy correlacionado con el factor 
 En el gráfico de la derecha vemos que la variable respuesta crece en el mismo sentido que los factores 1 y 2, pero podría ser que el factor 2, no medido al principio, sea la causa, y no el que realmente se ha medido.
 
 
-```{r c1, fig.height=4, fig.width=8, fig.cap="Efecto de no medir un factor", fig.align='center', echo=FALSE, out.width="100%"}
+```{r c1, fig.height=4, fig.width=8, fig.cap="Efecto de no medir un factor", fig.align='center', echo=FALSE, out.width="100%", purl = FALSE}
 library(ggplot2)
 set.seed(666)
 factor1 <- rnorm(20, 80)
@@ -167,7 +167,7 @@ posibles valores de la variable, y vemos algunos patrones que quedan
 ocultos en el otro caso. Por ejemplo, en los valores inferiores la pendiente es más pronunciada, mientras que en los valores superiores parece que
 se empieza a invertir la tendencia.
 
-```{r valuesrange1, echo=FALSE, fig.height=4, fig.cap="Efecto de la limitación del rango de valores", fig.align='center', message=FALSE, out.width="100%"}
+```{r valuesrange1, echo=FALSE, fig.height=4, fig.cap="Efecto de la limitación del rango de valores", fig.align='center', message=FALSE, out.width="100%", purl = FALSE}
 set.seed(66)
 x = rnorm(100, 10)
 rangoop <- data.frame(x,
@@ -227,20 +227,20 @@ experimentos:
 1. Sin planificación. Se pueden ir cambiando niveles de factores cada
 vez y haciendo pruebas (ensayo-error). Esto es definitivamente poco efectivo. 
 2. Planificación completa desde el inicio. Si es muy rígida, nos puede llevar a no explorar alternativas
-que puedan suregir durante la experimentación. Y por tanto a no cumplir los objetivos. 
-3. Planificación **secuancial**. Esta es la
+que puedan surgir durante la experimentación. Y por tanto a no cumplir los objetivos. 
+3. Planificación **secuencial**. Esta es la
 estrategia óptima. Se llevan a cabo un número de experimentos al inicio, cuyas
 conclusiones supondrán la planificación de una segunda fase donde centrarnos en
 los factores realmente relevantes y hacer análisis más detallados y precisos. En las
 primeras fases se suelen realizar diseños de _screening_ para descartar
 factores no significativos. En las siguientes fases, se amplían los experimentos solo con los factores significativos. 
 
-En realidad, esta estrategia secuancial es la aplicación del método científico,
+En realidad, esta estrategia secuencial es la aplicación del método científico,
 en un proceso iterativo de aprendizaje como se muestra en la figura \@ref(fig:metodo). El experimento partirá de un objetivo que planteará ciertas hipótesis. Por deducción, se diseña el experimento y se obtienen datos. Estos datos confirman o no las hipótesis mediante la inducción, y nos hace plantearnos nuevas hipótesis. Así, hasta llegar a la conclusión y/o decisión final.
 
 
 
-```{r metodo, echo=FALSE, fig.cap="Método iterativo de aprendizaje", fig.align="center"}
+```{r metodo, echo=FALSE, fig.cap="Método iterativo de aprendizaje", fig.align="center", purl = FALSE}
 par(mai=c(0,0,0,0), bg="white")
 plot(1:10, type = "n", axes = FALSE, xlab = "", ylab = "",
     xlim = c(-1, 12))
@@ -280,7 +280,7 @@ En @moen2012 se propone el ciclo PDSA (_Plan-Do-Study-Act_) para la mejora que s
 Una cuestión fundamental es la necesidad de **documentar** todas las acciones de mejora, así como las lecciones aprendidas durante el proceso.
 
 
-```{r ciclo, echo=FALSE, fig.cap="Ciclo PDSA para la mejora", fig.align='center'}
+```{r ciclo, echo=FALSE, fig.cap="Ciclo PDSA para la mejora", fig.align='center', purl = FALSE}
 library(grid)
 grid.newpage()
 grid.rect(gp=gpar(fill="white"))
@@ -307,7 +307,7 @@ Una buena forma de empezar el ciclo es a partir de un análisis de causa y
 efecto, por ejemplo con un diagrama de Ishikawa o de espina de pescado (_fishbone_) como el que aparece en la
 figura \@ref(fig:cefecto). Con esta técnica se identifica cuál es la variable respuesta que queremos investigar (efecto, cabeza del pescado) y cuáles son los posibles factores que pueden estar relacionados, y de los que en última instancia queremos averiguar si son la causa del efecto (espinas).
 
-```{r cefecto, echo=FALSE, fig.align="center", fig.cap="Ejemplo diagrama de causa-efecto", results='hide', fig.show='hold'}
+```{r cefecto, echo=FALSE, fig.align="center", fig.cap="Ejemplo diagrama de causa-efecto", results='hide', fig.show='hold', purl = FALSE}
 library(SixSigma)
 example(ss.ceDiag)
 ```
@@ -329,7 +329,7 @@ experimentos. Ahora vamos a definirlos un poco más formalmente.
   hipótesis, así como la cuantificación de este efecto.
 - **Variable de bloque**: Variable que no tiene interés en la investigación,
   pero puede influir en la respuesta. Mediante la formación de bloques
-  alatorios confundimos su efecto con los factores que realmente nos interesan.
+  aleatorios confundimos su efecto con los factores que realmente nos interesan.
 - **Variable ruido**: Variable que puede influir en la respuesta, pero de la
   que no tenemos control.
 - **Nivel**: Valor que fijamos de un factor. En variables
@@ -409,7 +409,7 @@ Es aconsejable recoger toda esta información en un formulario estandarizado que
 
 Existen una enorme cantidad de posibles tipos de diseños experimentales. La decisión sobre cuál utilizar en cada situación concreta depende principalmente de los objetivos de la investigación y de las características de las unidades experimentales (de ahí la importancia de caracterizarlas de forma precisa durante el diseño). La figura \@ref(fig:tiposdisenos) muestra la categorización que hace @lawson2015. A continuación se enumeran estos  diseños con una breve explicación de cada uno.
 
-```{r tiposdisenos, fig.align='center', echo = FALSE, fig.cap="Esquema de diseños experimentales en Lawson (2015)", out.width="100%"}
+```{r tiposdisenos, fig.align='center', echo = FALSE, fig.cap="Esquema de diseños experimentales en Lawson (2015)", out.width="100%", purl = FALSE}
 library(DiagrammeR)
 grViz("
 digraph one_factor{
@@ -483,6 +483,8 @@ digraph one_factor{
 * **CRD**, _Completely Randomized Design_: **Diseño completamente aleatorizado**. Este diseño se debería utilizar cuando solo hay un factor en estudio y las unidades experimentales son homogéneas. El análisis se corresponde con el ANOVA estudiado en el capítulo \@ref(anova).
 
 * **CRFD**, _Completely Randomized Factorial Design_: **Diseño factorial completamente aleatorizado**. Este diseño se utiliza cuando se estudia más de un factor a la vez. Permite estudiar las interacciones entre los factores. El análisis se corresponde también con el ANOVA estudiado en el capítulo \@ref(anova). Un caso particular son los diseños a dos niveles o $2^k$, que veremos en detalle más adelante.
+
+* **CRRS**, _Completely Randomized Response Surface_: **Superficie respuesta completamente aleatorizado**. Este diseño se utiliza cuando se estudian dos o tres factores continuos en los que puede aparecer curvatura y por tanto los valores que optimizan la respuesta pueden no estar en el perímetro de la región de diseño. Se suelen aplicar en la fase de caracterización de un experimento, después de haber seleccionado en la fase de cribado los factores más significativos.
 
 
 ## Experimentos con un factor (CRD)
@@ -587,14 +589,14 @@ A medida que aumenta el número de factores a estudiar, el número de unidades e
 ## Diseños factoriales a dos niveles $2^k$
 
 Un tipo especial de diseño factorial es aquél en el que
-todos los factores tienen solamente dos niveles. Es válido tanto para factores puramente categóricos como para factores de tipo continuo. En este último caso, se fijan un valor "bajo" y otro "alto" para el factor, que normalente se representan como `-` y `+` respectivamente. 
+todos los factores tienen solamente dos niveles. Es válido tanto para factores puramente categóricos como para factores de tipo continuo. En este último caso, se fijan un valor "bajo" y otro "alto" para el factor, que normalmente se representan como `-` y `+` respectivamente. 
 Con posterioridad a la etapa de cribado se pueden añadir más puntos al diseño para afinar en la estimación.
 En el caso de atributos, estos niveles alto y bajo serán arbitrarios, pero
 en cualquiera de los dos casos, se deberían fijar de acuerdo al conocimiento en la materia para que haya una diferencia potencial entre los niveles.
 
 El número
 de experimentos necesarios para probar todas las combinaciones
-de niveles para $k$ factores es $2^k$, de ahi su nombre. Por ejemplo,
+de niveles para $k$ factores es $2^k$, de ahí su nombre. Por ejemplo,
 en un experimento en el que quisiéramos analizar 5 factores con 4 niveles cada uno, necesitaríamos $4\times 4\times 4\times 4\times  4=4^5= 1024$ unidades experimentales, para cada réplica, mientras que en un experimento
 $2^5$ serán suficientes 32.
 
@@ -670,7 +672,7 @@ datosf22 |>
   pivot_wider(id_cols = c("A", "B"), 
               names_from = "replica", 
               values_from = "respuesta") |> kable()
-modelof22 <- lm(respuesta ~ A + B + A*B, data = datosf22)
+modelof22 <- lm(respuesta ~ A + B + A:B, data = datosf22)
 anova(modelof22)
 ```
 
@@ -743,7 +745,7 @@ datosf23 <- scan(text = "
 datosf23 <- as.data.frame(datosf23)
 colnames(datosf23) <- c("T", "C", "K", "rendimiento")
 kable(datosf23)
-modelof23 <- lm(rendimiento ~ T + C + K + T*C + T*K + C*K, data = datosf23)
+modelof23 <- lm(rendimiento ~ T + C + K + T:C + T:K + C:K, data = datosf23)
 anova(modelof23)
 ```
 
@@ -802,7 +804,7 @@ emmip(modf2, A~B)
 
 ### Número de réplicas
 
-Wheeler (1974) estableción la siguiente fórmula aproximada para estimar el número total de unidades experimentales para consguir una potencia del 95% en el experimento:
+Wheeler (1974) estableció la siguiente fórmula aproximada para estimar el número total de unidades experimentales para conseguir una potencia del 95% en el experimento:
 
 $$N = ((8\sigma)/\Delta)^2,$$
 
@@ -875,18 +877,137 @@ Existen otros diseños avanzados que no se tratan en este texto, como son:
 
 ## Diseños de superficie respuesta
 
-En los experimentos de superficie respuesta, los factores en estudio son variables continuas. Es evidente que no podemos estudiar todos los niveles posibles de este tipo de factores, puesto que son infinitos. Sería inviable también realizar los experimentos con un alto número de niveles posibles. Por eso, generalmente la metodología de superficie respuesta es realmente el último paso en un diseño experimental con factores continuos. Una secuenciación lógica para un experimento con muchos factores sería la siguiente:
+En los experimentos de superficie respuesta, los factores en estudio son variables continuas. Es evidente que no podemos estudiar todos los niveles posibles de este tipo de factores, puesto que son infinitos. Sería inviable también realizar los experimentos con un alto número de niveles posibles desde el principio. Por eso, generalmente la metodología de superficie respuesta es realmente el último paso en un diseño experimental con factores continuos. Una secuenciación lógica para un experimento con muchos factores sería la siguiente:
 
 1. Si existen datos históricos, realizar un estudio descriptivo para identificar relaciones.
 2. Apoyarse también en la teoría para determinar posibles factores que afecten a la respuesta.
 3. En una primera fase de _screening_, analizar muchos factores con diseños factoriales fraccionales.
 4. Con lo aprendido de la fase de cribado, descartar los factores no significativos y estimar los efectos.
 5. Aplicar la metodología de superficie respuesta:
-  * Ampliar los niveles de los factores a estudiar
-  * Optimizar la ecuación del modelo lineal para obtener los valores óptimos de los parámetros
+  * Ampliar los niveles de los factores a estudiar.
+  * Ajustar un modelo cuadrático.
+  * Optimizar la ecuación del modelo cuadrático para obtener los valores óptimos de los parámetros.
   
-  
+Con los modelos a dos niveles, elegiremos como mejor combinación de factores los extremos utilizados como niveles `-` y `+` de cada factor, es decir, en el **perímetro** del experimento. Esto será correcto cuando la relación sea lineal. Pero si la relación es "curvilínea", entonces el óptimo puede estar fuera de los valores probados, que tendremos que buscar ajustando una función no lineal $f$. Para el caso más simple de dos factores $x_1$, $x_2$:
 
+$$y = f(x_1, x_2) + \varepsilon.$$
+
+Esta función se puede aproximar por series de Taylor entorno al centro de la región de diseño, de forma que, en general para $k$ factores:
+
+$$y = \beta_0+\sum\limits_{i=1}^k\beta_i X_i + \sum\limits_{i=1}^k\beta_{ii} X_i^2+\mathop{\sum^k\sum^k}_{i<j}\beta_{ij} X_iX_j+\varepsilon.$$
+
+En el diseño $2^k$, los niveles serán el valor mínimo y el valor máximo elegidos para el experimento (que serán dos valores numéricos. Aquí, las variables $X_i$ estarán "escaladas" a -1 y 1 de la siguiente forma:
+
+$$X_i = \frac{\text{Nivel factor}-\frac{\text{Nivel}_{+} + \text{Nivel}_{-}}{2}}{\frac{\text{Nivel}_{+} - \text{Nivel}_{-}}{2}}.$$
+
+
+:::{.rmdejemplo data-latex=""}
+Si tenemos un experimento con temperaturas fijadas en 10 y 20 grados centígrados:
+
+$$X_{10}=\frac{10-\frac{10+20}{2}}{\frac{20-10}{2}}= \frac{-5}{5}= -1$$
+$$X_{20}=\frac{20-\frac{10+20}{2}}{\frac{20-10}{2}}= \frac{5}{5}= +1$$
+:::
+
+Esta **forma cuadrática** puede recoger una gran variedad de situaciones no lineales en la región de diseño. Ahora bien, son necesarios al menos tres puntos para recoger la curvatura. Entonces, si partimos de un diseño de cribado $2^k$ o $2^{k-p}$, lo que haremos será ampliar el experimento tomando nuevos valores. Una técnica habitual es el diseño CCD (_Central Composite Design_). Para cada factor, se utilizan cinco niveles:
+
+1. Los dos utilizados en el diseño $2^k$.
+2. Un punto central en cada factor $(X_i=0)$.
+3. Dos puntos fuera de la región del diseño $2^k$, o puntos axiales. En general, se toma el punto $\alpha = \sqrt{k}$ y el $-\alpha$
+
+El número de unidades experimentales adicionales puede ser muy grande si se identifican más de 3 factores determinantes. Para 3 factores, un CCD necesitará 19 unidades experimentales. O lo que es lo mismo, $19-2^3 = 11$ experimentos adicionales.
+
+Antes de ampliar el experimento con nuevos puntos, se pueden hacer comprobaciones para ver si el modelo cuadrático es previsible que mejore el resultado. Si el modelo lineal es adecuado, los puntos axiales y centrales adicionales no serán necesarios. Esto se puede hacer con el paquete `rsm` de R.
+
+
+:::{.rmdejemplo data-latex=""}
+El conjunto de datos `cement` del paquete {daewr} contiene 20 mediciones de un experimento de superficie respuesta. 
+:::
+
+
+```{r cement}
+library(daewr)
+cement
+```
+
+```{r}
+library(rsm)
+grout.lin <- rsm(y ~ SO(x1, x2, x3), data = cement, subset = Block == 1)
+anova(grout.lin)
+```
+
+En esta salida, la variabilidad se descompone en tres partes:
+
+* FO: Los tres términos lineales simultáneamente
+* TWI: Los tres términos de interacción simultáneamente
+* PQ: Términos cuadráticos, es decir, si se aleja de la linealidad
+
+En el test F en el término PQ la hipótesis nula es que los datos se ajustan al modelo lineal. Como el p-valor es pequeño, se rechaza esta hipótesis y el modelo cuadrático es más adecuado. Entonces concluiríamos que es necesario completar el experimento con los puntos axiales.
+
+Una vez se ajusta un modelo de superficie respuesta con los datos de un experimento, querremos determinar los valores óptimos de los factores. La forma más sencilla es mediante gráficos de contorno (o curvas de nivel) para cada para de factores. Métodos más precisos de optimización nos darán valores numéricos.
+
+
+
+:::{.rmdejemplo data-latex=""}
+El conjunto de datos `Treb` del paquete {daewr} contiene datos experimentales de un fundíbulo (arma medieval de asedio) en el que se mide la distancia dependiendo de tres factores: longitud del brazo (A), contrapeso (B) y peso del proyectil (C). En este caso se ha realizado un diseño de Box-Behnken. El punto estacionario sería un candidato a ser el óptimo. No obstante hay que comprobar si está en la región de diseño (y si es un máximo o un mínimo). El método ridge buscará el máximo en un radio determinado (hasta cubrir la región de diseño).
+:::
+
+```{r}
+Treb
+treb.quad <- rsm(y ~ SO(x1, x2, x3), data = Treb)
+summary(treb.quad)
+```
+
+
+```{r}
+par(mfrow=c(2,2))
+contour(treb.quad, ~ x1+x2+x3)
+```
+
+
+```{r}
+par(mfrow=c(2,2))
+contour(treb.quad, ~ x1+x2+x3, at = xs(treb.quad))
+```
+
+
+```{r}
+par(mfrow=c(2,2))
+persp(treb.quad, ~x1+x2+x3, zlab = "Distancia")
+```
+
+```{r}
+ridge <- steepest(treb.quad, dist = seq(0, 1.412, by=0.1), descent = FALSE)
+ridge
+```
+
+Una última opción sería la optimización no lineal de la ecuación de regresión.
+
+
+Los diseños de superficie respuesta también se pueden plantear sin fase de screening, si se tienen muy claros los factores a estudiar.
+
+```{r}
+library(daewr)
+Design<-DefScreen(m=8,c=0)
+Design
+```
+
+
+```{r}
+library(daewr)
+design<-DefScreen(m=5,c=0,center=2,randomize=FALSE)
+design
+```
+
+```{r}
+library(daewr)
+Smeso<-c(241,295,260,338,320,265,275,248,92.5,383,313,305,304)
+FitDefSc(Smeso,design,alpha=.05)
+```
+
+```{r}
+library(daewr)
+FitDefSc(Smeso,design,alpha=.1)
+```
 
 
 
