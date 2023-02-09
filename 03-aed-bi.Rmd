@@ -43,7 +43,7 @@ La frecuencia relativa conjunta es $f_{ij}= \frac{n_{ij}}{n}$.
 
 Las frecuencias conjuntas se representan en una tabla de doble entrada, 
 con los valores de una variable en filas y los de la otra en columnas.
-En el interior, se ponen las frecuencias conjuntas (absolutas, marginales o ambas).
+En el interior, se ponen las frecuencias conjuntas (absolutas, relativas o ambas).
 Si las dos variables son cualitativas, la tabla se denomina **Tabla de contingencia**.
 
 ```{r, echo=FALSE}
@@ -113,7 +113,7 @@ kable(table(lab$clase_ph, lab$clase_est),
 
 Si partimos de la distribución conjunta, podemos obtener la de cada
 una de las variables (marginal) y estudiarla como datos univariantes.
-Basta con hacer las sumas por columnas, $(X)$, o por filas, $(Y)$:
+Basta con hacer las sumas por filas (para la marginal de $X$), o por columnas, (para la marginal de $Y$):
 
 * Frecuencias marginales de $X$: 
   + Absolutas: $n_{i\cdot} = \sum\limits_{j = 1}^{n_j}n_{ij}$
