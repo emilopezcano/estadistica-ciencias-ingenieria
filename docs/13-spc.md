@@ -1732,6 +1732,13 @@ print(cap)
 #> Exp<LSL 0.044%	 Obs<LSL 0.06%
 #> Exp>USL 0.16%	 Obs>USL 0.21%
 plot(cap)
+#> Warning: The dot-dot notation (`..density..`) was deprecated in
+#> ggplot2 3.4.0.
+#> ℹ Please use `after_stat(density)` instead.
+#> ℹ The deprecated feature was likely used in the qcc
+#>   package.
+#>   Please report the issue at
+#>   <]8;;https://github.com/luca-scr/qcc/issueshttps://github.com/luca-scr/qcc/issues]8;;>.
 ```
 
 <div class="figure">

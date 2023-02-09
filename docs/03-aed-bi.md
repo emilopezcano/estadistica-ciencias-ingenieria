@@ -2,11 +2,11 @@
 ```r
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = "")
 library(tidyverse)
-#> ── Attaching packages ─────────────────── tidyverse 1.3.1 ──
-#> ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-#> ✔ tibble  3.1.7     ✔ dplyr   1.0.9
-#> ✔ tidyr   1.2.0     ✔ stringr 1.4.0
-#> ✔ readr   2.1.2     ✔ forcats 0.5.1
+#> ── Attaching packages ─────────────────── tidyverse 1.3.2 ──
+#> ✔ ggplot2 3.4.0      ✔ purrr   1.0.1 
+#> ✔ tibble  3.1.8      ✔ dplyr   1.0.10
+#> ✔ tidyr   1.3.0      ✔ stringr 1.5.0 
+#> ✔ readr   2.1.3      ✔ forcats 0.5.2 
 #> ── Conflicts ────────────────────── tidyverse_conflicts() ──
 #> ✖ purrr::compose() masks flextable::compose()
 #> ✖ dplyr::filter()  masks stats::filter()
@@ -17,6 +17,7 @@ library(gt)
 library(gridExtra)
 #> 
 #> Attaching package: 'gridExtra'
+#> 
 #> The following object is masked from 'package:dplyr':
 #> 
 #>     combine
@@ -58,7 +59,7 @@ La frecuencia relativa conjunta es $f_{ij}= \frac{n_{ij}}{n}$.
 
 Las frecuencias conjuntas se representan en una tabla de doble entrada, 
 con los valores de una variable en filas y los de la otra en columnas.
-En el interior, se ponen las frecuencias conjuntas (absolutas, marginales o ambas).
+En el interior, se ponen las frecuencias conjuntas (absolutas, relativas o ambas).
 Si las dos variables son cualitativas, la tabla se denomina **Tabla de contingencia**.
 
 
@@ -138,7 +139,7 @@ Table: (\#tab:tcont)Tabla de frecuencias conjunta del pH y el extracto seco tota
 
 Si partimos de la distribución conjunta, podemos obtener la de cada
 una de las variables (marginal) y estudiarla como datos univariantes.
-Basta con hacer las sumas por columnas, $(X)$, o por filas, $(Y)$:
+Basta con hacer las sumas por filas (para la marginal de $X$), o por columnas, (para la marginal de $Y$):
 
 * Frecuencias marginales de $X$: 
   + Absolutas: $n_{i\cdot} = \sum\limits_{j = 1}^{n_j}n_{ij}$
@@ -165,12 +166,12 @@ respectivamente.
 
 
 ```{=html}
-<div id="beuflrehlz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="yingomgtct" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#beuflrehlz .gt_table {
+#yingomgtct .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -195,7 +196,7 @@ respectivamente.
   border-left-color: #D3D3D3;
 }
 
-#beuflrehlz .gt_heading {
+#yingomgtct .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -207,7 +208,12 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#beuflrehlz .gt_title {
+#yingomgtct .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#yingomgtct .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -219,7 +225,7 @@ respectivamente.
   border-bottom-width: 0;
 }
 
-#beuflrehlz .gt_subtitle {
+#yingomgtct .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -231,13 +237,13 @@ respectivamente.
   border-top-width: 0;
 }
 
-#beuflrehlz .gt_bottom_border {
+#yingomgtct .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#beuflrehlz .gt_col_headings {
+#yingomgtct .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -252,7 +258,7 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#beuflrehlz .gt_col_heading {
+#yingomgtct .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -272,7 +278,7 @@ respectivamente.
   overflow-x: hidden;
 }
 
-#beuflrehlz .gt_column_spanner_outer {
+#yingomgtct .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -284,15 +290,15 @@ respectivamente.
   padding-right: 4px;
 }
 
-#beuflrehlz .gt_column_spanner_outer:first-child {
+#yingomgtct .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#beuflrehlz .gt_column_spanner_outer:last-child {
+#yingomgtct .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#beuflrehlz .gt_column_spanner {
+#yingomgtct .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -304,7 +310,7 @@ respectivamente.
   width: 100%;
 }
 
-#beuflrehlz .gt_group_heading {
+#yingomgtct .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -327,9 +333,10 @@ respectivamente.
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
+  text-align: left;
 }
 
-#beuflrehlz .gt_empty_group_heading {
+#yingomgtct .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -344,15 +351,15 @@ respectivamente.
   vertical-align: middle;
 }
 
-#beuflrehlz .gt_from_md > :first-child {
+#yingomgtct .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#beuflrehlz .gt_from_md > :last-child {
+#yingomgtct .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#beuflrehlz .gt_row {
+#yingomgtct .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -371,7 +378,7 @@ respectivamente.
   overflow-x: hidden;
 }
 
-#beuflrehlz .gt_stub {
+#yingomgtct .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -384,7 +391,7 @@ respectivamente.
   padding-right: 5px;
 }
 
-#beuflrehlz .gt_stub_row_group {
+#yingomgtct .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -398,11 +405,11 @@ respectivamente.
   vertical-align: top;
 }
 
-#beuflrehlz .gt_row_group_first td {
+#yingomgtct .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#beuflrehlz .gt_summary_row {
+#yingomgtct .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -412,16 +419,16 @@ respectivamente.
   padding-right: 5px;
 }
 
-#beuflrehlz .gt_first_summary_row {
+#yingomgtct .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#beuflrehlz .gt_first_summary_row.thick {
+#yingomgtct .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#beuflrehlz .gt_last_summary_row {
+#yingomgtct .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -431,7 +438,7 @@ respectivamente.
   border-bottom-color: #D3D3D3;
 }
 
-#beuflrehlz .gt_grand_summary_row {
+#yingomgtct .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -441,7 +448,7 @@ respectivamente.
   padding-right: 5px;
 }
 
-#beuflrehlz .gt_first_grand_summary_row {
+#yingomgtct .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -451,11 +458,11 @@ respectivamente.
   border-top-color: #D3D3D3;
 }
 
-#beuflrehlz .gt_striped {
+#yingomgtct .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#beuflrehlz .gt_table_body {
+#yingomgtct .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -464,7 +471,7 @@ respectivamente.
   border-bottom-color: #D3D3D3;
 }
 
-#beuflrehlz .gt_footnotes {
+#yingomgtct .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -478,7 +485,7 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#beuflrehlz .gt_footnote {
+#yingomgtct .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -487,7 +494,7 @@ respectivamente.
   padding-right: 5px;
 }
 
-#beuflrehlz .gt_sourcenotes {
+#yingomgtct .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -501,7 +508,7 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#beuflrehlz .gt_sourcenote {
+#yingomgtct .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -509,72 +516,65 @@ respectivamente.
   padding-right: 5px;
 }
 
-#beuflrehlz .gt_left {
+#yingomgtct .gt_left {
   text-align: left;
 }
 
-#beuflrehlz .gt_center {
+#yingomgtct .gt_center {
   text-align: center;
 }
 
-#beuflrehlz .gt_right {
+#yingomgtct .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#beuflrehlz .gt_font_normal {
+#yingomgtct .gt_font_normal {
   font-weight: normal;
 }
 
-#beuflrehlz .gt_font_bold {
+#yingomgtct .gt_font_bold {
   font-weight: bold;
 }
 
-#beuflrehlz .gt_font_italic {
+#yingomgtct .gt_font_italic {
   font-style: italic;
 }
 
-#beuflrehlz .gt_super {
+#yingomgtct .gt_super {
   font-size: 65%;
 }
 
-#beuflrehlz .gt_two_val_uncert {
-  display: inline-block;
-  line-height: 1em;
-  text-align: right;
-  font-size: 60%;
-  vertical-align: -0.25em;
-  margin-left: 0.1em;
-}
-
-#beuflrehlz .gt_footnote_marks {
+#yingomgtct .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#beuflrehlz .gt_asterisk {
+#yingomgtct .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#beuflrehlz .gt_slash_mark {
-  font-size: 0.7em;
-  line-height: 0.7em;
-  vertical-align: 0.15em;
+#yingomgtct .gt_indent_1 {
+  text-indent: 5px;
 }
 
-#beuflrehlz .gt_fraction_numerator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.45em;
+#yingomgtct .gt_indent_2 {
+  text-indent: 10px;
 }
 
-#beuflrehlz .gt_fraction_denominator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: -0.05em;
+#yingomgtct .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#yingomgtct .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#yingomgtct .gt_indent_5 {
+  text-indent: 25px;
 }
 </style>
 <table class="gt_table">
@@ -582,93 +582,93 @@ respectivamente.
   
   <thead class="gt_col_headings">
     <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">X\Y</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">(28,30]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">(30,32]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">(32,34]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">(34,36]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">(36,38]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Sum</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="X\Y">X\Y</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="(28,30]">(28,30]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="(30,32]">(30,32]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="(32,34]">(32,34]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="(34,36]">(34,36]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="(36,38]">(36,38]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Sum">Sum</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">(6.35,6.4]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">1</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">1</td></tr>
-    <tr><td class="gt_row gt_left">(6.4,6.45]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">0</td></tr>
-    <tr><td class="gt_row gt_left">(6.45,6.5]</td>
-<td class="gt_row gt_right">1</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">3</td></tr>
-    <tr><td class="gt_row gt_left">(6.5,6.55]</td>
-<td class="gt_row gt_right">3</td>
-<td class="gt_row gt_right">50</td>
-<td class="gt_row gt_right">1</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">54</td></tr>
-    <tr><td class="gt_row gt_left">(6.55,6.6]</td>
-<td class="gt_row gt_right">17</td>
-<td class="gt_row gt_right">129</td>
-<td class="gt_row gt_right">36</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">184</td></tr>
-    <tr><td class="gt_row gt_left">(6.6,6.65]</td>
-<td class="gt_row gt_right">18</td>
-<td class="gt_row gt_right">195</td>
-<td class="gt_row gt_right">167</td>
-<td class="gt_row gt_right">20</td>
-<td class="gt_row gt_right">4</td>
-<td class="gt_row gt_right" style="font-weight: bold;">404</td></tr>
-    <tr><td class="gt_row gt_left">(6.65,6.7]</td>
-<td class="gt_row gt_right">9</td>
-<td class="gt_row gt_right">160</td>
-<td class="gt_row gt_right">182</td>
-<td class="gt_row gt_right">18</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">369</td></tr>
-    <tr><td class="gt_row gt_left">(6.7,6.75]</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">53</td>
-<td class="gt_row gt_right">70</td>
-<td class="gt_row gt_right">4</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">129</td></tr>
-    <tr><td class="gt_row gt_left">(6.75,6.8]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">9</td>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right" style="font-weight: bold;">21</td></tr>
-    <tr><td class="gt_row gt_left">(6.8,6.85]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">4</td>
-<td class="gt_row gt_right">1</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">1</td>
-<td class="gt_row gt_right" style="font-weight: bold;">6</td></tr>
-    <tr><td class="gt_row gt_left" style="font-weight: bold;">Sum</td>
-<td class="gt_row gt_right" style="font-weight: bold;">50</td>
-<td class="gt_row gt_right" style="font-weight: bold;">602</td>
-<td class="gt_row gt_right" style="font-weight: bold;">468</td>
-<td class="gt_row gt_right" style="font-weight: bold;">46</td>
-<td class="gt_row gt_right" style="font-weight: bold;">5</td>
-<td class="gt_row gt_right" style="font-weight: bold;">1171</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.35,6.4]</td>
+<td headers="(28,30]" class="gt_row gt_right">0</td>
+<td headers="(30,32]" class="gt_row gt_right">0</td>
+<td headers="(32,34]" class="gt_row gt_right">1</td>
+<td headers="(34,36]" class="gt_row gt_right">0</td>
+<td headers="(36,38]" class="gt_row gt_right">0</td>
+<td headers="Sum" class="gt_row gt_right" style="font-weight: bold;">1</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.4,6.45]</td>
+<td headers="(28,30]" class="gt_row gt_right">0</td>
+<td headers="(30,32]" class="gt_row gt_right">0</td>
+<td headers="(32,34]" class="gt_row gt_right">0</td>
+<td headers="(34,36]" class="gt_row gt_right">0</td>
+<td headers="(36,38]" class="gt_row gt_right">0</td>
+<td headers="Sum" class="gt_row gt_right" style="font-weight: bold;">0</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.45,6.5]</td>
+<td headers="(28,30]" class="gt_row gt_right">1</td>
+<td headers="(30,32]" class="gt_row gt_right">2</td>
+<td headers="(32,34]" class="gt_row gt_right">0</td>
+<td headers="(34,36]" class="gt_row gt_right">0</td>
+<td headers="(36,38]" class="gt_row gt_right">0</td>
+<td headers="Sum" class="gt_row gt_right" style="font-weight: bold;">3</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.5,6.55]</td>
+<td headers="(28,30]" class="gt_row gt_right">3</td>
+<td headers="(30,32]" class="gt_row gt_right">50</td>
+<td headers="(32,34]" class="gt_row gt_right">1</td>
+<td headers="(34,36]" class="gt_row gt_right">0</td>
+<td headers="(36,38]" class="gt_row gt_right">0</td>
+<td headers="Sum" class="gt_row gt_right" style="font-weight: bold;">54</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.55,6.6]</td>
+<td headers="(28,30]" class="gt_row gt_right">17</td>
+<td headers="(30,32]" class="gt_row gt_right">129</td>
+<td headers="(32,34]" class="gt_row gt_right">36</td>
+<td headers="(34,36]" class="gt_row gt_right">2</td>
+<td headers="(36,38]" class="gt_row gt_right">0</td>
+<td headers="Sum" class="gt_row gt_right" style="font-weight: bold;">184</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.6,6.65]</td>
+<td headers="(28,30]" class="gt_row gt_right">18</td>
+<td headers="(30,32]" class="gt_row gt_right">195</td>
+<td headers="(32,34]" class="gt_row gt_right">167</td>
+<td headers="(34,36]" class="gt_row gt_right">20</td>
+<td headers="(36,38]" class="gt_row gt_right">4</td>
+<td headers="Sum" class="gt_row gt_right" style="font-weight: bold;">404</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.65,6.7]</td>
+<td headers="(28,30]" class="gt_row gt_right">9</td>
+<td headers="(30,32]" class="gt_row gt_right">160</td>
+<td headers="(32,34]" class="gt_row gt_right">182</td>
+<td headers="(34,36]" class="gt_row gt_right">18</td>
+<td headers="(36,38]" class="gt_row gt_right">0</td>
+<td headers="Sum" class="gt_row gt_right" style="font-weight: bold;">369</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.7,6.75]</td>
+<td headers="(28,30]" class="gt_row gt_right">2</td>
+<td headers="(30,32]" class="gt_row gt_right">53</td>
+<td headers="(32,34]" class="gt_row gt_right">70</td>
+<td headers="(34,36]" class="gt_row gt_right">4</td>
+<td headers="(36,38]" class="gt_row gt_right">0</td>
+<td headers="Sum" class="gt_row gt_right" style="font-weight: bold;">129</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.75,6.8]</td>
+<td headers="(28,30]" class="gt_row gt_right">0</td>
+<td headers="(30,32]" class="gt_row gt_right">9</td>
+<td headers="(32,34]" class="gt_row gt_right">10</td>
+<td headers="(34,36]" class="gt_row gt_right">2</td>
+<td headers="(36,38]" class="gt_row gt_right">0</td>
+<td headers="Sum" class="gt_row gt_right" style="font-weight: bold;">21</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.8,6.85]</td>
+<td headers="(28,30]" class="gt_row gt_right">0</td>
+<td headers="(30,32]" class="gt_row gt_right">4</td>
+<td headers="(32,34]" class="gt_row gt_right">1</td>
+<td headers="(34,36]" class="gt_row gt_right">0</td>
+<td headers="(36,38]" class="gt_row gt_right">1</td>
+<td headers="Sum" class="gt_row gt_right" style="font-weight: bold;">6</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left" style="font-weight: bold;">Sum</td>
+<td headers="(28,30]" class="gt_row gt_right" style="font-weight: bold;">50</td>
+<td headers="(30,32]" class="gt_row gt_right" style="font-weight: bold;">602</td>
+<td headers="(32,34]" class="gt_row gt_right" style="font-weight: bold;">468</td>
+<td headers="(34,36]" class="gt_row gt_right" style="font-weight: bold;">46</td>
+<td headers="(36,38]" class="gt_row gt_right" style="font-weight: bold;">5</td>
+<td headers="Sum" class="gt_row gt_right" style="font-weight: bold;">1171</td></tr>
   </tbody>
   
   
@@ -680,12 +680,12 @@ respectivamente.
 
 
 ```{=html}
-<div id="jfpkflfnxu" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ymarapsrqt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#jfpkflfnxu .gt_table {
+#ymarapsrqt .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -710,7 +710,7 @@ respectivamente.
   border-left-color: #D3D3D3;
 }
 
-#jfpkflfnxu .gt_heading {
+#ymarapsrqt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -722,7 +722,12 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#jfpkflfnxu .gt_title {
+#ymarapsrqt .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ymarapsrqt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -734,7 +739,7 @@ respectivamente.
   border-bottom-width: 0;
 }
 
-#jfpkflfnxu .gt_subtitle {
+#ymarapsrqt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -746,13 +751,13 @@ respectivamente.
   border-top-width: 0;
 }
 
-#jfpkflfnxu .gt_bottom_border {
+#ymarapsrqt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jfpkflfnxu .gt_col_headings {
+#ymarapsrqt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -767,7 +772,7 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#jfpkflfnxu .gt_col_heading {
+#ymarapsrqt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -787,7 +792,7 @@ respectivamente.
   overflow-x: hidden;
 }
 
-#jfpkflfnxu .gt_column_spanner_outer {
+#ymarapsrqt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -799,15 +804,15 @@ respectivamente.
   padding-right: 4px;
 }
 
-#jfpkflfnxu .gt_column_spanner_outer:first-child {
+#ymarapsrqt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jfpkflfnxu .gt_column_spanner_outer:last-child {
+#ymarapsrqt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jfpkflfnxu .gt_column_spanner {
+#ymarapsrqt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -819,7 +824,7 @@ respectivamente.
   width: 100%;
 }
 
-#jfpkflfnxu .gt_group_heading {
+#ymarapsrqt .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -842,9 +847,10 @@ respectivamente.
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
+  text-align: left;
 }
 
-#jfpkflfnxu .gt_empty_group_heading {
+#ymarapsrqt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -859,15 +865,15 @@ respectivamente.
   vertical-align: middle;
 }
 
-#jfpkflfnxu .gt_from_md > :first-child {
+#ymarapsrqt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jfpkflfnxu .gt_from_md > :last-child {
+#ymarapsrqt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jfpkflfnxu .gt_row {
+#ymarapsrqt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -886,7 +892,7 @@ respectivamente.
   overflow-x: hidden;
 }
 
-#jfpkflfnxu .gt_stub {
+#ymarapsrqt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -899,7 +905,7 @@ respectivamente.
   padding-right: 5px;
 }
 
-#jfpkflfnxu .gt_stub_row_group {
+#ymarapsrqt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -913,11 +919,11 @@ respectivamente.
   vertical-align: top;
 }
 
-#jfpkflfnxu .gt_row_group_first td {
+#ymarapsrqt .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jfpkflfnxu .gt_summary_row {
+#ymarapsrqt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -927,16 +933,16 @@ respectivamente.
   padding-right: 5px;
 }
 
-#jfpkflfnxu .gt_first_summary_row {
+#ymarapsrqt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jfpkflfnxu .gt_first_summary_row.thick {
+#ymarapsrqt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jfpkflfnxu .gt_last_summary_row {
+#ymarapsrqt .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -946,7 +952,7 @@ respectivamente.
   border-bottom-color: #D3D3D3;
 }
 
-#jfpkflfnxu .gt_grand_summary_row {
+#ymarapsrqt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -956,7 +962,7 @@ respectivamente.
   padding-right: 5px;
 }
 
-#jfpkflfnxu .gt_first_grand_summary_row {
+#ymarapsrqt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -966,11 +972,11 @@ respectivamente.
   border-top-color: #D3D3D3;
 }
 
-#jfpkflfnxu .gt_striped {
+#ymarapsrqt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jfpkflfnxu .gt_table_body {
+#ymarapsrqt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -979,7 +985,7 @@ respectivamente.
   border-bottom-color: #D3D3D3;
 }
 
-#jfpkflfnxu .gt_footnotes {
+#ymarapsrqt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -993,7 +999,7 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#jfpkflfnxu .gt_footnote {
+#ymarapsrqt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1002,7 +1008,7 @@ respectivamente.
   padding-right: 5px;
 }
 
-#jfpkflfnxu .gt_sourcenotes {
+#ymarapsrqt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1016,7 +1022,7 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#jfpkflfnxu .gt_sourcenote {
+#ymarapsrqt .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1024,72 +1030,65 @@ respectivamente.
   padding-right: 5px;
 }
 
-#jfpkflfnxu .gt_left {
+#ymarapsrqt .gt_left {
   text-align: left;
 }
 
-#jfpkflfnxu .gt_center {
+#ymarapsrqt .gt_center {
   text-align: center;
 }
 
-#jfpkflfnxu .gt_right {
+#ymarapsrqt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jfpkflfnxu .gt_font_normal {
+#ymarapsrqt .gt_font_normal {
   font-weight: normal;
 }
 
-#jfpkflfnxu .gt_font_bold {
+#ymarapsrqt .gt_font_bold {
   font-weight: bold;
 }
 
-#jfpkflfnxu .gt_font_italic {
+#ymarapsrqt .gt_font_italic {
   font-style: italic;
 }
 
-#jfpkflfnxu .gt_super {
+#ymarapsrqt .gt_super {
   font-size: 65%;
 }
 
-#jfpkflfnxu .gt_two_val_uncert {
-  display: inline-block;
-  line-height: 1em;
-  text-align: right;
-  font-size: 60%;
-  vertical-align: -0.25em;
-  margin-left: 0.1em;
-}
-
-#jfpkflfnxu .gt_footnote_marks {
+#ymarapsrqt .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#jfpkflfnxu .gt_asterisk {
+#ymarapsrqt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jfpkflfnxu .gt_slash_mark {
-  font-size: 0.7em;
-  line-height: 0.7em;
-  vertical-align: 0.15em;
+#ymarapsrqt .gt_indent_1 {
+  text-indent: 5px;
 }
 
-#jfpkflfnxu .gt_fraction_numerator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.45em;
+#ymarapsrqt .gt_indent_2 {
+  text-indent: 10px;
 }
 
-#jfpkflfnxu .gt_fraction_denominator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: -0.05em;
+#ymarapsrqt .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ymarapsrqt .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ymarapsrqt .gt_indent_5 {
+  text-indent: 25px;
 }
 </style>
 <table class="gt_table">
@@ -1097,45 +1096,45 @@ respectivamente.
   
   <thead class="gt_col_headings">
     <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">\(x_i\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(n_{i·}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(f_{i·}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="\(x_i\)">\(x_i\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(n_{i·}\)">\(n_{i·}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(f_{i·}\)">\(f_{i·}\)</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">(6.35,6.4]</td>
-<td class="gt_row gt_right">1</td>
-<td class="gt_row gt_right">0.001</td></tr>
-    <tr><td class="gt_row gt_left">(6.4,6.45]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0.000</td></tr>
-    <tr><td class="gt_row gt_left">(6.45,6.5]</td>
-<td class="gt_row gt_right">3</td>
-<td class="gt_row gt_right">0.003</td></tr>
-    <tr><td class="gt_row gt_left">(6.5,6.55]</td>
-<td class="gt_row gt_right">54</td>
-<td class="gt_row gt_right">0.046</td></tr>
-    <tr><td class="gt_row gt_left">(6.55,6.6]</td>
-<td class="gt_row gt_right">184</td>
-<td class="gt_row gt_right">0.157</td></tr>
-    <tr><td class="gt_row gt_left">(6.6,6.65]</td>
-<td class="gt_row gt_right">404</td>
-<td class="gt_row gt_right">0.345</td></tr>
-    <tr><td class="gt_row gt_left">(6.65,6.7]</td>
-<td class="gt_row gt_right">369</td>
-<td class="gt_row gt_right">0.315</td></tr>
-    <tr><td class="gt_row gt_left">(6.7,6.75]</td>
-<td class="gt_row gt_right">129</td>
-<td class="gt_row gt_right">0.110</td></tr>
-    <tr><td class="gt_row gt_left">(6.75,6.8]</td>
-<td class="gt_row gt_right">21</td>
-<td class="gt_row gt_right">0.018</td></tr>
-    <tr><td class="gt_row gt_left">(6.8,6.85]</td>
-<td class="gt_row gt_right">6</td>
-<td class="gt_row gt_right">0.005</td></tr>
-    <tr><td class="gt_row gt_left">Sum</td>
-<td class="gt_row gt_right">1171</td>
-<td class="gt_row gt_right">1.000</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.35,6.4]</td>
+<td headers="Sum" class="gt_row gt_right">1</td>
+<td headers="rel" class="gt_row gt_right">0.001</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.4,6.45]</td>
+<td headers="Sum" class="gt_row gt_right">0</td>
+<td headers="rel" class="gt_row gt_right">0.000</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.45,6.5]</td>
+<td headers="Sum" class="gt_row gt_right">3</td>
+<td headers="rel" class="gt_row gt_right">0.003</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.5,6.55]</td>
+<td headers="Sum" class="gt_row gt_right">54</td>
+<td headers="rel" class="gt_row gt_right">0.046</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.55,6.6]</td>
+<td headers="Sum" class="gt_row gt_right">184</td>
+<td headers="rel" class="gt_row gt_right">0.157</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.6,6.65]</td>
+<td headers="Sum" class="gt_row gt_right">404</td>
+<td headers="rel" class="gt_row gt_right">0.345</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.65,6.7]</td>
+<td headers="Sum" class="gt_row gt_right">369</td>
+<td headers="rel" class="gt_row gt_right">0.315</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.7,6.75]</td>
+<td headers="Sum" class="gt_row gt_right">129</td>
+<td headers="rel" class="gt_row gt_right">0.110</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.75,6.8]</td>
+<td headers="Sum" class="gt_row gt_right">21</td>
+<td headers="rel" class="gt_row gt_right">0.018</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">(6.8,6.85]</td>
+<td headers="Sum" class="gt_row gt_right">6</td>
+<td headers="rel" class="gt_row gt_right">0.005</td></tr>
+    <tr><td headers="X\Y" class="gt_row gt_left">Sum</td>
+<td headers="Sum" class="gt_row gt_right">1171</td>
+<td headers="rel" class="gt_row gt_right">1.000</td></tr>
   </tbody>
   
   
@@ -1146,12 +1145,12 @@ respectivamente.
 
 
 ```{=html}
-<div id="hcygrdxtxt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="guzakzybah" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#hcygrdxtxt .gt_table {
+#guzakzybah .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1176,7 +1175,7 @@ respectivamente.
   border-left-color: #D3D3D3;
 }
 
-#hcygrdxtxt .gt_heading {
+#guzakzybah .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1188,7 +1187,12 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#hcygrdxtxt .gt_title {
+#guzakzybah .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#guzakzybah .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1200,7 +1204,7 @@ respectivamente.
   border-bottom-width: 0;
 }
 
-#hcygrdxtxt .gt_subtitle {
+#guzakzybah .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1212,13 +1216,13 @@ respectivamente.
   border-top-width: 0;
 }
 
-#hcygrdxtxt .gt_bottom_border {
+#guzakzybah .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hcygrdxtxt .gt_col_headings {
+#guzakzybah .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1233,7 +1237,7 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#hcygrdxtxt .gt_col_heading {
+#guzakzybah .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1253,7 +1257,7 @@ respectivamente.
   overflow-x: hidden;
 }
 
-#hcygrdxtxt .gt_column_spanner_outer {
+#guzakzybah .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1265,15 +1269,15 @@ respectivamente.
   padding-right: 4px;
 }
 
-#hcygrdxtxt .gt_column_spanner_outer:first-child {
+#guzakzybah .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hcygrdxtxt .gt_column_spanner_outer:last-child {
+#guzakzybah .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hcygrdxtxt .gt_column_spanner {
+#guzakzybah .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1285,7 +1289,7 @@ respectivamente.
   width: 100%;
 }
 
-#hcygrdxtxt .gt_group_heading {
+#guzakzybah .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1308,9 +1312,10 @@ respectivamente.
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
+  text-align: left;
 }
 
-#hcygrdxtxt .gt_empty_group_heading {
+#guzakzybah .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1325,15 +1330,15 @@ respectivamente.
   vertical-align: middle;
 }
 
-#hcygrdxtxt .gt_from_md > :first-child {
+#guzakzybah .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hcygrdxtxt .gt_from_md > :last-child {
+#guzakzybah .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hcygrdxtxt .gt_row {
+#guzakzybah .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1352,7 +1357,7 @@ respectivamente.
   overflow-x: hidden;
 }
 
-#hcygrdxtxt .gt_stub {
+#guzakzybah .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1365,7 +1370,7 @@ respectivamente.
   padding-right: 5px;
 }
 
-#hcygrdxtxt .gt_stub_row_group {
+#guzakzybah .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1379,11 +1384,11 @@ respectivamente.
   vertical-align: top;
 }
 
-#hcygrdxtxt .gt_row_group_first td {
+#guzakzybah .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hcygrdxtxt .gt_summary_row {
+#guzakzybah .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1393,16 +1398,16 @@ respectivamente.
   padding-right: 5px;
 }
 
-#hcygrdxtxt .gt_first_summary_row {
+#guzakzybah .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hcygrdxtxt .gt_first_summary_row.thick {
+#guzakzybah .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hcygrdxtxt .gt_last_summary_row {
+#guzakzybah .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1412,7 +1417,7 @@ respectivamente.
   border-bottom-color: #D3D3D3;
 }
 
-#hcygrdxtxt .gt_grand_summary_row {
+#guzakzybah .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1422,7 +1427,7 @@ respectivamente.
   padding-right: 5px;
 }
 
-#hcygrdxtxt .gt_first_grand_summary_row {
+#guzakzybah .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1432,11 +1437,11 @@ respectivamente.
   border-top-color: #D3D3D3;
 }
 
-#hcygrdxtxt .gt_striped {
+#guzakzybah .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hcygrdxtxt .gt_table_body {
+#guzakzybah .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1445,7 +1450,7 @@ respectivamente.
   border-bottom-color: #D3D3D3;
 }
 
-#hcygrdxtxt .gt_footnotes {
+#guzakzybah .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1459,7 +1464,7 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#hcygrdxtxt .gt_footnote {
+#guzakzybah .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1468,7 +1473,7 @@ respectivamente.
   padding-right: 5px;
 }
 
-#hcygrdxtxt .gt_sourcenotes {
+#guzakzybah .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1482,7 +1487,7 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#hcygrdxtxt .gt_sourcenote {
+#guzakzybah .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1490,72 +1495,65 @@ respectivamente.
   padding-right: 5px;
 }
 
-#hcygrdxtxt .gt_left {
+#guzakzybah .gt_left {
   text-align: left;
 }
 
-#hcygrdxtxt .gt_center {
+#guzakzybah .gt_center {
   text-align: center;
 }
 
-#hcygrdxtxt .gt_right {
+#guzakzybah .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hcygrdxtxt .gt_font_normal {
+#guzakzybah .gt_font_normal {
   font-weight: normal;
 }
 
-#hcygrdxtxt .gt_font_bold {
+#guzakzybah .gt_font_bold {
   font-weight: bold;
 }
 
-#hcygrdxtxt .gt_font_italic {
+#guzakzybah .gt_font_italic {
   font-style: italic;
 }
 
-#hcygrdxtxt .gt_super {
+#guzakzybah .gt_super {
   font-size: 65%;
 }
 
-#hcygrdxtxt .gt_two_val_uncert {
-  display: inline-block;
-  line-height: 1em;
-  text-align: right;
-  font-size: 60%;
-  vertical-align: -0.25em;
-  margin-left: 0.1em;
-}
-
-#hcygrdxtxt .gt_footnote_marks {
+#guzakzybah .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#hcygrdxtxt .gt_asterisk {
+#guzakzybah .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hcygrdxtxt .gt_slash_mark {
-  font-size: 0.7em;
-  line-height: 0.7em;
-  vertical-align: 0.15em;
+#guzakzybah .gt_indent_1 {
+  text-indent: 5px;
 }
 
-#hcygrdxtxt .gt_fraction_numerator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.45em;
+#guzakzybah .gt_indent_2 {
+  text-indent: 10px;
 }
 
-#hcygrdxtxt .gt_fraction_denominator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: -0.05em;
+#guzakzybah .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#guzakzybah .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#guzakzybah .gt_indent_5 {
+  text-indent: 25px;
 }
 </style>
 <table class="gt_table">
@@ -1563,30 +1561,30 @@ respectivamente.
   
   <thead class="gt_col_headings">
     <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">\(y_j\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(n_{·j}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(f_{·j}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="\(y_j\)">\(y_j\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(n_{·j}\)">\(n_{·j}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(f_{·j}\)">\(f_{·j}\)</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">(28,30]</td>
-<td class="gt_row gt_right">50</td>
-<td class="gt_row gt_right">0.043</td></tr>
-    <tr><td class="gt_row gt_left">(30,32]</td>
-<td class="gt_row gt_right">602</td>
-<td class="gt_row gt_right">0.514</td></tr>
-    <tr><td class="gt_row gt_left">(32,34]</td>
-<td class="gt_row gt_right">468</td>
-<td class="gt_row gt_right">0.400</td></tr>
-    <tr><td class="gt_row gt_left">(34,36]</td>
-<td class="gt_row gt_right">46</td>
-<td class="gt_row gt_right">0.039</td></tr>
-    <tr><td class="gt_row gt_left">(36,38]</td>
-<td class="gt_row gt_right">5</td>
-<td class="gt_row gt_right">0.004</td></tr>
-    <tr><td class="gt_row gt_left">Sum</td>
-<td class="gt_row gt_right">1171</td>
-<td class="gt_row gt_right">1.000</td></tr>
+    <tr><td headers="Y" class="gt_row gt_left">(28,30]</td>
+<td headers="V1" class="gt_row gt_right">50</td>
+<td headers="rel" class="gt_row gt_right">0.043</td></tr>
+    <tr><td headers="Y" class="gt_row gt_left">(30,32]</td>
+<td headers="V1" class="gt_row gt_right">602</td>
+<td headers="rel" class="gt_row gt_right">0.514</td></tr>
+    <tr><td headers="Y" class="gt_row gt_left">(32,34]</td>
+<td headers="V1" class="gt_row gt_right">468</td>
+<td headers="rel" class="gt_row gt_right">0.400</td></tr>
+    <tr><td headers="Y" class="gt_row gt_left">(34,36]</td>
+<td headers="V1" class="gt_row gt_right">46</td>
+<td headers="rel" class="gt_row gt_right">0.039</td></tr>
+    <tr><td headers="Y" class="gt_row gt_left">(36,38]</td>
+<td headers="V1" class="gt_row gt_right">5</td>
+<td headers="rel" class="gt_row gt_right">0.004</td></tr>
+    <tr><td headers="Y" class="gt_row gt_left">Sum</td>
+<td headers="V1" class="gt_row gt_right">1171</td>
+<td headers="rel" class="gt_row gt_right">1.000</td></tr>
   </tbody>
   
   
@@ -1626,12 +1624,12 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
 
 
 ```{=html}
-<div id="dhcenhqnut" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="kaqcoutgzm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#dhcenhqnut .gt_table {
+#kaqcoutgzm .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1656,7 +1654,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-left-color: #D3D3D3;
 }
 
-#dhcenhqnut .gt_heading {
+#kaqcoutgzm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1668,7 +1666,12 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-right-color: #D3D3D3;
 }
 
-#dhcenhqnut .gt_title {
+#kaqcoutgzm .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#kaqcoutgzm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1680,7 +1683,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-bottom-width: 0;
 }
 
-#dhcenhqnut .gt_subtitle {
+#kaqcoutgzm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1692,13 +1695,13 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-top-width: 0;
 }
 
-#dhcenhqnut .gt_bottom_border {
+#kaqcoutgzm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dhcenhqnut .gt_col_headings {
+#kaqcoutgzm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1713,7 +1716,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-right-color: #D3D3D3;
 }
 
-#dhcenhqnut .gt_col_heading {
+#kaqcoutgzm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1733,7 +1736,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   overflow-x: hidden;
 }
 
-#dhcenhqnut .gt_column_spanner_outer {
+#kaqcoutgzm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1745,15 +1748,15 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 4px;
 }
 
-#dhcenhqnut .gt_column_spanner_outer:first-child {
+#kaqcoutgzm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dhcenhqnut .gt_column_spanner_outer:last-child {
+#kaqcoutgzm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dhcenhqnut .gt_column_spanner {
+#kaqcoutgzm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1765,7 +1768,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   width: 100%;
 }
 
-#dhcenhqnut .gt_group_heading {
+#kaqcoutgzm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1788,9 +1791,10 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
+  text-align: left;
 }
 
-#dhcenhqnut .gt_empty_group_heading {
+#kaqcoutgzm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1805,15 +1809,15 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   vertical-align: middle;
 }
 
-#dhcenhqnut .gt_from_md > :first-child {
+#kaqcoutgzm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dhcenhqnut .gt_from_md > :last-child {
+#kaqcoutgzm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dhcenhqnut .gt_row {
+#kaqcoutgzm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1832,7 +1836,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   overflow-x: hidden;
 }
 
-#dhcenhqnut .gt_stub {
+#kaqcoutgzm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1845,7 +1849,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#dhcenhqnut .gt_stub_row_group {
+#kaqcoutgzm .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1859,11 +1863,11 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   vertical-align: top;
 }
 
-#dhcenhqnut .gt_row_group_first td {
+#kaqcoutgzm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dhcenhqnut .gt_summary_row {
+#kaqcoutgzm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1873,16 +1877,16 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#dhcenhqnut .gt_first_summary_row {
+#kaqcoutgzm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dhcenhqnut .gt_first_summary_row.thick {
+#kaqcoutgzm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dhcenhqnut .gt_last_summary_row {
+#kaqcoutgzm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1892,7 +1896,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-bottom-color: #D3D3D3;
 }
 
-#dhcenhqnut .gt_grand_summary_row {
+#kaqcoutgzm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1902,7 +1906,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#dhcenhqnut .gt_first_grand_summary_row {
+#kaqcoutgzm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1912,11 +1916,11 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-top-color: #D3D3D3;
 }
 
-#dhcenhqnut .gt_striped {
+#kaqcoutgzm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dhcenhqnut .gt_table_body {
+#kaqcoutgzm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1925,7 +1929,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-bottom-color: #D3D3D3;
 }
 
-#dhcenhqnut .gt_footnotes {
+#kaqcoutgzm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1939,7 +1943,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-right-color: #D3D3D3;
 }
 
-#dhcenhqnut .gt_footnote {
+#kaqcoutgzm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1948,7 +1952,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#dhcenhqnut .gt_sourcenotes {
+#kaqcoutgzm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1962,7 +1966,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-right-color: #D3D3D3;
 }
 
-#dhcenhqnut .gt_sourcenote {
+#kaqcoutgzm .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1970,72 +1974,65 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#dhcenhqnut .gt_left {
+#kaqcoutgzm .gt_left {
   text-align: left;
 }
 
-#dhcenhqnut .gt_center {
+#kaqcoutgzm .gt_center {
   text-align: center;
 }
 
-#dhcenhqnut .gt_right {
+#kaqcoutgzm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dhcenhqnut .gt_font_normal {
+#kaqcoutgzm .gt_font_normal {
   font-weight: normal;
 }
 
-#dhcenhqnut .gt_font_bold {
+#kaqcoutgzm .gt_font_bold {
   font-weight: bold;
 }
 
-#dhcenhqnut .gt_font_italic {
+#kaqcoutgzm .gt_font_italic {
   font-style: italic;
 }
 
-#dhcenhqnut .gt_super {
+#kaqcoutgzm .gt_super {
   font-size: 65%;
 }
 
-#dhcenhqnut .gt_two_val_uncert {
-  display: inline-block;
-  line-height: 1em;
-  text-align: right;
-  font-size: 60%;
-  vertical-align: -0.25em;
-  margin-left: 0.1em;
-}
-
-#dhcenhqnut .gt_footnote_marks {
+#kaqcoutgzm .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#dhcenhqnut .gt_asterisk {
+#kaqcoutgzm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dhcenhqnut .gt_slash_mark {
-  font-size: 0.7em;
-  line-height: 0.7em;
-  vertical-align: 0.15em;
+#kaqcoutgzm .gt_indent_1 {
+  text-indent: 5px;
 }
 
-#dhcenhqnut .gt_fraction_numerator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.45em;
+#kaqcoutgzm .gt_indent_2 {
+  text-indent: 10px;
 }
 
-#dhcenhqnut .gt_fraction_denominator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: -0.05em;
+#kaqcoutgzm .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#kaqcoutgzm .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#kaqcoutgzm .gt_indent_5 {
+  text-indent: 25px;
 }
 </style>
 <table class="gt_table">
@@ -2043,45 +2040,45 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   
   <thead class="gt_col_headings">
     <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">\(x_i\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(n_{i|j=2}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(f_{i|j=2}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="\(x_i\)">\(x_i\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(n_{i|j=2}\)">\(n_{i|j=2}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(f_{i|j=2}\)">\(f_{i|j=2}\)</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">(6.35,6.4]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0.000</td></tr>
-    <tr><td class="gt_row gt_left">(6.4,6.45]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0.000</td></tr>
-    <tr><td class="gt_row gt_left">(6.45,6.5]</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">0.003</td></tr>
-    <tr><td class="gt_row gt_left">(6.5,6.55]</td>
-<td class="gt_row gt_right">50</td>
-<td class="gt_row gt_right">0.083</td></tr>
-    <tr><td class="gt_row gt_left">(6.55,6.6]</td>
-<td class="gt_row gt_right">129</td>
-<td class="gt_row gt_right">0.214</td></tr>
-    <tr><td class="gt_row gt_left">(6.6,6.65]</td>
-<td class="gt_row gt_right">195</td>
-<td class="gt_row gt_right">0.324</td></tr>
-    <tr><td class="gt_row gt_left">(6.65,6.7]</td>
-<td class="gt_row gt_right">160</td>
-<td class="gt_row gt_right">0.266</td></tr>
-    <tr><td class="gt_row gt_left">(6.7,6.75]</td>
-<td class="gt_row gt_right">53</td>
-<td class="gt_row gt_right">0.088</td></tr>
-    <tr><td class="gt_row gt_left">(6.75,6.8]</td>
-<td class="gt_row gt_right">9</td>
-<td class="gt_row gt_right">0.015</td></tr>
-    <tr><td class="gt_row gt_left">(6.8,6.85]</td>
-<td class="gt_row gt_right">4</td>
-<td class="gt_row gt_right">0.007</td></tr>
-    <tr><td class="gt_row gt_left">Sum</td>
-<td class="gt_row gt_right">602</td>
-<td class="gt_row gt_right">1.000</td></tr>
+    <tr><td headers="X" class="gt_row gt_left">(6.35,6.4]</td>
+<td headers="n" class="gt_row gt_right">0</td>
+<td headers="f" class="gt_row gt_right">0.000</td></tr>
+    <tr><td headers="X" class="gt_row gt_left">(6.4,6.45]</td>
+<td headers="n" class="gt_row gt_right">0</td>
+<td headers="f" class="gt_row gt_right">0.000</td></tr>
+    <tr><td headers="X" class="gt_row gt_left">(6.45,6.5]</td>
+<td headers="n" class="gt_row gt_right">2</td>
+<td headers="f" class="gt_row gt_right">0.003</td></tr>
+    <tr><td headers="X" class="gt_row gt_left">(6.5,6.55]</td>
+<td headers="n" class="gt_row gt_right">50</td>
+<td headers="f" class="gt_row gt_right">0.083</td></tr>
+    <tr><td headers="X" class="gt_row gt_left">(6.55,6.6]</td>
+<td headers="n" class="gt_row gt_right">129</td>
+<td headers="f" class="gt_row gt_right">0.214</td></tr>
+    <tr><td headers="X" class="gt_row gt_left">(6.6,6.65]</td>
+<td headers="n" class="gt_row gt_right">195</td>
+<td headers="f" class="gt_row gt_right">0.324</td></tr>
+    <tr><td headers="X" class="gt_row gt_left">(6.65,6.7]</td>
+<td headers="n" class="gt_row gt_right">160</td>
+<td headers="f" class="gt_row gt_right">0.266</td></tr>
+    <tr><td headers="X" class="gt_row gt_left">(6.7,6.75]</td>
+<td headers="n" class="gt_row gt_right">53</td>
+<td headers="f" class="gt_row gt_right">0.088</td></tr>
+    <tr><td headers="X" class="gt_row gt_left">(6.75,6.8]</td>
+<td headers="n" class="gt_row gt_right">9</td>
+<td headers="f" class="gt_row gt_right">0.015</td></tr>
+    <tr><td headers="X" class="gt_row gt_left">(6.8,6.85]</td>
+<td headers="n" class="gt_row gt_right">4</td>
+<td headers="f" class="gt_row gt_right">0.007</td></tr>
+    <tr><td headers="X" class="gt_row gt_left">Sum</td>
+<td headers="n" class="gt_row gt_right">602</td>
+<td headers="f" class="gt_row gt_right">1.000</td></tr>
   </tbody>
   
   
@@ -2091,12 +2088,12 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
 
 
 ```{=html}
-<div id="exunsnpzzr" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="mrqbzctqbf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#exunsnpzzr .gt_table {
+#mrqbzctqbf .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2121,7 +2118,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-left-color: #D3D3D3;
 }
 
-#exunsnpzzr .gt_heading {
+#mrqbzctqbf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2133,7 +2130,12 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-right-color: #D3D3D3;
 }
 
-#exunsnpzzr .gt_title {
+#mrqbzctqbf .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mrqbzctqbf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2145,7 +2147,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-bottom-width: 0;
 }
 
-#exunsnpzzr .gt_subtitle {
+#mrqbzctqbf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2157,13 +2159,13 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-top-width: 0;
 }
 
-#exunsnpzzr .gt_bottom_border {
+#mrqbzctqbf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#exunsnpzzr .gt_col_headings {
+#mrqbzctqbf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2178,7 +2180,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-right-color: #D3D3D3;
 }
 
-#exunsnpzzr .gt_col_heading {
+#mrqbzctqbf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2198,7 +2200,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   overflow-x: hidden;
 }
 
-#exunsnpzzr .gt_column_spanner_outer {
+#mrqbzctqbf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2210,15 +2212,15 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 4px;
 }
 
-#exunsnpzzr .gt_column_spanner_outer:first-child {
+#mrqbzctqbf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#exunsnpzzr .gt_column_spanner_outer:last-child {
+#mrqbzctqbf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#exunsnpzzr .gt_column_spanner {
+#mrqbzctqbf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2230,7 +2232,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   width: 100%;
 }
 
-#exunsnpzzr .gt_group_heading {
+#mrqbzctqbf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2253,9 +2255,10 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
+  text-align: left;
 }
 
-#exunsnpzzr .gt_empty_group_heading {
+#mrqbzctqbf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2270,15 +2273,15 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   vertical-align: middle;
 }
 
-#exunsnpzzr .gt_from_md > :first-child {
+#mrqbzctqbf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#exunsnpzzr .gt_from_md > :last-child {
+#mrqbzctqbf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#exunsnpzzr .gt_row {
+#mrqbzctqbf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2297,7 +2300,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   overflow-x: hidden;
 }
 
-#exunsnpzzr .gt_stub {
+#mrqbzctqbf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2310,7 +2313,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#exunsnpzzr .gt_stub_row_group {
+#mrqbzctqbf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2324,11 +2327,11 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   vertical-align: top;
 }
 
-#exunsnpzzr .gt_row_group_first td {
+#mrqbzctqbf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#exunsnpzzr .gt_summary_row {
+#mrqbzctqbf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2338,16 +2341,16 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#exunsnpzzr .gt_first_summary_row {
+#mrqbzctqbf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#exunsnpzzr .gt_first_summary_row.thick {
+#mrqbzctqbf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#exunsnpzzr .gt_last_summary_row {
+#mrqbzctqbf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2357,7 +2360,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-bottom-color: #D3D3D3;
 }
 
-#exunsnpzzr .gt_grand_summary_row {
+#mrqbzctqbf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2367,7 +2370,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#exunsnpzzr .gt_first_grand_summary_row {
+#mrqbzctqbf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2377,11 +2380,11 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-top-color: #D3D3D3;
 }
 
-#exunsnpzzr .gt_striped {
+#mrqbzctqbf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#exunsnpzzr .gt_table_body {
+#mrqbzctqbf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2390,7 +2393,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-bottom-color: #D3D3D3;
 }
 
-#exunsnpzzr .gt_footnotes {
+#mrqbzctqbf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2404,7 +2407,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-right-color: #D3D3D3;
 }
 
-#exunsnpzzr .gt_footnote {
+#mrqbzctqbf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2413,7 +2416,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#exunsnpzzr .gt_sourcenotes {
+#mrqbzctqbf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2427,7 +2430,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-right-color: #D3D3D3;
 }
 
-#exunsnpzzr .gt_sourcenote {
+#mrqbzctqbf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2435,72 +2438,65 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#exunsnpzzr .gt_left {
+#mrqbzctqbf .gt_left {
   text-align: left;
 }
 
-#exunsnpzzr .gt_center {
+#mrqbzctqbf .gt_center {
   text-align: center;
 }
 
-#exunsnpzzr .gt_right {
+#mrqbzctqbf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#exunsnpzzr .gt_font_normal {
+#mrqbzctqbf .gt_font_normal {
   font-weight: normal;
 }
 
-#exunsnpzzr .gt_font_bold {
+#mrqbzctqbf .gt_font_bold {
   font-weight: bold;
 }
 
-#exunsnpzzr .gt_font_italic {
+#mrqbzctqbf .gt_font_italic {
   font-style: italic;
 }
 
-#exunsnpzzr .gt_super {
+#mrqbzctqbf .gt_super {
   font-size: 65%;
 }
 
-#exunsnpzzr .gt_two_val_uncert {
-  display: inline-block;
-  line-height: 1em;
-  text-align: right;
-  font-size: 60%;
-  vertical-align: -0.25em;
-  margin-left: 0.1em;
-}
-
-#exunsnpzzr .gt_footnote_marks {
+#mrqbzctqbf .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#exunsnpzzr .gt_asterisk {
+#mrqbzctqbf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#exunsnpzzr .gt_slash_mark {
-  font-size: 0.7em;
-  line-height: 0.7em;
-  vertical-align: 0.15em;
+#mrqbzctqbf .gt_indent_1 {
+  text-indent: 5px;
 }
 
-#exunsnpzzr .gt_fraction_numerator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.45em;
+#mrqbzctqbf .gt_indent_2 {
+  text-indent: 10px;
 }
 
-#exunsnpzzr .gt_fraction_denominator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: -0.05em;
+#mrqbzctqbf .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mrqbzctqbf .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mrqbzctqbf .gt_indent_5 {
+  text-indent: 25px;
 }
 </style>
 <table class="gt_table">
@@ -2508,30 +2504,30 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   
   <thead class="gt_col_headings">
     <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">\(y_{j}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(n_{j|i=5}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">\(f_{j|i=5}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="\(y_{j}\)">\(y_{j}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(n_{j|i=5}\)">\(n_{j|i=5}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(f_{j|i=5}\)">\(f_{j|i=5}\)</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">(28,30]</td>
-<td class="gt_row gt_right">17</td>
-<td class="gt_row gt_right">0.092</td></tr>
-    <tr><td class="gt_row gt_left">(30,32]</td>
-<td class="gt_row gt_right">129</td>
-<td class="gt_row gt_right">0.701</td></tr>
-    <tr><td class="gt_row gt_left">(32,34]</td>
-<td class="gt_row gt_right">36</td>
-<td class="gt_row gt_right">0.196</td></tr>
-    <tr><td class="gt_row gt_left">(34,36]</td>
-<td class="gt_row gt_right">2</td>
-<td class="gt_row gt_right">0.011</td></tr>
-    <tr><td class="gt_row gt_left">(36,38]</td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_right">0.000</td></tr>
-    <tr><td class="gt_row gt_left">Sum</td>
-<td class="gt_row gt_right">184</td>
-<td class="gt_row gt_right">1.000</td></tr>
+    <tr><td headers="y" class="gt_row gt_left">(28,30]</td>
+<td headers="V1" class="gt_row gt_right">17</td>
+<td headers="f" class="gt_row gt_right">0.092</td></tr>
+    <tr><td headers="y" class="gt_row gt_left">(30,32]</td>
+<td headers="V1" class="gt_row gt_right">129</td>
+<td headers="f" class="gt_row gt_right">0.701</td></tr>
+    <tr><td headers="y" class="gt_row gt_left">(32,34]</td>
+<td headers="V1" class="gt_row gt_right">36</td>
+<td headers="f" class="gt_row gt_right">0.196</td></tr>
+    <tr><td headers="y" class="gt_row gt_left">(34,36]</td>
+<td headers="V1" class="gt_row gt_right">2</td>
+<td headers="f" class="gt_row gt_right">0.011</td></tr>
+    <tr><td headers="y" class="gt_row gt_left">(36,38]</td>
+<td headers="V1" class="gt_row gt_right">0</td>
+<td headers="f" class="gt_row gt_right">0.000</td></tr>
+    <tr><td headers="y" class="gt_row gt_left">Sum</td>
+<td headers="V1" class="gt_row gt_right">184</td>
+<td headers="f" class="gt_row gt_right">1.000</td></tr>
   </tbody>
   
   

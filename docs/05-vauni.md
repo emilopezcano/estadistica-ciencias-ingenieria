@@ -20,6 +20,13 @@ Por su parte, la población sigue una distribución de probabilidad teórica, co
 características teóricas (media, varianza, etc.). Ambos "mundos" se relacionan mediante
 la inferencia estadística, que no se trata en este texto.
 
+
+```
+#> Warning: Using `size` aesthetic for lines was deprecated in ggplot2
+#> 3.4.0.
+#> ℹ Please use `linewidth` instead.
+```
+
 <div class="figure" style="text-align: center">
 <img src="05-vauni_files/figure-html/dogma2b-1.png" alt="Variables aleatorias vs. datos empíricos" width="70%" />
 <p class="caption">(\#fig:dogma2b)Variables aleatorias vs. datos empíricos</p>
@@ -723,6 +730,13 @@ que describe el experimento^[Se parecerá más cuantos más datos tengamos, pero
 representa también las probabilidades de los intervalos que podamos formar.
 La figura \@ref(fig:densidadfreq) muestra esta relación entre frecuencias 
 y función de densidad en un determinado experimento.
+
+
+```
+#> Warning: The dot-dot notation (`..density..`) was deprecated in
+#> ggplot2 3.4.0.
+#> ℹ Please use `after_stat(density)` instead.
+```
 
 <div class="figure" style="text-align: center">
 <img src="05-vauni_files/figure-html/densidadfreq-1.png" alt="Frecuencias, histograma y función de densidad" width="70%" />
