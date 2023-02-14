@@ -299,7 +299,7 @@ el tamaño de la muestra se calcula con esta otra fórmula:</p>
 <div class="rmdejemplo">
 <p>Queremos estimar la valoración que hacen los clientes de un determinado servicio energético en una puntuación de 0 a 10. El caso más desfavorable (para el tamaño de la varianza) sería que la mitad de los clientes contestaran un 0 y la otra mitad un 10. O, equivalentemente, que contestara un cliente con un cero y otro con un 10. Entonces, la varianza <span class="math inline">\(s^2\)</span> sería 50. Y el tamaño de muestra mínimo para estimar la puntuación media en una población grande y no equivocarnos en más de <span class="math inline">\(e = 1\)</span> punto sería de <span class="math inline">\(n =136\)</span> clientes.</p>
 </div>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 50</span></span>
 <span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.95</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">*</span><span class="fl">50</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></span>
@@ -342,7 +342,7 @@ muestran en la tabla <a href="#tab:ph1"><strong>??</strong></a>. Podríamos esti
 proporción muestral de edificios con depósito de agua (y por tanto también si depósito de agua). Los datos se importan directamente
 de una url.</p>
 </div>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ph1</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">read_rds</a></span><span class="op">(</span><span class="st">"https://lcano.com/data/eaci/ph1.rds"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ph1</span><span class="op">$</span><span class="va">pH</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 8.041267</span></span>
@@ -415,7 +415,7 @@ obtener dos números, uno sumando y otro restando aquello a lo que multiplica,
 y <code>qnorm(0.975)</code> nos da el valor de <span class="math inline">\(z_{\frac \alpha 2}\)</span>, dado que si
 <span class="math inline">\(1-\alpha=0{,}95 \implies \frac \alpha 2 = \frac{ 0{,}05}{ 2} = 0{,}025\)</span>.</p>
 </div>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ph1</span><span class="op">$</span><span class="va">pH</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.975</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">0.25</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">30</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 7.862347 8.220186</span></span></code></pre></div>
 <div class="rmdinfo">
@@ -460,7 +460,7 @@ antimonio en el agua potable es menor de 1,05 <span class="math inline">\(\mu\)<
 marcado por la legislación (téngase en cuenta que hacemos estimaciones sobre la media, no
 sobre posibles valores individuales).</p>
 </div>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ph1</span><span class="op">$</span><span class="va">antimonio</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.99</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">0.0064</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">30</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 1.048645</span></span></code></pre></div>
 </div>
@@ -534,7 +534,7 @@ lo obtendríamos con la función <code><a href="https://rdrr.io/r/stats/TDist.ht
 al 95% de confianza:</p>
 <pre><code>qt(0.975, 29)</code></pre>
 </div>
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">ph1</span><span class="op">$</span><span class="va">pH</span><span class="op">)</span><span class="op">$</span><span class="va">conf.int</span></span>
 <span><span class="co">#&gt; [1] 7.868734 8.213799</span></span>
 <span><span class="co">#&gt; attr(,"conf.level")</span></span>
@@ -722,7 +722,7 @@ al 95% de confianza:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2023-02-09.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2023-02-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

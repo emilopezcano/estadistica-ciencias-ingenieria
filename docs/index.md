@@ -1,7 +1,7 @@
 --- 
 title: "Estadística Aplicada a las Ciencias y la Ingeniería"
 author: "Emilio L. Cano"
-date: "2023-02-09"
+date: "2023-02-13"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib, iso.bib]
@@ -199,7 +199,7 @@ con diverso material complementan el libro en su conjunto.
 
 ## Sobre el autor {-}
 
-Actualmente soy Profesor Contratado Doctor en la Escuela [Técnica Superior de Ingeniería Informática](https://www.urjc.es/etsii) e investigador en el [Data Science Laboratory](http://www.datasciencelab.es) de la [Universidad Rey Juan Carlos](https://www.urjc.es). Mis intereses de investigación incluyen Estadística Aplicada, Aprendizaje Estadístico y Metodologías para la Calidad. Previamente he sido profesor e investigador en la [Universidad de Castilla-La Mancha](https://www.uclm.es), donde sigo colaborando en docencia e investigación, y Estadístico en empresas del sector privado de diversos sectores.
+Emilio López Cano, Estadístico y entusiasta de R. Actualmente soy Profesor Contratado Doctor en la Escuela [Técnica Superior de Ingeniería Informática](https://www.urjc.es/etsii) e investigador en el [Data Science Laboratory](http://www.datasciencelab.es) de la [Universidad Rey Juan Carlos](https://www.urjc.es). Mis intereses de investigación incluyen Estadística Aplicada, Aprendizaje Estadístico y Metodologías para la Calidad. Previamente he sido profesor e investigador en la [Universidad de Castilla-La Mancha](https://www.uclm.es), donde sigo colaborando en docencia e investigación, y Estadístico en empresas del sector privado de diversos sectores.
 
 Presidente del subcomité técnico de normalización UNE ([miembro de ISO](https://www.iso.org/committee/49742/x/catalogue/)) [CTN 66/SC 3 (Métodos Estadísticos)](https://www.une.org/encuentra-tu-norma/comites-tecnicos-de-normalizacion/comite/?c=CTN%2066/SC%203). Profesor en la Asociación Española para la Calidad ([AEC](https://www.aec.es)). Presidente de la asociación [Comunidad R Hispano](http://r-es.org).
 

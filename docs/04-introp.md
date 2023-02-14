@@ -138,15 +138,6 @@ realidad sería:
 
 $$\emptyset = \Omega^c$$
 
-
-```
-#> 
-#> Attaching package: 'VennDiagram'
-#> The following object is masked from 'package:flextable':
-#> 
-#>     rotate
-```
-
 <div class="figure" style="text-align: center">
 <img src="04-introp_files/figure-html/venn1-1.png" alt="Representación del espacio muestral, un suceso cualquiera y su complementario" width="70%" />
 <p class="caption">(\#fig:venn1)Representación del espacio muestral, un suceso cualquiera y su complementario</p>
@@ -198,7 +189,7 @@ según un criterio determinado. Tendremos los siguientes sucesos:
 </div>\EndKnitrBlock{rmdejemplo}
 
 ¿Con qué juegos de azar relacionarías cada uno de los sucesos anteriores? 
-Piensa algunos ejemplos de sucesos en el entorno empresarial con datos similares.
+Piensa algunos ejemplos de sucesos en tu dominio de aplicación con datos similares.
 El siguiente puede ser un ejemplo más real. 
 
 
@@ -845,7 +836,7 @@ grupos o localizaciones, siendo $B$ el suceso que indica la pertenencia a
 ese determinado grupo o característica.
 Se pueden considerar las frecuencias relativas del suceso $A$ sólo 
 para aquellos experimentos en los que ha sucedido $B$, y llamar a estas 
-frecuencias^[Nótese la analogía con las frecuencias marginales utilizadas en el capítulo 3.] 
+frecuencias^[Nótese la analogía con las frecuencias condicionales utilizadas en el capítulo 3.] 
 _frecuencias_ de $A$ _condicionadas_ a $B$, $fr_{A|B}$. 
 Estas frecuencias relativas las podemos calcular dividiendo el número de veces que 
 ocurren tanto $A$ como $B$ $(n_{AB})$ entre el número total de veces que ocurre $B$, $(n_{B})$:
@@ -859,7 +850,7 @@ $$fr_{A | B}=\frac{n\cdot fr_{AB}}{n\cdot fr_B}=\frac{fr_{AB}}{fr_B}.$$
 
 Es decir, la frecuencia condicionada es igual a la frecuencia conjunta dividido
 por la frecuencia marginal del suceso condicionante. Así pues, dado que para un número grande de realizaciones del experimento, las 
-frecuencias relativas equivalen a la probabilidad, podemos definir la 
+frecuencias relativas equivalen a la probabilidad, y podemos definir la 
 probabilidad del suceso $A$ condicionada al suceso $B$ como:
 
 $$\boxed{P(A | B)=\frac{P(A \cap B)}{P(B)}},$$
@@ -1099,7 +1090,8 @@ y $P(B|A_2)=\frac{5}{50}=0.1$. También conocemos las probabilidades de los
 dos sucesos que constituyen la partición, $P(A_1) = \frac{3}{5}=0.6$ y 
 $P(A_2) = \frac{2}{5}=0.4$. Entonces, por el teorema de la probabilidad total:
 
-$$P(B)=P(B|A_1)\cdot P(A_1) + P(B|A_2)\cdot P(A_2)= 0.04\cdot 0.6 + 0.1\cdot 0.4=0.064.$$
+$$P(B)=P(B|A_1)\cdot P(A_1) + P(B|A_2)\cdot P(A_2)= \\=0.04\cdot 0.6 + 0.1\cdot 0.4=0.064.$$
+  
 Supongamos ahora que se extrae del conjunto de todos los lotes un componente al azar,
 y resulta que es defectuoso. ¿Cuál es la probabilidad de que esa pieza provenga de un
 lote del tipo 1? 
@@ -1155,8 +1147,7 @@ la misma conclusión. Y la clave está en la **probabilidad condicionada**.
 El problema de _Monty Hall_ dio lugar a historias curiosas que se pueden consultar en 
 @E-51-COR-teo-2010. Por ejemplo, el gran matemático Paul Erdös solo aceptó
 como buena la solución real tras comprobarla en una simulación por ordenador.
-Invito al lector a que concurse en la aplicación que 
-se muestra a continuación^[accesible también en https://elcano.shinyapps.io/monty_hall] 
+Invito al lector a que concurse en [la aplicación del siguiente enlace](https://elcano.shinyapps.io/monty_hall)^[accesible en https://elcano.shinyapps.io/monty_hall] 
 durante un buen número de jugadas y
 compruebe a través de las frecuencias relativas qué estrategia ofrece mayor
 probabilidad de ganar el coche.

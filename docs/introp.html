@@ -197,11 +197,6 @@ elementales que lo componen.</p>
 complementario <span class="math inline">\(A^c\)</span>. El suceso imposible no aparece representado, pero en
 realidad sería:</p>
 <p><span class="math display">\[\emptyset = \Omega^c\]</span></p>
-<pre><code>#&gt; 
-#&gt; Attaching package: 'VennDiagram'
-#&gt; The following object is masked from 'package:flextable':
-#&gt; 
-#&gt;     rotate</code></pre>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:venn1"></span>
 <img src="04-introp_files/figure-html/venn1-1.png" alt="Representación del espacio muestral, un suceso cualquiera y su complementario" width="70%"><p class="caption">
@@ -251,7 +246,7 @@ grupo respectivamente</li>
 </ul>
 </div>
 <p>¿Con qué juegos de azar relacionarías cada uno de los sucesos anteriores?
-Piensa algunos ejemplos de sucesos en el entorno empresarial con datos similares.
+Piensa algunos ejemplos de sucesos en tu dominio de aplicación con datos similares.
 El siguiente puede ser un ejemplo más real.</p>
 
 <div class="rmdejemplo">
@@ -273,7 +268,7 @@ En este caso, <span class="math inline">\(C_{5, 2} = \binom{5}{2} = 10\)</span>.
 <p><strong>R</strong></p>
 La función <code>choose</code> obtiene el número de combinaciones como se ilustra a continuación.
 </div>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 10</span></span></code></pre></div>
 </div>
@@ -760,7 +755,7 @@ la probabilidad pedida:</p>
 <p>El siguiente código realiza los cálculos paso a paso y devuelve la probabilidad pedida. Cambiando el valor <code>30</code> por otro número de personas cualquiera, se
 puede ver cómo aumenta la probabilidad.</p>
 </div>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ncumple</span> <span class="op">&lt;-</span> <span class="fl">30</span></span>
 <span><span class="va">cposibles</span> <span class="op">&lt;-</span> <span class="fl">365</span><span class="op">^</span><span class="va">ncumple</span></span>
 <span><span class="va">cfavorables</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/prod.html">prod</a></span><span class="op">(</span><span class="fl">365</span><span class="op">:</span><span class="op">(</span><span class="fl">365</span> <span class="op">-</span> <span class="va">ncumple</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
@@ -831,7 +826,7 @@ grupos o localizaciones, siendo <span class="math inline">\(B\)</span> el suceso
 ese determinado grupo o característica.
 Se pueden considerar las frecuencias relativas del suceso <span class="math inline">\(A\)</span> sólo
 para aquellos experimentos en los que ha sucedido <span class="math inline">\(B\)</span>, y llamar a estas
-frecuencias<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Nótese la analogía con las frecuencias marginales utilizadas en el capítulo 3.&lt;/p&gt;"><sup>55</sup></a>
+frecuencias<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Nótese la analogía con las frecuencias condicionales utilizadas en el capítulo 3.&lt;/p&gt;"><sup>55</sup></a>
 <em>frecuencias</em> de <span class="math inline">\(A\)</span> <em>condicionadas</em> a <span class="math inline">\(B\)</span>, <span class="math inline">\(fr_{A|B}\)</span>.
 Estas frecuencias relativas las podemos calcular dividiendo el número de veces que
 ocurren tanto <span class="math inline">\(A\)</span> como <span class="math inline">\(B\)</span> <span class="math inline">\((n_{AB})\)</span> entre el número total de veces que ocurre <span class="math inline">\(B\)</span>, <span class="math inline">\((n_{B})\)</span>:</p>
@@ -841,7 +836,7 @@ se tiene:</p>
 <p><span class="math display">\[fr_{A | B}=\frac{n\cdot fr_{AB}}{n\cdot fr_B}=\frac{fr_{AB}}{fr_B}.\]</span></p>
 <p>Es decir, la frecuencia condicionada es igual a la frecuencia conjunta dividido
 por la frecuencia marginal del suceso condicionante. Así pues, dado que para un número grande de realizaciones del experimento, las
-frecuencias relativas equivalen a la probabilidad, podemos definir la
+frecuencias relativas equivalen a la probabilidad, y podemos definir la
 probabilidad del suceso <span class="math inline">\(A\)</span> condicionada al suceso <span class="math inline">\(B\)</span> como:</p>
 <p><span class="math display">\[\boxed{P(A | B)=\frac{P(A \cap B)}{P(B)}},\]</span></p>
 <p>siempre y cuando <span class="math inline">\(P(B) &gt; 0\)</span>. Se demuestra
@@ -1051,8 +1046,8 @@ de ser defectuoso para cada uno de los tipos de lote, es decir <span class="math
 y <span class="math inline">\(P(B|A_2)=\frac{5}{50}=0.1\)</span>. También conocemos las probabilidades de los
 dos sucesos que constituyen la partición, <span class="math inline">\(P(A_1) = \frac{3}{5}=0.6\)</span> y
 <span class="math inline">\(P(A_2) = \frac{2}{5}=0.4\)</span>. Entonces, por el teorema de la probabilidad total:</p>
-<p><span class="math display">\[P(B)=P(B|A_1)\cdot P(A_1) + P(B|A_2)\cdot P(A_2)= 0.04\cdot 0.6 + 0.1\cdot 0.4=0.064.\]</span>
-Supongamos ahora que se extrae del conjunto de todos los lotes un componente al azar,
+<p><span class="math display">\[P(B)=P(B|A_1)\cdot P(A_1) + P(B|A_2)\cdot P(A_2)= \\=0.04\cdot 0.6 + 0.1\cdot 0.4=0.064.\]</span></p>
+<p>Supongamos ahora que se extrae del conjunto de todos los lotes un componente al azar,
 y resulta que es defectuoso. ¿Cuál es la probabilidad de que esa pieza provenga de un
 lote del tipo 1?</p>
 <p>Nótese que ahora lo que buscamos es <span class="math inline">\(P(A_1|B)\)</span>, como conocemos las <span class="math inline">\(P(B|A_i)\)</span> y
@@ -1097,8 +1092,7 @@ la misma conclusión. Y la clave está en la <strong>probabilidad condicionada</
 <p>El problema de <em>Monty Hall</em> dio lugar a historias curiosas que se pueden consultar en
 <span class="citation">Corbalán and Sanz<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;La Conquista Del Azar. La Teoría de Probabilidades&lt;/em&gt;.&lt;/p&gt;"><sup>58</sup></a></span>. Por ejemplo, el gran matemático Paul Erdös solo aceptó
 como buena la solución real tras comprobarla en una simulación por ordenador.
-Invito al lector a que concurse en la aplicación que
-se muestra a continuación<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;accesible también en &lt;a href="https://elcano.shinyapps.io/monty_hall" class="uri"&gt;https://elcano.shinyapps.io/monty_hall&lt;/a&gt;&lt;/p&gt;'><sup>59</sup></a>
+Invito al lector a que concurse en <a href="https://elcano.shinyapps.io/monty_hall">la aplicación del siguiente enlace</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;accesible en &lt;a href="https://elcano.shinyapps.io/monty_hall" class="uri"&gt;https://elcano.shinyapps.io/monty_hall&lt;/a&gt;&lt;/p&gt;'><sup>59</sup></a>
 durante un buen número de jugadas y
 compruebe a través de las frecuencias relativas qué estrategia ofrece mayor
 probabilidad de ganar el coche.</p>
@@ -1162,7 +1156,7 @@ probabilidad de ganar el coche.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2023-02-09.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2023-02-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
