@@ -476,7 +476,7 @@ La covarianza es un estadístico muy importante para aplicar muchas técnicas es
 
 Para interpretar la relación lineal entre dos variables, en vez de la covarianza calcularemos el **coeficiente de correlación lineal**, que sí está acotado, en concreto entre -1 y 1:
 
-$$r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}$$
+$$r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}.$$
 
 * Si $r_{xy}$ próximo a 0, no hay relación lineal
 * Si $r_{xy}$ próximo a -1 o 1, relación lineal **fuerte**, negativa o positiva respectivamente

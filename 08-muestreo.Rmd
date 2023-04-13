@@ -147,7 +147,7 @@ Sea la variable aleatoria $X$ con $E[X] = \mu$ y $V[X] = \sigma^2$. Obtenemos mu
 $$\hat  \mu = \bar x = \frac 1 n \sum\limits_1^n x_i.$$
 
 Entonces $\overline X_{\{n\}}$ es la variable aleatoria "media de la característica $X$ en muestras de tamaño $n$", y por
-las propieadades de la esperanza y la varianza:
+las propiedades de la esperanza y la varianza:
 
 * $E[\overline X_{\{n\}}]$ = $\mu$,
 
@@ -160,11 +160,11 @@ las propieadades de la esperanza y la varianza:
 Sean $X_1, \ldots, X_n$ variables aleatorias independientes e idénticamente distribuidas, con
 media $\mu$ y varianza $\sigma^2$. Y sea $\overline X$ el promedio de esas variables aleatorias:
 
-$$\overline X = \frac 1 n \sum\limits_{i=1}^n X_i$$
+$$\overline X = \frac 1 n \sum\limits_{i=1}^n X_i.$$
 
 Entonces, para $n$ suficientemente grande, la variable aleatoria $\overline X_{\{n\}}$ sigue una distribución normal de media $\mu$ y varianza $\frac{\sigma^2}{n}$:
 
-$$\overline X_{\{n\}} \sim N\left(\mu; \frac{\sigma}{\sqrt{n}} \right)$$
+$$\overline X_{\{n\}} \sim N\left(\mu; \frac{\sigma}{\sqrt{n}} \right).$$
 
 El Teorema Central del Límite nos va a permitir hacer inferencia de cualquier variable aleatoria $X$ utilizando las propiedades de la distribución normal.
 
@@ -177,7 +177,7 @@ $$E\left[\frac 1 n \sum (x_i-\bar x)^2 \right] = \frac{n}{n-1}\sigma^2.$$
 
 Por eso usamos la "cuasivarianza" o varianza muestral:
 
-$$\hat \sigma^2 = s^2 = \frac{ 1}{ n-1} \sum (x_i-\bar x)^2$$
+$$\hat \sigma^2 = s^2 = \frac{ 1}{ n-1} \sum (x_i-\bar x)^2.$$
 Se cumple que:
 
 * $E[s^2] = \sigma^2$
@@ -187,7 +187,7 @@ Para determinar la distribución en el muestreo de la varianza muestral, primero
 que definir la distribución $\chi^2$, que tiene un único parámetro, los grados de libertad $n$.
 Se define como la suma de $n$ variables aleatorias normales independientes estandarizadas al cuadrado:
 
-$$\chi^2_n = Z_1^2 + \ldots + Z_n^2;\quad E[\chi^2_{n}]=n; \quad V[\chi^2_{n}]=2n$$
+$$\chi^2_n = Z_1^2 + \ldots + Z_n^2;\quad E[\chi^2_{n}]=n; \quad V[\chi^2_{n}]=2n.$$
 
 Se cumple, independientemente de la distribución de $X$, que:
 
@@ -199,7 +199,7 @@ que es la distribución que usaremos para hacer inferencia sobre la varianza de 
 Sea la variable aleatoria $X:$ Número de elementos de la muestra de tamaño $n$ que presentan la característica en estudio.
 Entonces al extraer la muestra, se obtienen valores $x \in \{1, \ldots, n\}$, y el estadístico proporción muestral será $p = \frac x n$. Entonces, la probabilidad de que el parámetro $\pi$ tome un valor determinado $p=\frac x n$, es equivalente a la probabilidad de que la variable $X$ tome el valor $x$:
 
-$$P[\pi = p] = P\left [\pi = \frac x n\right] = P[X = x]$$
+$$P[\pi = p] = P\left [\pi = \frac x n\right] = P[X = x].$$
 
 Por tanto, la distribución exacta en el muestreo de $\hat \pi = p$ es una Binomial de parámetros $n$ y $\pi$.
 
@@ -375,7 +375,7 @@ saveRDS(ph1, "_data/ph1.rds")
 ```
 
 
-```{r ph1, include=FALSE}
+```{r ph1, echo=FALSE}
 ph1 <- readr::read_rds("https://lcano.com/data/eaci/ph1.rds")
 ph1 |> 
   flextable() |> 
@@ -386,7 +386,7 @@ ph1 |>
 
 :::{.rmdpractica data-latex=""}
 `r fa("r-project", fill = "steelblue")` El siguiente código calcula la media muestral del pH, la varianza muestral del pH, y la
-proporción muestral de edificios con depósito de agua (y por tanto también si depósito de agua). Los datos se importan directamente
+proporción muestral de edificios con depósito de agua (y por tanto también sin depósito de agua). Los datos se importan directamente
 de una url.
 :::
 
@@ -406,7 +406,6 @@ El intervalo puede ser bilateral, con dos límites inferior y superior, $\theta 
 de manera que:
 
 $$P[\mathit{LI} < \theta < \mathit{LS}]=1-\alpha.$$
-Esta expresión indica que la probabilidad de que el verdadero valor del parámetro $\theta$ esté dentro del intervalo es $1-\alpha$. Dicho de otro modo, si repitiéramos el proceso de muestreo indefinidamente, el 95% de las veces el valor estimado del parámetro $\theta$ estaría dentro del intervalo de confianza. 
 Nótese que la probabilidad de que el parámetro sea mayor que el límite
 superior o menor que el límite inferior será $\frac \alpha 2$. Aquí, $1-\alpha$ es el nivel de confianza (se expresa a menudo como porcentaje), y $\alpha$ es el nivel de significación. 
 

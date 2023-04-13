@@ -1071,7 +1071,7 @@ Aunque el histograma nos da una idea de la forma de la distribución de los dato
 
 
 $$\gamma_1 = \frac{m_3}{s^3},$$
-donde $m_3 = \frac{1}{n}\sum\limits_{i=1}^n(x-\bar x ) ^3$
+donde $m_3 = \frac{1}{n}\sum\limits_{i=1}^n(x_i-\bar x ) ^3$
 
 La interpretación es la siguiente:
 
@@ -1106,7 +1106,7 @@ gdata |> group_by(Tipo) |> summarise(asimetria = m(Variable, 3)/sd(Variable)^3) 
 El **coeficiente de apuntamiento o curtosis** nos indica cómo de "apuntados" son los datos (muy concentrados alrededor de la media):
 
 $$\gamma_2 = \frac{m_4}{s^4}-3,$$
-donde $m_4 = \frac{1}{n}\sum\limits_{i=1}^n(x-\bar x ) ^4$
+donde $m_4 = \frac{1}{n}\sum\limits_{i=1}^n(x_i-\bar x ) ^4$
 
 La interpretación es la siguiente:
 
