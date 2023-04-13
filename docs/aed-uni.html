@@ -21,7 +21,7 @@
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.1.2/tabwid.css" rel="stylesheet">
-<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
 <script src="libs/grViz-binding-1.0.9/grViz.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 <link rel="stylesheet" href="bs4_book.css">
 <link rel="stylesheet" href="style.css">
@@ -125,7 +125,7 @@ Figura 1.1: La esencia de los métodos estadísticos
 y las visualizaciones gráficas.
 Pero antes de aprender a hacer análisis exploratorio con R, vamos a resaltar la
 importancia, dentro del análisis exploratorio, de las representaciones gráficas.
-Para ello utilizaremos un conjunto de datos llamado “el cuarteto de Anscombe,”<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;F. J. Anscombe, &lt;span&gt;“&lt;span class="nocase"&gt;Graphs in statistical analysis&lt;/span&gt;,”&lt;/span&gt; &lt;em&gt;American Statistician&lt;/em&gt;, 1973, &lt;a href="https://doi.org/10.1080/00031305.1973.10478966" role="doc-biblioref"&gt;https://doi.org/10.1080/00031305.1973.10478966&lt;/a&gt;.&lt;/p&gt;'><sup>26</sup></a></span>
+Para ello utilizaremos un conjunto de datos llamado “el cuarteto de Anscombe,”<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;F. J. Anscombe, &lt;span&gt;“&lt;span class="nocase"&gt;Graphs in statistical analysis&lt;/span&gt;,”&lt;/span&gt; &lt;em&gt;American Statistician&lt;/em&gt;, 1973, &lt;a href="https://doi.org/10.1080/00031305.1973.10478966"&gt;https://doi.org/10.1080/00031305.1973.10478966&lt;/a&gt;.&lt;/p&gt;'><sup>26</sup></a></span>
 disponible con el nombre <code>anscombe</code> en el paquete <code>datasets</code> de R base.
 La tabla <a href="aed-uni.html#tab:anscombe">2.1</a> muestra
 este conjunto de datos.</p>
@@ -260,6 +260,12 @@ resumir los datos con la media de cada variable:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span><span class="va">anscombe</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span>.fns <span class="op">=</span> <span class="va">mean</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: There was 1 warning in `summarise()`.</span></span>
+<span><span class="co">#&gt; ℹ In argument: `across(.fns = mean)`.</span></span>
+<span><span class="co">#&gt; Caused by warning:</span></span>
+<span><span class="co">#&gt; ! Using `across()` without supplying `.cols` was deprecated</span></span>
+<span><span class="co">#&gt;   in dplyr 1.1.0.</span></span>
+<span><span class="co">#&gt; ℹ Please supply `.cols` instead.</span></span>
 <span><span class="co">#&gt;   x1 x2 x3 x4       y1       y2  y3       y4</span></span>
 <span><span class="co">#&gt; 1  9  9  9  9 7.500909 7.500909 7.5 7.500909</span></span></code></pre></div>
 <p>Vemos que la media de las cuatro primeras variables es idéntica, 9. Pero los datos
@@ -295,7 +301,7 @@ de regresión y después interpretarlo, podemos estar tomando decisiones
 erróneas.</p>
 <div class="rmdcafe">
 <p>El cuarteto de Anscombe es muy ilustrativo, os animo a explorar
-también <em>The Datasaurus Dozen:</em><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Justin Matejka and George Fitzmaurice, &lt;span&gt;“&lt;span&gt;Same Stats, Different Graphs&lt;/span&gt;,”&lt;/span&gt; in &lt;em&gt;Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems&lt;/em&gt; (New York, NY, USA: ACM, 2017), 1290–94, &lt;a href="https://doi.org/10.1145/3025453.3025912" role="doc-biblioref"&gt;https://doi.org/10.1145/3025453.3025912&lt;/a&gt;.&lt;/p&gt;'><sup>27</sup></a></span> en <a href="https://www.autodeskresearch.com/publications/samestats" class="uri">https://www.autodeskresearch.com/publications/samestats</a>.</p>
+también <em>The Datasaurus Dozen:</em><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Justin Matejka and George Fitzmaurice, &lt;span&gt;“&lt;span&gt;Same Stats, Different Graphs&lt;/span&gt;,”&lt;/span&gt; in &lt;em&gt;Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems&lt;/em&gt; (New York, NY, USA: ACM, 2017), 1290–94, &lt;a href="https://doi.org/10.1145/3025453.3025912"&gt;https://doi.org/10.1145/3025453.3025912&lt;/a&gt;.&lt;/p&gt;'><sup>27</sup></a></span> en <a href="https://www.autodeskresearch.com/publications/samestats" class="uri">https://www.autodeskresearch.com/publications/samestats</a>.</p>
 </div>
 </div>
 <div id="calidad-de-datos" class="section level2" number="2.2">
@@ -460,7 +466,7 @@ de que es así. Para confirmar que una relación es de causa-efecto, deberíamos
 recurrir al Diseño de Experimentos, donde además podremos estudiar las
 interacciones.</p>
 <p><strong>2. Falta de parsimonia.</strong></p>
-<p>La parsimoniosidad es un principio científico (véase <span class="citation">Wikipedia<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“Navaja de Ockham — Wikipedia&lt;span&gt;,&lt;/span&gt; La Enciclopedia Libre,”&lt;/span&gt; 2018, &lt;a href="https://es.wikipedia.org/w/index.php?title=Navaja_de_Ockham&amp;amp;oldid=112855301" role="doc-biblioref"&gt;https://es.wikipedia.org/w/index.php?title=Navaja_de_Ockham&amp;amp;oldid=112855301&lt;/a&gt;.&lt;/p&gt;'><sup>35</sup></a></span>)<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En igualdad de condiciones, la explicación más sencilla suele ser la más probable.&lt;/p&gt;"><sup>36</sup></a> que,
+<p>La parsimoniosidad es un principio científico (véase <span class="citation">Wikipedia<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“Navaja de Ockham — Wikipedia&lt;span&gt;,&lt;/span&gt; La Enciclopedia Libre,”&lt;/span&gt; 2018, &lt;a href="https://es.wikipedia.org/w/index.php?title=Navaja_de_Ockham&amp;amp;oldid=112855301"&gt;https://es.wikipedia.org/w/index.php?title=Navaja_de_Ockham&amp;amp;oldid=112855301&lt;/a&gt;.&lt;/p&gt;'><sup>35</sup></a></span>)<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;En igualdad de condiciones, la explicación más sencilla suele ser la más probable.&lt;/p&gt;"><sup>36</sup></a> que,
 aplicado a la Estadística, significa seleccionar el modelo más reducido y
 simple posible que consiga explicar el fenómeno a estudiar, frente a modelos
 más complejos (con muchas variables) con una mínima o nula ganancia de poder
@@ -468,7 +474,7 @@ predictivo. En modelos de regresión múltiple, por ejemplo, ninguna variable
 cuyo coeficiente no sea significativo se debería incluir en el modelo
 final al que llega la investigación.</p>
 <p><strong>2. Interpretación de porcentajes sin fijarse en el tamaño.</strong></p>
-<p>Este error común viene explicado por la <strong>paradoja de Simpson</strong>.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Wikipedia, &lt;span&gt;“Paradoja de Simpson — Wikipedia&lt;span&gt;,&lt;/span&gt; La Enciclopedia Libre,”&lt;/span&gt; 2019, &lt;a href="https://es.wikipedia.org/w/index.php?title=Paradoja_de_Simpson&amp;amp;oldid=113172044" role="doc-biblioref"&gt;https://es.wikipedia.org/w/index.php?title=Paradoja_de_Simpson&amp;amp;oldid=113172044&lt;/a&gt;.&lt;/p&gt;'><sup>37</sup></a></span>
+<p>Este error común viene explicado por la <strong>paradoja de Simpson</strong>.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Wikipedia, &lt;span&gt;“Paradoja de Simpson — Wikipedia&lt;span&gt;,&lt;/span&gt; La Enciclopedia Libre,”&lt;/span&gt; 2019, &lt;a href="https://es.wikipedia.org/w/index.php?title=Paradoja_de_Simpson&amp;amp;oldid=113172044"&gt;https://es.wikipedia.org/w/index.php?title=Paradoja_de_Simpson&amp;amp;oldid=113172044&lt;/a&gt;.&lt;/p&gt;'><sup>37</sup></a></span>
 Esta paradoja aparece cuando hay un atributo <em>oculto</em> que no se tiene en cuenta
 a la hora de interpretar porcentajes, pudiendo darse el caso de que otro atributo
 presenta un porcentaje mayor en una categoría, pero si se analizan por separado
@@ -586,12 +592,12 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
 <pre><code>#&gt; Warning: Since gt v0.6.0 the `fmt_missing()` function is deprecated
 #&gt; and will soon be removed.
 #&gt; • Use the `sub_missing()` function instead.</code></pre>
-<div id="fsiwmovaaz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="qeawfwsqte" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#fsiwmovaaz .gt_table {
+#qeawfwsqte .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -616,7 +622,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-left-color: #D3D3D3;
 }
 
-#fsiwmovaaz .gt_heading {
+#qeawfwsqte .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -628,12 +634,12 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#fsiwmovaaz .gt_caption {
+#qeawfwsqte .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fsiwmovaaz .gt_title {
+#qeawfwsqte .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -645,7 +651,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-width: 0;
 }
 
-#fsiwmovaaz .gt_subtitle {
+#qeawfwsqte .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -657,13 +663,13 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-top-width: 0;
 }
 
-#fsiwmovaaz .gt_bottom_border {
+#qeawfwsqte .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fsiwmovaaz .gt_col_headings {
+#qeawfwsqte .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -678,7 +684,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#fsiwmovaaz .gt_col_heading {
+#qeawfwsqte .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -698,7 +704,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   overflow-x: hidden;
 }
 
-#fsiwmovaaz .gt_column_spanner_outer {
+#qeawfwsqte .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -710,15 +716,15 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 4px;
 }
 
-#fsiwmovaaz .gt_column_spanner_outer:first-child {
+#qeawfwsqte .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fsiwmovaaz .gt_column_spanner_outer:last-child {
+#qeawfwsqte .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fsiwmovaaz .gt_column_spanner {
+#qeawfwsqte .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -730,7 +736,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   width: 100%;
 }
 
-#fsiwmovaaz .gt_group_heading {
+#qeawfwsqte .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -756,7 +762,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   text-align: left;
 }
 
-#fsiwmovaaz .gt_empty_group_heading {
+#qeawfwsqte .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -771,15 +777,15 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   vertical-align: middle;
 }
 
-#fsiwmovaaz .gt_from_md > :first-child {
+#qeawfwsqte .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fsiwmovaaz .gt_from_md > :last-child {
+#qeawfwsqte .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fsiwmovaaz .gt_row {
+#qeawfwsqte .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -798,7 +804,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   overflow-x: hidden;
 }
 
-#fsiwmovaaz .gt_stub {
+#qeawfwsqte .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -811,7 +817,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#fsiwmovaaz .gt_stub_row_group {
+#qeawfwsqte .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -825,11 +831,11 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   vertical-align: top;
 }
 
-#fsiwmovaaz .gt_row_group_first td {
+#qeawfwsqte .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fsiwmovaaz .gt_summary_row {
+#qeawfwsqte .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -839,16 +845,16 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#fsiwmovaaz .gt_first_summary_row {
+#qeawfwsqte .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fsiwmovaaz .gt_first_summary_row.thick {
+#qeawfwsqte .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fsiwmovaaz .gt_last_summary_row {
+#qeawfwsqte .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -858,7 +864,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-color: #D3D3D3;
 }
 
-#fsiwmovaaz .gt_grand_summary_row {
+#qeawfwsqte .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -868,7 +874,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#fsiwmovaaz .gt_first_grand_summary_row {
+#qeawfwsqte .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -878,11 +884,11 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-top-color: #D3D3D3;
 }
 
-#fsiwmovaaz .gt_striped {
+#qeawfwsqte .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fsiwmovaaz .gt_table_body {
+#qeawfwsqte .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -891,7 +897,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-color: #D3D3D3;
 }
 
-#fsiwmovaaz .gt_footnotes {
+#qeawfwsqte .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -905,7 +911,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#fsiwmovaaz .gt_footnote {
+#qeawfwsqte .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -914,7 +920,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#fsiwmovaaz .gt_sourcenotes {
+#qeawfwsqte .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -928,7 +934,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#fsiwmovaaz .gt_sourcenote {
+#qeawfwsqte .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -936,64 +942,64 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#fsiwmovaaz .gt_left {
+#qeawfwsqte .gt_left {
   text-align: left;
 }
 
-#fsiwmovaaz .gt_center {
+#qeawfwsqte .gt_center {
   text-align: center;
 }
 
-#fsiwmovaaz .gt_right {
+#qeawfwsqte .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fsiwmovaaz .gt_font_normal {
+#qeawfwsqte .gt_font_normal {
   font-weight: normal;
 }
 
-#fsiwmovaaz .gt_font_bold {
+#qeawfwsqte .gt_font_bold {
   font-weight: bold;
 }
 
-#fsiwmovaaz .gt_font_italic {
+#qeawfwsqte .gt_font_italic {
   font-style: italic;
 }
 
-#fsiwmovaaz .gt_super {
+#qeawfwsqte .gt_super {
   font-size: 65%;
 }
 
-#fsiwmovaaz .gt_footnote_marks {
+#qeawfwsqte .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#fsiwmovaaz .gt_asterisk {
+#qeawfwsqte .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fsiwmovaaz .gt_indent_1 {
+#qeawfwsqte .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fsiwmovaaz .gt_indent_2 {
+#qeawfwsqte .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fsiwmovaaz .gt_indent_3 {
+#qeawfwsqte .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fsiwmovaaz .gt_indent_4 {
+#qeawfwsqte .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fsiwmovaaz .gt_indent_5 {
+#qeawfwsqte .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1159,12 +1165,12 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
 </tbody>
 </table></div>
 </div>
-<div id="zctkwnfjrp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="qaeggghpxl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#zctkwnfjrp .gt_table {
+#qaeggghpxl .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1189,7 +1195,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-left-color: #D3D3D3;
 }
 
-#zctkwnfjrp .gt_heading {
+#qaeggghpxl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1201,12 +1207,12 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#zctkwnfjrp .gt_caption {
+#qaeggghpxl .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zctkwnfjrp .gt_title {
+#qaeggghpxl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1218,7 +1224,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-width: 0;
 }
 
-#zctkwnfjrp .gt_subtitle {
+#qaeggghpxl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1230,13 +1236,13 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-top-width: 0;
 }
 
-#zctkwnfjrp .gt_bottom_border {
+#qaeggghpxl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zctkwnfjrp .gt_col_headings {
+#qaeggghpxl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1251,7 +1257,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#zctkwnfjrp .gt_col_heading {
+#qaeggghpxl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1271,7 +1277,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   overflow-x: hidden;
 }
 
-#zctkwnfjrp .gt_column_spanner_outer {
+#qaeggghpxl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1283,15 +1289,15 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 4px;
 }
 
-#zctkwnfjrp .gt_column_spanner_outer:first-child {
+#qaeggghpxl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zctkwnfjrp .gt_column_spanner_outer:last-child {
+#qaeggghpxl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zctkwnfjrp .gt_column_spanner {
+#qaeggghpxl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1303,7 +1309,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   width: 100%;
 }
 
-#zctkwnfjrp .gt_group_heading {
+#qaeggghpxl .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1329,7 +1335,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   text-align: left;
 }
 
-#zctkwnfjrp .gt_empty_group_heading {
+#qaeggghpxl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1344,15 +1350,15 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   vertical-align: middle;
 }
 
-#zctkwnfjrp .gt_from_md > :first-child {
+#qaeggghpxl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zctkwnfjrp .gt_from_md > :last-child {
+#qaeggghpxl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zctkwnfjrp .gt_row {
+#qaeggghpxl .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1371,7 +1377,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   overflow-x: hidden;
 }
 
-#zctkwnfjrp .gt_stub {
+#qaeggghpxl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1384,7 +1390,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#zctkwnfjrp .gt_stub_row_group {
+#qaeggghpxl .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1398,11 +1404,11 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   vertical-align: top;
 }
 
-#zctkwnfjrp .gt_row_group_first td {
+#qaeggghpxl .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zctkwnfjrp .gt_summary_row {
+#qaeggghpxl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1412,16 +1418,16 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#zctkwnfjrp .gt_first_summary_row {
+#qaeggghpxl .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zctkwnfjrp .gt_first_summary_row.thick {
+#qaeggghpxl .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zctkwnfjrp .gt_last_summary_row {
+#qaeggghpxl .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1431,7 +1437,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-color: #D3D3D3;
 }
 
-#zctkwnfjrp .gt_grand_summary_row {
+#qaeggghpxl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1441,7 +1447,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#zctkwnfjrp .gt_first_grand_summary_row {
+#qaeggghpxl .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1451,11 +1457,11 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-top-color: #D3D3D3;
 }
 
-#zctkwnfjrp .gt_striped {
+#qaeggghpxl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zctkwnfjrp .gt_table_body {
+#qaeggghpxl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1464,7 +1470,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-bottom-color: #D3D3D3;
 }
 
-#zctkwnfjrp .gt_footnotes {
+#qaeggghpxl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1478,7 +1484,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#zctkwnfjrp .gt_footnote {
+#qaeggghpxl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1487,7 +1493,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#zctkwnfjrp .gt_sourcenotes {
+#qaeggghpxl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1501,7 +1507,7 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   border-right-color: #D3D3D3;
 }
 
-#zctkwnfjrp .gt_sourcenote {
+#qaeggghpxl .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1509,64 +1515,64 @@ tanto para las absolutas <span class="math inline">\((N_i)\)</span> como para la
   padding-right: 5px;
 }
 
-#zctkwnfjrp .gt_left {
+#qaeggghpxl .gt_left {
   text-align: left;
 }
 
-#zctkwnfjrp .gt_center {
+#qaeggghpxl .gt_center {
   text-align: center;
 }
 
-#zctkwnfjrp .gt_right {
+#qaeggghpxl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zctkwnfjrp .gt_font_normal {
+#qaeggghpxl .gt_font_normal {
   font-weight: normal;
 }
 
-#zctkwnfjrp .gt_font_bold {
+#qaeggghpxl .gt_font_bold {
   font-weight: bold;
 }
 
-#zctkwnfjrp .gt_font_italic {
+#qaeggghpxl .gt_font_italic {
   font-style: italic;
 }
 
-#zctkwnfjrp .gt_super {
+#qaeggghpxl .gt_super {
   font-size: 65%;
 }
 
-#zctkwnfjrp .gt_footnote_marks {
+#qaeggghpxl .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#zctkwnfjrp .gt_asterisk {
+#qaeggghpxl .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zctkwnfjrp .gt_indent_1 {
+#qaeggghpxl .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zctkwnfjrp .gt_indent_2 {
+#qaeggghpxl .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zctkwnfjrp .gt_indent_3 {
+#qaeggghpxl .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zctkwnfjrp .gt_indent_4 {
+#qaeggghpxl .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zctkwnfjrp .gt_indent_5 {
+#qaeggghpxl .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1692,12 +1698,12 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
 <div class="rmdejemplo">
 <p>La variable <code>imperfecciones</code> es un recuento de defectos en una inspección visual. Vemos en la tabla de frecuencias <a href="aed-uni.html#tab:freqdisc">2.4</a> que tenemos 10 valores posibles: desde cero imperfecciones hasta 9 imperfecciones. La moda es el 2, ya que es el valor que más se repite. Además, es única. Vemos además que el 94,9% de los quesos tienen 4 o menos imperfecciones. O lo que es lo mismo, el 5,1% de los quesos tiene más de 4 imperfecciones. La figura <a href="aed-uni.html#fig:bardisc">2.6</a> es la representación gráfica de esta tabla de frecuencias, en este caso representada en horizontal.</p>
 </div>
-<div id="pqwtemwqmb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="revhlmzcln" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#pqwtemwqmb .gt_table {
+#revhlmzcln .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1722,7 +1728,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-left-color: #D3D3D3;
 }
 
-#pqwtemwqmb .gt_heading {
+#revhlmzcln .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1734,12 +1740,12 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-right-color: #D3D3D3;
 }
 
-#pqwtemwqmb .gt_caption {
+#revhlmzcln .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pqwtemwqmb .gt_title {
+#revhlmzcln .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1751,7 +1757,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-bottom-width: 0;
 }
 
-#pqwtemwqmb .gt_subtitle {
+#revhlmzcln .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1763,13 +1769,13 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-top-width: 0;
 }
 
-#pqwtemwqmb .gt_bottom_border {
+#revhlmzcln .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pqwtemwqmb .gt_col_headings {
+#revhlmzcln .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1784,7 +1790,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-right-color: #D3D3D3;
 }
 
-#pqwtemwqmb .gt_col_heading {
+#revhlmzcln .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1804,7 +1810,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   overflow-x: hidden;
 }
 
-#pqwtemwqmb .gt_column_spanner_outer {
+#revhlmzcln .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1816,15 +1822,15 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-right: 4px;
 }
 
-#pqwtemwqmb .gt_column_spanner_outer:first-child {
+#revhlmzcln .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pqwtemwqmb .gt_column_spanner_outer:last-child {
+#revhlmzcln .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pqwtemwqmb .gt_column_spanner {
+#revhlmzcln .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1836,7 +1842,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   width: 100%;
 }
 
-#pqwtemwqmb .gt_group_heading {
+#revhlmzcln .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1862,7 +1868,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   text-align: left;
 }
 
-#pqwtemwqmb .gt_empty_group_heading {
+#revhlmzcln .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1877,15 +1883,15 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   vertical-align: middle;
 }
 
-#pqwtemwqmb .gt_from_md > :first-child {
+#revhlmzcln .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pqwtemwqmb .gt_from_md > :last-child {
+#revhlmzcln .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pqwtemwqmb .gt_row {
+#revhlmzcln .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1904,7 +1910,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   overflow-x: hidden;
 }
 
-#pqwtemwqmb .gt_stub {
+#revhlmzcln .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1917,7 +1923,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-right: 5px;
 }
 
-#pqwtemwqmb .gt_stub_row_group {
+#revhlmzcln .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1931,11 +1937,11 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   vertical-align: top;
 }
 
-#pqwtemwqmb .gt_row_group_first td {
+#revhlmzcln .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pqwtemwqmb .gt_summary_row {
+#revhlmzcln .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1945,16 +1951,16 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-right: 5px;
 }
 
-#pqwtemwqmb .gt_first_summary_row {
+#revhlmzcln .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pqwtemwqmb .gt_first_summary_row.thick {
+#revhlmzcln .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pqwtemwqmb .gt_last_summary_row {
+#revhlmzcln .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1964,7 +1970,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-bottom-color: #D3D3D3;
 }
 
-#pqwtemwqmb .gt_grand_summary_row {
+#revhlmzcln .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1974,7 +1980,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-right: 5px;
 }
 
-#pqwtemwqmb .gt_first_grand_summary_row {
+#revhlmzcln .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1984,11 +1990,11 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-top-color: #D3D3D3;
 }
 
-#pqwtemwqmb .gt_striped {
+#revhlmzcln .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pqwtemwqmb .gt_table_body {
+#revhlmzcln .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1997,7 +2003,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-bottom-color: #D3D3D3;
 }
 
-#pqwtemwqmb .gt_footnotes {
+#revhlmzcln .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2011,7 +2017,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-right-color: #D3D3D3;
 }
 
-#pqwtemwqmb .gt_footnote {
+#revhlmzcln .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2020,7 +2026,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-right: 5px;
 }
 
-#pqwtemwqmb .gt_sourcenotes {
+#revhlmzcln .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2034,7 +2040,7 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   border-right-color: #D3D3D3;
 }
 
-#pqwtemwqmb .gt_sourcenote {
+#revhlmzcln .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2042,64 +2048,64 @@ y con el gráfico de cajas que se explicarán en el apartado siguiente de variab
   padding-right: 5px;
 }
 
-#pqwtemwqmb .gt_left {
+#revhlmzcln .gt_left {
   text-align: left;
 }
 
-#pqwtemwqmb .gt_center {
+#revhlmzcln .gt_center {
   text-align: center;
 }
 
-#pqwtemwqmb .gt_right {
+#revhlmzcln .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pqwtemwqmb .gt_font_normal {
+#revhlmzcln .gt_font_normal {
   font-weight: normal;
 }
 
-#pqwtemwqmb .gt_font_bold {
+#revhlmzcln .gt_font_bold {
   font-weight: bold;
 }
 
-#pqwtemwqmb .gt_font_italic {
+#revhlmzcln .gt_font_italic {
   font-style: italic;
 }
 
-#pqwtemwqmb .gt_super {
+#revhlmzcln .gt_super {
   font-size: 65%;
 }
 
-#pqwtemwqmb .gt_footnote_marks {
+#revhlmzcln .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#pqwtemwqmb .gt_asterisk {
+#revhlmzcln .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pqwtemwqmb .gt_indent_1 {
+#revhlmzcln .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pqwtemwqmb .gt_indent_2 {
+#revhlmzcln .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pqwtemwqmb .gt_indent_3 {
+#revhlmzcln .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pqwtemwqmb .gt_indent_4 {
+#revhlmzcln .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pqwtemwqmb .gt_indent_5 {
+#revhlmzcln .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2203,12 +2209,12 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
 <div class="rmdejemplo">
 <p>La tabla <a href="aed-uni.html#tab:tablacont">2.5</a> muestra una tabla de frecuencias de la variable <code>ph</code> del conjunto de datos de ejemplo de la producción de quesos. Vemos que es aproximadamente simétrico, donde los valores centrales son los más frecuentes, y a menudo que nos alejamos de estos valores centrales disminuye la frecuencia. Parece que puede haber un valor extremo por la izquierda. Un dato importante es que aproximadamente la mitad de las observaciones están por debajo de la clase más frecuente.</p>
 </div>
-<div id="ptezrlbqih" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ilhiyvfpum" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#ptezrlbqih .gt_table {
+#ilhiyvfpum .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2233,7 +2239,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-left-color: #D3D3D3;
 }
 
-#ptezrlbqih .gt_heading {
+#ilhiyvfpum .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2245,12 +2251,12 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-right-color: #D3D3D3;
 }
 
-#ptezrlbqih .gt_caption {
+#ilhiyvfpum .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ptezrlbqih .gt_title {
+#ilhiyvfpum .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2262,7 +2268,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-bottom-width: 0;
 }
 
-#ptezrlbqih .gt_subtitle {
+#ilhiyvfpum .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2274,13 +2280,13 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-top-width: 0;
 }
 
-#ptezrlbqih .gt_bottom_border {
+#ilhiyvfpum .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ptezrlbqih .gt_col_headings {
+#ilhiyvfpum .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2295,7 +2301,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-right-color: #D3D3D3;
 }
 
-#ptezrlbqih .gt_col_heading {
+#ilhiyvfpum .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2315,7 +2321,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   overflow-x: hidden;
 }
 
-#ptezrlbqih .gt_column_spanner_outer {
+#ilhiyvfpum .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2327,15 +2333,15 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-right: 4px;
 }
 
-#ptezrlbqih .gt_column_spanner_outer:first-child {
+#ilhiyvfpum .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ptezrlbqih .gt_column_spanner_outer:last-child {
+#ilhiyvfpum .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ptezrlbqih .gt_column_spanner {
+#ilhiyvfpum .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2347,7 +2353,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   width: 100%;
 }
 
-#ptezrlbqih .gt_group_heading {
+#ilhiyvfpum .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2373,7 +2379,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   text-align: left;
 }
 
-#ptezrlbqih .gt_empty_group_heading {
+#ilhiyvfpum .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2388,15 +2394,15 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   vertical-align: middle;
 }
 
-#ptezrlbqih .gt_from_md > :first-child {
+#ilhiyvfpum .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ptezrlbqih .gt_from_md > :last-child {
+#ilhiyvfpum .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ptezrlbqih .gt_row {
+#ilhiyvfpum .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2415,7 +2421,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   overflow-x: hidden;
 }
 
-#ptezrlbqih .gt_stub {
+#ilhiyvfpum .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2428,7 +2434,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-right: 5px;
 }
 
-#ptezrlbqih .gt_stub_row_group {
+#ilhiyvfpum .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2442,11 +2448,11 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   vertical-align: top;
 }
 
-#ptezrlbqih .gt_row_group_first td {
+#ilhiyvfpum .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ptezrlbqih .gt_summary_row {
+#ilhiyvfpum .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2456,16 +2462,16 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-right: 5px;
 }
 
-#ptezrlbqih .gt_first_summary_row {
+#ilhiyvfpum .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ptezrlbqih .gt_first_summary_row.thick {
+#ilhiyvfpum .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ptezrlbqih .gt_last_summary_row {
+#ilhiyvfpum .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2475,7 +2481,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-bottom-color: #D3D3D3;
 }
 
-#ptezrlbqih .gt_grand_summary_row {
+#ilhiyvfpum .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2485,7 +2491,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-right: 5px;
 }
 
-#ptezrlbqih .gt_first_grand_summary_row {
+#ilhiyvfpum .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2495,11 +2501,11 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-top-color: #D3D3D3;
 }
 
-#ptezrlbqih .gt_striped {
+#ilhiyvfpum .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ptezrlbqih .gt_table_body {
+#ilhiyvfpum .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2508,7 +2514,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-bottom-color: #D3D3D3;
 }
 
-#ptezrlbqih .gt_footnotes {
+#ilhiyvfpum .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2522,7 +2528,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-right-color: #D3D3D3;
 }
 
-#ptezrlbqih .gt_footnote {
+#ilhiyvfpum .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2531,7 +2537,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-right: 5px;
 }
 
-#ptezrlbqih .gt_sourcenotes {
+#ilhiyvfpum .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2545,7 +2551,7 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   border-right-color: #D3D3D3;
 }
 
-#ptezrlbqih .gt_sourcenote {
+#ilhiyvfpum .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2553,64 +2559,64 @@ La frecuencia absoluta de cada clase <span class="math inline">\(i\)</span>, <sp
   padding-right: 5px;
 }
 
-#ptezrlbqih .gt_left {
+#ilhiyvfpum .gt_left {
   text-align: left;
 }
 
-#ptezrlbqih .gt_center {
+#ilhiyvfpum .gt_center {
   text-align: center;
 }
 
-#ptezrlbqih .gt_right {
+#ilhiyvfpum .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ptezrlbqih .gt_font_normal {
+#ilhiyvfpum .gt_font_normal {
   font-weight: normal;
 }
 
-#ptezrlbqih .gt_font_bold {
+#ilhiyvfpum .gt_font_bold {
   font-weight: bold;
 }
 
-#ptezrlbqih .gt_font_italic {
+#ilhiyvfpum .gt_font_italic {
   font-style: italic;
 }
 
-#ptezrlbqih .gt_super {
+#ilhiyvfpum .gt_super {
   font-size: 65%;
 }
 
-#ptezrlbqih .gt_footnote_marks {
+#ilhiyvfpum .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#ptezrlbqih .gt_asterisk {
+#ilhiyvfpum .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ptezrlbqih .gt_indent_1 {
+#ilhiyvfpum .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ptezrlbqih .gt_indent_2 {
+#ilhiyvfpum .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ptezrlbqih .gt_indent_3 {
+#ilhiyvfpum .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ptezrlbqih .gt_indent_4 {
+#ilhiyvfpum .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ptezrlbqih .gt_indent_5 {
+#ilhiyvfpum .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2735,7 +2741,7 @@ Figura 2.10: Ejemplo de gráficos de densidad
 <span class="header-section-number">2.7.3</span> Medidas de tendencia central<a class="anchor" aria-label="anchor" href="#medidas-de-tendencia-central"><i class="fas fa-link"></i></a>
 </h3>
 <p>La tabla de frecuencias y el histograma es un buen resumen de una variable. Pero podemos resumir o describir la variable con una serie de medidas características que resumen algún aspecto en concreto con un solo número. El primer grupo de medidas que podemos calcular son las medidas de centralización. Es decir, los valores centrales entorno a los que varían los datos.</p>
-<p>Ya conocemos la <strong>moda</strong>, que es el valor más frecuente en variables cualitativas y en variables numéricas discretas. En variables numéricas continuas, hablaremos de <strong>intervalo modal</strong>, que será el intervalo con la frecuencia más alta. Si tuviéramos que elegir un solo número, podríamos elegir la marca de clase como valor representativo, o utilizar la siguiente fórmula, con la que se obtiene un valor más próximo al intervalo adyacente más frecuente:<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Josemari Sarasola, &lt;span&gt;“Cálculo de La Moda Para Datos Agrupados En Intervalos”&lt;/span&gt; (Gizapedia, 2018), &lt;a href="https://gizapedia.hirusta.io/calculo-moda-estadistica-datos-agrupados-intervalos/" role="doc-biblioref"&gt;https://gizapedia.hirusta.io/calculo-moda-estadistica-datos-agrupados-intervalos/&lt;/a&gt;.&lt;/p&gt;'><sup>41</sup></a></span></p>
+<p>Ya conocemos la <strong>moda</strong>, que es el valor más frecuente en variables cualitativas y en variables numéricas discretas. En variables numéricas continuas, hablaremos de <strong>intervalo modal</strong>, que será el intervalo con la frecuencia más alta. Si tuviéramos que elegir un solo número, podríamos elegir la marca de clase como valor representativo, o utilizar la siguiente fórmula, con la que se obtiene un valor más próximo al intervalo adyacente más frecuente:<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Josemari Sarasola, &lt;span&gt;“Cálculo de La Moda Para Datos Agrupados En Intervalos”&lt;/span&gt; (Gizapedia, 2018), &lt;a href="https://gizapedia.hirusta.io/calculo-moda-estadistica-datos-agrupados-intervalos/"&gt;https://gizapedia.hirusta.io/calculo-moda-estadistica-datos-agrupados-intervalos/&lt;/a&gt;.&lt;/p&gt;'><sup>41</sup></a></span></p>
 <p><span class="math display">\[Mo=L_i\frac{(n_i - n_{i-1})  + (n_i - i_{i+1})}{(n_i - n_{i-1})}\cdot a_i\]</span>
 Es importante resaltar que la moda en variables continuas va a ser diferente según elijamos los intervalos en los que dividimos el rango.</p>
 <p>La <strong>media aritmética</strong> es sin duda la medida de centralización más conocida y más importante. Cuando disponemos de todos los valores <span class="math inline">\(x_i, i = 1, \ldots, n\)</span> de la variable, la calculamos con la siguiente fórmula:</p>
@@ -3860,7 +3866,7 @@ Figura 2.14: Explicación de los estadísticos representados en el gráfico de c
 </h3>
 <p>Aunque el histograma nos da una idea de la forma de la distribución de los datos, podemos cuantificar esta forma principalmente con dos medidas. El <strong>coeficiente de asimetría</strong>, <span class="math inline">\(\gamma_1\)</span> nos indicará en qué medida los datos son simétricos. Esto sucede cuando la mediana es igual a la media. Si no son simétricos, el coeficiente nos indicará el tipo de asimetría.</p>
 <p><span class="math display">\[\gamma_1 = \frac{m_3}{s^3},\]</span>
-donde <span class="math inline">\(m_3 = \frac{1}{n}\sum\limits_{i=1}^n(x-\bar x ) ^3\)</span></p>
+donde <span class="math inline">\(m_3 = \frac{1}{n}\sum\limits_{i=1}^n(x_i-\bar x ) ^3\)</span></p>
 <p>La interpretación es la siguiente:</p>
 <ul>
 <li>
@@ -4314,7 +4320,7 @@ Figura 2.15: Histogramas de variables con distintos tipos de asimetría
 </div>
 <p>El <strong>coeficiente de apuntamiento o curtosis</strong> nos indica cómo de “apuntados” son los datos (muy concentrados alrededor de la media):</p>
 <p><span class="math display">\[\gamma_2 = \frac{m_4}{s^4}-3,\]</span>
-donde <span class="math inline">\(m_4 = \frac{1}{n}\sum\limits_{i=1}^n(x-\bar x ) ^4\)</span></p>
+donde <span class="math inline">\(m_4 = \frac{1}{n}\sum\limits_{i=1}^n(x_i-\bar x ) ^4\)</span></p>
 <p>La interpretación es la siguiente:</p>
 <ul>
 <li>
@@ -5817,10 +5823,10 @@ Figura 2.18: Gráfico de serie temporal
 <code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>echo <span class="op">=</span> <span class="cn">TRUE</span>, message <span class="op">=</span> <span class="cn">FALSE</span>, warning <span class="op">=</span> <span class="cn">FALSE</span>, comment <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── Attaching packages ─────────────────── tidyverse 1.3.2 ──</span></span>
-<span><span class="co">#&gt; ✔ ggplot2 3.4.0      ✔ purrr   1.0.1 </span></span>
-<span><span class="co">#&gt; ✔ tibble  3.1.8      ✔ dplyr   1.0.10</span></span>
-<span><span class="co">#&gt; ✔ tidyr   1.3.0      ✔ stringr 1.5.0 </span></span>
-<span><span class="co">#&gt; ✔ readr   2.1.3      ✔ forcats 0.5.2 </span></span>
+<span><span class="co">#&gt; ✔ ggplot2 3.4.1     ✔ purrr   1.0.1</span></span>
+<span><span class="co">#&gt; ✔ tibble  3.1.8     ✔ dplyr   1.1.0</span></span>
+<span><span class="co">#&gt; ✔ tidyr   1.3.0     ✔ stringr 1.5.0</span></span>
+<span><span class="co">#&gt; ✔ readr   2.1.3     ✔ forcats 0.5.2</span></span>
 <span><span class="co">#&gt; ── Conflicts ────────────────────── tidyverse_conflicts() ──</span></span>
 <span><span class="co">#&gt; ✖ purrr::compose() masks flextable::compose()</span></span>
 <span><span class="co">#&gt; ✖ dplyr::filter()  masks stats::filter()</span></span>
@@ -5891,7 +5897,7 @@ Figura 2.18: Gráfico de serie temporal
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2023-02-13.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2023-04-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

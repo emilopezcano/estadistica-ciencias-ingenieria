@@ -107,7 +107,7 @@ function changeTooltipMessage(element, msg) {
 $(document).ready(function() {
   if(ClipboardJS.isSupported()) {
     // Insert copy buttons
-    var copyButton = "<button type='button' class='btn btn-copy' title='Copiar al portapapeles' aria-label='Copiar al portapapeles' data-toggle='popover' data-placement='top' data-trigger='hover'><i class='bi'></i></button>";
+    var copyButton = "<button type='button' class='btn btn-copy' title='Copy to clipboard' aria-label='Copy to clipboard' data-toggle='popover' data-placement='top' data-trigger='hover'><i class='bi'></i></button>";
     $(copyButton).appendTo("div.sourceCode");
     // Initialize tooltips:
     $('.btn-copy').tooltip({container: 'body', boundary: 'window'});
@@ -130,7 +130,7 @@ $(document).ready(function() {
     });
 
     clipboard.on('error', function() {
-      changeTooltipMessage(e.trigger,'Pulsa Ctrl+C o Comando+C para copiar');
+      changeTooltipMessage(e.trigger,'Press Ctrl+C or Command+C to copy');
     });
   };
 });

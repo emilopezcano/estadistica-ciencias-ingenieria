@@ -21,7 +21,7 @@
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.1.2/tabwid.css" rel="stylesheet">
-<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
 <script src="libs/grViz-binding-1.0.9/grViz.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 <link rel="stylesheet" href="bs4_book.css">
 <link rel="stylesheet" href="style.css">
@@ -441,7 +441,7 @@ El modelo se extiende inmediatamente a más de dos factores, en los
 que las interacciones pueden ser dos a dos, tres a tres, etc. No obstante,
 las interacciones de orden superior a 3 rara vez son significativas y se suelen descartar casi siempre.</p>
 <p>A veces no es posible tener diseños equilibrados, es decir, con el mismo
-número de réplicas en cada “celda” o cruce de niveles de factores. En estos casos, para hacer los contrastes correctos debemos utilizar la función <code><a href="https://rdrr.io/pkg/car/man/Anova.html">Anova()</a></code> del paquete {car},<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;John Fox, Sanford Weisberg, and Brad Price, &lt;em&gt;Car: Companion to Applied Regression&lt;/em&gt;, 2022, &lt;a href="https://CRAN.R-project.org/package=car" role="doc-biblioref"&gt;https://CRAN.R-project.org/package=car&lt;/a&gt;.&lt;/p&gt;'><sup>97</sup></a></span> que calcula las sumas de cuadrados tipo II y tipo III, y los contrastes correctos. Las sumas de cuadrados del diseño equilibrado se suele llamar tipo I. Véase <span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>98</sup></a></span> para una explicación más detallada, o la entrada “Diferentes sumas de cuadrados en ANOVA” de “El blog de los herreros”<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://erre-que-erre-paco.blogspot.com/2016/12/diferentes-sumas-de-cuadrados-en-anova.html" class="uri"&gt;https://erre-que-erre-paco.blogspot.com/2016/12/diferentes-sumas-de-cuadrados-en-anova.html&lt;/a&gt;&lt;/p&gt;'><sup>99</sup></a>.</p>
+número de réplicas en cada “celda” o cruce de niveles de factores. En estos casos, para hacer los contrastes correctos debemos utilizar la función <code><a href="https://rdrr.io/pkg/car/man/Anova.html">Anova()</a></code> del paquete {car},<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;John Fox, Sanford Weisberg, and Brad Price, &lt;em&gt;Car: Companion to Applied Regression&lt;/em&gt;, 2022, &lt;a href="https://CRAN.R-project.org/package=car"&gt;https://CRAN.R-project.org/package=car&lt;/a&gt;.&lt;/p&gt;'><sup>97</sup></a></span> que calcula las sumas de cuadrados tipo II y tipo III, y los contrastes correctos. Las sumas de cuadrados del diseño equilibrado se suele llamar tipo I. Véase <span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>98</sup></a></span> para una explicación más detallada, o la entrada “Diferentes sumas de cuadrados en ANOVA” de “El blog de los herreros”<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://erre-que-erre-paco.blogspot.com/2016/12/diferentes-sumas-de-cuadrados-en-anova.html" class="uri"&gt;https://erre-que-erre-paco.blogspot.com/2016/12/diferentes-sumas-de-cuadrados-en-anova.html&lt;/a&gt;&lt;/p&gt;'><sup>99</sup></a>.</p>
 <div class="rmdejemplo">
 <p>A modo ilustrativo, el siguiente código genera aleatoriamente datos de un supuesto experimento con tres factores: A (con niveles A1, A2 y A3), B (con niveles B1, B2 y B3) y C (con niveles C1 y C2). Las tablas ANOVA del diseño equilibrado son idénticas para los dos métodos. Pero si quitamos uno de los datos (puede ser una situación realista en un experimento tener un valor perdido), entonces las sumas de cuadrados con los distintos métodos no son iguales, y podrían llevar a decisiones distintas.</p>
 </div>
@@ -550,7 +550,7 @@ causas:</p>
 <span><span class="va">dm</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/flextable.html">flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/set_caption.html">set_caption</a></span><span class="op">(</span><span class="st">"Ejemplo de matriz de diseño y datos sin réplicas"</span><span class="op">)</span></span></code></pre></div>
-<template id="9b579372-fb7a-4827-b04a-28d5fbaa8edf"><style>
+<template id="85af9700-16fe-4ff7-a24e-b1d7bc1eeaa9"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -590,91 +590,91 @@ background-color: transparent;
 }
 </style>
 <div class="tabwid">
-<style>.cl-877cfb48{}.cl-8773138a{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-87768772{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8776877c{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8776a7e8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8776a7f2{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8776a7fc{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8776a7fd{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8776a806{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8776a810{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<div class="inline-table"><table data-quarto-disable-processing="true" class="cl-877cfb48">
+<style>.cl-5898f0c2{}.cl-58921ab8{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-5894f062{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-5894f06c{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-58950458{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-58950459{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-58950462{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5895046c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5895046d{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5895046e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<div class="inline-table"><table data-quarto-disable-processing="true" class="cl-5898f0c2">
 <caption>
 <span id="tab:matrizest">Tabla 11.1: </span><span>Ejemplo de matriz de diseño y datos sin réplicas</span>
 </caption>
 
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-8776a7e8"><p class="cl-87768772"><span class="cl-8773138a">Orden estándar</span></p></th>
-<th class="cl-8776a7e8"><p class="cl-87768772"><span class="cl-8773138a">A</span></p></th>
-<th class="cl-8776a7e8"><p class="cl-87768772"><span class="cl-8773138a">B</span></p></th>
-<th class="cl-8776a7e8"><p class="cl-87768772"><span class="cl-8773138a">C</span></p></th>
-<th class="cl-8776a7f2"><p class="cl-8776877c"><span class="cl-8773138a">Unidad experimental (aleatoria)</span></p></th>
-<th class="cl-8776a7f2"><p class="cl-8776877c"><span class="cl-8773138a">Respuesta (simulación)</span></p></th>
+<th class="cl-58950458"><p class="cl-5894f062"><span class="cl-58921ab8">Orden estándar</span></p></th>
+<th class="cl-58950458"><p class="cl-5894f062"><span class="cl-58921ab8">A</span></p></th>
+<th class="cl-58950458"><p class="cl-5894f062"><span class="cl-58921ab8">B</span></p></th>
+<th class="cl-58950458"><p class="cl-5894f062"><span class="cl-58921ab8">C</span></p></th>
+<th class="cl-58950459"><p class="cl-5894f06c"><span class="cl-58921ab8">Unidad experimental (aleatoria)</span></p></th>
+<th class="cl-58950459"><p class="cl-5894f06c"><span class="cl-58921ab8">Respuesta (simulación)</span></p></th>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">1</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">-</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">-</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">-</span></p></td>
-<td class="cl-8776a7fd"><p class="cl-8776877c"><span class="cl-8773138a">1</span></p></td>
-<td class="cl-8776a7fd"><p class="cl-8776877c"><span class="cl-8773138a">6.9</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">1</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">-</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">-</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">-</span></p></td>
+<td class="cl-5895046c"><p class="cl-5894f06c"><span class="cl-58921ab8">1</span></p></td>
+<td class="cl-5895046c"><p class="cl-5894f06c"><span class="cl-58921ab8">6.9</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">2</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">+</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">-</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">-</span></p></td>
-<td class="cl-8776a7fd"><p class="cl-8776877c"><span class="cl-8773138a">4</span></p></td>
-<td class="cl-8776a7fd"><p class="cl-8776877c"><span class="cl-8773138a">8.1</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">2</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">+</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">-</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">-</span></p></td>
+<td class="cl-5895046c"><p class="cl-5894f06c"><span class="cl-58921ab8">4</span></p></td>
+<td class="cl-5895046c"><p class="cl-5894f06c"><span class="cl-58921ab8">8.1</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">3</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">-</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">+</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">-</span></p></td>
-<td class="cl-8776a7fd"><p class="cl-8776877c"><span class="cl-8773138a">8</span></p></td>
-<td class="cl-8776a7fd"><p class="cl-8776877c"><span class="cl-8773138a">9.4</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">3</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">-</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">+</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">-</span></p></td>
+<td class="cl-5895046c"><p class="cl-5894f06c"><span class="cl-58921ab8">8</span></p></td>
+<td class="cl-5895046c"><p class="cl-5894f06c"><span class="cl-58921ab8">9.4</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">4</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">+</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">+</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">-</span></p></td>
-<td class="cl-8776a7fd"><p class="cl-8776877c"><span class="cl-8773138a">2</span></p></td>
-<td class="cl-8776a7fd"><p class="cl-8776877c"><span class="cl-8773138a">10.0</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">4</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">+</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">+</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">-</span></p></td>
+<td class="cl-5895046c"><p class="cl-5894f06c"><span class="cl-58921ab8">2</span></p></td>
+<td class="cl-5895046c"><p class="cl-5894f06c"><span class="cl-58921ab8">10.0</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">5</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">-</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">-</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">+</span></p></td>
-<td class="cl-8776a7fd"><p class="cl-8776877c"><span class="cl-8773138a">6</span></p></td>
-<td class="cl-8776a7fd"><p class="cl-8776877c"><span class="cl-8773138a">14.8</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">5</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">-</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">-</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">+</span></p></td>
+<td class="cl-5895046c"><p class="cl-5894f06c"><span class="cl-58921ab8">6</span></p></td>
+<td class="cl-5895046c"><p class="cl-5894f06c"><span class="cl-58921ab8">14.8</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">6</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">+</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">-</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">+</span></p></td>
-<td class="cl-8776a7fd"><p class="cl-8776877c"><span class="cl-8773138a">3</span></p></td>
-<td class="cl-8776a7fd"><p class="cl-8776877c"><span class="cl-8773138a">11.5</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">6</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">+</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">-</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">+</span></p></td>
+<td class="cl-5895046c"><p class="cl-5894f06c"><span class="cl-58921ab8">3</span></p></td>
+<td class="cl-5895046c"><p class="cl-5894f06c"><span class="cl-58921ab8">11.5</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">7</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">-</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">+</span></p></td>
-<td class="cl-8776a7fc"><p class="cl-87768772"><span class="cl-8773138a">+</span></p></td>
-<td class="cl-8776a7fd"><p class="cl-8776877c"><span class="cl-8773138a">7</span></p></td>
-<td class="cl-8776a7fd"><p class="cl-8776877c"><span class="cl-8773138a">8.4</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">7</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">-</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">+</span></p></td>
+<td class="cl-58950462"><p class="cl-5894f062"><span class="cl-58921ab8">+</span></p></td>
+<td class="cl-5895046c"><p class="cl-5894f06c"><span class="cl-58921ab8">7</span></p></td>
+<td class="cl-5895046c"><p class="cl-5894f06c"><span class="cl-58921ab8">8.4</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-8776a806"><p class="cl-87768772"><span class="cl-8773138a">8</span></p></td>
-<td class="cl-8776a806"><p class="cl-87768772"><span class="cl-8773138a">+</span></p></td>
-<td class="cl-8776a806"><p class="cl-87768772"><span class="cl-8773138a">+</span></p></td>
-<td class="cl-8776a806"><p class="cl-87768772"><span class="cl-8773138a">+</span></p></td>
-<td class="cl-8776a810"><p class="cl-8776877c"><span class="cl-8773138a">5</span></p></td>
-<td class="cl-8776a810"><p class="cl-8776877c"><span class="cl-8773138a">7.7</span></p></td>
+<td class="cl-5895046d"><p class="cl-5894f062"><span class="cl-58921ab8">8</span></p></td>
+<td class="cl-5895046d"><p class="cl-5894f062"><span class="cl-58921ab8">+</span></p></td>
+<td class="cl-5895046d"><p class="cl-5894f062"><span class="cl-58921ab8">+</span></p></td>
+<td class="cl-5895046d"><p class="cl-5894f062"><span class="cl-58921ab8">+</span></p></td>
+<td class="cl-5895046e"><p class="cl-5894f06c"><span class="cl-58921ab8">5</span></p></td>
+<td class="cl-5895046e"><p class="cl-5894f06c"><span class="cl-58921ab8">7.7</span></p></td>
 </tr>
 </tbody>
 </table></div>
-</div></template><div class="flextable-shadow-host" id="f1aaeeef-4218-405c-997f-701654e58250"></div>
+</div></template><div class="flextable-shadow-host" id="ec9b184c-d9ea-4562-a1ca-126f58d22a39"></div>
 <script>
-var dest = document.getElementById("f1aaeeef-4218-405c-997f-701654e58250");
-var template = document.getElementById("9b579372-fb7a-4827-b04a-28d5fbaa8edf");
+var dest = document.getElementById("ec9b184c-d9ea-4562-a1ca-126f58d22a39");
+var template = document.getElementById("85af9700-16fe-4ff7-a24e-b1d7bc1eeaa9");
 var fantome = dest.attachShadow({mode: 'open'});
 var templateContent = template.content;
 fantome.appendChild(templateContent);
@@ -1607,7 +1607,7 @@ factores de bloque respectivamente en diseños factoriales de un factor.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2023-02-13.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2023-04-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

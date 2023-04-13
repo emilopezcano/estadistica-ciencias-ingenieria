@@ -147,7 +147,7 @@ Sea la variable aleatoria $X$ con $E[X] = \mu$ y $V[X] = \sigma^2$. Obtenemos mu
 $$\hat  \mu = \bar x = \frac 1 n \sum\limits_1^n x_i.$$
 
 Entonces $\overline X_{\{n\}}$ es la variable aleatoria "media de la característica $X$ en muestras de tamaño $n$", y por
-las propieadades de la esperanza y la varianza:
+las propiedades de la esperanza y la varianza:
 
 * $E[\overline X_{\{n\}}]$ = $\mu$,
 
@@ -160,11 +160,11 @@ las propieadades de la esperanza y la varianza:
 Sean $X_1, \ldots, X_n$ variables aleatorias independientes e idénticamente distribuidas, con
 media $\mu$ y varianza $\sigma^2$. Y sea $\overline X$ el promedio de esas variables aleatorias:
 
-$$\overline X = \frac 1 n \sum\limits_{i=1}^n X_i$$
+$$\overline X = \frac 1 n \sum\limits_{i=1}^n X_i.$$
 
 Entonces, para $n$ suficientemente grande, la variable aleatoria $\overline X_{\{n\}}$ sigue una distribución normal de media $\mu$ y varianza $\frac{\sigma^2}{n}$:
 
-$$\overline X_{\{n\}} \sim N\left(\mu; \frac{\sigma}{\sqrt{n}} \right)$$
+$$\overline X_{\{n\}} \sim N\left(\mu; \frac{\sigma}{\sqrt{n}} \right).$$
 
 El Teorema Central del Límite nos va a permitir hacer inferencia de cualquier variable aleatoria $X$ utilizando las propiedades de la distribución normal.
 
@@ -177,7 +177,7 @@ $$E\left[\frac 1 n \sum (x_i-\bar x)^2 \right] = \frac{n}{n-1}\sigma^2.$$
 
 Por eso usamos la "cuasivarianza" o varianza muestral:
 
-$$\hat \sigma^2 = s^2 = \frac{ 1}{ n-1} \sum (x_i-\bar x)^2$$
+$$\hat \sigma^2 = s^2 = \frac{ 1}{ n-1} \sum (x_i-\bar x)^2.$$
 Se cumple que:
 
 * $E[s^2] = \sigma^2$
@@ -187,7 +187,7 @@ Para determinar la distribución en el muestreo de la varianza muestral, primero
 que definir la distribución $\chi^2$, que tiene un único parámetro, los grados de libertad $n$.
 Se define como la suma de $n$ variables aleatorias normales independientes estandarizadas al cuadrado:
 
-$$\chi^2_n = Z_1^2 + \ldots + Z_n^2;\quad E[\chi^2_{n}]=n; \quad V[\chi^2_{n}]=2n$$
+$$\chi^2_n = Z_1^2 + \ldots + Z_n^2;\quad E[\chi^2_{n}]=n; \quad V[\chi^2_{n}]=2n.$$
 
 Se cumple, independientemente de la distribución de $X$, que:
 
@@ -199,7 +199,7 @@ que es la distribución que usaremos para hacer inferencia sobre la varianza de 
 Sea la variable aleatoria $X:$ Número de elementos de la muestra de tamaño $n$ que presentan la característica en estudio.
 Entonces al extraer la muestra, se obtienen valores $x \in \{1, \ldots, n\}$, y el estadístico proporción muestral será $p = \frac x n$. Entonces, la probabilidad de que el parámetro $\pi$ tome un valor determinado $p=\frac x n$, es equivalente a la probabilidad de que la variable $X$ tome el valor $x$:
 
-$$P[\pi = p] = P\left [\pi = \frac x n\right] = P[X = x]$$
+$$P[\pi = p] = P\left [\pi = \frac x n\right] = P[X = x].$$
 
 Por tanto, la distribución exacta en el muestreo de $\hat \pi = p$ es una Binomial de parámetros $n$ y $\pi$.
 
@@ -340,12 +340,69 @@ muestran en la tabla \@ref(tab:ph1). Podríamos estimar con estos datos la media
 
 
 
+```{=html}
+<template id="1945ad4b-8845-4cdb-ba20-c24f6fef6d40"><style>
+.tabwid table{
+  border-spacing:0px !important;
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  border-color: transparent;
+  caption-side: top;
+}
+.tabwid-caption-bottom table{
+  caption-side: bottom;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td, .tabwid th {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+.katex-display {
+    margin: 0 0 !important;
+}
+</style><div class="tabwid"><style>.cl-4ebd81b2{}.cl-4eb4d17a{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-4eb7ffa8{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-4eb7ffbc{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-4eb81376{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb81380{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb81381{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb81382{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb8138a{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb8138b{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb8138c{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb81394{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb81395{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb81396{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb8139e{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb8139f{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-4ebd81b2'>
 
+```
+
+<caption>(\#tab:ph1)<span>Datos de pH del agua del grifo en 30 viviendas</span></caption>
+
+```{=html}
+
+<thead><tr style="overflow-wrap:break-word;"><th class="cl-4eb81376"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">pH</span></p></th><th class="cl-4eb81380"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">deposito</span></p></th><th class="cl-4eb81381"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">antimonio</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.687</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.94</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.092</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.03</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.582</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.06</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.798</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.99</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.165</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.07</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.590</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.03</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.244</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.95</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.369</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.03</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.288</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.91</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.847</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.11</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.756</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.16</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.195</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.97</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.689</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.92</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">6.893</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.05</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.562</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.99</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.978</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.19</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.992</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.00</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.472</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.06</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.411</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.00</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.297</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.94</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.459</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.02</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.391</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.86</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.037</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.12</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.005</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.01</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.310</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.17</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.972</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.04</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.922</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.94</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.265</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.05</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.761</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.93</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81396"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.209</span></p></td><td class="cl-4eb8139e"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb8139f"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.90</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="5b7965c7-8cba-422a-a016-8a4e17d22f4a"></div>
+<script>
+var dest = document.getElementById("5b7965c7-8cba-422a-a016-8a4e17d22f4a");
+var template = document.getElementById("1945ad4b-8845-4cdb-ba20-c24f6fef6d40");
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
+
+```
 
 
 :::{.rmdpractica data-latex=""}
 `<svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:steelblue;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>`{=html} El siguiente código calcula la media muestral del pH, la varianza muestral del pH, y la
-proporción muestral de edificios con depósito de agua (y por tanto también si depósito de agua). Los datos se importan directamente
+proporción muestral de edificios con depósito de agua (y por tanto también sin depósito de agua). Los datos se importan directamente
 de una url.
 :::
 

@@ -1,7 +1,7 @@
 --- 
 title: "Estadística Aplicada a las Ciencias y la Ingeniería"
 author: "Emilio L. Cano"
-date: "2023-02-13"
+date: "2023-04-11"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib, iso.bib]
@@ -93,7 +93,7 @@ Obsérvese que los resultados se muestran precedidos de los símbolos
 
 ```r
 sessionInfo()
-#> R version 4.2.2 (2022-10-31)
+#> R version 4.2.3 (2023-03-15)
 #> Platform: x86_64-apple-darwin17.0 (64-bit)
 #> Running under: macOS Big Sur ... 10.16
 #> 
@@ -113,8 +113,8 @@ sessionInfo()
 #> 
 #> loaded via a namespace (and not attached):
 #>  [1] zip_2.2.2         Rcpp_1.0.10       jquerylib_0.1.4  
-#>  [4] bslib_0.4.2       compiler_4.2.2    later_1.3.0      
-#>  [7] base64enc_0.1-3   gfonts_0.2.0      tools_4.2.2      
+#>  [4] bslib_0.4.2       compiler_4.2.3    later_1.3.0      
+#>  [7] base64enc_0.1-3   gfonts_0.2.0      tools_4.2.3      
 #> [10] downlit_0.4.2     digest_0.6.31     uuid_1.1-0       
 #> [13] evaluate_0.20     jsonlite_1.8.4    memoise_2.0.1    
 #> [16] lifecycle_1.0.3   rlang_1.0.6       shiny_1.7.4      
@@ -123,10 +123,10 @@ sessionInfo()
 #> [25] fastmap_1.1.0     withr_2.5.0       officer_0.5.2    
 #> [28] knitr_1.42        xml2_1.3.3        fs_1.6.0         
 #> [31] sass_0.4.5        gdtools_0.3.0     systemfonts_1.0.4
-#> [34] askpass_1.1       grid_4.2.2        glue_1.6.2       
+#> [34] askpass_1.1       grid_4.2.3        glue_1.6.2       
 #> [37] httpcode_0.3.0    data.table_1.14.6 R6_2.5.1         
 #> [40] rmarkdown_2.20    bookdown_0.32     magrittr_2.0.3   
-#> [43] promises_1.2.0.1  ellipsis_0.3.2    htmltools_0.5.4  
+#> [43] promises_1.2.0.1  ellipsis_0.3.2    htmltools_0.5.5  
 #> [46] mime_0.12         xtable_1.8-4      httpuv_1.6.8     
 #> [49] openssl_2.0.5     cachem_1.0.6      crayon_1.5.2
 ```
