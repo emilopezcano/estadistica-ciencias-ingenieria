@@ -833,6 +833,14 @@ no incluidas en los capítulos para mantener el carácter práctico del mismo.
 ### Varianza
 
 
+# Ampliaciones
+
+## Estimación no paramétrica
+
+## Inferencia Bayesiana
+
+
+
 
 # Créditos {#creditos}
 

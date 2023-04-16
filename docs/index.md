@@ -1,7 +1,7 @@
 --- 
 title: "Estadística Aplicada a las Ciencias y la Ingeniería"
 author: "Emilio L. Cano"
-date: "2023-04-11"
+date: "2023-04-16"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib, iso.bib]
@@ -22,6 +22,8 @@ csl: chicago-fullnote-bibliography.csl
 
 
 <img src="images/cover.png" class="cover" width="250" height="328"/>
+Bienvenido/a a  "Estadística Aplicada a las Ciencias y la Ingeniería" por [Emilio L. Cano](http://emilio.lcano.com).
+
 Este libro incluye los contenidos habitualmente presentes en el currículo 
 de asignaturas de **Estadística** de los grados Ciencias e Ingenierías de universidades españolas. Aunque no aparezca en el título, el manual incluye también los contenidos de **Probabilidad** necesarios.
 Si bien existe abundante material bibliográfico
@@ -199,7 +201,7 @@ con diverso material complementan el libro en su conjunto.
 
 ## Sobre el autor {-}
 
-Emilio López Cano, Estadístico y entusiasta de R. Actualmente soy Profesor Contratado Doctor en la Escuela [Técnica Superior de Ingeniería Informática](https://www.urjc.es/etsii) e investigador en el [Data Science Laboratory](http://www.datasciencelab.es) de la [Universidad Rey Juan Carlos](https://www.urjc.es). Mis intereses de investigación incluyen Estadística Aplicada, Aprendizaje Estadístico y Metodologías para la Calidad. Previamente he sido profesor e investigador en la [Universidad de Castilla-La Mancha](https://www.uclm.es), donde sigo colaborando en docencia e investigación, y Estadístico en empresas del sector privado de diversos sectores.
+Emilio López Cano, Estadístico y entusiasta de R. Actualmente soy Profesor Contratado Doctor en la [Escuela Técnica Superior de Ingeniería Informática](https://www.urjc.es/etsii) e investigador en el [Data Science Laboratory](http://www.datasciencelab.es) de la [Universidad Rey Juan Carlos](https://www.urjc.es). Mis intereses de investigación incluyen Estadística Aplicada, Aprendizaje Estadístico y Metodologías para la Calidad. Previamente he sido profesor e investigador en la [Universidad de Castilla-La Mancha](https://www.uclm.es), donde sigo colaborando en docencia e investigación, y Estadístico en empresas del sector privado de diversos sectores.
 
 Presidente del subcomité técnico de normalización UNE ([miembro de ISO](https://www.iso.org/committee/49742/x/catalogue/)) [CTN 66/SC 3 (Métodos Estadísticos)](https://www.une.org/encuentra-tu-norma/comites-tecnicos-de-normalizacion/comite/?c=CTN%2066/SC%203). Profesor en la Asociación Española para la Calidad ([AEC](https://www.aec.es)). Presidente de la asociación [Comunidad R Hispano](http://r-es.org).
 
@@ -234,8 +236,8 @@ muchos otros (perdón
 a l@s omitid@s por no ser más exhaustivo).
 
 Especial agradecimiento a toda la comunidad del [software libre y 
-lenguaje de programación R](https://www.r-project.org), y en particular al _R Core Team_ y al equipo
-de [RStudio](https://www.rstudio.com).
+lenguaje de programación R](https://www.r-project.org), y en particular al _R Core Team_, al equipo
+de [Posit (antes RStudio)](https://www.rstudio.com) y a los amigos de [R Hispano](http://r-es.org).
 
 
 

@@ -70,7 +70,7 @@ Si estamos estudiando una población en la que se sabe que la variable de inter�
 
 
 El **muestreo por conglomerados** también asume que se dispone de grupos en la población, 
-pero son homogéneos entre sí (se parecen). 
+la diferencia es que en este caso los grupos son homogéneos entre sí (se parecen). 
 Pero dentro de cada grupo la variable se comporta de forma heterogénea.
 Puede existir una jerarquía (conglomerados dentro de los conglomerados).
 Entonces se obtiene una muestra de grupos (no de individuos). 
@@ -87,12 +87,12 @@ No siempre tenemos la lista de elementos, como en los casos anteriores. Pero sí
 por ejemplo, conforme llegan muestras (en el sentido biológico) a un laboratorio. Entonces podemos
 realizar un **muestreo sistemático**. Para poder usarlo es importante estar 
 seguro de que la característica no depende del orden.
-Entonces, se elige un punto de partida (idealmente, aleatorio) y se toman elementos separados a distancia $k$ (coeficiente de elevación). Se puede aplicar en vez de MAS en cualquiera de las situaciones anteriores.
+Entonces, se elige un punto de partida (idealmente aleatorio) y se toman elementos separados a distancia $k$ (coeficiente de elevación). Esta distancia puede referirse al número de individuos, por ejemplo, cada 10 individuos que llegan, o a un periodo de tiempo si llegan de forma más o menos regular, por ejemplo, cada 20 minutos. Se puede aplicar en vez de MAS en cualquiera de las situaciones anteriores.
 
 
 :::{.rmdejemplo data-latex=""}
 
-En la producción de un fertilizante en bolas, se tomarán muestras de 10 bolas cada hora. Se elige aleatoriamente un instante la primera hora, y a partir de ahí cada 60 minutos se elegirán las siguientes 10 bolas.
+En la producción de un fertilizante en bolas, se tomarán muestras de 10 bolas cada hora. Se elige aleatoriamente un instante la primera hora, y a partir de ahí cada 60 minutos se tomarán las siguientes 10 bolas.
 :::
 
 
@@ -110,7 +110,7 @@ Recordemos que los parámetros se definen sobre una Variable Aleatoria $X$ de la
 
 
 
-:::{.rmdejemplo data-latex=""}
+:::{.rmdinfo data-latex=""}
 
 $\mu, \sigma^2 \text{ y }  \pi$ representan los parámetros media, varianza y proporción de una determinada característica en la población. Son desconocidos, y dependen de la distribución de la característica en estudio. 
 $\bar x, s^2 \text{ y } p$ son estadísticos calculados con los $n$ datos de una muestra.
@@ -121,7 +121,7 @@ parámetro. Esa estimación estará sujeta a un error, que se puede cuantificar 
 Representamos con $\hat \mu = \bar x$ que la media muestral $\bar x$ es un estimador de la media poblacional $\mu$
 
 
-:::{.rmdejemplo data-latex=""}
+:::{.rmdinfo data-latex=""}
 * Proporción: $\hat \pi = p$
 * Media: $\hat \mu = \bar x$ 
 * Varianza: $\hat \sigma^2 = s^2 = \frac{1}{n-1}\left( \sum x_i^2 - n \bar x^2 \right )$
@@ -187,12 +187,23 @@ Para determinar la distribución en el muestreo de la varianza muestral, primero
 que definir la distribución $\chi^2$, que tiene un único parámetro, los grados de libertad $n$.
 Se define como la suma de $n$ variables aleatorias normales independientes estandarizadas al cuadrado:
 
-$$\chi^2_n = Z_1^2 + \ldots + Z_n^2;\quad E[\chi^2_{n}]=n; \quad V[\chi^2_{n}]=2n.$$
+$$\chi^2_n = Z_1^2 + \ldots + Z_n^2;\quad Z_i \sim N(0; 1)\forall i; \quad E[\chi^2_{n}]=n; \quad V[\chi^2_{n}]=2n.$$
 
 Se cumple, independientemente de la distribución de $X$, que:
 
 $$\frac{(n-1)s^2}{\sigma^2}\sim \chi^2_{n-1},$$
 que es la distribución que usaremos para hacer inferencia sobre la varianza de la población.
+
+
+:::{.rmdinfo data-latex=""}
+La distribución $\chi^2$ es positiva y asimétrica. Esta asimetría puede tomar formas muy diversas. A medida que aumentan los grados de libertad, esta asimetría es menos pronunciada, véase la Fig. \@ref(fig:chi).
+:::
+
+
+<div class="figure">
+<img src="08-muestreo_files/figure-html/chi-1.png" alt="Distribución $\chi^2$ para distintos grados de libertad" width="672" />
+<p class="caption">(\#fig:chi)Distribución $\chi^2$ para distintos grados de libertad</p>
+</div>
 
 ### Proporción muestral
 
@@ -208,7 +219,7 @@ Como la binomial es una suma de distribuciones de Bernoulli, entonces $p$ es una
 $$P = \frac{X}{n}\approx N\left(\pi, \sqrt{\frac{\pi(1-\pi)}{n}}\right).$$
 También se puede definir la distribución en el muestreo del número de elementos de la muestra con la característica, $X$:
 
-$$X=np \sim N(n\pi, \sqrt{n\pi(1-\pi))}.$$
+$$X=np \sim N(n\pi, \sqrt{n\pi(1-\pi)}.$$
 
 ## Tamaño muestral para estimar la media
 
@@ -251,11 +262,14 @@ donde $z_{\frac{\alpha}{2}}$ es el cuantil de la distribución normal estandariz
 
 
 :::{.rmdinfo data-latex=""}
-Normalmente se omite en $z_{\frac{\alpha}{2}}$ el símbolo "$1-$" por comodidad al ser simétricos: $z_\frac \alpha 2= - z_{1-\frac \alpha 2}$.
+Normalmente se omite en $z_{\frac{\alpha}{2}}$ el símbolo "$1-$" por comodidad al ser simétricos: $z_\frac \alpha 2= - z_{1-\frac \alpha 2}$, véase la Fig. \@ref(fig:zalfamedios).
 
 :::
 
-<img src="08-muestreo_files/figure-html/unnamed-chunk-1-1.png" width="60%" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="08-muestreo_files/figure-html/zalfamedios-1.png" alt="Representación del nivel de confianza , 1-$lpha$, y el nivel se significación, $lpha$, repartido en las dos colas de la distribución normal." width="60%" />
+<p class="caption">(\#fig:zalfamedios)Representación del nivel de confianza , 1-$lpha$, y el nivel se significación, $lpha$, repartido en las dos colas de la distribución normal.</p>
+</div>
 
 
 :::{.rmdejemplo data-latex=""}
@@ -280,7 +294,7 @@ de donde despejando $n$, tenemos una expresión general para calcular el tamaño
 
 $$n = \frac{z_{\frac{\alpha}{2}}^2 \sigma^2}{e^2}.$$
 
-Esta expresión nos sirve tal cual para calcular el tamaño de muestra para estimar la
+Esta expresión nos sirve tal cual para calcular el tamaño de muestra necesario para estimar la
 media poblacional de una variable aleatoria normal con **varianza conocida** $\sigma^2$,
 y tamaño poblacional grande. Si el tamaño de la población es pequeño y conocido, $N$, entonces
 el tamaño de la muestra se calcula con esta otra fórmula:
@@ -290,17 +304,28 @@ $$n = \frac{N\cdot z_{\frac{\alpha}{2}}^2 \cdot \sigma^2}{e^2\cdot (N-1)+ z_{\fr
 Si la varianza es desconocida, sustituimos $\sigma$ por $s$. Si no tenemos $s$, se estima el caso más desfavorable.
 
 
+
 :::{.rmdejemplo data-latex=""}
-Queremos estimar la valoración que hacen los clientes de un determinado servicio energético en una puntuación de 0 a 10. El caso más desfavorable (para el tamaño de la varianza) sería que la mitad de los clientes contestaran un 0 y la otra mitad un 10. O, equivalentemente, que contestara un cliente con un cero y otro con un 10. Entonces, la varianza $s^2$ sería 50. Y el tamaño de muestra mínimo para estimar la puntuación media en una población grande y no equivocarnos en más de $e = 1$ punto sería de $n =136$ clientes.
+Queremos estimar la valoración que hacen los clientes de un determinado servicio energético en una puntuación de 0 a 10. El caso más desfavorable (para el tamaño de la varianza) sería que la mitad de los clientes contestaran un 0 y la otra mitad un 10. O, equivalentemente, que contestara un cliente con un cero y otro con un 10. Entonces, la varianza $s^2$  estaría entre 50 $(n=2)$ y 25 ($n$ grande). El tamaño de muestra mínimo para estimar la puntuación media en una población grande y no equivocarnos en más de $e = 1$ punto con una confianza del 95% sería de $n =192$ clientes.
+
+$$n = \frac{1.96^2\cdot 50}{1^2}\simeq 192$$
+
 :::
 
 
 ```r
-var(c(0,10))
+var(c(0, 10))
 #> [1] 50
-(qnorm(0.95)^2*50)/(1^2)
-#> [1] 135.2772
+var(rep(c(0, 10), each = 100))
+#> [1] 25.12563
+(qnorm(0.975)^2*50)/(1^2)
+#> [1] 192.0729
 ```
+
+
+:::{.rmdinfo data-latex=""}
+Lo más normal es que el cálculo de $n$ nos dé un número decimal. Tomaremos siempre el número entero redondeando **al alza**, para garantizar que la confianza es, al menos, de $(1-\alpha)%$, ya que a mayor tamaño muestral, mayor confianza. Si se hiciera un redondeo al entero inferior, la confianza sería menor de la deseada.
+:::
 
 ## Tamaño muestral para estimar la proporción
 
@@ -318,15 +343,16 @@ Si no hay información sobre el parámetro $\pi$, se toma el caso más desfavora
 
 Uno de los objetivos de la inferencia estadística es la estimación de los parámetros de la
 población, a partir de los datos de la muestra. Mediante la estimación puntual daremos
-un valor único como estimación del parámetro, mediante un estimador (función aplicada a los datos de
-la muestra). Así, para los parámetros más importantes tenemos los siguientes estimadores:
+un valor único como **estimación del parámetro**, mediante un **estadístico** (función aplicada a los datos de
+la muestra) que usaremos como **estimador**. 
+Así, para los parámetros más importantes se han establecido los siguientes estimadores puntuales:
 
 * Proporción: $\hat \pi = p = \frac x n$.
 * Media: $\hat \mu = \bar x = \frac{\sum x_i}{n}$. 
 * Varianza: $\hat \sigma^2 = s^2 = \frac{1}{n-1}\left( \sum x_i^2 - n \bar x^2 \right )$.
 
-Se pueden determinar los mejores estimadores para cualquier parámetro de cualquier
-distribución de probabilidad, que cumplan las características de insesgadez, eficiencia y consistencia. 
+Se pueden determinar los mejores estimadores para cualquier parámetro de una
+distribución de probabilidad concreta, que cumplan las características de insesgadez, eficiencia y consistencia. 
 Para ello se pueden utilizar diversos métodos, como el método de los momentos o el de máxima verosimilitud,
 que no se tratan en este texto aplicado.
 
@@ -341,7 +367,7 @@ muestran en la tabla \@ref(tab:ph1). Podríamos estimar con estos datos la media
 
 
 ```{=html}
-<template id="1945ad4b-8845-4cdb-ba20-c24f6fef6d40"><style>
+<template id="918ae8ca-38c3-4449-a233-553a3cd2d2dc"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -379,7 +405,7 @@ background-color: transparent;
 .katex-display {
     margin: 0 0 !important;
 }
-</style><div class="tabwid"><style>.cl-4ebd81b2{}.cl-4eb4d17a{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-4eb7ffa8{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-4eb7ffbc{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-4eb81376{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb81380{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb81381{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb81382{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb8138a{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb8138b{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb8138c{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb81394{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb81395{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb81396{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb8139e{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4eb8139f{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-4ebd81b2'>
+</style><div class="tabwid"><style>.cl-17d452b2{}.cl-17cb7462{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-17cfc418{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-17cfc422{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-17cfd624{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-17cfd62e{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-17cfd638{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-17cfd639{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-17cfd63a{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-17cfd642{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-17cfd64c{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-17cfd64d{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-17cfd64e{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-17cfd64f{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-17cfd656{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-17cfd657{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-17d452b2'>
 
 ```
 
@@ -387,11 +413,11 @@ background-color: transparent;
 
 ```{=html}
 
-<thead><tr style="overflow-wrap:break-word;"><th class="cl-4eb81376"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">pH</span></p></th><th class="cl-4eb81380"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">deposito</span></p></th><th class="cl-4eb81381"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">antimonio</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.687</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.94</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.092</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.03</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.582</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.06</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.798</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.99</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.165</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.07</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.590</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.03</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.244</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.95</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.369</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.03</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.288</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.91</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.847</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.11</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.756</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.16</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.195</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.97</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.689</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.92</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">6.893</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.05</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.562</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.99</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.978</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.19</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.992</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.00</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.472</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.06</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.411</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.00</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.297</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.94</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.459</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.02</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.391</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.86</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.037</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.12</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.005</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.01</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.310</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.17</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.972</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.04</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81382"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.922</span></p></td><td class="cl-4eb8138a"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">Sí</span></p></td><td class="cl-4eb8138b"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.94</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.265</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">1.05</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb8138c"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">7.761</span></p></td><td class="cl-4eb81394"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb81395"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.93</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4eb81396"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">8.209</span></p></td><td class="cl-4eb8139e"><p class="cl-4eb7ffbc"><span class="cl-4eb4d17a">No</span></p></td><td class="cl-4eb8139f"><p class="cl-4eb7ffa8"><span class="cl-4eb4d17a">0.90</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="5b7965c7-8cba-422a-a016-8a4e17d22f4a"></div>
+<thead><tr style="overflow-wrap:break-word;"><th class="cl-17cfd624"><p class="cl-17cfc418"><span class="cl-17cb7462">pH</span></p></th><th class="cl-17cfd62e"><p class="cl-17cfc422"><span class="cl-17cb7462">deposito</span></p></th><th class="cl-17cfd638"><p class="cl-17cfc418"><span class="cl-17cb7462">antimonio</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-17cfd639"><p class="cl-17cfc418"><span class="cl-17cb7462">7.687</span></p></td><td class="cl-17cfd63a"><p class="cl-17cfc422"><span class="cl-17cb7462">Sí</span></p></td><td class="cl-17cfd642"><p class="cl-17cfc418"><span class="cl-17cb7462">0.94</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">8.092</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">1.03</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">7.582</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">1.06</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">8.798</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">0.99</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">8.165</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">1.07</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">7.590</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">1.03</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">8.244</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">0.95</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd639"><p class="cl-17cfc418"><span class="cl-17cb7462">8.369</span></p></td><td class="cl-17cfd63a"><p class="cl-17cfc422"><span class="cl-17cb7462">Sí</span></p></td><td class="cl-17cfd642"><p class="cl-17cfc418"><span class="cl-17cb7462">1.03</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">8.288</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">0.91</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd639"><p class="cl-17cfc418"><span class="cl-17cb7462">7.847</span></p></td><td class="cl-17cfd63a"><p class="cl-17cfc422"><span class="cl-17cb7462">Sí</span></p></td><td class="cl-17cfd642"><p class="cl-17cfc418"><span class="cl-17cb7462">1.11</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">8.756</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">1.16</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd639"><p class="cl-17cfc418"><span class="cl-17cb7462">8.195</span></p></td><td class="cl-17cfd63a"><p class="cl-17cfc422"><span class="cl-17cb7462">Sí</span></p></td><td class="cl-17cfd642"><p class="cl-17cfc418"><span class="cl-17cb7462">0.97</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">7.689</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">0.92</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">6.893</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">1.05</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">8.562</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">0.99</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd639"><p class="cl-17cfc418"><span class="cl-17cb7462">7.978</span></p></td><td class="cl-17cfd63a"><p class="cl-17cfc422"><span class="cl-17cb7462">Sí</span></p></td><td class="cl-17cfd642"><p class="cl-17cfc418"><span class="cl-17cb7462">1.19</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd639"><p class="cl-17cfc418"><span class="cl-17cb7462">7.992</span></p></td><td class="cl-17cfd63a"><p class="cl-17cfc422"><span class="cl-17cb7462">Sí</span></p></td><td class="cl-17cfd642"><p class="cl-17cfc418"><span class="cl-17cb7462">1.00</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">8.472</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">1.06</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd639"><p class="cl-17cfc418"><span class="cl-17cb7462">8.411</span></p></td><td class="cl-17cfd63a"><p class="cl-17cfc422"><span class="cl-17cb7462">Sí</span></p></td><td class="cl-17cfd642"><p class="cl-17cfc418"><span class="cl-17cb7462">1.00</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd639"><p class="cl-17cfc418"><span class="cl-17cb7462">8.297</span></p></td><td class="cl-17cfd63a"><p class="cl-17cfc422"><span class="cl-17cb7462">Sí</span></p></td><td class="cl-17cfd642"><p class="cl-17cfc418"><span class="cl-17cb7462">0.94</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">8.459</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">1.02</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd639"><p class="cl-17cfc418"><span class="cl-17cb7462">8.391</span></p></td><td class="cl-17cfd63a"><p class="cl-17cfc422"><span class="cl-17cb7462">Sí</span></p></td><td class="cl-17cfd642"><p class="cl-17cfc418"><span class="cl-17cb7462">0.86</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">8.037</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">1.12</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">7.005</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">1.01</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd639"><p class="cl-17cfc418"><span class="cl-17cb7462">8.310</span></p></td><td class="cl-17cfd63a"><p class="cl-17cfc422"><span class="cl-17cb7462">Sí</span></p></td><td class="cl-17cfd642"><p class="cl-17cfc418"><span class="cl-17cb7462">1.17</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">7.972</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">1.04</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd639"><p class="cl-17cfc418"><span class="cl-17cb7462">7.922</span></p></td><td class="cl-17cfd63a"><p class="cl-17cfc422"><span class="cl-17cb7462">Sí</span></p></td><td class="cl-17cfd642"><p class="cl-17cfc418"><span class="cl-17cb7462">0.94</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">7.265</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">1.05</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64c"><p class="cl-17cfc418"><span class="cl-17cb7462">7.761</span></p></td><td class="cl-17cfd64d"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd64e"><p class="cl-17cfc418"><span class="cl-17cb7462">0.93</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-17cfd64f"><p class="cl-17cfc418"><span class="cl-17cb7462">8.209</span></p></td><td class="cl-17cfd656"><p class="cl-17cfc422"><span class="cl-17cb7462">No</span></p></td><td class="cl-17cfd657"><p class="cl-17cfc418"><span class="cl-17cb7462">0.90</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="643c7a95-2498-4ee1-a58e-fedd8e21e816"></div>
 <script>
-var dest = document.getElementById("5b7965c7-8cba-422a-a016-8a4e17d22f4a");
-var template = document.getElementById("1945ad4b-8845-4cdb-ba20-c24f6fef6d40");
+var dest = document.getElementById("643c7a95-2498-4ee1-a58e-fedd8e21e816");
+var template = document.getElementById("918ae8ca-38c3-4449-a233-553a3cd2d2dc");
 var fantome = dest.attachShadow({mode: 'open'});
 var templateContent = template.content;
 fantome.appendChild(templateContent);
@@ -403,12 +429,16 @@ fantome.appendChild(templateContent);
 :::{.rmdpractica data-latex=""}
 `<svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:steelblue;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>`{=html} El siguiente código calcula la media muestral del pH, la varianza muestral del pH, y la
 proporción muestral de edificios con depósito de agua (y por tanto también sin depósito de agua). Los datos se importan directamente
-de una url.
+de una url. Resultan las siguientes estimaciones puntuales:
+
+$$\hat{\mu} = \bar{x} = 8.04$$
+$$\hat{\sigma}^2= s^2 = 0.21$$
+$$\hat{\pi}= p = \frac{11}{30} = 0.37$$
+
 :::
 
 
 ```r
-ph1 <- readr::read_rds("https://lcano.com/data/eaci/ph1.rds")
 mean(ph1$pH)
 #> [1] 8.041267
 var(ph1$pH)
@@ -424,13 +454,12 @@ prop.table(table(ph1$deposito))
 
 Al hacer la estimación puntual de cualquier parámetro, digamos genéricamente $\theta$, estamos cometiendo un error $e$. Este error se puede cuantificar gracias a la distribución en el muestreo del estadístico que estemos usando como estimador. Y entonces podemos construir **intervalos de confianza** (IC) para el parámetro que estamos estimando.
 
-El intervalo puede ser bilateral, con dos límites inferior y superior, $\theta \in[\mathit{LI}, \mathit{LS}]$
-de manera que:
+El intervalo puede ser bilateral, con dos límites inferior $(LI)$ y superior $(LS)$, de modo que $\theta \in[\mathit{LI}, \mathit{LS}]$
+para los que se cumpla que:
 
 $$P[\mathit{LI} < \theta < \mathit{LS}]=1-\alpha.$$
-Esta expresión indica que la probabilidad de que el verdadero valor del parámetro $\theta$ esté dentro del intervalo es $1-\alpha$. Dicho de otro modo, si repitiéramos el proceso de muestreo indefinidamente, el 95% de las veces el valor estimado del parámetro $\theta$ estaría dentro del intervalo de confianza. 
 Nótese que la probabilidad de que el parámetro sea mayor que el límite
-superior o menor que el límite inferior será $\frac \alpha 2$. Aquí, $1-\alpha$ es el nivel de confianza (se expresa a menudo como porcentaje), y $\alpha$ es el nivel de significación. 
+superior o menor que el límite inferior será $\frac \alpha 2$, véase la Fig. \@ref(fig:zalfamedios). Aquí, $1-\alpha$ es el nivel de confianza (se expresa a menudo como porcentaje), y $\alpha$ es el nivel de significación. 
 
 Los intervalos de confianza también pueden ser unilaterales, cuando solamente nos interesa saber un umbral mínimo o máximo del verdadero valor del parámetro. Estos intervalos tienen un único límite inferior o superior, y se pueden expresar como:
 
@@ -465,7 +494,7 @@ el muestreo:
   (\#eq:dmz)
 \end{equation} 
 
-Par un nivel de confianza $1-\alpha$ determinado, si buscamos un **intervalo bilateral** tenemos que:
+Para un nivel de confianza $1-\alpha$ determinado, si buscamos un **intervalo bilateral** tenemos que:
 
 $$P\left[-z_{\frac{\alpha}{2}}<\frac{\overline x- \mu}{\frac{\sigma}{\sqrt{n}}}<z_{\frac{\alpha}{2}}\right] = 1-\alpha.$$
 
@@ -567,7 +596,7 @@ es una distribución normal sino una $t$ de Student.
 
 $$\frac{\overline X- \mu}{\frac{s}{\sqrt{n}}}\sim t_{n-1},$$
 
-Par un nivel de confianza $1-\alpha$ determinado, si buscamos un **intervalo bilateral** tenemos que:
+Para un nivel de confianza $1-\alpha$ determinado, si buscamos un **intervalo bilateral** tenemos que:
 
 $$P\left[-t_{n-1,\frac{\alpha}{2}}<\frac{\overline x- \mu}{\frac{s}{\sqrt{n}}}<t_{n-1,\frac{\alpha}{2}}\right] = 1-\alpha.$$
 
@@ -578,10 +607,10 @@ $$\boxed{IC_\mu=\bar x \pm t_{n-1, \frac{\alpha}{2}}\cdot \frac{s}{\sqrt{n}}}$$
 
 
 La distribución $t$ de Student tiene un único parámetro $n$, que son los grados de libertad.
-Sean las variables aleatorias $X, X_1, X_n \sim N(0;1)$. Entonces, la variable aleatoria
+Sean las variables aleatorias $Z, Z_1, \cdots, Z_n \sim N(0;1)$. Entonces, la variable aleatoria
 definida por: 
 
-$$T = \frac{X}{\frac{1}{n}\sum X_i^2}\sim t_{n},$$
+$$T = \frac{Z}{\frac{1}{n}\sum Z_i^2}\sim t_{n},$$
 sigue una distribución $t$ de Student con $n$ grados de libertad, y que tiene
 las siguientes características:
 
@@ -601,7 +630,7 @@ intervalos con el software.
 que utilizó el estadístico inglés William Sealy Gosset para publicar el trabajo
 en el que la definió, ya que la empresa en la que trabajaba no permitía a sus empleados
 publicar con su nombre para no desvelar secretos industriales.
-A much@s estadístic@s nos gusta la historia, y el producto que fabricaba la empresa
+A muchxs estadísticxs nos gusta la historia, y el producto que fabricaba la empresa
 en la que trabajaba el bueno de Gosset^[https://es.wikipedia.org/wiki/Prueba_t_de_Student].
 :::
 
@@ -664,104 +693,264 @@ t.test(ph1$antimonio, alternative = "less", conf.level = 0.99 )$conf.int
 
 ### Intervalo de confianza para la proporción
 
-Por el teorema central del límite, si $n>30$
+Por el teorema central del límite, si $n>30$ la variable aleatoria "proporción muestral en muestras de tamaño $n$", sigue una distribución normal con media la proporción poblacional $\pi$ y varianza $\frac{\pi(1-\pi)}{n}$. Por tanto, tipificando, tenemos la siguiente distribución en
+el muestreo:
 
-$$\boxed{IC_\pi=p\pm z_{\frac{\alpha}{2}}\cdot \sqrt{\frac{p\cdot (1-p)}{n}}}$$
+\begin{equation}
+\frac{p - \pi}{\sqrt{\frac{\pi(1-\pi)}{n}}}\sim N(0; 1).
+  (\#eq:dpz)
+\end{equation} 
+
+Para un nivel de confianza $1-\alpha$ determinado, si buscamos un **intervalo bilateral** tenemos que:
+
+$$\boxed{IC_\pi=p\pm z_{\frac{\alpha}{2}}\cdot \sqrt{\frac{\pi \cdot (1-\pi)}{n}}}.$$
+El parámetro $\pi$ es desconocido y se sustituye por la proporción muestral $p$. Los intervalos unilaterales se obtendrían de forma análoga a los de la media, acumulando la significatividad $\alpha$ solo en uno de los extremos.
+
+
+
+:::{.rmdpractica data-latex=""}
+`<svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:steelblue;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>`{=html}
+Vamos a obtener el intervalo de confianza bilateral para la proporción de edificios de viviendas con depósito de agua. Ya habíamos calculado la proporción muestral como $p = 0.37$. El intervalo de confianza al 95% con la aproximación normal sería el siguiente:
+
+
+
+$$IC_\pi=p\pm z_{\frac{\alpha}{2}}\cdot \sqrt{\frac{p \cdot (1-p)}{n}} = 0.37 \cdot 1.96 \cdot \sqrt{\frac{0.37 \cdot 0.63}{30}}\\=[0.197, 0.543].$$
+En general, esta aproximación es más conservadora (intervalos amplios) que otros métodos más precisos.
+En R podemos obtener un intervalo exacto para la proporción de viviendas utilizando la binomial, y otro mediante la distribución chi-cuadrado que no vemos en más detalle. Este último aplica por defecto la llamada "corrección por continuidad de Yates" (Véase la ayuda de la función `prop.test()`.
+:::
+
+
+```r
+binom.test(x = 11, n = 30)
+#> 
+#> 	Exact binomial test
+#> 
+#> data:  11 and 30
+#> number of successes = 11, number of trials = 30,
+#> p-value = 0.2005
+#> alternative hypothesis: true probability of success is not equal to 0.5
+#> 95 percent confidence interval:
+#>  0.1992986 0.5614402
+#> sample estimates:
+#> probability of success 
+#>              0.3666667
+prop.test(x = 11, n = 30)
+#> 
+#> 	1-sample proportions test with continuity correction
+#> 
+#> data:  11 out of 30, null probability 0.5
+#> X-squared = 1.6333, df = 1, p-value = 0.2012
+#> alternative hypothesis: true p is not equal to 0.5
+#> 95 percent confidence interval:
+#>  0.2054281 0.5609198
+#> sample estimates:
+#>         p 
+#> 0.3666667
+```
+
 
 
 ### Intervalo de confianza para la varianza
 
 
-#### Distribución en el muestreo
+La variable aleatoria que vamos a utilizar para construir el intervalo de confianza de la varianza es la siguiente:
 
-$$\frac{(n-1)s^2}{\sigma^2}\sim \chi^2_{n-1}$$
+$$\frac{(n-1)s^2}{\sigma^2}\sim \chi^2_{n-1}.$$
 
-#### Nivel de confianza
+A diferencia de las distribuciones normal y $t$, la distribución $\chi^2$ no es simétrica (véase la figura \@ref(fig:chi)). Entonces el intervalo tampoco lo va a ser. Es decir, el centro del intervalo no va a ser la estimación puntual de la varianza, y los límites hay que calcularlos con los cuantiles específicos. 
 
-$$P\left[\chi^2_{n-1,\frac{\alpha}{2}}<\frac{s^2\cdot(n-1)}{\sigma^2}<\chi^2_{n-1,1-\frac{\alpha}{2}}\right] = 1-\alpha$$
+A partir del nivel de confianza determinado $1-\alpha$, establecemos la condición de probabilidad:
 
-#### Intervalo de confianza 
+$$P\left[\chi^2_{n-1,\frac{\alpha}{2}}<\frac{s^2\cdot(n-1)}{\sigma^2}<\chi^2_{n-1,1-\frac{\alpha}{2}}\right] = 1-\alpha,$$
 
-$$\boxed{IC_\sigma=\left[ \frac{s^2\cdot(n-1)}{\chi^2_{n-1,\frac{\alpha}{2}}}; \frac{s^2\cdot(n-1)}{\chi^2_{n-1,1-\frac{\alpha}{2}}}\right]}$$
+y despejando $\sigma^2$ tenemos los límites del intervalo de confianza para la varianza como:
+
+$$\boxed{IC_\sigma=\left[ \frac{s^2\cdot(n-1)}{\chi^2_{n-1,1-\frac{\alpha}{2}}}; \frac{s^2\cdot(n-1)}{\chi^2_{n-1,\frac{\alpha}{2}}}\right]}.$$
+Aquí, $\frac{\alpha}{2} $ y $1 - \frac{\alpha}{2}$ toman su sentido original al no ser simétricos como en la normal y la $t$.
+
+:::{.rmdpractica data-latex=""}
+
+En el ejemplo del pH, teníamos la estimación puntual de la varianza como:
+
+$$\hat{\sigma}^2= s^2 = 0.21$$
+
+El intervalo de confianza se puede calcular a mano con la fórmula anterior,
+teniendo en cuenta que los cuantiles de la distribución $\chi^2$ se obtendrían 
+con la función `qchisq()`. No hay una función específica en **R** base para obtener
+el intervalo de confianza, pero se puede calcular con las siguientes expresiones.
+:::
+
+
+```r
+LS <- (var(ph1$pH)*29)/qchisq(0.025, 29)
+LI <- (var(ph1$pH)*29)/qchisq(0.925, 29)
+LI;LS
+#> [1] 0.1525962
+#> [1] 0.3858172
+```
+
+
 
 ## Intervalos de confianza para comparaciones
 
-* Tenemos dos muestras, $x_1, x_2$
+Uno de los principales usos de la estadística aplicada es la comparación de muestras para determinar si pueden venir de la misma población, o por el contrario se puede demostrar que hay diferencias significativas en algunos de sus parámetros. Normalmente estas comparaciones las haremos con los contrastes de hipótesis que veremos en el siguiente capítulo. No obstante, a veces es útil obtener intervalos de confianza para la diferencia de la media o para la razón de varianzas.
 
-* Posiblemente relacionadas
+En general, tenemos dos muestras, $x_1, x_2$ que posiblemente estén relacionadas. Se puede dar el caso de que las varianzas sean conocidas e iguales, conocidas y distintas, o bien desconocidas. Los tamaños de muestra de ambas muestras pueden ser iguales o distintos, por ejemplo $n_1, n_2$. 
 
-* Posiblemente con varianza conocida
+### Intervalos de confianza para la diferencia de medias
 
-* Posiblemente con varianzas iguales
+En el caso del intervalo de confianza para la media de dos muestras, estaremos interesados en la diferencia de medias, $\theta = \mu_1- \mu_2$. Entonces, como las medias siguen una distribución normal, entonces aplicando las propiedades de la esperanza y la varianza:
 
-* Posiblemente con tamaños distintos $n_1, n_2$
-
-* El interés está en comprobar si las muestras son "iguales" o no
+$$\frac{\bar{x}-\bar{y}-\theta}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}\sim N(0;1)$$
 
 
-💡 Dependiendo de la combinación, se utiliza una fórmula u otra
-
-
-### IC diferencia medias: $\mu_1 - \mu_2$, $\sigma_1. \sigma_2$ conocidas
-
-
-Varianza agrupada, o conjunta (_pooled_): $s_p^2= \frac{(n_1 -1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}$
-
-#### $\sigma_1, \sigma_2$ conocidas
+Entonces, para **varianzas conocidas** tenemos que el intervalo de confianza para la diferencia medias: $\mu_1 - \mu_2$, $\sigma_1. \sigma_2$ conocidas es:
 
 $$IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm z_{\frac \alpha 2}\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}$$
 
-### IC diferencia medias: $\mu_1 - \mu_2$, $\sigma_1, \sigma_2$ desconocidas
+Para el caso de **varianzas desconocidas**, pero que se pueden asumir **iguales** $(\sigma_1 \ne \sigma_2)$, se calcula la 
+varianza agrupada, o conjunta (_pooled_) como:
+
+$$s_p^2= \frac{(n_1 -1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2},$$
+
+y entonces a través de la siguiente distribución en el muestreo:
+
+$$\frac{\bar{x}-\bar{y}-\theta}{s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}\sim t_{n_1+n_2-1}$$
+
+obtenemos la siguiente expresión para el intervalo de confianza de la diferencia de medias con varianzas desconocidas pero iguales:
+
+$$IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm t_{n_1+n_2-2, \frac \alpha 2}\cdot s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}.$$
+Por último, en el caso en que las varianzas son desconocidas y no se puede aceptar que sean iguales $(\sigma_1 \ne \sigma_2)$, tenemos
+la siguiente distribución en el muestreo:
 
 
-#### $\sigma_1, \sigma_2$ desconocidas pero iguales $(\sigma_1 = \sigma_2)$
-$$IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm t_{n_1+n_2-2, \frac \alpha 2}s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$$
+$$\frac{\bar{x}-\bar{y}-\theta}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}\sim t_f,$$
 
-#### $\sigma_1, \sigma_2$ desconocidas y distintas $(\sigma_1 \ne \sigma_2)$
+donde:
 
-$$IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm t_{f, \frac \alpha 2}\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}$$
+$$f=\left[ \frac{\left (\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}\right )^2}{\frac{\left(\frac{s_1^2}{n_1}\right)^2}{n_1-1}+\frac{\left(\frac{s_2^2}{n_2}\right)^2}{n_2-1}}\right],$$
 
-$$f=\left[ \frac{\left (\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}\right )^2}{\frac{\left(\frac{s_1^2}{n_1}\right)^2}{n_1-1}+\frac{\left(\frac{s_2^2}{n_2}\right)^2}{n_2-1}}\right]$$
-
-💡 Aproximación de Welch
+redondeando al entero menor. Y entonces el intervalo de confianza es:
 
 
-### IC razón de varianzas $\sigma_1/\sigma_2$
+$$IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm t_{f, \frac \alpha 2}\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}.$$
 
-* Las varianzas son positivas, la diferencia nunca va a ser cero
-* Serán iguales cuando el cociente sea igual a 1
-
-$$IC_{\frac{\sigma_1}{\sigma_2}} = \left[\frac{\frac{s_1^2}{s_2^2}}{F_{n_1-1, n_2-1, \frac{\alpha}{2}}};\frac{s_1^2}{s_2^2}\cdot F_{n_2-1, n_1-1, \frac{\alpha}{2}} \right]$$
+Este método se conoce como la aproximación de Welch.
 
 
-
-### Distribución F de Snedecor
-
-$X_1, \ldots, X_{n_1}$; $Y_1, \ldots, Y_{n_2}$ v.a.i.i.d $\sim N(0;1)$:
-
-$$F = \frac{\frac{ 1}{ n_1}\sum\limits_{i=1}^{n_1} X_i^2}{\frac{ 1}{ n_2}\sum\limits_{i=1}^{n_2} Y_i^2}\sim F_{n_1,n_2}$$
-* $E[F] = \frac{n}{n-2}, \; n>2$
-
-* $V[F] = \frac{2n^2(m+n-2)}{m(n-2)^2(n-4)}, \; n>4$
+:::{.rmdejemplo data-latex=""}
+En el conjunto de datos del pH podemos comparar estimar intervalos de confianza para la diferencia en la media del pH entre los edificios que tienen depósito de agua y los que no. La función `t.test()` que ya utilizamos para el intervalo de confianza de la media no sirve para este nuevo intervalo de confianza. Por defecto asume varianzas desconocidas y distintas (correción de Welch). Con el argumento `var.equal` se puede cambiar este comportamiento por defecto.
+:::
 
 
-
-### Interpretación de las comparaciones
-
-* Si el intervalo de confianza de la diferencia de medias contiene el cero, no podremos asegurar que haya diferencias entre las medias de las dos **poblaciones** (en general, nos interesará confirmar que sí hay diferencias)
-
-* Si el intervalo de confianza de la razón de varianzas contiene el 1, no podremos asegurar que haya diferencias entre las varianzas (en general, nos interesará comprobar que no hay diferencias)
-
-💡 O lo que es lo mismo, las diferencias observadas en las **muestras** son debidas al azar, y no a una diferencia real entre los parámetros poblacionales.
-
-
-Esto lo hacemos también con contrastes de hipótesis (siguiente apartado)
+```r
+t.test(pH ~ deposito, data = ph1)
+#> 
+#> 	Welch Two Sample t-test
+#> 
+#> data:  pH by deposito
+#> t = -0.92268, df = 27.004, p-value = 0.3643
+#> alternative hypothesis: true difference in means between group No and group Sí is not equal to 0
+#> 95 percent confidence interval:
+#>  -0.4373191  0.1660081
+#> sample estimates:
+#> mean in group No mean in group Sí 
+#>         7.991526         8.127182
+```
 
 
 
+:::{.rmdinfo data-latex=""}
+Cuando las muestras están relacionadas, habría que proceder de forma distinta. En vez de calcular las medias de los dos grupos y después hacer la diferencia, habría que calcular las diferencias de las observaciones relacionadas, y entonces trabajar con esa variable aleatoria $Y = X_1 - X_2$. Por ejemplo, supongamos que en el estudio del pH volvemos a hacer mediciones al cabo de un tiempo después de aplicar un determinado tratamiento a las aguas de la ciudad. Entonces tendremos otras 30 mediciones en los mismos edificios, y haríamos la diferencia entre el tiempo 2 y el tiempo 1 de cada una de los 30 edificios. A partir de ahí se obtendría el intervalos de confianza de la media de la diferencia.
+:::
 
-## Estimación no paramétrica
 
-## Inferencia Bayesiana*
+
+### Intervalo de confianza para la diferencia de proporciones
+
+Aplicando el teorema central del límite y la aproximación normal para muestras grandes, tendremos que si $\theta = \pi_1-\pi_2$:
+
+$$\frac{p_1 - p_2 - \theta}{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}\sim N(0; 1).$$
+y entonces el intervalo de confianza para la diferencia de proporciones será:
+
+
+$$p_1-p_2 \pm z_{\frac \alpha 2}\cdot \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}.$$
+
+### Intervalos de confianza para la razón de varianzas
+
+Para comparar varianzas y dar intervalos de confianza de su diferencia, no podemos seguir 
+el mismo proceso que con las medias, ya que las varianzas son siempre positivas, y la diferencia nunca va a ser cero.
+En su lugar, aplicaremos que las varianzas serán iguales cuando su cociente sea igual a 1. Es decir, usamos el parámetro $\theta = \frac{\sigma_1^2}{\sigma_2^2}$ y la distribución en el muestreo siguiente:
+
+$$\frac{s_1^2}{s_2^2}\cdot \frac{1}{\theta}\sim F_{n_1-1;n_2 -1},$$
+
+donde F es la distribución F de Fisher-Snedecor, en la cual tenemos $X_1, \ldots, X_{n_1}$; $Y_1, \ldots, Y_{n_2}$ variables aleatorias independientes e idénticamente distribuidas normales tipificadas, $\sim N(0;1)$, de modo que:
+
+$$F = \frac{\frac{ 1}{ n_1}\sum\limits_{i=1}^{n_1} X_i^2}{\frac{ 1}{ n_2}\sum\limits_{i=1}^{n_2} Y_i^2}\sim F_{n_1,n_2},$$
+
+y que tiene las siguientes propiedades:
+
+* $E[F] = \frac{n_2}{n_2-2}, \; n_2>2$.
+
+* $V[F] = \frac{2n_2^2(n_1+n_2-2)}{n_1(n_2-2)^2(n_2-4)}, \; n_2>4$.
+
+La distribución F puede tomar muchas formas dependiendo de los grados de libertad de numerador y denominador. Algunas combinaciones se muestran en la figura \@ref(fig:f).
+
+<div class="figure">
+<img src="08-muestreo_files/figure-html/f-1.png" alt="Forma de la densidad de F para varias combinaciones de parámetros" width="672" />
+<p class="caption">(\#fig:f)Forma de la densidad de F para varias combinaciones de parámetros</p>
+</div>
+
+
+Entonces el intervalo de confianza para la razón de varianzas se calcularía como se indica a continuación:
+
+$$IC_{\frac{\sigma_1}{\sigma_2}} = \left[\frac{\frac{s_1^2}{s_2^2}}{F_{n_1-1, n_2-1, \frac{\alpha}{2}}};\frac{s_1^2}{s_2^2}\cdot F_{n_2-1, n_1-1, \frac{\alpha}{2}} \right].$$
+
+
+
+
+:::{.rmdejemplo data-latex=""}
+Vamos a calcular un intervalo de confianza para el cociente de varianzas de los edificios que no tienen depósito y los que sí tienen depósito. La función `var.test()` nos da este resultado. Nótese que el intervalo no contiene al 1, y por tanto no es compatible con que las varianzas sean iguales. Esto se podría utilizar para decidir si tenemos varianzas iguales o no al calcular un intervalo de confianza de la diferencia de medias.
+:::
+
+
+```r
+var.test(pH ~ deposito, data = ph1)
+#> 
+#> 	F test to compare two variances
+#> 
+#> data:  pH by deposito
+#> F = 4.7878, num df = 18, denom df = 10, p-value =
+#> 0.01526
+#> alternative hypothesis: true ratio of variances is not equal to 1
+#> 95 percent confidence interval:
+#>   1.386414 13.723673
+#> sample estimates:
+#> ratio of variances 
+#>           4.787814
+```
+
+
+
+
+Los intervalos de confianza de las comparaciones, además de la propia incertidumbre acerca de la estimación puntual del parámetro diferencia (o cociente), nos permite realizar las siguientes interpretaciones:
+
+* Si el intervalo de confianza de la diferencia de medias contiene el cero, no podremos asegurar que haya diferencias entre las medias de las dos **poblaciones** (en general, nos interesará confirmar que sí hay diferencias).
+
+* Si el intervalo de confianza de la razón de varianzas contiene el 1, no podremos asegurar que haya diferencias entre las varianzas (en general, nos interesará comprobar que no hay diferencias).
+
+
+:::{.rmdinfo data-latex=""}
+O lo que es lo mismo, las diferencias observadas en las **muestras** son debidas al azar, y no a una diferencia real entre los parámetros poblacionales.
+
+
+Esto lo hacemos también con contrastes de hipótesis en el siguiente capítulo.
+:::
+
+
+
+
+
+
 
 

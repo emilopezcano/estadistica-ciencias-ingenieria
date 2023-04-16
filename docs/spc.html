@@ -73,7 +73,8 @@
 <li><a class="" href="repaso.html"><span class="header-section-number">D</span> Repaso</a></li>
 <li><a class="" href="ampliaci%C3%B3n.html"><span class="header-section-number">E</span> Ampliación</a></li>
 <li><a class="" href="demostraciones.html"><span class="header-section-number">F</span> Demostraciones</a></li>
-<li><a class="" href="creditos.html"><span class="header-section-number">G</span> Créditos</a></li>
+<li><a class="" href="ampliaciones.html"><span class="header-section-number">G</span> Ampliaciones</a></li>
+<li><a class="" href="creditos.html"><span class="header-section-number">H</span> Créditos</a></li>
 <li><a class="" href="referencias.html">Referencias</a></li>
 </ul>
 
@@ -636,7 +637,7 @@ es posible no esté en CRAN en el momento de usar este material. Si es así, se 
 instalar desde GitHub usando el paquete <code>remotes</code> de la siguiente forma:</p>
 <p><code>remotes::install_github("luca-scr/qcc")</code></p>
 </div>
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://luca-scr.github.io/qcc/">qcc</a></span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">samples.thick</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qccGroups.html">qccGroups</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">ss.data.thickness2</span>,</span>
@@ -701,7 +702,7 @@ resultando en la figura <a href="spc.html#fig:grango2">14.4</a>. En <strong>Exce
 que calcular las líneas de control y representar la serie de los rangos junto
 a ellas. En <strong>Minitab</strong>, seleccionaríamos en el menú el gráfico R.
 </div>
-<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">r.thick</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">samples.thick</span>, type <span class="op">=</span> <span class="st">"R"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">r.thick</span><span class="op">)</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -784,7 +785,7 @@ del gráfico y los introducimos en la pestaña “Parámetros”.</p>
 límites, la desviación típica no, y tendríamos que buscar la causa asignable
 de esta situación fuera de control.</p>
 </div>
-<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">new.sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.719</span>, <span class="fl">0.759</span>, <span class="fl">0.708</span>, <span class="fl">0.83</span>, <span class="fl">0.766</span>, <span class="fl">0.709</span><span class="op">)</span>,</span>
 <span>                     ncol <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
 <span><span class="va">ccxbar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">samples.thick</span>, type <span class="op">=</span> <span class="st">"xbar"</span>,</span>
@@ -858,7 +859,7 @@ seleccionamos los gráficos para datos no agrupados. En <strong>Excel</strong> t
 que crear las series de rangos móviles, calcular los límites y representar las
 series como en el apartado anterior.</p>
 </div>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">thickness2days</span> <span class="op">&lt;-</span> <span class="va">ss.data.thickness2</span><span class="op">$</span><span class="va">thickness</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">24</span><span class="op">]</span></span>
 <span><span class="va">mov.samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">thickness2days</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">23</span><span class="op">]</span>, </span>
 <span>    <span class="va">thickness2days</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">24</span><span class="op">]</span><span class="op">)</span></span>
@@ -1093,7 +1094,7 @@ En <strong>Minitab</strong>, seleccinamos los gráficos de control por atributos
 y proporcionamos la información de qué columnas contienen los recuentos
 y los tamaños de muestra (o un número si es fijo).
 </div>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">thick.attribute</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">thickness</span> <span class="op">~</span> <span class="va">ushift</span>, </span>
 <span>    data <span class="op">=</span> <span class="va">ss.data.thickness2</span>,</span>
 <span>    FUN <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span></span>
@@ -1147,7 +1148,7 @@ En <strong>Minitab</strong>, seleccionamos el gráfico <span class="math inline"
 dentro de los gráficos de control por atributos e indicamos qué columna
 de la hoja de trabajo contiene los recuentos.
 </div>
-<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">flaws</span> <span class="op">&lt;-</span> <span class="va">ss.data.thickness2</span><span class="op">$</span><span class="va">flaws</span><span class="op">[</span></span>
 <span>    <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ss.data.thickness2</span><span class="op">$</span><span class="va">flaws</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="va">thick.c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qcc.html">qcc</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">flaws</span>, type <span class="op">=</span> <span class="st">"c"</span><span class="op">)</span></span>
@@ -1181,7 +1182,7 @@ el gráfico puede ser confuso.</p>
 <p>En <strong>Minitab</strong>, elegimos el gráfico <span class="math inline">\(u\)</span> en el menú de gráficos de control para
 atributos.</p>
 </div>
-<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">shift.flaws</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">flaws</span> <span class="op">~</span> <span class="va">ushift</span>,</span>
 <span>    data <span class="op">=</span> <span class="va">ss.data.thickness2</span>, </span>
 <span>    <span class="va">sum</span>, </span>
@@ -1321,7 +1322,7 @@ Sin embargo, lo que nos interesa es saber cuál es el número esperado de no
 conformidades a largo plazo, dada esa distribución de probabilidad y, posiblemente,
 cuál es la pérdida del proceso bajo el enfoque de Taguchi, véase la figura
 <a href="spc.html#fig:taguchi2">14.16</a> y la justificación en el capítulo <a href="#ch:intro"><strong>??</strong></a>.</p>
-<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">666</span><span class="op">)</span></span>
 <span><span class="va">merma1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">5</span>, <span class="fl">0.5</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="va">merma2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">rgamma</a></span><span class="op">(</span><span class="fl">50</span>, shape <span class="op">=</span> <span class="fl">25</span>, rate <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span></span>
@@ -1566,7 +1567,7 @@ la figura <a href="spc.html#fig:capespesor">14.21</a>. Este ejemplo concreto mue
 proceso con muchos errores (reales 27%, esperados 20.4%), y
 unos índices muy por debajo del 1, que requiere inspección 100%.</p>
 </div>
-<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://lattice.r-forge.r-project.org/">lattice</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/xyplot.html">dotplot</a></span><span class="op">(</span><span class="va">thickness</span> <span class="op">~</span> <span class="va">shift</span> <span class="op">|</span> <span class="va">day</span>, </span>
 <span>    data <span class="op">=</span> <span class="va">ss.data.thickness2</span>,</span>
@@ -1577,7 +1578,7 @@ unos índices muy por debajo del 1, que requiere inspección 100%.</p>
 Figura 14.20: Variabilidad a corto y a largo plazo
 </p>
 </div>
-<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://luca-scr.github.io/qcc/">qcc</a></span><span class="op">)</span></span>
 <span><span class="va">groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/luca-scr/qcc/reference/qccGroups.html">qccGroups</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ss.data.thickness2</span>, </span>
 <span>                    x <span class="op">=</span> <span class="va">thickness</span>, </span>
@@ -1647,7 +1648,7 @@ para calcular la sigma del proceso y otras métricas al estilo Seis Sigma.
 El siguiente código realiza
 un análisis de capacidad de los datos de embotellado de una bodega.
 </div>
-<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.sixsigmawithr.com">SixSigma</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="http://emilopezcano.github.io/SixSigma/reference/ss.study.ca.html">ss.study.ca</a></span><span class="op">(</span><span class="va">ss.data.ca</span><span class="op">$</span><span class="va">Volume</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">753</span>, <span class="fl">3</span><span class="op">)</span>, </span>
 <span>        LSL <span class="op">=</span> <span class="fl">740</span>, USL <span class="op">=</span> <span class="fl">760</span>, T <span class="op">=</span> <span class="fl">750</span>, alpha <span class="op">=</span> <span class="fl">0.05</span>, </span>
@@ -1705,7 +1706,7 @@ de control y la inspección por muestreo, reflejadas en la figura
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2023-04-11.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2023-04-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
