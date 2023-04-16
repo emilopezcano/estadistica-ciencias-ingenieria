@@ -70,7 +70,7 @@ Si estamos estudiando una población en la que se sabe que la variable de inter�
 
 
 El **muestreo por conglomerados** también asume que se dispone de grupos en la población, 
-pero son homogéneos entre sí (se parecen). 
+la diferencia es que en este caso los grupos son homogéneos entre sí (se parecen). 
 Pero dentro de cada grupo la variable se comporta de forma heterogénea.
 Puede existir una jerarquía (conglomerados dentro de los conglomerados).
 Entonces se obtiene una muestra de grupos (no de individuos). 
@@ -87,12 +87,12 @@ No siempre tenemos la lista de elementos, como en los casos anteriores. Pero sí
 por ejemplo, conforme llegan muestras (en el sentido biológico) a un laboratorio. Entonces podemos
 realizar un **muestreo sistemático**. Para poder usarlo es importante estar 
 seguro de que la característica no depende del orden.
-Entonces, se elige un punto de partida (idealmente, aleatorio) y se toman elementos separados a distancia $k$ (coeficiente de elevación). Se puede aplicar en vez de MAS en cualquiera de las situaciones anteriores.
+Entonces, se elige un punto de partida (idealmente aleatorio) y se toman elementos separados a distancia $k$ (coeficiente de elevación). Esta distancia puede referirse al número de individuos, por ejemplo, cada 10 individuos que llegan, o a un periodo de tiempo si llegan de forma más o menos regular, por ejemplo, cada 20 minutos. Se puede aplicar en vez de MAS en cualquiera de las situaciones anteriores.
 
 
 :::{.rmdejemplo data-latex=""}
 
-En la producción de un fertilizante en bolas, se tomarán muestras de 10 bolas cada hora. Se elige aleatoriamente un instante la primera hora, y a partir de ahí cada 60 minutos se elegirán las siguientes 10 bolas.
+En la producción de un fertilizante en bolas, se tomarán muestras de 10 bolas cada hora. Se elige aleatoriamente un instante la primera hora, y a partir de ahí cada 60 minutos se tomarán las siguientes 10 bolas.
 :::
 
 
@@ -110,7 +110,7 @@ Recordemos que los parámetros se definen sobre una Variable Aleatoria $X$ de la
 
 
 
-:::{.rmdejemplo data-latex=""}
+:::{.rmdinfo data-latex=""}
 
 $\mu, \sigma^2 \text{ y }  \pi$ representan los parámetros media, varianza y proporción de una determinada característica en la población. Son desconocidos, y dependen de la distribución de la característica en estudio. 
 $\bar x, s^2 \text{ y } p$ son estadísticos calculados con los $n$ datos de una muestra.
@@ -121,7 +121,7 @@ parámetro. Esa estimación estará sujeta a un error, que se puede cuantificar 
 Representamos con $\hat \mu = \bar x$ que la media muestral $\bar x$ es un estimador de la media poblacional $\mu$
 
 
-:::{.rmdejemplo data-latex=""}
+:::{.rmdinfo data-latex=""}
 * Proporción: $\hat \pi = p$
 * Media: $\hat \mu = \bar x$ 
 * Varianza: $\hat \sigma^2 = s^2 = \frac{1}{n-1}\left( \sum x_i^2 - n \bar x^2 \right )$
@@ -187,12 +187,32 @@ Para determinar la distribución en el muestreo de la varianza muestral, primero
 que definir la distribución $\chi^2$, que tiene un único parámetro, los grados de libertad $n$.
 Se define como la suma de $n$ variables aleatorias normales independientes estandarizadas al cuadrado:
 
-$$\chi^2_n = Z_1^2 + \ldots + Z_n^2;\quad E[\chi^2_{n}]=n; \quad V[\chi^2_{n}]=2n.$$
+$$\chi^2_n = Z_1^2 + \ldots + Z_n^2;\quad Z_i \sim N(0; 1)\forall i; \quad E[\chi^2_{n}]=n; \quad V[\chi^2_{n}]=2n.$$
 
 Se cumple, independientemente de la distribución de $X$, que:
 
 $$\frac{(n-1)s^2}{\sigma^2}\sim \chi^2_{n-1},$$
 que es la distribución que usaremos para hacer inferencia sobre la varianza de la población.
+
+
+:::{.rmdinfo data-latex=""}
+La distribución $\chi^2$ es positiva y asimétrica. Esta asimetría puede tomar formas muy diversas. A medida que aumentan los grados de libertad, esta asimetría es menos pronunciada, véase la Fig. \@ref(fig:chi).
+:::
+
+
+```{r chi, fig.cap="Distribución $\\chi^2$ para distintos grados de libertad", echo=FALSE}
+library(ggplot2)
+ggplot() + 
+  # stat_function(fun = dnorm, aes(colour = "N(0;1)")) +
+  stat_function(fun = dchisq, args= list(df = 2), linetype = 2, linewidth = 1, aes(colour = "chi2 ( 2)")) +
+  stat_function(fun = dchisq, args= list(df = 5), linetype = 3, linewidth = 1, aes(colour = "chi2 ( 5)")) +
+  stat_function(fun = dchisq, args= list(df = 10), linetype = 4, linewidth = 1, aes(colour = "chi2 (10)")) +
+  stat_function(fun = dchisq, args= list(df = 20), linetype = 5, linewidth = 1, aes(colour = "chi2 (20)")) +
+  xlim(0, 20) +
+  theme_bw() +
+  scale_colour_brewer("Distribución", type = "qual", palette = "Set1")
+
+```
 
 ### Proporción muestral
 
@@ -208,7 +228,7 @@ Como la binomial es una suma de distribuciones de Bernoulli, entonces $p$ es una
 $$P = \frac{X}{n}\approx N\left(\pi, \sqrt{\frac{\pi(1-\pi)}{n}}\right).$$
 También se puede definir la distribución en el muestreo del número de elementos de la muestra con la característica, $X$:
 
-$$X=np \sim N(n\pi, \sqrt{n\pi(1-\pi))}.$$
+$$X=np \sim N(n\pi, \sqrt{n\pi(1-\pi)}.$$
 
 ## Tamaño muestral para estimar la media
 
@@ -251,11 +271,11 @@ donde $z_{\frac{\alpha}{2}}$ es el cuantil de la distribución normal estandariz
 
 
 :::{.rmdinfo data-latex=""}
-Normalmente se omite en $z_{\frac{\alpha}{2}}$ el símbolo "$1-$" por comodidad al ser simétricos: $z_\frac \alpha 2= - z_{1-\frac \alpha 2}$.
+Normalmente se omite en $z_{\frac{\alpha}{2}}$ el símbolo "$1-$" por comodidad al ser simétricos: $z_\frac \alpha 2= - z_{1-\frac \alpha 2}$, véase la Fig. \@ref(fig:zalfamedios).
 
 :::
 
-```{r, fig.height=4, fig.align='center', out.width="60%", echo=FALSE}
+```{r zalfamedios, fig.height=4, fig.align='center', out.width="60%", echo=FALSE, fig.cap="Representación del nivel de confianza , 1-$\alpha$, y el nivel se significación, $\alpha$, repartido en las dos colas de la distribución normal."}
 mu <- 0
 sig <- 1
 a <- -1.96
@@ -312,7 +332,7 @@ de donde despejando $n$, tenemos una expresión general para calcular el tamaño
 
 $$n = \frac{z_{\frac{\alpha}{2}}^2 \sigma^2}{e^2}.$$
 
-Esta expresión nos sirve tal cual para calcular el tamaño de muestra para estimar la
+Esta expresión nos sirve tal cual para calcular el tamaño de muestra necesario para estimar la
 media poblacional de una variable aleatoria normal con **varianza conocida** $\sigma^2$,
 y tamaño poblacional grande. Si el tamaño de la población es pequeño y conocido, $N$, entonces
 el tamaño de la muestra se calcula con esta otra fórmula:
@@ -322,14 +342,24 @@ $$n = \frac{N\cdot z_{\frac{\alpha}{2}}^2 \cdot \sigma^2}{e^2\cdot (N-1)+ z_{\fr
 Si la varianza es desconocida, sustituimos $\sigma$ por $s$. Si no tenemos $s$, se estima el caso más desfavorable.
 
 
+
 :::{.rmdejemplo data-latex=""}
-Queremos estimar la valoración que hacen los clientes de un determinado servicio energético en una puntuación de 0 a 10. El caso más desfavorable (para el tamaño de la varianza) sería que la mitad de los clientes contestaran un 0 y la otra mitad un 10. O, equivalentemente, que contestara un cliente con un cero y otro con un 10. Entonces, la varianza $s^2$ sería 50. Y el tamaño de muestra mínimo para estimar la puntuación media en una población grande y no equivocarnos en más de $e = 1$ punto sería de $n =136$ clientes.
+Queremos estimar la valoración que hacen los clientes de un determinado servicio energético en una puntuación de 0 a 10. El caso más desfavorable (para el tamaño de la varianza) sería que la mitad de los clientes contestaran un 0 y la otra mitad un 10. O, equivalentemente, que contestara un cliente con un cero y otro con un 10. Entonces, la varianza $s^2$  estaría entre 50 $(n=2)$ y 25 ($n$ grande). El tamaño de muestra mínimo para estimar la puntuación media en una población grande y no equivocarnos en más de $e = 1$ punto con una confianza del 95% sería de $n =`r round( (qnorm(0.975)^2*50)/(1^2))`$ clientes.
+
+$$n = \frac{`r round(qnorm(0.975), 2)`^2\cdot 50}{1^2}\simeq `r round( (qnorm(0.975)^2*50)/(1^2))`$$
+
 :::
 
 ```{r}
-var(c(0,10))
-(qnorm(0.95)^2*50)/(1^2)
+var(c(0, 10))
+var(rep(c(0, 10), each = 100))
+(qnorm(0.975)^2*50)/(1^2)
 ```
+
+
+:::{.rmdinfo data-latex=""}
+Lo más normal es que el cálculo de $n$ nos dé un número decimal. Tomaremos siempre el número entero redondeando **al alza**, para garantizar que la confianza es, al menos, de $(1-\alpha)%$, ya que a mayor tamaño muestral, mayor confianza. Si se hiciera un redondeo al entero inferior, la confianza sería menor de la deseada.
+:::
 
 ## Tamaño muestral para estimar la proporción
 
@@ -347,15 +377,16 @@ Si no hay información sobre el parámetro $\pi$, se toma el caso más desfavora
 
 Uno de los objetivos de la inferencia estadística es la estimación de los parámetros de la
 población, a partir de los datos de la muestra. Mediante la estimación puntual daremos
-un valor único como estimación del parámetro, mediante un estimador (función aplicada a los datos de
-la muestra). Así, para los parámetros más importantes tenemos los siguientes estimadores:
+un valor único como **estimación del parámetro**, mediante un **estadístico** (función aplicada a los datos de
+la muestra) que usaremos como **estimador**. 
+Así, para los parámetros más importantes se han establecido los siguientes estimadores puntuales:
 
 * Proporción: $\hat \pi = p = \frac x n$.
 * Media: $\hat \mu = \bar x = \frac{\sum x_i}{n}$. 
 * Varianza: $\hat \sigma^2 = s^2 = \frac{1}{n-1}\left( \sum x_i^2 - n \bar x^2 \right )$.
 
-Se pueden determinar los mejores estimadores para cualquier parámetro de cualquier
-distribución de probabilidad, que cumplan las características de insesgadez, eficiencia y consistencia. 
+Se pueden determinar los mejores estimadores para cualquier parámetro de una
+distribución de probabilidad concreta, que cumplan las características de insesgadez, eficiencia y consistencia. 
 Para ello se pueden utilizar diversos métodos, como el método de los momentos o el de máxima verosimilitud,
 que no se tratan en este texto aplicado.
 
@@ -376,6 +407,7 @@ saveRDS(ph1, "_data/ph1.rds")
 
 
 ```{r ph1, echo=FALSE}
+library(flextable)
 ph1 <- readr::read_rds("https://lcano.com/data/eaci/ph1.rds")
 ph1 |> 
   flextable() |> 
@@ -387,11 +419,15 @@ ph1 |>
 :::{.rmdpractica data-latex=""}
 `r fa("r-project", fill = "steelblue")` El siguiente código calcula la media muestral del pH, la varianza muestral del pH, y la
 proporción muestral de edificios con depósito de agua (y por tanto también sin depósito de agua). Los datos se importan directamente
-de una url.
+de una url. Resultan las siguientes estimaciones puntuales:
+
+$$\hat{\mu} = \bar{x} = `r round(mean(ph1$pH), 2)`$$
+$$\hat{\sigma}^2= s^2 = `r round(var(ph1$pH), 2)`$$
+$$\hat{\pi}= p = \frac{`r sum(ph1$deposito == "Sí")`}{`r nrow(ph1)`} = `r round(sum(ph1$deposito == "Sí")/nrow(ph1), 2)`$$
+
 :::
 
 ```{r}
-ph1 <- readr::read_rds("https://lcano.com/data/eaci/ph1.rds")
 mean(ph1$pH)
 var(ph1$pH)
 prop.table(table(ph1$deposito))
@@ -402,12 +438,12 @@ prop.table(table(ph1$deposito))
 
 Al hacer la estimación puntual de cualquier parámetro, digamos genéricamente $\theta$, estamos cometiendo un error $e$. Este error se puede cuantificar gracias a la distribución en el muestreo del estadístico que estemos usando como estimador. Y entonces podemos construir **intervalos de confianza** (IC) para el parámetro que estamos estimando.
 
-El intervalo puede ser bilateral, con dos límites inferior y superior, $\theta \in[\mathit{LI}, \mathit{LS}]$
-de manera que:
+El intervalo puede ser bilateral, con dos límites inferior $(LI)$ y superior $(LS)$, de modo que $\theta \in[\mathit{LI}, \mathit{LS}]$
+para los que se cumpla que:
 
 $$P[\mathit{LI} < \theta < \mathit{LS}]=1-\alpha.$$
 Nótese que la probabilidad de que el parámetro sea mayor que el límite
-superior o menor que el límite inferior será $\frac \alpha 2$. Aquí, $1-\alpha$ es el nivel de confianza (se expresa a menudo como porcentaje), y $\alpha$ es el nivel de significación. 
+superior o menor que el límite inferior será $\frac \alpha 2$, véase la Fig. \@ref(fig:zalfamedios). Aquí, $1-\alpha$ es el nivel de confianza (se expresa a menudo como porcentaje), y $\alpha$ es el nivel de significación. 
 
 Los intervalos de confianza también pueden ser unilaterales, cuando solamente nos interesa saber un umbral mínimo o máximo del verdadero valor del parámetro. Estos intervalos tienen un único límite inferior o superior, y se pueden expresar como:
 
@@ -442,7 +478,7 @@ el muestreo:
   (\#eq:dmz)
 \end{equation} 
 
-Par un nivel de confianza $1-\alpha$ determinado, si buscamos un **intervalo bilateral** tenemos que:
+Para un nivel de confianza $1-\alpha$ determinado, si buscamos un **intervalo bilateral** tenemos que:
 
 $$P\left[-z_{\frac{\alpha}{2}}<\frac{\overline x- \mu}{\frac{\sigma}{\sqrt{n}}}<z_{\frac{\alpha}{2}}\right] = 1-\alpha.$$
 
@@ -587,7 +623,7 @@ curve(dnorm(x, mean = mu),
 axis(1, col = gray(0.5), pos = 0, 
      # at = c(   -10,   b,    a,   0,  -a, -b,  10),
      at = c(-10, a, 0,  10),
-     labels = c("", expression(z[alpha]), "0", " "), 
+     labels = c("", expression(-z[alpha]), "0", " "), 
      padj = 1)
 axis(2, las = 2, pos = 0, col = gray(0.9),
      at = c(dnorm(c(-1), mean = 3), 10),
@@ -639,7 +675,7 @@ es una distribución normal sino una $t$ de Student.
 
 $$\frac{\overline X- \mu}{\frac{s}{\sqrt{n}}}\sim t_{n-1},$$
 
-Par un nivel de confianza $1-\alpha$ determinado, si buscamos un **intervalo bilateral** tenemos que:
+Para un nivel de confianza $1-\alpha$ determinado, si buscamos un **intervalo bilateral** tenemos que:
 
 $$P\left[-t_{n-1,\frac{\alpha}{2}}<\frac{\overline x- \mu}{\frac{s}{\sqrt{n}}}<t_{n-1,\frac{\alpha}{2}}\right] = 1-\alpha.$$
 
@@ -650,10 +686,10 @@ $$\boxed{IC_\mu=\bar x \pm t_{n-1, \frac{\alpha}{2}}\cdot \frac{s}{\sqrt{n}}}$$
 
 
 La distribución $t$ de Student tiene un único parámetro $n$, que son los grados de libertad.
-Sean las variables aleatorias $X, X_1, X_n \sim N(0;1)$. Entonces, la variable aleatoria
+Sean las variables aleatorias $Z, Z_1, \cdots, Z_n \sim N(0;1)$. Entonces, la variable aleatoria
 definida por: 
 
-$$T = \frac{X}{\frac{1}{n}\sum X_i^2}\sim t_{n},$$
+$$T = \frac{Z}{\frac{1}{n}\sum Z_i^2}\sim t_{n},$$
 sigue una distribución $t$ de Student con $n$ grados de libertad, y que tiene
 las siguientes características:
 
@@ -673,7 +709,7 @@ intervalos con el software.
 que utilizó el estadístico inglés William Sealy Gosset para publicar el trabajo
 en el que la definió, ya que la empresa en la que trabajaba no permitía a sus empleados
 publicar con su nombre para no desvelar secretos industriales.
-A much@s estadístic@s nos gusta la historia, y el producto que fabricaba la empresa
+A muchxs estadísticxs nos gusta la historia, y el producto que fabricaba la empresa
 en la que trabajaba el bueno de Gosset^[https://es.wikipedia.org/wiki/Prueba_t_de_Student].
 :::
 
@@ -738,104 +774,246 @@ t.test(ph1$antimonio, alternative = "less", conf.level = 0.99 )$conf.int
 
 ### Intervalo de confianza para la proporción
 
-Por el teorema central del límite, si $n>30$
+Por el teorema central del límite, si $n>30$ la variable aleatoria "proporción muestral en muestras de tamaño $n$", sigue una distribución normal con media la proporción poblacional $\pi$ y varianza $\frac{\pi(1-\pi)}{n}$. Por tanto, tipificando, tenemos la siguiente distribución en
+el muestreo:
 
-$$\boxed{IC_\pi=p\pm z_{\frac{\alpha}{2}}\cdot \sqrt{\frac{p\cdot (1-p)}{n}}}$$
+\begin{equation}
+\frac{p - \pi}{\sqrt{\frac{\pi(1-\pi)}{n}}}\sim N(0; 1).
+  (\#eq:dpz)
+\end{equation} 
+
+Para un nivel de confianza $1-\alpha$ determinado, si buscamos un **intervalo bilateral** tenemos que:
+
+$$\boxed{IC_\pi=p\pm z_{\frac{\alpha}{2}}\cdot \sqrt{\frac{\pi \cdot (1-\pi)}{n}}}.$$
+El parámetro $\pi$ es desconocido y se sustituye por la proporción muestral $p$. Los intervalos unilaterales se obtendrían de forma análoga a los de la media, acumulando la significatividad $\alpha$ solo en uno de los extremos.
+
+```{r, echo=FALSE}
+p <- round(sum(ph1$deposito == "Sí")/nrow(ph1), 2)
+x <- sum(ph1$deposito == "Sí")
+z <- round(qnorm(0.975), 2)
+ic <- p + c(-1, 1)*z*sqrt(p*(1-p)/30)
+```
+
+:::{.rmdpractica data-latex=""}
+`r fa("r-project", fill = "steelblue")`
+Vamos a obtener el intervalo de confianza bilateral para la proporción de edificios de viviendas con depósito de agua. Ya habíamos calculado la proporción muestral como $p = `r p`$. El intervalo de confianza al 95% con la aproximación normal sería el siguiente:
+
+
+
+$$IC_\pi=p\pm z_{\frac{\alpha}{2}}\cdot \sqrt{\frac{p \cdot (1-p)}{n}} = `r p` \cdot `r z` \cdot \sqrt{\frac{`r p` \cdot `r 1-p`}{`r 30`}}\\=[`r round(ic, 3)`].$$
+En general, esta aproximación es más conservadora (intervalos amplios) que otros métodos más precisos.
+En R podemos obtener un intervalo exacto para la proporción de viviendas utilizando la binomial, y otro mediante la distribución chi-cuadrado que no vemos en más detalle. Este último aplica por defecto la llamada "corrección por continuidad de Yates" (Véase la ayuda de la función `prop.test()`.
+:::
+
+```{r}
+binom.test(x = 11, n = 30)
+prop.test(x = 11, n = 30)
+```
+
 
 
 ### Intervalo de confianza para la varianza
 
 
-#### Distribución en el muestreo
+La variable aleatoria que vamos a utilizar para construir el intervalo de confianza de la varianza es la siguiente:
 
-$$\frac{(n-1)s^2}{\sigma^2}\sim \chi^2_{n-1}$$
+$$\frac{(n-1)s^2}{\sigma^2}\sim \chi^2_{n-1}.$$
 
-#### Nivel de confianza
+A diferencia de las distribuciones normal y $t$, la distribución $\chi^2$ no es simétrica (véase la figura \@ref(fig:chi)). Entonces el intervalo tampoco lo va a ser. Es decir, el centro del intervalo no va a ser la estimación puntual de la varianza, y los límites hay que calcularlos con los cuantiles específicos. 
 
-$$P\left[\chi^2_{n-1,\frac{\alpha}{2}}<\frac{s^2\cdot(n-1)}{\sigma^2}<\chi^2_{n-1,1-\frac{\alpha}{2}}\right] = 1-\alpha$$
+A partir del nivel de confianza determinado $1-\alpha$, establecemos la condición de probabilidad:
 
-#### Intervalo de confianza 
+$$P\left[\chi^2_{n-1,\frac{\alpha}{2}}<\frac{s^2\cdot(n-1)}{\sigma^2}<\chi^2_{n-1,1-\frac{\alpha}{2}}\right] = 1-\alpha,$$
 
-$$\boxed{IC_\sigma=\left[ \frac{s^2\cdot(n-1)}{\chi^2_{n-1,\frac{\alpha}{2}}}; \frac{s^2\cdot(n-1)}{\chi^2_{n-1,1-\frac{\alpha}{2}}}\right]}$$
+y despejando $\sigma^2$ tenemos los límites del intervalo de confianza para la varianza como:
+
+$$\boxed{IC_\sigma=\left[ \frac{s^2\cdot(n-1)}{\chi^2_{n-1,1-\frac{\alpha}{2}}}; \frac{s^2\cdot(n-1)}{\chi^2_{n-1,\frac{\alpha}{2}}}\right]}.$$
+Aquí, $\frac{\alpha}{2} $ y $1 - \frac{\alpha}{2}$ toman su sentido original al no ser simétricos como en la normal y la $t$.
+
+:::{.rmdpractica data-latex=""}
+
+En el ejemplo del pH, teníamos la estimación puntual de la varianza como:
+
+$$\hat{\sigma}^2= s^2 = `r round(var(ph1$pH), 2)`$$
+
+El intervalo de confianza se puede calcular a mano con la fórmula anterior,
+teniendo en cuenta que los cuantiles de la distribución $\chi^2$ se obtendrían 
+con la función `qchisq()`. No hay una función específica en **R** base para obtener
+el intervalo de confianza, pero se puede calcular con las siguientes expresiones.
+:::
+
+```{r}
+LS <- (var(ph1$pH)*29)/qchisq(0.025, 29)
+LI <- (var(ph1$pH)*29)/qchisq(0.925, 29)
+LI;LS
+```
+
+
 
 ## Intervalos de confianza para comparaciones
 
-* Tenemos dos muestras, $x_1, x_2$
+Uno de los principales usos de la estadística aplicada es la comparación de muestras para determinar si pueden venir de la misma población, o por el contrario se puede demostrar que hay diferencias significativas en algunos de sus parámetros. Normalmente estas comparaciones las haremos con los contrastes de hipótesis que veremos en el siguiente capítulo. No obstante, a veces es útil obtener intervalos de confianza para la diferencia de la media o para la razón de varianzas.
 
-* Posiblemente relacionadas
+En general, tenemos dos muestras, $x_1, x_2$ que posiblemente estén relacionadas. Se puede dar el caso de que las varianzas sean conocidas e iguales, conocidas y distintas, o bien desconocidas. Los tamaños de muestra de ambas muestras pueden ser iguales o distintos, por ejemplo $n_1, n_2$. 
 
-* Posiblemente con varianza conocida
+### Intervalos de confianza para la diferencia de medias
 
-* Posiblemente con varianzas iguales
+En el caso del intervalo de confianza para la media de dos muestras, estaremos interesados en la diferencia de medias, $\theta = \mu_1- \mu_2$. Entonces, como las medias siguen una distribución normal, entonces aplicando las propiedades de la esperanza y la varianza:
 
-* Posiblemente con tamaños distintos $n_1, n_2$
-
-* El interés está en comprobar si las muestras son "iguales" o no
+$$\frac{\bar{x}-\bar{y}-\theta}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}\sim N(0;1)$$
 
 
-`r emo::ji("bulb")` Dependiendo de la combinación, se utiliza una fórmula u otra
-
-
-### IC diferencia medias: $\mu_1 - \mu_2$, $\sigma_1. \sigma_2$ conocidas
-
-
-Varianza agrupada, o conjunta (_pooled_): $s_p^2= \frac{(n_1 -1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}$
-
-#### $\sigma_1, \sigma_2$ conocidas
+Entonces, para **varianzas conocidas** tenemos que el intervalo de confianza para la diferencia medias: $\mu_1 - \mu_2$, $\sigma_1. \sigma_2$ conocidas es:
 
 $$IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm z_{\frac \alpha 2}\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}$$
 
-### IC diferencia medias: $\mu_1 - \mu_2$, $\sigma_1, \sigma_2$ desconocidas
+Para el caso de **varianzas desconocidas**, pero que se pueden asumir **iguales** $(\sigma_1 \ne \sigma_2)$, se calcula la 
+varianza agrupada, o conjunta (_pooled_) como:
+
+$$s_p^2= \frac{(n_1 -1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2},$$
+
+y entonces a través de la siguiente distribución en el muestreo:
+
+$$\frac{\bar{x}-\bar{y}-\theta}{s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}\sim t_{n_1+n_2-1}$$
+
+obtenemos la siguiente expresión para el intervalo de confianza de la diferencia de medias con varianzas desconocidas pero iguales:
+
+$$IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm t_{n_1+n_2-2, \frac \alpha 2}\cdot s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}.$$
+Por último, en el caso en que las varianzas son desconocidas y no se puede aceptar que sean iguales $(\sigma_1 \ne \sigma_2)$, tenemos
+la siguiente distribución en el muestreo:
 
 
-#### $\sigma_1, \sigma_2$ desconocidas pero iguales $(\sigma_1 = \sigma_2)$
-$$IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm t_{n_1+n_2-2, \frac \alpha 2}s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}$$
+$$\frac{\bar{x}-\bar{y}-\theta}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}\sim t_f,$$
 
-#### $\sigma_1, \sigma_2$ desconocidas y distintas $(\sigma_1 \ne \sigma_2)$
+donde:
 
-$$IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm t_{f, \frac \alpha 2}\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}$$
+$$f=\left[ \frac{\left (\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}\right )^2}{\frac{\left(\frac{s_1^2}{n_1}\right)^2}{n_1-1}+\frac{\left(\frac{s_2^2}{n_2}\right)^2}{n_2-1}}\right],$$
 
-$$f=\left[ \frac{\left (\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}\right )^2}{\frac{\left(\frac{s_1^2}{n_1}\right)^2}{n_1-1}+\frac{\left(\frac{s_2^2}{n_2}\right)^2}{n_2-1}}\right]$$
-
-`r emo::ji("bulb")` Aproximación de Welch
+redondeando al entero menor. Y entonces el intervalo de confianza es:
 
 
-### IC razón de varianzas $\sigma_1/\sigma_2$
+$$IC_{\mu_1-\mu_2} = (\bar x_1 - \bar x_2) \pm t_{f, \frac \alpha 2}\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}.$$
 
-* Las varianzas son positivas, la diferencia nunca va a ser cero
-* Serán iguales cuando el cociente sea igual a 1
-
-$$IC_{\frac{\sigma_1}{\sigma_2}} = \left[\frac{\frac{s_1^2}{s_2^2}}{F_{n_1-1, n_2-1, \frac{\alpha}{2}}};\frac{s_1^2}{s_2^2}\cdot F_{n_2-1, n_1-1, \frac{\alpha}{2}} \right]$$
+Este método se conoce como la aproximación de Welch.
 
 
+:::{.rmdejemplo data-latex=""}
+En el conjunto de datos del pH podemos comparar estimar intervalos de confianza para la diferencia en la media del pH entre los edificios que tienen depósito de agua y los que no. La función `t.test()` que ya utilizamos para el intervalo de confianza de la media no sirve para este nuevo intervalo de confianza. Por defecto asume varianzas desconocidas y distintas (correción de Welch). Con el argumento `var.equal` se puede cambiar este comportamiento por defecto.
+:::
 
-### Distribución F de Snedecor
-
-$X_1, \ldots, X_{n_1}$; $Y_1, \ldots, Y_{n_2}$ v.a.i.i.d $\sim N(0;1)$:
-
-$$F = \frac{\frac{ 1}{ n_1}\sum\limits_{i=1}^{n_1} X_i^2}{\frac{ 1}{ n_2}\sum\limits_{i=1}^{n_2} Y_i^2}\sim F_{n_1,n_2}$$
-* $E[F] = \frac{n}{n-2}, \; n>2$
-
-* $V[F] = \frac{2n^2(m+n-2)}{m(n-2)^2(n-4)}, \; n>4$
-
-
-
-### Interpretación de las comparaciones
-
-* Si el intervalo de confianza de la diferencia de medias contiene el cero, no podremos asegurar que haya diferencias entre las medias de las dos **poblaciones** (en general, nos interesará confirmar que sí hay diferencias)
-
-* Si el intervalo de confianza de la razón de varianzas contiene el 1, no podremos asegurar que haya diferencias entre las varianzas (en general, nos interesará comprobar que no hay diferencias)
-
-`r emo::ji("bulb")` O lo que es lo mismo, las diferencias observadas en las **muestras** son debidas al azar, y no a una diferencia real entre los parámetros poblacionales.
-
-
-Esto lo hacemos también con contrastes de hipótesis (siguiente apartado)
+```{r}
+t.test(pH ~ deposito, data = ph1)
+```
 
 
 
+:::{.rmdinfo data-latex=""}
+Cuando las muestras están relacionadas, habría que proceder de forma distinta. En vez de calcular las medias de los dos grupos y después hacer la diferencia, habría que calcular las diferencias de las observaciones relacionadas, y entonces trabajar con esa variable aleatoria $Y = X_1 - X_2$. Por ejemplo, supongamos que en el estudio del pH volvemos a hacer mediciones al cabo de un tiempo después de aplicar un determinado tratamiento a las aguas de la ciudad. Entonces tendremos otras 30 mediciones en los mismos edificios, y haríamos la diferencia entre el tiempo 2 y el tiempo 1 de cada una de los 30 edificios. A partir de ahí se obtendría el intervalos de confianza de la media de la diferencia.
+:::
 
-## Estimación no paramétrica
 
-## Inferencia Bayesiana*
+
+### Intervalo de confianza para la diferencia de proporciones
+
+Aplicando el teorema central del límite y la aproximación normal para muestras grandes, tendremos que si $\theta = \pi_1-\pi_2$:
+
+$$\frac{p_1 - p_2 - \theta}{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}\sim N(0; 1).$$
+y entonces el intervalo de confianza para la diferencia de proporciones será:
+
+
+$$p_1-p_2 \pm z_{\frac \alpha 2}\cdot \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}.$$
+
+### Intervalos de confianza para la razón de varianzas
+
+Para comparar varianzas y dar intervalos de confianza de su diferencia, no podemos seguir 
+el mismo proceso que con las medias, ya que las varianzas son siempre positivas, y la diferencia nunca va a ser cero.
+En su lugar, aplicaremos que las varianzas serán iguales cuando su cociente sea igual a 1. Es decir, usamos el parámetro $\theta = \frac{\sigma_1^2}{\sigma_2^2}$ y la distribución en el muestreo siguiente:
+
+$$\frac{s_1^2}{s_2^2}\cdot \frac{1}{\theta}\sim F_{n_1-1;n_2 -1},$$
+
+donde F es la distribución F de Fisher-Snedecor, en la cual tenemos $X_1, \ldots, X_{n_1}$; $Y_1, \ldots, Y_{n_2}$ variables aleatorias independientes e idénticamente distribuidas normales tipificadas, $\sim N(0;1)$, de modo que:
+
+$$F = \frac{\frac{ 1}{ n_1}\sum\limits_{i=1}^{n_1} X_i^2}{\frac{ 1}{ n_2}\sum\limits_{i=1}^{n_2} Y_i^2}\sim F_{n_1,n_2},$$
+
+y que tiene las siguientes propiedades:
+
+* $E[F] = \frac{n_2}{n_2-2}, \; n_2>2$.
+
+* $V[F] = \frac{2n_2^2(n_1+n_2-2)}{n_1(n_2-2)^2(n_2-4)}, \; n_2>4$.
+
+La distribución F puede tomar muchas formas dependiendo de los grados de libertad de numerador y denominador. Algunas combinaciones se muestran en la figura \@ref(fig:f).
+
+```{r f, fig.cap="Forma de la densidad de F para varias combinaciones de parámetros", echo=FALSE}
+p1 <- ggplot() + 
+  stat_function(fun = df, args= list(df1 = 5, df2 = 5), linetype = 2, linewidth = 1, aes(colour = "5")) +
+  stat_function(fun = df, args= list(df1 = 5, df2 = 10), linetype = 3, linewidth = 1, aes(colour = "10")) +
+  stat_function(fun = df, args= list(df1 = 5, df2 = 20), linetype = 4, linewidth = 1, aes(colour = "20")) +
+  stat_function(fun = df, args= list(df1 = 5, df2 = 30), linetype = 5, linewidth = 1, aes(colour = "30")) +
+  xlim(0, 5) +
+  theme_bw() +
+  scale_colour_brewer("g.l. denom.", type = "qual", palette = "Set1") + 
+  labs(title = "Distribución F con 5 grados de libertad en numerador")
+
+p2 <- ggplot() + 
+  stat_function(fun = df, args= list(df2 = 5, df1 = 5), linetype = 2, linewidth = 1, aes(colour = "5")) +
+  stat_function(fun = df, args= list(df2 = 5, df1 = 10), linetype = 3, linewidth = 1, aes(colour = "10")) +
+  stat_function(fun = df, args= list(df2 = 5, df1 = 20), linetype = 4, linewidth = 1, aes(colour = "20")) +
+  stat_function(fun = df, args= list(df2 = 5, df1 = 30), linetype = 5, linewidth = 1, aes(colour = "20")) +
+  xlim(0, 5) +
+  theme_bw() +
+  scale_colour_brewer("g.l. num.", type = "qual", palette = "Set1") + 
+  labs(title = "Distribución F con 5 grados de libertad en denominador")
+p3 <- ggplot() + 
+  stat_function(fun = df, args= list(df2 = 50, df1 = 100), linetype = 2, linewidth = 1, aes(colour = "50")) +
+  stat_function(fun = df, args= list(df2 = 100, df1 = 100), linetype = 3, linewidth = 1, aes(colour = "100")) +
+  stat_function(fun = df, args= list(df2 = 150, df1 = 100), linetype = 4, linewidth = 1, aes(colour = "150")) +
+  stat_function(fun = df, args= list(df2 = 200, df1 = 100), linetype = 5, linewidth = 1, aes(colour = "200")) +
+  xlim(0, 2) +
+  theme_bw() +
+  scale_colour_brewer("g.l. denom.", type = "qual", palette = "Set1") + 
+  labs(title = "Distribución F con 100 grados de libertad en numerador")
+
+library(gridExtra)
+grid.arrange(p1, p2, p3)
+```
+
+
+Entonces el intervalo de confianza para la razón de varianzas se calcularía como se indica a continuación:
+
+$$IC_{\frac{\sigma_1}{\sigma_2}} = \left[\frac{\frac{s_1^2}{s_2^2}}{F_{n_1-1, n_2-1, \frac{\alpha}{2}}};\frac{s_1^2}{s_2^2}\cdot F_{n_2-1, n_1-1, \frac{\alpha}{2}} \right].$$
+
+
+
+
+:::{.rmdejemplo data-latex=""}
+Vamos a calcular un intervalo de confianza para el cociente de varianzas de los edificios que no tienen depósito y los que sí tienen depósito. La función `var.test()` nos da este resultado. Nótese que el intervalo no contiene al 1, y por tanto no es compatible con que las varianzas sean iguales. Esto se podría utilizar para decidir si tenemos varianzas iguales o no al calcular un intervalo de confianza de la diferencia de medias.
+:::
+
+```{r}
+var.test(pH ~ deposito, data = ph1)
+```
+
+
+
+
+Los intervalos de confianza de las comparaciones, además de la propia incertidumbre acerca de la estimación puntual del parámetro diferencia (o cociente), nos permite realizar las siguientes interpretaciones:
+
+* Si el intervalo de confianza de la diferencia de medias contiene el cero, no podremos asegurar que haya diferencias entre las medias de las dos **poblaciones** (en general, nos interesará confirmar que sí hay diferencias).
+
+* Si el intervalo de confianza de la razón de varianzas contiene el 1, no podremos asegurar que haya diferencias entre las varianzas (en general, nos interesará comprobar que no hay diferencias).
+
+
+:::{.rmdinfo data-latex=""}
+O lo que es lo mismo, las diferencias observadas en las **muestras** son debidas al azar, y no a una diferencia real entre los parámetros poblacionales.
+
+
+Esto lo hacemos también con contrastes de hipótesis en el siguiente capítulo.
+:::
+
+
+
+
+
+
 
 
