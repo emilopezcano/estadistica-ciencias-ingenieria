@@ -800,7 +800,7 @@ Vamos a obtener el intervalo de confianza bilateral para la proporción de edifi
 
 
 
-$$IC_\pi=p\pm z_{\frac{\alpha}{2}}\cdot \sqrt{\frac{p \cdot (1-p)}{n}} = `r p` \cdot `r z` \cdot \sqrt{\frac{`r p` \cdot `r 1-p`}{`r 30`}}\\=[`r round(ic, 3)`].$$
+$$IC_\pi=p\pm z_{\frac{\alpha}{2}}\cdot \sqrt{\frac{p \cdot (1-p)}{n}} = `r p` \pm `r z` \cdot \sqrt{\frac{`r p` \cdot `r 1-p`}{`r 30`}}\\=[`r round(ic, 3)`].$$
 En general, esta aproximación es más conservadora (intervalos amplios) que otros métodos más precisos.
 En R podemos obtener un intervalo exacto para la proporción de viviendas utilizando la binomial, y otro mediante la distribución chi-cuadrado que no vemos en más detalle. Este último aplica por defecto la llamada "corrección por continuidad de Yates" (Véase la ayuda de la función `prop.test()`.
 :::
@@ -844,7 +844,7 @@ el intervalo de confianza, pero se puede calcular con las siguientes expresiones
 
 ```{r}
 LS <- (var(ph1$pH)*29)/qchisq(0.025, 29)
-LI <- (var(ph1$pH)*29)/qchisq(0.925, 29)
+LI <- (var(ph1$pH)*29)/qchisq(0.975, 29)
 LI;LS
 ```
 
