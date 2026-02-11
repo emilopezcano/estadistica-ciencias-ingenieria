@@ -1146,7 +1146,7 @@ Las medidas y gráficos vistos hasta el momento, no se suelen (ni deben) utiliza
 
 
 :::{.rmdejemplo data-latex=""}
-La tabla \@ref(tab:resumen1) muestra un resumen de las variables `est` y `ph` del conjunto de datos de laboratorio de la fábrica de quesos.
+La tabla \@ref(tab:resumen1) muestra un resumen de las variables `est` y `ph` del conjunto de datos de laboratorio de la fábrica de quesos. La tabla \@ref(tab:resumen2) muestra el mismo resumen pero por grupos de la variable `tipo`. En ambos casos se han calculado las medidas de tendencia central, posición, dispersión y forma. Este resumen numérico completo es un buen complemento a los gráficos para describir la variable, por ejemplo a los histogramas de la figura \@ref(fig:histo-resumen).
 :::
 
 
@@ -1176,6 +1176,19 @@ bind_cols(lapply(l, as.data.frame)) |>
 ```
 
 
+```{r histo-resumen, fig.height=7, fig.width = 12, fig.align='center', out.width="90%", echo=FALSE, fig.cap="Histogramas de variables con distintos tipos de curtosis"}
+
+library(gridExtra)
+grid.arrange(
+  ggplot(lab, aes(x = ph)) + 
+    geom_histogram(bins = 10, fill = "orange", col = "white") + 
+    theme_bw(),
+  ggplot(lab, aes(x = est)) + 
+    geom_histogram(bins = 10, col = "white", fill = "orange") + 
+    theme_bw(),
+  nrow = 1
+)
+```
 
 ### Gráficos dependientes del tiempo
 
