@@ -971,7 +971,7 @@ En todo caso, y aunque no tengamos que aplicar nunca la fórmula "a mano" es muy
 Al igual que la media, la varianza y la desviación típica son muy sensibles a datos extremos. Una propiedad importante de la desviación típica y la media es que entre la media y 2 desviaciones típicas $(\bar x-2s; \bar x + 2s)$, tenemos al menos
 el 75% de los datos. 
 
-La varianza no mantiene la transformación lineal. Si $Y=a+bX$ y la varianza de $X$ es $s_X$,
+La varianza no mantiene la transformación lineal. Si $Y=a+bX$ y la varianza de $X$ es $s^2_X$,
 entonces la varianza de $Y$ es: $b^2s^2_X$
 
 De las propiedades de la media y la varianza se deduce también que si:
