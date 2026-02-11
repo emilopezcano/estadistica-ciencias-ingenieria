@@ -1,4 +1,7 @@
-```{r}
+
+# Análisis exploratorio bivariante {#aed-bi}
+
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = "")
 library(tidyverse)
 library(knitr)
@@ -7,9 +10,6 @@ library(gt)
 library(gridExtra)
 library(equatiomatic)
 ```
-
-# Análisis exploratorio bivariante {#aed-bi}
-
 
 
 
