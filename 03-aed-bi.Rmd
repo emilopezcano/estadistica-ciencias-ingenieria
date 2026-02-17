@@ -235,6 +235,17 @@ cualquier valor de $y_j$. Es decir, si son independientes se cumple:
 
 $$f_{ij} = f_{i.}\cdot f_{.j} \;\forall i, j.$$
 
+:::{.rmdejemplo data-latex=""}
+La tabla \@ref(tab:tindep) muestra la distribución conjunta y marginales de las variables discretizadas pH y Extracto Seco Total. Para que fueran independientes, todos los productos $f_{i.}\cdot f_{.j}$ deberían ser iguales a $f_{ij}$, es decir, la distribución de $X$ no debería variar en función de los valores de $Y$, y viceversa. En este caso, se puede ver que no se cumple esta igualdad (por ejemplo $0,043 \cdot 0.001 != 0), por lo que las variables no son independientes.
+:::
+
+```{r tindep, echo=FALSE}
+table(lab$clase_ph, lab$clase_est) |> 
+  prop.table() |> 
+  addmargins() |> 
+  round(3) |> 
+  kable()
+```
 
 ## Representación gráfica conjunta
 
