@@ -237,7 +237,7 @@ la que podemos obtener valores aleatorios (_random_) o simulaciones de una
 variable aleatoria.</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 dbinom(x = 0, size = 5, prob = 0.4)
 #> [1] 0.07776
 1 - pbinom(q = 1, size = 5, prob = 0.4)
@@ -273,7 +273,7 @@ La siguiente expresión calcula la probabilidad buscada. El lector puede probar 
 para llegar a la misma probabilidad, como en el ejemplo anterior.</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 pbinom(q = 0, size = 10, prob = 0.25, lower.tail = FALSE)
 #> [1] 0.9436865
 ```
@@ -366,7 +366,7 @@ La siguiente expresión calcula la probabilidad pedida. Nótese que ahora se
 utiliza `pois` en el nombre de la función.</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 dpois(x = 0, lambda = 4)
 #> [1] 0.01831564
 ```
@@ -414,7 +414,7 @@ Las siguientes expresiones obtienen las probabilidades pedidas a través de la f
 de distribución y de probabilidad.</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 ppois(q = 2, lambda = 8)
 #> [1] 0.01375397
 dpois(x = 30, lambda = 32)
@@ -468,7 +468,7 @@ Utilizando software, podemos hacer los cálculos exactos. Vemos
 que, en este caso concreto, nos estaremos equivocanto en el tercer decimal.</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 pbinom(2, 100, 0.01)
 #> [1] 0.9206268
 ppois(2, 1)
@@ -594,7 +594,7 @@ La siguiente expresión obtiene la probabilidad pedida.
 </div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 dnbinom(x = 1, size = 4, prob = 0.6)
 #> [1] 0.20736
 ```
@@ -631,7 +631,7 @@ Con la siguiente expresión calculamos la probabilidad a través del complementa
 función de distribución.</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 pnbinom(q = 6, size = 4, prob = 0.5, lower.tail = FALSE)
 #> [1] 0.171875
 ```
@@ -641,7 +641,7 @@ pnbinom(q = 6, size = 4, prob = 0.5, lower.tail = FALSE)
 
 
 
-```r
+``` r
 pnbinom(q = 6, size = 4, prob = 1/2, lower.tail = FALSE)
 #> [1] 0.171875
 qnbinom(p = 0.95, size = 4, prob = 1/2)
@@ -704,7 +704,7 @@ la de la binomial negativa con parámetro $c=1$.
 La siguiente expresión obtiene la probabilidad pedida.</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 pgeom(q = 3, prob = 4/52)
 #> [1] 0.273975
 ```
@@ -794,7 +794,7 @@ La siguiente expresión calcula la probabilidad del ejemplo.
 </div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 dhyper(x = 1, m = 30, n = 20, k = 5)
 #> [1] 0.06860145
 ```
@@ -821,7 +821,7 @@ Entonces:
 </div>\EndKnitrBlock{rmdejemplo}
 
 
-```r
+``` r
 dhyper(x = 1, m = 4, n = 52-4, k = 10)
 #> [1] 0.4240465
 ```
@@ -973,7 +973,7 @@ probabilidad del ejemplo como:
 La función `punif` devuelve la función de distribución uniforme.</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 punif(q = 1000, min = 380, max = 1200, lower.tail = FALSE)
 #> [1] 0.2439024
 ```
@@ -1001,7 +1001,7 @@ $$P[X > 0.9]=1-F(0.9)=1-\frac{0.9 - 0}{1-0} = 0.1.$$
 Análogamente al ejemplo anterior:</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 punif(q = 0.9, min = 0, max = 1, lower.tail = FALSE)
 #> [1] 0.1
 ```
@@ -1083,7 +1083,7 @@ densidad del ejemplo.</div>\EndKnitrBlock{rmdejemplo}
 La función `pexp` obtiene la función de distribución del modelo exponencial.</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 pexp(q = 1, rate = 4,lower.tail = FALSE)
 #> [1] 0.01831564
 ```
@@ -1129,7 +1129,7 @@ $$\mu = \frac{1}{\beta} = 0.5$$
 La función `qexp` obtiene la inversa de la función de distribución del modelo exponencial.</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 qexp(p = 0.95, rate = 2)
 #> [1] 1.497866
 ```
@@ -1352,7 +1352,7 @@ el cuantil.
 </div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 pnorm(q = 3, mean = 5, sd = 2)
 #> [1] 0.1586553
 qnorm(p = 0.03, mean = 5, sd = 2, lower.tail = FALSE)
@@ -1416,7 +1416,7 @@ nos dan la función de distribución, aplicamos que $P[a \leq x < b] = F(b)- F(a
   </div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 pnorm(2, 1.8, 0.5) - pnorm(1, 1.8, 0.5)
 #> [1] 0.6006224
 qnorm(p = 0.95, 1.8, 0.5)

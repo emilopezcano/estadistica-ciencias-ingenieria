@@ -7,7 +7,7 @@
 <title>Capítulo 11 Diseño de experimentos | Estadística Aplicada a las Ciencias y la Ingeniería</title>
 <meta name="author" content="Emilio L. Cano">
 <meta name="description" content="11.1 Introducción El Diseño y Análisis de Experimentos (que abreviaremos como DoE), como cualquier otra técnica estadística, se basa en el estudio de la variabilidad. DoE es la herramienta más...">
-<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
 <meta property="og:title" content="Capítulo 11 Diseño de experimentos | Estadística Aplicada a las Ciencias y la Ingeniería">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/doe.html">
@@ -19,10 +19,11 @@
 <meta name="twitter:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.1.2/tabwid.css" rel="stylesheet">
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="libs/grViz-binding-1.0.9/grViz.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="libs/tabwid-1.1.3/tabwid.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 <link rel="stylesheet" href="bs4_book.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -190,7 +191,10 @@ con el factor 1 (gráfico de la izquierda), podemos llegar a la conclusión
 errónea de que el factor 1 es determinante. Pero podría ser que la causa real
 sea el factor 2, que no ha sido medido y está muy correlacionado con el factor 1.
 En el gráfico de la derecha vemos que la variable respuesta crece en el mismo sentido que los factores 1 y 2, pero podría ser que el factor 2, no medido al principio, sea la causa, y no el que realmente se ha medido.</p>
-<pre><code>#&gt; Warning: `qplot()` was deprecated in ggplot2 3.4.0.</code></pre>
+<pre><code>#&gt; Warning: `qplot()` was deprecated in ggplot2 3.4.0.
+#&gt; This warning is displayed once every 8 hours.
+#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where
+#&gt; this warning was generated.</code></pre>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:c1"></span>
 <img src="11-doe_files/figure-html/c1-1.png" alt="Efecto de no medir un factor" width="100%"><p class="caption">
@@ -206,7 +210,7 @@ posibles valores de la variable, y vemos algunos patrones que quedan
 ocultos en el otro caso. Por ejemplo, en los valores inferiores la pendiente es más pronunciada, mientras que en los valores superiores parece que
 se empieza a invertir la tendencia.</p>
 <pre><code>#&gt; Warning: The following aesthetics were dropped during statistical
-#&gt; transformation: colour
+#&gt; transformation: colour.
 #&gt; ℹ This can happen when ggplot fails to infer the correct
 #&gt;   grouping structure in the data.
 #&gt; ℹ Did you forget to specify a `group` aesthetic or to
@@ -227,8 +231,7 @@ cambios que resulten en mejoras. Sin embargo, es
 necesario otro tipo de conocimiento (<em>profound knowledge</em>), en el que se
 incluye la Estadística. Combinar ambos conocimientos, lleva a una
 mayor capacidad de mejora.
-Estas ideas, originarias de Deming, se recogen en <span class="citation">R. Moen, T. Nolan, and L. Provost<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Quality Improvement Through Planned Experimentation 3/e&lt;/em&gt; (McGraw-Hill Education, 2012).&lt;/p&gt;"><sup>93</sup></a></span>.
-Algunas capacidades necesarias fruto de esta combinación son:</p>
+Estas ideas, originarias de Deming, se recogen en <span class="citation">R. Moen, T. Nolan, and L. Provost.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Quality Improvement Through Planned Experimentation 3/e&lt;/em&gt; (McGraw-Hill Education, 2012).&lt;/p&gt;"><sup>93</sup></a></span> Algunas capacidades necesarias fruto de esta combinación son:</p>
 <ul>
 <li>Entender las interdependencias entre los sistemas donde se lleva a cabo
 la experimentación.</li>
@@ -387,10 +390,10 @@ experimentos:</p>
 <h2>
 <span class="header-section-number">11.5</span> Tipos de diseños de experimentos<a class="anchor" aria-label="anchor" href="#tipos-de-dise%C3%B1os-de-experimentos"><i class="fas fa-link"></i></a>
 </h2>
-<p>Existen una enorme cantidad de posibles tipos de diseños experimentales. La decisión sobre cuál utilizar en cada situación concreta depende principalmente de los objetivos de la investigación y de las características de las unidades experimentales (de ahí la importancia de caracterizarlas de forma precisa durante el diseño). La figura <a href="doe.html#fig:tiposdisenos">11.6</a> muestra la categorización que hace <span class="citation">Lawson<a href="#fn96" class="footnote-ref" id="fnref96"><sup>96</sup></a></span>. A continuación se enumeran estos diseños con una breve explicación de cada uno.</p>
+<p>Existen una enorme cantidad de posibles tipos de diseños experimentales. La decisión sobre cuál utilizar en cada situación concreta depende principalmente de los objetivos de la investigación y de las características de las unidades experimentales (de ahí la importancia de caracterizarlas de forma precisa durante el diseño). La figura <a href="doe.html#fig:tiposdisenos">11.6</a> muestra la categorización que hace <span class="citation">Lawson.<a href="#fn96" class="footnote-ref" id="fnref96"><sup>96</sup></a></span> A continuación se enumeran estos diseños con una breve explicación de cada uno.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:tiposdisenos"></span>
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-29e925102d01db730e25" style="width:100%;height:480px;"></div>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-29e925102d01db730e25" style="width:100%;height:480px;"></div>
 <script type="application/json" data-for="htmlwidget-29e925102d01db730e25">{"x":{"diagram":"\ndigraph one_factor{\n  graph [layout=dot, rankdir = TB, compound = true, fontsize = 10, color = crimson]\n  node [shape = box]\n  \"Propósito\ndel diseño\"; \"RSE\"; LSD;RCD  \"RCB\";  \"GCB\"; \"PBIB,PTIB\"; \"BIB\"; \"Tamaño de bloque\" ;\"FRSE\nNSE\nSNSE\"; \"CRFD\nCRFF\nPB,OA\"; CRRS; \"SLD\nSCD\nEVD\"; RCBF; RBSP; \"CRSP\nSPFF\"; \"RSSP\nEESPRS\"; SPMPV; BRS; PCBF; CCBF\n  \n  node [shape = diamond]\n  \"Unidades experimentales\"\n  \"Factores de bloque\"\n  \n  \n  \"Unidades experimentales\" -> \"Factores de bloque\" [label = \"Heterogéneos\"] \n  \"Unidades experimentales\" -> \"CRD\" [label = \"Homogéneos\"] \n  \"Factores de bloque\" -> \"Tamaño de bloque\" [label = \"Uno\"] \n  \"Factores de bloque\" -> \"LSD\" [label = \"Dos\"] \n  LSD -> RCD\n  \"Tamaño de bloque\" -> \"RCB\" [label = \"Grande\"] \n  \"Tamaño de bloque\" -> \"PBIB,PTIB\" [label = \"Pequeño\"] \n  \"Propósito\ndel diseño\" -> RSE [label = \"Estudiar varianzas\"] \n  RCB -> GCB\n  \n    \"Propósito\ndel diseño\" -> \"Unidades experimentales\" [label = \"Estimar efectos\nde los factores\"] \n\n  \n  \n  subgraph cluster0{\n    label = \"Un factor\";\n    RSE\n    CRD\n    LSD\n    RCD\n    RCB\n    GCB\n    \"PBIB,PTIB\"\n    \"BIB\"\n  }\n  RSE -> \"FRSE\nNSE\nSNSE\"\n  \n  subgraph cluster1{\n  label = \"Varios factores\";\n    \"FRSE\nNSE\nSNSE\"\n        CRD -> \"Tipo factor\"\n    \"Tipo factor\" -> \"CRFD\nCRFF\nPB,OA\" [label = \"Categórico\"]\n    \"Tipo factor\" -> CRRS [label = \"Continuo\"]\n    \"Tipo factor\" -> \"SLD\nSCD\nEVD\" [label = \"Mezcla\"]\n    GCB -> RCBF\n    \"PBIB,PTIB\" -> \"BIB\"\n    BIB -> Factores\n    Factores -> BRS [label = \"Continuos\"]\n    Factores -> PCBF [label = \"Categóricos\"]\n    PCBF -> CCBF\n  } \n  subgraph cluster2{\n  label = \"Varios factores (algunos difícil de variar)\";\n    RCBF -> RBSP\n    \"CRFD\nCRFF\nPB,OA\" -> \"CRSP\nSPFF\"\n    \"CRRS\" -> \"RSSP\nEESPRS\"\n    \"SLD\nSCD\nEVD\" -> SPMPV\n    \n  } \n}  \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p class="caption">
 Figura 11.6: Esquema de diseños experimentales en Lawson (2015)
 </p>
@@ -442,11 +445,11 @@ El modelo se extiende inmediatamente a más de dos factores, en los
 que las interacciones pueden ser dos a dos, tres a tres, etc. No obstante,
 las interacciones de orden superior a 3 rara vez son significativas y se suelen descartar casi siempre.</p>
 <p>A veces no es posible tener diseños equilibrados, es decir, con el mismo
-número de réplicas en cada “celda” o cruce de niveles de factores. En estos casos, para hacer los contrastes correctos debemos utilizar la función <code><a href="https://rdrr.io/pkg/car/man/Anova.html">Anova()</a></code> del paquete {car},<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;John Fox, Sanford Weisberg, and Brad Price, &lt;em&gt;Car: Companion to Applied Regression&lt;/em&gt;, 2022, &lt;a href="https://CRAN.R-project.org/package=car"&gt;https://CRAN.R-project.org/package=car&lt;/a&gt;.&lt;/p&gt;'><sup>97</sup></a></span> que calcula las sumas de cuadrados tipo II y tipo III, y los contrastes correctos. Las sumas de cuadrados del diseño equilibrado se suele llamar tipo I. Véase <span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>98</sup></a></span> para una explicación más detallada, o la entrada “Diferentes sumas de cuadrados en ANOVA” de “El blog de los herreros”<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://erre-que-erre-paco.blogspot.com/2016/12/diferentes-sumas-de-cuadrados-en-anova.html" class="uri"&gt;https://erre-que-erre-paco.blogspot.com/2016/12/diferentes-sumas-de-cuadrados-en-anova.html&lt;/a&gt;&lt;/p&gt;'><sup>99</sup></a>.</p>
+número de réplicas en cada “celda” o cruce de niveles de factores. En estos casos, para hacer los contrastes correctos debemos utilizar la función <code><a href="https://rdrr.io/pkg/car/man/Anova.html">Anova()</a></code> del paquete {car},<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;John Fox, Sanford Weisberg, and Brad Price, &lt;em&gt;Car: Companion to Applied Regression&lt;/em&gt;, 2024, &lt;a href="https://r-forge.r-project.org/projects/car/"&gt;https://r-forge.r-project.org/projects/car/&lt;/a&gt;.&lt;/p&gt;'><sup>97</sup></a></span> que calcula las sumas de cuadrados tipo II y tipo III, y los contrastes correctos. Las sumas de cuadrados del diseño equilibrado se suele llamar tipo I. Véase <span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>98</sup></a></span> para una explicación más detallada, o la entrada “Diferentes sumas de cuadrados en ANOVA” de “El blog de los herreros”<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://erre-que-erre-paco.blogspot.com/2016/12/diferentes-sumas-de-cuadrados-en-anova.html" class="uri"&gt;https://erre-que-erre-paco.blogspot.com/2016/12/diferentes-sumas-de-cuadrados-en-anova.html&lt;/a&gt;&lt;/p&gt;'><sup>99</sup></a>.</p>
 <div class="rmdejemplo">
 <p>A modo ilustrativo, el siguiente código genera aleatoriamente datos de un supuesto experimento con tres factores: A (con niveles A1, A2 y A3), B (con niveles B1, B2 y B3) y C (con niveles C1 y C2). Las tablas ANOVA del diseño equilibrado son idénticas para los dos métodos. Pero si quitamos uno de los datos (puede ser una situación realista en un experimento tener un valor perdido), entonces las sumas de cuadrados con los distintos métodos no son iguales, y podrían llevar a decisiones distintas.</p>
 </div>
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: carData</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -529,7 +532,7 @@ en cualquiera de los dos casos, se deberían fijar de acuerdo al conocimiento en
 <p>El número
 de experimentos necesarios para probar todas las combinaciones
 de niveles para <span class="math inline">\(k\)</span> factores es <span class="math inline">\(2^k\)</span>, de ahí su nombre. Por ejemplo,
-en un experimento en el que quisiéramos analizar 5 factores con 4 niveles cada uno, necesitaríamos <span class="math inline">\(4\times 4\times 4\times 4\times 4=4^5= 1024\)</span> unidades experimentales, para cada réplica, mientras que en un experimento
+en un experimento en el que quisiéramos analizar 5 factores con 4 niveles cada uno, necesitaríamos <span class="math inline">\(4\times 4\times 4\times 4\times  4=4^5= 1024\)</span> unidades experimentales, para cada réplica, mientras que en un experimento
 <span class="math inline">\(2^5\)</span> serán suficientes 32.</p>
 <p>La popularidad de los diseños <span class="math inline">\(2^k\)</span> se debe, entre otras, a las siguientes
 causas:</p>
@@ -541,7 +544,7 @@ causas:</p>
 </ul>
 <p>Los datos de los experimentos factoriales <span class="math inline">\(2^k\)</span> se pueden representar de forma exhaustiva con la llamada “matriz de diseño” o en forma de tablas. La forma estándar de la matriz de diseño contiene en la primera columna signos alternos <code>-</code> y <code>+</code>. En la siguiente columna se alternarán dos signos <code>-</code> y dos signos <code>+</code>, y así sucesivamente hasta la última columna con el último factor, que tendrá la primera mitad de signos <code>-</code> y la otra mitad de signos <code>+</code>. En la matriz de diseño se identifica el orden estándar, pero las observaciones <strong>nunca</strong> se recogerán en el orden de la matriz de diseño. A cada unidad experimental se le asignará una de las combinaciones <strong>aleatoriamente</strong>. Esto se puede hacer con medios mecánicos o con generación de números pseudoaleatorios con el ordenador. En la propia tabla se puede incorporar un identificador de unidad experimental convenientemente aleatorizado. Una vez recogidos los datos, estos se pueden añadir a la tabla, bien cada uno de los datos de las réplicas, o resumidos con la media.</p>
 <p>La tabla <a href="doe.html#tab:matrizest">11.1</a> muestra una tabla con todos los datos de un hipotético experimento con tres factores sin réplicas, creado con el siguiente código. Se fija la semilla aleatoria para garantizar la reproducibilidad.</p>
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">A</span> <span class="op">&lt;-</span> <span class="va">B</span> <span class="op">&lt;-</span> <span class="va">C</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"-"</span>, <span class="st">"+"</span><span class="op">)</span></span>
 <span><span class="va">dm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html">expand.grid</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>A <span class="op">=</span> <span class="va">A</span>, B <span class="op">=</span> <span class="va">B</span>, C <span class="op">=</span> <span class="va">C</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -549,153 +552,111 @@ causas:</p>
 <span>         `Respuesta (simulación)` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames_to_column</a></span><span class="op">(</span><span class="st">"Orden estándar"</span><span class="op">)</span> </span>
 <span><span class="va">dm</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/flextable.html">flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/set_caption.html">set_caption</a></span><span class="op">(</span><span class="st">"Ejemplo de matriz de diseño y datos sin réplicas"</span><span class="op">)</span></span></code></pre></div>
-<template id="d5368dc0-c19d-4cb2-bcbf-99d63c1491bb"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td, .tabwid th {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style>
+<span>  <span class="fu">flextable</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">set_caption</span><span class="op">(</span><span class="st">"Ejemplo de matriz de diseño y datos sin réplicas"</span><span class="op">)</span></span></code></pre></div>
 <div class="tabwid">
-<style>.cl-3dc8ea84{}.cl-3dc1aeea{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3dc4bad6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-3dc4baea{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-3dc4d05c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3dc4d066{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3dc4d070{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3dc4d071{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3dc4d072{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3dc4d07a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<div class="inline-table"><table data-quarto-disable-processing="true" class="cl-3dc8ea84">
-<caption>
+<style>.cl-35ae2344{}.cl-35aabd94{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-35ac201c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-35ac2026{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-35ac2da0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-35ac2da1{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-35ac2daa{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-35ac2dab{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-35ac2dac{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-35ac2db4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<div class="inline-table"><table data-quarto-disable-processing="true" class="cl-35ae2344">
+<caption style="display:table-caption;margin:0pt;text-align:center;border-bottom: 0.00pt solid transparent;border-top: 0.00pt solid transparent;border-left: 0.00pt solid transparent;border-right: 0.00pt solid transparent;padding-top:3pt;padding-bottom:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;">
 <span id="tab:matrizest">Tabla 11.1: </span><span>Ejemplo de matriz de diseño y datos sin réplicas</span>
 </caption>
-
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-3dc4d05c"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">Orden estándar</span></p></th>
-<th class="cl-3dc4d05c"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">A</span></p></th>
-<th class="cl-3dc4d05c"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">B</span></p></th>
-<th class="cl-3dc4d05c"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">C</span></p></th>
-<th class="cl-3dc4d066"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">Unidad experimental (aleatoria)</span></p></th>
-<th class="cl-3dc4d066"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">Respuesta (simulación)</span></p></th>
+<th class="cl-35ac2da0"><p class="cl-35ac201c"><span class="cl-35aabd94">Orden estándar</span></p></th>
+<th class="cl-35ac2da0"><p class="cl-35ac201c"><span class="cl-35aabd94">A</span></p></th>
+<th class="cl-35ac2da0"><p class="cl-35ac201c"><span class="cl-35aabd94">B</span></p></th>
+<th class="cl-35ac2da0"><p class="cl-35ac201c"><span class="cl-35aabd94">C</span></p></th>
+<th class="cl-35ac2da1"><p class="cl-35ac2026"><span class="cl-35aabd94">Unidad experimental (aleatoria)</span></p></th>
+<th class="cl-35ac2da1"><p class="cl-35ac2026"><span class="cl-35aabd94">Respuesta (simulación)</span></p></th>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">1</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td>
-<td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">1</span></p></td>
-<td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">6.9</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">1</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td>
+<td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">1</span></p></td>
+<td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">6.9</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">2</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td>
-<td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">4</span></p></td>
-<td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">8.1</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">2</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td>
+<td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">4</span></p></td>
+<td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">8.1</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">3</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td>
-<td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">8</span></p></td>
-<td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">9.4</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">3</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td>
+<td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">8</span></p></td>
+<td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">9.4</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">4</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td>
-<td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">2</span></p></td>
-<td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">10.0</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">4</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td>
+<td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">2</span></p></td>
+<td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">10.0</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">5</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td>
-<td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">6</span></p></td>
-<td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">14.8</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">5</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td>
+<td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">6</span></p></td>
+<td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">14.8</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">6</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td>
-<td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">3</span></p></td>
-<td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">11.5</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">6</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td>
+<td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">3</span></p></td>
+<td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">11.5</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">7</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td>
-<td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td>
-<td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">7</span></p></td>
-<td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">8.4</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">7</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td>
+<td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td>
+<td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">7</span></p></td>
+<td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">8.4</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-3dc4d072"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">8</span></p></td>
-<td class="cl-3dc4d072"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td>
-<td class="cl-3dc4d072"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td>
-<td class="cl-3dc4d072"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td>
-<td class="cl-3dc4d07a"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">5</span></p></td>
-<td class="cl-3dc4d07a"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">7.7</span></p></td>
+<td class="cl-35ac2dac"><p class="cl-35ac201c"><span class="cl-35aabd94">8</span></p></td>
+<td class="cl-35ac2dac"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td>
+<td class="cl-35ac2dac"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td>
+<td class="cl-35ac2dac"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td>
+<td class="cl-35ac2db4"><p class="cl-35ac2026"><span class="cl-35aabd94">5</span></p></td>
+<td class="cl-35ac2db4"><p class="cl-35ac2026"><span class="cl-35aabd94">7.7</span></p></td>
 </tr>
 </tbody>
 </table></div>
-</div></template><div class="flextable-shadow-host" id="f2fa9643-cc99-4caf-948c-a4d361770470"></div>
-<script>
-var dest = document.getElementById("f2fa9643-cc99-4caf-948c-a4d361770470");
-var template = document.getElementById("d5368dc0-c19d-4cb2-bcbf-99d63c1491bb");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script><p>La información de la tabla completa se puede compactar poniendo los factores en filas y columnas y los datos en las celdas con los cruces. También es habitual encontrar la representación geométrica en forma de cuadrados (2 factores), cubos (3 factores) o hipercubos (más de 3 factores). Se pueden ver algunos ejemplos en <span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>100</sup></a></span> y <span class="citation">Moen, Nolan, and Provost<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Quality Improvement Through Planned Experimentation 3/e&lt;/em&gt;.&lt;/p&gt;"><sup>101</sup></a></span>.</p>
+</div>
+<p>La información de la tabla completa se puede compactar poniendo los factores en filas y columnas y los datos en las celdas con los cruces. También es habitual encontrar la representación geométrica en forma de cuadrados (2 factores), cubos (3 factores) o hipercubos (más de 3 factores). Se pueden ver algunos ejemplos en <span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>100</sup></a></span> y <span class="citation">Moen, Nolan, and Provost.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Quality Improvement Through Planned Experimentation 3/e&lt;/em&gt;.&lt;/p&gt;"><sup>101</sup></a></span></p>
 <p>Por la naturaleza dicotómica de los factores, la estimación de los factores es muy sencilla, resultando además que:</p>
-<p><span class="math display">\[\alpha_1 = -\alpha_2;\; \beta_1=-\beta_2.\]</span></p>
+<p><span class="math display">\[
+\alpha_1 = -\alpha_2;\; \beta_1=-\beta_2.
+\]</span></p>
 <div id="diseño-factorial-22" class="section level3" number="11.8.1">
 <h3>
 <span class="header-section-number">11.8.1</span> Diseño factorial <span class="math inline">\(2^2\)</span><a class="anchor" aria-label="anchor" href="#dise%C3%B1o-factorial-22"><i class="fas fa-link"></i></a>
 </h3>
 <p>Es el diseño más sencillo que podemos hacer, y solo necesitamos <span class="math inline">\(2^2=4\)</span> unidades experimentales para cada réplica del experimento.</p>
 <p>El modelo matemático sería el siguiente:</p>
-<p><span class="math display">\[y_{ijk} = \mu +
-\alpha_i + \beta_j + \alpha\beta_{ij} + \varepsilon_{ijk},\]</span></p>
+<p><span class="math display">\[
+y_{ijk} = \mu +
+\alpha_i + \beta_j + \alpha\beta_{ij} + \varepsilon_{ijk},
+\]</span></p>
 <p>donde <span class="math inline">\(i, j\)</span> toman dos valores, <span class="math inline">\(\{-, +\}\)</span>, y <span class="math inline">\(k\)</span> representa las réplicas del experimento, <span class="math inline">\(k = 1, \ldots, n\)</span>. Así, el número total de unidades experimentales es <span class="math inline">\(n\times 2^2\)</span>. Si solo tenemos una réplica <span class="math inline">\((n=1)\)</span>, entonces podremos estimar los efectos pero no podremos hacer contrastes de hipótesis sobre su significatividad.</p>
 <div class="rmdpractica">
 <p>En el siguiente código se analiza un experimento con dos factores A y B a dos niveles, <code>+</code> y + <code>-</code>. Se muestran los gráficos de los efectos.</p>
 </div>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.r-project.org">effects</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://cran.r-project.org/package=effects">effects</a></span><span class="op">)</span></span>
 <span><span class="va">datosf22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/scan.html">scan</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"</span></span>
 <span><span class="st">-   -   28</span></span>
 <span><span class="st">-   -   25  </span></span>
@@ -718,7 +679,7 @@ fantome.appendChild(templateContent);
 <span><span class="va">datosf22</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>id_cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>, </span>
 <span>              names_from <span class="op">=</span> <span class="st">"replica"</span>, </span>
-<span>              values_from <span class="op">=</span> <span class="st">"respuesta"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>              values_from <span class="op">=</span> <span class="st">"respuesta"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">kable</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="left">A</th>
@@ -758,7 +719,7 @@ fantome.appendChild(templateContent);
 </tr>
 </tbody>
 </table></div>
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelof22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">A</span> <span class="op">+</span> <span class="va">B</span> <span class="op">+</span> <span class="va">A</span><span class="op">:</span><span class="va">B</span>, data <span class="op">=</span> <span class="va">datosf22</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof22</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Analysis of Variance Table</span></span>
@@ -772,20 +733,20 @@ fantome.appendChild(templateContent);
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  </span></span>
 <span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://lattice.r-forge.r-project.org/">lattice</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lattice.r-forge.r-project.org/">lattice</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/trellis.par.get.html">trellis.par.set</a></span><span class="op">(</span>background <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; NOTE: A is not a high-order term in the model</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; NOTE: B is not a high-order term in the model</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A:B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/model.tables.html">model.tables</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Tables of effects</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -807,7 +768,7 @@ fantome.appendChild(templateContent);
 <div class="rmdejemplo">
 <p>Vemos que los dos efectos principales son significativos, pero no lo es la interacción. Podemos eliminar ese término del modelo para así ganar grados de libertad y tener una mejor estimación del error.</p>
 </div>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelof22</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">respuesta</span> <span class="op">~</span> <span class="va">A</span> <span class="op">+</span> <span class="va">B</span>, data <span class="op">=</span> <span class="va">datosf22</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof22</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Analysis of Variance Table</span></span>
@@ -820,10 +781,10 @@ fantome.appendChild(templateContent);
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  </span></span>
 <span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"A"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"B"</span>, mod <span class="op">=</span> <span class="va">modelof22</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
 </div>
@@ -832,13 +793,15 @@ fantome.appendChild(templateContent);
 <span class="header-section-number">11.8.2</span> Diseño factorial <span class="math inline">\(2^3\)</span><a class="anchor" aria-label="anchor" href="#dise%C3%B1o-factorial-23"><i class="fas fa-link"></i></a>
 </h3>
 <p>Modelo:</p>
-<p><span class="math display">\[y_{ijkl} = \mu + \alpha_i + \beta_j + \gamma_k + \alpha\beta_{ij}
-+ \alpha\gamma_{ik}+ \beta\gamma_{jk} + \alpha\beta\gamma_{ijk} + \varepsilon_{ijkl}\]</span></p>
+<p><span class="math display">\[
+y_{ijkl} = \mu + \alpha_i + \beta_j + \gamma_k + \alpha\beta_{ij}
++ \alpha\gamma_{ik}+ \beta\gamma_{jk} + \alpha\beta\gamma_{ijk} + \varepsilon_{ijkl}
+\]</span></p>
 <p>De forma similar al diseño <span class="math inline">\(2^2\)</span>, obtendríamos estimadores para los efectos principales y las interacciones. Si no tenemos réplicas, podemos omitir la interacción de orden 3 ya que rara vez es significativa, y así podremos estudiar los contrastes del resto de efectos.</p>
 <div class="rmdejemplo">
 <p>En el siguiente ejemplo, analizamos tres factores, pero omitimos la interacción de orden 3. Después, podríamos eliminar las interacciones menos significativas para quedarnos con el modelo más sencillo.</p>
 </div>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datosf23</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/scan.html">scan</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"</span></span>
 <span><span class="st">-   -   -   60</span></span>
 <span><span class="st">+   -   -   72  </span></span>
@@ -853,7 +816,7 @@ fantome.appendChild(templateContent);
 <span>    sep <span class="op">=</span> <span class="st">"\t"</span><span class="op">)</span> </span>
 <span><span class="va">datosf23</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">datosf23</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">datosf23</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"K"</span>, <span class="st">"rendimiento"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">datosf23</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">kable</span><span class="op">(</span><span class="va">datosf23</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="left">T</th>
@@ -912,7 +875,7 @@ fantome.appendChild(templateContent);
 </tr>
 </tbody>
 </table></div>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modelof23</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">rendimiento</span> <span class="op">~</span> <span class="cn">T</span> <span class="op">+</span> <span class="va">C</span> <span class="op">+</span> <span class="va">K</span> <span class="op">+</span> <span class="cn">T</span><span class="op">:</span><span class="va">C</span> <span class="op">+</span> <span class="cn">T</span><span class="op">:</span><span class="va">K</span> <span class="op">+</span> <span class="va">C</span><span class="op">:</span><span class="va">K</span>, data <span class="op">=</span> <span class="va">datosf23</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">modelof23</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Analysis of Variance Table</span></span>
@@ -929,29 +892,29 @@ fantome.appendChild(templateContent);
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  </span></span>
 <span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; NOTE: T is not a high-order term in the model</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-12-1.png" width="672"></div>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"C"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; NOTE: C is not a high-order term in the model</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-12-2.png" width="672"></div>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; NOTE: K is not a high-order term in the model</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-12-3.png" width="672"></div>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T:C"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-12-4.png" width="672"></div>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"T:K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-12-5.png" width="672"></div>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/effects/man/effect.html">effect</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"C:K"</span>, mod <span class="op">=</span> <span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-12-6.png" width="672"></div>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/model.tables.html">model.tables</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">modelof23</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Tables of effects</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -985,8 +948,8 @@ fantome.appendChild(templateContent);
 <span><span class="co">#&gt;  C:K </span></span>
 <span><span class="co">#&gt;    K</span></span>
 <span><span class="co">#&gt; C   -           +          </span></span>
-<span><span class="co">#&gt;   - -1.0991e-15  1.0991e-15</span></span>
-<span><span class="co">#&gt;   +  1.0991e-15 -1.0991e-15</span></span></code></pre></div>
+<span><span class="co">#&gt;   - -1.5439e-15  1.5439e-15</span></span>
+<span><span class="co">#&gt;   +  1.5439e-15 -1.5439e-15</span></span></code></pre></div>
 </div>
 <div id="diseño-factorial-2k" class="section level3" number="11.8.3">
 <h3>
@@ -995,13 +958,10 @@ fantome.appendChild(templateContent);
 <p>Siguiendo la misma estructura que los dos anteriores, con más efectos principales y más interacciones, pero más allá de 3 es muy difícil que se produzcan, y más difícil de interpretar.
 El número de experimentos necesarios aumenta exponencialmente, y se suelen preferir experimentos fraccionados. Cuando no hay grados de libertad suficientes para realizar contrastes se utilizan herramientas gráficas para seleccionar efectos significativos, como el gráfico quantil-quantil de la distribución normal.</p>
 <div class="rmdejemplo">
-<p>El siguiente ejemplo aparece en <span class="citation">Lawson<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>102</sup></a></span>. Se estudian 4 factores y no tenemos réplicas. Entonces, obtenemos estimadores pero no contrastes.</p>
+<p>El siguiente ejemplo aparece en <span class="citation">Lawson.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Design and Analysis of Experiments with r&lt;/em&gt;.&lt;/p&gt;"><sup>102</sup></a></span> Se estudian 4 factores y no tenemos réplicas. Entonces, obtenemos estimadores pero no contrastes.</p>
 </div>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">daewr</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Registered S3 method overwritten by 'DoE.base':</span></span>
-<span><span class="co">#&gt;   method           from       </span></span>
-<span><span class="co">#&gt;   factorize.factor conf.design</span></span>
 <span><span class="va">modf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="va">A</span><span class="op">*</span><span class="va">B</span><span class="op">*</span><span class="va">C</span><span class="op">*</span><span class="va">D</span>, data <span class="op">=</span> <span class="va">chem</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">modf</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -1056,23 +1016,26 @@ El número de experimentos necesarios aumenta exponencialmente, y se suelen pref
 #&gt;    
 #&gt; Lawson, Grimshaw &amp; Burt Rn Statistic =  3.006953 
 #&gt; 95th percentile of Rn =  1.201</code></pre>
-<p>El método de Lenth se basa en un contraste de significación que puede encontrarse detallado en <span class="citation">Joseph Conklin<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;span&gt;“Design and Analysis of Experiments and Observational Studies Using r: By Nathan Taback, Boca Raton, FL: CRC Press, 2021, Xxii+ 270 Pp., 99.95hardcover, 89.95 eBook, ISBN 978-0367456856”&lt;/span&gt; (Taylor &amp;amp; Francis, 2022).&lt;/p&gt;"><sup>103</sup></a></span>. Se calcula un <em>margin of error</em> (ME). Los efectos más allá de ese margen serían significativos. Como se realizan muchos tests, algunos pueden ser identificados como significativos sin serlo. El <em>simultaneous margin of error</em> (SME) tiene en cuenta esta multiplicidad de contrastes.</p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/daewr/man/LenthPlot.html">LenthPlot</a></span><span class="op">(</span><span class="va">modf</span><span class="op">)</span></span></code></pre></div>
+<p>El método de Lenth se basa en un contraste de significación que puede encontrarse detallado en <span class="citation">Joseph Conklin.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;span&gt;“Design and Analysis of Experiments and Observational Studies Using r: By Nathan Taback, Boca Raton, FL: CRC Press, 2021, Xxii+ 270 Pp., 99.95hardcover, 89.95 eBook, ISBN 978-0367456856”&lt;/span&gt; (Taylor &amp;amp; Francis, 2022).&lt;/p&gt;"><sup>103</sup></a></span> Se calcula un <em>margin of error</em> (ME). Los efectos más allá de ese margen serían significativos. Como se realizan muchos tests, algunos pueden ser identificados como significativos sin serlo. El <em>simultaneous margin of error</em> (SME) tiene en cuenta esta multiplicidad de contrastes.</p>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/daewr/man/LenthPlot.html">LenthPlot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">modf</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-15-1.png" width="672"></div>
 <pre><code>#&gt;    alpha      PSE       ME      SME 
-#&gt; 0.050000 1.687500 4.337857 8.806474</code></pre>
+#&gt; 0.050000 0.843750 2.128783 4.283184</code></pre>
 <div class="rmdpractica">
 <p>A continuación se muestran algunas visualizaciones diferentes con el paquete {emmeans}. Primero reducimos el modelo a los efectos significativos</p>
 </div>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rvlenth/emmeans">emmeans</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvlenth.github.io/emmeans/">emmeans</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Welcome to emmeans.</span></span>
+<span><span class="co">#&gt; Caution: You lose important information if you filter this package's results.</span></span>
+<span><span class="co">#&gt; See '? untidy'</span></span>
 <span><span class="va">modf2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="va">A</span><span class="op">*</span><span class="va">B</span>, data <span class="op">=</span> <span class="va">chem</span><span class="op">)</span></span>
-<span><span class="va">medias</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">modf2</span>, <span class="op">~</span> <span class="va">A</span><span class="op">*</span><span class="va">B</span><span class="op">)</span></span>
+<span><span class="va">medias</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">modf2</span>, <span class="op">~</span> <span class="va">A</span><span class="op">*</span><span class="va">B</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">medias</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-16-1.png" width="672"></div>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmip.html">emmip</a></span><span class="op">(</span><span class="va">modf2</span>, <span class="va">A</span><span class="op">~</span><span class="va">B</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmip.html">emmip</a></span><span class="op">(</span><span class="va">modf2</span>, <span class="va">A</span><span class="op">~</span><span class="va">B</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-16-2.png" width="672"></div>
 </div>
 <div id="número-de-réplicas" class="section level3" number="11.8.4">
@@ -1080,7 +1043,9 @@ El número de experimentos necesarios aumenta exponencialmente, y se suelen pref
 <span class="header-section-number">11.8.4</span> Número de réplicas<a class="anchor" aria-label="anchor" href="#n%C3%BAmero-de-r%C3%A9plicas"><i class="fas fa-link"></i></a>
 </h3>
 <p>Wheeler (1974) estableció la siguiente fórmula aproximada para estimar el número total de unidades experimentales para conseguir una potencia del 95% en el experimento:</p>
-<p><span class="math display">\[N = ((8\sigma)/\Delta)^2,\]</span></p>
+<p><span class="math display">\[
+N = ((8\sigma)/\Delta)^2,
+\]</span></p>
 <p>donde <span class="math inline">\(\sigma\)</span> es la desviación típica del error experimental, y <span class="math inline">\(\Delta\)</span> es el tamaño del efecto que consideraríamos significativo en la práctica. <span class="math inline">\(N\)</span> sería el número total de unidades experimentales, entonces el número de réplicas será <span class="math inline">\(N/2^k\)</span>.</p>
 </div>
 <div id="validación-del-modelo" class="section level3" number="11.8.5">
@@ -1093,7 +1058,7 @@ El número de experimentos necesarios aumenta exponencialmente, y se suelen pref
 <li>Varianza constante</li>
 </ul>
 <p>Utilizamos las funciones <code><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test()</a></code> y <code><a href="https://rdrr.io/pkg/car/man/leveneTest.html">car::leveneTest()</a></code> respectivamente para verificarlas. También podemos obtener los gráficos de los residuos con la función <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code>.</p>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modf2</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Shapiro-Wilk normality test</span></span>
@@ -1118,7 +1083,7 @@ y cuadrados greco-latinos se utilizan para introducir dos o tres
 factores de bloque respectivamente en diseños factoriales de un factor.</p>
 <p>En los diseños factoriales <span class="math inline">\(2^k\)</span>, lo que se hace es “confundir” el efecto de alguna interacción de orden superior con el efecto del bloque.</p>
 <p>Tomemos el ejemplo simulado de la matriz de diseño al inicio de este apartado. Los niveles de las interacciones se asignan multiplicando los signos de los niveles de cada tratamiento.</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dm</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>AB <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">A</span>, <span class="st">"1"</span><span class="op">)</span><span class="op">)</span><span class="op">*</span></span>
@@ -1134,7 +1099,7 @@ factores de bloque respectivamente en diseños factoriales de un factor.</p>
 <span>                        <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">B</span>, <span class="st">"1"</span><span class="op">)</span><span class="op">)</span><span class="op">*</span></span>
 <span>                        <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">C</span>, <span class="st">"1"</span><span class="op">)</span><span class="op">)</span> <span class="op">&gt;</span><span class="fl">0</span>, </span>
 <span>                      <span class="st">"+"</span>, <span class="st">"-"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu">kable</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="left">Orden estándar</th>
@@ -1289,7 +1254,7 @@ factores de bloque respectivamente en diseños factoriales de un factor.</p>
 <div class="rmdejemplo">
 <p>El conjunto de datos <code>cement</code> del paquete {daewr} contiene 20 mediciones de un experimento de superficie respuesta.</p>
 </div>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">daewr</span><span class="op">)</span></span>
 <span><span class="va">cement</span></span>
 <span><span class="co">#&gt;       Block        x1        x2        x3     y</span></span>
@@ -1313,9 +1278,9 @@ factores de bloque respectivamente en diseños factoriales de un factor.</p>
 <span><span class="co">#&gt; S2.7      2  0.000000  0.000000  0.000000 116.0</span></span>
 <span><span class="co">#&gt; S2.8      2  0.000000  0.000000  0.000000 117.0</span></span>
 <span><span class="co">#&gt; S2.9      2  0.000000  0.000000  0.000000 117.0</span></span></code></pre></div>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">rsm</span><span class="op">)</span></span>
-<span><span class="va">grout.lin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rsm/man/rsm.html">rsm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/pkg/rsm/man/FO.html">SO</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">x2</span>, <span class="va">x3</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">cement</span>, subset <span class="op">=</span> <span class="va">Block</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rvlenth/rsm">rsm</a></span><span class="op">)</span></span>
+<span><span class="va">grout.lin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/rvlenth/rsm/reference/rsm.html">rsm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="fu"><a href="https://github.com/rvlenth/rsm/reference/FO.html">SO</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">x2</span>, <span class="va">x3</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">cement</span>, subset <span class="op">=</span> <span class="va">Block</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning in rsm(y ~ SO(x1, x2, x3), data = cement, subset = Block == 1): Some coefficients are aliased - cannot use 'rsm' methods.</span></span>
 <span><span class="co">#&gt;   Returning an 'lm' object.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">grout.lin</span><span class="op">)</span></span>
@@ -1323,7 +1288,7 @@ factores de bloque respectivamente en diseños factoriales de un factor.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Response: y</span></span>
 <span><span class="co">#&gt;                 Df Sum Sq Mean Sq F value   Pr(&gt;F)   </span></span>
-<span><span class="co">#&gt; FO(x1, x2, x3)   3 465.13 155.042 80.3094 0.002307 **</span></span>
+<span><span class="co">#&gt; FO(x1, x2, x3)   3 465.12 155.042 80.3094 0.002307 **</span></span>
 <span><span class="co">#&gt; TWI(x1, x2, x3)  3   0.25   0.083  0.0432 0.985889   </span></span>
 <span><span class="co">#&gt; PQ(x1, x2, x3)   1  37.88  37.879 19.6207 0.021377 * </span></span>
 <span><span class="co">#&gt; Residuals        3   5.79   1.931                    </span></span>
@@ -1341,7 +1306,7 @@ factores de bloque respectivamente en diseños factoriales de un factor.</p>
 <div class="rmdejemplo">
 <p>El conjunto de datos <code>Treb</code> del paquete {daewr} contiene datos experimentales de un fundíbulo (arma medieval de asedio) en el que se mide la distancia dependiendo de tres factores: longitud del brazo (A), contrapeso (B) y peso del proyectil (C). En este caso se ha realizado un diseño de Box-Behnken. El punto estacionario sería un candidato a ser el óptimo. No obstante hay que comprobar si está en la región de diseño (y si es un máximo o un mínimo). El método ridge buscará el máximo en un radio determinado (hasta cubrir la región de diseño).</p>
 </div>
-<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Treb</span></span>
 <span><span class="co">#&gt;    A  B   C   y</span></span>
 <span><span class="co">#&gt; 1  4 10 2.5  33</span></span>
@@ -1364,7 +1329,7 @@ factores de bloque respectivamente en diseños factoriales de un factor.</p>
 <span><span class="co">#&gt; x1 ~ (A - 6)/2</span></span>
 <span><span class="co">#&gt; x2 ~ (B - 15)/5</span></span>
 <span><span class="co">#&gt; x3 ~ (C - 2.5)/0.5</span></span>
-<span><span class="va">treb.quad</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rsm/man/rsm.html">rsm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/pkg/rsm/man/FO.html">SO</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">x2</span>, <span class="va">x3</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">Treb</span><span class="op">)</span></span>
+<span><span class="va">treb.quad</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/rvlenth/rsm/reference/rsm.html">rsm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="fu"><a href="https://github.com/rvlenth/rsm/reference/FO.html">SO</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">x2</span>, <span class="va">x3</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">Treb</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">treb.quad</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Call:</span></span>
@@ -1417,20 +1382,20 @@ factores de bloque respectivamente en diseños factoriales de un factor.</p>
 <span><span class="co">#&gt; x1 -0.1236692  0.5238084  0.8428112</span></span>
 <span><span class="co">#&gt; x2  0.8323200 -0.4077092  0.3755217</span></span>
 <span><span class="co">#&gt; x3  0.5403233  0.7479291 -0.3855551</span></span></code></pre></div>
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/contour.html">contour</a></span><span class="op">(</span><span class="va">treb.quad</span>, <span class="op">~</span> <span class="va">x1</span><span class="op">+</span><span class="va">x2</span><span class="op">+</span><span class="va">x3</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-21-1.png" width="672"></div>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/contour.html">contour</a></span><span class="op">(</span><span class="va">treb.quad</span>, <span class="op">~</span> <span class="va">x1</span><span class="op">+</span><span class="va">x2</span><span class="op">+</span><span class="va">x3</span>, at <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/rsm/man/rsm.html">xs</a></span><span class="op">(</span><span class="va">treb.quad</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/contour.html">contour</a></span><span class="op">(</span><span class="va">treb.quad</span>, <span class="op">~</span> <span class="va">x1</span><span class="op">+</span><span class="va">x2</span><span class="op">+</span><span class="va">x3</span>, at <span class="op">=</span> <span class="fu"><a href="https://github.com/rvlenth/rsm/reference/rsm.html">xs</a></span><span class="op">(</span><span class="va">treb.quad</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-22-1.png" width="672"></div>
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/persp.html">persp</a></span><span class="op">(</span><span class="va">treb.quad</span>, <span class="op">~</span><span class="va">x1</span><span class="op">+</span><span class="va">x2</span><span class="op">+</span><span class="va">x3</span>, zlab <span class="op">=</span> <span class="st">"Distancia"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="11-doe_files/figure-html/unnamed-chunk-23-1.png" width="672"></div>
-<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">ridge</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rsm/man/steepest.html">steepest</a></span><span class="op">(</span><span class="va">treb.quad</span>, dist <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1.412</span>, by<span class="op">=</span><span class="fl">0.1</span><span class="op">)</span>, descent <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ridge</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/rvlenth/rsm/reference/steepest.html">steepest</a></span><span class="op">(</span><span class="va">treb.quad</span>, dist <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1.412</span>, by<span class="op">=</span><span class="fl">0.1</span><span class="op">)</span>, descent <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Path of steepest ascent from ridge analysis:</span></span>
 <span><span class="va">ridge</span></span>
 <span><span class="co">#&gt;    dist    x1    x2     x3 |     A      B      C |    yhat</span></span>
@@ -1451,7 +1416,7 @@ factores de bloque respectivamente en diseños factoriales de un factor.</p>
 <span><span class="co">#&gt; 15  1.4 0.390 1.344 -0.034 | 6.780 21.720 2.4830 | 117.077</span></span></code></pre></div>
 <p>Una última opción sería la optimización no lineal de la ecuación de regresión.</p>
 <p>Los diseños de superficie respuesta también se pueden plantear sin fase de screening, si se tienen muy claros los factores a estudiar.</p>
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">daewr</span><span class="op">)</span></span>
 <span><span class="va">Design</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/daewr/man/DefScreen.html">DefScreen</a></span><span class="op">(</span>m<span class="op">=</span><span class="fl">8</span>,c<span class="op">=</span><span class="fl">0</span><span class="op">)</span></span>
 <span><span class="va">Design</span></span>
@@ -1473,7 +1438,7 @@ factores de bloque respectivamente en diseños factoriales de un factor.</p>
 <span><span class="co">#&gt; 15  1  1  1  1  1 -1  1  0</span></span>
 <span><span class="co">#&gt; 16 -1 -1 -1 -1 -1  1 -1  0</span></span>
 <span><span class="co">#&gt; 17  0  0  0  0  0  0  0  0</span></span></code></pre></div>
-<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">daewr</span><span class="op">)</span></span>
 <span><span class="va">design</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/daewr/man/DefScreen.html">DefScreen</a></span><span class="op">(</span>m<span class="op">=</span><span class="fl">5</span>,c<span class="op">=</span><span class="fl">0</span>,center<span class="op">=</span><span class="fl">2</span>,randomize<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">design</span></span>
@@ -1491,13 +1456,13 @@ factores de bloque respectivamente en diseños factoriales de un factor.</p>
 <span><span class="co">#&gt; 11  0  0  0  0  0</span></span>
 <span><span class="co">#&gt; 12  0  0  0  0  0</span></span>
 <span><span class="co">#&gt; 13  0  0  0  0  0</span></span></code></pre></div>
-<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">daewr</span><span class="op">)</span></span>
 <span><span class="va">Smeso</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">241</span>,<span class="fl">295</span>,<span class="fl">260</span>,<span class="fl">338</span>,<span class="fl">320</span>,<span class="fl">265</span>,<span class="fl">275</span>,<span class="fl">248</span>,<span class="fl">92.5</span>,<span class="fl">383</span>,<span class="fl">313</span>,<span class="fl">305</span>,<span class="fl">304</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/daewr/man/FitDefSc.html">FitDefSc</a></span><span class="op">(</span><span class="va">Smeso</span>,<span class="va">design</span>,alpha<span class="op">=</span><span class="fl">.05</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; lm(formula = y ~ (.), data = ndesign)</span></span>
+<span><span class="co">#&gt; stats::lm(formula = y ~ (.), data = ndesign)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Residuals:</span></span>
 <span><span class="co">#&gt;     Min      1Q  Median      3Q     Max </span></span>
@@ -1523,12 +1488,12 @@ factores de bloque respectivamente en diseños factoriales de un factor.</p>
 <span><span class="co">#&gt;             Sums of Squares  df F-value P-value</span></span>
 <span><span class="co">#&gt; Lack of Fit       704.89318   4 7.24205 0.04059</span></span>
 <span><span class="co">#&gt; Pure Error         48.66667   2</span></span></code></pre></div>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">daewr</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/daewr/man/FitDefSc.html">FitDefSc</a></span><span class="op">(</span><span class="va">Smeso</span>,<span class="va">design</span>,alpha<span class="op">=</span><span class="fl">.1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Call:</span></span>
-<span><span class="co">#&gt; lm(formula = y ~ (.), data = ndesign)</span></span>
+<span><span class="co">#&gt; stats::lm(formula = y ~ (.), data = ndesign)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Residuals:</span></span>
 <span><span class="co">#&gt;        1        2        3        4        5        6 </span></span>
@@ -1608,7 +1573,7 @@ factores de bloque respectivamente en diseños factoriales de un factor.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2023-04-19.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="https://lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2026-02-18.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

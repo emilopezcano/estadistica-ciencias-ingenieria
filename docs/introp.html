@@ -7,7 +7,7 @@
 <title>Capítulo 4 Introducción a la Probabilidad | Estadística Aplicada a las Ciencias y la Ingeniería</title>
 <meta name="author" content="Emilio L. Cano">
 <meta name="description" content="4.1 Introducción En los capítulos anteriores, hemos visto cómo mediante la Estadística Descriptiva estudiamos variables estadísticas describiéndolas y representándolas. Mediante la Estadística...">
-<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
 <meta property="og:title" content="Capítulo 4 Introducción a la Probabilidad | Estadística Aplicada a las Ciencias y la Ingeniería">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/introp.html">
@@ -19,10 +19,11 @@
 <meta name="twitter:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.1.2/tabwid.css" rel="stylesheet">
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="libs/grViz-binding-1.0.9/grViz.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="libs/tabwid-1.1.3/tabwid.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 <link rel="stylesheet" href="bs4_book.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -269,7 +270,7 @@ En este caso, <span class="math inline">\(C_{5, 2} = \binom{5}{2} = 10\)</span>.
 <p><strong>R</strong></p>
 La función <code>choose</code> obtiene el número de combinaciones como se ilustra a continuación.
 </div>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 10</span></span></code></pre></div>
 </div>
@@ -506,7 +507,7 @@ personaje era un jugador profesional de la época que planteaba estos problemas
 en términos de si tenía ventaja al apostar a unos u otros resultados
 en el lanzamiento de dos dados. Este fue para muchos el origen de la teoría
 de la probabilidad. Una historia más detallada puede encontrarse en
-<span class="citation">Fernando Corbalán and Gerardo Sanz<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;La Conquista Del Azar. La Teoría de Probabilidades&lt;/em&gt;, Ensayo (RBA, 2010).&lt;/p&gt;"><sup>48</sup></a></span>.
+<span class="citation">Fernando Corbalán and Gerardo Sanz.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;La Conquista Del Azar. La Teoría de Probabilidades&lt;/em&gt;, Ensayo (RBA, 2010).&lt;/p&gt;"><sup>48</sup></a></span>
 </div>
 </div>
 <div id="ch07-defempirica" class="section level3" number="4.3.2">
@@ -581,7 +582,7 @@ población<a class="footnote-ref" tabindex="0" data-toggle="popover" data-conten
 Existen métodos
 específicos para asignar probabilidades subjetivas
 de forma racional, que quedan fuera de los objetivos de este libro, véase, por
-ejemplo, <span class="citation">Bruno de Finetti<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“Foresight: Its Logical Laws, Its Subjective Sources,”&lt;/span&gt; in &lt;em&gt;Breakthroughs in Statistics: Foundations and Basic Theory&lt;/em&gt;, ed. Samuel Kotz and Norman L. Johnson (New York, NY: Springer New York, 1992), 134–74, &lt;a href="https://doi.org/10.1007/978-1-4612-0919-5_10"&gt;https://doi.org/10.1007/978-1-4612-0919-5_10&lt;/a&gt;.&lt;/p&gt;'><sup>51</sup></a></span>.</p>
+ejemplo, <span class="citation">Bruno de Finetti.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“Foresight: Its Logical Laws, Its Subjective Sources,”&lt;/span&gt; in &lt;em&gt;Breakthroughs in Statistics: Foundations and Basic Theory&lt;/em&gt;, ed. Samuel Kotz and Norman L. Johnson (New York, NY: Springer New York, 1992), 134–74, &lt;a href="https://doi.org/10.1007/978-1-4612-0919-5_10"&gt;https://doi.org/10.1007/978-1-4612-0919-5_10&lt;/a&gt;.&lt;/p&gt;'><sup>51</sup></a></span></p>
 
 <div class="rmdejemplo">
 ¿Cuál es la probabilidad de que me contraten en mi primera entrevista de trabajo?
@@ -655,7 +656,7 @@ Los teoremas quinto y sexto nos permiten calcular probabilidades de la unión de
 conjuntos, sean o no disjuntos. Una consecuencia fundamental de las propiedades de la probabilidad es:</p>
 <p><span class="math display">\[ \boxed{0 \leq P(A) \leq 1}.\]</span></p>
 <p>La demostración de estos teoremas se puede encontrar, entre otros, en
-<span class="citation">M. D. Ugarte, A. F. Militino, and A. T. Arnholt<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Probability and Statistics with r, Second Edition&lt;/em&gt; (CRC Press, 2015).&lt;/p&gt;"><sup>53</sup></a></span>. Asímismo, se puede comprobar fácilmente cómo las definiciones clásicas y frecuentistas cumplen todas estas
+<span class="citation">M. D. Ugarte, A. F. Militino, and A. T. Arnholt.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;Probability and Statistics with r, Second Edition&lt;/em&gt; (CRC Press, 2015).&lt;/p&gt;"><sup>53</sup></a></span> Asímismo, se puede comprobar fácilmente cómo las definiciones clásicas y frecuentistas cumplen todas estas
 propiedades y por lo tanto son coherentes con la definición axiomática de la probabilidad.</p>
 
 <div class="rmdejemplo">
@@ -756,7 +757,7 @@ la probabilidad pedida:</p>
 <p>El siguiente código realiza los cálculos paso a paso y devuelve la probabilidad pedida. Cambiando el valor <code>30</code> por otro número de personas cualquiera, se
 puede ver cómo aumenta la probabilidad.</p>
 </div>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ncumple</span> <span class="op">&lt;-</span> <span class="fl">30</span></span>
 <span><span class="va">cposibles</span> <span class="op">&lt;-</span> <span class="fl">365</span><span class="op">^</span><span class="va">ncumple</span></span>
 <span><span class="va">cfavorables</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/prod.html">prod</a></span><span class="op">(</span><span class="fl">365</span><span class="op">:</span><span class="op">(</span><span class="fl">365</span> <span class="op">-</span> <span class="va">ncumple</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
@@ -1091,7 +1092,7 @@ a través de las frecuencias como con un desarrollo matemático se llega a
 la misma conclusión. Y la clave está en la <strong>probabilidad condicionada</strong>.</p>
 </div>
 <p>El problema de <em>Monty Hall</em> dio lugar a historias curiosas que se pueden consultar en
-<span class="citation">Corbalán and Sanz<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;La Conquista Del Azar. La Teoría de Probabilidades&lt;/em&gt;.&lt;/p&gt;"><sup>58</sup></a></span>. Por ejemplo, el gran matemático Paul Erdös solo aceptó
+<span class="citation">Corbalán and Sanz.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;La Conquista Del Azar. La Teoría de Probabilidades&lt;/em&gt;.&lt;/p&gt;"><sup>58</sup></a></span> Por ejemplo, el gran matemático Paul Erdös solo aceptó
 como buena la solución real tras comprobarla en una simulación por ordenador.
 Invito al lector a que concurse en <a href="https://elcano.shinyapps.io/monty_hall">la aplicación del siguiente enlace</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;accesible en &lt;a href="https://elcano.shinyapps.io/monty_hall" class="uri"&gt;https://elcano.shinyapps.io/monty_hall&lt;/a&gt;&lt;/p&gt;'><sup>59</sup></a>
 durante un buen número de jugadas y
@@ -1157,7 +1158,7 @@ probabilidad de ganar el coche.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2023-04-19.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="https://lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2026-02-18.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

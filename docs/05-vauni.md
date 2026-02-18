@@ -25,6 +25,9 @@ la inferencia estadística, que no se trata en este texto.
 #> Warning: Using `size` aesthetic for lines was deprecated in ggplot2
 #> 3.4.0.
 #> ℹ Please use `linewidth` instead.
+#> This warning is displayed once every 8 hours.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where
+#> this warning was generated.
 ```
 
 <div class="figure" style="text-align: center">
@@ -352,6 +355,7 @@ con probabilidades $\frac{36}{52}$, $\frac{12}{52}$ y $\frac{4}{52}$ respectivam
 Podemos así definir la variable aleatoria $X:$ _Número de mensajes remitidos por correo electrónico en un año a los sujetos en estudio_, cuyo campo de variación es $\{20, 36, 60\}$ y cuyas funciones de probabilidad y distribución se representan respectivamente en las figuras \@ref(fig:ddiscreta) y \@ref(fig:pdiscreta). La tabla \@ref(tab:ejdiscretat) muestra ambas funciones numéricamente.</div>\EndKnitrBlock{rmdejemplo}
 
 
+
 Table: (\#tab:ejdiscretat)Funciones de probabilidad y distribución para la variable discreta del ejemplo ilustrativo
 
 | $x_i$| $p(x_i)$| $F(x_i)$|
@@ -359,6 +363,8 @@ Table: (\#tab:ejdiscretat)Funciones de probabilidad y distribución para la vari
 |    20|   0,6923|   0,6923|
 |    36|   0,2308|   0,9231|
 |    60|   0,0769|   1,0000|
+
+
 
 
 
@@ -561,7 +567,7 @@ muestra la expresión para calcular la integral buscada y el valor de $k$.
 
 
 
-```r
+``` r
 integral <- integrate(f = function(x) { 25 - x }, 
                       lower = 5, 
                       upper = 25)
@@ -651,7 +657,7 @@ posteriormente, o representarla gráficamente.
 
 
 
-```r
+``` r
 integrate(f = function(x) { (1/8)*x }, 
                       lower = 0, 
                       upper = 4)
@@ -736,6 +742,9 @@ y función de densidad en un determinado experimento.
 #> Warning: The dot-dot notation (`..density..`) was deprecated in
 #> ggplot2 3.4.0.
 #> ℹ Please use `after_stat(density)` instead.
+#> This warning is displayed once every 8 hours.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where
+#> this warning was generated.
 ```
 
 <div class="figure" style="text-align: center">
@@ -804,7 +813,7 @@ El código a continuación calcula la probabilidad pedida.
 
 
 
-```r
+``` r
 integrate(f = function(x) { (1/8)*x }, 
                       lower = 1, 
                       upper = 2)
@@ -868,7 +877,7 @@ En el siguiente código de R se realizan los cálculos explicados en el ejemplo.
 </div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 integrate(function(x) 2*exp(-2*x), 0, Inf)
 #> 1 with absolute error < 5e-07
 integrate(function(x) 2*exp(-2*x), 0, 10/60)
@@ -1107,7 +1116,7 @@ Podemos guardar los valores y sus probabilidades en sendos vectores y calcular l
 esperanza calculando la suma del producto de ambos vectores, como se muestra en el siguiente código.</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 x_i <- 0:3
 p_i <- c(1/8, 3/8, 3/8, 1/8)
 Ex <- sum(x_i*p_i)
@@ -1157,7 +1166,7 @@ El código a continuación obtiene la esperanza de la variable aleatoria.
 </div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 integrate(function(x) x*(1/8)*x, 0, 4)
 #> 2.666667 with absolute error < 3e-14
 ```
@@ -1202,7 +1211,7 @@ Para la variable discreta, podemos guardar los valores y sus probabilidades en s
 esperanza calculando la suma del producto de ambos vectores, como se muestra en el siguiente código. Para la variable continua, utilizamos la función `integrate` para calcular la integral. Nótese que se pueden usar límites infinitos.</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 x_i <- c(20, 36, 60)
 p_i <- c(36/52, 12/52, 4/52)
 Ex <- sum(x_i*p_i)
@@ -1211,7 +1220,7 @@ Ex
 ```
 
 
-```r
+``` r
 integrate(function(x) x*2*exp(-2*x), 0, Inf)
 #> 0.5 with absolute error < 8.6e-06
 ```
@@ -1330,7 +1339,7 @@ y después podemos hacer operaciones para calcular todas las características:
 El siguiente código realiza todos los cálculos para obtener los distintos parámetros de dispersión.  </div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 alpha_2 <- integrate(function(x) x^2*(1/8)*x, 0, 4)$value
 alpha_1 <- integrate(function(x) x*(1/8)*x, 0, 4)$value
 varianza <- alpha_2 - alpha_1^2; varianza
@@ -1387,7 +1396,7 @@ aleatoria de forma análoga
 al ejemplo anterior.</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 alpha_2 <- integrate(function(x) x^2*2*exp(-2*x), 0, Inf)$value
 alpha_1 <- integrate(function(x) x*2*exp(-2*x), 0, Inf)$value
 varianza <- alpha_2 - alpha_1^2; varianza

@@ -1,7 +1,7 @@
 --- 
 title: "Estadística Aplicada a las Ciencias y la Ingeniería"
 author: "Emilio L. Cano"
-date: "2023-04-19"
+date: "2026-02-18"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib, iso.bib]
@@ -22,7 +22,7 @@ csl: chicago-fullnote-bibliography.csl
 
 
 <img src="images/cover.png" class="cover" width="250" height="328"/>
-Bienvenido/a a  "Estadística Aplicada a las Ciencias y la Ingeniería" por [Emilio L. Cano](http://emilio.lcano.com).
+Bienvenido/a a  "Estadística Aplicada a las Ciencias y la Ingeniería" por [Emilio L. Cano](https://lcano.com).
 
 Este libro incluye los contenidos habitualmente presentes en el currículo 
 de asignaturas de **Estadística** de los grados Ciencias e Ingenierías de universidades españolas. Aunque no aparezca en el título, el manual incluye también los contenidos de **Probabilidad** necesarios.
@@ -93,44 +93,52 @@ Obsérvese que los resultados se muestran precedidos de los símbolos
 `#>`.
 
 
-```r
+``` r
 sessionInfo()
-#> R version 4.2.3 (2023-03-15)
-#> Platform: x86_64-apple-darwin17.0 (64-bit)
-#> Running under: macOS Big Sur ... 10.16
+#> R version 4.5.2 (2025-10-31)
+#> Platform: aarch64-apple-darwin20
+#> Running under: macOS Tahoe 26.3
 #> 
 #> Matrix products: default
-#> BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib
-#> LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib
+#> BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib 
+#> LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
 #> 
 #> locale:
 #> [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 #> 
+#> time zone: Europe/Madrid
+#> tzcode source: internal
+#> 
 #> attached base packages:
-#> [1] stats     graphics  grDevices utils     datasets 
+#> [1] stats     graphics  grDevices datasets  utils    
 #> [6] methods   base     
 #> 
 #> other attached packages:
-#> [1] flextable_0.8.4   fontawesome_0.5.0
+#> [1] flextable_0.9.10  fontawesome_0.5.3
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] zip_2.2.2         Rcpp_1.0.10       jquerylib_0.1.4  
-#>  [4] bslib_0.4.2       compiler_4.2.3    later_1.3.0      
-#>  [7] base64enc_0.1-3   gfonts_0.2.0      tools_4.2.3      
-#> [10] downlit_0.4.2     digest_0.6.31     uuid_1.1-0       
-#> [13] evaluate_0.20     jsonlite_1.8.4    memoise_2.0.1    
-#> [16] lifecycle_1.0.3   rlang_1.0.6       shiny_1.7.4      
-#> [19] cli_3.6.0         rstudioapi_0.14   yaml_2.3.7       
-#> [22] crul_1.3          curl_5.0.0        xfun_0.36        
-#> [25] fastmap_1.1.0     withr_2.5.0       officer_0.5.2    
-#> [28] knitr_1.42        xml2_1.3.3        fs_1.6.0         
-#> [31] sass_0.4.5        gdtools_0.3.0     systemfonts_1.0.4
-#> [34] askpass_1.1       grid_4.2.3        glue_1.6.2       
-#> [37] httpcode_0.3.0    data.table_1.14.6 R6_2.5.1         
-#> [40] rmarkdown_2.20    bookdown_0.32     magrittr_2.0.3   
-#> [43] promises_1.2.0.1  ellipsis_0.3.2    htmltools_0.5.5  
-#> [46] mime_0.12         xtable_1.8-4      httpuv_1.6.8     
-#> [49] openssl_2.0.5     cachem_1.0.6      crayon_1.5.2
+#>  [1] jsonlite_2.0.0          compiler_4.5.2         
+#>  [3] renv_1.1.5              Rcpp_1.1.0             
+#>  [5] zip_2.3.3               xml2_1.4.0             
+#>  [7] jquerylib_0.1.4         fontquiver_0.2.1       
+#>  [9] systemfonts_1.2.3       textshaping_1.0.3      
+#> [11] uuid_1.2-1              yaml_2.3.10            
+#> [13] fastmap_1.2.0           R6_2.6.1               
+#> [15] gdtools_0.4.3           knitr_1.50             
+#> [17] bookdown_0.46           openssl_2.3.3          
+#> [19] bslib_0.9.0             pillar_1.11.0          
+#> [21] rlang_1.1.6             cachem_1.1.0           
+#> [23] xfun_0.53               fs_1.6.6               
+#> [25] sass_0.4.10             memoise_2.0.1          
+#> [27] cli_3.6.5               withr_3.0.2            
+#> [29] digest_0.6.37           grid_4.5.2             
+#> [31] askpass_1.2.1           lifecycle_1.0.4        
+#> [33] vctrs_0.6.5             downlit_0.4.5          
+#> [35] glue_1.8.0              evaluate_1.0.5         
+#> [37] data.table_1.17.8       fontLiberation_0.1.0   
+#> [39] officer_0.7.0           ragg_1.5.0             
+#> [41] fontBitstreamVera_0.1.1 rmarkdown_2.29         
+#> [43] tools_4.5.2             htmltools_0.5.8.1
 ```
 
 Normalmente, la descripción o enunciado de los ejemplos se incluyen en bloques 
@@ -140,7 +148,7 @@ con el siguiente aspecto:
 
 Esto es un ejemplo. A continuación puede mostrarse código o no. Los ejemplos
 pueden ir precedidos por un icono para identificar su campo de aplicación, por 
-ejemplo `<svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:purple;overflow:visible;position:relative;"><path d="M455.1 30.6c3.6-12.7-3.7-26-16.5-29.7s-26 3.7-29.7 16.5l-4.2 14.7c-9.8-.4-19.9 .5-29.9 2.8c-12.1 2.8-23.7 5.9-34.9 9.4l-5.9-13.7c-5.2-12.2-19.3-17.8-31.5-12.6s-17.8 19.3-12.6 31.5l4.9 11.3c-22 9.4-42 20.1-60.2 31.8L228 82.7c-7.4-11-22.3-14-33.3-6.7s-14 22.3-6.7 33.3l7.8 11.6c-18 15-33.7 30.8-47.3 47.1L135 157.3c-10.4-8.3-25.5-6.6-33.7 3.7s-6.6 25.5 3.7 33.7l15 12c-2.1 3.2-4.1 6.5-6 9.7c-9.4 15.7-17 31-23.2 45.3l-9.9-3.9c-12.3-4.9-26.3 1.1-31.2 13.4s1.1 26.3 13.4 31.2l11.6 4.6c-.3 1.1-.6 2.1-.9 3.1c-3.5 12.5-5.7 23.2-7.1 31.3c-.7 4.1-1.2 7.5-1.6 10.3c-.2 1.4-.3 2.6-.4 3.6l-.1 1.4-.1 .6 0 .3 0 .1c0 0 0 .1 39.2 3.7l0 0-39.2-3.6c-.5 5-.6 10-.4 14.9l-14.7 4.2c-12.7 3.6-20.1 16.9-16.5 29.7s16.9 20.1 29.7 16.5l13.8-3.9c10.6 20.7 27.6 37.8 48.5 48.5l-3.9 13.7c-3.6 12.7 3.7 26 16.5 29.7s26-3.7 29.7-16.5l4.2-14.7c23.8 1 46.3-5.5 65.1-17.6L247 473c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-10.6-10.6c9.1-14.1 15.1-30.5 17-48.3l.1-.8c.3-1.7 1-5.1 2.3-9.8l.2-.8 12.6 5.4c12.2 5.2 26.3-.4 31.5-12.6s-.4-26.3-12.6-31.5l-11.3-4.8c9.9-14.9 24.9-31.6 48.6-46l2.1 7.5c3.6 12.7 16.9 20.1 29.7 16.5s20.1-16.9 16.5-29.7L403 259.2c6.9-2.2 14.3-4.3 22.2-6.1c12.9-3 24.7-8 35.2-14.8L471 249c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-10.6-10.6c12.2-19 18.6-41.6 17.6-65.1l14.7-4.2c12.7-3.6 20.1-16.9 16.5-29.7s-16.9-20.1-29.7-16.5l-13.7 3.9c-10.8-21.2-28-38-48.5-48.5l3.9-13.8zm-331 332.7l0 0L176 368l-51.9-4.7zM240 320c0 26.5-21.5 48-48 48s-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48zm32-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg>`{=html} Biología, `<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:gold;overflow:visible;position:relative;"><path d="M512 240.2V256H0c0-20 10-38.7 26.6-49.8L274.9 40.7c8.6-5.7 18.6-8.7 28.9-8.7C418.8 32 512 125.2 512 240.2zm0 47.8V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V288H512z"/></svg>`{=html} Ciencia y tecnología de Alimentos, o `<svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M210.6 5.9L62 169.4c-3.9 4.2-6 9.8-6 15.5C56 197.7 66.3 208 79.1 208H104L30.6 281.4c-4.2 4.2-6.6 10-6.6 16C24 309.9 34.1 320 46.6 320H80L5.4 409.5C1.9 413.7 0 419 0 424.5c0 13 10.5 23.5 23.5 23.5H192v32c0 17.7 14.3 32 32 32s32-14.3 32-32V448H424.5c13 0 23.5-10.5 23.5-23.5c0-5.5-1.9-10.8-5.4-15L368 320h33.4c12.5 0 22.6-10.1 22.6-22.6c0-6-2.4-11.8-6.6-16L344 208h24.9c12.7 0 23.1-10.3 23.1-23.1c0-5.7-2.1-11.3-6-15.5L237.4 5.9C234 2.1 229.1 0 224 0s-10 2.1-13.4 5.9z"/></svg>`{=html} Ciencia e Ingeniería Ambiental.  
+ejemplo `<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:purple;overflow:visible;position:relative;"><path d="M423.1 30.6c3.6-12.7-3.7-26-16.5-29.7s-26 3.7-29.7 16.5l-4.2 14.7c-9.8-.4-19.9 .5-29.9 2.8c-12.1 2.8-23.7 5.9-34.9 9.4l-5.9-13.7c-5.2-12.2-19.3-17.8-31.5-12.6s-17.8 19.3-12.6 31.5l4.9 11.3c-22 9.4-42 20.1-60.2 31.8L196 82.7c-7.4-11-22.3-14-33.3-6.7s-14 22.3-6.7 33.3l7.8 11.6c-18 15-33.7 30.8-47.3 47.1L103 157.3c-10.4-8.3-25.5-6.6-33.7 3.7s-6.6 25.5 3.7 33.7l15 12c-2.1 3.2-4.1 6.5-6 9.7c-9.4 15.7-17 31-23.2 45.3l-9.9-3.9c-12.3-4.9-26.3 1.1-31.2 13.4s1.1 26.3 13.4 31.2l11.6 4.6c-.3 1.1-.6 2.1-.9 3.1c-3.5 12.5-5.7 23.2-7.1 31.3c-.7 4.1-1.2 7.5-1.6 10.3c-.2 1.4-.3 2.6-.4 3.6l-.1 1.4-.1 .6 0 .3 0 .1c0 0 0 .1 39.2 3.7l0 0-39.2-3.6c-.5 5-.6 10-.4 14.9l-14.7 4.2C4.7 380.6-2.7 393.8 .9 406.6s16.9 20.1 29.7 16.5l13.8-3.9c10.6 20.7 27.6 37.8 48.5 48.5l-3.9 13.7c-3.6 12.7 3.7 26 16.5 29.7s26-3.7 29.7-16.5l4.2-14.7c23.8 1 46.3-5.5 65.1-17.6L215 473c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-10.6-10.6c9.1-14.1 15.1-30.5 17-48.3l.1-.8c.3-1.7 1-5.1 2.3-9.8l.2-.8 12.6 5.4c12.2 5.2 26.3-.4 31.5-12.6s-.4-26.3-12.6-31.5l-11.3-4.8c9.9-14.9 24.9-31.6 48.6-46l2.1 7.5c3.6 12.7 16.9 20.1 29.7 16.5s20.1-16.9 16.5-29.7L371 259.2c6.9-2.2 14.3-4.3 22.2-6.1c12.9-3 24.7-8 35.2-14.8L439 249c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-10.6-10.6c12.2-19 18.6-41.6 17.6-65.1l14.7-4.2c12.7-3.6 20.1-16.9 16.5-29.7s-16.9-20.1-29.7-16.5l-13.7 3.9c-10.8-21.2-28-38-48.5-48.5l3.9-13.8zM92.1 363.3l0 0L144 368l-51.9-4.7zM112 320a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM240 184a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>`{=html} Biología, `<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:gold;overflow:visible;position:relative;"><path d="M512 240.2V256H0c0-20 10-38.7 26.6-49.8L274.9 40.7c8.6-5.7 18.6-8.7 28.9-8.7C418.8 32 512 125.2 512 240.2zm0 47.8V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V288H512z"/></svg>`{=html} Ciencia y tecnología de Alimentos, o `<svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M210.6 5.9L62 169.4c-3.9 4.2-6 9.8-6 15.5C56 197.7 66.3 208 79.1 208H104L30.6 281.4c-4.2 4.2-6.6 10-6.6 16C24 309.9 34.1 320 46.6 320H80L5.4 409.5C1.9 413.7 0 419 0 424.5c0 13 10.5 23.5 23.5 23.5H192v32c0 17.7 14.3 32 32 32s32-14.3 32-32V448H424.5c13 0 23.5-10.5 23.5-23.5c0-5.5-1.9-10.8-5.4-15L368 320h33.4c12.5 0 22.6-10.1 22.6-22.6c0-6-2.4-11.8-6.6-16L344 208h24.9c12.7 0 23.1-10.3 23.1-23.1c0-5.7-2.1-11.3-6-15.5L237.4 5.9C234 2.1 229.1 0 224 0s-10 2.1-13.4 5.9z"/></svg>`{=html} Ciencia e Ingeniería Ambiental.  
 
 :::
 
@@ -201,11 +209,12 @@ con diverso material complementan el libro en su conjunto.
 
 ## Sobre el autor {-}
 
-Emilio López Cano, Estadístico y entusiasta de R. Actualmente soy Profesor Contratado Doctor en la [Escuela Técnica Superior de Ingeniería Informática](https://www.urjc.es/etsii) e investigador en el [Data Science Laboratory](http://www.datasciencelab.es) de la [Universidad Rey Juan Carlos](https://www.urjc.es). Mis intereses de investigación incluyen Estadística Aplicada, Aprendizaje Estadístico y Metodologías para la Calidad. Previamente he sido profesor e investigador en la [Universidad de Castilla-La Mancha](https://www.uclm.es), donde sigo colaborando en docencia e investigación, y Estadístico en empresas del sector privado de diversos sectores.
+Emilio López Cano, Estadístico y entusiasta de R. Actualmente soy Titular de Universidad en la [Escuela Técnica Superior de Ingeniería Informática](https://www.urjc.es/etsii) e investigador en el [Data Science Laboratory](http://www.datasciencelab.es) de la [Universidad Rey Juan Carlos](https://www.urjc.es), que forma parte del [Centro de Investigación para las Tecnologías Inteligentes de la Información](https://www.cetinia.es) y sus Aplicaciones (CETINIA)
+de la Universidad Rey Juan Carlos . Mis intereses de investigación incluyen Estadística Aplicada, Aprendizaje Estadístico y Metodologías para la Calidad. Previamente he sido profesor e investigador en la [Universidad de Castilla-La Mancha](https://www.uclm.es), donde sigo colaborando en docencia e investigación, y Estadístico en empresas del sector privado de diversos sectores.
 
 Presidente del subcomité técnico de normalización UNE ([miembro de ISO](https://www.iso.org/committee/49742/x/catalogue/)) [CTN 66/SC 3 (Métodos Estadísticos)](https://www.une.org/encuentra-tu-norma/comites-tecnicos-de-normalizacion/comite/?c=CTN%2066/SC%203). Profesor en la Asociación Española para la Calidad ([AEC](https://www.aec.es)). Presidente de la asociación [Comunidad R Hispano](http://r-es.org).
 
-Más sobre mí, información actualizada y publicaciones: http://emilio.lcano.com.  
+Más sobre mí, información actualizada y publicaciones: https://lcano.com.  
 Contacto: emilio@lcano.com
 
 El material se proporciona bajo licencia CC-BY-NC-ND.

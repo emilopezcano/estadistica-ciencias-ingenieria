@@ -751,7 +751,7 @@ $$\hat{\mu}=\overline{x}$$
 .centro[.imgwpeque2[![image](../img/idea.png)]]
 Tablas y fórmulas para calcular límites _a mano_ (o en Excel)
 
-[Apéndice](http://emilio.lcano.com/b/epac/_book/ap-tablas.html#constantes-de-shewhart)
+[Apéndice](https://lcano.com/b/epac/_book/ap-tablas.html#constantes-de-shewhart)
 
 ???
 
@@ -989,7 +989,7 @@ de dispersión, dando el formato adecuado a cada serie. Como se puede ver,
 mucho más laborioso. En el siguiente enlace se puede descargar un archivo
 Excel con este proceso realizado:
 
-http://emilio.lcano.com/b/epac/datos/ejemplos_espesor2.xlsx
+https://lcano.com/b/epac/datos/ejemplos_espesor2.xlsx
 ```
 
 ```{block2, type='rmdpractica'}
@@ -1119,7 +1119,7 @@ class: large
 
 Archivo de ejemplo:
   
-http://emilio.lcano.com/b/epac/datos/ejemplos_espesor2.xlsx
+https://lcano.com/b/epac/datos/ejemplos_espesor2.xlsx
 
 ```
 
@@ -3260,7 +3260,7 @@ bien las celdas.
 En el siguiente archivo se puede encontrar un ejemplo del estudio de capacidad
 de los datos del espesor de placas de acero con Excel:
   
-http://emilio.lcano.com/b/epac/datos/ejemplos_espesor2.xlsx
+https://lcano.com/b/epac/datos/ejemplos_espesor2.xlsx
 ```
 
 ```{block2, type='rmdpractica'}

@@ -1,30 +1,6 @@
 
-```r
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = "")
-library(tidyverse)
-#> ── Attaching packages ─────────────────── tidyverse 1.3.2 ──
-#> ✔ ggplot2 3.4.1     ✔ purrr   1.0.1
-#> ✔ tibble  3.1.8     ✔ dplyr   1.1.0
-#> ✔ tidyr   1.3.0     ✔ stringr 1.5.0
-#> ✔ readr   2.1.3     ✔ forcats 0.5.2
-#> ── Conflicts ────────────────────── tidyverse_conflicts() ──
-#> ✖ purrr::compose() masks flextable::compose()
-#> ✖ dplyr::filter()  masks stats::filter()
-#> ✖ dplyr::lag()     masks stats::lag()
-library(knitr)
-library(flextable)
-library(gt)
-library(gridExtra)
-#> 
-#> Attaching package: 'gridExtra'
-#> 
-#> The following object is masked from 'package:dplyr':
-#> 
-#>     combine
-library(equatiomatic)
-```
-
 # Análisis exploratorio bivariante {#aed-bi}
+
 
 
 
@@ -73,6 +49,7 @@ $n= 1171$.
 
 
 
+
 Table: (\#tab:tabs)Tabla de contingencia (frecuencias absolutas) de los analistas y el tipo de queso.
 
 |            |  A|  B|   C|
@@ -84,6 +61,9 @@ Table: (\#tab:tabs)Tabla de contingencia (frecuencias absolutas) de los analista
 
 
 
+
+
+
 Table: (\#tab:trel)Tabla de frecuencias relativas de los analistas y el tipo de queso.
 
 |            |    A|    B|    C|
@@ -92,6 +72,8 @@ Table: (\#tab:trel)Tabla de frecuencias relativas de los analistas y el tipo de 
 |analista_13 | 0.04| 0.03| 0.17|
 |analista_6  | 0.04| 0.03| 0.20|
 |analista_9  | 0.03| 0.03| 0.17|
+
+
 
 
 
@@ -117,6 +99,7 @@ de las variables:
 
 
 
+
 Table: (\#tab:tcont)Tabla de frecuencias conjunta del pH y el extracto seco total agrupadas en intervalos.
 
 |           | (28,30]| (30,32]| (32,34]| (34,36]| (36,38]|
@@ -131,6 +114,8 @@ Table: (\#tab:tcont)Tabla de frecuencias conjunta del pH y el extracto seco tota
 |(6.7,6.75] |       2|      53|      70|       4|       0|
 |(6.75,6.8] |       0|       9|      10|       2|       0|
 |(6.8,6.85] |       0|       4|       1|       0|       1|
+
+
 
 
 
@@ -166,14 +151,26 @@ respectivamente.
 
 
 ```{=html}
-<div id="urjcbqwfya" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="rtgmuslyxs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rtgmuslyxs table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#urjcbqwfya .gt_table {
+#rtgmuslyxs thead, #rtgmuslyxs tbody, #rtgmuslyxs tfoot, #rtgmuslyxs tr, #rtgmuslyxs td, #rtgmuslyxs th {
+  border-style: none;
+}
+
+#rtgmuslyxs p {
+  margin: 0;
+  padding: 0;
+}
+
+#rtgmuslyxs .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -196,24 +193,12 @@ respectivamente.
   border-left-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#urjcbqwfya .gt_caption {
+#rtgmuslyxs .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#urjcbqwfya .gt_title {
+#rtgmuslyxs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -225,25 +210,37 @@ respectivamente.
   border-bottom-width: 0;
 }
 
-#urjcbqwfya .gt_subtitle {
+#rtgmuslyxs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#urjcbqwfya .gt_bottom_border {
+#rtgmuslyxs .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rtgmuslyxs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_col_headings {
+#rtgmuslyxs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -258,7 +255,7 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_col_heading {
+#rtgmuslyxs .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -278,7 +275,7 @@ respectivamente.
   overflow-x: hidden;
 }
 
-#urjcbqwfya .gt_column_spanner_outer {
+#rtgmuslyxs .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -290,15 +287,15 @@ respectivamente.
   padding-right: 4px;
 }
 
-#urjcbqwfya .gt_column_spanner_outer:first-child {
+#rtgmuslyxs .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#urjcbqwfya .gt_column_spanner_outer:last-child {
+#rtgmuslyxs .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#urjcbqwfya .gt_column_spanner {
+#rtgmuslyxs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -310,7 +307,11 @@ respectivamente.
   width: 100%;
 }
 
-#urjcbqwfya .gt_group_heading {
+#rtgmuslyxs .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#rtgmuslyxs .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -336,7 +337,7 @@ respectivamente.
   text-align: left;
 }
 
-#urjcbqwfya .gt_empty_group_heading {
+#rtgmuslyxs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -351,15 +352,15 @@ respectivamente.
   vertical-align: middle;
 }
 
-#urjcbqwfya .gt_from_md > :first-child {
+#rtgmuslyxs .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#urjcbqwfya .gt_from_md > :last-child {
+#rtgmuslyxs .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#urjcbqwfya .gt_row {
+#rtgmuslyxs .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -378,7 +379,7 @@ respectivamente.
   overflow-x: hidden;
 }
 
-#urjcbqwfya .gt_stub {
+#rtgmuslyxs .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -391,7 +392,7 @@ respectivamente.
   padding-right: 5px;
 }
 
-#urjcbqwfya .gt_stub_row_group {
+#rtgmuslyxs .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -405,11 +406,15 @@ respectivamente.
   vertical-align: top;
 }
 
-#urjcbqwfya .gt_row_group_first td {
+#rtgmuslyxs .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#urjcbqwfya .gt_summary_row {
+#rtgmuslyxs .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#rtgmuslyxs .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -419,16 +424,16 @@ respectivamente.
   padding-right: 5px;
 }
 
-#urjcbqwfya .gt_first_summary_row {
+#rtgmuslyxs .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_first_summary_row.thick {
+#rtgmuslyxs .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#urjcbqwfya .gt_last_summary_row {
+#rtgmuslyxs .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -438,7 +443,7 @@ respectivamente.
   border-bottom-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_grand_summary_row {
+#rtgmuslyxs .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -448,7 +453,7 @@ respectivamente.
   padding-right: 5px;
 }
 
-#urjcbqwfya .gt_first_grand_summary_row {
+#rtgmuslyxs .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -458,11 +463,21 @@ respectivamente.
   border-top-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_striped {
+#rtgmuslyxs .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rtgmuslyxs .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#urjcbqwfya .gt_table_body {
+#rtgmuslyxs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -471,7 +486,7 @@ respectivamente.
   border-bottom-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_footnotes {
+#rtgmuslyxs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -485,30 +500,8 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_footnote {
+#rtgmuslyxs .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#urjcbqwfya .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#urjcbqwfya .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -516,78 +509,107 @@ respectivamente.
   padding-right: 5px;
 }
 
-#urjcbqwfya .gt_left {
+#rtgmuslyxs .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rtgmuslyxs .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rtgmuslyxs .gt_left {
   text-align: left;
 }
 
-#urjcbqwfya .gt_center {
+#rtgmuslyxs .gt_center {
   text-align: center;
 }
 
-#urjcbqwfya .gt_right {
+#rtgmuslyxs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#urjcbqwfya .gt_font_normal {
+#rtgmuslyxs .gt_font_normal {
   font-weight: normal;
 }
 
-#urjcbqwfya .gt_font_bold {
+#rtgmuslyxs .gt_font_bold {
   font-weight: bold;
 }
 
-#urjcbqwfya .gt_font_italic {
+#rtgmuslyxs .gt_font_italic {
   font-style: italic;
 }
 
-#urjcbqwfya .gt_super {
+#rtgmuslyxs .gt_super {
   font-size: 65%;
 }
 
-#urjcbqwfya .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#rtgmuslyxs .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-#urjcbqwfya .gt_asterisk {
+#rtgmuslyxs .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#urjcbqwfya .gt_indent_1 {
+#rtgmuslyxs .gt_indent_1 {
   text-indent: 5px;
 }
 
-#urjcbqwfya .gt_indent_2 {
+#rtgmuslyxs .gt_indent_2 {
   text-indent: 10px;
 }
 
-#urjcbqwfya .gt_indent_3 {
+#rtgmuslyxs .gt_indent_3 {
   text-indent: 15px;
 }
 
-#urjcbqwfya .gt_indent_4 {
+#rtgmuslyxs .gt_indent_4 {
   text-indent: 20px;
 }
 
-#urjcbqwfya .gt_indent_5 {
+#rtgmuslyxs .gt_indent_5 {
   text-indent: 25px;
 }
+
+#rtgmuslyxs .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#rtgmuslyxs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<table class="gt_table">
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
   <caption>(#tab:tmar)Frecuencias marginales como suma de filas y columnas de la distribución conjunta</caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
+  <thead>
+    <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="X\Y">X\Y</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="(28,30]">(28,30]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="(30,32]">(30,32]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="(32,34]">(32,34]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="(34,36]">(34,36]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="(36,38]">(36,38]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="a(28,30]">(28,30]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="a(30,32]">(30,32]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="a(32,34]">(32,34]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="a(34,36]">(34,36]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="a(36,38]">(36,38]</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Sum">Sum</th>
     </tr>
   </thead>
@@ -679,15 +701,28 @@ respectivamente.
 
 
 
+
 ```{=html}
-<div id="phbxknyuhz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="dvfdipvgig" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dvfdipvgig table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#phbxknyuhz .gt_table {
+#dvfdipvgig thead, #dvfdipvgig tbody, #dvfdipvgig tfoot, #dvfdipvgig tr, #dvfdipvgig td, #dvfdipvgig th {
+  border-style: none;
+}
+
+#dvfdipvgig p {
+  margin: 0;
+  padding: 0;
+}
+
+#dvfdipvgig .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -710,24 +745,12 @@ respectivamente.
   border-left-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#phbxknyuhz .gt_caption {
+#dvfdipvgig .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#phbxknyuhz .gt_title {
+#dvfdipvgig .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -739,25 +762,37 @@ respectivamente.
   border-bottom-width: 0;
 }
 
-#phbxknyuhz .gt_subtitle {
+#dvfdipvgig .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#phbxknyuhz .gt_bottom_border {
+#dvfdipvgig .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dvfdipvgig .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_col_headings {
+#dvfdipvgig .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -772,7 +807,7 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_col_heading {
+#dvfdipvgig .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -792,7 +827,7 @@ respectivamente.
   overflow-x: hidden;
 }
 
-#phbxknyuhz .gt_column_spanner_outer {
+#dvfdipvgig .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -804,15 +839,15 @@ respectivamente.
   padding-right: 4px;
 }
 
-#phbxknyuhz .gt_column_spanner_outer:first-child {
+#dvfdipvgig .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#phbxknyuhz .gt_column_spanner_outer:last-child {
+#dvfdipvgig .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#phbxknyuhz .gt_column_spanner {
+#dvfdipvgig .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -824,7 +859,11 @@ respectivamente.
   width: 100%;
 }
 
-#phbxknyuhz .gt_group_heading {
+#dvfdipvgig .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dvfdipvgig .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -850,7 +889,7 @@ respectivamente.
   text-align: left;
 }
 
-#phbxknyuhz .gt_empty_group_heading {
+#dvfdipvgig .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -865,15 +904,15 @@ respectivamente.
   vertical-align: middle;
 }
 
-#phbxknyuhz .gt_from_md > :first-child {
+#dvfdipvgig .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#phbxknyuhz .gt_from_md > :last-child {
+#dvfdipvgig .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#phbxknyuhz .gt_row {
+#dvfdipvgig .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -892,7 +931,7 @@ respectivamente.
   overflow-x: hidden;
 }
 
-#phbxknyuhz .gt_stub {
+#dvfdipvgig .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -905,7 +944,7 @@ respectivamente.
   padding-right: 5px;
 }
 
-#phbxknyuhz .gt_stub_row_group {
+#dvfdipvgig .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -919,11 +958,15 @@ respectivamente.
   vertical-align: top;
 }
 
-#phbxknyuhz .gt_row_group_first td {
+#dvfdipvgig .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#phbxknyuhz .gt_summary_row {
+#dvfdipvgig .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dvfdipvgig .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -933,16 +976,16 @@ respectivamente.
   padding-right: 5px;
 }
 
-#phbxknyuhz .gt_first_summary_row {
+#dvfdipvgig .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_first_summary_row.thick {
+#dvfdipvgig .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#phbxknyuhz .gt_last_summary_row {
+#dvfdipvgig .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -952,7 +995,7 @@ respectivamente.
   border-bottom-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_grand_summary_row {
+#dvfdipvgig .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -962,7 +1005,7 @@ respectivamente.
   padding-right: 5px;
 }
 
-#phbxknyuhz .gt_first_grand_summary_row {
+#dvfdipvgig .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -972,11 +1015,21 @@ respectivamente.
   border-top-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_striped {
+#dvfdipvgig .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dvfdipvgig .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#phbxknyuhz .gt_table_body {
+#dvfdipvgig .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -985,7 +1038,7 @@ respectivamente.
   border-bottom-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_footnotes {
+#dvfdipvgig .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -999,30 +1052,8 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_footnote {
+#dvfdipvgig .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#phbxknyuhz .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#phbxknyuhz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1030,75 +1061,104 @@ respectivamente.
   padding-right: 5px;
 }
 
-#phbxknyuhz .gt_left {
+#dvfdipvgig .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dvfdipvgig .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dvfdipvgig .gt_left {
   text-align: left;
 }
 
-#phbxknyuhz .gt_center {
+#dvfdipvgig .gt_center {
   text-align: center;
 }
 
-#phbxknyuhz .gt_right {
+#dvfdipvgig .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#phbxknyuhz .gt_font_normal {
+#dvfdipvgig .gt_font_normal {
   font-weight: normal;
 }
 
-#phbxknyuhz .gt_font_bold {
+#dvfdipvgig .gt_font_bold {
   font-weight: bold;
 }
 
-#phbxknyuhz .gt_font_italic {
+#dvfdipvgig .gt_font_italic {
   font-style: italic;
 }
 
-#phbxknyuhz .gt_super {
+#dvfdipvgig .gt_super {
   font-size: 65%;
 }
 
-#phbxknyuhz .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#dvfdipvgig .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-#phbxknyuhz .gt_asterisk {
+#dvfdipvgig .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#phbxknyuhz .gt_indent_1 {
+#dvfdipvgig .gt_indent_1 {
   text-indent: 5px;
 }
 
-#phbxknyuhz .gt_indent_2 {
+#dvfdipvgig .gt_indent_2 {
   text-indent: 10px;
 }
 
-#phbxknyuhz .gt_indent_3 {
+#dvfdipvgig .gt_indent_3 {
   text-indent: 15px;
 }
 
-#phbxknyuhz .gt_indent_4 {
+#dvfdipvgig .gt_indent_4 {
   text-indent: 20px;
 }
 
-#phbxknyuhz .gt_indent_5 {
+#dvfdipvgig .gt_indent_5 {
   text-indent: 25px;
 }
+
+#dvfdipvgig .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#dvfdipvgig div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<table class="gt_table">
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
   <caption>(#tab:tmarx)Frecuencias marginales de X (pH)</caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="\(x_i\)">\(x_i\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(n_{i·}\)">\(n_{i·}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(f_{i·}\)">\(f_{i·}\)</th>
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="X\Y">\(x_i\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Sum">\(n_{i·}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="rel">\(f_{i·}\)</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
@@ -1144,15 +1204,28 @@ respectivamente.
 
 
 
+
 ```{=html}
-<div id="jnwzdriyvj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="aeqdvexpwx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#aeqdvexpwx table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#jnwzdriyvj .gt_table {
+#aeqdvexpwx thead, #aeqdvexpwx tbody, #aeqdvexpwx tfoot, #aeqdvexpwx tr, #aeqdvexpwx td, #aeqdvexpwx th {
+  border-style: none;
+}
+
+#aeqdvexpwx p {
+  margin: 0;
+  padding: 0;
+}
+
+#aeqdvexpwx .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -1175,24 +1248,12 @@ respectivamente.
   border-left-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#jnwzdriyvj .gt_caption {
+#aeqdvexpwx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jnwzdriyvj .gt_title {
+#aeqdvexpwx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1204,25 +1265,37 @@ respectivamente.
   border-bottom-width: 0;
 }
 
-#jnwzdriyvj .gt_subtitle {
+#aeqdvexpwx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#jnwzdriyvj .gt_bottom_border {
+#aeqdvexpwx .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#aeqdvexpwx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_col_headings {
+#aeqdvexpwx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1237,7 +1310,7 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_col_heading {
+#aeqdvexpwx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1257,7 +1330,7 @@ respectivamente.
   overflow-x: hidden;
 }
 
-#jnwzdriyvj .gt_column_spanner_outer {
+#aeqdvexpwx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1269,15 +1342,15 @@ respectivamente.
   padding-right: 4px;
 }
 
-#jnwzdriyvj .gt_column_spanner_outer:first-child {
+#aeqdvexpwx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jnwzdriyvj .gt_column_spanner_outer:last-child {
+#aeqdvexpwx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jnwzdriyvj .gt_column_spanner {
+#aeqdvexpwx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1289,7 +1362,11 @@ respectivamente.
   width: 100%;
 }
 
-#jnwzdriyvj .gt_group_heading {
+#aeqdvexpwx .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#aeqdvexpwx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1315,7 +1392,7 @@ respectivamente.
   text-align: left;
 }
 
-#jnwzdriyvj .gt_empty_group_heading {
+#aeqdvexpwx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1330,15 +1407,15 @@ respectivamente.
   vertical-align: middle;
 }
 
-#jnwzdriyvj .gt_from_md > :first-child {
+#aeqdvexpwx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jnwzdriyvj .gt_from_md > :last-child {
+#aeqdvexpwx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jnwzdriyvj .gt_row {
+#aeqdvexpwx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1357,7 +1434,7 @@ respectivamente.
   overflow-x: hidden;
 }
 
-#jnwzdriyvj .gt_stub {
+#aeqdvexpwx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1370,7 +1447,7 @@ respectivamente.
   padding-right: 5px;
 }
 
-#jnwzdriyvj .gt_stub_row_group {
+#aeqdvexpwx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1384,11 +1461,15 @@ respectivamente.
   vertical-align: top;
 }
 
-#jnwzdriyvj .gt_row_group_first td {
+#aeqdvexpwx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jnwzdriyvj .gt_summary_row {
+#aeqdvexpwx .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#aeqdvexpwx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1398,16 +1479,16 @@ respectivamente.
   padding-right: 5px;
 }
 
-#jnwzdriyvj .gt_first_summary_row {
+#aeqdvexpwx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_first_summary_row.thick {
+#aeqdvexpwx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jnwzdriyvj .gt_last_summary_row {
+#aeqdvexpwx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1417,7 +1498,7 @@ respectivamente.
   border-bottom-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_grand_summary_row {
+#aeqdvexpwx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1427,7 +1508,7 @@ respectivamente.
   padding-right: 5px;
 }
 
-#jnwzdriyvj .gt_first_grand_summary_row {
+#aeqdvexpwx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1437,11 +1518,21 @@ respectivamente.
   border-top-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_striped {
+#aeqdvexpwx .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#aeqdvexpwx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jnwzdriyvj .gt_table_body {
+#aeqdvexpwx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1450,7 +1541,7 @@ respectivamente.
   border-bottom-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_footnotes {
+#aeqdvexpwx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1464,30 +1555,8 @@ respectivamente.
   border-right-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_footnote {
+#aeqdvexpwx .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#jnwzdriyvj .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#jnwzdriyvj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1495,75 +1564,104 @@ respectivamente.
   padding-right: 5px;
 }
 
-#jnwzdriyvj .gt_left {
+#aeqdvexpwx .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#aeqdvexpwx .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aeqdvexpwx .gt_left {
   text-align: left;
 }
 
-#jnwzdriyvj .gt_center {
+#aeqdvexpwx .gt_center {
   text-align: center;
 }
 
-#jnwzdriyvj .gt_right {
+#aeqdvexpwx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jnwzdriyvj .gt_font_normal {
+#aeqdvexpwx .gt_font_normal {
   font-weight: normal;
 }
 
-#jnwzdriyvj .gt_font_bold {
+#aeqdvexpwx .gt_font_bold {
   font-weight: bold;
 }
 
-#jnwzdriyvj .gt_font_italic {
+#aeqdvexpwx .gt_font_italic {
   font-style: italic;
 }
 
-#jnwzdriyvj .gt_super {
+#aeqdvexpwx .gt_super {
   font-size: 65%;
 }
 
-#jnwzdriyvj .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#aeqdvexpwx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-#jnwzdriyvj .gt_asterisk {
+#aeqdvexpwx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jnwzdriyvj .gt_indent_1 {
+#aeqdvexpwx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jnwzdriyvj .gt_indent_2 {
+#aeqdvexpwx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jnwzdriyvj .gt_indent_3 {
+#aeqdvexpwx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jnwzdriyvj .gt_indent_4 {
+#aeqdvexpwx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jnwzdriyvj .gt_indent_5 {
+#aeqdvexpwx .gt_indent_5 {
   text-indent: 25px;
 }
+
+#aeqdvexpwx .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#aeqdvexpwx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<table class="gt_table">
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
   <caption>(#tab:tmary)Frecuencias marginales de Y (est)</caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="\(y_j\)">\(y_j\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(n_{·j}\)">\(n_{·j}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(f_{·j}\)">\(f_{·j}\)</th>
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Y">\(y_j\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="V1">\(n_{·j}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="rel">\(f_{·j}\)</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
@@ -1595,6 +1693,7 @@ respectivamente.
 
 
 
+
 ### Distribución condicionada
 
 La distribución de la variable $Y$ condicionada a un valor $x_i$ de la variable $X$ 
@@ -1608,7 +1707,9 @@ A partir de la distribución conjunta, tomaríamos la fila o columna que se corr
 con el valor "conocido", es decir, el de la condición. Las frecuencias relativas se calcularán 
 dividiendo entre la frecuencia marginal, y no entre la frecuencia total. Por ejemplo:
 
-$$f_{x_i|y=y_j}=\frac{n_{ij}}{n_{·j}}.$$
+$$
+f_{x_i|y=y_j}=\frac{n_{ij}}{n_{·j}}.
+$$
 
 
 
@@ -1624,14 +1725,26 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
 
 
 ```{=html}
-<div id="bjqiljumpj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="kvkkcwbwfa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kvkkcwbwfa table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#bjqiljumpj .gt_table {
+#kvkkcwbwfa thead, #kvkkcwbwfa tbody, #kvkkcwbwfa tfoot, #kvkkcwbwfa tr, #kvkkcwbwfa td, #kvkkcwbwfa th {
+  border-style: none;
+}
+
+#kvkkcwbwfa p {
+  margin: 0;
+  padding: 0;
+}
+
+#kvkkcwbwfa .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -1654,24 +1767,12 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-left-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#bjqiljumpj .gt_caption {
+#kvkkcwbwfa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bjqiljumpj .gt_title {
+#kvkkcwbwfa .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1683,25 +1784,37 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-bottom-width: 0;
 }
 
-#bjqiljumpj .gt_subtitle {
+#kvkkcwbwfa .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#bjqiljumpj .gt_bottom_border {
+#kvkkcwbwfa .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kvkkcwbwfa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_col_headings {
+#kvkkcwbwfa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1716,7 +1829,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-right-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_col_heading {
+#kvkkcwbwfa .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1736,7 +1849,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   overflow-x: hidden;
 }
 
-#bjqiljumpj .gt_column_spanner_outer {
+#kvkkcwbwfa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1748,15 +1861,15 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 4px;
 }
 
-#bjqiljumpj .gt_column_spanner_outer:first-child {
+#kvkkcwbwfa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bjqiljumpj .gt_column_spanner_outer:last-child {
+#kvkkcwbwfa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bjqiljumpj .gt_column_spanner {
+#kvkkcwbwfa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1768,7 +1881,11 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   width: 100%;
 }
 
-#bjqiljumpj .gt_group_heading {
+#kvkkcwbwfa .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#kvkkcwbwfa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1794,7 +1911,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   text-align: left;
 }
 
-#bjqiljumpj .gt_empty_group_heading {
+#kvkkcwbwfa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1809,15 +1926,15 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   vertical-align: middle;
 }
 
-#bjqiljumpj .gt_from_md > :first-child {
+#kvkkcwbwfa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bjqiljumpj .gt_from_md > :last-child {
+#kvkkcwbwfa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bjqiljumpj .gt_row {
+#kvkkcwbwfa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1836,7 +1953,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   overflow-x: hidden;
 }
 
-#bjqiljumpj .gt_stub {
+#kvkkcwbwfa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1849,7 +1966,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#bjqiljumpj .gt_stub_row_group {
+#kvkkcwbwfa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1863,11 +1980,15 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   vertical-align: top;
 }
 
-#bjqiljumpj .gt_row_group_first td {
+#kvkkcwbwfa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bjqiljumpj .gt_summary_row {
+#kvkkcwbwfa .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#kvkkcwbwfa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1877,16 +1998,16 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#bjqiljumpj .gt_first_summary_row {
+#kvkkcwbwfa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_first_summary_row.thick {
+#kvkkcwbwfa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bjqiljumpj .gt_last_summary_row {
+#kvkkcwbwfa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1896,7 +2017,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-bottom-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_grand_summary_row {
+#kvkkcwbwfa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1906,7 +2027,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#bjqiljumpj .gt_first_grand_summary_row {
+#kvkkcwbwfa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1916,11 +2037,21 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-top-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_striped {
+#kvkkcwbwfa .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kvkkcwbwfa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bjqiljumpj .gt_table_body {
+#kvkkcwbwfa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1929,7 +2060,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-bottom-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_footnotes {
+#kvkkcwbwfa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1943,30 +2074,8 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-right-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_footnote {
+#kvkkcwbwfa .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#bjqiljumpj .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#bjqiljumpj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1974,75 +2083,104 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#bjqiljumpj .gt_left {
+#kvkkcwbwfa .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kvkkcwbwfa .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kvkkcwbwfa .gt_left {
   text-align: left;
 }
 
-#bjqiljumpj .gt_center {
+#kvkkcwbwfa .gt_center {
   text-align: center;
 }
 
-#bjqiljumpj .gt_right {
+#kvkkcwbwfa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bjqiljumpj .gt_font_normal {
+#kvkkcwbwfa .gt_font_normal {
   font-weight: normal;
 }
 
-#bjqiljumpj .gt_font_bold {
+#kvkkcwbwfa .gt_font_bold {
   font-weight: bold;
 }
 
-#bjqiljumpj .gt_font_italic {
+#kvkkcwbwfa .gt_font_italic {
   font-style: italic;
 }
 
-#bjqiljumpj .gt_super {
+#kvkkcwbwfa .gt_super {
   font-size: 65%;
 }
 
-#bjqiljumpj .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#kvkkcwbwfa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-#bjqiljumpj .gt_asterisk {
+#kvkkcwbwfa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bjqiljumpj .gt_indent_1 {
+#kvkkcwbwfa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bjqiljumpj .gt_indent_2 {
+#kvkkcwbwfa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bjqiljumpj .gt_indent_3 {
+#kvkkcwbwfa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bjqiljumpj .gt_indent_4 {
+#kvkkcwbwfa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bjqiljumpj .gt_indent_5 {
+#kvkkcwbwfa .gt_indent_5 {
   text-indent: 25px;
 }
+
+#kvkkcwbwfa .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#kvkkcwbwfa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<table class="gt_table">
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
   <caption>(#tab:tcondx)Frecuencias condicionadas de X</caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="\(x_i\)">\(x_i\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(n_{i|j=2}\)">\(n_{i|j=2}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(f_{i|j=2}\)">\(f_{i|j=2}\)</th>
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="X">\(x_i\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n">\(n_{i|j=2}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="f">\(f_{i|j=2}\)</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
@@ -2087,15 +2225,28 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
 ```
 
 
+
 ```{=html}
-<div id="ltffvnxsjy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="xddluccyxa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xddluccyxa table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#ltffvnxsjy .gt_table {
+#xddluccyxa thead, #xddluccyxa tbody, #xddluccyxa tfoot, #xddluccyxa tr, #xddluccyxa td, #xddluccyxa th {
+  border-style: none;
+}
+
+#xddluccyxa p {
+  margin: 0;
+  padding: 0;
+}
+
+#xddluccyxa .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -2118,24 +2269,12 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-left-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#ltffvnxsjy .gt_caption {
+#xddluccyxa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ltffvnxsjy .gt_title {
+#xddluccyxa .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2147,25 +2286,37 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-bottom-width: 0;
 }
 
-#ltffvnxsjy .gt_subtitle {
+#xddluccyxa .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#ltffvnxsjy .gt_bottom_border {
+#xddluccyxa .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xddluccyxa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_col_headings {
+#xddluccyxa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2180,7 +2331,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-right-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_col_heading {
+#xddluccyxa .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2200,7 +2351,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   overflow-x: hidden;
 }
 
-#ltffvnxsjy .gt_column_spanner_outer {
+#xddluccyxa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2212,15 +2363,15 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 4px;
 }
 
-#ltffvnxsjy .gt_column_spanner_outer:first-child {
+#xddluccyxa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ltffvnxsjy .gt_column_spanner_outer:last-child {
+#xddluccyxa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ltffvnxsjy .gt_column_spanner {
+#xddluccyxa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2232,7 +2383,11 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   width: 100%;
 }
 
-#ltffvnxsjy .gt_group_heading {
+#xddluccyxa .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xddluccyxa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2258,7 +2413,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   text-align: left;
 }
 
-#ltffvnxsjy .gt_empty_group_heading {
+#xddluccyxa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2273,15 +2428,15 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   vertical-align: middle;
 }
 
-#ltffvnxsjy .gt_from_md > :first-child {
+#xddluccyxa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ltffvnxsjy .gt_from_md > :last-child {
+#xddluccyxa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ltffvnxsjy .gt_row {
+#xddluccyxa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2300,7 +2455,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   overflow-x: hidden;
 }
 
-#ltffvnxsjy .gt_stub {
+#xddluccyxa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2313,7 +2468,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#ltffvnxsjy .gt_stub_row_group {
+#xddluccyxa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2327,11 +2482,15 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   vertical-align: top;
 }
 
-#ltffvnxsjy .gt_row_group_first td {
+#xddluccyxa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ltffvnxsjy .gt_summary_row {
+#xddluccyxa .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xddluccyxa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2341,16 +2500,16 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#ltffvnxsjy .gt_first_summary_row {
+#xddluccyxa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_first_summary_row.thick {
+#xddluccyxa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ltffvnxsjy .gt_last_summary_row {
+#xddluccyxa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2360,7 +2519,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-bottom-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_grand_summary_row {
+#xddluccyxa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2370,7 +2529,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#ltffvnxsjy .gt_first_grand_summary_row {
+#xddluccyxa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2380,11 +2539,21 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-top-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_striped {
+#xddluccyxa .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xddluccyxa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ltffvnxsjy .gt_table_body {
+#xddluccyxa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2393,7 +2562,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-bottom-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_footnotes {
+#xddluccyxa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2407,30 +2576,8 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   border-right-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_footnote {
+#xddluccyxa .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ltffvnxsjy .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#ltffvnxsjy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2438,75 +2585,104 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
   padding-right: 5px;
 }
 
-#ltffvnxsjy .gt_left {
+#xddluccyxa .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xddluccyxa .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xddluccyxa .gt_left {
   text-align: left;
 }
 
-#ltffvnxsjy .gt_center {
+#xddluccyxa .gt_center {
   text-align: center;
 }
 
-#ltffvnxsjy .gt_right {
+#xddluccyxa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ltffvnxsjy .gt_font_normal {
+#xddluccyxa .gt_font_normal {
   font-weight: normal;
 }
 
-#ltffvnxsjy .gt_font_bold {
+#xddluccyxa .gt_font_bold {
   font-weight: bold;
 }
 
-#ltffvnxsjy .gt_font_italic {
+#xddluccyxa .gt_font_italic {
   font-style: italic;
 }
 
-#ltffvnxsjy .gt_super {
+#xddluccyxa .gt_super {
   font-size: 65%;
 }
 
-#ltffvnxsjy .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#xddluccyxa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-#ltffvnxsjy .gt_asterisk {
+#xddluccyxa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ltffvnxsjy .gt_indent_1 {
+#xddluccyxa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ltffvnxsjy .gt_indent_2 {
+#xddluccyxa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ltffvnxsjy .gt_indent_3 {
+#xddluccyxa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ltffvnxsjy .gt_indent_4 {
+#xddluccyxa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ltffvnxsjy .gt_indent_5 {
+#xddluccyxa .gt_indent_5 {
   text-indent: 25px;
 }
+
+#xddluccyxa .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xddluccyxa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<table class="gt_table">
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
   <caption>(#tab:tcondy)Frecuencias condicionadas de Y</caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="\(y_{j}\)">\(y_{j}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(n_{j|i=5}\)">\(n_{j|i=5}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(f_{j|i=5}\)">\(f_{j|i=5}\)</th>
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="y">\(y_{j}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="V1">\(n_{j|i=5}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="f">\(f_{j|i=5}\)</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
@@ -2537,6 +2713,7 @@ $X = x_5$, es decir, de $Y | X \in (6.55,6.6]$.
 
 
 
+
 ### Independencia de variables
 
 Cuando la distribución de una variable $X$ no varía en función
@@ -2544,7 +2721,30 @@ de los valores de otra variable $Y$, entonces las variables $X$ e
 $Y$ son estadísticamente independientes. Equivalentemente, la distribución de $X | Y=y_j$ es igual para
 cualquier valor de $y_j$. Es decir, si son independientes se cumple:
 
-$$f_{ij} = f_{i.}\cdot f_{.j} \;\forall i, j.$$
+$$
+f_{ij} = f_{i.}\cdot f_{.j} \;\forall i, j.
+$$
+
+:::{.rmdejemplo data-latex=""}
+La tabla \@ref(tab:tindep) muestra la distribución conjunta y marginales de las variables discretizadas pH y Extracto Seco Total. Para que fueran independientes, todos los productos $f_{i.}\cdot f_{.j}$ deberían ser iguales a $f_{ij}$, es decir, la distribución de $X$ no debería variar en función de los valores de $Y$, y viceversa. En este caso, se puede ver que no se cumple esta igualdad (por ejemplo $0,043 \cdot 0.001 != 0), por lo que las variables no son independientes.
+:::
+
+
+
+|           | (28,30]| (30,32]| (32,34]| (34,36]| (36,38]|   Sum|
+|:----------|-------:|-------:|-------:|-------:|-------:|-----:|
+|(6.35,6.4] |   0.000|   0.000|   0.001|   0.000|   0.000| 0.001|
+|(6.4,6.45] |   0.000|   0.000|   0.000|   0.000|   0.000| 0.000|
+|(6.45,6.5] |   0.001|   0.002|   0.000|   0.000|   0.000| 0.003|
+|(6.5,6.55] |   0.003|   0.043|   0.001|   0.000|   0.000| 0.046|
+|(6.55,6.6] |   0.015|   0.110|   0.031|   0.002|   0.000| 0.157|
+|(6.6,6.65] |   0.015|   0.167|   0.143|   0.017|   0.003| 0.345|
+|(6.65,6.7] |   0.008|   0.137|   0.155|   0.015|   0.000| 0.315|
+|(6.7,6.75] |   0.002|   0.045|   0.060|   0.003|   0.000| 0.110|
+|(6.75,6.8] |   0.000|   0.008|   0.009|   0.002|   0.000| 0.018|
+|(6.8,6.85] |   0.000|   0.003|   0.001|   0.000|   0.001| 0.005|
+|Sum        |   0.043|   0.514|   0.400|   0.039|   0.004| 1.000|
+
 
 
 ## Representación gráfica conjunta
@@ -2667,7 +2867,7 @@ densidad de la variable pH para cada tipo de queso. En ambos casos se aprecia cl
 </div>
 
 
-```r
+``` r
 lab |> 
   ggplot(aes(x = ph, colour = tipo, fill = tipo)) +
   geom_density(alpha = 0.4) +
@@ -2698,12 +2898,15 @@ de dos variables que resuman su relación.
 La medida más importante es 
 la **covarianza**. La covarianza mide la dependencia **lineal** entre las variables, y se define como:
 
-$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^n(X_i-\bar X)(Y_i-\bar Y)$$
+$$
+\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(X_i-\bar X)(Y_i-\bar Y)
+$$
 
 Para datos muestrales, dividimos por $n - 1$:
 
-$$s_{xy} = \frac{1}{n-1} \sum\limits_{i=1}^n(x_i-\bar x)(y_i-\bar y).$$
-
+$$
+s_{xy} = \frac{1}{n-1} \sum\limits_{i=1}^n(x_i-\bar x)(y_i-\bar y)
+$$
 
 
 * Si $s_{xy} > 0$: Relación lineal positiva (cuando una crece, la otra también).
@@ -2717,15 +2920,21 @@ Podemos realizar el cálculo abreviado al igual que con la varianza. Según el c
 
 * Covarianza poblacional con todos los datos:
 
-$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(X_i \cdot Y_i) - \bar X \cdot \bar Y.$$
+$$
+\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(X_i \cdot Y_i) - \bar X \cdot \bar Y.
+$$
 
 * Covarianza poblacional con tablas de frecuencias:
 
-$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(n_i \cdot X_i \cdot Y_i) - \bar x \cdot \bar y.$$
+$$
+\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(n_i \cdot X_i \cdot Y_i) - \bar X \cdot \bar Y.
+$$
 
 * Covarianza muestral, con todos los datos:
 
-$$s_{xy} = \frac{1}{n-1} \left ( \sum\limits_{i=1}^n(x_i \cdot y_i) - n \cdot \bar x \cdot \bar y \right ).$$
+$$
+s_{xy} = \frac{1}{n-1} \left ( \sum\limits_{i=1}^n(x_i \cdot y_i) - n \cdot \bar x \cdot \bar y \right ).
+$$
 
 
 Una propiedad importante de la covarianza es que si $X$ e $Y$ son variables independientes, su covarianza es cero. Lo contrario no tiene por qué ser verdad, ya que puede existir una relación no lineal, como veremos más adelante.
@@ -2736,36 +2945,44 @@ La covarianza es un estadístico muy importante para aplicar muchas técnicas es
 
 Para interpretar la relación lineal entre dos variables, en vez de la covarianza calcularemos el **coeficiente de correlación lineal**, que sí está acotado, en concreto entre -1 y 1:
 
-$$r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}.$$
+$$
+r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}.
+$$
 
 * Si $r_{xy}$ próximo a 0, no hay relación lineal
 * Si $r_{xy}$ próximo a -1 o 1, relación lineal **fuerte**, negativa o positiva respectivamente
-* Si $r_{xy} = 1$ relación lineal perfecta. Aparece también al correlacionar una variable con sí misma.
+* Si $|r_{xy}| = 1$ relación lineal perfecta. Aparece también al correlacionar una variable con sí misma.
 
 
 Un conjunto de datos bivariantes quedará caracterizado por su vector de medias
 y su matriz de varianzas-covarianzas. El vector de medias contiene las medias
 de las dos variables:
 
-$$\left [
+$$
+\left [
 \begin{array}{c}\bar x\\
-\bar y\end{array}\right ].$$
+\bar y\end{array}\right ].
+$$
 
 
 La Matriz de varianzas-covarianzas, o simplemente matriz de covarianzas, sería:
 
-$$\mathbf{S} = \left [\begin{array}{cc}
+$$
+\mathbf{S} = \left [\begin{array}{cc}
 s^2_x & s_{xy}\\
 s_{xy} & s_y^2
-\end{array}\right ]$$
+\end{array}\right ]
+$$
 
 Mientras que la matriz de correlaciones tendría valores igual a 1 en la diagonal,
 y el coeficiente de correlación fuera de la diagonal:
 
-$$\mathbf{R} = \left [\begin{array}{cc}
+$$
+\mathbf{R} = \left [\begin{array}{cc}
 1 & r_{xy}\\
 r_{xy} & 1
-\end{array}\right ]$$
+\end{array}\right ]
+$$
 
 
 
@@ -2774,13 +2991,19 @@ r_{xy} & 1
 En el ejemplo de la producción de quesos,
 si tomamos $X$ = ph; $Y$ = est, tenemos los siguientes datos resumidos:
 
-$$n = 1.171;\; \sum x_i = 7.784,447;\; \sum y_i = 37.203,32$$
-$$\sum x_i^2 = 51.752,12;\; \sum y_i^2 = 1.183.966 ;\; \sum x_i y_i = 247.344,4$$
+$$
+n = 1.171;\; \sum x_i = 7.784,447;\; \sum y_i = 37.203,32
+$$
+
+$$
+\sum x_i^2 = 51.752,12;\; \sum y_i^2 = 1.183.966 ;\; \sum x_i y_i = 247.344,4
+$$
 
 
 el vector de medias sería:
 
-$$\left [
+$$
+\left [
 \begin{array}{c} 6,648\\
 31,771\end{array}\right ],$$
 
@@ -2792,11 +3015,14 @@ s_{xy} & s_y^2
 \end{array}\right ]=\left [\begin{array}{cc}
 0,003 & 0,0241\\
 0,0241 & 1,7061
-\end{array}\right ]$$
+\end{array}\right ]
+$$
 
 El coeficiente de correlación lineal será entonces:
 
-$$r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}= \frac{0,0241}{\sqrt{0,003\cdot 1,7061}} = 0,3366.$$
+$$
+r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}= \frac{0,0241}{\sqrt{0,003\cdot 1,7061}} = 0,3366.
+$$
 :::
 
 ### Caso multivariante
@@ -2811,7 +3037,7 @@ las variables numéricas del conjunto de datos de la producción de queso.
 
 
 
-```r
+``` r
 lab |> select(where(is.numeric), -codigo) |> 
   drop_na() |> 
   cor() |> 
@@ -2860,12 +3086,17 @@ Las técnicas de regresión, de manera general tratan de encontrar una
 relación funcional entre una variable dependiente $Y$ y una o más variables
 independientes $X$:
 
-$$Y = f(\mathbf{X}) + \varepsilon.$$
+$$
+Y = f(\mathbf{X}) + \varepsilon.
+$$
 
 En el caso más sencillo de una sola variable independiente, cuando existe relación lineal los puntos del gráfico de dispersión se disponen alrededor de una **línea recta**, y podemos expresar la relación mediante la ecuación de la recta que mejor
 se aproxima a la nube de puntos. Esta aproximación estará ligada a un error, representado en la expresión anterior por $\varepsilon$, que mediremos con la variabilidad alrededor de la línea, de forma análoga a como la varianza expresa la variabilidad de los datos entorno a la media. Así, la recta de regresión quedaría expresada como:
 
-$$Y = a + bX + \varepsilon,$$
+$$
+Y = a + bX + \varepsilon,
+$$
+
 donde $X$ es la variable independiente o explicativa, $Y$ es la variable dependiente o variable respuesta, $a$ y $b$ son los coeficientes de regresión (término independiente y pendiente de la recta respectivamente) y $\varepsilon$ es el error. 
 
 ### Estimación de los coeficienetes
@@ -2873,11 +3104,16 @@ donde $X$ es la variable independiente o explicativa, $Y$ es la variable dependi
 Tenemos pares de datos $(x_i, y_i)$ que queremos ajustar al modelo matemático de la recta. Para cualesquiera valores de $a$ y $b$ que elijamos, podemos
 aproximar los valores de $y_i$ como:
 
-$$\hat{y}_i = a + bx_i.$$
+$$
+\hat{y}_i = a + bx_i.
+$$
 
 Esta aproximación tiene un error, que es el **residuo** de esa observación:
 
-$$y_i = \hat y + \varepsilon_i \implies \varepsilon_i=y_i - \hat{y}_i.$$
+$$
+y_i = \hat y + \varepsilon_i \implies \varepsilon_i=y_i - \hat{y}_i.
+$$
+
 La figura \@ref(fig:resid) esquematiza la relación entre los valores de la
 variable bivariante (puntos naranjas), la recta de regresión (línea azul) y
 los residuos (líneas negras).
@@ -2892,15 +3128,26 @@ los residuos (líneas negras).
 Una forma de estimar los coeficientes de regresión es minimizando la suma de los
 cuadrados de los residuos:
 
-$${a; b}: \min \sum\limits_{i=1}^n \varepsilon_i^2 =\min \sum\limits_{i=1}^n(y_i-(a+bx_i))^2.$$
+$$
+{a; b}: \min \sum\limits_{i=1}^n \varepsilon_i^2 =\min \sum\limits_{i=1}^n(y_i-(a+bx_i))^2.
+$$
+
 Derivando e igualando a cero tenemos los siguientes valores que minimizan la función:
 
-$$b = \frac{s_{xy}}{s_x^2},$$
-$$a = \bar y - b \bar x.$$
+$$
+b = \frac{s_{xy}}{s_x^2},
+$$
+
+$$
+a = \bar y - b \bar x.
+$$
+
 Es inmediato demostrar que la pendiente de la recta también la podemos
 calcular como:
 
-$$b = \frac{s_y}{s_x}r_{xy}.$$
+$$
+b = \frac{s_y}{s_x}r_{xy}.
+$$
 
 ### Interpretación de los coeficientes
 
@@ -2913,7 +3160,10 @@ que aumenta $X$ (si $b<0$, cuánto disminuye).
 En cuanto a la predicción, podemos predecir cuánto valdrá, en promedio, la variable $Y$ para un
 determinado valor de $X, x_{n+1}$. Para hacer la predicción, sustuimos $x$ por el nuevo valor en la ecuación de la recta:
 
-$$\hat{y}_{n+1} = a + bx_{n+1}.$$
+$$
+\hat{y}_{n+1} = a + bx_{n+1}.
+$$
+
 Hay que tener en cuenta que esta predicción solo es válida para el rango de $X$ utilizado para obtener los coeficientes.
 
 
@@ -2923,22 +3173,34 @@ Hay que tener en cuenta que esta predicción solo es válida para el rango de $X
 Pare resumir el error cometido, podríamos buscar una medida resumen de los residuos. Por las propiedades del método de mínimos cuadrados, la media de los 
 residuos es cero:
 
-$$\bar \varepsilon = \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i = 0.$$
+$$
+\bar \varepsilon = \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i = 0.
+$$
 
 Entonces, para cuantificar el error, calculamos la media de los residuos al cuadrado, a
 la que llamamos "varianza residual":
 
-$$s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i^2.$$
+$$
+s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i^2.
+$$
 
 Si desarrollamos los términos de la varianza residual: 
 
-$$s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n (y_i - (a + b x_i))^2,$$
+$$
+s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n (y_i - (a + b x_i))^2,
+$$
+
 llegamos a la siguiente expresión:
 
-$$\frac{s_\varepsilon^2}{s_y^2}=(1-r_{xy}^2),$$
+$$
+\frac{s_\varepsilon^2}{s_y^2}=(1-r_{xy}^2),
+$$
+
 y de ahí:
 
-$$r^2_{xy} = 1- \frac{s_\varepsilon^2}{s_y^2} \equiv R^2,$$
+$$
+r^2_{xy} = 1- \frac{s_\varepsilon^2}{s_y^2} \equiv R^2,
+$$
 
 que definimos como **coeficiente de determinación**, y su interpretación es como sigue. La varianza residual $s_\varepsilon^2$ es la variabilidad no explicada por la recta. Cuanto más se acerquen los puntos a la recta, mejor explicado está el modelo, y más pequeña es esta varianza. La varianza de $Y$, $s_y^2$, es la variabilidad Total. Por tanto, $\frac{s_\varepsilon^2}{s_y^2}$ es la proporción de variabilidad no explicada por la recta de regresión. Y entonces $R^2$ es **la proporción de variabilidad explicada por la regresión**. 
 
@@ -2957,17 +3219,21 @@ $$
 \operatorname{\widehat{est}} = 9.509 + 1.696(\operatorname{mg})
 $$
 
+
 El coeficiente $a$ no tiene interpretación, ya que el cero no es un valor
 posible en la variable materia grasa, al menos en esta muestra. La interpretación del coeficiente $b$ es la siguiente: por cada unidad que aumente `mg`, porcentaje de materia grasa, aumenta 1.696 unidades `est` (extracto seco total).
 
 La varianza residual es 0.329, y el coeficiente de determinación:
 
-$$R^2 = 0,685.$$
+$$
+R^2 = 0,685.
+$$
 
 Por tanto, la regresión explica el 68,48% de la variabilidad de los datos.
 
 
 :::
+
 
 
 Table: (\#tab:reglabt)Datos de quesos para la regresión
@@ -2976,6 +3242,8 @@ Table: (\#tab:reglabt)Datos de quesos para la regresión
 |:---|----:|-----:|-----:|--:|-----:|-----:|----:|-----:|----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |mg  | 14.0| 13.00| 13.00| 13| 13.50| 12.50| 13.0| 12.50| 12.5| 12.50| 12.50| 13.00| 13.50| 13.50| 13.50|
 |est | 33.5| 31.05| 31.42| 31| 31.54| 30.51| 32.3| 31.27| 31.1| 30.76| 30.33| 31.46| 31.71| 33.35| 32.96|
+
+
 
 
 <div class="figure" style="text-align: center">

@@ -419,6 +419,7 @@ es decir $F(z)=P[Z\leq z].$.
 <img src="91-apendices_files/figure-html/unnamed-chunk-2-1.png" width="70%" />
 
 
+
 |   z|   0.00|   0.01|   0.02|   0.03|   0.04|   0.05|   0.06|   0.07|   0.08|   0.09|
 |---:|------:|------:|------:|------:|------:|------:|------:|------:|------:|------:|
 | 0.0| 0.5000| 0.5040| 0.5080| 0.5120| 0.5160| 0.5199| 0.5239| 0.5279| 0.5319| 0.5359|
@@ -462,9 +463,12 @@ es decir $F(z)=P[Z\leq z].$.
 | 3.8| 0.9999| 0.9999| 0.9999| 0.9999| 0.9999| 0.9999| 0.9999| 0.9999| 0.9999| 0.9999|
 | 3.9| 1.0000| 1.0000| 1.0000| 1.0000| 1.0000| 1.0000| 1.0000| 1.0000| 1.0000| 1.0000|
 
+
+
 ## Resumen modelos de distribución de probabilidad
 
 ### Distribuciones discretas más importantes
+
 
 
 |Distribución                                    |Masa de probabilidad                                                                                             |Esperanza                  |Varianza                                              |
@@ -478,7 +482,10 @@ es decir $F(z)=P[Z\leq z].$.
 
 
 
+
+
 ### Distribuciones continuas más importantes
+
 
 
 |Distribución                               |Densidad/Distribución                                                                                  |Esperanza       |Varianza             |
@@ -492,6 +499,8 @@ es decir $F(z)=P[Z\leq z].$.
 \beta e^{-\beta x},\; x > 0\\F(x)=\int_{-\infty}^xf(t)dt=1-e^{-\beta x}, \; x > 0$             |$\frac 1 \beta$ |$\frac{1}{\beta^2}$  |
 |$\text{Normal}\\ \mathit{N}(\mu; \sigma)$  |$f(x) = 
 \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}},\;-\infty < x < \infty$         |$\mu$           |$\sigma^2$           |
+
+
 
 
 
@@ -559,7 +568,7 @@ y observamos su grupo de edad y si contratará o no el servicio.
 **Código**
 
 
-```r
+``` r
 3*2
 #> [1] 6
 ```
@@ -577,7 +586,7 @@ tres individuos, uno de cada categoría laboral.
 **Código**
 
 
-```r
+``` r
 factorial(3)
 #> [1] 6
 ```
@@ -598,7 +607,7 @@ ejemplo para asignar un ranking)
 **Código**
 
 
-```r
+``` r
 factorial(52)/factorial(52-5)
 #> [1] 311875200
 ```
@@ -617,7 +626,7 @@ ejemplo para asignar premios consecutivamente)
 **Código**
 
 
-```r
+``` r
 52^5
 #> [1] 380204032
 ```
@@ -650,7 +659,7 @@ ejemplo para asignar premios de una sola vez)
 **Código**
 
 
-```r
+``` r
 choose(52, 5)
 #> [1] 2598960
 ```
@@ -725,7 +734,7 @@ $X\sim \mathit{Be}(1, 5)$
 **Código**
 
 
-```r
+``` r
 mibeta <- function(x) dbeta(x, 1, 5)
 curve(mibeta, lwd = 2)
 ```
@@ -759,7 +768,7 @@ $$f(x) =
 **Código**
 
 
-```r
+``` r
 
 
 migamma <- function(x, a) dgamma(x, a, 2)
@@ -797,7 +806,7 @@ $$f(x) =
 **Código**
 
 
-```r
+``` r
 miweibull <- function(x, a) dweibull(x, a, 2)
 curve(miweibull(x, 1), lwd = 2, xlim = c(0,5), 
       ylim = c(0, 1),

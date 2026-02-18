@@ -190,6 +190,7 @@ por variables. Consta de 5 partes de las que solo están traducidas
 las dos primeras
 
 
+
 Table: (\#tab:isomuestreo)Estándares ISO o UNE-ISO para SPC
 
 |Código               |Título                                                                                                                                                                                                                          |
@@ -205,6 +206,8 @@ Table: (\#tab:isomuestreo)Estándares ISO o UNE-ISO para SPC
 |ISO 3951-3:2007      |Double sampling schemes indexed by acceptance quality limit (AQL) for lot-by-lot inspection                                                                                                                                     |
 |ISO 3951-4:2011      |Procedures for assessment of declared quality levels                                                                                                                                                                            |
 |ISO 3951-5:2006      |Sequential sampling plans indexed by acceptance quality limit (AQL) for inspection by variables (known standard deviation)                                                                                                      |
+
+
 
 
 

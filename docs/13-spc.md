@@ -435,6 +435,7 @@ La tabla \@ref(tab:thickness) muestra los 84 datos correspondientes a las muestr
 
 
 
+
 Table: (\#tab:thickness)Datos del espesor de placas metálicas
 
 |day |shift |    p1|    p2|    p3|    p4|    p5|    p6|
@@ -453,6 +454,8 @@ Table: (\#tab:thickness)Datos del espesor de placas metálicas
 |6   |2     | 0.763| 0.749| 0.750| 0.759| 0.787| 0.729|
 |7   |1     | 0.793| 0.757| 0.775| 0.772| 0.750| 0.797|
 |7   |2     | 0.796| 0.784| 0.807| 0.780| 0.731| 0.750|
+
+
 
 
 \BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**R**
@@ -485,7 +488,7 @@ instalar desde GitHub usando el paquete `remotes` de la siguiente forma:
 </div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 library(qcc, quietly = TRUE)
 samples.thick <- qccGroups(
   data = ss.data.thickness2,
@@ -516,7 +519,7 @@ de dispersión, dando el formato adecuado a cada serie. Como se puede ver,
 mucho más laborioso. En el siguiente enlace se puede descargar un archivo
 Excel con este proceso realizado:
 
-http://emilio.lcano.com/b/epac/datos/ejemplos_espesor2.xlsx</div>\EndKnitrBlock{rmdpractica}
+https://lcano.com/b/epac/datos/ejemplos_espesor2.xlsx</div>\EndKnitrBlock{rmdpractica}
 
 \BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**Minitab**
 
@@ -580,7 +583,7 @@ a ellas. En **Minitab**, seleccionaríamos en el menú el gráfico R.</div>\EndK
 
 
 
-```r
+``` r
 r.thick <- qcc(data = samples.thick, type = "R")
 plot(r.thick)
 ```
@@ -693,7 +696,7 @@ de esta situación fuera de control.
 </div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 new.sample <- matrix(c(0.719, 0.759, 0.708, 0.83, 0.766, 0.709),
                      ncol = 6)
 ccxbar <- qcc(data = samples.thick, type = "xbar",
@@ -792,7 +795,7 @@ series como en el apartado anterior.
 </div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 thickness2days <- ss.data.thickness2$thickness[1:24]
 mov.samples <- cbind(thickness2days[1:23], 
     thickness2days[2:24])
@@ -1094,7 +1097,7 @@ y proporcionamos la información de qué columnas contienen los recuentos
 y los tamaños de muestra (o un número si es fijo).</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 thick.attribute <- aggregate(thickness ~ ushift, 
     data = ss.data.thickness2,
     FUN = function(x){
@@ -1159,7 +1162,7 @@ dentro de los gráficos de control por atributos e indicamos qué columna
 de la hoja de trabajo contiene los recuentos.</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 flaws <- ss.data.thickness2$flaws[
     !is.na(ss.data.thickness2$flaws)]
 thick.c <- qcc(data = flaws, type = "c")
@@ -1204,7 +1207,7 @@ atributos.
 </div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 shift.flaws <- aggregate(flaws ~ ushift,
     data = ss.data.thickness2, 
     sum, 
@@ -1392,7 +1395,7 @@ cuál es la pérdida del proceso bajo el enfoque de Taguchi, véase la figura
 
 
 
-```r
+``` r
 set.seed(666)
 merma1 <- round(rnorm(50, 5, 0.5), 3)
 merma2 <- round(rgamma(50, shape = 25, rate = 5), 3)
@@ -1693,7 +1696,7 @@ unos índices muy por debajo del 1, que requiere inspección 100%.
 </div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 library(lattice)
 dotplot(thickness ~ shift | day, 
     data = ss.data.thickness2,
@@ -1706,7 +1709,7 @@ dotplot(thickness ~ shift | day,
 </div>
 
 
-```r
+``` r
 library(qcc)
 groups <- qccGroups(data = ss.data.thickness2, 
                     x = thickness, 
@@ -1729,16 +1732,9 @@ print(cap)
 #>               Cp_k  0.329  0.242  0.416
 #>               Cpm   0.423  0.355  0.490
 #> 
-#> Exp<LSL 0.044%	 Obs<LSL 0.06%
-#> Exp>USL 0.16%	 Obs>USL 0.21%
+#> Exp<LSL 4.4%	 Obs<LSL 6%
+#> Exp>USL 16%	 Obs>USL 21%
 plot(cap)
-#> Warning: The dot-dot notation (`..density..`) was deprecated in
-#> ggplot2 3.4.0.
-#> ℹ Please use `after_stat(density)` instead.
-#> ℹ The deprecated feature was likely used in the qcc
-#>   package.
-#>   Please report the issue at
-#>   <]8;;https://github.com/luca-scr/qcc/issueshttps://github.com/luca-scr/qcc/issues]8;;>.
 ```
 
 <div class="figure">
@@ -1756,7 +1752,7 @@ bien las celdas.
 En el siguiente archivo se puede encontrar un ejemplo del estudio de capacidad
 de los datos del espesor de placas de acero con Excel:
   
-http://emilio.lcano.com/b/epac/datos/ejemplos_espesor2.xlsx</div>\EndKnitrBlock{rmdpractica}
+https://lcano.com/b/epac/datos/ejemplos_espesor2.xlsx</div>\EndKnitrBlock{rmdpractica}
 
 \BeginKnitrBlock{rmdpractica}<div class="rmdpractica">**Minitab**
 
@@ -1791,11 +1787,19 @@ El siguiente código realiza
 un análisis de capacidad de los datos de embotellado de una bodega.</div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 library(SixSigma)
 ss.study.ca(ss.data.ca$Volume, rnorm(40, 753, 3), 
         LSL = 740, USL = 760, T = 750, alpha = 0.05, 
              f.sub = "Winery Project")
+#> Warning: `qplot()` was deprecated in ggplot2 3.4.0.
+#> ℹ The deprecated feature was likely used in the SixSigma
+#>   package.
+#>   Please report the issue at
+#>   <https://github.com/emilopezcano/SixSigma/issues/>.
+#> This warning is displayed once every 8 hours.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where
+#> this warning was generated.
 ```
 
 <div class="figure">

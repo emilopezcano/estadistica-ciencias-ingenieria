@@ -135,6 +135,9 @@ En el gráfico de la derecha vemos que la variable respuesta crece en el mismo s
 
 ```
 #> Warning: `qplot()` was deprecated in ggplot2 3.4.0.
+#> This warning is displayed once every 8 hours.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where
+#> this warning was generated.
 ```
 
 <div class="figure" style="text-align: center">
@@ -155,7 +158,7 @@ se empieza a invertir la tendencia.
 
 ```
 #> Warning: The following aesthetics were dropped during statistical
-#> transformation: colour
+#> transformation: colour.
 #> ℹ This can happen when ggplot fails to infer the correct
 #>   grouping structure in the data.
 #> ℹ Did you forget to specify a `group` aesthetic or to
@@ -345,7 +348,7 @@ Existen una enorme cantidad de posibles tipos de diseños experimentales. La dec
 <div class="figure" style="text-align: center">
 
 ```{=html}
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-29e925102d01db730e25" style="width:100%;height:480px;"></div>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-29e925102d01db730e25" style="width:100%;height:480px;"></div>
 <script type="application/json" data-for="htmlwidget-29e925102d01db730e25">{"x":{"diagram":"\ndigraph one_factor{\n  graph [layout=dot, rankdir = TB, compound = true, fontsize = 10, color = crimson]\n  node [shape = box]\n  \"Propósito\ndel diseño\"; \"RSE\"; LSD;RCD  \"RCB\";  \"GCB\"; \"PBIB,PTIB\"; \"BIB\"; \"Tamaño de bloque\" ;\"FRSE\nNSE\nSNSE\"; \"CRFD\nCRFF\nPB,OA\"; CRRS; \"SLD\nSCD\nEVD\"; RCBF; RBSP; \"CRSP\nSPFF\"; \"RSSP\nEESPRS\"; SPMPV; BRS; PCBF; CCBF\n  \n  node [shape = diamond]\n  \"Unidades experimentales\"\n  \"Factores de bloque\"\n  \n  \n  \"Unidades experimentales\" -> \"Factores de bloque\" [label = \"Heterogéneos\"] \n  \"Unidades experimentales\" -> \"CRD\" [label = \"Homogéneos\"] \n  \"Factores de bloque\" -> \"Tamaño de bloque\" [label = \"Uno\"] \n  \"Factores de bloque\" -> \"LSD\" [label = \"Dos\"] \n  LSD -> RCD\n  \"Tamaño de bloque\" -> \"RCB\" [label = \"Grande\"] \n  \"Tamaño de bloque\" -> \"PBIB,PTIB\" [label = \"Pequeño\"] \n  \"Propósito\ndel diseño\" -> RSE [label = \"Estudiar varianzas\"] \n  RCB -> GCB\n  \n    \"Propósito\ndel diseño\" -> \"Unidades experimentales\" [label = \"Estimar efectos\nde los factores\"] \n\n  \n  \n  subgraph cluster0{\n    label = \"Un factor\";\n    RSE\n    CRD\n    LSD\n    RCD\n    RCB\n    GCB\n    \"PBIB,PTIB\"\n    \"BIB\"\n  }\n  RSE -> \"FRSE\nNSE\nSNSE\"\n  \n  subgraph cluster1{\n  label = \"Varios factores\";\n    \"FRSE\nNSE\nSNSE\"\n        CRD -> \"Tipo factor\"\n    \"Tipo factor\" -> \"CRFD\nCRFF\nPB,OA\" [label = \"Categórico\"]\n    \"Tipo factor\" -> CRRS [label = \"Continuo\"]\n    \"Tipo factor\" -> \"SLD\nSCD\nEVD\" [label = \"Mezcla\"]\n    GCB -> RCBF\n    \"PBIB,PTIB\" -> \"BIB\"\n    BIB -> Factores\n    Factores -> BRS [label = \"Continuos\"]\n    Factores -> PCBF [label = \"Categóricos\"]\n    PCBF -> CCBF\n  } \n  subgraph cluster2{\n  label = \"Varios factores (algunos difícil de variar)\";\n    RCBF -> RBSP\n    \"CRFD\nCRFF\nPB,OA\" -> \"CRSP\nSPFF\"\n    \"CRRS\" -> \"RSSP\nEESPRS\"\n    \"SLD\nSCD\nEVD\" -> SPMPV\n    \n  } \n}  \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
@@ -434,7 +437,7 @@ A modo ilustrativo, el siguiente código genera aleatoriamente datos de un supue
 
 
 
-```r
+``` r
 library(car)
 #> Loading required package: carData
 #> 
@@ -536,7 +539,7 @@ Los datos de los experimentos factoriales $2^k$ se pueden representar de forma e
 La tabla \@ref(tab:matrizest) muestra una tabla con todos los datos de un hipotético experimento con tres factores sin réplicas, creado con el siguiente código. Se fija la semilla aleatoria para garantizar la reproducibilidad.
 
 
-```r
+``` r
 set.seed(1)
 A <- B <- C <- c("-", "+")
 dm <- expand.grid(list(A = A, B = B, C = C)) |> 
@@ -548,70 +551,21 @@ dm |>
   set_caption("Ejemplo de matriz de diseño y datos sin réplicas")
 ```
 
-```{=html}
-<template id="d5368dc0-c19d-4cb2-bcbf-99d63c1491bb"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td, .tabwid th {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style><div class="tabwid"><style>.cl-3dc8ea84{}.cl-3dc1aeea{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3dc4bad6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-3dc4baea{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-3dc4d05c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3dc4d066{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3dc4d070{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3dc4d071{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3dc4d072{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3dc4d07a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-3dc8ea84'>
-
-```
-
-<caption>(\#tab:matrizest)<span>Ejemplo de matriz de diseño y datos sin réplicas</span></caption>
 
 ```{=html}
-
-<thead><tr style="overflow-wrap:break-word;"><th class="cl-3dc4d05c"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">Orden estándar</span></p></th><th class="cl-3dc4d05c"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">A</span></p></th><th class="cl-3dc4d05c"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">B</span></p></th><th class="cl-3dc4d05c"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">C</span></p></th><th class="cl-3dc4d066"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">Unidad experimental (aleatoria)</span></p></th><th class="cl-3dc4d066"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">Respuesta (simulación)</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">1</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td><td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">1</span></p></td><td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">6.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">2</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td><td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">4</span></p></td><td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">8.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">3</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td><td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">8</span></p></td><td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">9.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">4</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td><td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">2</span></p></td><td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">10.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">5</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td><td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">6</span></p></td><td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">14.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">6</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td><td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">3</span></p></td><td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">11.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">7</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">-</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td><td class="cl-3dc4d070"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td><td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">7</span></p></td><td class="cl-3dc4d071"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">8.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3dc4d072"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">8</span></p></td><td class="cl-3dc4d072"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td><td class="cl-3dc4d072"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td><td class="cl-3dc4d072"><p class="cl-3dc4bad6"><span class="cl-3dc1aeea">+</span></p></td><td class="cl-3dc4d07a"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">5</span></p></td><td class="cl-3dc4d07a"><p class="cl-3dc4baea"><span class="cl-3dc1aeea">7.7</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="f2fa9643-cc99-4caf-948c-a4d361770470"></div>
-<script>
-var dest = document.getElementById("f2fa9643-cc99-4caf-948c-a4d361770470");
-var template = document.getElementById("d5368dc0-c19d-4cb2-bcbf-99d63c1491bb");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script>
-
+<div class="tabwid"><style>.cl-35ae2344{}.cl-35aabd94{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-35ac201c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-35ac2026{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-35ac2da0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-35ac2da1{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-35ac2daa{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-35ac2dab{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-35ac2dac{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-35ac2db4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-35ae2344'>
+<caption style="display:table-caption;margin:0pt;text-align:center;border-bottom: 0.00pt solid transparent;border-top: 0.00pt solid transparent;border-left: 0.00pt solid transparent;border-right: 0.00pt solid transparent;padding-top:3pt;padding-bottom:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;">(#tab:matrizest)<span>Ejemplo de matriz de diseño y datos sin réplicas</span></caption>
+<thead><tr style="overflow-wrap:break-word;"><th class="cl-35ac2da0"><p class="cl-35ac201c"><span class="cl-35aabd94">Orden estándar</span></p></th><th class="cl-35ac2da0"><p class="cl-35ac201c"><span class="cl-35aabd94">A</span></p></th><th class="cl-35ac2da0"><p class="cl-35ac201c"><span class="cl-35aabd94">B</span></p></th><th class="cl-35ac2da0"><p class="cl-35ac201c"><span class="cl-35aabd94">C</span></p></th><th class="cl-35ac2da1"><p class="cl-35ac2026"><span class="cl-35aabd94">Unidad experimental (aleatoria)</span></p></th><th class="cl-35ac2da1"><p class="cl-35ac2026"><span class="cl-35aabd94">Respuesta (simulación)</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">1</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td><td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">1</span></p></td><td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">6.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">2</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td><td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">4</span></p></td><td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">8.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">3</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td><td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">8</span></p></td><td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">9.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">4</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td><td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">2</span></p></td><td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">10.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">5</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td><td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">6</span></p></td><td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">14.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">6</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td><td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">3</span></p></td><td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">11.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">7</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">-</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td><td class="cl-35ac2daa"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td><td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">7</span></p></td><td class="cl-35ac2dab"><p class="cl-35ac2026"><span class="cl-35aabd94">8.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-35ac2dac"><p class="cl-35ac201c"><span class="cl-35aabd94">8</span></p></td><td class="cl-35ac2dac"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td><td class="cl-35ac2dac"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td><td class="cl-35ac2dac"><p class="cl-35ac201c"><span class="cl-35aabd94">+</span></p></td><td class="cl-35ac2db4"><p class="cl-35ac2026"><span class="cl-35aabd94">5</span></p></td><td class="cl-35ac2db4"><p class="cl-35ac2026"><span class="cl-35aabd94">7.7</span></p></td></tr></tbody></table></div>
 ```
+
 
 La información de la tabla completa se puede compactar poniendo los factores en filas y columnas y los datos en las celdas con los cruces. También es habitual encontrar la representación geométrica en forma de cuadrados (2 factores), cubos (3 factores) o hipercubos (más de 3 factores). Se pueden ver algunos ejemplos en @lawson2015 y @moen2012.
 
 Por la naturaleza dicotómica de los factores, la estimación de los factores es muy sencilla, resultando además que:
 
-$$\alpha_1 = -\alpha_2;\; \beta_1=-\beta_2.$$
+$$
+\alpha_1 = -\alpha_2;\; \beta_1=-\beta_2.
+$$
 
 
 ### Diseño factorial $2^2$
@@ -620,8 +574,10 @@ Es el diseño más sencillo que podemos hacer, y solo necesitamos $2^2=4$ unidad
 
 El modelo matemático sería el siguiente:
 
-$$y_{ijk} = \mu + 
-\alpha_i + \beta_j + \alpha\beta_{ij} + \varepsilon_{ijk},$$
+$$
+y_{ijk} = \mu + 
+\alpha_i + \beta_j + \alpha\beta_{ij} + \varepsilon_{ijk},
+$$
 
 donde $i, j$ toman dos valores, $\{-, +\}$, y $k$ representa las réplicas del experimento, $k = 1, \ldots, n$. Así, el número total de unidades experimentales es $n\times 2^2$. Si solo tenemos una réplica $(n=1)$, entonces podremos estimar los efectos pero no podremos hacer contrastes de hipótesis sobre su significatividad.
 
@@ -631,7 +587,7 @@ En el siguiente código se analiza un experimento con dos factores A y B a dos n
 :::
 
 
-```r
+``` r
 library(effects)
 datosf22 <- scan(text = "
 -	-	28
@@ -667,7 +623,9 @@ datosf22 |>
 |-  |+  | 18| 19| 23|
 |+  |+  | 31| 30| 29|
 
-```r
+
+
+``` r
 modelof22 <- lm(respuesta ~ A + B + A:B, data = datosf22)
 anova(modelof22)
 #> Analysis of Variance Table
@@ -685,7 +643,7 @@ anova(modelof22)
 
 
 
-```r
+``` r
 library(lattice)
 trellis.par.set(background = list(col = "white"))
 plot(effect(term = "A", mod = modelof22))
@@ -695,7 +653,7 @@ plot(effect(term = "A", mod = modelof22))
 <img src="11-doe_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 
-```r
+``` r
 plot(effect(term = "B", mod = modelof22))
 #> NOTE: B is not a high-order term in the model
 ```
@@ -703,7 +661,7 @@ plot(effect(term = "B", mod = modelof22))
 <img src="11-doe_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 
-```r
+``` r
 plot(effect(term = "A:B", mod = modelof22))
 ```
 
@@ -711,7 +669,7 @@ plot(effect(term = "A:B", mod = modelof22))
 
 
 
-```r
+``` r
 model.tables(aov(modelof22))
 #> Tables of effects
 #> 
@@ -738,7 +696,7 @@ Vemos que los dos efectos principales son significativos, pero no lo es la inter
 :::
 
 
-```r
+``` r
 modelof22 <- lm(respuesta ~ A + B, data = datosf22)
 anova(modelof22)
 #> Analysis of Variance Table
@@ -754,14 +712,14 @@ anova(modelof22)
 ```
 
 
-```r
+``` r
 plot(effect(term = "A", mod = modelof22))
 ```
 
 <img src="11-doe_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 
-```r
+``` r
 plot(effect(term = "B", mod = modelof22))
 ```
 
@@ -771,8 +729,10 @@ plot(effect(term = "B", mod = modelof22))
 
 Modelo:
 
-$$y_{ijkl} = \mu + \alpha_i + \beta_j + \gamma_k + \alpha\beta_{ij} 
-+ \alpha\gamma_{ik}+ \beta\gamma_{jk} + \alpha\beta\gamma_{ijk} + \varepsilon_{ijkl}$$
+$$
+y_{ijkl} = \mu + \alpha_i + \beta_j + \gamma_k + \alpha\beta_{ij} 
++ \alpha\gamma_{ik}+ \beta\gamma_{jk} + \alpha\beta\gamma_{ijk} + \varepsilon_{ijkl}
+$$
 
 De forma similar al diseño $2^2$, obtendríamos estimadores para los efectos principales y las interacciones. Si no tenemos réplicas, podemos omitir la interacción de orden 3 ya que rara vez es significativa, y así podremos estudiar los contrastes del resto de efectos.
 
@@ -783,7 +743,7 @@ En el siguiente ejemplo, analizamos tres factores, pero omitimos la interacción
 
 
 
-```r
+``` r
 datosf23 <- scan(text = "
 -	-	-	60
 +	-	-	72	
@@ -814,7 +774,9 @@ kable(datosf23)
 |-  |+  |+  |          45|
 |+  |+  |+  |          80|
 
-```r
+
+
+``` r
 modelof23 <- lm(rendimiento ~ T + C + K + T:C + T:K + C:K, data = datosf23)
 anova(modelof23)
 #> Analysis of Variance Table
@@ -834,14 +796,14 @@ anova(modelof23)
 ```
 
 
-```r
+``` r
 plot(effect(term = "T", mod = modelof23))
 #> NOTE: T is not a high-order term in the model
 ```
 
 <img src="11-doe_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 
-```r
+``` r
 
 plot(effect(term = "C", mod = modelof23))
 #> NOTE: C is not a high-order term in the model
@@ -849,33 +811,33 @@ plot(effect(term = "C", mod = modelof23))
 
 <img src="11-doe_files/figure-html/unnamed-chunk-12-2.png" width="672" />
 
-```r
+``` r
 plot(effect(term = "K", mod = modelof23))
 #> NOTE: K is not a high-order term in the model
 ```
 
 <img src="11-doe_files/figure-html/unnamed-chunk-12-3.png" width="672" />
 
-```r
+``` r
 plot(effect(term = "T:C", mod = modelof23))
 ```
 
 <img src="11-doe_files/figure-html/unnamed-chunk-12-4.png" width="672" />
 
-```r
+``` r
 plot(effect(term = "T:K", mod = modelof23))
 ```
 
 <img src="11-doe_files/figure-html/unnamed-chunk-12-5.png" width="672" />
 
-```r
+``` r
 plot(effect(term = "C:K", mod = modelof23))
 ```
 
 <img src="11-doe_files/figure-html/unnamed-chunk-12-6.png" width="672" />
 
 
-```r
+``` r
 model.tables(aov(modelof23))
 #> Tables of effects
 #> 
@@ -909,8 +871,8 @@ model.tables(aov(modelof23))
 #>  C:K 
 #>    K
 #> C   -           +          
-#>   - -1.0991e-15  1.0991e-15
-#>   +  1.0991e-15 -1.0991e-15
+#>   - -1.5439e-15  1.5439e-15
+#>   +  1.5439e-15 -1.5439e-15
 ```
 
 
@@ -926,11 +888,8 @@ El siguiente ejemplo aparece en @lawson2015. Se estudian 4 factores y no tenemos
 
 
 
-```r
+``` r
 library(daewr)
-#> Registered S3 method overwritten by 'DoE.base':
-#>   method           from       
-#>   factorize.factor conf.design
 modf <- lm(y~A*B*C*D, data = chem)
 summary(modf)
 #> 
@@ -994,15 +953,15 @@ LGB(coef(modf)[-1])
 El método de Lenth se basa en un contraste de significación que puede encontrarse detallado en @conklin2022design. Se calcula un _margin of error_ (ME). Los efectos más allá de ese margen serían significativos. Como se realizan muchos tests, algunos pueden ser identificados como significativos sin serlo. El _simultaneous margin of error_ (SME) tiene en cuenta esta multiplicidad de contrastes.
 
 
-```r
-LenthPlot(modf)
+``` r
+LenthPlot(coef(modf))
 ```
 
 <img src="11-doe_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 
 ```
 #>    alpha      PSE       ME      SME 
-#> 0.050000 1.687500 4.337857 8.806474
+#> 0.050000 0.843750 2.128783 4.283184
 ```
 
 
@@ -1011,8 +970,11 @@ A continuación se muestran algunas visualizaciones diferentes con el paquete {e
 :::
 
 
-```r
+``` r
 library(emmeans)
+#> Welcome to emmeans.
+#> Caution: You lose important information if you filter this package's results.
+#> See '? untidy'
 modf2 <- lm(y~A*B, data = chem)
 medias <- emmeans(modf2, ~ A*B)
 plot(medias)
@@ -1020,7 +982,7 @@ plot(medias)
 
 <img src="11-doe_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
-```r
+``` r
 emmip(modf2, A~B)
 ```
 
@@ -1031,7 +993,9 @@ emmip(modf2, A~B)
 
 Wheeler (1974) estableció la siguiente fórmula aproximada para estimar el número total de unidades experimentales para conseguir una potencia del 95% en el experimento:
 
-$$N = ((8\sigma)/\Delta)^2,$$
+$$
+N = ((8\sigma)/\Delta)^2,
+$$
 
 donde $\sigma$ es la desviación típica del error experimental, y $\Delta$ es el tamaño del efecto que consideraríamos significativo en la práctica. $N$ sería el número total de unidades experimentales, entonces el número de réplicas será $N/2^k$.
 
@@ -1046,7 +1010,7 @@ Utilizamos las funciones `shapiro.test()` y `car::leveneTest()` respectivamente 
 
 
 
-```r
+``` r
 modf2 |> residuals() |> shapiro.test()
 #> 
 #> 	Shapiro-Wilk normality test
@@ -1075,7 +1039,7 @@ En los diseños factoriales $2^k$, lo que se hace es "confundir" el efecto de al
 Tomemos el ejemplo simulado de la matriz de diseño al inicio de este apartado. Los niveles de las interacciones se asignan multiplicando los signos de los niveles de cada tratamiento.
 
 
-```r
+``` r
 dm |> 
   select(1:4) |> 
   mutate(AB = if_else(as.numeric(paste0(A, "1"))*
@@ -1106,6 +1070,8 @@ dm |>
 |6              |+  |-  |+  |-  |+  |-  |-   |
 |7              |-  |+  |+  |-  |-  |+  |-   |
 |8              |+  |+  |+  |+  |+  |+  |+   |
+
+
 
 En este caso, podríamos dividir el experimento en dos bloques: uno con las unidades experimentales que se corresponden con los tratamientos 1, 4, 6 y 7 (signo menos de la interacción ABC) y otro con los otros cuatro. De esta forma, el efecto del bloque queda "bloqueado". El bloque puede ser cualquier circunstancia que pueda afectar a la respuesta pero que no nos interesa y normalmente no podemos controlar. Por ejemplo, si se trata de un proceso que requiere un horno, cada bandeja del horno puede dar resultados ligeramente distintos, pero lo que nos interesa es en cada bandeja cómo afectan los factores que sí controlamos.
 
@@ -1174,7 +1140,7 @@ El conjunto de datos `cement` del paquete {daewr} contiene 20 mediciones de un e
 
 
 
-```r
+``` r
 library(daewr)
 cement
 #>       Block        x1        x2        x3     y
@@ -1201,7 +1167,7 @@ cement
 ```
 
 
-```r
+``` r
 library(rsm)
 grout.lin <- rsm(y ~ SO(x1, x2, x3), data = cement, subset = Block == 1)
 #> Warning in rsm(y ~ SO(x1, x2, x3), data = cement, subset = Block == 1): Some coefficients are aliased - cannot use 'rsm' methods.
@@ -1211,7 +1177,7 @@ anova(grout.lin)
 #> 
 #> Response: y
 #>                 Df Sum Sq Mean Sq F value   Pr(>F)   
-#> FO(x1, x2, x3)   3 465.13 155.042 80.3094 0.002307 **
+#> FO(x1, x2, x3)   3 465.12 155.042 80.3094 0.002307 **
 #> TWI(x1, x2, x3)  3   0.25   0.083  0.0432 0.985889   
 #> PQ(x1, x2, x3)   1  37.88  37.879 19.6207 0.021377 * 
 #> Residuals        3   5.79   1.931                    
@@ -1237,7 +1203,7 @@ El conjunto de datos `Treb` del paquete {daewr} contiene datos experimentales de
 :::
 
 
-```r
+``` r
 Treb
 #>    A  B   C   y
 #> 1  4 10 2.5  33
@@ -1317,7 +1283,7 @@ summary(treb.quad)
 
 
 
-```r
+``` r
 par(mfrow=c(2,2))
 contour(treb.quad, ~ x1+x2+x3)
 ```
@@ -1326,7 +1292,7 @@ contour(treb.quad, ~ x1+x2+x3)
 
 
 
-```r
+``` r
 par(mfrow=c(2,2))
 contour(treb.quad, ~ x1+x2+x3, at = xs(treb.quad))
 ```
@@ -1335,7 +1301,7 @@ contour(treb.quad, ~ x1+x2+x3, at = xs(treb.quad))
 
 
 
-```r
+``` r
 par(mfrow=c(2,2))
 persp(treb.quad, ~x1+x2+x3, zlab = "Distancia")
 ```
@@ -1343,7 +1309,7 @@ persp(treb.quad, ~x1+x2+x3, zlab = "Distancia")
 <img src="11-doe_files/figure-html/unnamed-chunk-23-1.png" width="672" />
 
 
-```r
+``` r
 ridge <- steepest(treb.quad, dist = seq(0, 1.412, by=0.1), descent = FALSE)
 #> Path of steepest ascent from ridge analysis:
 ridge
@@ -1371,7 +1337,7 @@ Una última opción sería la optimización no lineal de la ecuación de regresi
 Los diseños de superficie respuesta también se pueden plantear sin fase de screening, si se tienen muy claros los factores a estudiar.
 
 
-```r
+``` r
 library(daewr)
 Design<-DefScreen(m=8,c=0)
 Design
@@ -1397,7 +1363,7 @@ Design
 
 
 
-```r
+``` r
 library(daewr)
 design<-DefScreen(m=5,c=0,center=2,randomize=FALSE)
 design
@@ -1418,13 +1384,13 @@ design
 ```
 
 
-```r
+``` r
 library(daewr)
 Smeso<-c(241,295,260,338,320,265,275,248,92.5,383,313,305,304)
 FitDefSc(Smeso,design,alpha=.05)
 #> 
 #> Call:
-#> lm(formula = y ~ (.), data = ndesign)
+#> stats::lm(formula = y ~ (.), data = ndesign)
 #> 
 #> Residuals:
 #>     Min      1Q  Median      3Q     Max 
@@ -1453,12 +1419,12 @@ FitDefSc(Smeso,design,alpha=.05)
 ```
 
 
-```r
+``` r
 library(daewr)
 FitDefSc(Smeso,design,alpha=.1)
 #> 
 #> Call:
-#> lm(formula = y ~ (.), data = ndesign)
+#> stats::lm(formula = y ~ (.), data = ndesign)
 #> 
 #> Residuals:
 #>        1        2        3        4        5        6 

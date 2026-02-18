@@ -219,7 +219,7 @@ La función `choose` obtiene el número de combinaciones como se ilustra a conti
   </div>\EndKnitrBlock{rmdpractica}
 
 
-```r
+``` r
 choose(5, 2)
 #> [1] 10
 ```
@@ -751,7 +751,7 @@ puede ver cómo aumenta la probabilidad.
 
 
 
-```r
+``` r
 ncumple <- 30
 cposibles <- 365^ncumple
 cfavorables <- prod(365:(365 - ncumple + 1))
@@ -883,12 +883,15 @@ $$P(AE | AT)=\frac{P(AE \cap AT)}{P(AT)}=\frac{30/100}{35/100} \simeq 0.8571 .$$
 
 
 
+
 Table: (\#tab:fcond)Datos ejemplo probabilidad condicionada
 
 |                | Trabajo aprobado| Trabajo suspenso|
 |:---------------|----------------:|----------------:|
 |Examen aprobado |               30|               10|
 |Examen suspenso |                5|               55|
+
+
 
 
 \BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En nuestro ejemplo de sujetos en estudio aparece la probabilidad 

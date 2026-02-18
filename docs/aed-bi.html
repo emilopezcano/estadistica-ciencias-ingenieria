@@ -7,7 +7,7 @@
 <title>Capítulo 3 Análisis exploratorio bivariante | Estadística Aplicada a las Ciencias y la Ingeniería</title>
 <meta name="author" content="Emilio L. Cano">
 <meta name="description" content="3.1 Datos bivariantes y multivariantes El análisis univariante es muy útil para describir una única característica de la población en estudio. Pero rara vez estudiamos una característica aislada,...">
-<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
 <meta property="og:title" content="Capítulo 3 Análisis exploratorio bivariante | Estadística Aplicada a las Ciencias y la Ingeniería">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/aed-bi.html">
@@ -19,10 +19,11 @@
 <meta name="twitter:image" content="https://emilopezcano.github.io/estadistica-ciencias-ingenieria/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.1.2/tabwid.css" rel="stylesheet">
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="libs/grViz-binding-1.0.9/grViz.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="libs/tabwid-1.1.3/tabwid.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
 <link rel="stylesheet" href="bs4_book.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -333,14 +334,26 @@ columnas de la distribución conjunta en la tabla <a href="aed-bi.html#tab:tcont
 marginales de <span class="math inline">\(X\)</span> y de <span class="math inline">\(Y\)</span> por separado se muestran en las tablas <a href="aed-bi.html#tab:tmarx">3.5</a> y <a href="aed-bi.html#tab:tmary">3.6</a>
 respectivamente.</p>
 </div>
-<div id="urjcbqwfya" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="rtgmuslyxs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rtgmuslyxs table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#urjcbqwfya .gt_table {
+#rtgmuslyxs thead, #rtgmuslyxs tbody, #rtgmuslyxs tfoot, #rtgmuslyxs tr, #rtgmuslyxs td, #rtgmuslyxs th {
+  border-style: none;
+}
+
+#rtgmuslyxs p {
+  margin: 0;
+  padding: 0;
+}
+
+#rtgmuslyxs .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -363,24 +376,12 @@ respectivamente.</p>
   border-left-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#urjcbqwfya .gt_caption {
+#rtgmuslyxs .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#urjcbqwfya .gt_title {
+#rtgmuslyxs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -392,25 +393,37 @@ respectivamente.</p>
   border-bottom-width: 0;
 }
 
-#urjcbqwfya .gt_subtitle {
+#rtgmuslyxs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#urjcbqwfya .gt_bottom_border {
+#rtgmuslyxs .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rtgmuslyxs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_col_headings {
+#rtgmuslyxs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -425,7 +438,7 @@ respectivamente.</p>
   border-right-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_col_heading {
+#rtgmuslyxs .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -445,7 +458,7 @@ respectivamente.</p>
   overflow-x: hidden;
 }
 
-#urjcbqwfya .gt_column_spanner_outer {
+#rtgmuslyxs .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -457,15 +470,15 @@ respectivamente.</p>
   padding-right: 4px;
 }
 
-#urjcbqwfya .gt_column_spanner_outer:first-child {
+#rtgmuslyxs .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#urjcbqwfya .gt_column_spanner_outer:last-child {
+#rtgmuslyxs .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#urjcbqwfya .gt_column_spanner {
+#rtgmuslyxs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -477,7 +490,11 @@ respectivamente.</p>
   width: 100%;
 }
 
-#urjcbqwfya .gt_group_heading {
+#rtgmuslyxs .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#rtgmuslyxs .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -503,7 +520,7 @@ respectivamente.</p>
   text-align: left;
 }
 
-#urjcbqwfya .gt_empty_group_heading {
+#rtgmuslyxs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -518,15 +535,15 @@ respectivamente.</p>
   vertical-align: middle;
 }
 
-#urjcbqwfya .gt_from_md > :first-child {
+#rtgmuslyxs .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#urjcbqwfya .gt_from_md > :last-child {
+#rtgmuslyxs .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#urjcbqwfya .gt_row {
+#rtgmuslyxs .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -545,7 +562,7 @@ respectivamente.</p>
   overflow-x: hidden;
 }
 
-#urjcbqwfya .gt_stub {
+#rtgmuslyxs .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -558,7 +575,7 @@ respectivamente.</p>
   padding-right: 5px;
 }
 
-#urjcbqwfya .gt_stub_row_group {
+#rtgmuslyxs .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -572,11 +589,15 @@ respectivamente.</p>
   vertical-align: top;
 }
 
-#urjcbqwfya .gt_row_group_first td {
+#rtgmuslyxs .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#urjcbqwfya .gt_summary_row {
+#rtgmuslyxs .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#rtgmuslyxs .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -586,16 +607,16 @@ respectivamente.</p>
   padding-right: 5px;
 }
 
-#urjcbqwfya .gt_first_summary_row {
+#rtgmuslyxs .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_first_summary_row.thick {
+#rtgmuslyxs .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#urjcbqwfya .gt_last_summary_row {
+#rtgmuslyxs .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -605,7 +626,7 @@ respectivamente.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_grand_summary_row {
+#rtgmuslyxs .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -615,7 +636,7 @@ respectivamente.</p>
   padding-right: 5px;
 }
 
-#urjcbqwfya .gt_first_grand_summary_row {
+#rtgmuslyxs .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -625,11 +646,21 @@ respectivamente.</p>
   border-top-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_striped {
+#rtgmuslyxs .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rtgmuslyxs .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#urjcbqwfya .gt_table_body {
+#rtgmuslyxs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -638,7 +669,7 @@ respectivamente.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_footnotes {
+#rtgmuslyxs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -652,30 +683,8 @@ respectivamente.</p>
   border-right-color: #D3D3D3;
 }
 
-#urjcbqwfya .gt_footnote {
+#rtgmuslyxs .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#urjcbqwfya .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#urjcbqwfya .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -683,78 +692,107 @@ respectivamente.</p>
   padding-right: 5px;
 }
 
-#urjcbqwfya .gt_left {
+#rtgmuslyxs .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rtgmuslyxs .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rtgmuslyxs .gt_left {
   text-align: left;
 }
 
-#urjcbqwfya .gt_center {
+#rtgmuslyxs .gt_center {
   text-align: center;
 }
 
-#urjcbqwfya .gt_right {
+#rtgmuslyxs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#urjcbqwfya .gt_font_normal {
+#rtgmuslyxs .gt_font_normal {
   font-weight: normal;
 }
 
-#urjcbqwfya .gt_font_bold {
+#rtgmuslyxs .gt_font_bold {
   font-weight: bold;
 }
 
-#urjcbqwfya .gt_font_italic {
+#rtgmuslyxs .gt_font_italic {
   font-style: italic;
 }
 
-#urjcbqwfya .gt_super {
+#rtgmuslyxs .gt_super {
   font-size: 65%;
 }
 
-#urjcbqwfya .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#rtgmuslyxs .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-#urjcbqwfya .gt_asterisk {
+#rtgmuslyxs .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#urjcbqwfya .gt_indent_1 {
+#rtgmuslyxs .gt_indent_1 {
   text-indent: 5px;
 }
 
-#urjcbqwfya .gt_indent_2 {
+#rtgmuslyxs .gt_indent_2 {
   text-indent: 10px;
 }
 
-#urjcbqwfya .gt_indent_3 {
+#rtgmuslyxs .gt_indent_3 {
   text-indent: 15px;
 }
 
-#urjcbqwfya .gt_indent_4 {
+#rtgmuslyxs .gt_indent_4 {
   text-indent: 20px;
 }
 
-#urjcbqwfya .gt_indent_5 {
+#rtgmuslyxs .gt_indent_5 {
   text-indent: 25px;
 }
+
+#rtgmuslyxs .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#rtgmuslyxs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<div class="inline-table"><table class="gt_table">
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <caption>
 <span id="tab:tmar">Tabla 3.4: </span>Frecuencias marginales como suma de filas y columnas de la distribución conjunta</caption>
-  
-  <thead class="gt_col_headings"><tr>
+  <thead><tr class="gt_col_headings">
 <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="X\Y">X\Y</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="(28,30]">(28,30]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="(30,32]">(30,32]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="(32,34]">(32,34]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="(34,36]">(34,36]</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="(36,38]">(36,38]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="a(28,30]">(28,30]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="a(30,32]">(30,32]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="a(32,34]">(32,34]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="a(34,36]">(34,36]</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="a(36,38]">(36,38]</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Sum">Sum</th>
     </tr></thead>
 <tbody class="gt_table_body">
@@ -860,14 +898,26 @@ respectivamente.</p>
 </tbody>
 </table></div>
 </div>
-<div id="phbxknyuhz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="dvfdipvgig" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dvfdipvgig table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#phbxknyuhz .gt_table {
+#dvfdipvgig thead, #dvfdipvgig tbody, #dvfdipvgig tfoot, #dvfdipvgig tr, #dvfdipvgig td, #dvfdipvgig th {
+  border-style: none;
+}
+
+#dvfdipvgig p {
+  margin: 0;
+  padding: 0;
+}
+
+#dvfdipvgig .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -890,24 +940,12 @@ respectivamente.</p>
   border-left-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#phbxknyuhz .gt_caption {
+#dvfdipvgig .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#phbxknyuhz .gt_title {
+#dvfdipvgig .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -919,25 +957,37 @@ respectivamente.</p>
   border-bottom-width: 0;
 }
 
-#phbxknyuhz .gt_subtitle {
+#dvfdipvgig .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#phbxknyuhz .gt_bottom_border {
+#dvfdipvgig .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dvfdipvgig .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_col_headings {
+#dvfdipvgig .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -952,7 +1002,7 @@ respectivamente.</p>
   border-right-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_col_heading {
+#dvfdipvgig .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -972,7 +1022,7 @@ respectivamente.</p>
   overflow-x: hidden;
 }
 
-#phbxknyuhz .gt_column_spanner_outer {
+#dvfdipvgig .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -984,15 +1034,15 @@ respectivamente.</p>
   padding-right: 4px;
 }
 
-#phbxknyuhz .gt_column_spanner_outer:first-child {
+#dvfdipvgig .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#phbxknyuhz .gt_column_spanner_outer:last-child {
+#dvfdipvgig .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#phbxknyuhz .gt_column_spanner {
+#dvfdipvgig .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1004,7 +1054,11 @@ respectivamente.</p>
   width: 100%;
 }
 
-#phbxknyuhz .gt_group_heading {
+#dvfdipvgig .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dvfdipvgig .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1030,7 +1084,7 @@ respectivamente.</p>
   text-align: left;
 }
 
-#phbxknyuhz .gt_empty_group_heading {
+#dvfdipvgig .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1045,15 +1099,15 @@ respectivamente.</p>
   vertical-align: middle;
 }
 
-#phbxknyuhz .gt_from_md > :first-child {
+#dvfdipvgig .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#phbxknyuhz .gt_from_md > :last-child {
+#dvfdipvgig .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#phbxknyuhz .gt_row {
+#dvfdipvgig .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1072,7 +1126,7 @@ respectivamente.</p>
   overflow-x: hidden;
 }
 
-#phbxknyuhz .gt_stub {
+#dvfdipvgig .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1085,7 +1139,7 @@ respectivamente.</p>
   padding-right: 5px;
 }
 
-#phbxknyuhz .gt_stub_row_group {
+#dvfdipvgig .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1099,11 +1153,15 @@ respectivamente.</p>
   vertical-align: top;
 }
 
-#phbxknyuhz .gt_row_group_first td {
+#dvfdipvgig .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#phbxknyuhz .gt_summary_row {
+#dvfdipvgig .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dvfdipvgig .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1113,16 +1171,16 @@ respectivamente.</p>
   padding-right: 5px;
 }
 
-#phbxknyuhz .gt_first_summary_row {
+#dvfdipvgig .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_first_summary_row.thick {
+#dvfdipvgig .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#phbxknyuhz .gt_last_summary_row {
+#dvfdipvgig .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1132,7 +1190,7 @@ respectivamente.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_grand_summary_row {
+#dvfdipvgig .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1142,7 +1200,7 @@ respectivamente.</p>
   padding-right: 5px;
 }
 
-#phbxknyuhz .gt_first_grand_summary_row {
+#dvfdipvgig .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1152,11 +1210,21 @@ respectivamente.</p>
   border-top-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_striped {
+#dvfdipvgig .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dvfdipvgig .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#phbxknyuhz .gt_table_body {
+#dvfdipvgig .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1165,7 +1233,7 @@ respectivamente.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_footnotes {
+#dvfdipvgig .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1179,30 +1247,8 @@ respectivamente.</p>
   border-right-color: #D3D3D3;
 }
 
-#phbxknyuhz .gt_footnote {
+#dvfdipvgig .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#phbxknyuhz .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#phbxknyuhz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1210,75 +1256,104 @@ respectivamente.</p>
   padding-right: 5px;
 }
 
-#phbxknyuhz .gt_left {
+#dvfdipvgig .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dvfdipvgig .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dvfdipvgig .gt_left {
   text-align: left;
 }
 
-#phbxknyuhz .gt_center {
+#dvfdipvgig .gt_center {
   text-align: center;
 }
 
-#phbxknyuhz .gt_right {
+#dvfdipvgig .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#phbxknyuhz .gt_font_normal {
+#dvfdipvgig .gt_font_normal {
   font-weight: normal;
 }
 
-#phbxknyuhz .gt_font_bold {
+#dvfdipvgig .gt_font_bold {
   font-weight: bold;
 }
 
-#phbxknyuhz .gt_font_italic {
+#dvfdipvgig .gt_font_italic {
   font-style: italic;
 }
 
-#phbxknyuhz .gt_super {
+#dvfdipvgig .gt_super {
   font-size: 65%;
 }
 
-#phbxknyuhz .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#dvfdipvgig .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-#phbxknyuhz .gt_asterisk {
+#dvfdipvgig .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#phbxknyuhz .gt_indent_1 {
+#dvfdipvgig .gt_indent_1 {
   text-indent: 5px;
 }
 
-#phbxknyuhz .gt_indent_2 {
+#dvfdipvgig .gt_indent_2 {
   text-indent: 10px;
 }
 
-#phbxknyuhz .gt_indent_3 {
+#dvfdipvgig .gt_indent_3 {
   text-indent: 15px;
 }
 
-#phbxknyuhz .gt_indent_4 {
+#dvfdipvgig .gt_indent_4 {
   text-indent: 20px;
 }
 
-#phbxknyuhz .gt_indent_5 {
+#dvfdipvgig .gt_indent_5 {
   text-indent: 25px;
 }
+
+#dvfdipvgig .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#dvfdipvgig div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<div class="inline-table"><table class="gt_table">
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <caption>
 <span id="tab:tmarx">Tabla 3.5: </span>Frecuencias marginales de X (pH)</caption>
-  
-  <thead class="gt_col_headings"><tr>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="\(x_i\)">\(x_i\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(n_{i·}\)">\(n_{i·}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(f_{i·}\)">\(f_{i·}\)</th>
+  <thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="X\Y">\(x_i\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Sum">\(n_{i·}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="rel">\(f_{i·}\)</th>
     </tr></thead>
 <tbody class="gt_table_body">
 <tr>
@@ -1339,14 +1414,26 @@ respectivamente.</p>
 </tbody>
 </table></div>
 </div>
-<div id="jnwzdriyvj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="aeqdvexpwx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#aeqdvexpwx table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#jnwzdriyvj .gt_table {
+#aeqdvexpwx thead, #aeqdvexpwx tbody, #aeqdvexpwx tfoot, #aeqdvexpwx tr, #aeqdvexpwx td, #aeqdvexpwx th {
+  border-style: none;
+}
+
+#aeqdvexpwx p {
+  margin: 0;
+  padding: 0;
+}
+
+#aeqdvexpwx .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -1369,24 +1456,12 @@ respectivamente.</p>
   border-left-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#jnwzdriyvj .gt_caption {
+#aeqdvexpwx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jnwzdriyvj .gt_title {
+#aeqdvexpwx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1398,25 +1473,37 @@ respectivamente.</p>
   border-bottom-width: 0;
 }
 
-#jnwzdriyvj .gt_subtitle {
+#aeqdvexpwx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#jnwzdriyvj .gt_bottom_border {
+#aeqdvexpwx .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#aeqdvexpwx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_col_headings {
+#aeqdvexpwx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1431,7 +1518,7 @@ respectivamente.</p>
   border-right-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_col_heading {
+#aeqdvexpwx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1451,7 +1538,7 @@ respectivamente.</p>
   overflow-x: hidden;
 }
 
-#jnwzdriyvj .gt_column_spanner_outer {
+#aeqdvexpwx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1463,15 +1550,15 @@ respectivamente.</p>
   padding-right: 4px;
 }
 
-#jnwzdriyvj .gt_column_spanner_outer:first-child {
+#aeqdvexpwx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jnwzdriyvj .gt_column_spanner_outer:last-child {
+#aeqdvexpwx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jnwzdriyvj .gt_column_spanner {
+#aeqdvexpwx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1483,7 +1570,11 @@ respectivamente.</p>
   width: 100%;
 }
 
-#jnwzdriyvj .gt_group_heading {
+#aeqdvexpwx .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#aeqdvexpwx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1509,7 +1600,7 @@ respectivamente.</p>
   text-align: left;
 }
 
-#jnwzdriyvj .gt_empty_group_heading {
+#aeqdvexpwx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1524,15 +1615,15 @@ respectivamente.</p>
   vertical-align: middle;
 }
 
-#jnwzdriyvj .gt_from_md > :first-child {
+#aeqdvexpwx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jnwzdriyvj .gt_from_md > :last-child {
+#aeqdvexpwx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jnwzdriyvj .gt_row {
+#aeqdvexpwx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1551,7 +1642,7 @@ respectivamente.</p>
   overflow-x: hidden;
 }
 
-#jnwzdriyvj .gt_stub {
+#aeqdvexpwx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1564,7 +1655,7 @@ respectivamente.</p>
   padding-right: 5px;
 }
 
-#jnwzdriyvj .gt_stub_row_group {
+#aeqdvexpwx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1578,11 +1669,15 @@ respectivamente.</p>
   vertical-align: top;
 }
 
-#jnwzdriyvj .gt_row_group_first td {
+#aeqdvexpwx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jnwzdriyvj .gt_summary_row {
+#aeqdvexpwx .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#aeqdvexpwx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1592,16 +1687,16 @@ respectivamente.</p>
   padding-right: 5px;
 }
 
-#jnwzdriyvj .gt_first_summary_row {
+#aeqdvexpwx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_first_summary_row.thick {
+#aeqdvexpwx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jnwzdriyvj .gt_last_summary_row {
+#aeqdvexpwx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1611,7 +1706,7 @@ respectivamente.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_grand_summary_row {
+#aeqdvexpwx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1621,7 +1716,7 @@ respectivamente.</p>
   padding-right: 5px;
 }
 
-#jnwzdriyvj .gt_first_grand_summary_row {
+#aeqdvexpwx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1631,11 +1726,21 @@ respectivamente.</p>
   border-top-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_striped {
+#aeqdvexpwx .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#aeqdvexpwx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jnwzdriyvj .gt_table_body {
+#aeqdvexpwx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1644,7 +1749,7 @@ respectivamente.</p>
   border-bottom-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_footnotes {
+#aeqdvexpwx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1658,30 +1763,8 @@ respectivamente.</p>
   border-right-color: #D3D3D3;
 }
 
-#jnwzdriyvj .gt_footnote {
+#aeqdvexpwx .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#jnwzdriyvj .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#jnwzdriyvj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1689,75 +1772,104 @@ respectivamente.</p>
   padding-right: 5px;
 }
 
-#jnwzdriyvj .gt_left {
+#aeqdvexpwx .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#aeqdvexpwx .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aeqdvexpwx .gt_left {
   text-align: left;
 }
 
-#jnwzdriyvj .gt_center {
+#aeqdvexpwx .gt_center {
   text-align: center;
 }
 
-#jnwzdriyvj .gt_right {
+#aeqdvexpwx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jnwzdriyvj .gt_font_normal {
+#aeqdvexpwx .gt_font_normal {
   font-weight: normal;
 }
 
-#jnwzdriyvj .gt_font_bold {
+#aeqdvexpwx .gt_font_bold {
   font-weight: bold;
 }
 
-#jnwzdriyvj .gt_font_italic {
+#aeqdvexpwx .gt_font_italic {
   font-style: italic;
 }
 
-#jnwzdriyvj .gt_super {
+#aeqdvexpwx .gt_super {
   font-size: 65%;
 }
 
-#jnwzdriyvj .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#aeqdvexpwx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-#jnwzdriyvj .gt_asterisk {
+#aeqdvexpwx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jnwzdriyvj .gt_indent_1 {
+#aeqdvexpwx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jnwzdriyvj .gt_indent_2 {
+#aeqdvexpwx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jnwzdriyvj .gt_indent_3 {
+#aeqdvexpwx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jnwzdriyvj .gt_indent_4 {
+#aeqdvexpwx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jnwzdriyvj .gt_indent_5 {
+#aeqdvexpwx .gt_indent_5 {
   text-indent: 25px;
 }
+
+#aeqdvexpwx .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#aeqdvexpwx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<div class="inline-table"><table class="gt_table">
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <caption>
 <span id="tab:tmary">Tabla 3.6: </span>Frecuencias marginales de Y (est)</caption>
-  
-  <thead class="gt_col_headings"><tr>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="\(y_j\)">\(y_j\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(n_{·j}\)">\(n_{·j}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(f_{·j}\)">\(f_{·j}\)</th>
+  <thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Y">\(y_j\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="V1">\(n_{·j}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="rel">\(f_{·j}\)</th>
     </tr></thead>
 <tbody class="gt_table_body">
 <tr>
@@ -1807,7 +1919,9 @@ con análisis univariante.</p>
 <p>A partir de la distribución conjunta, tomaríamos la fila o columna que se corresponde
 con el valor “conocido”, es decir, el de la condición. Las frecuencias relativas se calcularán
 dividiendo entre la frecuencia marginal, y no entre la frecuencia total. Por ejemplo:</p>
-<p><span class="math display">\[f_{x_i|y=y_j}=\frac{n_{ij}}{n_{·j}}.\]</span></p>
+<p><span class="math display">\[
+f_{x_i|y=y_j}=\frac{n_{ij}}{n_{·j}}.
+\]</span></p>
 <div class="rmdejemplo">
 <p>La tabla <a href="aed-bi.html#tab:tcondx">3.7</a> muestra la distribución De <span class="math inline">\(X\)</span> condicionada a que
 <span class="math inline">\(Y = y_2\)</span>. Es decir, como es una variable numérica que hemos dividido en intervalos,
@@ -1815,14 +1929,26 @@ condicionada a que <span class="math inline">\(Y \in (30,32]\)</span>. La tabla 
 muestra la distribución de <span class="math inline">\(Y\)</span> condicionada a que
 <span class="math inline">\(X = x_5\)</span>, es decir, de <span class="math inline">\(Y | X \in (6.55,6.6]\)</span>.</p>
 </div>
-<div id="bjqiljumpj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="kvkkcwbwfa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kvkkcwbwfa table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#bjqiljumpj .gt_table {
+#kvkkcwbwfa thead, #kvkkcwbwfa tbody, #kvkkcwbwfa tfoot, #kvkkcwbwfa tr, #kvkkcwbwfa td, #kvkkcwbwfa th {
+  border-style: none;
+}
+
+#kvkkcwbwfa p {
+  margin: 0;
+  padding: 0;
+}
+
+#kvkkcwbwfa .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -1845,24 +1971,12 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   border-left-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#bjqiljumpj .gt_caption {
+#kvkkcwbwfa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bjqiljumpj .gt_title {
+#kvkkcwbwfa .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1874,25 +1988,37 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   border-bottom-width: 0;
 }
 
-#bjqiljumpj .gt_subtitle {
+#kvkkcwbwfa .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#bjqiljumpj .gt_bottom_border {
+#kvkkcwbwfa .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kvkkcwbwfa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_col_headings {
+#kvkkcwbwfa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1907,7 +2033,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   border-right-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_col_heading {
+#kvkkcwbwfa .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1927,7 +2053,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   overflow-x: hidden;
 }
 
-#bjqiljumpj .gt_column_spanner_outer {
+#kvkkcwbwfa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1939,15 +2065,15 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   padding-right: 4px;
 }
 
-#bjqiljumpj .gt_column_spanner_outer:first-child {
+#kvkkcwbwfa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bjqiljumpj .gt_column_spanner_outer:last-child {
+#kvkkcwbwfa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bjqiljumpj .gt_column_spanner {
+#kvkkcwbwfa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1959,7 +2085,11 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   width: 100%;
 }
 
-#bjqiljumpj .gt_group_heading {
+#kvkkcwbwfa .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#kvkkcwbwfa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1985,7 +2115,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   text-align: left;
 }
 
-#bjqiljumpj .gt_empty_group_heading {
+#kvkkcwbwfa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2000,15 +2130,15 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   vertical-align: middle;
 }
 
-#bjqiljumpj .gt_from_md > :first-child {
+#kvkkcwbwfa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bjqiljumpj .gt_from_md > :last-child {
+#kvkkcwbwfa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bjqiljumpj .gt_row {
+#kvkkcwbwfa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2027,7 +2157,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   overflow-x: hidden;
 }
 
-#bjqiljumpj .gt_stub {
+#kvkkcwbwfa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2040,7 +2170,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   padding-right: 5px;
 }
 
-#bjqiljumpj .gt_stub_row_group {
+#kvkkcwbwfa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2054,11 +2184,15 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   vertical-align: top;
 }
 
-#bjqiljumpj .gt_row_group_first td {
+#kvkkcwbwfa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bjqiljumpj .gt_summary_row {
+#kvkkcwbwfa .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#kvkkcwbwfa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2068,16 +2202,16 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   padding-right: 5px;
 }
 
-#bjqiljumpj .gt_first_summary_row {
+#kvkkcwbwfa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_first_summary_row.thick {
+#kvkkcwbwfa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bjqiljumpj .gt_last_summary_row {
+#kvkkcwbwfa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2087,7 +2221,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   border-bottom-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_grand_summary_row {
+#kvkkcwbwfa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2097,7 +2231,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   padding-right: 5px;
 }
 
-#bjqiljumpj .gt_first_grand_summary_row {
+#kvkkcwbwfa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2107,11 +2241,21 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   border-top-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_striped {
+#kvkkcwbwfa .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kvkkcwbwfa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bjqiljumpj .gt_table_body {
+#kvkkcwbwfa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2120,7 +2264,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   border-bottom-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_footnotes {
+#kvkkcwbwfa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2134,30 +2278,8 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   border-right-color: #D3D3D3;
 }
 
-#bjqiljumpj .gt_footnote {
+#kvkkcwbwfa .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#bjqiljumpj .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#bjqiljumpj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2165,75 +2287,104 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   padding-right: 5px;
 }
 
-#bjqiljumpj .gt_left {
+#kvkkcwbwfa .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kvkkcwbwfa .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kvkkcwbwfa .gt_left {
   text-align: left;
 }
 
-#bjqiljumpj .gt_center {
+#kvkkcwbwfa .gt_center {
   text-align: center;
 }
 
-#bjqiljumpj .gt_right {
+#kvkkcwbwfa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bjqiljumpj .gt_font_normal {
+#kvkkcwbwfa .gt_font_normal {
   font-weight: normal;
 }
 
-#bjqiljumpj .gt_font_bold {
+#kvkkcwbwfa .gt_font_bold {
   font-weight: bold;
 }
 
-#bjqiljumpj .gt_font_italic {
+#kvkkcwbwfa .gt_font_italic {
   font-style: italic;
 }
 
-#bjqiljumpj .gt_super {
+#kvkkcwbwfa .gt_super {
   font-size: 65%;
 }
 
-#bjqiljumpj .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#kvkkcwbwfa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-#bjqiljumpj .gt_asterisk {
+#kvkkcwbwfa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bjqiljumpj .gt_indent_1 {
+#kvkkcwbwfa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bjqiljumpj .gt_indent_2 {
+#kvkkcwbwfa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bjqiljumpj .gt_indent_3 {
+#kvkkcwbwfa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bjqiljumpj .gt_indent_4 {
+#kvkkcwbwfa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bjqiljumpj .gt_indent_5 {
+#kvkkcwbwfa .gt_indent_5 {
   text-indent: 25px;
 }
+
+#kvkkcwbwfa .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#kvkkcwbwfa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<div class="inline-table"><table class="gt_table">
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <caption>
 <span id="tab:tcondx">Tabla 3.7: </span>Frecuencias condicionadas de X</caption>
-  
-  <thead class="gt_col_headings"><tr>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="\(x_i\)">\(x_i\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(n_{i|j=2}\)">\(n_{i|j=2}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(f_{i|j=2}\)">\(f_{i|j=2}\)</th>
+  <thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="X">\(x_i\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n">\(n_{i|j=2}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="f">\(f_{i|j=2}\)</th>
     </tr></thead>
 <tbody class="gt_table_body">
 <tr>
@@ -2294,14 +2445,26 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
 </tbody>
 </table></div>
 </div>
-<div id="ltffvnxsjy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="xddluccyxa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xddluccyxa table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#ltffvnxsjy .gt_table {
+#xddluccyxa thead, #xddluccyxa tbody, #xddluccyxa tfoot, #xddluccyxa tr, #xddluccyxa td, #xddluccyxa th {
+  border-style: none;
+}
+
+#xddluccyxa p {
+  margin: 0;
+  padding: 0;
+}
+
+#xddluccyxa .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -2324,24 +2487,12 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   border-left-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#ltffvnxsjy .gt_caption {
+#xddluccyxa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ltffvnxsjy .gt_title {
+#xddluccyxa .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2353,25 +2504,37 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   border-bottom-width: 0;
 }
 
-#ltffvnxsjy .gt_subtitle {
+#xddluccyxa .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#ltffvnxsjy .gt_bottom_border {
+#xddluccyxa .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xddluccyxa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_col_headings {
+#xddluccyxa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2386,7 +2549,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   border-right-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_col_heading {
+#xddluccyxa .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2406,7 +2569,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   overflow-x: hidden;
 }
 
-#ltffvnxsjy .gt_column_spanner_outer {
+#xddluccyxa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2418,15 +2581,15 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   padding-right: 4px;
 }
 
-#ltffvnxsjy .gt_column_spanner_outer:first-child {
+#xddluccyxa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ltffvnxsjy .gt_column_spanner_outer:last-child {
+#xddluccyxa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ltffvnxsjy .gt_column_spanner {
+#xddluccyxa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2438,7 +2601,11 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   width: 100%;
 }
 
-#ltffvnxsjy .gt_group_heading {
+#xddluccyxa .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xddluccyxa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2464,7 +2631,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   text-align: left;
 }
 
-#ltffvnxsjy .gt_empty_group_heading {
+#xddluccyxa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2479,15 +2646,15 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   vertical-align: middle;
 }
 
-#ltffvnxsjy .gt_from_md > :first-child {
+#xddluccyxa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ltffvnxsjy .gt_from_md > :last-child {
+#xddluccyxa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ltffvnxsjy .gt_row {
+#xddluccyxa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2506,7 +2673,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   overflow-x: hidden;
 }
 
-#ltffvnxsjy .gt_stub {
+#xddluccyxa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2519,7 +2686,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   padding-right: 5px;
 }
 
-#ltffvnxsjy .gt_stub_row_group {
+#xddluccyxa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2533,11 +2700,15 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   vertical-align: top;
 }
 
-#ltffvnxsjy .gt_row_group_first td {
+#xddluccyxa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ltffvnxsjy .gt_summary_row {
+#xddluccyxa .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xddluccyxa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2547,16 +2718,16 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   padding-right: 5px;
 }
 
-#ltffvnxsjy .gt_first_summary_row {
+#xddluccyxa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_first_summary_row.thick {
+#xddluccyxa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ltffvnxsjy .gt_last_summary_row {
+#xddluccyxa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2566,7 +2737,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   border-bottom-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_grand_summary_row {
+#xddluccyxa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2576,7 +2747,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   padding-right: 5px;
 }
 
-#ltffvnxsjy .gt_first_grand_summary_row {
+#xddluccyxa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2586,11 +2757,21 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   border-top-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_striped {
+#xddluccyxa .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xddluccyxa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ltffvnxsjy .gt_table_body {
+#xddluccyxa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2599,7 +2780,7 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   border-bottom-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_footnotes {
+#xddluccyxa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2613,30 +2794,8 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   border-right-color: #D3D3D3;
 }
 
-#ltffvnxsjy .gt_footnote {
+#xddluccyxa .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ltffvnxsjy .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#ltffvnxsjy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2644,75 +2803,104 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
   padding-right: 5px;
 }
 
-#ltffvnxsjy .gt_left {
+#xddluccyxa .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xddluccyxa .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xddluccyxa .gt_left {
   text-align: left;
 }
 
-#ltffvnxsjy .gt_center {
+#xddluccyxa .gt_center {
   text-align: center;
 }
 
-#ltffvnxsjy .gt_right {
+#xddluccyxa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ltffvnxsjy .gt_font_normal {
+#xddluccyxa .gt_font_normal {
   font-weight: normal;
 }
 
-#ltffvnxsjy .gt_font_bold {
+#xddluccyxa .gt_font_bold {
   font-weight: bold;
 }
 
-#ltffvnxsjy .gt_font_italic {
+#xddluccyxa .gt_font_italic {
   font-style: italic;
 }
 
-#ltffvnxsjy .gt_super {
+#xddluccyxa .gt_super {
   font-size: 65%;
 }
 
-#ltffvnxsjy .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#xddluccyxa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-#ltffvnxsjy .gt_asterisk {
+#xddluccyxa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ltffvnxsjy .gt_indent_1 {
+#xddluccyxa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ltffvnxsjy .gt_indent_2 {
+#xddluccyxa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ltffvnxsjy .gt_indent_3 {
+#xddluccyxa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ltffvnxsjy .gt_indent_4 {
+#xddluccyxa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ltffvnxsjy .gt_indent_5 {
+#xddluccyxa .gt_indent_5 {
   text-indent: 25px;
 }
+
+#xddluccyxa .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xddluccyxa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<div class="inline-table"><table class="gt_table">
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <caption>
 <span id="tab:tcondy">Tabla 3.8: </span>Frecuencias condicionadas de Y</caption>
-  
-  <thead class="gt_col_headings"><tr>
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="\(y_{j}\)">\(y_{j}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(n_{j|i=5}\)">\(n_{j|i=5}\)</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="\(f_{j|i=5}\)">\(f_{j|i=5}\)</th>
+  <thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="y">\(y_{j}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="V1">\(n_{j|i=5}\)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="f">\(f_{j|i=5}\)</th>
     </tr></thead>
 <tbody class="gt_table_body">
 <tr>
@@ -2757,7 +2945,124 @@ muestra la distribución de <span class="math inline">\(Y\)</span> condicionada 
 de los valores de otra variable <span class="math inline">\(Y\)</span>, entonces las variables <span class="math inline">\(X\)</span> e
 <span class="math inline">\(Y\)</span> son estadísticamente independientes. Equivalentemente, la distribución de <span class="math inline">\(X | Y=y_j\)</span> es igual para
 cualquier valor de <span class="math inline">\(y_j\)</span>. Es decir, si son independientes se cumple:</p>
-<p><span class="math display">\[f_{ij} = f_{i.}\cdot f_{.j} \;\forall i, j.\]</span></p>
+<p><span class="math display">\[
+f_{ij} = f_{i.}\cdot f_{.j} \;\forall i, j.
+\]</span></p>
+<div class="rmdejemplo">
+<p>La tabla <a href="#tab:tindep"><strong>??</strong></a> muestra la distribución conjunta y marginales de las variables discretizadas pH y Extracto Seco Total. Para que fueran independientes, todos los productos <span class="math inline">\(f_{i.}\cdot f_{.j}\)</span> deberían ser iguales a <span class="math inline">\(f_{ij}\)</span>, es decir, la distribución de <span class="math inline">\(X\)</span> no debería variar en función de los valores de <span class="math inline">\(Y\)</span>, y viceversa. En este caso, se puede ver que no se cumple esta igualdad (por ejemplo $0,043 != 0), por lo que las variables no son independientes.</p>
+</div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left"></th>
+<th align="right">(28,30]</th>
+<th align="right">(30,32]</th>
+<th align="right">(32,34]</th>
+<th align="right">(34,36]</th>
+<th align="right">(36,38]</th>
+<th align="right">Sum</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">(6.35,6.4]</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.001</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="even">
+<td align="left">(6.4,6.45]</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">(6.45,6.5]</td>
+<td align="right">0.001</td>
+<td align="right">0.002</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.003</td>
+</tr>
+<tr class="even">
+<td align="left">(6.5,6.55]</td>
+<td align="right">0.003</td>
+<td align="right">0.043</td>
+<td align="right">0.001</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.046</td>
+</tr>
+<tr class="odd">
+<td align="left">(6.55,6.6]</td>
+<td align="right">0.015</td>
+<td align="right">0.110</td>
+<td align="right">0.031</td>
+<td align="right">0.002</td>
+<td align="right">0.000</td>
+<td align="right">0.157</td>
+</tr>
+<tr class="even">
+<td align="left">(6.6,6.65]</td>
+<td align="right">0.015</td>
+<td align="right">0.167</td>
+<td align="right">0.143</td>
+<td align="right">0.017</td>
+<td align="right">0.003</td>
+<td align="right">0.345</td>
+</tr>
+<tr class="odd">
+<td align="left">(6.65,6.7]</td>
+<td align="right">0.008</td>
+<td align="right">0.137</td>
+<td align="right">0.155</td>
+<td align="right">0.015</td>
+<td align="right">0.000</td>
+<td align="right">0.315</td>
+</tr>
+<tr class="even">
+<td align="left">(6.7,6.75]</td>
+<td align="right">0.002</td>
+<td align="right">0.045</td>
+<td align="right">0.060</td>
+<td align="right">0.003</td>
+<td align="right">0.000</td>
+<td align="right">0.110</td>
+</tr>
+<tr class="odd">
+<td align="left">(6.75,6.8]</td>
+<td align="right">0.000</td>
+<td align="right">0.008</td>
+<td align="right">0.009</td>
+<td align="right">0.002</td>
+<td align="right">0.000</td>
+<td align="right">0.018</td>
+</tr>
+<tr class="even">
+<td align="left">(6.8,6.85]</td>
+<td align="right">0.000</td>
+<td align="right">0.003</td>
+<td align="right">0.001</td>
+<td align="right">0.000</td>
+<td align="right">0.001</td>
+<td align="right">0.005</td>
+</tr>
+<tr class="odd">
+<td align="left">Sum</td>
+<td align="right">0.043</td>
+<td align="right">0.514</td>
+<td align="right">0.400</td>
+<td align="right">0.039</td>
+<td align="right">0.004</td>
+<td align="right">1.000</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 </div>
 <div id="representación-gráfica-conjunta" class="section level2" number="3.3">
@@ -2873,7 +3178,7 @@ densidad de la variable pH para cada tipo de queso. En ambos casos se aprecia cl
 Figura 3.6: Representación de la relación entre pH y tipo de queso
 </p>
 </div>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lab</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">ph</span>, colour <span class="op">=</span> <span class="va">tipo</span>, fill <span class="op">=</span> <span class="va">tipo</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span> <span class="op">+</span></span>
@@ -2903,9 +3208,13 @@ de dos variables que resuman su relación.</p>
 </h3>
 <p>La medida más importante es
 la <strong>covarianza</strong>. La covarianza mide la dependencia <strong>lineal</strong> entre las variables, y se define como:</p>
-<p><span class="math display">\[\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^n(X_i-\bar X)(Y_i-\bar Y)\]</span></p>
+<p><span class="math display">\[
+\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(X_i-\bar X)(Y_i-\bar Y)
+\]</span></p>
 <p>Para datos muestrales, dividimos por <span class="math inline">\(n - 1\)</span>:</p>
-<p><span class="math display">\[s_{xy} = \frac{1}{n-1} \sum\limits_{i=1}^n(x_i-\bar x)(y_i-\bar y).\]</span></p>
+<p><span class="math display">\[
+s_{xy} = \frac{1}{n-1} \sum\limits_{i=1}^n(x_i-\bar x)(y_i-\bar y)
+\]</span></p>
 <ul>
 <li>Si <span class="math inline">\(s_{xy} &gt; 0\)</span>: Relación lineal positiva (cuando una crece, la otra también).</li>
 <li>Si <span class="math inline">\(s_{xy} &lt; 0\)</span>: Relación lineal negativa (cuando una crece, la otra decrece).</li>
@@ -2916,15 +3225,21 @@ la <strong>covarianza</strong>. La covarianza mide la dependencia <strong>lineal
 <ul>
 <li>Covarianza poblacional con todos los datos:</li>
 </ul>
-<p><span class="math display">\[\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(X_i \cdot Y_i) - \bar X \cdot \bar Y.\]</span></p>
+<p><span class="math display">\[
+\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(X_i \cdot Y_i) - \bar X \cdot \bar Y.
+\]</span></p>
 <ul>
 <li>Covarianza poblacional con tablas de frecuencias:</li>
 </ul>
-<p><span class="math display">\[\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(n_i \cdot X_i \cdot Y_i) - \bar x \cdot \bar y.\]</span></p>
+<p><span class="math display">\[
+\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(n_i \cdot X_i \cdot Y_i) - \bar X \cdot \bar Y.
+\]</span></p>
 <ul>
 <li>Covarianza muestral, con todos los datos:</li>
 </ul>
-<p><span class="math display">\[s_{xy} = \frac{1}{n-1} \left ( \sum\limits_{i=1}^n(x_i \cdot y_i) - n \cdot \bar x \cdot \bar y \right ).\]</span></p>
+<p><span class="math display">\[
+s_{xy} = \frac{1}{n-1} \left ( \sum\limits_{i=1}^n(x_i \cdot y_i) - n \cdot \bar x \cdot \bar y \right ).
+\]</span></p>
 <p>Una propiedad importante de la covarianza es que si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son variables independientes, su covarianza es cero. Lo contrario no tiene por qué ser verdad, ya que puede existir una relación no lineal, como veremos más adelante.</p>
 <p>La covarianza es un estadístico muy importante para aplicar muchas técnicas estadísticas. Sin embargo, su interpretación más allá del signo no es muy útil, ya que no está acotada: depende de las unidades de las variables.</p>
 </div>
@@ -2933,36 +3248,49 @@ la <strong>covarianza</strong>. La covarianza mide la dependencia <strong>lineal
 <span class="header-section-number">3.4.2</span> Correlación<a class="anchor" aria-label="anchor" href="#correlaci%C3%B3n"><i class="fas fa-link"></i></a>
 </h3>
 <p>Para interpretar la relación lineal entre dos variables, en vez de la covarianza calcularemos el <strong>coeficiente de correlación lineal</strong>, que sí está acotado, en concreto entre -1 y 1:</p>
-<p><span class="math display">\[r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}.\]</span></p>
+<p><span class="math display">\[
+r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}.
+\]</span></p>
 <ul>
 <li>Si <span class="math inline">\(r_{xy}\)</span> próximo a 0, no hay relación lineal</li>
 <li>Si <span class="math inline">\(r_{xy}\)</span> próximo a -1 o 1, relación lineal <strong>fuerte</strong>, negativa o positiva respectivamente</li>
-<li>Si <span class="math inline">\(r_{xy} = 1\)</span> relación lineal perfecta. Aparece también al correlacionar una variable con sí misma.</li>
+<li>Si <span class="math inline">\(|r_{xy}| = 1\)</span> relación lineal perfecta. Aparece también al correlacionar una variable con sí misma.</li>
 </ul>
 <p>Un conjunto de datos bivariantes quedará caracterizado por su vector de medias
 y su matriz de varianzas-covarianzas. El vector de medias contiene las medias
 de las dos variables:</p>
-<p><span class="math display">\[\left [
+<p><span class="math display">\[
+\left [
 \begin{array}{c}\bar x\\
-\bar y\end{array}\right ].\]</span></p>
+\bar y\end{array}\right ].
+\]</span></p>
 <p>La Matriz de varianzas-covarianzas, o simplemente matriz de covarianzas, sería:</p>
-<p><span class="math display">\[\mathbf{S} = \left [\begin{array}{cc}
+<p><span class="math display">\[
+\mathbf{S} = \left [\begin{array}{cc}
 s^2_x &amp; s_{xy}\\
 s_{xy} &amp; s_y^2
-\end{array}\right ]\]</span></p>
+\end{array}\right ]
+\]</span></p>
 <p>Mientras que la matriz de correlaciones tendría valores igual a 1 en la diagonal,
 y el coeficiente de correlación fuera de la diagonal:</p>
-<p><span class="math display">\[\mathbf{R} = \left [\begin{array}{cc}
+<p><span class="math display">\[
+\mathbf{R} = \left [\begin{array}{cc}
 1 &amp; r_{xy}\\
 r_{xy} &amp; 1
-\end{array}\right ]\]</span></p>
+\end{array}\right ]
+\]</span></p>
 <div class="rmdejemplo">
 <p>En el ejemplo de la producción de quesos,
 si tomamos <span class="math inline">\(X\)</span> = ph; <span class="math inline">\(Y\)</span> = est, tenemos los siguientes datos resumidos:</p>
-<p><span class="math display">\[n = 1.171;\; \sum x_i = 7.784,447;\; \sum y_i = 37.203,32\]</span>
-<span class="math display">\[\sum x_i^2 = 51.752,12;\; \sum y_i^2 = 1.183.966 ;\; \sum x_i y_i = 247.344,4\]</span></p>
+<p><span class="math display">\[
+n = 1.171;\; \sum x_i = 7.784,447;\; \sum y_i = 37.203,32
+\]</span></p>
+<p><span class="math display">\[
+\sum x_i^2 = 51.752,12;\; \sum y_i^2 = 1.183.966 ;\; \sum x_i y_i = 247.344,4
+\]</span></p>
 <p>el vector de medias sería:</p>
-<p><span class="math display">\[\left [
+<p><span class="math display">\[
+\left [
 \begin{array}{c} 6,648\\
 31,771\end{array}\right ],\]</span></p>
 <p>y la matriz de covarianzas (muestrales)</p>
@@ -2972,9 +3300,12 @@ s_{xy} &amp; s_y^2
 \end{array}\right ]=\left [\begin{array}{cc}
 0,003 &amp; 0,0241\\
 0,0241 &amp; 1,7061
-\end{array}\right ]\]</span></p>
+\end{array}\right ]
+\]</span></p>
 <p>El coeficiente de correlación lineal será entonces:</p>
-<p><span class="math display">\[r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}= \frac{0,0241}{\sqrt{0,003\cdot 1,7061}} = 0,3366.\]</span></p>
+<p><span class="math display">\[
+r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}= \frac{0,0241}{\sqrt{0,003\cdot 1,7061}} = 0,3366.
+\]</span></p>
 </div>
 </div>
 <div id="caso-multivariante" class="section level3" number="3.4.3">
@@ -2987,24 +3318,24 @@ covarianzas a cualquier número de variables. En este caso las matrices de covar
 <p>Con el código a continuación obtenemos la matriz de correlaciones de todas
 las variables numéricas del conjunto de datos de la producción de queso.</p>
 </div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="aed-bi.html#cb12-1" tabindex="-1"></a>lab <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">where</span>(is.numeric), <span class="sc">-</span>codigo) <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a href="aed-bi.html#cb12-2" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb12-3"><a href="aed-bi.html#cb12-3" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb12-4"><a href="aed-bi.html#cb12-4" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span>
-<span id="cb12-5"><a href="aed-bi.html#cb12-5" tabindex="-1"></a>                 est    mg   sal    ph bacteriax</span>
-<span id="cb12-6"><a href="aed-bi.html#cb12-6" tabindex="-1"></a>est             <span class="fl">1.00</span> <span class="sc">-</span><span class="fl">0.27</span>  <span class="fl">0.62</span>  <span class="fl">0.37</span>      <span class="fl">0.01</span></span>
-<span id="cb12-7"><a href="aed-bi.html#cb12-7" tabindex="-1"></a>mg             <span class="sc">-</span><span class="fl">0.27</span>  <span class="fl">1.00</span> <span class="sc">-</span><span class="fl">0.49</span> <span class="sc">-</span><span class="fl">0.44</span>     <span class="sc">-</span><span class="fl">0.01</span></span>
-<span id="cb12-8"><a href="aed-bi.html#cb12-8" tabindex="-1"></a>sal             <span class="fl">0.62</span> <span class="sc">-</span><span class="fl">0.49</span>  <span class="fl">1.00</span>  <span class="fl">0.46</span>      <span class="fl">0.00</span></span>
-<span id="cb12-9"><a href="aed-bi.html#cb12-9" tabindex="-1"></a>ph              <span class="fl">0.37</span> <span class="sc">-</span><span class="fl">0.44</span>  <span class="fl">0.46</span>  <span class="fl">1.00</span>     <span class="sc">-</span><span class="fl">0.12</span></span>
-<span id="cb12-10"><a href="aed-bi.html#cb12-10" tabindex="-1"></a>bacteriax       <span class="fl">0.01</span> <span class="sc">-</span><span class="fl">0.01</span>  <span class="fl">0.00</span> <span class="sc">-</span><span class="fl">0.12</span>      <span class="fl">1.00</span></span>
-<span id="cb12-11"><a href="aed-bi.html#cb12-11" tabindex="-1"></a>imperfecciones <span class="sc">-</span><span class="fl">0.03</span>  <span class="fl">0.00</span>  <span class="fl">0.00</span>  <span class="fl">0.03</span>     <span class="sc">-</span><span class="fl">0.02</span></span>
-<span id="cb12-12"><a href="aed-bi.html#cb12-12" tabindex="-1"></a>               imperfecciones</span>
-<span id="cb12-13"><a href="aed-bi.html#cb12-13" tabindex="-1"></a>est                     <span class="sc">-</span><span class="fl">0.03</span></span>
-<span id="cb12-14"><a href="aed-bi.html#cb12-14" tabindex="-1"></a>mg                       <span class="fl">0.00</span></span>
-<span id="cb12-15"><a href="aed-bi.html#cb12-15" tabindex="-1"></a>sal                      <span class="fl">0.00</span></span>
-<span id="cb12-16"><a href="aed-bi.html#cb12-16" tabindex="-1"></a>ph                       <span class="fl">0.03</span></span>
-<span id="cb12-17"><a href="aed-bi.html#cb12-17" tabindex="-1"></a>bacteriax               <span class="sc">-</span><span class="fl">0.02</span></span>
-<span id="cb12-18"><a href="aed-bi.html#cb12-18" tabindex="-1"></a>imperfecciones           <span class="fl">1.00</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="aed-bi.html#cb11-1" tabindex="-1"></a>lab <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">where</span>(is.numeric), <span class="sc">-</span>codigo) <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="aed-bi.html#cb11-2" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a href="aed-bi.html#cb11-3" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb11-4"><a href="aed-bi.html#cb11-4" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb11-5"><a href="aed-bi.html#cb11-5" tabindex="-1"></a>                 est    mg   sal    ph bacteriax</span>
+<span id="cb11-6"><a href="aed-bi.html#cb11-6" tabindex="-1"></a>est             <span class="fl">1.00</span> <span class="sc">-</span><span class="fl">0.27</span>  <span class="fl">0.62</span>  <span class="fl">0.37</span>      <span class="fl">0.01</span></span>
+<span id="cb11-7"><a href="aed-bi.html#cb11-7" tabindex="-1"></a>mg             <span class="sc">-</span><span class="fl">0.27</span>  <span class="fl">1.00</span> <span class="sc">-</span><span class="fl">0.49</span> <span class="sc">-</span><span class="fl">0.44</span>     <span class="sc">-</span><span class="fl">0.01</span></span>
+<span id="cb11-8"><a href="aed-bi.html#cb11-8" tabindex="-1"></a>sal             <span class="fl">0.62</span> <span class="sc">-</span><span class="fl">0.49</span>  <span class="fl">1.00</span>  <span class="fl">0.46</span>      <span class="fl">0.00</span></span>
+<span id="cb11-9"><a href="aed-bi.html#cb11-9" tabindex="-1"></a>ph              <span class="fl">0.37</span> <span class="sc">-</span><span class="fl">0.44</span>  <span class="fl">0.46</span>  <span class="fl">1.00</span>     <span class="sc">-</span><span class="fl">0.12</span></span>
+<span id="cb11-10"><a href="aed-bi.html#cb11-10" tabindex="-1"></a>bacteriax       <span class="fl">0.01</span> <span class="sc">-</span><span class="fl">0.01</span>  <span class="fl">0.00</span> <span class="sc">-</span><span class="fl">0.12</span>      <span class="fl">1.00</span></span>
+<span id="cb11-11"><a href="aed-bi.html#cb11-11" tabindex="-1"></a>imperfecciones <span class="sc">-</span><span class="fl">0.03</span>  <span class="fl">0.00</span>  <span class="fl">0.00</span>  <span class="fl">0.03</span>     <span class="sc">-</span><span class="fl">0.02</span></span>
+<span id="cb11-12"><a href="aed-bi.html#cb11-12" tabindex="-1"></a>               imperfecciones</span>
+<span id="cb11-13"><a href="aed-bi.html#cb11-13" tabindex="-1"></a>est                     <span class="sc">-</span><span class="fl">0.03</span></span>
+<span id="cb11-14"><a href="aed-bi.html#cb11-14" tabindex="-1"></a>mg                       <span class="fl">0.00</span></span>
+<span id="cb11-15"><a href="aed-bi.html#cb11-15" tabindex="-1"></a>sal                      <span class="fl">0.00</span></span>
+<span id="cb11-16"><a href="aed-bi.html#cb11-16" tabindex="-1"></a>ph                       <span class="fl">0.03</span></span>
+<span id="cb11-17"><a href="aed-bi.html#cb11-17" tabindex="-1"></a>bacteriax               <span class="sc">-</span><span class="fl">0.02</span></span>
+<span id="cb11-18"><a href="aed-bi.html#cb11-18" tabindex="-1"></a>imperfecciones           <span class="fl">1.00</span></span></code></pre></div>
 </div>
 <div id="patrones-en-los-gráficos" class="section level3" number="3.4.4">
 <h3>
@@ -3029,21 +3360,29 @@ Figura 3.8: Patrones en la nube de puntos según el coeficiente de correlación
 <p>Las técnicas de regresión, de manera general tratan de encontrar una
 relación funcional entre una variable dependiente <span class="math inline">\(Y\)</span> y una o más variables
 independientes <span class="math inline">\(X\)</span>:</p>
-<p><span class="math display">\[Y = f(\mathbf{X}) + \varepsilon.\]</span></p>
+<p><span class="math display">\[
+Y = f(\mathbf{X}) + \varepsilon.
+\]</span></p>
 <p>En el caso más sencillo de una sola variable independiente, cuando existe relación lineal los puntos del gráfico de dispersión se disponen alrededor de una <strong>línea recta</strong>, y podemos expresar la relación mediante la ecuación de la recta que mejor
 se aproxima a la nube de puntos. Esta aproximación estará ligada a un error, representado en la expresión anterior por <span class="math inline">\(\varepsilon\)</span>, que mediremos con la variabilidad alrededor de la línea, de forma análoga a como la varianza expresa la variabilidad de los datos entorno a la media. Así, la recta de regresión quedaría expresada como:</p>
-<p><span class="math display">\[Y = a + bX + \varepsilon,\]</span>
-donde <span class="math inline">\(X\)</span> es la variable independiente o explicativa, <span class="math inline">\(Y\)</span> es la variable dependiente o variable respuesta, <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> son los coeficientes de regresión (término independiente y pendiente de la recta respectivamente) y <span class="math inline">\(\varepsilon\)</span> es el error.</p>
+<p><span class="math display">\[
+Y = a + bX + \varepsilon,
+\]</span></p>
+<p>donde <span class="math inline">\(X\)</span> es la variable independiente o explicativa, <span class="math inline">\(Y\)</span> es la variable dependiente o variable respuesta, <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> son los coeficientes de regresión (término independiente y pendiente de la recta respectivamente) y <span class="math inline">\(\varepsilon\)</span> es el error.</p>
 <div id="estimación-de-los-coeficienetes" class="section level3" number="3.5.1">
 <h3>
 <span class="header-section-number">3.5.1</span> Estimación de los coeficienetes<a class="anchor" aria-label="anchor" href="#estimaci%C3%B3n-de-los-coeficienetes"><i class="fas fa-link"></i></a>
 </h3>
 <p>Tenemos pares de datos <span class="math inline">\((x_i, y_i)\)</span> que queremos ajustar al modelo matemático de la recta. Para cualesquiera valores de <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> que elijamos, podemos
 aproximar los valores de <span class="math inline">\(y_i\)</span> como:</p>
-<p><span class="math display">\[\hat{y}_i = a + bx_i.\]</span></p>
+<p><span class="math display">\[
+\hat{y}_i = a + bx_i.
+\]</span></p>
 <p>Esta aproximación tiene un error, que es el <strong>residuo</strong> de esa observación:</p>
-<p><span class="math display">\[y_i = \hat y + \varepsilon_i \implies \varepsilon_i=y_i - \hat{y}_i.\]</span>
-La figura <a href="aed-bi.html#fig:resid">3.9</a> esquematiza la relación entre los valores de la
+<p><span class="math display">\[
+y_i = \hat y + \varepsilon_i \implies \varepsilon_i=y_i - \hat{y}_i.
+\]</span></p>
+<p>La figura <a href="aed-bi.html#fig:resid">3.9</a> esquematiza la relación entre los valores de la
 variable bivariante (puntos naranjas), la recta de regresión (línea azul) y
 los residuos (líneas negras).</p>
 <div class="figure">
@@ -3054,13 +3393,21 @@ Figura 3.9: Esquematización de los valores, recta y residuos en regresión line
 </div>
 <p>Una forma de estimar los coeficientes de regresión es minimizando la suma de los
 cuadrados de los residuos:</p>
-<p><span class="math display">\[{a; b}: \min \sum\limits_{i=1}^n \varepsilon_i^2 =\min \sum\limits_{i=1}^n(y_i-(a+bx_i))^2.\]</span>
-Derivando e igualando a cero tenemos los siguientes valores que minimizan la función:</p>
-<p><span class="math display">\[b = \frac{s_{xy}}{s_x^2},\]</span>
-<span class="math display">\[a = \bar y - b \bar x.\]</span>
-Es inmediato demostrar que la pendiente de la recta también la podemos
+<p><span class="math display">\[
+{a; b}: \min \sum\limits_{i=1}^n \varepsilon_i^2 =\min \sum\limits_{i=1}^n(y_i-(a+bx_i))^2.
+\]</span></p>
+<p>Derivando e igualando a cero tenemos los siguientes valores que minimizan la función:</p>
+<p><span class="math display">\[
+b = \frac{s_{xy}}{s_x^2},
+\]</span></p>
+<p><span class="math display">\[
+a = \bar y - b \bar x.
+\]</span></p>
+<p>Es inmediato demostrar que la pendiente de la recta también la podemos
 calcular como:</p>
-<p><span class="math display">\[b = \frac{s_y}{s_x}r_{xy}.\]</span></p>
+<p><span class="math display">\[
+b = \frac{s_y}{s_x}r_{xy}.
+\]</span></p>
 </div>
 <div id="interpretación-de-los-coeficientes" class="section level3" number="3.5.2">
 <h3>
@@ -3073,8 +3420,10 @@ El coeficiente <span class="math inline">\(b\)</span> significa “cuántas unid
 que aumenta <span class="math inline">\(X\)</span> (si <span class="math inline">\(b&lt;0\)</span>, cuánto disminuye).</p>
 <p>En cuanto a la predicción, podemos predecir cuánto valdrá, en promedio, la variable <span class="math inline">\(Y\)</span> para un
 determinado valor de <span class="math inline">\(X, x_{n+1}\)</span>. Para hacer la predicción, sustuimos <span class="math inline">\(x\)</span> por el nuevo valor en la ecuación de la recta:</p>
-<p><span class="math display">\[\hat{y}_{n+1} = a + bx_{n+1}.\]</span>
-Hay que tener en cuenta que esta predicción solo es válida para el rango de <span class="math inline">\(X\)</span> utilizado para obtener los coeficientes.</p>
+<p><span class="math display">\[
+\hat{y}_{n+1} = a + bx_{n+1}.
+\]</span></p>
+<p>Hay que tener en cuenta que esta predicción solo es válida para el rango de <span class="math inline">\(X\)</span> utilizado para obtener los coeficientes.</p>
 </div>
 <div id="error-y-bondad-de-ajuste" class="section level3" number="3.5.3">
 <h3>
@@ -3082,16 +3431,26 @@ Hay que tener en cuenta que esta predicción solo es válida para el rango de <s
 </h3>
 <p>Pare resumir el error cometido, podríamos buscar una medida resumen de los residuos. Por las propiedades del método de mínimos cuadrados, la media de los
 residuos es cero:</p>
-<p><span class="math display">\[\bar \varepsilon = \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i = 0.\]</span></p>
+<p><span class="math display">\[
+\bar \varepsilon = \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i = 0.
+\]</span></p>
 <p>Entonces, para cuantificar el error, calculamos la media de los residuos al cuadrado, a
 la que llamamos “varianza residual”:</p>
-<p><span class="math display">\[s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i^2.\]</span></p>
+<p><span class="math display">\[
+s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i^2.
+\]</span></p>
 <p>Si desarrollamos los términos de la varianza residual:</p>
-<p><span class="math display">\[s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n (y_i - (a + b x_i))^2,\]</span>
-llegamos a la siguiente expresión:</p>
-<p><span class="math display">\[\frac{s_\varepsilon^2}{s_y^2}=(1-r_{xy}^2),\]</span>
-y de ahí:</p>
-<p><span class="math display">\[r^2_{xy} = 1- \frac{s_\varepsilon^2}{s_y^2} \equiv R^2,\]</span></p>
+<p><span class="math display">\[
+s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n (y_i - (a + b x_i))^2,
+\]</span></p>
+<p>llegamos a la siguiente expresión:</p>
+<p><span class="math display">\[
+\frac{s_\varepsilon^2}{s_y^2}=(1-r_{xy}^2),
+\]</span></p>
+<p>y de ahí:</p>
+<p><span class="math display">\[
+r^2_{xy} = 1- \frac{s_\varepsilon^2}{s_y^2} \equiv R^2,
+\]</span></p>
 <p>que definimos como <strong>coeficiente de determinación</strong>, y su interpretación es como sigue. La varianza residual <span class="math inline">\(s_\varepsilon^2\)</span> es la variabilidad no explicada por la recta. Cuanto más se acerquen los puntos a la recta, mejor explicado está el modelo, y más pequeña es esta varianza. La varianza de <span class="math inline">\(Y\)</span>, <span class="math inline">\(s_y^2\)</span>, es la variabilidad Total. Por tanto, <span class="math inline">\(\frac{s_\varepsilon^2}{s_y^2}\)</span> es la proporción de variabilidad no explicada por la recta de regresión. Y entonces <span class="math inline">\(R^2\)</span> es <strong>la proporción de variabilidad explicada por la regresión</strong>.</p>
 <p>La expresión general <span class="math inline">\(R^2 = 1- \frac{s_\varepsilon^2}{s_y^2}\)</span> es válida para cualquier modelo de regresión en el que podamos calcular los residuos y su varianza. Pero la equivalencia <span class="math inline">\(R^2=r^2\)</span> solo es válida en el caso de la regresión lineal simple.</p>
 <div class="rmdejemplo">
@@ -3103,7 +3462,9 @@ y la recta de regresión estimada por mínimos cuadrados. La recta de regresión
 <p>El coeficiente <span class="math inline">\(a\)</span> no tiene interpretación, ya que el cero no es un valor
 posible en la variable materia grasa, al menos en esta muestra. La interpretación del coeficiente <span class="math inline">\(b\)</span> es la siguiente: por cada unidad que aumente <code>mg</code>, porcentaje de materia grasa, aumenta 1.696 unidades <code>est</code> (extracto seco total).</p>
 <p>La varianza residual es 0.329, y el coeficiente de determinación:</p>
-<p><span class="math display">\[R^2 = 0,685.\]</span></p>
+<p><span class="math display">\[
+R^2 = 0,685.
+\]</span></p>
 <p>Por tanto, la regresión explica el 68,48% de la variabilidad de los datos.</p>
 </div>
 <div class="inline-table"><table style="width:100%;" class="table table-sm">
@@ -3259,7 +3620,7 @@ relaciones, sería necesario confirmar con diseño de experimentos.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="http://emilio.lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2023-04-19.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="https://lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2026-02-18.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

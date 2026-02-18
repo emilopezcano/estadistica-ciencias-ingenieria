@@ -56,7 +56,7 @@ el test de Wilcoxon, o el test de Wilcoxon-Mann-Whitney.
 `<svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M210.6 5.9L62 169.4c-3.9 4.2-6 9.8-6 15.5C56 197.7 66.3 208 79.1 208H104L30.6 281.4c-4.2 4.2-6.6 10-6.6 16C24 309.9 34.1 320 46.6 320H80L5.4 409.5C1.9 413.7 0 419 0 424.5c0 13 10.5 23.5 23.5 23.5H192v32c0 17.7 14.3 32 32 32s32-14.3 32-32V448H424.5c13 0 23.5-10.5 23.5-23.5c0-5.5-1.9-10.8-5.4-15L368 320h33.4c12.5 0 22.6-10.1 22.6-22.6c0-6-2.4-11.8-6.6-16L344 208h24.9c12.7 0 23.1-10.3 23.1-23.1c0-5.7-2.1-11.3-6-15.5L237.4 5.9C234 2.1 229.1 0 224 0s-10 2.1-13.4 5.9z"/></svg>`{=html} Una granja experimental quiere estudiar el efecto que tiene 
 el tipo de fertilizante utilizado en el cultivo de una determinada variedad de plantas y su peso en su punto óptimo de recolección. Para ello diseña un experimento en el que selecciona doce semillas aleatoriamente de un determinado lote. 
 Se asigna aleatoriamente cada semilla a una maceta. Y a cada maceta, se le asigna también aleatoriamente un tipo de fertilizante entre tres varieaddes: A, B y C. El peso de cada planta en gramos se recoge en la tabla \@ref(tab:anovaplanta), que están guardados en el data frame 
-`danova`^[Se puede descargar el conjunto de datos de http://emilio.lcano.com/b/adr/datos/danova2.rds].
+`danova`^[Se puede descargar el conjunto de datos de https://lcano.com/b/adr/datos/danova2.rds].
 Vamos a utilizar este ejemplo a lo largo de este capítulo. 
 :::
 
@@ -69,6 +69,7 @@ A la vista de las medias parece que el peso medio con el fertilizante C es menor
 Por otra parte parece que hay menos variabilidad
 también con el fertilizante C. Una vez ajustado el modelo lo comprobaremos numéricamente.
 :::
+
 
 
 Table: (\#tab:anovaplanta)Peso de la planta a su recogida
@@ -97,7 +98,9 @@ Table: (\#tab:anovaplanta)Peso de la planta a su recogida
 
 
 
-```r
+
+
+``` r
 library(tidyverse)
 danova |> 
   group_by(Fertilizante) |> 
@@ -175,7 +178,7 @@ en los siguientes apartados cómo extraer información e interpretarla.
 :::
 
 
-```r
+``` r
 modelo.aov <- aov(Peso ~ Fertilizante, danova)
 ```
 
@@ -304,7 +307,7 @@ la figura \@ref(fig:efectotipo).
 :::
 
 
-```r
+``` r
 ## El primer nivel es el de referencia
 levels(danova$Fertilizante)
 #> [1] "A" "B" "C"
@@ -344,7 +347,7 @@ confint(modelo.aov, alpha = 0.99)
 ```
 
 
-```r
+``` r
 plot(effects::effect("Fertilizante", modelo.aov))
 ```
 
@@ -419,12 +422,15 @@ se resume normalmente en la llamada tabla ANOVA (ver tabla \@ref(tab:anova0)), q
 las sumas de cuadrados, cuadrados medios, estadístico F y el p-valor.
 
 
+
 Table: (\#tab:anova0)Contenido de la tabla ANOVA
 
 |                  |GL    |SC  |CM  |F  |p-valor |
 |:-----------------|:-----|:---|:---|:--|:-------|
 |factor (entre)    |$k-1$ |SCE |CME |F  |p       |
 |residuos (dentro) |$n-k$ |SCD |CMD |   |        |
+
+
 
 
 
@@ -436,7 +442,7 @@ que hay diferencias en las medias^[Con cautela, por lo ajustado del p-valor.].
 :::
 
 
-```r
+``` r
 summary(modelo.aov)
 #>              Df Sum Sq Mean Sq F value Pr(>F)  
 #> Fertilizante  2   3382  1691.2   3.836 0.0451 *
@@ -471,7 +477,7 @@ la función `plot`, que produce la figura \@ref(fig:tukeytipo).
 :::
 
 
-```r
+``` r
 TukeyHSD(modelo.aov)
 #>   Tukey multiple comparisons of means
 #>     95% family-wise confidence level
@@ -536,7 +542,7 @@ en el modelo. En este caso no se detecta ninguna especialmente estrema.
 :::
 
 
-```r
+``` r
 shapiro.test(residuals(modelo.aov))
 #> 
 #> 	Shapiro-Wilk normality test
@@ -553,9 +559,39 @@ bartlett.test(Peso ~ Fertilizante, data = danova)
 ```
 
 
-```r
+``` r
 library(ggfortify)
 autoplot(modelo.aov)
+#> Warning: `fortify(<lm>)` was deprecated in ggplot2 4.0.0.
+#> ℹ Please use `broom::augment(<lm>)` instead.
+#> ℹ The deprecated feature was likely used in the ggfortify
+#>   package.
+#>   Please report the issue at
+#>   <https://github.com/sinhrks/ggfortify/issues>.
+#> This warning is displayed once every 8 hours.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where
+#> this warning was generated.
+#> Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
+#> ℹ Please use tidy evaluation idioms with `aes()`.
+#> ℹ See also `vignette("ggplot2-in-packages")` for more
+#>   information.
+#> ℹ The deprecated feature was likely used in the ggfortify
+#>   package.
+#>   Please report the issue at
+#>   <https://github.com/sinhrks/ggfortify/issues>.
+#> This warning is displayed once every 8 hours.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where
+#> this warning was generated.
+#> Warning: Using `size` aesthetic for lines was deprecated in ggplot2
+#> 3.4.0.
+#> ℹ Please use `linewidth` instead.
+#> ℹ The deprecated feature was likely used in the ggfortify
+#>   package.
+#>   Please report the issue at
+#>   <https://github.com/sinhrks/ggfortify/issues>.
+#> This warning is displayed once every 8 hours.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where
+#> this warning was generated.
 ```
 
 <div class="figure" style="text-align: center">
@@ -606,7 +642,7 @@ diferencias significativas.
 
 
 
-```r
+``` r
 modelo.aov2 <- aov(Peso ~ Tierra, danova)
 summary(modelo.aov2)
 #>             Df Sum Sq Mean Sq F value Pr(>F)
@@ -634,13 +670,14 @@ kruskal.test(Peso ~ Tierra, danova)
 #> = 0.7538
 pgirmess::kruskalmc(Peso ~ Tierra, data = danova)
 #> Multiple comparison test after Kruskal-Wallis 
-#> p.value: 0.05 
+#> alpha: 0.05 
 #> Comparisons
-#>         obs.dif critical.dif difference
-#> Z1-Z2 1.9444444     6.735838      FALSE
-#> Z1-Z3 0.1666667     9.037076      FALSE
-#> Z2-Z3 1.7777778     8.520237      FALSE
+#>         obs.dif critical.dif stat.signif
+#> Z1-Z2 1.9444444     6.735838       FALSE
+#> Z1-Z3 0.1666667     9.037076       FALSE
+#> Z2-Z3 1.7777778     8.520237       FALSE
 ```
+
 
 
 Table: (\#tab:anovatemp)Peso de las plantas y origen de la tierra
@@ -665,6 +702,8 @@ Table: (\#tab:anovatemp)Peso de las plantas y origen de la tierra
 |Z3     | 127.0|
 |Z1     | 106.2|
 |Z2     | 108.9|
+
+
 
 
 
@@ -723,7 +762,7 @@ Las siguientes expresiones crean el modelo multifactorial, realizan los contrast
 
 
 
-```r
+``` r
 modelo.aov3 <- aov(Peso ~ Fertilizante*Tierra, danova)
 summary(modelo.aov3)
 #>                     Df Sum Sq Mean Sq F value  Pr(>F)   
@@ -805,7 +844,7 @@ de los factores de forma compacta.
 :::
 
 
-```r
+``` r
 model.tables(modelo.aov3)
 #> Tables of effects
 #> 
@@ -884,7 +923,7 @@ con la función `ranef` del paquete `lme4`.
 :::
 
 
-```r
+``` r
 library(lme4)
 #> Loading required package: Matrix
 #> 
@@ -987,7 +1026,7 @@ multivariante.
 :::
 
 
-```r
+``` r
 Y <- as.matrix(danova[, c("Peso", "Pureza")])
 modelo.manova <- aov(Y ~ Fertilizante*Tierra, data = danova)
 summary.manova(modelo.manova)
