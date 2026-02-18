@@ -188,7 +188,9 @@ A partir de la distribución conjunta, tomaríamos la fila o columna que se corr
 con el valor "conocido", es decir, el de la condición. Las frecuencias relativas se calcularán 
 dividiendo entre la frecuencia marginal, y no entre la frecuencia total. Por ejemplo:
 
-$$f_{x_i|y=y_j}=\frac{n_{ij}}{n_{·j}}.$$
+$$
+f_{x_i|y=y_j}=\frac{n_{ij}}{n_{·j}}.
+$$
 
 
 
@@ -233,7 +235,9 @@ de los valores de otra variable $Y$, entonces las variables $X$ e
 $Y$ son estadísticamente independientes. Equivalentemente, la distribución de $X | Y=y_j$ es igual para
 cualquier valor de $y_j$. Es decir, si son independientes se cumple:
 
-$$f_{ij} = f_{i.}\cdot f_{.j} \;\forall i, j.$$
+$$
+f_{ij} = f_{i.}\cdot f_{.j} \;\forall i, j.
+$$
 
 :::{.rmdejemplo data-latex=""}
 La tabla \@ref(tab:tindep) muestra la distribución conjunta y marginales de las variables discretizadas pH y Extracto Seco Total. Para que fueran independientes, todos los productos $f_{i.}\cdot f_{.j}$ deberían ser iguales a $f_{ij}$, es decir, la distribución de $X$ no debería variar en función de los valores de $Y$, y viceversa. En este caso, se puede ver que no se cumple esta igualdad (por ejemplo $0,043 \cdot 0.001 != 0), por lo que las variables no son independientes.
@@ -355,7 +359,7 @@ lab |>
   ggplot(aes(x = ph, y = est)) +
   geom_point(alpha = 0.6) +
   theme_bw() +
-  labs("Gráfico de dispersión del extracto seco total frente al pH",
+  labs(title = "Gráfico de dispersión del extracto seco total frente al pH",
        x = "pH",
        y = "Extracto seco total")
 ```
@@ -449,12 +453,15 @@ de dos variables que resuman su relación.
 La medida más importante es 
 la **covarianza**. La covarianza mide la dependencia **lineal** entre las variables, y se define como:
 
-$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(X_i-\bar X)(Y_i-\bar Y)$$
+$$
+\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(X_i-\bar X)(Y_i-\bar Y)
+$$
 
 Para datos muestrales, dividimos por $n - 1$:
 
-$$s_{xy} = \frac{1}{n-1} \sum\limits_{i=1}^n(x_i-\bar x)(y_i-\bar y).$$
-
+$$
+s_{xy} = \frac{1}{n-1} \sum\limits_{i=1}^n(x_i-\bar x)(y_i-\bar y)
+$$
 
 
 * Si $s_{xy} > 0$: Relación lineal positiva (cuando una crece, la otra también).
@@ -468,15 +475,21 @@ Podemos realizar el cálculo abreviado al igual que con la varianza. Según el c
 
 * Covarianza poblacional con todos los datos:
 
-$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(X_i \cdot Y_i) - \bar X \cdot \bar Y.$$
+$$
+\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(X_i \cdot Y_i) - \bar X \cdot \bar Y.
+$$
 
 * Covarianza poblacional con tablas de frecuencias:
 
-$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(n_i \cdot X_i \cdot Y_i) - \bar X \cdot \bar Y.$$
+$$
+\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(n_i \cdot X_i \cdot Y_i) - \bar X \cdot \bar Y.
+$$
 
 * Covarianza muestral, con todos los datos:
 
-$$s_{xy} = \frac{1}{n-1} \left ( \sum\limits_{i=1}^n(x_i \cdot y_i) - n \cdot \bar x \cdot \bar y \right ).$$
+$$
+s_{xy} = \frac{1}{n-1} \left ( \sum\limits_{i=1}^n(x_i \cdot y_i) - n \cdot \bar x \cdot \bar y \right ).
+$$
 
 
 Una propiedad importante de la covarianza es que si $X$ e $Y$ son variables independientes, su covarianza es cero. Lo contrario no tiene por qué ser verdad, ya que puede existir una relación no lineal, como veremos más adelante.
@@ -487,7 +500,9 @@ La covarianza es un estadístico muy importante para aplicar muchas técnicas es
 
 Para interpretar la relación lineal entre dos variables, en vez de la covarianza calcularemos el **coeficiente de correlación lineal**, que sí está acotado, en concreto entre -1 y 1:
 
-$$r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}.$$
+$$
+r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}.
+$$
 
 * Si $r_{xy}$ próximo a 0, no hay relación lineal
 * Si $r_{xy}$ próximo a -1 o 1, relación lineal **fuerte**, negativa o positiva respectivamente
@@ -498,25 +513,31 @@ Un conjunto de datos bivariantes quedará caracterizado por su vector de medias
 y su matriz de varianzas-covarianzas. El vector de medias contiene las medias
 de las dos variables:
 
-$$\left [
+$$
+\left [
 \begin{array}{c}\bar x\\
-\bar y\end{array}\right ].$$
+\bar y\end{array}\right ].
+$$
 
 
 La Matriz de varianzas-covarianzas, o simplemente matriz de covarianzas, sería:
 
-$$\mathbf{S} = \left [\begin{array}{cc}
+$$
+\mathbf{S} = \left [\begin{array}{cc}
 s^2_x & s_{xy}\\
 s_{xy} & s_y^2
-\end{array}\right ]$$
+\end{array}\right ]
+$$
 
 Mientras que la matriz de correlaciones tendría valores igual a 1 en la diagonal,
 y el coeficiente de correlación fuera de la diagonal:
 
-$$\mathbf{R} = \left [\begin{array}{cc}
+$$
+\mathbf{R} = \left [\begin{array}{cc}
 1 & r_{xy}\\
 r_{xy} & 1
-\end{array}\right ]$$
+\end{array}\right ]
+$$
 
 
 
@@ -525,13 +546,19 @@ r_{xy} & 1
 En el ejemplo de la producción de quesos,
 si tomamos $X$ = ph; $Y$ = est, tenemos los siguientes datos resumidos:
 
-$$n = `r fnum(nrow(lab))`;\; \sum x_i = `r fnum(sum(lab$ph))`;\; \sum y_i = `r fnum(sum(lab$est))`$$
-$$\sum x_i^2 = `r fnum(sum(lab$ph^2))`;\; \sum y_i^2 = `r fnum(sum(lab$est^2))` ;\; \sum x_i y_i = `r fnum(sum(lab$ph*lab$est))`$$
+$$
+n = `r fnum(nrow(lab))`;\; \sum x_i = `r fnum(sum(lab$ph))`;\; \sum y_i = `r fnum(sum(lab$est))`
+$$
+
+$$
+\sum x_i^2 = `r fnum(sum(lab$ph^2))`;\; \sum y_i^2 = `r fnum(sum(lab$est^2))` ;\; \sum x_i y_i = `r fnum(sum(lab$ph*lab$est))`
+$$
 
 
 el vector de medias sería:
 
-$$\left [
+$$
+\left [
 \begin{array}{c} `r fnum(mean(lab$ph))`\\
 `r fnum(mean(lab$est))`\end{array}\right ],$$
 
@@ -543,11 +570,14 @@ s_{xy} & s_y^2
 \end{array}\right ]=\left [\begin{array}{cc}
 `r fnum(var(lab$ph), 4)` & `r fnum(var(lab$ph, lab$est), 4)`\\
 `r fnum(var(lab$ph, lab$est), 4)` & `r fnum(var(lab$est), 4)`
-\end{array}\right ]$$
+\end{array}\right ]
+$$
 
 El coeficiente de correlación lineal será entonces:
 
-$$r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}= \frac{`r fnum(var(lab$ph, lab$est),4)`}{\sqrt{`r fnum(var(lab$ph),4)`\cdot `r fnum(var(lab$est),4)`}} = `r fnum(cor(lab$ph, lab$est),4)`.$$
+$$
+r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}= \frac{`r fnum(var(lab$ph, lab$est),4)`}{\sqrt{`r fnum(var(lab$ph),4)`\cdot `r fnum(var(lab$est),4)`}} = `r fnum(cor(lab$ph, lab$est),4)`.
+$$
 :::
 
 ### Caso multivariante
@@ -623,12 +653,17 @@ Las técnicas de regresión, de manera general tratan de encontrar una
 relación funcional entre una variable dependiente $Y$ y una o más variables
 independientes $X$:
 
-$$Y = f(\mathbf{X}) + \varepsilon.$$
+$$
+Y = f(\mathbf{X}) + \varepsilon.
+$$
 
 En el caso más sencillo de una sola variable independiente, cuando existe relación lineal los puntos del gráfico de dispersión se disponen alrededor de una **línea recta**, y podemos expresar la relación mediante la ecuación de la recta que mejor
 se aproxima a la nube de puntos. Esta aproximación estará ligada a un error, representado en la expresión anterior por $\varepsilon$, que mediremos con la variabilidad alrededor de la línea, de forma análoga a como la varianza expresa la variabilidad de los datos entorno a la media. Así, la recta de regresión quedaría expresada como:
 
-$$Y = a + bX + \varepsilon,$$
+$$
+Y = a + bX + \varepsilon,
+$$
+
 donde $X$ es la variable independiente o explicativa, $Y$ es la variable dependiente o variable respuesta, $a$ y $b$ son los coeficientes de regresión (término independiente y pendiente de la recta respectivamente) y $\varepsilon$ es el error. 
 
 ### Estimación de los coeficienetes
@@ -636,11 +671,16 @@ donde $X$ es la variable independiente o explicativa, $Y$ es la variable dependi
 Tenemos pares de datos $(x_i, y_i)$ que queremos ajustar al modelo matemático de la recta. Para cualesquiera valores de $a$ y $b$ que elijamos, podemos
 aproximar los valores de $y_i$ como:
 
-$$\hat{y}_i = a + bx_i.$$
+$$
+\hat{y}_i = a + bx_i.
+$$
 
 Esta aproximación tiene un error, que es el **residuo** de esa observación:
 
-$$y_i = \hat y + \varepsilon_i \implies \varepsilon_i=y_i - \hat{y}_i.$$
+$$
+y_i = \hat y + \varepsilon_i \implies \varepsilon_i=y_i - \hat{y}_i.
+$$
+
 La figura \@ref(fig:resid) esquematiza la relación entre los valores de la
 variable bivariante (puntos naranjas), la recta de regresión (línea azul) y
 los residuos (líneas negras).
@@ -674,15 +714,26 @@ cdata2 |>
 Una forma de estimar los coeficientes de regresión es minimizando la suma de los
 cuadrados de los residuos:
 
-$${a; b}: \min \sum\limits_{i=1}^n \varepsilon_i^2 =\min \sum\limits_{i=1}^n(y_i-(a+bx_i))^2.$$
+$$
+{a; b}: \min \sum\limits_{i=1}^n \varepsilon_i^2 =\min \sum\limits_{i=1}^n(y_i-(a+bx_i))^2.
+$$
+
 Derivando e igualando a cero tenemos los siguientes valores que minimizan la función:
 
-$$b = \frac{s_{xy}}{s_x^2},$$
-$$a = \bar y - b \bar x.$$
+$$
+b = \frac{s_{xy}}{s_x^2},
+$$
+
+$$
+a = \bar y - b \bar x.
+$$
+
 Es inmediato demostrar que la pendiente de la recta también la podemos
 calcular como:
 
-$$b = \frac{s_y}{s_x}r_{xy}.$$
+$$
+b = \frac{s_y}{s_x}r_{xy}.
+$$
 
 ### Interpretación de los coeficientes
 
@@ -695,7 +746,10 @@ que aumenta $X$ (si $b<0$, cuánto disminuye).
 En cuanto a la predicción, podemos predecir cuánto valdrá, en promedio, la variable $Y$ para un
 determinado valor de $X, x_{n+1}$. Para hacer la predicción, sustuimos $x$ por el nuevo valor en la ecuación de la recta:
 
-$$\hat{y}_{n+1} = a + bx_{n+1}.$$
+$$
+\hat{y}_{n+1} = a + bx_{n+1}.
+$$
+
 Hay que tener en cuenta que esta predicción solo es válida para el rango de $X$ utilizado para obtener los coeficientes.
 
 
@@ -705,22 +759,34 @@ Hay que tener en cuenta que esta predicción solo es válida para el rango de $X
 Pare resumir el error cometido, podríamos buscar una medida resumen de los residuos. Por las propiedades del método de mínimos cuadrados, la media de los 
 residuos es cero:
 
-$$\bar \varepsilon = \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i = 0.$$
+$$
+\bar \varepsilon = \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i = 0.
+$$
 
 Entonces, para cuantificar el error, calculamos la media de los residuos al cuadrado, a
 la que llamamos "varianza residual":
 
-$$s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i^2.$$
+$$
+s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n \varepsilon_i^2.
+$$
 
 Si desarrollamos los términos de la varianza residual: 
 
-$$s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n (y_i - (a + b x_i))^2,$$
+$$
+s_\varepsilon^2= \frac{1}{n}\sum\limits_{i=1}^n (y_i - (a + b x_i))^2,
+$$
+
 llegamos a la siguiente expresión:
 
-$$\frac{s_\varepsilon^2}{s_y^2}=(1-r_{xy}^2),$$
+$$
+\frac{s_\varepsilon^2}{s_y^2}=(1-r_{xy}^2),
+$$
+
 y de ahí:
 
-$$r^2_{xy} = 1- \frac{s_\varepsilon^2}{s_y^2} \equiv R^2,$$
+$$
+r^2_{xy} = 1- \frac{s_\varepsilon^2}{s_y^2} \equiv R^2,
+$$
 
 que definimos como **coeficiente de determinación**, y su interpretación es como sigue. La varianza residual $s_\varepsilon^2$ es la variabilidad no explicada por la recta. Cuanto más se acerquen los puntos a la recta, mejor explicado está el modelo, y más pequeña es esta varianza. La varianza de $Y$, $s_y^2$, es la variabilidad Total. Por tanto, $\frac{s_\varepsilon^2}{s_y^2}$ es la proporción de variabilidad no explicada por la recta de regresión. Y entonces $R^2$ es **la proporción de variabilidad explicada por la regresión**. 
 
@@ -751,7 +817,9 @@ posible en la variable materia grasa, al menos en esta muestra. La interpretaci�
 
 La varianza residual es `r round(mod.m$sigma^2, 3)`, y el coeficiente de determinación:
 
-$$R^2 = `r fnum(mod.m$r.squared)`.$$
+$$
+R^2 = `r fnum(mod.m$r.squared)`.
+$$
 
 Por tanto, la regresión explica el 68,48% de la variabilidad de los datos.
 
