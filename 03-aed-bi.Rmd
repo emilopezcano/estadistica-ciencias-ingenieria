@@ -491,7 +491,7 @@ $$r_{xy}=\frac{s_{xy}}{s_x \cdot s_y}.$$
 
 * Si $r_{xy}$ próximo a 0, no hay relación lineal
 * Si $r_{xy}$ próximo a -1 o 1, relación lineal **fuerte**, negativa o positiva respectivamente
-* Si $r_{xy} = 1$ relación lineal perfecta. Aparece también al correlacionar una variable con sí misma.
+* Si $|r_{xy}| = 1$ relación lineal perfecta. Aparece también al correlacionar una variable con sí misma.
 
 
 Un conjunto de datos bivariantes quedará caracterizado por su vector de medias
