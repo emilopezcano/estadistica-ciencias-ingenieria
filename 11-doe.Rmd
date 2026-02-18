@@ -628,7 +628,9 @@ La información de la tabla completa se puede compactar poniendo los factores en
 
 Por la naturaleza dicotómica de los factores, la estimación de los factores es muy sencilla, resultando además que:
 
-$$\alpha_1 = -\alpha_2;\; \beta_1=-\beta_2.$$
+$$
+\alpha_1 = -\alpha_2;\; \beta_1=-\beta_2.
+$$
 
 
 ### Diseño factorial $2^2$
@@ -637,8 +639,10 @@ Es el diseño más sencillo que podemos hacer, y solo necesitamos $2^2=4$ unidad
 
 El modelo matemático sería el siguiente:
 
-$$y_{ijk} = \mu + 
-\alpha_i + \beta_j + \alpha\beta_{ij} + \varepsilon_{ijk},$$
+$$
+y_{ijk} = \mu + 
+\alpha_i + \beta_j + \alpha\beta_{ij} + \varepsilon_{ijk},
+$$
 
 donde $i, j$ toman dos valores, $\{-, +\}$, y $k$ representa las réplicas del experimento, $k = 1, \ldots, n$. Así, el número total de unidades experimentales es $n\times 2^2$. Si solo tenemos una réplica $(n=1)$, entonces podremos estimar los efectos pero no podremos hacer contrastes de hipótesis sobre su significatividad.
 
@@ -718,8 +722,10 @@ plot(effect(term = "B", mod = modelof22))
 
 Modelo:
 
-$$y_{ijkl} = \mu + \alpha_i + \beta_j + \gamma_k + \alpha\beta_{ij} 
-+ \alpha\gamma_{ik}+ \beta\gamma_{jk} + \alpha\beta\gamma_{ijk} + \varepsilon_{ijkl}$$
+$$
+y_{ijkl} = \mu + \alpha_i + \beta_j + \gamma_k + \alpha\beta_{ij} 
++ \alpha\gamma_{ik}+ \beta\gamma_{jk} + \alpha\beta\gamma_{ijk} + \varepsilon_{ijkl}
+$$
 
 De forma similar al diseño $2^2$, obtendríamos estimadores para los efectos principales y las interacciones. Si no tenemos réplicas, podemos omitir la interacción de orden 3 ya que rara vez es significativa, y así podremos estudiar los contrastes del resto de efectos.
 
@@ -785,7 +791,7 @@ LGB(coef(modf)[-1])
 El método de Lenth se basa en un contraste de significación que puede encontrarse detallado en @conklin2022design. Se calcula un _margin of error_ (ME). Los efectos más allá de ese margen serían significativos. Como se realizan muchos tests, algunos pueden ser identificados como significativos sin serlo. El _simultaneous margin of error_ (SME) tiene en cuenta esta multiplicidad de contrastes.
 
 ```{r}
-LenthPlot(modf)
+LenthPlot(coef(modf))
 ```
 
 
@@ -806,7 +812,9 @@ emmip(modf2, A~B)
 
 Wheeler (1974) estableció la siguiente fórmula aproximada para estimar el número total de unidades experimentales para conseguir una potencia del 95% en el experimento:
 
-$$N = ((8\sigma)/\Delta)^2,$$
+$$
+N = ((8\sigma)/\Delta)^2,
+$$
 
 donde $\sigma$ es la desviación típica del error experimental, y $\Delta$ es el tamaño del efecto que consideraríamos significativo en la práctica. $N$ sería el número total de unidades experimentales, entonces el número de réplicas será $N/2^k$.
 
