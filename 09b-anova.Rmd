@@ -59,7 +59,7 @@ el test de Wilcoxon, o el test de Wilcoxon-Mann-Whitney.
 `r fa("tree", fill = "green")` Una granja experimental quiere estudiar el efecto que tiene 
 el tipo de fertilizante utilizado en el cultivo de una determinada variedad de plantas y su peso en su punto óptimo de recolección. Para ello diseña un experimento en el que selecciona doce semillas aleatoriamente de un determinado lote. 
 Se asigna aleatoriamente cada semilla a una maceta. Y a cada maceta, se le asigna también aleatoriamente un tipo de fertilizante entre tres varieaddes: A, B y C. El peso de cada planta en gramos se recoge en la tabla \@ref(tab:anovaplanta), que están guardados en el data frame 
-`danova`^[Se puede descargar el conjunto de datos de http://emilio.lcano.com/b/adr/datos/danova2.rds].
+`danova`^[Se puede descargar el conjunto de datos de https://lcano.com/b/adr/datos/danova2.rds].
 Vamos a utilizar este ejemplo a lo largo de este capítulo. 
 :::
 
