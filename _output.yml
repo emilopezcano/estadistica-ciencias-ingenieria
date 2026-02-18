@@ -7,7 +7,9 @@ bookdown::bs4_book:
     success: "#198754"   # default .rmdimportant = green
     info:    "#0dcaf0"   # default .rmdtip = cyan
     warning: "#ffc107"   # default .rmdwarning = yellow
-  repo: https://github.com/emilopezcano/estadistica-ciencias-ingenieria
+  repo: 
+    base: https://github.com/emilopezcano/estadistica-ciencias-ingenieria
+    branch: main
   template: "templates/bs4_book_es.html"
 bookdown::pdf_book:
   includes:
