@@ -24,7 +24,7 @@ library(fontawesome)
 
 
 <img src="images/cover.png" class="cover" width="250" height="328"/>
-Bienvenido/a a  "Estadística Aplicada a las Ciencias y la Ingeniería" por [Emilio L. Cano](http://emilio.lcano.com).
+Bienvenido/a a  "Estadística Aplicada a las Ciencias y la Ingeniería" por [Emilio L. Cano](https://lcano.com).
 
 Este libro incluye los contenidos habitualmente presentes en el currículo 
 de asignaturas de **Estadística** de los grados Ciencias e Ingenierías de universidades españolas. Aunque no aparezca en el título, el manual incluye también los contenidos de **Probabilidad** necesarios.
@@ -166,11 +166,12 @@ con diverso material complementan el libro en su conjunto.
 
 ## Sobre el autor {-}
 
-Emilio López Cano, Estadístico y entusiasta de R. Actualmente soy Profesor Contratado Doctor en la [Escuela Técnica Superior de Ingeniería Informática](https://www.urjc.es/etsii) e investigador en el [Data Science Laboratory](http://www.datasciencelab.es) de la [Universidad Rey Juan Carlos](https://www.urjc.es). Mis intereses de investigación incluyen Estadística Aplicada, Aprendizaje Estadístico y Metodologías para la Calidad. Previamente he sido profesor e investigador en la [Universidad de Castilla-La Mancha](https://www.uclm.es), donde sigo colaborando en docencia e investigación, y Estadístico en empresas del sector privado de diversos sectores.
+Emilio López Cano, Estadístico y entusiasta de R. Actualmente soy Titular de Universidad en la [Escuela Técnica Superior de Ingeniería Informática](https://www.urjc.es/etsii) e investigador en el [Data Science Laboratory](http://www.datasciencelab.es) de la [Universidad Rey Juan Carlos](https://www.urjc.es), que forma parte del [Centro de Investigación para las Tecnologías Inteligentes de la Información](https://www.cetinia.es) y sus Aplicaciones (CETINIA)
+de la Universidad Rey Juan Carlos . Mis intereses de investigación incluyen Estadística Aplicada, Aprendizaje Estadístico y Metodologías para la Calidad. Previamente he sido profesor e investigador en la [Universidad de Castilla-La Mancha](https://www.uclm.es), donde sigo colaborando en docencia e investigación, y Estadístico en empresas del sector privado de diversos sectores.
 
 Presidente del subcomité técnico de normalización UNE ([miembro de ISO](https://www.iso.org/committee/49742/x/catalogue/)) [CTN 66/SC 3 (Métodos Estadísticos)](https://www.une.org/encuentra-tu-norma/comites-tecnicos-de-normalizacion/comite/?c=CTN%2066/SC%203). Profesor en la Asociación Española para la Calidad ([AEC](https://www.aec.es)). Presidente de la asociación [Comunidad R Hispano](http://r-es.org).
 
-Más sobre mí, información actualizada y publicaciones: http://emilio.lcano.com.  
+Más sobre mí, información actualizada y publicaciones: https://lcano.com.  
 Contacto: emilio@lcano.com
 
 El material se proporciona bajo licencia CC-BY-NC-ND.
