@@ -449,7 +449,7 @@ de dos variables que resuman su relación.
 La medida más importante es 
 la **covarianza**. La covarianza mide la dependencia **lineal** entre las variables, y se define como:
 
-$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^n(X_i-\bar X)(Y_i-\bar Y)$$
+$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(X_i-\bar X)(Y_i-\bar Y)$$
 
 Para datos muestrales, dividimos por $n - 1$:
 
@@ -472,7 +472,7 @@ $$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(X_i \cdot Y_i) - \bar X \cdot \b
 
 * Covarianza poblacional con tablas de frecuencias:
 
-$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(n_i \cdot X_i \cdot Y_i) - \bar x \cdot \bar y.$$
+$$\sigma_{xy} = \frac{1}{N} \sum\limits_{i=1}^N(n_i \cdot X_i \cdot Y_i) - \bar X \cdot \bar Y.$$
 
 * Covarianza muestral, con todos los datos:
 
