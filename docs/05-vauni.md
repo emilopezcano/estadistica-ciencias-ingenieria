@@ -1183,8 +1183,8 @@ por correo electrónico en un año a los sujetos,</p>
 20\cdot \frac{36}{52} + 36 \cdot \frac{12}{52} +
 60\cdot\frac{4}{52}\simeq26.7692.\]</span> Para la variable aleatoria
 continua:</p>
-<p><span class="math inline">\(X:\)</span> Tiempo de duración de la
-visita a la web de un sujeto,</p>
+<p><span class="math inline">\(X:\)</span> Tiempo de duración (en
+minutos) de la visita a la web de un sujeto,</p>
 <p>la media sería:</p>
 <p><span class="math display">\[\mu=E[X]=\int_{-\infty}^\infty x f(x) dx
 = \int_{0}^\infty x \cdot 2 e^{-2x}dx = 0.5,\]</span></p>
@@ -1367,8 +1367,8 @@ x_i^2 p_i = 20^2\cdot \frac{36}{52} + 36^2 \cdot \frac{12}{52} +
 <p><span class="math display">\[\sigma^2=\alpha_2
 -  \mu^2=852.9231-(26.7692)^2=136.333.\]</span></p>
 <p>Para la variable aleatoria continua:</p>
-<p><span class="math inline">\(X:\)</span> Tiempo de duración de la
-visita a la web de un sujeto,</p>
+<p><span class="math inline">\(X:\)</span> Tiempo de duración (en
+minutos) de la visita a la web de un sujeto,</p>
 <p>el momento de orden dos sería:</p>
 <p><span class="math display">\[\alpha_2=E[X^2]=\int_{-\infty}^\infty
 x^2 f(x) dx = \int_{0}^\infty x^2 \cdot 2 e^{-2x}dx = 0.5,\]</span></p>
@@ -1407,7 +1407,7 @@ varianza <- alpha_2 - alpha_1^2; varianza
 
 \BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">A partir de la variable aleatoria anterior:
   
-$X:$ Tiempo de duración de la visita a la web de un sujeto,
+$X:$ Tiempo de duración (en minutos)de la visita a la web de un sujeto,
 
 supongamos que esta visita se produce siempre después de haber visto un
 anuncio de 10 segundos, y queremos estudiar la variable:
@@ -1425,7 +1425,7 @@ calcular el valor de estas características para la nueva distribución.
 Así:
   
 $$E[Y] = 10 + 60 \cdot E[X] = 10 + 60 \cdot 0.5 = 40,$$
-$$V[Y] =60^2 \cdot V[X] = 60^2 \cdot 0.5 = 1800.$$
+$$V[Y] =60^2 \cdot V[X] = 60^2 \cdot 0.25 = 900.$$
 </div>\EndKnitrBlock{rmdejemplo}
 
 
