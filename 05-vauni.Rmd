@@ -1859,7 +1859,7 @@ calcular el valor de estas características para la nueva distribución.
 Así:
   
 $$E[Y] = 10 + 60 \cdot E[X] = 10 + 60 \cdot 0.5 = 40,$$
-$$V[Y] =60^2 \cdot V[X] = 60^2 \cdot 0.5 = 1800.$$
+$$V[Y] =60^2 \cdot V[X] = 60^2 \cdot 0.25 = 900.$$
 
 ```
 
