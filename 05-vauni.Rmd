@@ -1612,7 +1612,7 @@ la media sería:
 $$\mu=E[X]=\sum\limits_{i=1}^3 x_i p_i = 20\cdot \frac{36}{52} + 36 \cdot \frac{12}{52} + 60\cdot\frac{4}{52}\simeq26.7692.$$
 Para la variable aleatoria continua:
 
-$X:$ Tiempo de duración de la visita a la web de un sujeto,
+$X:$ Tiempo de duración (en minutos) de la visita a la web de un sujeto,
 
 la media sería:
 
@@ -1798,7 +1798,7 @@ $$\sigma^2=\alpha_2 -  \mu^2=852.9231-(26.7692)^2=136.333.$$
 
 Para la variable aleatoria continua:
 
-$X:$ Tiempo de duración de la visita a la web de un sujeto,
+$X:$ Tiempo de duración (en minutos) de la visita a la web de un sujeto,
 
 el momento de orden dos sería:
 
@@ -1841,7 +1841,7 @@ varianza <- alpha_2 - alpha_1^2; varianza
 ```{block2, type='rmdejemplo'}
 A partir de la variable aleatoria anterior:
   
-$X:$ Tiempo de duración de la visita a la web de un sujeto,
+$X:$ Tiempo de duración (en minutos)de la visita a la web de un sujeto,
 
 supongamos que esta visita se produce siempre después de haber visto un
 anuncio de 10 segundos, y queremos estudiar la variable:
