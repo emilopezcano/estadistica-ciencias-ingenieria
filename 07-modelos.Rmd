@@ -763,7 +763,7 @@ A la segunda pregunta damos respuesta calculando la media:
   
 $$\mu = \frac{1-p}{p}= \frac{1-(4/52)}{4/52}=12,$$
   
-Es decir, en promedio el primer directivo será el número 13 (ya que 12 es el número medio de no directivos)
+Es decir, en promedio el primer investigador será el número 13 (ya que 12 es el número medio de no investigadores)
 ```
 
 ```{block2, type='rmdpractica'}
@@ -892,16 +892,16 @@ dhyper(x = 1, m = 30, n = 20, k = 5)
 
 ```{block2, type='rmdejemplo'}
 
-Se asignan 10 premios a potenciales usuarios del servicio, pero no se pueden repetir ganadores. ¿Cuál es la probabilidad de que exactamente un directivo sea premiado?
+Se asignan 10 recompensas a sujetos en estudio, pero no se pueden repetir destinatarios. ¿Cuál es la probabilidad de que exactamente un investigador sea premiado?
   
-Recordemos que teníamos 52 potenciales usuarios, de los cuales 4 eran directivos. Conocemos
+Recordemos que teníamos 52 potenciales sujetos, de los cuales 4 eran investigadores. Conocemos
 la composición exacta del conjunto, y es un muestreo sin reemplazamiento, por tanto la distribución 
 adecuada es la hipergeométrica. Además, no podríamos usar la aproximación de la binomial, ya que
 $10/52 \nleq 0.1$.
 
 En términos de variable aleatoria, definimos: 
 
-$X$: _Número de directivos en una muestra sin reemplazamiento de tamaño 10 realizada sobre un conjunto de 52 personas de las que 4 son directivos_. 
+$X$: _Número de investigadores en una muestra sin reemplazamiento de tamaño 10 realizada sobre un conjunto de 52 personas de las que 4 son investigadores_. 
 
 Entonces:
 
