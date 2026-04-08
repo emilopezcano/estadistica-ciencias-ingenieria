@@ -44,23 +44,33 @@ Dado un proceso de Bernoulli aislado, podemos definir la variable
 aleatoria $X$ que toma el valor 1 si el experimento es un éxito, y 
 0 si el experimento es un fracaso. 
 
-$$X=
+$$
+X=
 \begin{cases}
 1 & \text{ si éxito con probabilidad } p\\
 0 & \text{ si fracaso}
-\end{cases}$$ 
+\end{cases}
+$$ 
+
 Entonces las probabilidades para los dos posibles valores de la variable serán:
 
-$$P[X=1]=p;\quad P[X=0]=1-p,$$
+$$
+P
+[X=1]=p;\quad P[X=0]=1-p,
+$$
 
 y diremos que $X$ sigue una distribución de Bernoulli de parámetro $p$:
 
-$$X \sim \mathit{Ber}(p);\; 0<p<1.$$
+$$
+X \sim \mathit{Ber}(p);\; 0<p<1.
+$$
 
 
 Algunas veces se utiliza la notación $q=1-p$. Una expresión general para la **función de probabilidad** es la siguiente:
 
-$$P[X = x] = p^x (1-p)^{(1-x)};\; x =0, 1.$$
+$$
+P[X = x] = p^x (1-p)^{(1-x)};\; x =0, 1.
+$$
 
 Las características de posición y dispersión de esta variable aleatoria se deducen fácilmente:
 
@@ -74,12 +84,12 @@ Las características de posición y dispersión de esta variable aleatoria se de
 La distribución de Bernoulli aparece en los procesos de clasificación de 
 observaciones (individuos, empresas, etc.) en una de dos categorías.
 
-\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En el ejemplo de los potenciales usuarios de nuestro servicio, 
-dedujimos en el capítulo \@ref(introp) que la probabilidad
-de que un cliente tomado al azar contrate el servicio era $0.25$. 
+\BeginKnitrBlock{rmdejemplo}<div class="rmdejemplo">En el ejemplo de los sujetos en estudio, 
+habíamos deducido que la probabilidad
+de que un sujeto tomado al azar responda al tratamiento era $0.25$. 
 Entonces la variable aleatoria:
   
-$$X: \begin{cases}0\quad \text{ el cliente no contrata}\\1\quad \text{ el cliente contrata}\end{cases}$$
+$$X: \begin{cases}0\quad \text{ el sujeto no responde al tratamiento}\\1\quad \text{ el sujeto responde al tratamiento}\end{cases}$$
   
 sigue una distribución de probabilidad de Bernoulli de parámetro $p=0.25$,
 su media es $\mu=0.25$, su varianza $\sigma^2=0.1875$ y su función de
@@ -390,7 +400,7 @@ $Y: \text{ Número de visitas en cuatro semanas } = X_1 + X_2 + X_3 + X_4,$
 
 donde
 
-$X_i: \text{ Número de visitas en el día } i, \, i = 1, 2, 3, 4 \sim \mathit{Poiss}(8)$
+$X_i: \text{ Número de visitas en la semana } i, \, i = 1, 2, 3, 4 \sim \mathit{Poiss}(8)$
   
 Entonces:
 
@@ -848,7 +858,9 @@ realizar los cálculos con el uso de software. Por tanto, seguiremos utilizando
 la notación vista en el apartado \@ref(modelosdisc) para indicar
 la distribución de probabilida continua que sigue la variable aleatoria $X$:
 
-$$X \sim \mathcal{D}\mathit{istr}(\boldsymbol{\theta}),$$
+$$
+X \sim \mathcal{D}\mathit{istr}(\boldsymbol{\theta}),
+$$
 
 donde $\mathcal{D}\mathit{istr}$ identifica el modelo de distribución de probabilidad, y $\boldsymbol{\theta}$ es el vector de parámetros. Entonces las expresiones de 
 la función de densidad y de distribución contendrán los parámetros: $f(x|\boldsymbol{\theta})$,
@@ -866,29 +878,38 @@ La distribución uniforme se caracteriza por tener una densidad constante en un 
 Si una variable aleatoria $X$ sigue una distribución uniforme en el intervalo entre $a$ y $b$ lo
 expresamos así:
 
-$$X \sim \mathit{U}(a;\; b);\; a < b;\; a, b \in \mathbb{R}.$$
+$$
+X \sim \mathit{U}(a;\; b);\; a < b;\; a, b \in \mathbb{R}.
+$$
+
 La función de densidad de una variable aleatoria continua que sigue un modelo uniforme tiene
 la siguiente función de densidad:
 
 
-$$f(x) = 
+$$
+f(x) = 
 \begin{cases}
 \frac{1}{b-a} & \text{si } a \leq x \leq b\\
 0 & \text{resto}
-\end{cases}$$
+\end{cases}
+$$
 
 y la función de distribución se obtiene fácilmente a partir de esta:
 
-$$F(x)=\int_a^x \frac{1}{b-a}dt=\left [ \frac{t}{b-a}\right ]_a^x = \frac{x}{b-a}- \frac{a}{b-a}=\frac{x-a}{b-a},$$
+$$F
+(x)=\int_a^x \frac{1}{b-a}dt=\left [ \frac{t}{b-a}\right ]_a^x = \frac{x}{b-a}- \frac{a}{b-a}=\frac{x-a}{b-a},
+$$
 
 quedando en su forma completa como:
 
-$$F(x) = 
+$$
+F(x) = 
 \begin{cases}
 0 & \text{si } x < a \\
 \frac{x-a}{b-a} & \text{si } a \leq x < b\\
 1 & \text{si } x \geq b
-\end{cases}$$
+\end{cases}
+$$
 
 La media y la varianza de una variable aleatoria uniforme se deducen
 fácilmente a partir de su función de densidad:
@@ -1012,21 +1033,27 @@ punif(q = 0.9, min = 0, max = 1, lower.tail = FALSE)
 Cuando en un proceso de Poisson observamos el tiempo que transcurre entre un evento y otro, aparece la distribución exponencial. También modeliza bien tiempos de vida, por ejemplo de componentes electrónicos.
 La distribución exponencial solo tiene un parámetro:
 
-$$X \sim \mathit{Exp}(\beta),\; \beta>0.$$
+$$
+X \sim \mathit{Exp}(\beta),\; \beta>0.
+$$
 
 El parámetro $\beta$ del modelo de distribución exponencial representa, al igual
 que en la distribución de Poisson, la tasa media de eventos por unidad de tiempo. Una variable aleatoria que sigue un modelo de distribución exponencial tiene la siguiente función de densidad:
 
-$$f(x) = 
+$$
+f(x) = 
 \begin{cases}
 \beta e^{-\beta x} & \text{si } x > 0\\
 0 & \text{si } x\leq 0
-\end{cases}$$
+\end{cases}
+$$
 
 La función de distribución se obtiene fácilmente a partir de la función
 de densidad:
 
-$$F(x)=\int_{-\infty}^xf(t)dt=1-e^{-\beta x}, \; x > 0.$$
+$$F
+(x)=\int_{-\infty}^xf(t)dt=1-e^{-\beta x}, \; x > 0.
+$$
 
 La figura \@ref(fig:distexp) muestra
 la representación de las funciones de densidad y distribución de una variable
@@ -1149,8 +1176,10 @@ $$X \sim \mathit{N}(\mu;\; \sigma);\; \mu \in \mathbb{R}, \sigma > 0.$$
 La función de densidad de una variable aleatoria que sigue el modelo de distribución normal
 tiene la siguiente función de densidad:
 
-$$f(x) = 
-\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}},\;-\infty < x < \infty.$$
+$$
+f(x) = 
+\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}},\;-\infty < x < \infty.
+$$
 
 La figura \@ref(fig:dnormal) muestra la función de densidad y la función de distribución 
 para unos valores determinados
@@ -1166,7 +1195,7 @@ primitiva de $f(x)$.
 
 
 La distribución normal es simétrica respecto
-de la media, siendo la mediana y la moda igual a ella. Esta importante propiedad implica que $P[X \leq \mu] = 0.5$. Cuanto más cerca de la media estén los valores, más probables son, y a medida que nos alejamos de la media, cada vez son más improbables, de hecho como vemos en la figura \@ref(fig:dnormal2) entre la media y dos desviaciones típicas tenemos más del 95% de la probabilidad, y la probabilidad de que la variable aleatoria tome valores más allá de tres desviaciones típicas desde la media es de solo 0.0027. La función de densidad presenta puntos de inflexión en $\mu \pm \sigma$.
+de la media, siendo la mediana y la moda igual a ella. Esta importante propiedad implica que $P[X \leq \mu] = 0.5$. Cuanto más cerca de la media estén los valores, más probables son, y a medida que nos alejamos de la media, cada vez son más improbables, de hecho como vemos en la figura \@ref(fig:dnormal2) entre la media y dos desviaciones típicas tenemos más de 0.95 de probabilidad, y la probabilidad de que la variable aleatoria tome valores más allá de tres desviaciones típicas desde la media es de solo 0.0027. La función de densidad presenta puntos de inflexión en $\mu \pm \sigma$.
 
 
 <div class="figure" style="text-align: center">
@@ -1199,8 +1228,10 @@ $\sigma=1$, y que vamos a representar en este texto como $Z$^[En otros textos la
 $$Z \sim N(0;1).$$
 La función de densidad en este caso quedaría:
 
-$$f(x) = 
-\frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}},\;-\infty < x < \infty.$$
+$$
+f(x) = 
+\frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}},\;-\infty < x < \infty.
+$$
 
 
 Nótese que, al ser la distribución normal simétrica, se cumple que $P[Z \leq 0] = 0.5$.
@@ -1214,6 +1245,7 @@ cualquier variable aleatoria normal, con cualesquiera $\mu$ y $\sigma$, ya que s
 según la aditividad y las propiedades de la esperanza y la varianza:
 
 $$X \sim N(\mu;\; \sigma) \implies Z = \frac{X-\mu}{\sigma} \sim N(0;\;1).$$
+
 Ya vimos en el capítulo \@ref(vauni) que podemos estandarizar cualquier
 variable aleatoria. Si estandarizamos una distribución
 normal con cualesquiera parámetros $\mu$ y $\sigma$, entonces tendremos 
@@ -1647,6 +1679,7 @@ Una **sucesión** de variables aleatorias es un
 conjunto de variables aleatorias:
 
 $$\{ X_n \}: \{X_1, X_2, \ldots, X_n, \ldots \},$$
+
 definidas para todo $n \in \mathbb{N}$ sobre el mismo espacio de 
 probabilidad $(\Omega, \aleph, \wp)$. Asociadas a la 
 sucesión de variables aleatorias tenemos también la sucesión de la imagen
@@ -1812,16 +1845,23 @@ medicamentos?
 Definimos $X:$ número de medicamentos aprobados, en una serie de 
 300 experimentos de Bernoulli con probabilidad $p=0.2$. Entonces:
 
-$$X\sim \mathit{Bin}(300; 0.2).$$
+$$
+X\sim \mathit{Bin}(300; 0.2).$$
 
 No podemos utilizar la aproximación de Poisson ya que $p>0.05$, pero sí la
 de la normal porque $n\geq100$. Así:
 
-$$X \leadsto N(300\cdot 0.2; \sqrt{300\cdot 0.2 \cdot 0.8}\equiv N(60, \sqrt{48}).$$
+$$
+X \leadsto N(300\cdot 0.2; \sqrt{300\cdot 0.2 \cdot 0.8}\equiv N(60, \sqrt{48}).
+$$
+
 Ahora tipificamos y calculamos probabilidades de la normal estandarizada:
 
-$$P[X > 45 ]= P\left[\frac{X-60}{\sqrt{48}} >\frac{45-60}{\sqrt{48}}\right]=P[Z>-2.16]=\\
-=1-P[Z>2.16]= 1-0.0154=0.9846.$$
+$$
+P[X > 45 ]= P\left[\frac{X-60}{\sqrt{48}} >\frac{45-60}{\sqrt{48}}\right]=P[Z>-2.16]=\\
+=1-P[Z>2.16]= 1-0.0154=0.9846.
+$$
+
 :::
 
 

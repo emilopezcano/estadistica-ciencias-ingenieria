@@ -130,17 +130,26 @@ del suceso <em>éxito</em>, a la que llamamos <span class="math inline">\(p\)</s
 <p>Dado un proceso de Bernoulli aislado, podemos definir la variable
 aleatoria <span class="math inline">\(X\)</span> que toma el valor 1 si el experimento es un éxito, y
 0 si el experimento es un fracaso.</p>
-<p><span class="math display">\[X=
+<p><span class="math display">\[
+X=
 \begin{cases}
 1 &amp; \text{ si éxito con probabilidad } p\\
 0 &amp; \text{ si fracaso}
-\end{cases}\]</span>
-Entonces las probabilidades para los dos posibles valores de la variable serán:</p>
-<p><span class="math display">\[P[X=1]=p;\quad P[X=0]=1-p,\]</span></p>
+\end{cases}
+\]</span></p>
+<p>Entonces las probabilidades para los dos posibles valores de la variable serán:</p>
+<p><span class="math display">\[
+P
+[X=1]=p;\quad P[X=0]=1-p,
+\]</span></p>
 <p>y diremos que <span class="math inline">\(X\)</span> sigue una distribución de Bernoulli de parámetro <span class="math inline">\(p\)</span>:</p>
-<p><span class="math display">\[X \sim \mathit{Ber}(p);\; 0&lt;p&lt;1.\]</span></p>
+<p><span class="math display">\[
+X \sim \mathit{Ber}(p);\; 0&lt;p&lt;1.
+\]</span></p>
 <p>Algunas veces se utiliza la notación <span class="math inline">\(q=1-p\)</span>. Una expresión general para la <strong>función de probabilidad</strong> es la siguiente:</p>
-<p><span class="math display">\[P[X = x] = p^x (1-p)^{(1-x)};\; x =0, 1.\]</span></p>
+<p><span class="math display">\[
+P[X = x] = p^x (1-p)^{(1-x)};\; x =0, 1.
+\]</span></p>
 <p>Las características de posición y dispersión de esta variable aleatoria se deducen fácilmente:</p>
 <ul>
 <li><p>Media: <span class="math inline">\(\mu=E[X] = p\)</span>.</p></li>
@@ -150,11 +159,11 @@ Entonces las probabilidades para los dos posibles valores de la variable serán:
 observaciones (individuos, empresas, etc.) en una de dos categorías.</p>
 
 <div class="rmdejemplo">
-<p>En el ejemplo de los potenciales usuarios de nuestro servicio,
-dedujimos en el capítulo <a href="introp.html#introp">4</a> que la probabilidad
-de que un cliente tomado al azar contrate el servicio era <span class="math inline">\(0.25\)</span>.
+<p>En el ejemplo de los sujetos en estudio,
+habíamos deducido que la probabilidad
+de que un sujeto tomado al azar responda al tratamiento era <span class="math inline">\(0.25\)</span>.
 Entonces la variable aleatoria:</p>
-<p><span class="math display">\[X: \begin{cases}0\quad \text{ el cliente no contrata}\\1\quad \text{ el cliente contrata}\end{cases}\]</span></p>
+<p><span class="math display">\[X: \begin{cases}0\quad \text{ el sujeto no responde al tratamiento}\\1\quad \text{ el sujeto responde al tratamiento}\end{cases}\]</span></p>
 <p>sigue una distribución de probabilidad de Bernoulli de parámetro <span class="math inline">\(p=0.25\)</span>,
 su media es <span class="math inline">\(\mu=0.25\)</span>, su varianza <span class="math inline">\(\sigma^2=0.1875\)</span> y su función de
 probabilidad:</p>
@@ -386,7 +395,7 @@ durante cuatro semanas. Y queremos saber la probabilidad de que acceda 30 veces.
 Entonces aplicamos la propiedad aditiva de la distribución de Poisson, y definimos:</p>
 <p><span class="math inline">\(Y: \text{ Número de visitas en cuatro semanas } = X_1 + X_2 + X_3 + X_4,\)</span></p>
 <p>donde</p>
-<p><span class="math inline">\(X_i: \text{ Número de visitas en el día } i, \, i = 1, 2, 3, 4 \sim \mathit{Poiss}(8)\)</span></p>
+<p><span class="math inline">\(X_i: \text{ Número de visitas en la semana } i, \, i = 1, 2, 3, 4 \sim \mathit{Poiss}(8)\)</span></p>
 <p>Entonces:</p>
 <p><span class="math display">\[Y \sim \mathit{Poiss}(32),\]</span></p>
 <p>y la probabilidad buscada es:</p>
@@ -721,7 +730,9 @@ estas tablas para resolver problemas de probabilidad. Actualmente se pueden
 realizar los cálculos con el uso de software. Por tanto, seguiremos utilizando
 la notación vista en el apartado <a href="modelos.html#modelosdisc">7.2</a> para indicar
 la distribución de probabilida continua que sigue la variable aleatoria <span class="math inline">\(X\)</span>:</p>
-<p><span class="math display">\[X \sim \mathcal{D}\mathit{istr}(\boldsymbol{\theta}),\]</span></p>
+<p><span class="math display">\[
+X \sim \mathcal{D}\mathit{istr}(\boldsymbol{\theta}),
+\]</span></p>
 <p>donde <span class="math inline">\(\mathcal{D}\mathit{istr}\)</span> identifica el modelo de distribución de probabilidad, y <span class="math inline">\(\boldsymbol{\theta}\)</span> es el vector de parámetros. Entonces las expresiones de
 la función de densidad y de distribución contendrán los parámetros: <span class="math inline">\(f(x|\boldsymbol{\theta})\)</span>,
 <span class="math inline">\(F(x|\boldsymbol{\theta})\)</span>.</p>
@@ -736,23 +747,31 @@ y multivariantes que se referencian al final del capítulo.</p>
 <p>La distribución uniforme se caracteriza por tener una densidad constante en un intervalo <span class="math inline">\([a, b]\)</span>.
 Si una variable aleatoria <span class="math inline">\(X\)</span> sigue una distribución uniforme en el intervalo entre <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> lo
 expresamos así:</p>
-<p><span class="math display">\[X \sim \mathit{U}(a;\; b);\; a &lt; b;\; a, b \in \mathbb{R}.\]</span>
-La función de densidad de una variable aleatoria continua que sigue un modelo uniforme tiene
+<p><span class="math display">\[
+X \sim \mathit{U}(a;\; b);\; a &lt; b;\; a, b \in \mathbb{R}.
+\]</span></p>
+<p>La función de densidad de una variable aleatoria continua que sigue un modelo uniforme tiene
 la siguiente función de densidad:</p>
-<p><span class="math display">\[f(x) =
+<p><span class="math display">\[
+f(x) =
 \begin{cases}
 \frac{1}{b-a} &amp; \text{si } a \leq x \leq b\\
 0 &amp; \text{resto}
-\end{cases}\]</span></p>
+\end{cases}
+\]</span></p>
 <p>y la función de distribución se obtiene fácilmente a partir de esta:</p>
-<p><span class="math display">\[F(x)=\int_a^x \frac{1}{b-a}dt=\left [ \frac{t}{b-a}\right ]_a^x = \frac{x}{b-a}- \frac{a}{b-a}=\frac{x-a}{b-a},\]</span></p>
+<p><span class="math display">\[F
+(x)=\int_a^x \frac{1}{b-a}dt=\left [ \frac{t}{b-a}\right ]_a^x = \frac{x}{b-a}- \frac{a}{b-a}=\frac{x-a}{b-a},
+\]</span></p>
 <p>quedando en su forma completa como:</p>
-<p><span class="math display">\[F(x) =
+<p><span class="math display">\[
+F(x) =
 \begin{cases}
 0 &amp; \text{si } x &lt; a \\
 \frac{x-a}{b-a} &amp; \text{si } a \leq x &lt; b\\
 1 &amp; \text{si } x \geq b
-\end{cases}\]</span></p>
+\end{cases}
+\]</span></p>
 <p>La media y la varianza de una variable aleatoria uniforme se deducen
 fácilmente a partir de su función de densidad:</p>
 <ul>
@@ -841,17 +860,23 @@ Análogamente al ejemplo anterior:
 </h3>
 <p>Cuando en un proceso de Poisson observamos el tiempo que transcurre entre un evento y otro, aparece la distribución exponencial. También modeliza bien tiempos de vida, por ejemplo de componentes electrónicos.
 La distribución exponencial solo tiene un parámetro:</p>
-<p><span class="math display">\[X \sim \mathit{Exp}(\beta),\; \beta&gt;0.\]</span></p>
+<p><span class="math display">\[
+X \sim \mathit{Exp}(\beta),\; \beta&gt;0.
+\]</span></p>
 <p>El parámetro <span class="math inline">\(\beta\)</span> del modelo de distribución exponencial representa, al igual
 que en la distribución de Poisson, la tasa media de eventos por unidad de tiempo. Una variable aleatoria que sigue un modelo de distribución exponencial tiene la siguiente función de densidad:</p>
-<p><span class="math display">\[f(x) =
+<p><span class="math display">\[
+f(x) =
 \begin{cases}
 \beta e^{-\beta x} &amp; \text{si } x &gt; 0\\
 0 &amp; \text{si } x\leq 0
-\end{cases}\]</span></p>
+\end{cases}
+\]</span></p>
 <p>La función de distribución se obtiene fácilmente a partir de la función
 de densidad:</p>
-<p><span class="math display">\[F(x)=\int_{-\infty}^xf(t)dt=1-e^{-\beta x}, \; x &gt; 0.\]</span></p>
+<p><span class="math display">\[F
+(x)=\int_{-\infty}^xf(t)dt=1-e^{-\beta x}, \; x &gt; 0.
+\]</span></p>
 <p>La figura <a href="modelos.html#fig:distexp">7.8</a> muestra
 la representación de las funciones de densidad y distribución de una variable
 aleatoria que sigue una distribución continua exponencial.</p>
@@ -938,8 +963,10 @@ normal queda determinado por dos parámetros, que son su media <span class="math
 <p><span class="math display">\[X \sim \mathit{N}(\mu;\; \sigma);\; \mu \in \mathbb{R}, \sigma &gt; 0.\]</span></p>
 <p>La función de densidad de una variable aleatoria que sigue el modelo de distribución normal
 tiene la siguiente función de densidad:</p>
-<p><span class="math display">\[f(x) =
-\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}},\;-\infty &lt; x &lt; \infty.\]</span></p>
+<p><span class="math display">\[
+f(x) =
+\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}},\;-\infty &lt; x &lt; \infty.
+\]</span></p>
 <p>La figura <a href="modelos.html#fig:dnormal">7.10</a> muestra la función de densidad y la función de distribución
 para unos valores determinados
 de <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(\mu\)</span>. La función de distribución se ha obtenido por métodos numéricos,
@@ -952,7 +979,7 @@ Figura 7.10: Representación gráfica de las funciones de densidad y distribuci�
 </p>
 </div>
 <p>La distribución normal es simétrica respecto
-de la media, siendo la mediana y la moda igual a ella. Esta importante propiedad implica que <span class="math inline">\(P[X \leq \mu] = 0.5\)</span>. Cuanto más cerca de la media estén los valores, más probables son, y a medida que nos alejamos de la media, cada vez son más improbables, de hecho como vemos en la figura <a href="modelos.html#fig:dnormal2">7.11</a> entre la media y dos desviaciones típicas tenemos más del 95% de la probabilidad, y la probabilidad de que la variable aleatoria tome valores más allá de tres desviaciones típicas desde la media es de solo 0.0027. La función de densidad presenta puntos de inflexión en <span class="math inline">\(\mu \pm \sigma\)</span>.</p>
+de la media, siendo la mediana y la moda igual a ella. Esta importante propiedad implica que <span class="math inline">\(P[X \leq \mu] = 0.5\)</span>. Cuanto más cerca de la media estén los valores, más probables son, y a medida que nos alejamos de la media, cada vez son más improbables, de hecho como vemos en la figura <a href="modelos.html#fig:dnormal2">7.11</a> entre la media y dos desviaciones típicas tenemos más de 0.95 de probabilidad, y la probabilidad de que la variable aleatoria tome valores más allá de tres desviaciones típicas desde la media es de solo 0.0027. La función de densidad presenta puntos de inflexión en <span class="math inline">\(\mu \pm \sigma\)</span>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:dnormal2"></span>
 <img src="07-modelos_files/figure-html/dnormal2-1.png" alt="Función de densidad de la distribución normal" width="70%"><p class="caption">
@@ -973,8 +1000,10 @@ capítulo <a href="vauni.html#vauni">5</a>:</p>
 <span class="math inline">\(\sigma=1\)</span>, y que vamos a representar en este texto como <span class="math inline">\(Z\)</span><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;En otros textos la encontramos representada por la letra griega &lt;span class="math inline"&gt;\(\phi\)&lt;/span&gt;.&lt;/p&gt;'><sup>68</sup></a>:</p>
 <p><span class="math display">\[Z \sim N(0;1).\]</span>
 La función de densidad en este caso quedaría:</p>
-<p><span class="math display">\[f(x) =
-\frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}},\;-\infty &lt; x &lt; \infty.\]</span></p>
+<p><span class="math display">\[
+f(x) =
+\frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}},\;-\infty &lt; x &lt; \infty.
+\]</span></p>
 <p>Nótese que, al ser la distribución normal simétrica, se cumple que <span class="math inline">\(P[Z \leq 0] = 0.5\)</span>.</p>
 <p>Trabajar con variables aleatorias estandarizadas es conveniente en muchas situaciones.
 En particular, se ha utilizado tradicionalmente para obtener probabilidades
@@ -983,8 +1012,8 @@ normal estandarizada, bien la función de distribución <span class="math inline
 <span class="math inline">\(P[Z&gt;z]\)</span>. A través de estas tablas podemos hacer cálculo de probabilidades para
 cualquier variable aleatoria normal, con cualesquiera <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span>, ya que se cumple,
 según la aditividad y las propiedades de la esperanza y la varianza:</p>
-<p><span class="math display">\[X \sim N(\mu;\; \sigma) \implies Z = \frac{X-\mu}{\sigma} \sim N(0;\;1).\]</span>
-Ya vimos en el capítulo <a href="vauni.html#vauni">5</a> que podemos estandarizar cualquier
+<p><span class="math display">\[X \sim N(\mu;\; \sigma) \implies Z = \frac{X-\mu}{\sigma} \sim N(0;\;1).\]</span></p>
+<p>Ya vimos en el capítulo <a href="vauni.html#vauni">5</a> que podemos estandarizar cualquier
 variable aleatoria. Si estandarizamos una distribución
 normal con cualesquiera parámetros <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span>, entonces tendremos
 variables aleatorias <em>estandarizadas</em>.</p>
@@ -1301,8 +1330,8 @@ aumenta <span class="math inline">\(n\)</span> la distribución se asemeja o tie
 de probabilidad <span class="math inline">\(X\)</span><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Que puede degenerar en una constante &lt;span class="math inline"&gt;\(K\)&lt;/span&gt;.&lt;/p&gt;'><sup>71</sup></a>.</p>
 <p>Una <strong>sucesión</strong> de variables aleatorias es un
 conjunto de variables aleatorias:</p>
-<p><span class="math display">\[\{ X_n \}: \{X_1, X_2, \ldots, X_n, \ldots \},\]</span>
-definidas para todo <span class="math inline">\(n \in \mathbb{N}\)</span> sobre el mismo espacio de
+<p><span class="math display">\[\{ X_n \}: \{X_1, X_2, \ldots, X_n, \ldots \},\]</span></p>
+<p>definidas para todo <span class="math inline">\(n \in \mathbb{N}\)</span> sobre el mismo espacio de
 probabilidad <span class="math inline">\((\Omega, \aleph, \wp)\)</span>. Asociadas a la
 sucesión de variables aleatorias tenemos también la sucesión de la imagen
 del espacio muestral <span class="math inline">\(\{X_n(\omega)\}\)</span> y la sucesión de las probabilidades del espacio muestral
@@ -1427,13 +1456,18 @@ aprueben al menos 45 de los 300
 medicamentos?</p>
 <p>Definimos <span class="math inline">\(X:\)</span> número de medicamentos aprobados, en una serie de
 300 experimentos de Bernoulli con probabilidad <span class="math inline">\(p=0.2\)</span>. Entonces:</p>
-<p><span class="math display">\[X\sim \mathit{Bin}(300; 0.2).\]</span></p>
+<p><span class="math display">\[
+X\sim \mathit{Bin}(300; 0.2).\]</span></p>
 <p>No podemos utilizar la aproximación de Poisson ya que <span class="math inline">\(p&gt;0.05\)</span>, pero sí la
 de la normal porque <span class="math inline">\(n\geq100\)</span>. Así:</p>
-<p><span class="math display">\[X \leadsto N(300\cdot 0.2; \sqrt{300\cdot 0.2 \cdot 0.8}\equiv N(60, \sqrt{48}).\]</span>
-Ahora tipificamos y calculamos probabilidades de la normal estandarizada:</p>
-<p><span class="math display">\[P[X &gt; 45 ]= P\left[\frac{X-60}{\sqrt{48}} &gt;\frac{45-60}{\sqrt{48}}\right]=P[Z&gt;-2.16]=\\
-=1-P[Z&gt;2.16]= 1-0.0154=0.9846.\]</span></p>
+<p><span class="math display">\[
+X \leadsto N(300\cdot 0.2; \sqrt{300\cdot 0.2 \cdot 0.8}\equiv N(60, \sqrt{48}).
+\]</span></p>
+<p>Ahora tipificamos y calculamos probabilidades de la normal estandarizada:</p>
+<p><span class="math display">\[
+P[X &gt; 45 ]= P\left[\frac{X-60}{\sqrt{48}} &gt;\frac{45-60}{\sqrt{48}}\right]=P[Z&gt;-2.16]=\\
+=1-P[Z&gt;2.16]= 1-0.0154=0.9846.
+\]</span></p>
 </div>
 </div>
 </div>
@@ -1501,7 +1535,7 @@ Ahora tipificamos y calculamos probabilidades de la normal estandarizada:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="https://lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2026-04-07.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="https://lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2026-04-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
