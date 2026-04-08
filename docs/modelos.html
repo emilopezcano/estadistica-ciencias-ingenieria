@@ -88,9 +88,9 @@
 <h1>
 <span class="header-section-number">Capítulo 7</span> Modelos de distribución de probabilidad<a class="anchor" aria-label="anchor" href="#modelos"><i class="fas fa-link"></i></a>
 </h1>
-<div id="introducción" class="section level2" number="7.1">
+<div id="intromodelos" class="section level2" number="7.1">
 <h2>
-<span class="header-section-number">7.1</span> Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.1</span> Introducción<a class="anchor" aria-label="anchor" href="#intromodelos"><i class="fas fa-link"></i></a>
 </h2>
 <p>En el capítulo <a href="vauni.html#vauni">5</a> vimos que una variable aleatoria unidimensional se puede modelizar por cualquier función de distribución de probabilidad que cumpla los requisitos básicos de la probabilidad así, tenemos infinitas funciones de probabilidad para variables aleatorias discretas, o de densidad para variables aleatorias continuas. Sin embargo, la mayoría de los fenómenos de interés estudiados mediante la probabilidad se ajustan a un reducido conjunto de modelos de distribución de probabilidad o familias de distribuciones para los que se han determinado sus características principales, facilitando así el trabajo con variables aleatorias. En este capítulo revisaremos los más importantes para variables aleatorias discretas.</p>
 <p>El primer paso para identificar el modelo de distribución de probabilidad más adecuado, es describir claramente la variable aleatoria <span class="math inline">\(X\)</span>, y de ahí deducir cuál es el modelo adecuado. Para cada modelo, se conoce su función de probabilidad o de densidad que contiene un número muy reducido de <strong>parámetros</strong>. A partir de esta función de probabilidad o de densidad, se deducen sus características, por ejemplo la media y la varianza, que quedan expresadas en función de dichos parámetros. Una vez
@@ -418,8 +418,8 @@ de distribución y de probabilidad.
 <p>La distribución de Poisson se puede utilizar como aproximación de la distribución
 binomial bajo ciertas condiciones. En la práctica, para <span class="math inline">\(n\geq 100\)</span> y <span class="math inline">\(p \leq 0.05\)</span>,
 se puede utilizar la aproximación:</p>
-<p><span class="math display">\[X\sim \mathit{Bin}(n;\;p) \leadsto \mathit{Poiss}(\lambda=np),\]</span>
-siempre y cuando <span class="math inline">\(np\)</span> tenga sentido como parámetro <span class="math inline">\(\lambda\)</span>, es decir, no excesivamente grande
+<p><span class="math display">\[X\sim \mathit{Bin}(n;\;p) \leadsto \mathit{Poiss}(\lambda=np),\]</span></p>
+<p>siempre y cuando <span class="math inline">\(np\)</span> tenga sentido como parámetro <span class="math inline">\(\lambda\)</span>, es decir, no excesivamente grande
 ni excesivamente pequeño. La figura <a href="modelos.html#fig:plotaprox1">7.3</a> muestra la función
 de distribución de una variable aleatoria binomial con parámetros <span class="math inline">\(n = 100, \, p = 0.05\)</span>
 y su aproximación por una Poisson de parámetro <span class="math inline">\(\lambda = 5\)</span>.</p>
@@ -483,7 +483,9 @@ de cada ordenación. La diferencia está en que el último experimento es
 siempre un éxito (habremos llegado al éxito número <span class="math inline">\(c\)</span>, y paramos).
 Si se da <span class="math inline">\(X=x\)</span>, entonces habremos realizado un total de <span class="math inline">\(x+c\)</span> pruebas de Bernoulli.</p>
 <p>El término <em>negativa</em> viene de la siguiente forma alternativa de escribir su función de probabilidad:</p>
-<p><span class="math display">\[P[X = x] =  \binom{-c}{x}\cdot p^c \cdot (1-p)^{x}.\]</span></p>
+<p><span class="math display">\[
+P[X = x] =  \binom{-c}{x}\cdot p^c \cdot (1-p)^{x}.
+\]</span></p>
 <p>La figura <a href="modelos.html#fig:plotnbinom">7.4</a> muestra gráficamente la distribución
 de probabilidad para varios valores de <span class="math inline">\(c\)</span> y <span class="math inline">\(p\)</span>. Se representan valores
 desde <span class="math inline">\(x=0\)</span> hasta <span class="math inline">\(x= 20\)</span>. Aunque teóricamente los
@@ -506,7 +508,9 @@ Figura 7.4: Representación de la función de probabilidad del modelo binomial n
 Es decir, la suma de <span class="math inline">\(m\)</span> variables aleatorias binomiales negativas con el mismo parámetro <span class="math inline">\(p\)</span>
 y parámetros <span class="math inline">\(c_j\)</span> que pueden ser diferentes, es una variable aleatoria que sigue también
 una distribución binomial negativa con el mismo parámetro <span class="math inline">\(p\)</span>:</p>
-<p><span class="math display">\[Y=\sum\limits_{j=1}^m {X_j},\; X_j \sim \mathit{BN}(c_j;\; p) \implies Y \sim \mathit{BN}\left ( \sum\limits_{j=1}^m c_j;\; p \right ).\]</span></p>
+<p><span class="math display">\[
+Y=\sum\limits_{j=1}^m {X_j},\; X_j \sim \mathit{BN}(c_j;\; p) \implies Y \sim \mathit{BN}\left ( \sum\limits_{j=1}^m c_j;\; p \right ).
+\]</span></p>
 
 <div class="rmdejemplo">
 <p>Dos equipos de balonmano A y B se disputan la final de liga al mejor de
@@ -581,9 +585,13 @@ función de distribución.
 <p>Un caso particular de la distribución binomial negativa cuando
 <span class="math inline">\(c=1\)</span>, es la <strong>distribución geométrica</strong>. Es decir, nos interesan el número de fracasos hasta obtener el primer éxito y entonces:</p>
 <p><span class="math inline">\(X\)</span>: <em>Número de fracasos hasta obtener el primer éxito en una serie de pruebas independientes de Bernoulli con probabilidad de éxito <span class="math inline">\(p\)</span></em>:</p>
-<p><span class="math display">\[X \sim \mathit{Ge}(p); \; 0&lt;p&lt;1,\]</span>
-cuya función de probabilidad se simplifica bastante, ya que solo hay una ordenación posible de los éxitos y fracasos:</p>
-<p><span class="math display">\[\boxed{P[X = x] = p \cdot (1-p)^{x};\; x = 0, 1, \ldots, \infty }.\]</span></p>
+<p><span class="math display">\[
+X \sim \mathit{Ge}(p); \; 0&lt;p&lt;1,
+\]</span></p>
+<p>cuya función de probabilidad se simplifica bastante, ya que solo hay una ordenación posible de los éxitos y fracasos:</p>
+<p><span class="math display">\[
+\boxed{P[X = x] = p \cdot (1-p)^{x};\; x = 0, 1, \ldots, \infty }.
+\]</span></p>
 <p>En la figura <a href="modelos.html#fig:plotnbinom">7.4</a> la primera columna se corresponde con
 distribuciones geométricas. La media y varianza de una distribución geométrica son:</p>
 <ul>
@@ -630,9 +638,13 @@ clase <span class="math inline">\(A\)</span> (por ejemplo blancas). Por tanto, <
 la variable aleatoria:</p>
 <p><span class="math inline">\(X\)</span>: <em>Número de elementos de la clase <span class="math inline">\(A\)</span> obtenidos en un muestreo sin reemplazo de tamaño <span class="math inline">\(n\)</span> de un conjunto con <span class="math inline">\(N\)</span> elementos totales de los que <span class="math inline">\(M\)</span> son de dicha categoría <span class="math inline">\(A\)</span></em>.</p>
 <p>Que sigue una distribución geométrica de parámetros <span class="math inline">\(N\)</span>, <span class="math inline">\(M\)</span> y <span class="math inline">\(n\)</span>.</p>
-<p><span class="math display">\[X \sim \mathit{HG}(N;\; M;\; n);\;N&gt;M;\;N\geq n.\]</span></p>
+<p><span class="math display">\[
+X \sim \mathit{HG}(N;\; M;\; n);\;N&gt;M;\;N\geq n.
+\]</span></p>
 <p>La distribución hipergeométrica tiene la siguiente función de probabilidad:</p>
-<p><span class="math display">\[\boxed{P[X = x] = \frac{\binom{N-M}{n-x}\cdot \binom{M}{x}}{\binom{N}{n}};\; \max{(0, n+M-N)} \leq x \leq \min{(M,n)}}.\]</span></p>
+<p><span class="math display">\[
+\boxed{P[X = x] = \frac{\binom{N-M}{n-x}\cdot \binom{M}{x}}{\binom{N}{n}};\; \max{(0, n+M-N)} \leq x \leq \min{(M,n)}}.
+\]</span></p>
 <p>La figura <a href="modelos.html#fig:plotbinom">7.1</a> muestra gráficamente la distribución
 de probabilidad para varios valores de <span class="math inline">\(M\)</span> y <span class="math inline">\(n\)</span> y <span class="math inline">\(N=20\)</span>.</p>
 <div class="figure" style="text-align: center">
@@ -708,13 +720,13 @@ adecuada es la hipergeométrica. Además, no podríamos usar la aproximación de
 <span><span class="co">#&gt; [1] 0.4240465</span></span></code></pre></div>
 </div>
 </div>
-<div id="modelos-de-distribución-de-probabilidad-continuos" class="section level2" number="7.3">
+<div id="modeloscont" class="section level2" number="7.3">
 <h2>
-<span class="header-section-number">7.3</span> Modelos de distribución de probabilidad continuos<a class="anchor" aria-label="anchor" href="#modelos-de-distribuci%C3%B3n-de-probabilidad-continuos"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.3</span> Modelos de distribución de probabilidad continuos<a class="anchor" aria-label="anchor" href="#modeloscont"><i class="fas fa-link"></i></a>
 </h2>
-<div id="introducción-1" class="section level3" number="7.3.1">
+<div id="introducción" class="section level3" number="7.3.1">
 <h3>
-<span class="header-section-number">7.3.1</span> Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.3.1</span> Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n"><i class="fas fa-link"></i></a>
 </h3>
 <p>En este apartado vamos a revisar algunas distribuciones de probabilidad
 continuas que tienen interés en ciencias e ingeniería. Al igual que en los modelos de
@@ -1279,9 +1291,9 @@ de su elección.</p>
 </div>
 </div>
 </div>
-<div id="otros-modelos-de-distribución-de-probabilidad" class="section level2" number="7.4">
+<div id="otrosmodelos" class="section level2" number="7.4">
 <h2>
-<span class="header-section-number">7.4</span> Otros modelos de distribución de probabilidad<a class="anchor" aria-label="anchor" href="#otros-modelos-de-distribuci%C3%B3n-de-probabilidad"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.4</span> Otros modelos de distribución de probabilidad<a class="anchor" aria-label="anchor" href="#otrosmodelos"><i class="fas fa-link"></i></a>
 </h2>
 <p>Los modelos vistos en este capítulo y el anterior
 cubren la mayoría de los problemas cotidianos
@@ -1317,9 +1329,9 @@ características.</p>
 <h2>
 <span class="header-section-number">7.5</span> Convergencia de variables aleatorias<a class="anchor" aria-label="anchor" href="#convergencia"><i class="fas fa-link"></i></a>
 </h2>
-<div id="introducción-2" class="section level3" number="7.5.1">
+<div id="introducción-1" class="section level3" number="7.5.1">
 <h3>
-<span class="header-section-number">7.5.1</span> Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.5.1</span> Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>En este apartado vamos a tratar brevemente la convergencia de variables aleatorias
 y su aplicación al cálculo de probabilidades. La convergencia tiene también
@@ -1471,10 +1483,11 @@ P[X &gt; 45 ]= P\left[\frac{X-60}{\sqrt{48}} &gt;\frac{45-60}{\sqrt{48}}\right]=
 </div>
 </div>
 </div>
-<div id="distribuciones-relacionadas-con-la-normal" class="section level2" number="7.6">
+<div id="relacionadas" class="section level2" number="7.6">
 <h2>
-<span class="header-section-number">7.6</span> Distribuciones relacionadas con la normal<a class="anchor" aria-label="anchor" href="#distribuciones-relacionadas-con-la-normal"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.6</span> Distribuciones relacionadas con la normal<a class="anchor" aria-label="anchor" href="#relacionadas"><i class="fas fa-link"></i></a>
 </h2>
+<p>Distribuciones t-student, chi-cuadrado y F de Snedecor (ver definiciones en el capítulo <a href="muestreo.html#muestreo">8</a>).</p>
 
 </div>
 </div>
@@ -1489,7 +1502,7 @@ P[X &gt; 45 ]= P\left[\frac{X-60}{\sqrt{48}} &gt;\frac{45-60}{\sqrt{48}}\right]=
     <nav id="toc" data-toggle="toc" aria-label="Índice capítulo"><h2>Índice capítulo</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#modelos"><span class="header-section-number">7</span> Modelos de distribución de probabilidad</a></li>
-<li><a class="nav-link" href="#introducci%C3%B3n"><span class="header-section-number">7.1</span> Introducción</a></li>
+<li><a class="nav-link" href="#intromodelos"><span class="header-section-number">7.1</span> Introducción</a></li>
 <li>
 <a class="nav-link" href="#modelosdisc"><span class="header-section-number">7.2</span> Modelos de distribución de probabilidad discretos</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#distribuci%C3%B3n-de-bernoulli"><span class="header-section-number">7.2.1</span> Distribución de Bernoulli</a></li>
@@ -1500,24 +1513,24 @@ P[X &gt; 45 ]= P\left[\frac{X-60}{\sqrt{48}} &gt;\frac{45-60}{\sqrt{48}}\right]=
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#modelos-de-distribuci%C3%B3n-de-probabilidad-continuos"><span class="header-section-number">7.3</span> Modelos de distribución de probabilidad continuos</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#introducci%C3%B3n-1"><span class="header-section-number">7.3.1</span> Introducción</a></li>
+<a class="nav-link" href="#modeloscont"><span class="header-section-number">7.3</span> Modelos de distribución de probabilidad continuos</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introducci%C3%B3n"><span class="header-section-number">7.3.1</span> Introducción</a></li>
 <li><a class="nav-link" href="#distribuci%C3%B3n-uniforme"><span class="header-section-number">7.3.2</span> Distribución uniforme</a></li>
 <li><a class="nav-link" href="#distribuci%C3%B3n-exponencial"><span class="header-section-number">7.3.3</span> Distribución exponencial</a></li>
 <li><a class="nav-link" href="#distribuci%C3%B3n-normal"><span class="header-section-number">7.3.4</span> Distribución normal</a></li>
 <li><a class="nav-link" href="#mezcla-de-poblaciones-y-adici%C3%B3n-de-variables-aleatorias"><span class="header-section-number">7.3.5</span> Mezcla de poblaciones y adición de variables aleatorias</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#otros-modelos-de-distribuci%C3%B3n-de-probabilidad"><span class="header-section-number">7.4</span> Otros modelos de distribución de probabilidad</a></li>
+<li><a class="nav-link" href="#otrosmodelos"><span class="header-section-number">7.4</span> Otros modelos de distribución de probabilidad</a></li>
 <li>
 <a class="nav-link" href="#convergencia"><span class="header-section-number">7.5</span> Convergencia de variables aleatorias</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#introducci%C3%B3n-2"><span class="header-section-number">7.5.1</span> Introducción</a></li>
+<li><a class="nav-link" href="#introducci%C3%B3n-1"><span class="header-section-number">7.5.1</span> Introducción</a></li>
 <li><a class="nav-link" href="#leyes-de-los-grandes-n%C3%BAmeros"><span class="header-section-number">7.5.2</span> Leyes de los grandes números</a></li>
 <li><a class="nav-link" href="#teorema-central-del-l%C3%ADmite"><span class="header-section-number">7.5.3</span> Teorema central del límite</a></li>
 <li><a class="nav-link" href="#aproximaci%C3%B3n-de-distribuciones"><span class="header-section-number">7.5.4</span> Aproximación de distribuciones</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#distribuciones-relacionadas-con-la-normal"><span class="header-section-number">7.6</span> Distribuciones relacionadas con la normal</a></li>
+<li><a class="nav-link" href="#relacionadas"><span class="header-section-number">7.6</span> Distribuciones relacionadas con la normal</a></li>
 </ul>
 
       <div class="book-extra">

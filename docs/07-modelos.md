@@ -1,6 +1,6 @@
 # Modelos de distribución de probabilidad {#modelos}
 
-## Introducción 
+## Introducción {#intromodelos}
 
 En el capítulo \@ref(vauni) vimos que una variable aleatoria unidimensional se puede modelizar por cualquier función de distribución de probabilidad que cumpla los requisitos básicos de la probabilidad así, tenemos infinitas funciones de probabilidad para variables aleatorias discretas, o de densidad para variables aleatorias continuas. Sin embargo, la mayoría de los fenómenos de interés estudiados mediante la probabilidad se ajustan a un reducido conjunto de modelos de distribución de probabilidad o familias de distribuciones para los que se han determinado sus características principales, facilitando así el trabajo con variables aleatorias. En este capítulo revisaremos los más importantes para variables aleatorias discretas.
 
@@ -438,6 +438,7 @@ binomial bajo ciertas condiciones. En la práctica, para $n\geq 100$ y $p \leq 0
 se puede utilizar la aproximación:
 
 $$X\sim \mathit{Bin}(n;\;p) \leadsto \mathit{Poiss}(\lambda=np),$$
+
 siempre y cuando $np$ tenga sentido como parámetro $\lambda$, es decir, no excesivamente grande
 ni excesivamente pequeño. La figura \@ref(fig:plotaprox1) muestra la función
 de distribución de una variable aleatoria binomial con parámetros $n = 100, \, p = 0.05$
@@ -524,7 +525,9 @@ Si se da $X=x$, entonces habremos realizado un total de $x+c$ pruebas de Bernoul
 
 El término _negativa_ viene de la siguiente forma alternativa de escribir su función de probabilidad:
 
-$$P[X = x] =  \binom{-c}{x}\cdot p^c \cdot (1-p)^{x}.$$
+$$
+P[X = x] =  \binom{-c}{x}\cdot p^c \cdot (1-p)^{x}.
+$$
 
 La figura \@ref(fig:plotnbinom) muestra gráficamente la distribución
 de probabilidad para varios valores de $c$ y $p$. Se representan valores
@@ -553,7 +556,9 @@ Es decir, la suma de $m$ variables aleatorias binomiales negativas con el mismo 
 y parámetros $c_j$ que pueden ser diferentes, es una variable aleatoria que sigue también
 una distribución binomial negativa con el mismo parámetro $p$:
 
-$$Y=\sum\limits_{j=1}^m {X_j},\; X_j \sim \mathit{BN}(c_j;\; p) \implies Y \sim \mathit{BN}\left ( \sum\limits_{j=1}^m c_j;\; p \right ).$$
+$$
+Y=\sum\limits_{j=1}^m {X_j},\; X_j \sim \mathit{BN}(c_j;\; p) \implies Y \sim \mathit{BN}\left ( \sum\limits_{j=1}^m c_j;\; p \right ).
+$$
 
 
 
@@ -665,10 +670,15 @@ $c=1$, es la **distribución geométrica**. Es decir, nos interesan el número d
 
 $X$: _Número de fracasos hasta obtener el primer éxito en una serie de pruebas independientes de Bernoulli con probabilidad de éxito $p$_: 
 
-$$X \sim \mathit{Ge}(p); \; 0<p<1,$$
+$$
+X \sim \mathit{Ge}(p); \; 0<p<1,
+$$
+
 cuya función de probabilidad se simplifica bastante, ya que solo hay una ordenación posible de los éxitos y fracasos:
 
-$$\boxed{P[X = x] = p \cdot (1-p)^{x};\; x = 0, 1, \ldots, \infty }.$$ 
+$$
+\boxed{P[X = x] = p \cdot (1-p)^{x};\; x = 0, 1, \ldots, \infty }.
+$$ 
 
 En la figura \@ref(fig:plotnbinom) la primera columna se corresponde con
 distribuciones geométricas. La media y varianza de una distribución geométrica son:
@@ -734,11 +744,15 @@ $X$: _Número de elementos de la clase $A$ obtenidos en un muestreo sin reemplaz
 
 Que sigue una distribución geométrica de parámetros $N$, $M$ y $n$.
 
-$$X \sim \mathit{HG}(N;\; M;\; n);\;N>M;\;N\geq n.$$
+$$
+X \sim \mathit{HG}(N;\; M;\; n);\;N>M;\;N\geq n.
+$$
 
 La distribución hipergeométrica tiene la siguiente función de probabilidad:
 
-$$\boxed{P[X = x] = \frac{\binom{N-M}{n-x}\cdot \binom{M}{x}}{\binom{N}{n}};\; \max{(0, n+M-N)} \leq x \leq \min{(M,n)}}.$$
+$$
+\boxed{P[X = x] = \frac{\binom{N-M}{n-x}\cdot \binom{M}{x}}{\binom{N}{n}};\; \max{(0, n+M-N)} \leq x \leq \min{(M,n)}}.
+$$
 
 
 La figura \@ref(fig:plotbinom) muestra gráficamente la distribución
@@ -837,7 +851,7 @@ dhyper(x = 1, m = 4, n = 52-4, k = 10)
 ```
 
 
-## Modelos de distribución de probabilidad continuos
+## Modelos de distribución de probabilidad continuos {#modeloscont}
 
 
 
@@ -1619,7 +1633,7 @@ de su elección.
 
 
 
-## Otros modelos de distribución de probabilidad
+## Otros modelos de distribución de probabilidad {#otrosmodelos}
 
 Los modelos vistos en este capítulo y el anterior 
 cubren la mayoría de los problemas cotidianos
@@ -1866,6 +1880,6 @@ $$
 
 
 
-## Distribuciones relacionadas con la normal
+## Distribuciones relacionadas con la normal {#relacionadas}
 
-
+Distribuciones t-student, chi-cuadrado y F de Snedecor (ver definiciones en el capítulo \@ref(muestreo)).
