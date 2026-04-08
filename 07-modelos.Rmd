@@ -55,18 +55,25 @@ Dado un proceso de Bernoulli aislado, podemos definir la variable
 aleatoria $X$ que toma el valor 1 si el experimento es un éxito, y 
 0 si el experimento es un fracaso. 
 
-$$X=
+$$
+X=
 \begin{cases}
 1 & \text{ si éxito con probabilidad } p\\
 0 & \text{ si fracaso}
-\end{cases}$$ 
+\end{cases}
+$$ 
+
 Entonces las probabilidades para los dos posibles valores de la variable serán:
 
-$$P[X=1]=p;\quad P[X=0]=1-p,$$
+$$
+P
+[X=1]=p;\quad P[X=0]=1-p,
+$$
 
 y diremos que $X$ sigue una distribución de Bernoulli de parámetro $p$:
 
-$$X \sim \mathit{Ber}(p);\; 0<p<1.$$
+$$
+X \sim \mathit{Ber}(p);\; 0<p<1.$$
 
 
 Algunas veces se utiliza la notación $q=1-p$. Una expresión general para la **función de probabilidad** es la siguiente:
@@ -86,12 +93,12 @@ La distribución de Bernoulli aparece en los procesos de clasificación de
 observaciones (individuos, empresas, etc.) en una de dos categorías.
 
 ```{block2, type='rmdejemplo'}
-En el ejemplo de los potenciales usuarios de nuestro servicio, 
-dedujimos en el capítulo \@ref(introp) que la probabilidad
-de que un cliente tomado al azar contrate el servicio era $0.25$. 
+En el ejemplo de los sujetos en estudio, 
+habíamos deducido que la probabilidad
+de que un sujeto tomado al azar responda al tratamiento era $0.25$. 
 Entonces la variable aleatoria:
   
-$$X: \begin{cases}0\quad \text{ el cliente no contrata}\\1\quad \text{ el cliente contrata}\end{cases}$$
+$$X: \begin{cases}0\quad \text{ el sujeto no responde al tratamiento}\\1\quad \text{ el sujeto responde al tratamiento}\end{cases}$$
   
 sigue una distribución de probabilidad de Bernoulli de parámetro $p=0.25$,
 su media es $\mu=0.25$, su varianza $\sigma^2=0.1875$ y su función de
@@ -429,7 +436,7 @@ $Y: \text{ Número de visitas en cuatro semanas } = X_1 + X_2 + X_3 + X_4,$
 
 donde
 
-$X_i: \text{ Número de visitas en el día } i, \, i = 1, 2, 3, 4 \sim \mathit{Poiss}(8)$
+$X_i: \text{ Número de visitas en la semana } i, \, i = 1, 2, 3, 4 \sim \mathit{Poiss}(8)$
   
 Entonces:
 
@@ -1332,7 +1339,7 @@ axis(1, pos = -0.01, at = -3:3,
      lwd = 2)
 lines(x = c(0, 0), y = c(dnorm(0), -0.01), lty = 5)
 ypos <- seq(-0.1, -0.2, length.out = 3)
-ytext <- c("68.27%", "95.45%", "99.73%")
+ytext <- c("0.6827", "0.9545", "0.9973")
 text(x = 0, y = ypos, labels = ytext)
 arrows(x0 = c(rep(-0.29, 3), rep(0.29,3)), y0 = rep(ypos, 2), x1 = c(-1:(-3), 1:3), length = .15, angle = 25)
 xpos <- c(-1:(-3), 1:3)
