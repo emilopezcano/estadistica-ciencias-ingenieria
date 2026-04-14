@@ -1942,7 +1942,7 @@ $$P(D) = P(D|A)P(A)+P(D|B)P(B)+P(D|C)P(C) =\\
 En este caso la probabilidad pedida es $P(A|D)$, que calculamos con la 
 fórmula de Bayes, donde el denominador ya lo hemos calculado:
   
-$$P(A|D) = \frac{P(D|A)P(A)}{P(d)}= \frac{0.0183\cdot 0.25}{0.1393} \simeq \boxed{0.0329}. $$  
+$$P(A|D) = \frac{P(D|A)P(A)}{P(D)}= \frac{0.0183\cdot 0.25}{0.1393} \simeq \boxed{0.0329}. $$  
   
 **Cuestión 2.a)**
 
