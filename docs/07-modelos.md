@@ -1874,7 +1874,7 @@ Ahora tipificamos y calculamos probabilidades de la normal estandarizada:
 $$
 \begin{align*}
 P[X > 45 ]&= P\left[\frac{X-60}{\sqrt{48}} >\frac{45-60}{\sqrt{48}}\right]=P[Z>-2.16]=\\
-&=P[Z\leq 2.16]= 1-0.0154=0.9846.
+&=P[Z\leq 2.16]=0.9846.
 \end{align*}
 $$
 
