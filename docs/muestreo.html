@@ -316,7 +316,7 @@ el tamaño de la muestra se calcula con esta otra fórmula:</p>
 <p>Queremos estimar la valoración que hacen los clientes de un determinado servicio energético en una puntuación de 0 a 10. El caso más desfavorable (para el tamaño de la varianza) sería que la mitad de los clientes contestaran un 0 y la otra mitad un 10. O, equivalentemente, que contestara un cliente con un cero y otro con un 10. Entonces, la varianza <span class="math inline">\(s^2\)</span> estaría entre 50 <span class="math inline">\((n=2)\)</span> y 25 (<span class="math inline">\(n\)</span> grande). El tamaño de muestra mínimo para estimar la puntuación media en una población grande y no equivocarnos en más de <span class="math inline">\(e = 1\)</span> punto con una confianza del 95% sería de <span class="math inline">\(n =192\)</span> clientes.</p>
 <p><span class="math display">\[n = \frac{1.96^2\cdot 50}{1^2}\simeq 192\]</span></p>
 </div>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 50</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
@@ -361,166 +361,166 @@ entre 6.5 y 9.5 unidades de pH. Se obtienen 30 muestras aleatorias en hogares y 
 muestran en la tabla <a href="muestreo.html#tab:ph1">8.1</a>. Podríamos estimar con estos datos la media de pH en la población, la varianza, y la proporción de edificios con depósito de agua, utilizando los estimadores indicados anteriormente.</p>
 </div>
 <div class="tabwid">
-<style>.cl-535fc90e{}.cl-535c4d42{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-535da9ee{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-535da9f8{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-535db8a8{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-535db8a9{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-535db8b2{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-535db8b3{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-535db8b4{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-535db8bc{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-535db8bd{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-535db8c6{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-535db8c7{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-535db8c8{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-535db8c9{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-535db8d0{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<div class="inline-table"><table data-quarto-disable-processing="true" class="cl-535fc90e">
+<style>.cl-64ec0796{}.cl-64e859a2{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-64e9d20a{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-64e9d214{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-64e9e0f6{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64e9e100{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64e9e101{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64e9e102{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64e9e10a{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64e9e10b{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64e9e114{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64e9e115{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64e9e116{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64e9e11e{width:0.668in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64e9e11f{width:0.863in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64e9e120{width:0.948in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<div class="inline-table"><table data-quarto-disable-processing="true" class="cl-64ec0796">
 <caption style="display:table-caption;margin:0pt;text-align:center;border-bottom: 0.00pt solid transparent;border-top: 0.00pt solid transparent;border-left: 0.00pt solid transparent;border-right: 0.00pt solid transparent;padding-top:3pt;padding-bottom:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;">
 <span id="tab:ph1">Tabla 8.1: </span><span>Datos de pH del agua del grifo en 30 viviendas</span>
 </caption>
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-535db8a8"><p class="cl-535da9ee"><span class="cl-535c4d42">pH</span></p></th>
-<th class="cl-535db8a9"><p class="cl-535da9f8"><span class="cl-535c4d42">deposito</span></p></th>
-<th class="cl-535db8b2"><p class="cl-535da9ee"><span class="cl-535c4d42">antimonio</span></p></th>
+<th class="cl-64e9e0f6"><p class="cl-64e9d20a"><span class="cl-64e859a2">pH</span></p></th>
+<th class="cl-64e9e100"><p class="cl-64e9d214"><span class="cl-64e859a2">deposito</span></p></th>
+<th class="cl-64e9e101"><p class="cl-64e9d20a"><span class="cl-64e859a2">antimonio</span></p></th>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8b3"><p class="cl-535da9ee"><span class="cl-535c4d42">7.687</span></p></td>
-<td class="cl-535db8b4"><p class="cl-535da9f8"><span class="cl-535c4d42">Sí</span></p></td>
-<td class="cl-535db8bc"><p class="cl-535da9ee"><span class="cl-535c4d42">0.94</span></p></td>
+<td class="cl-64e9e102"><p class="cl-64e9d20a"><span class="cl-64e859a2">7.687</span></p></td>
+<td class="cl-64e9e10a"><p class="cl-64e9d214"><span class="cl-64e859a2">Sí</span></p></td>
+<td class="cl-64e9e10b"><p class="cl-64e9d20a"><span class="cl-64e859a2">0.94</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">8.092</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">1.03</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.092</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.03</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">7.582</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">1.06</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">7.582</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.06</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">8.798</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">0.99</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.798</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">0.99</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">8.165</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">1.07</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.165</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.07</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">7.590</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">1.03</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">7.590</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.03</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">8.244</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">0.95</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.244</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">0.95</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8b3"><p class="cl-535da9ee"><span class="cl-535c4d42">8.369</span></p></td>
-<td class="cl-535db8b4"><p class="cl-535da9f8"><span class="cl-535c4d42">Sí</span></p></td>
-<td class="cl-535db8bc"><p class="cl-535da9ee"><span class="cl-535c4d42">1.03</span></p></td>
+<td class="cl-64e9e102"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.369</span></p></td>
+<td class="cl-64e9e10a"><p class="cl-64e9d214"><span class="cl-64e859a2">Sí</span></p></td>
+<td class="cl-64e9e10b"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.03</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">8.288</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">0.91</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.288</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">0.91</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8b3"><p class="cl-535da9ee"><span class="cl-535c4d42">7.847</span></p></td>
-<td class="cl-535db8b4"><p class="cl-535da9f8"><span class="cl-535c4d42">Sí</span></p></td>
-<td class="cl-535db8bc"><p class="cl-535da9ee"><span class="cl-535c4d42">1.11</span></p></td>
+<td class="cl-64e9e102"><p class="cl-64e9d20a"><span class="cl-64e859a2">7.847</span></p></td>
+<td class="cl-64e9e10a"><p class="cl-64e9d214"><span class="cl-64e859a2">Sí</span></p></td>
+<td class="cl-64e9e10b"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.11</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">8.756</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">1.16</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.756</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.16</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8b3"><p class="cl-535da9ee"><span class="cl-535c4d42">8.195</span></p></td>
-<td class="cl-535db8b4"><p class="cl-535da9f8"><span class="cl-535c4d42">Sí</span></p></td>
-<td class="cl-535db8bc"><p class="cl-535da9ee"><span class="cl-535c4d42">0.97</span></p></td>
+<td class="cl-64e9e102"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.195</span></p></td>
+<td class="cl-64e9e10a"><p class="cl-64e9d214"><span class="cl-64e859a2">Sí</span></p></td>
+<td class="cl-64e9e10b"><p class="cl-64e9d20a"><span class="cl-64e859a2">0.97</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">7.689</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">0.92</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">7.689</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">0.92</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">6.893</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">1.05</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">6.893</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.05</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">8.562</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">0.99</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.562</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">0.99</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8b3"><p class="cl-535da9ee"><span class="cl-535c4d42">7.978</span></p></td>
-<td class="cl-535db8b4"><p class="cl-535da9f8"><span class="cl-535c4d42">Sí</span></p></td>
-<td class="cl-535db8bc"><p class="cl-535da9ee"><span class="cl-535c4d42">1.19</span></p></td>
+<td class="cl-64e9e102"><p class="cl-64e9d20a"><span class="cl-64e859a2">7.978</span></p></td>
+<td class="cl-64e9e10a"><p class="cl-64e9d214"><span class="cl-64e859a2">Sí</span></p></td>
+<td class="cl-64e9e10b"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.19</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8b3"><p class="cl-535da9ee"><span class="cl-535c4d42">7.992</span></p></td>
-<td class="cl-535db8b4"><p class="cl-535da9f8"><span class="cl-535c4d42">Sí</span></p></td>
-<td class="cl-535db8bc"><p class="cl-535da9ee"><span class="cl-535c4d42">1.00</span></p></td>
+<td class="cl-64e9e102"><p class="cl-64e9d20a"><span class="cl-64e859a2">7.992</span></p></td>
+<td class="cl-64e9e10a"><p class="cl-64e9d214"><span class="cl-64e859a2">Sí</span></p></td>
+<td class="cl-64e9e10b"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.00</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">8.472</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">1.06</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.472</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.06</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8b3"><p class="cl-535da9ee"><span class="cl-535c4d42">8.411</span></p></td>
-<td class="cl-535db8b4"><p class="cl-535da9f8"><span class="cl-535c4d42">Sí</span></p></td>
-<td class="cl-535db8bc"><p class="cl-535da9ee"><span class="cl-535c4d42">1.00</span></p></td>
+<td class="cl-64e9e102"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.411</span></p></td>
+<td class="cl-64e9e10a"><p class="cl-64e9d214"><span class="cl-64e859a2">Sí</span></p></td>
+<td class="cl-64e9e10b"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.00</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8b3"><p class="cl-535da9ee"><span class="cl-535c4d42">8.297</span></p></td>
-<td class="cl-535db8b4"><p class="cl-535da9f8"><span class="cl-535c4d42">Sí</span></p></td>
-<td class="cl-535db8bc"><p class="cl-535da9ee"><span class="cl-535c4d42">0.94</span></p></td>
+<td class="cl-64e9e102"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.297</span></p></td>
+<td class="cl-64e9e10a"><p class="cl-64e9d214"><span class="cl-64e859a2">Sí</span></p></td>
+<td class="cl-64e9e10b"><p class="cl-64e9d20a"><span class="cl-64e859a2">0.94</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">8.459</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">1.02</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.459</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.02</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8b3"><p class="cl-535da9ee"><span class="cl-535c4d42">8.391</span></p></td>
-<td class="cl-535db8b4"><p class="cl-535da9f8"><span class="cl-535c4d42">Sí</span></p></td>
-<td class="cl-535db8bc"><p class="cl-535da9ee"><span class="cl-535c4d42">0.86</span></p></td>
+<td class="cl-64e9e102"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.391</span></p></td>
+<td class="cl-64e9e10a"><p class="cl-64e9d214"><span class="cl-64e859a2">Sí</span></p></td>
+<td class="cl-64e9e10b"><p class="cl-64e9d20a"><span class="cl-64e859a2">0.86</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">8.037</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">1.12</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.037</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.12</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">7.005</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">1.01</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">7.005</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.01</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8b3"><p class="cl-535da9ee"><span class="cl-535c4d42">8.310</span></p></td>
-<td class="cl-535db8b4"><p class="cl-535da9f8"><span class="cl-535c4d42">Sí</span></p></td>
-<td class="cl-535db8bc"><p class="cl-535da9ee"><span class="cl-535c4d42">1.17</span></p></td>
+<td class="cl-64e9e102"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.310</span></p></td>
+<td class="cl-64e9e10a"><p class="cl-64e9d214"><span class="cl-64e859a2">Sí</span></p></td>
+<td class="cl-64e9e10b"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.17</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">7.972</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">1.04</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">7.972</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.04</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8b3"><p class="cl-535da9ee"><span class="cl-535c4d42">7.922</span></p></td>
-<td class="cl-535db8b4"><p class="cl-535da9f8"><span class="cl-535c4d42">Sí</span></p></td>
-<td class="cl-535db8bc"><p class="cl-535da9ee"><span class="cl-535c4d42">0.94</span></p></td>
+<td class="cl-64e9e102"><p class="cl-64e9d20a"><span class="cl-64e859a2">7.922</span></p></td>
+<td class="cl-64e9e10a"><p class="cl-64e9d214"><span class="cl-64e859a2">Sí</span></p></td>
+<td class="cl-64e9e10b"><p class="cl-64e9d20a"><span class="cl-64e859a2">0.94</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">7.265</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">1.05</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">7.265</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">1.05</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8bd"><p class="cl-535da9ee"><span class="cl-535c4d42">7.761</span></p></td>
-<td class="cl-535db8c6"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8c7"><p class="cl-535da9ee"><span class="cl-535c4d42">0.93</span></p></td>
+<td class="cl-64e9e114"><p class="cl-64e9d20a"><span class="cl-64e859a2">7.761</span></p></td>
+<td class="cl-64e9e115"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e116"><p class="cl-64e9d20a"><span class="cl-64e859a2">0.93</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-535db8c8"><p class="cl-535da9ee"><span class="cl-535c4d42">8.209</span></p></td>
-<td class="cl-535db8c9"><p class="cl-535da9f8"><span class="cl-535c4d42">No</span></p></td>
-<td class="cl-535db8d0"><p class="cl-535da9ee"><span class="cl-535c4d42">0.90</span></p></td>
+<td class="cl-64e9e11e"><p class="cl-64e9d20a"><span class="cl-64e859a2">8.209</span></p></td>
+<td class="cl-64e9e11f"><p class="cl-64e9d214"><span class="cl-64e859a2">No</span></p></td>
+<td class="cl-64e9e120"><p class="cl-64e9d20a"><span class="cl-64e859a2">0.90</span></p></td>
 </tr>
 </tbody>
 </table></div>
@@ -533,7 +533,7 @@ de una url. Resultan las siguientes estimaciones puntuales:</p>
 <span class="math display">\[\hat{\sigma}^2= s^2 = 0.21\]</span>
 <span class="math display">\[\hat{\pi}= p = \frac{11}{30} = 0.37\]</span></p>
 </div>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ph1</span><span class="op">$</span><span class="va">pH</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 8.041267</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">ph1</span><span class="op">$</span><span class="va">pH</span><span class="op">)</span></span>
@@ -604,7 +604,7 @@ obtener dos números, uno sumando y otro restando aquello a lo que multiplica,
 y <code>qnorm(0.975)</code> nos da el valor de <span class="math inline">\(z_{\frac \alpha 2}\)</span>, dado que si
 <span class="math inline">\(1-\alpha=0{,}95 \implies \frac \alpha 2 = \frac{ 0{,}05}{ 2} = 0{,}025\)</span>.</p>
 </div>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ph1</span><span class="op">$</span><span class="va">pH</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.975</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">0.25</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">30</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 7.862347 8.220186</span></span></code></pre></div>
 <div class="rmdinfo">
@@ -649,7 +649,7 @@ antimonio en el agua potable es menor de 1,05 <span class="math inline">\(\mu\)<
 marcado por la legislación (téngase en cuenta que hacemos estimaciones sobre la media, no
 sobre posibles valores individuales).</p>
 </div>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ph1</span><span class="op">$</span><span class="va">antimonio</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.99</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">0.0064</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">30</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 1.048645</span></span></code></pre></div>
 </div>
@@ -723,7 +723,7 @@ lo obtendríamos con la función <code><a href="https://rdrr.io/r/stats/TDist.ht
 al 95% de confianza:</p>
 <pre><code>qt(0.975, 29)</code></pre>
 </div>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">ph1</span><span class="op">$</span><span class="va">pH</span><span class="op">)</span><span class="op">$</span><span class="va">conf.int</span></span>
 <span><span class="co">#&gt; [1] 7.868734 8.213799</span></span>
 <span><span class="co">#&gt; attr(,"conf.level")</span></span>
@@ -753,7 +753,7 @@ Vamos a obtener el intervalo de confianza bilateral para la proporción de edifi
 En general, esta aproximación es más conservadora (intervalos amplios) que otros métodos más precisos.
 En R podemos obtener un intervalo exacto para la proporción de viviendas utilizando la binomial, y otro mediante la distribución chi-cuadrado que no vemos en más detalle. Este último aplica por defecto la llamada “corrección por continuidad de Yates” (Véase la ayuda de la función <code><a href="https://rdrr.io/r/stats/prop.test.html">prop.test()</a></code>.</p>
 </div>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/binom.test.html">binom.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">11</span>, n <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Exact binomial test</span></span>
@@ -800,7 +800,7 @@ teniendo en cuenta que los cuantiles de la distribución <span class="math inlin
 con la función <code><a href="https://rdrr.io/r/stats/Chisquare.html">qchisq()</a></code>. No hay una función específica en <strong>R</strong> base para obtener
 el intervalo de confianza, pero se puede calcular con las siguientes expresiones.</p>
 </div>
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">LS</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">ph1</span><span class="op">$</span><span class="va">pH</span><span class="op">)</span><span class="op">*</span><span class="fl">29</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/Chisquare.html">qchisq</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">29</span><span class="op">)</span></span>
 <span><span class="va">LI</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">ph1</span><span class="op">$</span><span class="va">pH</span><span class="op">)</span><span class="op">*</span><span class="fl">29</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/Chisquare.html">qchisq</a></span><span class="op">(</span><span class="fl">0.975</span>, <span class="fl">29</span><span class="op">)</span></span>
 <span><span class="va">LI</span>;<span class="va">LS</span></span>
@@ -840,7 +840,7 @@ la siguiente distribución en el muestreo:</p>
 <div class="rmdejemplo">
 <p>En el conjunto de datos del pH podemos comparar estimar intervalos de confianza para la diferencia en la media del pH entre los edificios que tienen depósito de agua y los que no. La función <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> que ya utilizamos para el intervalo de confianza de la media no sirve para este nuevo intervalo de confianza. Por defecto asume varianzas desconocidas y distintas (correción de Welch). Con el argumento <code>var.equal</code> se puede cambiar este comportamiento por defecto.</p>
 </div>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">pH</span> <span class="op">~</span> <span class="va">deposito</span>, data <span class="op">=</span> <span class="va">ph1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Welch Two Sample t-test</span></span>
@@ -893,7 +893,7 @@ Figura 8.5: Forma de la densidad de F para varias combinaciones de parámetros
 <div class="rmdejemplo">
 <p>Vamos a calcular un intervalo de confianza para el cociente de varianzas de los edificios que no tienen depósito y los que sí tienen depósito. La función <code><a href="https://rdrr.io/r/stats/var.test.html">var.test()</a></code> nos da este resultado. Nótese que el intervalo no contiene al 1, y por tanto no es compatible con que las varianzas sean iguales. Esto se podría utilizar para decidir si tenemos varianzas iguales o no al calcular un intervalo de confianza de la diferencia de medias.</p>
 </div>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/var.test.html">var.test</a></span><span class="op">(</span><span class="va">pH</span> <span class="op">~</span> <span class="va">deposito</span>, data <span class="op">=</span> <span class="va">ph1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  F test to compare two variances</span></span>
@@ -974,7 +974,7 @@ Figura 8.5: Forma de la densidad de F para varias combinaciones de parámetros
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="https://lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2026-04-08.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="https://lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2026-04-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

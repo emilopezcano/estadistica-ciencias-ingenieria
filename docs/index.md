@@ -1,7 +1,7 @@
 --- 
 title: "Estadística Aplicada a las Ciencias y la Ingeniería"
 author: "Emilio L. Cano"
-date: "2026-04-08"
+date: "2026-04-14"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib, iso.bib]

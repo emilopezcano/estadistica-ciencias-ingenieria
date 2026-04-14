@@ -1264,7 +1264,7 @@ siguiente:</p>
 <p><strong>Cuestión 1.b)</strong></p>
 <p>En este caso la probabilidad pedida es <span class="math inline">\(P(A|D)\)</span>, que calculamos con la
 fórmula de Bayes, donde el denominador ya lo hemos calculado:</p>
-<p><span class="math display">\[P(A|D) = \frac{P(D|A)P(A)}{P(d)}= \frac{0.0183\cdot 0.25}{0.1393} \simeq \boxed{0.0329}. \]</span></p>
+<p><span class="math display">\[P(A|D) = \frac{P(D|A)P(A)}{P(D)}= \frac{0.0183\cdot 0.25}{0.1393} \simeq \boxed{0.0329}. \]</span></p>
 <p><strong>Cuestión 2.a)</strong></p>
 <p>Ahora no estamos mezclando poblaciones, sino sumando variables aleatorias. En
 concreto, las ventas totales recaudadas por la empresa será una variable aleatoria
@@ -1477,9 +1477,19 @@ X \leadsto N(300\cdot 0.2; \sqrt{300\cdot 0.2 \cdot 0.8}\equiv N(60, \sqrt{48}).
 \]</span></p>
 <p>Ahora tipificamos y calculamos probabilidades de la normal estandarizada:</p>
 <p><span class="math display">\[
-P[X &gt; 45 ]= P\left[\frac{X-60}{\sqrt{48}} &gt;\frac{45-60}{\sqrt{48}}\right]=P[Z&gt;-2.16]=\\
-=1-P[Z&gt;2.16]= 1-0.0154=0.9846.
+\begin{align*}
+P[X &gt; 45 ]&amp;= P\left[\frac{X-60}{\sqrt{48}} &gt;\frac{45-60}{\sqrt{48}}\right]=P[Z&gt;-2.16]=\\
+&amp;=P[Z\leq 2.16]= 1-0.0154=0.9846.
+\end{align*}
 \]</span></p>
+<p>Con R calcularíamos la aproximación de la normal así:</p>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">45</span>, mean <span class="op">=</span> <span class="fl">60</span>, sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">48</span><span class="op">)</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.9848086</span></span></code></pre></div>
+<p>Y el valor exacto de la probabilidad con la función de distribución de la binomial:</p>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">44</span>, size <span class="op">=</span> <span class="fl">300</span>, prob <span class="op">=</span> <span class="fl">0.2</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.989395</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -1548,7 +1558,7 @@ P[X &gt; 45 ]= P\left[\frac{X-60}{\sqrt{48}} &gt;\frac{45-60}{\sqrt{48}}\right]=
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="https://lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2026-04-08.</p>
+    <p>"<strong>Estadística Aplicada a las Ciencias y la Ingeniería</strong>" escrito por <a href="https://lcano.com" class="text-light">Emilio L. Cano</a>. Generado por última vez el día 2026-04-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
