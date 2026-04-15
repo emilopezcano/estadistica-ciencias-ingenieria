@@ -1968,7 +1968,7 @@ Una vez tenemos la distribución de probabilidad, obtenemos
 la probabilidad de la manera habitual:
   
 $$P[Y < 300] = P \left[ \frac{Y-\mu_Y}{\sigma_Y} < \frac{300 -345}{30}\right] = \\
-P[Z < -1.5] = P[Z > 1.5] \simeq \boxed{0.0668}.$$
+P[Z < -1.5] = 1 - P[Z \leq 1.5] =1-  0.9332 \simeq \boxed{0.0668}.$$
 
 ```
 
