@@ -16,29 +16,30 @@ intentar tener una visión de todo lo que abarca. Así pues, ¿qué es la Estad�
 La primera fuente que podemos consultar es la definición de la Real Academia Española,
 y encontramos estas acepciones:
 
+
 >**estadístico, ca**  
 >_La forma f., del al. Statistik, y este der. del it. statista 'hombre de Estado'._
 >
 >1. adj. Perteneciente o relativo a la estadística.
 >2. m. y f. Especialista en estadística.
+>3. m. Estad. Función de valores obtenidos de una muestra, que se utiliza para inferir propiedades de una población.
+>4. f. **Estudio de los datos** cuantitativos de la población, de los recursos naturales e industriales, del tráfico o de cualquier otra manifestación de las sociedades humanas.
+>5. f. Conjunto de **datos** estadísticos.
+>6. f. Rama de la matemática que utiliza grandes conjuntos de datos numéricos para obtener **inferencias** basadas en el **cálculo de probabilidades**.
 >
->3. f. **Estudio de los datos** cuantitativos de la población, de los recursos naturales e industriales, del tráfico o de cualquier otra manifestación de las sociedades humanas.
->4. f. Conjunto de **datos** estadísticos.
->5. f. Rama de la matemática que utiliza grandes conjuntos de datos numéricos para obtener **inferencias** basadas en el **cálculo de probabilidades**.
->
-> RAE
+> [_Real Academia Española_ [🔗](https://dle.rae.es/estadístico)]{.quote-author}
 
-Las acepciones que nos interesan son sobre todo la tercera y la cuarta, en las 
+Las acepciones que nos interesan son sobre todo la cuarta y la sexta, en las 
 que aparecen conceptos
 que veremos en este capítulo introductorio y en los que profundizaremos en el resto
-del libro. La tercera acepción, "Conjunto de **datos** estadísticos", es lo que muchas
+del libro. La quinta acepción, "Conjunto de **datos** estadísticos", es lo que muchas
 personas entienden cuando oyen la palabra Estadística: La estadística del paro,
 la estadística de los precios, etc. Pero la Estadística es mucho más amplia.
 En primer lugar, esos "datos estadísticos" han tenido que ser recopilados y
 tratados de alguna forma antes de llegar a su publicación. Además, los datos
 estadísticos así entendidos son el resultado de un estudio pormenorizado
 (acepción 3) y normalmente de la aplicación de técnicas de **inferencia**
-(acepción 5). Algunas de estas técnicas forma parte de lo que vulgarmente
+(acepción 6). Algunas de estas técnicas forma parte de lo que vulgarmente
 se conoce como "la cocina" de las estadísticas. 
 
 Podemos hablar entonces de la Estadística, de forma muy resumida,
@@ -312,8 +313,8 @@ elementos de nuestro proceso no satisfacen los requisitos. En este ejemplo se ve
 claramente cómo reducir la variabilidad mejora la calidad ¡sin hacer nada
 más! (ni nada menos). 
 
-<div class="figure">
-<img src="images/histos-1.png" alt="Procesos con la misma media y distinta variabilidad"  />
+<div class="figure" style="text-align: center">
+<img src="images/histos-1.png" alt="Procesos con la misma media y distinta variabilidad" width="100%" />
 <p class="caption">(\#fig:histos)Procesos con la misma media y distinta variabilidad</p>
 </div>
 
@@ -359,8 +360,8 @@ Control Estadístico de Procesos (SPC, _Statistical Process Control_)
 son los **gráficos de control** y el **análisis de la capacidad del proceso**.
 La figura \@ref(fig:spc) muestra un ejemplo de ambas. El gráfico de control de la parte superior sirve para monitorizar las muestras (subgrupos de los que se calcula un estadístico) con el objetivo de detectar el cambio con respecto a su situación de control estadístico. Así, los límites son "la voz del proceso". La parte inferior representa "la voz de cliente", comparando las especificaciones con la variabilidad del proceso, y calculando los índices de capacidad que son la medida real de calidad a largo plazo (frente a la mera contabilización de las unidades defectuosas y su cuantificación monetaria). Estas técnicas se combinan con otras tanto exploratorias como de inferencia para controlar y mejorar la calidad.
 
-<div class="figure">
-<img src="images/spc.png" alt="Gráficos de control y capacidad del proceso"  />
+<div class="figure" style="text-align: center">
+<img src="images/spc.png" alt="Gráficos de control y capacidad del proceso" width="100%" />
 <p class="caption">(\#fig:spc)Gráficos de control y capacidad del proceso</p>
 </div>
 

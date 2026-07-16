@@ -75,3 +75,13 @@ pre code {
   background-image: url("images/bulb.png");
   border: 2px solid #bee5eb;
 }
+
+
+// autores en citas
+.quote-author {
+  display: block;
+  text-align: right;
+  margin-top: 0.5em;
+  font-size: 0.6em;
+  font-style: italic;
+}

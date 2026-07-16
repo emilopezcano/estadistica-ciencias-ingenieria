@@ -146,7 +146,7 @@ $\subseteq$                | Incluido o igual
 
 * Varianza poblacional: $\sigma^2= \frac{\sum\limits_{i=1}^N (X_i- \mu)^2}{N} = \frac{1}{N} \sum\limits_{i=1}^n X_i^2 - \mu^2$
 
-* Desviación típica muestral o cuasidesviación típica: $s= \sqrt{s^2} = \sqrt{\frac{\sum\limits_{i=1}^n (x_i- \bar{x})^2}{n-1}}$.
+* Desviación típica muestral o cuasidesviación típica: $s= \sqrt{s^2} = \sqrt{\frac{\sum\limits_{i=1}^n (x_i- \bar{x})^2}{n-1}} = \sqrt{\frac{1}{n-1}\left (\sum\limits_{i=1}^n x_i^2 - n \bar x^2\right )}$.
 
 * Propiedad de la varianza: $Y=a+bX \implies s_y^2=b^2s^2_X$
 

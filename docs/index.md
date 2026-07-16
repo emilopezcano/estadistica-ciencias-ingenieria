@@ -1,7 +1,7 @@
 --- 
 title: "Estadística Aplicada a las Ciencias y la Ingeniería"
 author: "Emilio L. Cano"
-date: "2026-04-15"
+date: "2026-07-16"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib, iso.bib]
@@ -97,7 +97,7 @@ Obsérvese que los resultados se muestran precedidos de los símbolos
 sessionInfo()
 #> R version 4.5.2 (2025-10-31)
 #> Platform: aarch64-apple-darwin20
-#> Running under: macOS Tahoe 26.4.1
+#> Running under: macOS Tahoe 26.5.2
 #> 
 #> Matrix products: default
 #> BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib 
@@ -121,7 +121,7 @@ sessionInfo()
 #>  [3] renv_1.1.5              Rcpp_1.1.0             
 #>  [5] zip_2.3.3               xml2_1.4.0             
 #>  [7] jquerylib_0.1.4         fontquiver_0.2.1       
-#>  [9] systemfonts_1.2.3       textshaping_1.0.3      
+#>  [9] systemfonts_1.3.2       textshaping_1.0.3      
 #> [11] uuid_1.2-1              yaml_2.3.10            
 #> [13] fastmap_1.2.0           R6_2.6.1               
 #> [15] gdtools_0.4.3           knitr_1.50             
