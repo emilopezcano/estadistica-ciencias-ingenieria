@@ -735,6 +735,16 @@ $$
 b = \frac{s_y}{s_x}r_{xy}.
 $$
 
+
+Por otra parte, la recta de regresión siempre pasa por el centro de gravedad de la nube de puntos, es decir, el punto cuyas coordenadas son las medias de las variables:
+
+$$
+(\bar x, \bar y)
+$$
+
+
+
+
 ### Interpretación de los coeficientes
 
 La recta de regresión nos sirve para dos cometidos: explicar la relación entre
