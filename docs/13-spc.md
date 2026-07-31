@@ -1718,12 +1718,14 @@ myqcc <- qcc(data = groups, type = "xbar", plot = FALSE)
 
 cap <- processCapability(object = myqcc, 
     spec.limits = c(0.718, 0.782))
+#> target value not provided; using midpoint of specification limits. Cpm and Ppm may be optimistic
 print(cap)
 #> ── Process Capability Analysis ─────────────────── 
 #> 
 #> Number of obs = 84           Target = 0.75    
 #> Center        = 0.7585238    LSL    = 0.718   
 #> StdDev        = 0.02376254   USL    = 0.782   
+#> Overall SD    = 0.02789588  
 #>                   
 #> Capability indices  Value   2.5%  97.5%
 #>               Cp    0.449  0.381  0.517
@@ -1731,6 +1733,11 @@ print(cap)
 #>               Cp_u  0.329  0.256  0.402
 #>               Cp_k  0.329  0.242  0.416
 #>               Cpm   0.423  0.355  0.490
+#>               Pp    0.382  0.324  0.440
+#>               Pp_l  0.484  0.398  0.570
+#>               Pp_u  0.281  0.211  0.350
+#>               Pp_k  0.281  0.197  0.364
+#>               Ppm   0.366  0.308  0.423
 #> 
 #> Exp<LSL 4.4%	 Obs<LSL 6%
 #> Exp>USL 16%	 Obs>USL 21%
@@ -1792,12 +1799,22 @@ library(SixSigma)
 ss.study.ca(ss.data.ca$Volume, rnorm(40, 753, 3), 
         LSL = 740, USL = 760, T = 750, alpha = 0.05, 
              f.sub = "Winery Project")
+#> Warning: Using `size` aesthetic for lines was deprecated in ggplot2
+#> 3.4.0.
+#> ℹ Please use `linewidth` instead.
+#> ℹ The deprecated feature was likely used in the SixSigma
+#>   package.
+#>   Please report the issue at
+#>   <https://github.com/emilopezcano/SixSigma/issues/>.
+#> This warning is displayed once per session.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where
+#> this warning was generated.
 #> Warning: `qplot()` was deprecated in ggplot2 3.4.0.
 #> ℹ The deprecated feature was likely used in the SixSigma
 #>   package.
 #>   Please report the issue at
 #>   <https://github.com/emilopezcano/SixSigma/issues/>.
-#> This warning is displayed once every 8 hours.
+#> This warning is displayed once per session.
 #> Call `lifecycle::last_lifecycle_warnings()` to see where
 #> this warning was generated.
 ```

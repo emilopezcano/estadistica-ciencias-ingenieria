@@ -416,7 +416,7 @@ $$P[X\in A | X \in B] = \frac{P[(X\in A) \cap (X \in B)]}{P[X \in B]}$$
 La siguiente tabla contiene la probabilidad de la cola inferior de la distribución normal estándar $Z\sim N(0;1)$, 
 es decir $F(z)=P[Z\leq z].$. 
 
-<img src="91-apendices_files/figure-html/unnamed-chunk-2-1.png" width="70%" />
+<img src="91-apendices_files/figure-html/unnamed-chunk-2-1.png" alt="" width="70%" />
 
 
 
@@ -739,7 +739,7 @@ mibeta <- function(x) dbeta(x, 1, 5)
 curve(mibeta, lwd = 2)
 ```
 
-<img src="91-apendices_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<img src="91-apendices_files/figure-html/unnamed-chunk-11-1.png" alt="" width="672" />
 
 
 
@@ -779,7 +779,7 @@ curve(migamma(x, 4), lwd = 2, add = TRUE, lty = 3)
 legend(x = 6, y = 2, c("a = 1", "a = 2", "a = 4"), lty = 1:3)
 ```
 
-<img src="91-apendices_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<img src="91-apendices_files/figure-html/unnamed-chunk-12-1.png" alt="" width="672" />
 
 ### Distribución de Weibull
 
@@ -816,7 +816,7 @@ curve(miweibull(x, 5), lwd = 2, add = TRUE, lty = 3)
 legend(x = 4, y = 1, c("a = 1", "a = 2", "a = 5"), lty = 1:3)
 ```
 
-<img src="91-apendices_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="91-apendices_files/figure-html/unnamed-chunk-13-1.png" alt="" width="672" />
 
 
 ## Modelos de distribución de probabilidad multivariantes

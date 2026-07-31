@@ -1,7 +1,7 @@
 --- 
 title: "Estadística Aplicada a las Ciencias y la Ingeniería"
 author: "Emilio L. Cano"
-date: "2026-07-16"
+date: "2026-07-31"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib, iso.bib]
@@ -95,13 +95,13 @@ Obsérvese que los resultados se muestran precedidos de los símbolos
 
 ``` r
 sessionInfo()
-#> R version 4.5.2 (2025-10-31)
-#> Platform: aarch64-apple-darwin20
-#> Running under: macOS Tahoe 26.5.2
+#> R version 4.6.1 (2026-06-24)
+#> Platform: aarch64-apple-darwin23
+#> Running under: macOS Tahoe 26.6
 #> 
 #> Matrix products: default
-#> BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib 
-#> LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
+#> BLAS:   /Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib 
+#> LAPACK: /Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
 #> 
 #> locale:
 #> [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
@@ -114,31 +114,39 @@ sessionInfo()
 #> [6] methods   base     
 #> 
 #> other attached packages:
-#> [1] flextable_0.9.10  fontawesome_0.5.3
+#> [1] flextable_0.10.0  fontawesome_0.5.3
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] jsonlite_2.0.0          compiler_4.5.2         
-#>  [3] renv_1.1.5              Rcpp_1.1.0             
-#>  [5] zip_2.3.3               xml2_1.4.0             
-#>  [7] jquerylib_0.1.4         fontquiver_0.2.1       
-#>  [9] systemfonts_1.3.2       textshaping_1.0.3      
-#> [11] uuid_1.2-1              yaml_2.3.10            
-#> [13] fastmap_1.2.0           R6_2.6.1               
-#> [15] gdtools_0.4.3           knitr_1.50             
-#> [17] bookdown_0.46           openssl_2.3.3          
-#> [19] bslib_0.9.0             pillar_1.11.0          
-#> [21] rlang_1.1.6             cachem_1.1.0           
-#> [23] xfun_0.53               fs_1.6.6               
-#> [25] sass_0.4.10             memoise_2.0.1          
-#> [27] cli_3.6.5               withr_3.0.2            
-#> [29] digest_0.6.37           grid_4.5.2             
-#> [31] askpass_1.2.1           lifecycle_1.0.4        
-#> [33] vctrs_0.6.5             downlit_0.4.5          
-#> [35] glue_1.8.0              evaluate_1.0.5         
-#> [37] data.table_1.17.8       fontLiberation_0.1.0   
-#> [39] officer_0.7.0           ragg_1.5.0             
-#> [41] fontBitstreamVera_0.1.1 rmarkdown_2.29         
-#> [43] tools_4.5.2             htmltools_0.5.8.1
+#>  [1] sass_0.4.10             generics_0.1.4         
+#>  [3] tidyr_1.3.2             fontLiberation_0.1.0   
+#>  [5] renv_1.2.3              xml2_1.6.0             
+#>  [7] digest_0.6.39           magrittr_2.0.5         
+#>  [9] evaluate_1.0.5          grid_4.6.1             
+#> [11] RColorBrewer_1.1-3      bookdown_0.47          
+#> [13] fastmap_1.2.0           jsonlite_2.0.0         
+#> [15] zip_3.0.1               purrr_1.2.2            
+#> [17] scales_1.4.0            fontBitstreamVera_0.1.1
+#> [19] jquerylib_0.1.4         textshaping_1.0.5      
+#> [21] cli_3.6.6               rlang_1.3.0            
+#> [23] fontquiver_0.2.1        withr_3.0.3            
+#> [25] cachem_1.1.0            yaml_2.3.12            
+#> [27] otel_0.2.0              gdtools_0.5.1          
+#> [29] tools_4.6.1             officer_0.7.6          
+#> [31] uuid_1.2-2              memoise_2.0.1          
+#> [33] dplyr_1.2.1             ggplot2_4.0.3          
+#> [35] vctrs_0.7.3             R6_2.6.1               
+#> [37] lifecycle_1.0.5         fs_2.1.0               
+#> [39] ragg_1.5.2              pkgconfig_2.0.3        
+#> [41] pillar_1.11.1           bslib_0.11.0           
+#> [43] gtable_0.3.6            data.table_1.18.4      
+#> [45] glue_1.8.1              Rcpp_1.1.2             
+#> [47] systemfonts_1.3.2       xfun_0.60              
+#> [49] tibble_3.3.1            tidyselect_1.2.1       
+#> [51] knitr_1.51              farver_2.1.2           
+#> [53] htmltools_0.5.9         patchwork_1.3.2        
+#> [55] rmarkdown_2.31          compiler_4.6.1         
+#> [57] S7_0.2.2                downlit_0.4.5          
+#> [59] askpass_1.2.1           openssl_2.4.2
 ```
 
 Normalmente, la descripción o enunciado de los ejemplos se incluyen en bloques 

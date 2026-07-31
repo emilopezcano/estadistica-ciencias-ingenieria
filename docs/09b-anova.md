@@ -568,7 +568,7 @@ autoplot(modelo.aov)
 #>   package.
 #>   Please report the issue at
 #>   <https://github.com/sinhrks/ggfortify/issues>.
-#> This warning is displayed once every 8 hours.
+#> This warning is displayed once per session.
 #> Call `lifecycle::last_lifecycle_warnings()` to see where
 #> this warning was generated.
 #> Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
@@ -579,7 +579,7 @@ autoplot(modelo.aov)
 #>   package.
 #>   Please report the issue at
 #>   <https://github.com/sinhrks/ggfortify/issues>.
-#> This warning is displayed once every 8 hours.
+#> This warning is displayed once per session.
 #> Call `lifecycle::last_lifecycle_warnings()` to see where
 #> this warning was generated.
 #> Warning: Using `size` aesthetic for lines was deprecated in ggplot2
@@ -589,7 +589,7 @@ autoplot(modelo.aov)
 #>   package.
 #>   Please report the issue at
 #>   <https://github.com/sinhrks/ggfortify/issues>.
-#> This warning is displayed once every 8 hours.
+#> This warning is displayed once per session.
 #> Call `lifecycle::last_lifecycle_warnings()` to see where
 #> this warning was generated.
 ```
@@ -780,6 +780,9 @@ shapiro.test(residuals(modelo.aov3))
 #> data:  residuals(modelo.aov3)
 #> W = 0.90975, p-value = 0.08516
 car::leveneTest(Peso ~ Fertilizante*Tierra, danova)
+#> Registered S3 method overwritten by 'car':
+#>   method           from
+#>   na.action.merMod lme4
 #> Levene's Test for Homogeneity of Variance (center = median)
 #>       Df F value Pr(>F)
 #> group  8  0.5554 0.7902

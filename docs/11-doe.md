@@ -135,7 +135,7 @@ En el gráfico de la derecha vemos que la variable respuesta crece en el mismo s
 
 ```
 #> Warning: `qplot()` was deprecated in ggplot2 3.4.0.
-#> This warning is displayed once every 8 hours.
+#> This warning is displayed once per session.
 #> Call `lifecycle::last_lifecycle_warnings()` to see where
 #> this warning was generated.
 ```
@@ -553,9 +553,9 @@ dm |>
 
 
 ```{=html}
-<div class="tabwid"><style>.cl-c5840446{}.cl-c58157fa{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c582777a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c58277a2{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c5828378{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c5828379{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c582837a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c5828382{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c5828383{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c5828384{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-c5840446'>
+<div class="tabwid"><style>.cl-989f99cc{}.cl-989cb324{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-989deef6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-989def00{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-989dfbf8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-989dfbf9{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-989dfbfa{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-989dfc02{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-989dfc03{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-989dfc0c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-989f99cc'>
 <caption style="display:table-caption;margin:0pt;text-align:center;border-bottom: 0.00pt solid transparent;border-top: 0.00pt solid transparent;border-left: 0.00pt solid transparent;border-right: 0.00pt solid transparent;padding-top:3pt;padding-bottom:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;">(#tab:matrizest)<span>Ejemplo de matriz de diseño y datos sin réplicas</span></caption>
-<thead><tr style="overflow-wrap:break-word;"><th class="cl-c5828378"><p class="cl-c582777a"><span class="cl-c58157fa">Orden estándar</span></p></th><th class="cl-c5828378"><p class="cl-c582777a"><span class="cl-c58157fa">A</span></p></th><th class="cl-c5828378"><p class="cl-c582777a"><span class="cl-c58157fa">B</span></p></th><th class="cl-c5828378"><p class="cl-c582777a"><span class="cl-c58157fa">C</span></p></th><th class="cl-c5828379"><p class="cl-c58277a2"><span class="cl-c58157fa">Unidad experimental (aleatoria)</span></p></th><th class="cl-c5828379"><p class="cl-c58277a2"><span class="cl-c58157fa">Respuesta (simulación)</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">1</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">-</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">-</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">-</span></p></td><td class="cl-c5828382"><p class="cl-c58277a2"><span class="cl-c58157fa">1</span></p></td><td class="cl-c5828382"><p class="cl-c58277a2"><span class="cl-c58157fa">6.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">2</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">+</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">-</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">-</span></p></td><td class="cl-c5828382"><p class="cl-c58277a2"><span class="cl-c58157fa">4</span></p></td><td class="cl-c5828382"><p class="cl-c58277a2"><span class="cl-c58157fa">8.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">3</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">-</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">+</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">-</span></p></td><td class="cl-c5828382"><p class="cl-c58277a2"><span class="cl-c58157fa">8</span></p></td><td class="cl-c5828382"><p class="cl-c58277a2"><span class="cl-c58157fa">9.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">4</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">+</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">+</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">-</span></p></td><td class="cl-c5828382"><p class="cl-c58277a2"><span class="cl-c58157fa">2</span></p></td><td class="cl-c5828382"><p class="cl-c58277a2"><span class="cl-c58157fa">10.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">5</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">-</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">-</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">+</span></p></td><td class="cl-c5828382"><p class="cl-c58277a2"><span class="cl-c58157fa">6</span></p></td><td class="cl-c5828382"><p class="cl-c58277a2"><span class="cl-c58157fa">14.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">6</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">+</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">-</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">+</span></p></td><td class="cl-c5828382"><p class="cl-c58277a2"><span class="cl-c58157fa">3</span></p></td><td class="cl-c5828382"><p class="cl-c58277a2"><span class="cl-c58157fa">11.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">7</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">-</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">+</span></p></td><td class="cl-c582837a"><p class="cl-c582777a"><span class="cl-c58157fa">+</span></p></td><td class="cl-c5828382"><p class="cl-c58277a2"><span class="cl-c58157fa">7</span></p></td><td class="cl-c5828382"><p class="cl-c58277a2"><span class="cl-c58157fa">8.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c5828383"><p class="cl-c582777a"><span class="cl-c58157fa">8</span></p></td><td class="cl-c5828383"><p class="cl-c582777a"><span class="cl-c58157fa">+</span></p></td><td class="cl-c5828383"><p class="cl-c582777a"><span class="cl-c58157fa">+</span></p></td><td class="cl-c5828383"><p class="cl-c582777a"><span class="cl-c58157fa">+</span></p></td><td class="cl-c5828384"><p class="cl-c58277a2"><span class="cl-c58157fa">5</span></p></td><td class="cl-c5828384"><p class="cl-c58277a2"><span class="cl-c58157fa">7.7</span></p></td></tr></tbody></table></div>
+<thead><tr style="overflow-wrap:break-word;"><th class="cl-989dfbf8"><p class="cl-989deef6"><span class="cl-989cb324">Orden estándar</span></p></th><th class="cl-989dfbf8"><p class="cl-989deef6"><span class="cl-989cb324">A</span></p></th><th class="cl-989dfbf8"><p class="cl-989deef6"><span class="cl-989cb324">B</span></p></th><th class="cl-989dfbf8"><p class="cl-989deef6"><span class="cl-989cb324">C</span></p></th><th class="cl-989dfbf9"><p class="cl-989def00"><span class="cl-989cb324">Unidad experimental (aleatoria)</span></p></th><th class="cl-989dfbf9"><p class="cl-989def00"><span class="cl-989cb324">Respuesta (simulación)</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">1</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">-</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">-</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">-</span></p></td><td class="cl-989dfc02"><p class="cl-989def00"><span class="cl-989cb324">1</span></p></td><td class="cl-989dfc02"><p class="cl-989def00"><span class="cl-989cb324">6.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">2</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">+</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">-</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">-</span></p></td><td class="cl-989dfc02"><p class="cl-989def00"><span class="cl-989cb324">4</span></p></td><td class="cl-989dfc02"><p class="cl-989def00"><span class="cl-989cb324">8.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">3</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">-</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">+</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">-</span></p></td><td class="cl-989dfc02"><p class="cl-989def00"><span class="cl-989cb324">8</span></p></td><td class="cl-989dfc02"><p class="cl-989def00"><span class="cl-989cb324">9.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">4</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">+</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">+</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">-</span></p></td><td class="cl-989dfc02"><p class="cl-989def00"><span class="cl-989cb324">2</span></p></td><td class="cl-989dfc02"><p class="cl-989def00"><span class="cl-989cb324">10.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">5</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">-</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">-</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">+</span></p></td><td class="cl-989dfc02"><p class="cl-989def00"><span class="cl-989cb324">6</span></p></td><td class="cl-989dfc02"><p class="cl-989def00"><span class="cl-989cb324">14.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">6</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">+</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">-</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">+</span></p></td><td class="cl-989dfc02"><p class="cl-989def00"><span class="cl-989cb324">3</span></p></td><td class="cl-989dfc02"><p class="cl-989def00"><span class="cl-989cb324">11.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">7</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">-</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">+</span></p></td><td class="cl-989dfbfa"><p class="cl-989deef6"><span class="cl-989cb324">+</span></p></td><td class="cl-989dfc02"><p class="cl-989def00"><span class="cl-989cb324">7</span></p></td><td class="cl-989dfc02"><p class="cl-989def00"><span class="cl-989cb324">8.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-989dfc03"><p class="cl-989deef6"><span class="cl-989cb324">8</span></p></td><td class="cl-989dfc03"><p class="cl-989deef6"><span class="cl-989cb324">+</span></p></td><td class="cl-989dfc03"><p class="cl-989deef6"><span class="cl-989cb324">+</span></p></td><td class="cl-989dfc03"><p class="cl-989deef6"><span class="cl-989cb324">+</span></p></td><td class="cl-989dfc0c"><p class="cl-989def00"><span class="cl-989cb324">5</span></p></td><td class="cl-989dfc0c"><p class="cl-989def00"><span class="cl-989cb324">7.7</span></p></td></tr></tbody></table></div>
 ```
 
 
@@ -650,7 +650,7 @@ plot(effect(term = "A", mod = modelof22))
 #> NOTE: A is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-4-1.png" alt="" width="672" />
 
 
 ``` r
@@ -658,14 +658,14 @@ plot(effect(term = "B", mod = modelof22))
 #> NOTE: B is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-5-1.png" alt="" width="672" />
 
 
 ``` r
 plot(effect(term = "A:B", mod = modelof22))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-6-1.png" alt="" width="672" />
 
 
 
@@ -716,14 +716,14 @@ anova(modelof22)
 plot(effect(term = "A", mod = modelof22))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-9-1.png" alt="" width="672" />
 
 
 ``` r
 plot(effect(term = "B", mod = modelof22))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-10-1.png" alt="" width="672" />
 
 ### Diseño factorial $2^3$
 
@@ -801,7 +801,7 @@ plot(effect(term = "T", mod = modelof23))
 #> NOTE: T is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-12-1.png" alt="" width="672" />
 
 ``` r
 
@@ -809,32 +809,32 @@ plot(effect(term = "C", mod = modelof23))
 #> NOTE: C is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-12-2.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-12-2.png" alt="" width="672" />
 
 ``` r
 plot(effect(term = "K", mod = modelof23))
 #> NOTE: K is not a high-order term in the model
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-12-3.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-12-3.png" alt="" width="672" />
 
 ``` r
 plot(effect(term = "T:C", mod = modelof23))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-12-4.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-12-4.png" alt="" width="672" />
 
 ``` r
 plot(effect(term = "T:K", mod = modelof23))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-12-5.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-12-5.png" alt="" width="672" />
 
 ``` r
 plot(effect(term = "C:K", mod = modelof23))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-12-6.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-12-6.png" alt="" width="672" />
 
 
 ``` r
@@ -870,9 +870,9 @@ model.tables(aov(modelof23))
 #> 
 #>  C:K 
 #>    K
-#> C   -           +          
-#>   - -1.5439e-15  1.5439e-15
-#>   +  1.5439e-15 -1.5439e-15
+#> C   -          +         
+#>   - -6.935e-16  6.935e-16
+#>   +  6.935e-16 -6.935e-16
 ```
 
 
@@ -924,7 +924,7 @@ summary(modf)
 LGB(coef(modf)[-1])
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-14-1.png" alt="" width="672" />
 
 ```
 #> Effect Report 
@@ -957,7 +957,7 @@ El método de Lenth se basa en un contraste de significación que puede encontra
 LenthPlot(coef(modf))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-15-1.png" alt="" width="672" />
 
 ```
 #>    alpha      PSE       ME      SME 
@@ -980,13 +980,13 @@ medias <- emmeans(modf2, ~ A*B)
 plot(medias)
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-16-1.png" alt="" width="672" />
 
 ``` r
 emmip(modf2, A~B)
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-16-2.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-16-2.png" alt="" width="672" />
 
 
 ### Número de réplicas
@@ -1177,7 +1177,7 @@ anova(grout.lin)
 #> 
 #> Response: y
 #>                 Df Sum Sq Mean Sq F value   Pr(>F)   
-#> FO(x1, x2, x3)   3 465.12 155.042 80.3094 0.002307 **
+#> FO(x1, x2, x3)   3 465.13 155.042 80.3094 0.002307 **
 #> TWI(x1, x2, x3)  3   0.25   0.083  0.0432 0.985889   
 #> PQ(x1, x2, x3)   1  37.88  37.879 19.6207 0.021377 * 
 #> Residuals        3   5.79   1.931                    
@@ -1288,7 +1288,7 @@ par(mfrow=c(2,2))
 contour(treb.quad, ~ x1+x2+x3)
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-21-1.png" alt="" width="672" />
 
 
 
@@ -1297,7 +1297,7 @@ par(mfrow=c(2,2))
 contour(treb.quad, ~ x1+x2+x3, at = xs(treb.quad))
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-22-1.png" alt="" width="672" />
 
 
 
@@ -1306,7 +1306,7 @@ par(mfrow=c(2,2))
 persp(treb.quad, ~x1+x2+x3, zlab = "Distancia")
 ```
 
-<img src="11-doe_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+<img src="11-doe_files/figure-html/unnamed-chunk-23-1.png" alt="" width="672" />
 
 
 ``` r

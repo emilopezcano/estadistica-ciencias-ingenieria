@@ -25,7 +25,7 @@ la inferencia estadística, que no se trata en este texto.
 #> Warning: Using `size` aesthetic for lines was deprecated in ggplot2
 #> 3.4.0.
 #> ℹ Please use `linewidth` instead.
-#> This warning is displayed once every 8 hours.
+#> This warning is displayed once per session.
 #> Call `lifecycle::last_lifecycle_warnings()` to see where
 #> this warning was generated.
 ```
@@ -742,7 +742,7 @@ y función de densidad en un determinado experimento.
 #> Warning: The dot-dot notation (`..density..`) was deprecated in
 #> ggplot2 3.4.0.
 #> ℹ Please use `after_stat(density)` instead.
-#> This warning is displayed once every 8 hours.
+#> This warning is displayed once per session.
 #> Call `lifecycle::last_lifecycle_warnings()` to see where
 #> this warning was generated.
 ```
