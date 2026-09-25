@@ -65,7 +65,7 @@ pushViewport(vp.dens)
 set.seed(66)
 p <- ggplot(data.frame(x = c(30, 36)), aes(x)) + 
   # geom_histogram(bins = 7, fill = "steelblue", col = "white") +
-  stat_function(fun = dnorm, args = list(mean = 33, sd = 1), size=1.5) +
+  stat_function(fun = dnorm, args = list(mean = 33, sd = 1), linewidth = 1.5) +
   theme_void()
   # labs(x = "Volumen", y = "f(x)")
 print(p, newpage = FALSE)
